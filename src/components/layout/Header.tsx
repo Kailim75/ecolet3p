@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import PrefetchLink from "@/components/ui/PrefetchLink";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -69,12 +70,13 @@ const Header = () => {
             <span className="text-xl font-black text-forest tracking-tight uppercase">T3P Campus</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Prefetch */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <PrefetchLink
                 key={link.path}
                 to={link.path}
+                prefetchOnHover={link.path !== "/"}
                 className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 ${
                   isActive(link.path)
                     ? "text-forest"
@@ -88,7 +90,7 @@ const Header = () => {
                     className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full"
                   />
                 )}
-              </Link>
+              </PrefetchLink>
             ))}
           </nav>
 

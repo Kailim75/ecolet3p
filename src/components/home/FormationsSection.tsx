@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { ArrowRight, Clock, Users, CreditCard, Car, Bike, GraduationCap, Loader2, LucideIcon } from "lucide-react";
 import { useRef } from "react";
 import { useFormations, getCategoryLabel } from "@/hooks/useFormations";
+import PrefetchLink from "@/components/ui/PrefetchLink";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -175,12 +175,12 @@ const FormationsSection = () => {
                       whileTap={{ scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 400 }}
                     >
-                      <Link 
+                      <PrefetchLink 
                         to={getFormationDetailRoute(formation.category) || "/formations"} 
                         className="flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline"
                       >
                         En savoir plus<ArrowRight className="w-4 h-4" />
-                      </Link>
+                      </PrefetchLink>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -201,9 +201,9 @@ const FormationsSection = () => {
             whileTap={{ scale: 0.98 }}
             className="inline-block"
           >
-            <Link to="/formations" className="inline-flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline">
+            <PrefetchLink to="/formations" className="inline-flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline">
               Voir toutes nos formations<ArrowRight className="w-4 h-4" />
-            </Link>
+            </PrefetchLink>
           </motion.div>
         </motion.div>
       </div>
