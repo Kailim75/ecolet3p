@@ -196,6 +196,14 @@ const FormationMobilite = () => {
         <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation T3P nice" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/mobilite" />
         
+        {/* Preload critical hero image */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href={heroImageMobilite}
+          type="image/jpeg"
+        />
+        
         <meta property="og:title" content="Formation Mobilité - Passerelle Taxi VTC | T3P Campus" />
         <meta property="og:description" content="Passez de Taxi à VTC ou inversement en seulement 2 jours avec notre formation Mobilité." />
         <meta property="og:url" content="https://t3pcampus.fr/formations/mobilite" />

@@ -206,6 +206,14 @@ const FormationVTC = () => {
         <meta name="keywords" content="formation vtc nice, carte professionnelle vtc, devenir chauffeur vtc, uber, formation T3P" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/vtc" />
         
+        {/* Preload critical hero image */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href={heroImageVTC}
+          type="image/jpeg"
+        />
+        
         <meta property="og:title" content="Formation VTC Nice - Carte Professionnelle | T3P Campus" />
         <meta property="og:description" content="Formation VTC complète à Nice. Devenez chauffeur VTC professionnel et travaillez avec les grandes plateformes." />
         <meta property="og:url" content="https://t3pcampus.fr/formations/vtc" />

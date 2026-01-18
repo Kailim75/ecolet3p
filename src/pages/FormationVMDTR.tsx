@@ -206,6 +206,14 @@ const FormationVMDTR = () => {
         <meta name="keywords" content="formation VMDTR, formation moto-taxi, carte professionnelle moto-taxi, devenir moto-taxi, formation T3P" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/vmdtr" />
         
+        {/* Preload critical hero image */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href={heroImageVMDTR}
+          type="image/jpeg"
+        />
+        
         <meta property="og:title" content="Formation VMDTR Moto-Taxi - Carte Professionnelle | T3P Campus" />
         <meta property="og:description" content="Formation VMDTR moto-taxi complète. 48h de formation professionnelle. Devenez moto-taxi professionnel." />
         <meta property="og:url" content="https://t3pcampus.fr/formations/vmdtr" />
