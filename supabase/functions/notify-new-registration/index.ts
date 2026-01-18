@@ -46,7 +46,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const { record } = payload;
-    const adminEmail = "montrouge@t3pformation.fr"; // Email admin à notifier
+    const adminEmail = "montrouge@t3pcampus.fr"; // Email admin à notifier
 
     // Format date
     const createdDate = new Date(record.created_at).toLocaleDateString("fr-FR", {
