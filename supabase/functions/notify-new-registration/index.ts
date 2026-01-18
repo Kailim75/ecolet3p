@@ -65,7 +65,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "T3P Formation <notifications@t3p-formation.fr>",
+        from: "T3P Formation <onboarding@resend.dev>",
         to: [adminEmail],
         subject: `🎓 Nouvelle pré-inscription : ${record.first_name} ${record.last_name}`,
         html: `
