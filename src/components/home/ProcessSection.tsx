@@ -100,9 +100,13 @@ const ProcessSection = () => {
                   {step.number}
                 </motion.div>
 
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                <motion.div 
+                  className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4"
+                  whileHover={{ scale: 1.1, backgroundColor: "rgba(212, 168, 83, 0.25)" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
                   <step.icon className="w-6 h-6 text-forest" />
-                </div>
+                </motion.div>
 
                 <motion.h3 
                   className="text-lg font-bold text-forest mb-2 group-hover:text-gold transition-colors duration-300"
