@@ -69,6 +69,7 @@ const Admin = () => {
   const [activeTab, setActiveTab] = useState<Tab>("newsletter");
   const [subscribers, setSubscribers] = useState<NewsletterSubscriber[]>([]);
   const [preRegistrations, setPreRegistrations] = useState<PreRegistration[]>([]);
+  const [appointments, setAppointments] = useState<{ id: string; status: string }[]>([]);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -82,10 +83,24 @@ const Admin = () => {
   }, [user, isAdmin, isLoading, navigate]);
 
   useEffect(() => {
-    if (user && isAdmin && activeTab !== "formations") {
+    if (user && isAdmin) {
       fetchData();
+      fetchAppointmentsStats();
     }
   }, [user, isAdmin, activeTab]);
+
+  const fetchAppointmentsStats = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("appointments")
+        .select("id, status");
+      
+      if (error) throw error;
+      setAppointments(data || []);
+    } catch (err) {
+      console.error("Error fetching appointments stats:", err);
+    }
+  };
 
   const fetchData = async () => {
     setIsDataLoading(true);
@@ -262,7 +277,7 @@ const Admin = () => {
 
       <main className="max-w-7xl mx-auto p-6">
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -305,13 +320,33 @@ const Admin = () => {
             className="bg-white rounded-xl p-6 shadow-sm"
           >
             <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <Calendar className="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-warm-gray-600 text-sm">Rendez-vous</p>
+                <p className="text-2xl font-bold text-forest">{appointments.length}</p>
+                <p className="text-xs text-yellow-600">
+                  {appointments.filter(a => a.status === "pending").length} en attente
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-xl p-6 shadow-sm"
+          >
+            <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                 <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
               <div>
-                <p className="text-warm-gray-600 text-sm">En attente</p>
+                <p className="text-warm-gray-600 text-sm">En attente (total)</p>
                 <p className="text-2xl font-bold text-forest">
-                  {preRegistrations.filter(r => r.status === "pending").length}
+                  {preRegistrations.filter(r => r.status === "pending").length + appointments.filter(a => a.status === "pending").length}
                 </p>
               </div>
             </div>
