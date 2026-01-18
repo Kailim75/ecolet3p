@@ -8,6 +8,7 @@ import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
 import PWAStatus from "./components/pwa/PWAStatus";
 import PWAInstallPrompt from "./components/pwa/PWAInstallPrompt";
+import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 
 // Critical pages loaded immediately
@@ -69,30 +70,32 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <Suspense fallback={<PageFallback />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/formations" element={<Formations />} />
-                  <Route path="/formations/taxi" element={<FormationTaxi />} />
-                  <Route path="/formations/vtc" element={<FormationVTC />} />
-                  <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
-                  <Route path="/formations/mobilite" element={<FormationMobilite />} />
-                  <Route path="/a-propos" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogArticle />} />
-                  <Route path="/mentions-legales" element={<LegalMentions />} />
-                  <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
-                  <Route path="/unsubscribe" element={<Unsubscribe />} />
-                  <Route path="/admin" element={<Admin />} />
-                  <Route path="/admin-login" element={<AdminLogin />} />
-                  <Route path="/admin-signup" element={<AdminSignup />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-              <CookieConsent />
-              <PWAStatus />
-              <PWAInstallPrompt />
+              <AnalyticsProvider>
+                <Suspense fallback={<PageFallback />}>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/formations" element={<Formations />} />
+                    <Route path="/formations/taxi" element={<FormationTaxi />} />
+                    <Route path="/formations/vtc" element={<FormationVTC />} />
+                    <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
+                    <Route path="/formations/mobilite" element={<FormationMobilite />} />
+                    <Route path="/a-propos" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:slug" element={<BlogArticle />} />
+                    <Route path="/mentions-legales" element={<LegalMentions />} />
+                    <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+                    <Route path="/unsubscribe" element={<Unsubscribe />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="/admin-login" element={<AdminLogin />} />
+                    <Route path="/admin-signup" element={<AdminSignup />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+                <CookieConsent />
+                <PWAStatus />
+                <PWAInstallPrompt />
+              </AnalyticsProvider>
             </BrowserRouter>
           </div>
         </TooltipProvider>
