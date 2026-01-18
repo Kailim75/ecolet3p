@@ -1,17 +1,37 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
 import FormationsSection from "@/components/home/FormationsSection";
-import AdvantagesSection from "@/components/home/AdvantagesSection";
-import ProcessSection from "@/components/home/ProcessSection";
-import LocalsSection from "@/components/home/LocalsSection";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
-import FAQSection from "@/components/home/FAQSection";
-import AppointmentSection from "@/components/home/AppointmentSection";
-import CTASection from "@/components/home/CTASection";
 
 // Import critical images for preload
 import formationSession from "@/assets/center/formation-session.jpg";
+
+// Lazy load below-the-fold sections
+const AdvantagesSection = lazy(() => import("@/components/home/AdvantagesSection"));
+const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
+const LocalsSection = lazy(() => import("@/components/home/LocalsSection"));
+const TestimonialsSection = lazy(() => import("@/components/home/TestimonialsSection"));
+const FAQSection = lazy(() => import("@/components/home/FAQSection"));
+const AppointmentSection = lazy(() => import("@/components/home/AppointmentSection"));
+const CTASection = lazy(() => import("@/components/home/CTASection"));
+
+// Simple skeleton for lazy sections
+const SectionSkeleton = () => (
+  <div className="py-20 bg-cream">
+    <div className="container-custom">
+      <div className="animate-pulse space-y-6">
+        <div className="h-8 bg-forest/10 rounded w-1/3 mx-auto" />
+        <div className="h-4 bg-forest/5 rounded w-2/3 mx-auto" />
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="h-48 bg-forest/5 rounded-xl" />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const Index = () => {
   return (
@@ -45,15 +65,32 @@ const Index = () => {
         <meta name="author" content="T3P Campus" />
       </Helmet>
       
+      {/* Critical above-the-fold content */}
       <HeroSection />
       <FormationsSection />
-      <AdvantagesSection />
-      <ProcessSection />
-      <LocalsSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <AppointmentSection />
-      <CTASection />
+      
+      {/* Lazy loaded below-the-fold sections */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <AdvantagesSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <ProcessSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <LocalsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <TestimonialsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <FAQSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <AppointmentSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <CTASection />
+      </Suspense>
     </Layout>
   );
 };
