@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrat de Formation - Campus T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @page {
+      size: A4 portrait;
+      margin: 15mm;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      padding: 20px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    
+    .contrat {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: white;
+      padding: 30px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #1B4D3E;
+      margin-bottom: 20px;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: #F5EBD7;
+    }
+    
+    .company-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    
+    .title {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .title h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .title p {
+      color: #666;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    
+    .parties {
+      display: flex;
+      gap: 30px;
+      margin: 20px 0;
+    }
+    
+    .party {
+      flex: 1;
+      background: #F5EBD7;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    .party h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 12px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #D4A853;
+    }
+    
+    .party p {
+      margin: 4px 0;
+      font-size: 10px;
+    }
+    
+    .field {
+      border-bottom: 1px dotted #999;
+      min-width: 100px;
+      display: inline-block;
+    }
+    
+    article {
+      margin: 15px 0;
+    }
+    
+    article h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 11px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    
+    article p, article ul {
+      color: #333;
+      text-align: justify;
+    }
+    
+    article ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+    
+    article li {
+      margin: 4px 0;
+    }
+    
+    .formation-box {
+      background: white;
+      border: 1px solid #1B4D3E;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    
+    .formation-box h4 {
+      margin-bottom: 12px;
+    }
+    
+    .formation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    
+    .formation-item {
+      display: flex;
+    }
+    
+    .formation-label {
+      font-weight: 600;
+      color: #1B4D3E;
+      min-width: 80px;
+    }
+    
+    .price-section {
+      background: #D4A853;
+      color: #1B4D3E;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    
+    .price-section h4 {
+      color: #1B4D3E;
+      margin-bottom: 8px;
+    }
+    
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+    
+    .price-total {
+      font-weight: 700;
+      font-size: 14px;
+      border-top: 1px solid #1B4D3E;
+      padding-top: 8px;
+      margin-top: 8px;
+    }
+    
+    .signature-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    
+    .signature-box {
+      width: 45%;
+    }
+    
+    .signature-box h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 10px;
+      margin-bottom: 8px;
+    }
+    
+    .signature-box p {
+      font-size: 9px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    
+    .signature-area {
+      height: 60px;
+      border: 1px dashed #ccc;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    
+    .footer {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 9px;
+      color: #999;
+    }
+    
+    @media print {
+      body { background: white; padding: 0; }
+      .contrat { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="contrat">
+    <div class="header">
+      <div class="logo-section">
+        <div class="logo">T3P</div>
+        <span class="company-name">Campus T3P</span>
+      </div>
+      <div style="text-align: right; font-size: 10px; color: #666;">
+        N° Contrat : CF-2026-XXXX<br>
+        Date : ../../....
+      </div>
+    </div>
+    
+    <div class="title">
+      <h1>Contrat de Formation Professionnelle</h1>
+      <p>En application des articles L.6353-1 et suivants du Code du travail</p>
+    </div>
+    
+    <div class="parties">
+      <div class="party">
+        <h3>L'Organisme de Formation</h3>
+        <p><strong>Campus T3P</strong></p>
+        <p>Adresse : Montrouge</p>
+        <p>N° SIRET : XXXXXXXXX XXXXX</p>
+        <p>N° Déclaration d'activité : XXXXXXXXXXX</p>
+        <p>Représenté par : <span class="field"></span></p>
+      </div>
+      <div class="party">
+        <h3>Le Stagiaire</h3>
+        <p>Nom : <span class="field"></span></p>
+        <p>Prénom : <span class="field"></span></p>
+        <p>Adresse : <span class="field"></span></p>
+        <p>Téléphone : <span class="field"></span></p>
+        <p>Email : <span class="field"></span></p>
+      </div>
+    </div>
+    
+    <article>
+      <h4>Article 1 - Objet du contrat</h4>
+      <p>Le présent contrat a pour objet la réalisation d'une action de formation professionnelle dans les conditions définies ci-après.</p>
+    </article>
+    
+    <div class="formation-box">
+      <h4>Article 2 - Nature et caractéristiques de la formation</h4>
+      <div class="formation-grid">
+        <div class="formation-item">
+          <span class="formation-label">Intitulé :</span>
+          <span>Formation <span class="field" style="min-width: 80px;"></span></span>
+        </div>
+        <div class="formation-item">
+          <span class="formation-label">Durée :</span>
+          <span><span class="field" style="min-width: 40px;"></span> heures</span>
+        </div>
+        <div class="formation-item">
+          <span class="formation-label">Dates :</span>
+          <span>Du <span class="field"></span> au <span class="field"></span></span>
+        </div>
+        <div class="formation-item">
+          <span class="formation-label">Horaires :</span>
+          <span>9h00 - 12h30 / 13h30 - 17h00</span>
+        </div>
+        <div class="formation-item">
+          <span class="formation-label">Lieu :</span>
+          <span>Campus T3P - Montrouge</span>
+        </div>
+        <div class="formation-item">
+          <span class="formation-label">Effectif :</span>
+          <span>12 personnes maximum</span>
+        </div>
+      </div>
+    </div>
+    
+    <article>
+      <h4>Article 3 - Objectifs de la formation</h4>
+      <ul>
+        <li>Préparer le stagiaire à l'examen de la carte professionnelle</li>
+        <li>Acquérir les compétences théoriques et pratiques du métier</li>
+        <li>Maîtriser la réglementation en vigueur</li>
+      </ul>
+    </article>
+    
+    <div class="price-section">
+      <h4>Article 4 - Tarif et modalités de paiement</h4>
+      <div class="price-row">
+        <span>Coût pédagogique HT</span>
+        <span><span class="field" style="min-width: 60px;"></span> €</span>
+      </div>
+      <div class="price-row">
+        <span>TVA (0% - formation professionnelle)</span>
+        <span>0,00 €</span>
+      </div>
+      <div class="price-row price-total">
+        <span>TOTAL TTC</span>
+        <span><span class="field" style="min-width: 60px;"></span> €</span>
+      </div>
+    </div>
+    
+    <article>
+      <h4>Article 5 - Modalités de règlement</h4>
+      <p>□ Paiement comptant &nbsp;&nbsp; □ Paiement en 4x sans frais &nbsp;&nbsp; □ Financement CPF &nbsp;&nbsp; □ Autre : <span class="field"></span></p>
+    </article>
+    
+    <article>
+      <h4>Article 6 - Délai de rétractation</h4>
+      <p>À compter de la signature du présent contrat, le stagiaire dispose d'un délai de 14 jours pour se rétracter par lettre recommandée avec accusé de réception.</p>
+    </article>
+    
+    <article>
+      <h4>Article 7 - Règlement intérieur</h4>
+      <p>Le stagiaire s'engage à respecter le règlement intérieur de l'organisme de formation dont il déclare avoir pris connaissance.</p>
+    </article>
+    
+    <div class="signature-section">
+      <div class="signature-box">
+        <h5>Pour l'Organisme de Formation</h5>
+        <p>Fait à Montrouge, le ../../....</p>
+        <p>Signature et cachet :</p>
+        <div class="signature-area"></div>
+      </div>
+      <div class="signature-box">
+        <h5>Le Stagiaire</h5>
+        <p>Fait à <span class="field"></span>, le ../../....</p>
+        <p>Signature précédée de la mention "Lu et approuvé" :</p>
+        <div class="signature-area"></div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      Campus T3P • Centre de Formation Professionnelle • Montrouge • www.t3pcampus.fr<br>
+      Le présent contrat est établi en deux exemplaires originaux
+    </div>
+  </div>
+</body>
+</html>
