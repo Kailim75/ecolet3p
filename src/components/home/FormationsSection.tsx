@@ -9,7 +9,7 @@ const formations = [
   { emoji: "🚕", title: "Formation TAXI Initiale", description: "Formation complète pour devenir chauffeur de taxi.", duration: "10 jours", level: "Tous niveaux", payment: "Paiement 4x sans frais", popular: true },
   { emoji: "🚗", title: "Formation VTC Initiale", description: "Devenez chauffeur VTC et lancez votre activité.", duration: "10 jours", level: "Tous niveaux", payment: "Paiement 4x sans frais", popular: true },
   { emoji: "🏍️", title: "Formation VMDTR", description: "Formation spécialisée pour le transport en deux-roues.", duration: "7 jours", level: "Permis moto requis", payment: "Paiement 4x sans frais", popular: false },
-  { emoji: "📚", title: "Formation Continue", description: "Remise à niveau pour les professionnels.", duration: "2 jours", level: "Professionnels", payment: "Éligible CPF", popular: false },
+  { emoji: "📚", title: "Formation Continue", description: "Remise à niveau pour les professionnels.", duration: "2 jours", level: "Professionnels", payment: "Paiement 4x sans frais", popular: false },
 ];
 
 const staggerContainerVariants = {
