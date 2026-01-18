@@ -45,17 +45,15 @@ const LegalMentions = () => {
               <h2 className="text-xl font-bold text-forest mb-4">1. Éditeur du site</h2>
               <p className="text-muted-foreground mb-2">
                 <strong>Raison sociale :</strong> T3P Campus<br />
-                <strong>Forme juridique :</strong> [À compléter]<br />
-                <strong>Capital social :</strong> [À compléter]<br />
+                <strong>Forme juridique :</strong> EURL<br />
+                <strong>Capital social :</strong> 2 000 €<br />
                 <strong>Siège social :</strong> 3 rue Corneille, 92120 Montrouge<br />
-                <strong>RCS :</strong> [À compléter]<br />
-                <strong>SIRET :</strong> [À compléter]<br />
-                <strong>Numéro de TVA :</strong> [À compléter]<br />
+                <strong>SIRET :</strong> 948 564 802 00023<br />
                 <strong>Téléphone :</strong> 01 88 75 05 55<br />
                 <strong>Email :</strong> dropacademymontrouge@gmail.com
               </p>
               <p className="text-muted-foreground">
-                <strong>Directeur de la publication :</strong> [À compléter]
+                <strong>Directeur de la publication :</strong> Karim KATI
               </p>
             </div>
 
