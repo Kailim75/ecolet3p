@@ -142,12 +142,30 @@ const AppointmentForm = () => {
         return;
       }
 
+      // Send confirmation email to visitor
+      try {
+        await supabase.functions.invoke('confirm-appointment', {
+          body: {
+            firstName: result.data.firstName,
+            lastName: result.data.lastName,
+            email: result.data.email,
+            formationChoice: result.data.formationChoice,
+            appointmentDate: format(result.data.appointmentDate, 'yyyy-MM-dd'),
+            appointmentTime: result.data.appointmentTime,
+          }
+        });
+        console.log('Confirmation email sent');
+      } catch (emailError) {
+        // Don't block the user if email fails
+        console.error('Failed to send confirmation email:', emailError);
+      }
+
       setIsSubmitting(false);
       setIsSuccess(true);
 
       toast({
         title: "Rendez-vous demandé !",
-        description: `Nous vous confirmerons votre rendez-vous du ${format(result.data.appointmentDate, 'dd MMMM yyyy', { locale: fr })} à ${result.data.appointmentTime}.`,
+        description: `Un email de confirmation a été envoyé à ${result.data.email}.`,
       });
 
       // Reset after showing success
