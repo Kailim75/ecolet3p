@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { Send, CheckCircle2, User, Mail, Phone, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 // Validation schema
 const preRegistrationSchema = z.object({
@@ -86,16 +87,46 @@ const PreRegistrationForm = ({
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Insert into database
+      const { error: dbError } = await supabase
+        .from('pre_registrations')
+        .insert({
+          first_name: result.data.firstName,
+          last_name: result.data.lastName,
+          email: result.data.email,
+          phone: result.data.phone,
+          formation_title: formationTitle,
+          formation_duration: formationDuration,
+        });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+      if (dbError) {
+        console.error('Database error:', dbError);
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue. Veuillez réessayer.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
 
-    toast({
-      title: "Pré-inscription envoyée !",
-      description: `Nous vous recontacterons rapidement pour la ${formationTitle}.`,
-    });
+      setIsSubmitting(false);
+      setIsSuccess(true);
+
+      toast({
+        title: "Pré-inscription envoyée !",
+        description: `Nous vous recontacterons rapidement pour la ${formationTitle}.`,
+      });
+    } catch (error) {
+      console.error('Submission error:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
 
     // Reset after showing success
     setTimeout(() => {
