@@ -1,112 +1,232 @@
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import { Clock, Users, Euro, ArrowRight } from "lucide-react";
+import { Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
-const categories = ["Toutes", "Informatique", "Management", "Marketing", "Ressources Humaines"];
+const categories = ["Toutes", "TAXI", "VTC", "Autres"];
+const modalities = ["Tous", "Présentiel", "À distance", "Cours du soir"];
 
 const formations = [
   {
     id: 1,
-    title: "Développement Web Full Stack",
-    description: "Maîtrisez les technologies front-end et back-end pour créer des applications web complètes. HTML, CSS, JavaScript, React, Node.js et bases de données.",
-    duration: "6 mois",
-    level: "Débutant à Intermédiaire",
-    price: "5 900 €",
-    category: "Informatique",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop",
+    title: "Formation TAXI Initiale",
+    description: "Formation complète pour devenir chauffeur de taxi professionnel.",
+    duration: "10 jours",
+    level: "Tous niveaux",
+    price: "Nous consulter",
+    category: "TAXI",
+    modality: "Présentiel",
+    objectives: [
+      "Maîtriser la réglementation du transport de personnes",
+      "Connaître la géographie locale et les itinéraires",
+      "Développer les compétences en relation client",
+      "Préparer l'examen de la carte professionnelle"
+    ],
+    prerequisites: "Permis B de plus de 3 ans, casier judiciaire vierge",
+    program: "Réglementation, gestion, sécurité routière, français, anglais, orientation locale",
   },
   {
     id: 2,
-    title: "Gestion de Projet Agile",
-    description: "Apprenez les méthodologies Scrum et Kanban pour piloter vos projets efficacement. Certification Scrum Master incluse.",
-    duration: "3 mois",
+    title: "Formation VTC Initiale",
+    description: "Devenez chauffeur privé professionnel avec notre formation VTC complète.",
+    duration: "10 jours",
     level: "Tous niveaux",
-    price: "3 200 €",
-    category: "Management",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
+    price: "Nous consulter",
+    category: "VTC",
+    modality: "Présentiel",
+    objectives: [
+      "Acquérir les compétences du transport privé de personnes",
+      "Maîtriser la relation client haut de gamme",
+      "Connaître la réglementation VTC",
+      "Préparer l'examen de la carte professionnelle"
+    ],
+    prerequisites: "Permis B de plus de 3 ans, casier judiciaire vierge",
+    program: "Réglementation, gestion, sécurité routière, français, anglais, développement commercial",
   },
   {
     id: 3,
-    title: "Marketing Digital",
-    description: "Développez une stratégie digitale complète : SEO, réseaux sociaux, publicité en ligne, email marketing et analytics.",
-    duration: "4 mois",
-    level: "Intermédiaire",
-    price: "4 100 €",
-    category: "Marketing",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=500&h=300&fit=crop",
+    title: "Formation VMDTR",
+    description: "Formation moto-taxi pour le transport rapide de passagers.",
+    duration: "10 jours",
+    level: "Tous niveaux",
+    price: "À partir de 1 500 €",
+    category: "Autres",
+    modality: "Présentiel",
+    objectives: [
+      "Maîtriser les techniques de conduite moto en milieu urbain",
+      "Assurer la sécurité des passagers",
+      "Connaître la réglementation spécifique VMDTR",
+      "Préparer l'examen de la carte professionnelle"
+    ],
+    prerequisites: "Permis A de plus de 3 ans, casier judiciaire vierge",
+    program: "Réglementation, conduite sécuritaire, relation client, gestion d'activité",
   },
   {
     id: 4,
-    title: "Data Science & Intelligence Artificielle",
-    description: "Explorez le machine learning et l'analyse de données pour des insights business. Python, TensorFlow, et visualisation de données.",
-    duration: "8 mois",
-    level: "Avancé",
-    price: "7 500 €",
-    category: "Informatique",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=500&h=300&fit=crop",
+    title: "Formation TPMR",
+    description: "Formation spécialisée pour le transport de personnes à mobilité réduite.",
+    duration: "Spécialisée",
+    level: "Tous niveaux",
+    price: "Nous consulter",
+    category: "Autres",
+    modality: "Présentiel",
+    objectives: [
+      "Accompagner les personnes à mobilité réduite",
+      "Maîtriser les équipements spécifiques",
+      "Connaître les pathologies et handicaps",
+      "Assurer confort et sécurité des passagers"
+    ],
+    prerequisites: "Permis B valide",
+    program: "Handicaps et pathologies, équipements, accompagnement, sécurité",
   },
   {
     id: 5,
-    title: "Leadership et Management d'Équipe",
-    description: "Développez vos compétences managériales pour motiver et diriger votre équipe vers la performance.",
-    duration: "2 mois",
-    level: "Intermédiaire",
-    price: "2 800 €",
-    category: "Management",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop",
+    title: "Formation Accélérée",
+    description: "Formation intensive en cours du soir pour une reconversion rapide.",
+    duration: "5 soirées",
+    level: "Tous niveaux",
+    price: "Nous consulter",
+    category: "TAXI",
+    modality: "Cours du soir",
+    objectives: [
+      "Préparer rapidement l'examen professionnel",
+      "Réviser les points essentiels",
+      "S'entraîner aux examens blancs",
+      "Optimiser son temps de formation"
+    ],
+    prerequisites: "Permis B de plus de 3 ans",
+    program: "Révisions intensives, examens blancs, coaching personnalisé",
   },
   {
     id: 6,
-    title: "Community Management",
-    description: "Gérez et animez les communautés en ligne. Stratégie de contenu, modération et création d'engagement.",
-    duration: "3 mois",
-    level: "Débutant",
-    price: "2 900 €",
-    category: "Marketing",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop",
+    title: "Formation à Distance",
+    description: "Formation 100% en ligne, à votre rythme, accessible partout.",
+    duration: "Équivalent 10 jours",
+    level: "Tous niveaux",
+    price: "Nous consulter",
+    category: "VTC",
+    modality: "À distance",
+    objectives: [
+      "Se former à son rythme",
+      "Accéder aux cours 24h/24",
+      "Bénéficier d'un suivi personnalisé",
+      "Préparer l'examen à distance"
+    ],
+    prerequisites: "Permis B de plus de 3 ans, accès internet",
+    program: "Modules e-learning, visioconférences, examens blancs en ligne",
   },
   {
     id: 7,
-    title: "Cybersécurité",
-    description: "Protégez les systèmes informatiques contre les menaces. Ethical hacking, audit de sécurité et conformité.",
-    duration: "5 mois",
-    level: "Avancé",
-    price: "5 500 €",
-    category: "Informatique",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&h=300&fit=crop",
+    title: "Formation Passerelle",
+    description: "Passez d'une activité à l'autre : TAXI ↔ VTC ↔ VMDTR.",
+    duration: "Adaptée",
+    level: "Professionnels",
+    price: "Nous consulter",
+    category: "Autres",
+    modality: "Présentiel",
+    objectives: [
+      "Acquérir les compétences complémentaires",
+      "Valider une nouvelle carte professionnelle",
+      "Diversifier son activité",
+      "Élargir sa clientèle"
+    ],
+    prerequisites: "Carte professionnelle valide (TAXI, VTC ou VMDTR)",
+    program: "Modules spécifiques selon la passerelle choisie",
   },
   {
     id: 8,
-    title: "Recrutement et Marque Employeur",
-    description: "Maîtrisez les techniques de sourcing, d'entretien et développez une marque employeur attractive.",
-    duration: "2 mois",
-    level: "Tous niveaux",
-    price: "2 400 €",
-    category: "Ressources Humaines",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=300&fit=crop",
+    title: "Formation Mobilité",
+    description: "Changez de département d'exercice de votre activité.",
+    duration: "14h (2 jours)",
+    level: "Professionnels",
+    price: "Nous consulter",
+    category: "TAXI",
+    modality: "Présentiel",
+    objectives: [
+      "Connaître la nouvelle zone géographique",
+      "Mettre à jour ses connaissances réglementaires",
+      "Obtenir l'attestation de mobilité",
+      "Exercer dans un nouveau département"
+    ],
+    prerequisites: "Carte professionnelle TAXI valide",
+    program: "Réglementation locale, géographie, tarification",
+  },
+  {
+    id: 9,
+    title: "Formation Continue",
+    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle.",
+    duration: "14h (2 jours)",
+    level: "Professionnels",
+    price: "Nous consulter",
+    category: "Autres",
+    modality: "Présentiel",
+    objectives: [
+      "Mettre à jour ses connaissances",
+      "Renouveler sa carte professionnelle",
+      "Se conformer à la réglementation",
+      "Améliorer ses pratiques professionnelles"
+    ],
+    prerequisites: "Carte professionnelle de plus de 5 ans",
+    program: "Actualités réglementaires, sécurité, relation client",
+  },
+  {
+    id: 10,
+    title: "Récupération de Points",
+    description: "Stage de sensibilisation pour récupérer 4 points sur votre permis.",
+    duration: "2 jours",
+    level: "Tous",
+    price: "Nous consulter",
+    category: "Autres",
+    modality: "Présentiel",
+    objectives: [
+      "Récupérer 4 points sur votre permis",
+      "Comprendre les comportements à risque",
+      "Adopter une conduite responsable",
+      "Éviter les récidives"
+    ],
+    prerequisites: "Permis de conduire valide avec moins de 12 points",
+    program: "Sécurité routière, comportements à risque, psychologie du conducteur",
   },
 ];
 
 const Formations = () => {
   const [activeCategory, setActiveCategory] = useState("Toutes");
+  const [activeModality, setActiveModality] = useState("Tous");
+  const [selectedFormation, setSelectedFormation] = useState<typeof formations[0] | null>(null);
 
-  const filteredFormations = activeCategory === "Toutes"
-    ? formations
-    : formations.filter((f) => f.category === activeCategory);
+  const filteredFormations = formations.filter((f) => {
+    const categoryMatch = activeCategory === "Toutes" || f.category === activeCategory;
+    const modalityMatch = activeModality === "Tous" || f.modality === activeModality;
+    return categoryMatch && modalityMatch;
+  });
+
+  const getModalityIcon = (modality: string) => {
+    switch (modality) {
+      case "À distance": return <Monitor className="w-4 h-4" />;
+      case "Cours du soir": return <Moon className="w-4 h-4" />;
+      default: return <MapPin className="w-4 h-4" />;
+    }
+  };
 
   return (
     <Layout>
       {/* Hero */}
-      <section className="gradient-primary py-16 md:py-24">
+      <section className="gradient-hero py-20 md:py-28">
         <div className="container-custom text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4 animate-fade-up">
-            Nos Formations
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fade-up">
+            Nos Formations TAXI • VTC • VMDTR
           </h1>
-          <p className="text-lg text-primary-foreground/90 max-w-2xl mx-auto animate-fade-up stagger-1 opacity-0">
-            Découvrez notre catalogue de formations professionnelles certifiantes pour 
-            développer vos compétences et booster votre carrière.
+          <p className="text-lg text-white/80 max-w-2xl mx-auto animate-fade-up stagger-1">
+            Découvrez nos 10 formations professionnelles pour devenir chauffeur ou 
+            maintenir vos compétences à jour.
           </p>
         </div>
       </section>
@@ -114,56 +234,75 @@ const Formations = () => {
       {/* Filters & Grid */}
       <section className="section-padding">
         <div className="container-custom">
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  activeCategory === category
-                    ? "gradient-primary text-primary-foreground shadow-medium"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          {/* Filters */}
+          <div className="mb-10 space-y-4">
+            {/* Category Filters */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                    activeCategory === category
+                      ? "bg-primary text-primary-foreground shadow-primary"
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
+            {/* Modality Filters */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {modalities.map((modality) => (
+                <button
+                  key={modality}
+                  onClick={() => setActiveModality(modality)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
+                    activeModality === modality
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {modality !== "Tous" && getModalityIcon(modality)}
+                  {modality}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredFormations.map((formation, index) => (
               <div
                 key={formation.id}
-                className="group bg-card rounded-xl overflow-hidden border border-border card-hover animate-fade-up opacity-0"
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
+                className="group bg-card rounded-xl overflow-hidden border border-border card-hover animate-fade-up"
+                style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
               >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={formation.image}
-                    alt={formation.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                {/* Header */}
+                <div className="p-6 pb-4">
+                  <div className="flex items-start justify-between mb-3">
+                    <span className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
                       {formation.category}
                     </span>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                      {getModalityIcon(formation.modality)}
+                      {formation.modality}
+                    </span>
                   </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-semibold text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                  
+                  <h3 className="font-semibold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
                     {formation.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                     {formation.description}
                   </p>
+                </div>
 
-                  {/* Meta */}
-                  <div className="grid grid-cols-3 gap-2 mb-5 text-xs text-muted-foreground">
+                {/* Meta */}
+                <div className="px-6 pb-4">
+                  <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground mb-4">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4 text-primary" />
                       <span>{formation.duration}</span>
@@ -178,18 +317,123 @@ const Formations = () => {
                     </div>
                   </div>
 
-                  <Button asChild className="w-full gradient-accent border-0 hover:opacity-90">
-                    <Link to="/contact">
-                      En savoir plus
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={() => setSelectedFormation(formation)}
+                    >
+                      <Info className="w-4 h-4 mr-2" />
+                      Détails
+                    </Button>
+                    <Button asChild className="flex-1 btn-accent">
+                      <Link to="/contact">
+                        Nous contacter
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {filteredFormations.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Aucune formation ne correspond à vos critères.</p>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Details Modal */}
+      <Dialog open={!!selectedFormation} onOpenChange={() => setSelectedFormation(null)}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          {selectedFormation && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                    {selectedFormation.category}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    {selectedFormation.modality}
+                  </span>
+                </div>
+                <DialogTitle className="text-2xl">{selectedFormation.title}</DialogTitle>
+                <DialogDescription>{selectedFormation.description}</DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-6 mt-4">
+                {/* Info grid */}
+                <div className="grid grid-cols-3 gap-4 p-4 bg-muted rounded-lg">
+                  <div className="text-center">
+                    <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
+                    <p className="text-sm font-medium">{selectedFormation.duration}</p>
+                    <p className="text-xs text-muted-foreground">Durée</p>
+                  </div>
+                  <div className="text-center">
+                    <Users className="w-5 h-5 text-primary mx-auto mb-1" />
+                    <p className="text-sm font-medium">{selectedFormation.level}</p>
+                    <p className="text-xs text-muted-foreground">Niveau</p>
+                  </div>
+                  <div className="text-center">
+                    <Euro className="w-5 h-5 text-accent mx-auto mb-1" />
+                    <p className="text-sm font-medium">{selectedFormation.price}</p>
+                    <p className="text-xs text-muted-foreground">Tarif</p>
+                  </div>
+                </div>
+
+                {/* Objectives */}
+                <div>
+                  <h4 className="font-semibold mb-3">Objectifs de la formation</h4>
+                  <ul className="space-y-2">
+                    {selectedFormation.objectives.map((obj, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
+                        {obj}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Prerequisites */}
+                <div>
+                  <h4 className="font-semibold mb-2">Prérequis</h4>
+                  <p className="text-sm text-muted-foreground">{selectedFormation.prerequisites}</p>
+                </div>
+
+                {/* Program */}
+                <div>
+                  <h4 className="font-semibold mb-2">Programme</h4>
+                  <p className="text-sm text-muted-foreground">{selectedFormation.program}</p>
+                </div>
+
+                {/* Payment info */}
+                <div className="p-4 bg-accent/10 rounded-lg">
+                  <p className="text-sm font-medium text-accent">
+                    💳 Paiement en 4x sans frais disponible
+                  </p>
+                </div>
+
+                {/* CTAs */}
+                <div className="flex gap-3">
+                  <Button asChild className="flex-1 btn-accent">
+                    <Link to="/contact">
+                      Prendre rendez-vous
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="flex-1">
+                    <a href="tel:0188750555">
+                      Appeler le 01 88 75 05 55
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };

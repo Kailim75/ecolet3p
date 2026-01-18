@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
 import FormationsSection from "@/components/home/FormationsSection";
 import AdvantagesSection from "@/components/home/AdvantagesSection";
+import ProcessSection from "@/components/home/ProcessSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 
@@ -11,6 +12,7 @@ const Index = () => {
       <HeroSection />
       <FormationsSection />
       <AdvantagesSection />
+      <ProcessSection />
       <TestimonialsSection />
       <CTASection />
     </Layout>
