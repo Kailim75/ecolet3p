@@ -37,6 +37,16 @@ const getIconComponent = (iconName: string | null): LucideIcon => {
   return iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : Car;
 };
 
+// Get detail page route for formation category
+const getFormationDetailRoute = (category: string): string | null => {
+  const routes: Record<string, string> = {
+    taxi: "/formations/taxi",
+    vtc: "/formations/vtc",
+    mobilite: "/formations/mobilite",
+  };
+  return routes[category] || null;
+};
+
 const staggerContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -339,22 +349,36 @@ const Formations = () => {
                       </div>
                     )}
 
-                    <div className="flex gap-2 pt-4 border-t border-border">
-                      <Button 
-                        variant="outline" 
-                        className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream transition-all duration-300"
-                        onClick={() => setSelectedFormation(formation)}
-                      >
-                        <Info className="w-4 h-4 mr-2" />
-                        Détails
-                      </Button>
-                      <Button 
-                        className="flex-1 btn-primary"
-                        onClick={() => setPreRegistrationFormation(formation)}
-                      >
-                        <UserPlus className="w-4 h-4 mr-2" />
-                        S'inscrire
-                      </Button>
+                    <div className="flex flex-col gap-2 pt-4 border-t border-border">
+                      <div className="flex gap-2">
+                        <Button 
+                          variant="outline" 
+                          className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream transition-all duration-300"
+                          onClick={() => setSelectedFormation(formation)}
+                        >
+                          <Info className="w-4 h-4 mr-2" />
+                          Détails
+                        </Button>
+                        <Button 
+                          className="flex-1 btn-primary"
+                          onClick={() => setPreRegistrationFormation(formation)}
+                        >
+                          <UserPlus className="w-4 h-4 mr-2" />
+                          S'inscrire
+                        </Button>
+                      </div>
+                      {getFormationDetailRoute(formation.category) && (
+                        <Button 
+                          variant="ghost" 
+                          className="w-full text-forest hover:text-gold hover:bg-gold/10"
+                          asChild
+                        >
+                          <Link to={getFormationDetailRoute(formation.category)!}>
+                            En savoir plus sur la formation {getCategoryLabel(formation.category)}
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      )}
                     </div>
                   </motion.div>
                 );
