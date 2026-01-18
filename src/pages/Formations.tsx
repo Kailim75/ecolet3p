@@ -1,6 +1,10 @@
 import { useState, useRef } from "react";
 import Layout from "@/components/layout/Layout";
-import { Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, GraduationCap, Star, CreditCard } from "lucide-react";
+import { 
+  Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
+  GraduationCap, Star, CreditCard, Car, Bike, Accessibility, Zap, Laptop, 
+  RefreshCw, Navigation, BookOpen, Target, LucideIcon
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -15,13 +19,32 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 const categories = ["Toutes", "TAXI", "VTC", "Autres"];
 const modalities = ["Tous", "Présentiel", "À distance", "Cours du soir"];
 
-const formations = [
+interface Formation {
+  id: number;
+  icon: LucideIcon;
+  iconColor: string;
+  title: string;
+  description: string;
+  duration: string;
+  level: string;
+  price: string;
+  category: string;
+  modality: string;
+  popular: boolean;
+  objectives: string[];
+  prerequisites: string;
+  program: string[];
+  certification: string | null;
+}
+
+const formations: Formation[] = [
   {
     id: 1,
-    emoji: "🚕",
+    icon: Car,
+    iconColor: "#D4A853",
     title: "Formation TAXI Initiale",
     description: "Formation complète pour devenir chauffeur de taxi professionnel. Préparez l'examen officiel avec nos experts.",
-    duration: "10 jours",
+    duration: "63 heures",
     level: "Tous niveaux",
     price: "Nous consulter",
     category: "TAXI",
@@ -46,10 +69,11 @@ const formations = [
   },
   {
     id: 2,
-    emoji: "🚗",
+    icon: Car,
+    iconColor: "#1B4D3E",
     title: "Formation VTC Initiale",
     description: "Devenez chauffeur privé professionnel avec notre formation VTC complète et personnalisée.",
-    duration: "10 jours",
+    duration: "63 heures",
     level: "Tous niveaux",
     price: "Nous consulter",
     category: "VTC",
@@ -74,10 +98,11 @@ const formations = [
   },
   {
     id: 3,
-    emoji: "🏍️",
+    icon: Bike,
+    iconColor: "#D4A853",
     title: "Formation VMDTR",
     description: "Formation moto-taxi pour le transport rapide et sécurisé de passagers en milieu urbain.",
-    duration: "10 jours",
+    duration: "63 heures",
     level: "Tous niveaux",
     price: "À partir de 1 500 €",
     category: "Autres",
@@ -102,7 +127,8 @@ const formations = [
   },
   {
     id: 4,
-    emoji: "♿",
+    icon: Accessibility,
+    iconColor: "#1B4D3E",
     title: "Formation TPMR",
     description: "Formation spécialisée pour le transport de personnes à mobilité réduite avec bienveillance.",
     duration: "14 heures",
@@ -130,10 +156,11 @@ const formations = [
   },
   {
     id: 5,
-    emoji: "⚡",
+    icon: Zap,
+    iconColor: "#D4A853",
     title: "Formation Accélérée",
     description: "Formation intensive en cours du soir pour une reconversion rapide et efficace.",
-    duration: "5 soirées",
+    duration: "33 heures",
     level: "Tous niveaux",
     price: "Nous consulter",
     category: "TAXI",
@@ -158,10 +185,11 @@ const formations = [
   },
   {
     id: 6,
-    emoji: "💻",
+    icon: Laptop,
+    iconColor: "#1B4D3E",
     title: "Formation à Distance",
     description: "Formation 100% en ligne, à votre rythme, accessible 24h/24 depuis n'importe où.",
-    duration: "Équivalent 10 jours",
+    duration: "63 heures",
     level: "Tous niveaux",
     price: "Nous consulter",
     category: "VTC",
@@ -186,7 +214,8 @@ const formations = [
   },
   {
     id: 7,
-    emoji: "🔄",
+    icon: RefreshCw,
+    iconColor: "#D4A853",
     title: "Formation Passerelle",
     description: "Passez d'une activité à l'autre : TAXI ↔ VTC ↔ VMDTR facilement.",
     duration: "Variable",
@@ -213,25 +242,26 @@ const formations = [
   },
   {
     id: 8,
-    emoji: "📍",
-    title: "Formation Mobilité",
-    description: "Changez de département d'exercice et étendez votre zone d'activité.",
-    duration: "14h (2 jours)",
+    icon: Navigation,
+    iconColor: "#1B4D3E",
+    title: "Formation Mobilité TAXI 75",
+    description: "Changez de département d'exercice et étendez votre zone d'activité sur Paris.",
+    duration: "35 heures",
     level: "Professionnels",
     price: "Nous consulter",
     category: "TAXI",
     modality: "Présentiel",
     popular: false,
     objectives: [
-      "Connaître la nouvelle zone géographique",
+      "Connaître la zone géographique parisienne",
       "Mettre à jour ses connaissances réglementaires",
       "Obtenir l'attestation de mobilité",
-      "Exercer dans un nouveau département"
+      "Exercer sur Paris (75)"
     ],
     prerequisites: "Carte professionnelle TAXI valide",
     program: [
-      "Réglementation locale",
-      "Géographie du nouveau département",
+      "Réglementation parisienne",
+      "Géographie de Paris et Île-de-France",
       "Tarification spécifique",
       "Points d'intérêt majeurs",
       "Examen de validation"
@@ -240,13 +270,42 @@ const formations = [
   },
   {
     id: 9,
-    emoji: "🔄",
-    title: "Formation Continue",
-    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle à jour.",
-    duration: "14h (2 jours)",
+    icon: Navigation,
+    iconColor: "#D4A853",
+    title: "Formation Mobilité TAXI 92",
+    description: "Étendez votre activité aux Hauts-de-Seine avec notre formation mobilité.",
+    duration: "14 heures",
     level: "Professionnels",
     price: "Nous consulter",
-    category: "Autres",
+    category: "TAXI",
+    modality: "Présentiel",
+    popular: false,
+    objectives: [
+      "Connaître la zone géographique des Hauts-de-Seine",
+      "Mettre à jour ses connaissances réglementaires",
+      "Obtenir l'attestation de mobilité",
+      "Exercer sur les Hauts-de-Seine (92)"
+    ],
+    prerequisites: "Carte professionnelle TAXI valide",
+    program: [
+      "Réglementation locale",
+      "Géographie du 92",
+      "Tarification spécifique",
+      "Points d'intérêt majeurs",
+      "Examen de validation"
+    ],
+    certification: null
+  },
+  {
+    id: 10,
+    icon: BookOpen,
+    iconColor: "#1B4D3E",
+    title: "Formation Continue TAXI",
+    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle TAXI.",
+    duration: "14 heures",
+    level: "Professionnels",
+    price: "Nous consulter",
+    category: "TAXI",
     modality: "Présentiel",
     popular: false,
     objectives: [
@@ -255,7 +314,7 @@ const formations = [
       "Se conformer à la réglementation",
       "Améliorer ses pratiques professionnelles"
     ],
-    prerequisites: "Carte professionnelle de plus de 5 ans",
+    prerequisites: "Carte professionnelle TAXI de plus de 5 ans",
     program: [
       "Actualités réglementaires",
       "Sécurité routière",
@@ -267,8 +326,67 @@ const formations = [
     certification: null
   },
   {
-    id: 10,
-    emoji: "🎯",
+    id: 11,
+    icon: BookOpen,
+    iconColor: "#D4A853",
+    title: "Formation Continue VTC",
+    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle VTC.",
+    duration: "14 heures",
+    level: "Professionnels",
+    price: "Nous consulter",
+    category: "VTC",
+    modality: "Présentiel",
+    popular: false,
+    objectives: [
+      "Mettre à jour ses connaissances",
+      "Renouveler sa carte professionnelle",
+      "Se conformer à la réglementation",
+      "Améliorer ses pratiques professionnelles"
+    ],
+    prerequisites: "Carte professionnelle VTC de plus de 5 ans",
+    program: [
+      "Actualités réglementaires",
+      "Sécurité routière",
+      "Relation client premium",
+      "Nouvelles technologies",
+      "Éco-conduite",
+      "Attestation de formation"
+    ],
+    certification: null
+  },
+  {
+    id: 12,
+    icon: BookOpen,
+    iconColor: "#1B4D3E",
+    title: "Formation Continue VMDTR",
+    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle moto-taxi.",
+    duration: "14 heures",
+    level: "Professionnels",
+    price: "Nous consulter",
+    category: "Autres",
+    modality: "Présentiel",
+    popular: false,
+    objectives: [
+      "Mettre à jour ses connaissances",
+      "Renouveler sa carte professionnelle",
+      "Se conformer à la réglementation",
+      "Améliorer ses pratiques professionnelles"
+    ],
+    prerequisites: "Carte professionnelle VMDTR de plus de 5 ans",
+    program: [
+      "Actualités réglementaires",
+      "Sécurité routière moto",
+      "Relation client",
+      "Équipements de sécurité",
+      "Éco-conduite",
+      "Attestation de formation"
+    ],
+    certification: null
+  },
+  {
+    id: 13,
+    icon: Target,
+    iconColor: "#D4A853",
     title: "Récupération de Points",
     description: "Stage de sensibilisation pour récupérer 4 points sur votre permis de conduire.",
     duration: "2 jours",
@@ -295,7 +413,6 @@ const formations = [
     certification: null
   },
 ];
-
 const staggerContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -516,13 +633,14 @@ const Formations = () => {
                 {/* Header */}
                 <div className="mb-4">
                   <div className="flex items-start justify-between mb-4">
-                    <motion.span 
-                      className="text-4xl"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
+                    <motion.div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: `${formation.iconColor}15` }}
+                      whileHover={{ scale: 1.15, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      {formation.emoji}
-                    </motion.span>
+                      <formation.icon className="w-6 h-6" style={{ color: formation.iconColor }} />
+                    </motion.div>
                     <div className="flex flex-col items-end gap-2">
                       <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
                         {formation.category}
@@ -659,7 +777,12 @@ const Formations = () => {
             <>
               <DialogHeader>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-4xl">{selectedFormation.emoji}</span>
+                  <div 
+                    className="w-14 h-14 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${selectedFormation.iconColor}15` }}
+                  >
+                    <selectedFormation.icon className="w-7 h-7" style={{ color: selectedFormation.iconColor }} />
+                  </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
