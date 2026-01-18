@@ -28,7 +28,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Appointment notification data:", data);
 
     const { firstName, lastName, email, formationChoice, appointmentDate, appointmentTime } = data;
-    const adminEmail = "montrouge@t3pformation.fr";
+    const adminEmail = "montrouge@t3pcampus.fr";
 
     // Format the date for display
     const dateObj = new Date(appointmentDate);
