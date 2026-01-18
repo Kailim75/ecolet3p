@@ -443,6 +443,205 @@ Le financement ne doit pas être un frein à votre projet professionnel. Entre l
 
 **Contactez-nous** pour un bilan personnalisé de vos options de financement.
     `
+  },
+  {
+    slug: "formation-vmdtr-moto-taxi-scooter",
+    title: "Formation VMDTR : Devenir conducteur moto-taxi ou scooter",
+    metaDescription: "Guide complet sur la formation VMDTR pour devenir conducteur de deux-roues motorisé. Prérequis, programme, examen et débouchés.",
+    excerpt: "Découvrez comment devenir conducteur de moto-taxi ou de scooter professionnel grâce à la formation VMDTR et obtenir votre carte professionnelle.",
+    category: "VMDTR",
+    readTime: "7 min",
+    publishDate: "2025-01-18",
+    author: "T3P Campus",
+    image: "🏍️",
+    content: `
+## Qu'est-ce que la formation VMDTR ?
+
+La formation VMDTR (Véhicule Motorisé à Deux ou Trois Roues) permet d'exercer le métier de conducteur de transport de personnes en deux-roues, communément appelé **moto-taxi**.
+
+Ce secteur en pleine expansion offre de nombreuses opportunités, notamment dans les grandes villes où les deux-roues permettent de circuler plus rapidement.
+
+## Les avantages du métier de moto-taxi
+
+### Rapidité et efficacité
+- Circulation fluide même en cas de bouchons
+- Temps de trajet réduit de 30 à 50%
+- Clients pressés (hommes d'affaires, aéroports)
+
+### Flexibilité
+- Horaires modulables
+- Investissement initial plus faible qu'en VTC
+- Coûts d'exploitation réduits
+
+### Clientèle premium
+- Tarifs plus élevés qu'en VTC
+- Clientèle professionnelle fidèle
+- Courses aéroport très lucratives
+
+## Les prérequis pour la formation VMDTR
+
+Pour vous inscrire à notre formation, vous devez :
+
+- Avoir 21 ans minimum
+- Être titulaire du permis A (moto) depuis 3 ans minimum
+- Avoir un casier judiciaire compatible
+- Passer la visite médicale préfectorale
+
+**Important** : Le permis A est obligatoire. Le permis A2 ne suffit pas pour exercer en moto-taxi.
+
+## Le programme de formation T3P Campus
+
+Notre formation VMDTR dure **7 jours** et couvre l'ensemble des compétences nécessaires.
+
+### Module 1 : Réglementation (2 jours)
+- Cadre légal du transport de personnes
+- Droits et obligations du conducteur VMDTR
+- Réglementation spécifique deux-roues
+- Assurances professionnelles
+
+### Module 2 : Sécurité (2 jours)
+- Conduite défensive
+- Anticipation des dangers
+- Transport de passager en sécurité
+- Équipements obligatoires
+
+### Module 3 : Gestion et relation client (2 jours)
+- Création et gestion d'entreprise
+- Comptabilité simplifiée
+- Accueil et service client premium
+- Gestion des réservations
+
+### Module 4 : Pratique et examen blanc (1 jour)
+- Mise en situation réelle
+- Examen blanc complet
+- Corrections personnalisées
+
+## L'examen VMDTR
+
+L'examen est composé de 7 épreuves similaires à l'examen VTC. Notre taux de réussite est de 95%.
+
+## Les débouchés professionnels
+
+Après votre formation, plusieurs options s'offrent à vous :
+
+### Indépendant
+- Créez votre propre activité
+- Développez votre clientèle
+- Fixez vos tarifs
+
+### Salarié
+- Rejoignez une société de moto-taxi
+- Bénéficiez d'une clientèle existante
+
+### Plateformes
+- Citybird, Felix, Motocab...
+- Commission sur les courses
+- Flexibilité totale
+
+## Tarifs et revenus
+
+Les revenus mensuels estimés vont de 1500-2500€ en temps partiel à 3000-5000€ en temps plein.
+
+## Conclusion
+
+La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs de deux-roues. Avec T3P Campus, bénéficiez d'une formation complète et d'un accompagnement personnalisé.
+    `
+  },
+  {
+    slug: "formation-continue-renouvellement-carte-professionnelle",
+    title: "Formation Continue : Renouveler sa carte professionnelle VTC/Taxi",
+    metaDescription: "Tout savoir sur la formation continue obligatoire pour renouveler votre carte professionnelle VTC ou Taxi. Durée, programme et modalités.",
+    excerpt: "Votre carte professionnelle arrive à expiration ? Découvrez la formation continue obligatoire pour la renouveler et maintenir vos compétences à jour.",
+    category: "Formation Continue",
+    readTime: "6 min",
+    publishDate: "2025-01-16",
+    author: "T3P Campus",
+    image: "📚",
+    content: `
+## La formation continue : une obligation légale
+
+Depuis 2017, tous les chauffeurs VTC et Taxi doivent suivre une **formation continue obligatoire** pour renouveler leur carte professionnelle. Cette formation doit être effectuée tous les 5 ans.
+
+## Pourquoi cette obligation ?
+
+La formation continue vise à :
+
+- **Actualiser vos connaissances** sur la réglementation
+- **Renforcer la sécurité** routière
+- **Améliorer la qualité** du service client
+- **S'adapter aux évolutions** du métier
+
+## Qui est concerné ?
+
+Tous les titulaires d'une carte VTC, Taxi ou VMDTR arrivant à échéance dans les 12 prochains mois.
+
+**Attention** : Sans attestation de formation continue, vous ne pourrez pas renouveler votre carte professionnelle.
+
+## Le programme de formation continue
+
+Notre formation continue dure **14 heures** réparties sur 2 jours.
+
+### Jour 1 : Réglementation et sécurité (7h)
+
+**Matin : Actualités réglementaires**
+- Évolutions de la loi Grandguillaume
+- Nouvelles obligations des plateformes
+- Réglementation environnementale (ZFE)
+- Droits et devoirs actualisés
+
+**Après-midi : Sécurité routière**
+- Rappel des fondamentaux
+- Nouvelles règles du code de la route
+- Éco-conduite et conduite défensive
+- Gestion des situations d'urgence
+
+### Jour 2 : Relation client et gestion (7h)
+
+**Matin : Excellence du service client**
+- Accueil des personnes à mobilité réduite
+- Gestion des conflits
+- Communication interculturelle
+- Satisfaction et fidélisation client
+
+**Après-midi : Gestion d'activité**
+- Évolutions fiscales et sociales
+- Outils numériques de gestion
+- Développement commercial
+- Bien-être au travail
+
+## Les modalités pratiques chez T3P Campus
+
+- **Durée** : 2 jours (14 heures)
+- **Lieu** : Montrouge (92)
+- **Horaires** : 9h00 - 17h00
+- **Effectif** : 10-15 personnes max
+- **Paiement** : 4x sans frais possible
+
+## L'attestation de formation continue
+
+À l'issue de la formation, vous recevez une **attestation officielle** qui vous permettra de déposer votre demande de renouvellement en préfecture.
+
+## Que se passe-t-il sans formation continue ?
+
+- Refus de renouvellement de votre carte professionnelle
+- Interdiction d'exercer à l'expiration de la carte
+- Sanctions en cas d'exercice illégal (amendes, suspension)
+
+## Les avantages de la formation continue
+
+Au-delà de l'obligation légale, la formation continue vous apporte :
+
+- Mise à jour des connaissances réglementaires
+- Échanges avec d'autres professionnels
+- Nouvelles techniques de relation client
+- Réseau professionnel élargi
+
+## Conclusion
+
+La formation continue n'est pas qu'une contrainte administrative : c'est l'occasion de faire le point sur votre pratique et de vous perfectionner.
+
+Chez T3P Campus, nous rendons cette formation agréable et enrichissante. Réservez votre place dès maintenant !
+    `
   }
 ];
 
