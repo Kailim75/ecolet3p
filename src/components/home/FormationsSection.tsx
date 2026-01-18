@@ -1,145 +1,103 @@
 import { Link } from "react-router-dom";
-import { Clock, Users, ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Clock } from "lucide-react";
 
 const formations = [
   {
-    id: 1,
-    title: "Développement Web Full Stack",
-    description: "Maîtrisez les technologies front-end et back-end pour créer des applications web complètes.",
-    duration: "6 mois",
-    level: "Débutant à Intermédiaire",
-    category: "Informatique",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
-    featured: true,
+    icon: "🚕",
+    title: "Formation TAXI",
+    duration: "10 jours",
+    price: "Nous consulter",
+    description: "Formation complète pour devenir chauffeur de taxi professionnel.",
   },
   {
-    id: 2,
-    title: "Gestion de Projet Agile",
-    description: "Apprenez les méthodologies Scrum et Kanban pour piloter vos projets efficacement.",
-    duration: "3 mois",
-    level: "Tous niveaux",
-    category: "Management",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop",
-    featured: false,
+    icon: "🚗",
+    title: "Formation VTC",
+    duration: "10 jours",
+    price: "Nous consulter",
+    description: "Devenez chauffeur privé professionnel avec notre formation VTC.",
   },
   {
-    id: 3,
-    title: "Marketing Digital",
-    description: "Développez une stratégie digitale complète : SEO, réseaux sociaux, publicité en ligne.",
-    duration: "4 mois",
-    level: "Intermédiaire",
-    category: "Marketing",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&h=250&fit=crop",
-    featured: false,
+    icon: "🏍️",
+    title: "Formation VMDTR",
+    duration: "10 jours",
+    price: "À partir de 1 500 €",
+    description: "Formation moto-taxi pour le transport rapide de passagers.",
   },
   {
-    id: 4,
-    title: "Data Science & IA",
-    description: "Explorez le machine learning et l'analyse de données pour des insights business.",
-    duration: "8 mois",
-    level: "Avancé",
-    category: "Informatique",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=250&fit=crop",
-    featured: true,
+    icon: "🔄",
+    title: "Récupération de points",
+    duration: "2 jours",
+    price: "Nous consulter",
+    description: "Stage de récupération de 4 points sur votre permis de conduire.",
   },
 ];
 
 const FormationsSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl" />
-      
-      <div className="container-custom relative">
+    <section className="section-padding">
+      <div className="container-custom">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-wider mb-4">
-              <Zap className="w-4 h-4" />
-              Nos formations
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Des parcours conçus pour votre{" "}
-              <span className="text-gradient">réussite</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Des formations certifiantes, conçues par des experts et adaptées aux besoins réels du marché.
-            </p>
-          </div>
-          <Button asChild variant="outline" className="self-start lg:self-end rounded-full px-6">
-            <Link to="/formations" className="flex items-center gap-2">
-              Voir tout
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Nos <span className="text-primary">Formations</span> Phares
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Des formations certifiantes pour lancer votre carrière de chauffeur professionnel
+          </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {formations.map((formation, index) => (
             <div
-              key={formation.id}
-              className={`group card-modern overflow-hidden animate-fade-up opacity-0 stagger-${index + 1}`}
+              key={formation.title}
+              className="bg-card rounded-xl border border-border p-6 card-hover animate-fade-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={formation.image}
-                  alt={formation.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
-                
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/90 text-foreground backdrop-blur-sm">
-                    {formation.category}
-                  </span>
-                </div>
-                
-                {/* Featured badge */}
-                {formation.featured && (
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold gradient-accent text-white">
-                      <Zap className="w-3 h-3" />
-                      Populaire
-                    </span>
-                  </div>
-                )}
+              {/* Icon */}
+              <div className="text-4xl mb-4">{formation.icon}</div>
 
-                {/* Duration on image */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center gap-4 text-white/90 text-sm">
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4" />
-                    <span>{formation.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Users className="w-4 h-4" />
-                    <span>{formation.level}</span>
-                  </div>
-                </div>
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-foreground mb-2">
+                {formation.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                {formation.description}
+              </p>
+
+              {/* Meta */}
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                <Clock className="w-4 h-4" />
+                <span>{formation.duration}</span>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-bold text-lg text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
-                  {formation.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
-                  {formation.description}
-                </p>
+              {/* Price */}
+              <div className="text-lg font-semibold text-primary mb-4">
+                {formation.price}
+              </div>
 
-                <Link
-                  to="/formations"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all"
-                >
+              {/* CTA */}
+              <Button asChild variant="outline" className="w-full">
+                <Link to="/contact">
                   En savoir plus
-                  <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+              </Button>
             </div>
           ))}
+        </div>
+
+        {/* View All Link */}
+        <div className="text-center">
+          <Link
+            to="/formations"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:text-accent transition-colors"
+          >
+            Voir les 10 formations
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
