@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { 
   Users, Mail, FileText, LogOut, Download, Trash2, 
   RefreshCw, Search, Filter, ChevronDown, Loader2,
-  CheckCircle, XCircle, Clock, BookOpen, Calendar
+  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,8 +39,9 @@ import { toast } from "sonner";
 import FormationsManager from "@/components/admin/FormationsManager";
 import SessionsManager from "@/components/admin/SessionsManager";
 import AppointmentsManager from "@/components/admin/AppointmentsManager";
+import EmailLogsManager from "@/components/admin/EmailLogsManager";
 
-type Tab = "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments";
+type Tab = "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails";
 
 interface NewsletterSubscriber {
   id: string;
@@ -412,16 +413,31 @@ const Admin = () => {
                 <Clock className="w-4 h-4 inline-block mr-2" />
                 Rendez-vous
               </button>
+              <button
+                onClick={() => { setActiveTab("emails"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors ${
+                  activeTab === "emails"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <Send className="w-4 h-4 inline-block mr-2" />
+                Emails
+              </button>
             </div>
           </div>
 
-          {/* Formations Tab - Separate component */}
+          {/* Tab content */}
           {activeTab === "formations" ? (
             <FormationsManager />
           ) : activeTab === "sessions" ? (
             <SessionsManager />
           ) : activeTab === "appointments" ? (
             <AppointmentsManager />
+          ) : activeTab === "emails" ? (
+            <div className="p-6">
+              <EmailLogsManager />
+            </div>
           ) : (
             <>
               {/* Toolbar */}

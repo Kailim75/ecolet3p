@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -61,6 +61,8 @@ const handler = async (req: Request): Promise<Response> => {
           month: 'long',
           year: 'numeric'
         });
+
+        const emailSubject = "⏰ Rappel : Votre rendez-vous demain au Campus T3P";
 
         const emailHtml = `
           <!DOCTYPE html>
@@ -163,13 +165,31 @@ const handler = async (req: Request): Promise<Response> => {
           body: JSON.stringify({
             from: "Campus T3P <montrouge@t3pcampus.fr>",
             to: [apt.email],
-            subject: "⏰ Rappel : Votre rendez-vous demain au Campus T3P",
+            subject: emailSubject,
             html: emailHtml,
           }),
         });
 
         const emailResult = await res.json();
         console.log(`Reminder sent to ${apt.email}:`, emailResult);
+
+        // Log email to database
+        await supabase.from("email_logs").insert({
+          email_type: "appointment_reminder",
+          recipient_email: apt.email,
+          subject: emailSubject,
+          status: emailResult.id ? "sent" : "failed",
+          resend_id: emailResult.id || null,
+          error_message: emailResult.error?.message || null,
+          metadata: { 
+            appointment_id: apt.id,
+            first_name: apt.first_name,
+            last_name: apt.last_name,
+            appointment_date: apt.appointment_date,
+            appointment_time: apt.appointment_time
+          },
+        });
+
         sentCount++;
       } catch (emailError: any) {
         console.error(`Failed to send reminder to ${apt.email}:`, emailError);

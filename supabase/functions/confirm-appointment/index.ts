@@ -1,6 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -129,6 +132,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sending confirmation email to:", email);
 
+    const emailSubject = "✅ Demande de rendez-vous reçue - Campus T3P";
+
     // Send email using Resend API directly
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -139,13 +144,25 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Campus T3P <montrouge@t3pcampus.fr>",
         to: [email],
-        subject: "✅ Demande de rendez-vous reçue - Campus T3P",
+        subject: emailSubject,
         html: emailHtml,
       }),
     });
 
     const emailResponse = await res.json();
     console.log("Email sent successfully:", emailResponse);
+
+    // Log email to database
+    const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
+    await supabase.from("email_logs").insert({
+      email_type: "appointment_confirmation",
+      recipient_email: email,
+      subject: emailSubject,
+      status: emailResponse.id ? "sent" : "failed",
+      resend_id: emailResponse.id || null,
+      error_message: emailResponse.error?.message || null,
+      metadata: { firstName, lastName, formationChoice, appointmentDate, appointmentTime },
+    });
 
     return new Response(JSON.stringify({ success: true, emailResponse }), {
       status: 200,

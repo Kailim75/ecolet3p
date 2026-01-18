@@ -1,8 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-
-
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -46,7 +47,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const { record } = payload;
-    const adminEmail = "montrouge@t3pcampus.fr"; // Email admin à notifier
+    const adminEmail = "montrouge@t3pcampus.fr";
 
     // Format date
     const createdDate = new Date(record.created_at).toLocaleDateString("fr-FR", {
@@ -56,6 +57,8 @@ const handler = async (req: Request): Promise<Response> => {
       hour: "2-digit",
       minute: "2-digit",
     });
+
+    const emailSubject = `🎓 Nouvelle pré-inscription : ${record.first_name} ${record.last_name}`;
 
     // Send notification email to admin using Resend API directly
     const emailResponse = await fetch("https://api.resend.com/emails", {
@@ -67,7 +70,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Campus T3P <montrouge@t3pcampus.fr>",
         to: [adminEmail],
-        subject: `🎓 Nouvelle pré-inscription : ${record.first_name} ${record.last_name}`,
+        subject: emailSubject,
         html: `
           <!DOCTYPE html>
           <html>
@@ -131,8 +134,25 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     const emailData = await emailResponse.json();
-
     console.log("Notification email sent successfully:", emailData);
+
+    // Log email to database
+    const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
+    await supabase.from("email_logs").insert({
+      email_type: "admin_notification_registration",
+      recipient_email: adminEmail,
+      subject: emailSubject,
+      status: emailData.id ? "sent" : "failed",
+      resend_id: emailData.id || null,
+      error_message: emailData.error?.message || null,
+      metadata: { 
+        registration_id: record.id,
+        first_name: record.first_name,
+        last_name: record.last_name,
+        email: record.email,
+        formation_title: record.formation_title
+      },
+    });
 
     return new Response(
       JSON.stringify({ 
