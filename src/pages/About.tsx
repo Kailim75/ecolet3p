@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
-import { Target, Heart, Users, Trophy, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Target, Heart, Users, Trophy, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -78,6 +79,22 @@ const About = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>À propos de T3P Campus - Centre de Formation Taxi VTC | Montrouge</title>
+        <meta name="description" content="Découvrez T3P Campus, centre de formation leader à Montrouge depuis 2014. 96% de taux de réussite, formateurs experts, 10 000+ apprenants formés. Formations Taxi, VTC et VMDTR." />
+        <meta name="keywords" content="T3P Campus, centre formation taxi, formation VTC Montrouge, école chauffeur professionnel, formation transport" />
+        <link rel="canonical" href="https://t3pcampus.fr/a-propos" />
+        
+        <meta property="og:title" content="À propos de T3P Campus - Centre de Formation Taxi VTC" />
+        <meta property="og:description" content="Centre de formation leader depuis 2014. 96% de réussite, formateurs experts issus du métier. Découvrez nos locaux et notre équipe." />
+        <meta property="og:url" content="https://t3pcampus.fr/a-propos" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://t3pcampus.fr/og-about.jpg" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="À propos de T3P Campus - Centre de Formation Taxi VTC" />
+        <meta name="twitter:description" content="Centre de formation leader depuis 2014. 96% de réussite, formateurs experts issus du métier." />
+      </Helmet>
       {/* Hero - LiveMentor style */}
       <section className="gradient-hero py-20 md:py-28">
         <div className="container-custom text-center">
