@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, Mail, Eye, EyeOff, AlertCircle, Loader2, CheckCircle, ArrowLeft } from "lucide-react";
+import { Lock, Mail, Eye, EyeOff, AlertCircle, Loader2, CheckCircle, ArrowLeft, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
@@ -16,23 +16,44 @@ const emailSchema = z.object({
   email: z.string().email({ message: "Email invalide" }),
 });
 
+const passwordSchema = z.object({
+  password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 6 caractères" }),
+  confirmPassword: z.string(),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Les mots de passe ne correspondent pas",
+  path: ["confirmPassword"],
+});
+
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showResetForm, setShowResetForm] = useState(false);
+  const [showNewPasswordForm, setShowNewPasswordForm] = useState(false);
   const [resetSuccess, setResetSuccess] = useState(false);
+  const [passwordUpdateSuccess, setPasswordUpdateSuccess] = useState(false);
   
-  const { user, isAdmin, isLoading, signIn, resetPassword } = useAuth();
+  const { user, isAdmin, isLoading, signIn, resetPassword, updatePassword } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    if (!isLoading && user && isAdmin) {
+    // Check if arriving from password reset link
+    const mode = searchParams.get("mode");
+    if (mode === "recovery") {
+      setShowNewPasswordForm(true);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (!isLoading && user && isAdmin && !showNewPasswordForm) {
       navigate("/admin");
     }
-  }, [user, isAdmin, isLoading, navigate]);
+  }, [user, isAdmin, isLoading, navigate, showNewPasswordForm]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,6 +82,35 @@ const AdminLogin = () => {
 
       // Wait for auth state to update and check admin role
       // The useEffect will handle navigation
+    } catch (err) {
+      setError("Une erreur est survenue. Veuillez réessayer.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Validate passwords
+    const validation = passwordSchema.safeParse({ password: newPassword, confirmPassword });
+    if (!validation.success) {
+      setError(validation.error.errors[0].message);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { error: updateError } = await updatePassword(newPassword);
+      
+      if (updateError) {
+        setError(updateError.message);
+        return;
+      }
+
+      setPasswordUpdateSuccess(true);
     } catch (err) {
       setError("Une erreur est survenue. Veuillez réessayer.");
     } finally {
@@ -114,8 +164,128 @@ const AdminLogin = () => {
         className="w-full max-w-md"
       >
         <div className="bg-white rounded-2xl shadow-elegant p-8 md:p-10">
-          <AnimatePresence mode="wait">
-            {showResetForm ? (
+        <AnimatePresence mode="wait">
+            {showNewPasswordForm ? (
+              <motion.div
+                key="new-password"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-center mb-8">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
+                    className="w-16 h-16 bg-forest/10 rounded-2xl flex items-center justify-center mx-auto mb-4"
+                  >
+                    {passwordUpdateSuccess ? (
+                      <CheckCircle className="w-8 h-8 text-green-600" />
+                    ) : (
+                      <KeyRound className="w-8 h-8 text-forest" />
+                    )}
+                  </motion.div>
+                  <h1 className="text-2xl font-bold text-forest mb-2">
+                    {passwordUpdateSuccess ? "Mot de passe mis à jour !" : "Nouveau mot de passe"}
+                  </h1>
+                  <p className="text-warm-gray-600">
+                    {passwordUpdateSuccess 
+                      ? "Votre mot de passe a été modifié avec succès."
+                      : "Entrez votre nouveau mot de passe"
+                    }
+                  </p>
+                </div>
+
+                {!passwordUpdateSuccess ? (
+                  <form onSubmit={handleUpdatePassword} className="space-y-5">
+                    <div>
+                      <label htmlFor="new-password" className="block text-sm font-medium text-warm-gray-700 mb-2">
+                        Nouveau mot de passe
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-warm-gray-400" />
+                        <Input
+                          id="new-password"
+                          type={showPassword ? "text" : "password"}
+                          placeholder="••••••••"
+                          value={newPassword}
+                          onChange={(e) => setNewPassword(e.target.value)}
+                          className="pl-10 pr-10 h-12"
+                          disabled={isSubmitting}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-warm-gray-400 hover:text-warm-gray-600"
+                        >
+                          {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="confirm-password" className="block text-sm font-medium text-warm-gray-700 mb-2">
+                        Confirmer le mot de passe
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-warm-gray-400" />
+                        <Input
+                          id="confirm-password"
+                          type={showPassword ? "text" : "password"}
+                          placeholder="••••••••"
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          className="pl-10 h-12"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                    </div>
+
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex items-center gap-2 p-3 rounded-lg bg-red-50 text-red-600 text-sm"
+                      >
+                        <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                        {error}
+                      </motion.div>
+                    )}
+
+                    <Button
+                      type="submit"
+                      className="w-full btn-primary h-12"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Mise à jour...
+                        </>
+                      ) : (
+                        "Mettre à jour le mot de passe"
+                      )}
+                    </Button>
+                  </form>
+                ) : null}
+
+                <button
+                  onClick={() => {
+                    setShowNewPasswordForm(false);
+                    setPasswordUpdateSuccess(false);
+                    setNewPassword("");
+                    setConfirmPassword("");
+                    setError("");
+                    navigate("/admin-login", { replace: true });
+                  }}
+                  className="flex items-center gap-2 text-forest hover:underline font-medium mt-6 mx-auto"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Retour à la connexion
+                </button>
+              </motion.div>
+            ) : showResetForm ? (
               <motion.div
                 key="reset"
                 initial={{ opacity: 0, x: 20 }}
