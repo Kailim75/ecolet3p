@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2 } from "lucide-react";
 import { useEffect } from "react";
+import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -189,12 +190,22 @@ const BlogArticle = () => {
               </div>
             </motion.div>
 
-            {/* CTA */}
+            {/* Newsletter */}
             <motion.div 
-              className="mt-12 p-8 bg-forest text-cream rounded-xl text-center"
+              className="mt-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
+            >
+              <NewsletterForm source="blog-article" />
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div 
+              className="mt-8 p-8 bg-forest text-cream rounded-xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
             >
               <h3 className="text-xl font-bold mb-3">
                 Prêt à devenir chauffeur professionnel ?
