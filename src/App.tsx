@@ -30,6 +30,7 @@ const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const Admin = lazy(() => import("./pages/Admin"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminSignup = lazy(() => import("./pages/AdminSignup"));
+const CharteGraphique = lazy(() => import("./pages/CharteGraphique"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -89,6 +90,7 @@ const App = () => {
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/admin-login" element={<AdminLogin />} />
                     <Route path="/admin-signup" element={<AdminSignup />} />
+                    <Route path="/charte-graphique" element={<CharteGraphique />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
