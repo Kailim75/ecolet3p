@@ -115,21 +115,17 @@ const AdvantagesSection = () => {
               whileTap={{ scale: 0.98, y: -5 }}
               className="card-livementor text-center group cursor-pointer"
             >
-              <motion.div 
-                className="mb-4"
-                whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
+              <div className="mb-4">
                 <motion.span 
                   className="stat-number group-hover:text-gold transition-colors duration-300"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1, type: "spring", stiffness: 200 }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                 >
                   {adv.value}
                 </motion.span>
-              </motion.div>
+              </div>
               <motion.h3 
                 className="text-lg font-bold text-forest mb-2 group-hover:text-gold transition-colors duration-300"
               >

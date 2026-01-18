@@ -91,25 +91,17 @@ const ProcessSection = () => {
               >
                 <motion.div 
                   className="step-number mb-4 group-hover:bg-gold group-hover:text-forest transition-colors"
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 300, damping: 15 }}
-                  whileHover={{ scale: 1.15, rotate: [0, -10, 10, 0] }}
+                  transition={{ delay: 0.3 + i * 0.1, duration: 0.4 }}
                 >
                   {step.number}
                 </motion.div>
 
-                <motion.div 
-                  className="text-4xl mb-4"
-                  whileHover={{ 
-                    scale: 1.4, 
-                    rotate: [0, -20, 20, -10, 10, 0],
-                    transition: { duration: 0.5 }
-                  }}
-                >
+                <div className="text-4xl mb-4">
                   {step.emoji}
-                </motion.div>
+                </div>
 
                 <motion.h3 
                   className="text-lg font-bold text-forest mb-2 group-hover:text-gold transition-colors duration-300"
