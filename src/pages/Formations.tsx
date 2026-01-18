@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
@@ -117,6 +118,22 @@ const Formations = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Formations Taxi VTC VMDTR à Montrouge | T3P Campus - 96% Réussite</title>
+        <meta name="description" content="Découvrez nos formations Taxi, VTC et VMDTR certifiantes. Taux de réussite 96%, paiement en 4x sans frais, formateurs experts. Inscrivez-vous dès maintenant !" />
+        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, carte professionnelle taxi, carte VTC, centre formation Montrouge" />
+        <link rel="canonical" href="https://t3pcampus.fr/formations" />
+        
+        <meta property="og:title" content="Formations Taxi VTC VMDTR - T3P Campus Montrouge" />
+        <meta property="og:description" content="Formations certifiantes Taxi, VTC et VMDTR. 96% de réussite, paiement en 4x, formateurs experts du métier." />
+        <meta property="og:url" content="https://t3pcampus.fr/formations" />
+        <meta property="og:type" content="website" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Formations Taxi VTC VMDTR - T3P Campus" />
+        <meta name="twitter:description" content="Formations certifiantes avec 96% de réussite. Inscrivez-vous maintenant !" />
+      </Helmet>
+
       {/* Hero - Immersive with parallax */}
       <section ref={heroRef} className="gradient-hero py-24 md:py-32 relative overflow-hidden">
         {/* Animated background elements */}
