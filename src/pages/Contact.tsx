@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -202,6 +203,22 @@ const Contact = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Contact T3P Campus - Formation Taxi VTC Montrouge | 01 88 75 05 55</title>
+        <meta name="description" content="Contactez T3P Campus à Montrouge. Adresse : 3 rue Corneille 92120. Tél : 01 88 75 05 55. Métro Mairie de Montrouge. Demandez un devis gratuit pour votre formation Taxi ou VTC." />
+        <meta name="keywords" content="contact T3P Campus, formation taxi Montrouge, formation VTC Paris, centre formation chauffeur, devis formation taxi" />
+        <link rel="canonical" href="https://t3pcampus.fr/contact" />
+        
+        <meta property="og:title" content="Contactez T3P Campus - Formation Taxi VTC à Montrouge" />
+        <meta property="og:description" content="Demandez un devis gratuit. Adresse : 3 rue Corneille 92120 Montrouge. Tél : 01 88 75 05 55. Métro Mairie de Montrouge." />
+        <meta property="og:url" content="https://t3pcampus.fr/contact" />
+        <meta property="og:type" content="website" />
+        
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact T3P Campus - Formation Taxi VTC" />
+        <meta name="twitter:description" content="Contactez-nous au 01 88 75 05 55. 3 rue Corneille, 92120 Montrouge." />
+      </Helmet>
+
       {/* Hero - LiveMentor Style with Parallax */}
       <section ref={heroRef} className="bg-cream py-20 md:py-28 relative overflow-hidden">
         {/* Parallax Decorative Elements */}

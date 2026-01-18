@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -34,6 +35,22 @@ const Blog = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Blog Formation Taxi VTC - Conseils et Actualités | T3P Campus</title>
+        <meta name="description" content="Découvrez nos articles sur les formations Taxi, VTC et VMDTR. Conseils pour réussir votre examen, actualités du secteur, témoignages et guides pratiques." />
+        <meta name="keywords" content="blog formation taxi, actualités VTC, conseils examen taxi, guide chauffeur VTC, formation VMDTR" />
+        <link rel="canonical" href="https://t3pcampus.fr/blog" />
+        
+        <meta property="og:title" content="Blog T3P Campus - Formation Taxi VTC" />
+        <meta property="og:description" content="Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR. Guides pratiques et témoignages." />
+        <meta property="og:url" content="https://t3pcampus.fr/blog" />
+        <meta property="og:type" content="blog" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog T3P Campus - Formation Taxi VTC" />
+        <meta name="twitter:description" content="Articles et conseils pour réussir votre formation Taxi ou VTC." />
+      </Helmet>
+
       {/* Hero */}
       <section className="bg-cream py-16 md:py-24">
         <div className="container-custom text-center">
