@@ -1,9 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
   GraduationCap, Star, CreditCard, Car, Bike, Accessibility, 
-  RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon
+  RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon, Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -16,7 +16,10 @@ import {
 } from "@/components/ui/dialog";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
+import SessionCard from "@/components/formations/SessionCard";
 import { useFormations, Formation, getCategoryFilter, getCategoryLabel } from "@/hooks/useFormations";
+import { useFormationSessions, FormationSession } from "@/hooks/useFormationSessions";
+import { supabase } from "@/integrations/supabase/client";
 
 const categories = ["Toutes", "TAXI", "VTC", "Autres"];
 
@@ -55,9 +58,30 @@ const Formations = () => {
   const [activeCategory, setActiveCategory] = useState("Toutes");
   const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
   const [preRegistrationFormation, setPreRegistrationFormation] = useState<Formation | null>(null);
+  const [formationSessions, setFormationSessions] = useState<FormationSession[]>([]);
+  const [loadingSessions, setLoadingSessions] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   const { formations, isLoading, error } = useFormations(true);
+
+  // Fetch sessions when a formation is selected
+  useEffect(() => {
+    if (selectedFormation) {
+      setLoadingSessions(true);
+      supabase
+        .from("formation_sessions")
+        .select("*")
+        .eq("formation_id", selectedFormation.id)
+        .in("status", ["upcoming", "ongoing"])
+        .order("start_date", { ascending: true })
+        .then(({ data }) => {
+          setFormationSessions(data || []);
+          setLoadingSessions(false);
+        });
+    } else {
+      setFormationSessions([]);
+    }
+  }, [selectedFormation]);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -471,6 +495,43 @@ const Formations = () => {
                     </ul>
                   </div>
                 )}
+
+                {/* Sessions à venir */}
+                <div>
+                  <h4 className="font-bold text-forest mb-4 uppercase text-sm flex items-center gap-2">
+                    <span className="w-1 h-4 bg-gold rounded-full" />
+                    <Calendar className="w-4 h-4" />
+                    Prochaines sessions
+                  </h4>
+                  {loadingSessions ? (
+                    <div className="flex items-center justify-center py-4">
+                      <Loader2 className="w-5 h-5 animate-spin text-forest" />
+                    </div>
+                  ) : formationSessions.length > 0 ? (
+                    <div className="space-y-3">
+                      {formationSessions.slice(0, 3).map((session) => (
+                        <SessionCard
+                          key={session.id}
+                          session={session}
+                          compact
+                          onRegister={() => {
+                            setSelectedFormation(null);
+                            setPreRegistrationFormation(selectedFormation);
+                          }}
+                        />
+                      ))}
+                      {formationSessions.length > 3 && (
+                        <p className="text-xs text-muted-foreground text-center">
+                          +{formationSessions.length - 3} autres sessions disponibles
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground bg-muted/50 p-4 rounded-lg text-center">
+                      Aucune session programmée. Contactez-nous pour connaître les prochaines dates.
+                    </p>
+                  )}
+                </div>
 
                 {/* Payment info */}
                 <div className="p-4 bg-forest/5 rounded-xl border border-forest/10">

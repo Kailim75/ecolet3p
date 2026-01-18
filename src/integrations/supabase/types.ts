@@ -14,6 +14,65 @@ export type Database = {
   }
   public: {
     Tables: {
+      formation_sessions: {
+        Row: {
+          created_at: string
+          current_participants: number
+          end_date: string | null
+          end_time: string
+          formation_id: string
+          id: string
+          location: string | null
+          max_participants: number
+          notes: string | null
+          price_override: number | null
+          start_date: string
+          start_time: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_participants?: number
+          end_date?: string | null
+          end_time?: string
+          formation_id: string
+          id?: string
+          location?: string | null
+          max_participants?: number
+          notes?: string | null
+          price_override?: number | null
+          start_date: string
+          start_time?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_participants?: number
+          end_date?: string | null
+          end_time?: string
+          formation_id?: string
+          id?: string
+          location?: string | null
+          max_participants?: number
+          notes?: string | null
+          price_override?: number | null
+          start_date?: string
+          start_time?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "formation_sessions_formation_id_fkey"
+            columns: ["formation_id"]
+            isOneToOne: false
+            referencedRelation: "formations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       formations: {
         Row: {
           category: string
