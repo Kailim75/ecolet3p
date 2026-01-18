@@ -4,6 +4,7 @@ import FormationsSection from "@/components/home/FormationsSection";
 import AdvantagesSection from "@/components/home/AdvantagesSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/home/CTASection";
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
       <AdvantagesSection />
       <ProcessSection />
       <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </Layout>
   );
