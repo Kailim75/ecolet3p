@@ -15,6 +15,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Unsubscribe from "./pages/Unsubscribe";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
+import AdminSignup from "./pages/AdminSignup";
 import NotFound from "./pages/NotFound";
 import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
@@ -59,7 +60,8 @@ const App = () => {
                 <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
                 <Route path="/unsubscribe" element={<Unsubscribe />} />
                 <Route path="/admin" element={<Admin />} />
-                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin-login" element={<AdminLogin />} />
+                <Route path="/admin-signup" element={<AdminSignup />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <CookieConsent />

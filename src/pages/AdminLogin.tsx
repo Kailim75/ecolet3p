@@ -163,9 +163,20 @@ const AdminLogin = () => {
             </Button>
           </form>
 
-          <p className="text-center text-warm-gray-500 text-sm mt-6">
-            Accès réservé aux administrateurs
-          </p>
+          <div className="text-center mt-6 space-y-2">
+            <p className="text-warm-gray-500 text-sm">
+              Pas encore de compte ?{" "}
+              <button
+                onClick={() => navigate("/admin-signup")}
+                className="text-forest hover:underline font-medium"
+              >
+                Créer un compte admin
+              </button>
+            </p>
+            <p className="text-warm-gray-400 text-xs">
+              Accès réservé aux administrateurs
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>
