@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { blogArticles } from "@/data/blogArticles";
-import { Clock, Calendar, ArrowRight } from "lucide-react";
+import { Clock, Calendar, ArrowRight, BookOpen } from "lucide-react";
+import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -37,12 +38,13 @@ const Blog = () => {
       <section className="bg-cream py-16 md:py-24">
         <div className="container-custom text-center">
           <motion.span 
-            className="badge-livementor mb-6 inline-block"
+            className="badge-livementor mb-6 inline-flex items-center gap-2"
             initial="hidden"
             animate="visible"
             variants={fadeUpVariants}
           >
-            📚 Blog & Ressources
+            <BookOpen className="w-4 h-4" />
+            Blog & Ressources
           </motion.span>
           <motion.h1 
             className="section-title mb-4"
@@ -135,6 +137,15 @@ const Blog = () => {
               </motion.article>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="section-padding bg-cream-light">
+        <div className="container-custom">
+          <div className="max-w-xl mx-auto">
+            <NewsletterForm source="blog" />
+          </div>
         </div>
       </section>
 
