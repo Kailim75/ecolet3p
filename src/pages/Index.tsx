@@ -10,6 +10,9 @@ import FAQSection from "@/components/home/FAQSection";
 import AppointmentSection from "@/components/home/AppointmentSection";
 import CTASection from "@/components/home/CTASection";
 
+// Import critical images for preload
+import formationSession from "@/assets/center/formation-session.jpg";
+
 const Index = () => {
   return (
     <Layout>
@@ -18,6 +21,14 @@ const Index = () => {
         <meta name="description" content="Centre de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 96%, paiement en 4x sans frais, formateurs experts. Obtenez votre carte professionnelle !" />
         <meta name="keywords" content="formation taxi, formation VTC, centre formation Montrouge, carte professionnelle taxi, carte VTC, T3P Campus, formation chauffeur" />
         <link rel="canonical" href="https://t3pcampus.fr/" />
+        
+        {/* Preload critical hero image */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href={formationSession}
+          type="image/jpeg"
+        />
         
         <meta property="og:title" content="T3P Campus - Formation Taxi VTC à Montrouge" />
         <meta property="og:description" content="Centre de formation leader avec 96% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />

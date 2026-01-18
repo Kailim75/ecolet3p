@@ -215,6 +215,14 @@ const FormationTaxi = () => {
         <meta name="keywords" content="formation taxi nice, carte professionnelle taxi, devenir chauffeur taxi, examen taxi, formation T3P" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/taxi" />
         
+        {/* Preload critical hero image */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href={heroImageTaxi}
+          type="image/jpeg"
+        />
+        
         <meta property="og:title" content="Formation Taxi Nice - Carte Professionnelle | T3P Campus" />
         <meta property="og:description" content="Formation taxi complète à Nice. 63h de formation, taux de réussite 85%. Devenez chauffeur de taxi professionnel." />
         <meta property="og:url" content="https://t3pcampus.fr/formations/taxi" />
