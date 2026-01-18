@@ -103,7 +103,7 @@ const Header = () => {
             </a>
             <Button
               onClick={scrollToAppointment}
-              className="bg-orange hover:bg-orange/90 text-white font-bold"
+              className="btn-accent"
             >
               <Calendar className="w-4 h-4 mr-2" />
               Prendre RDV
@@ -160,7 +160,7 @@ const Header = () => {
                 >
                   <button
                     onClick={scrollToAppointment}
-                    className="w-full text-left block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors text-orange hover:bg-orange/10"
+                    className="w-full text-left block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors text-gold-dark hover:bg-gold/10"
                   >
                     <span className="flex items-center gap-2">
                       <Calendar className="w-5 h-5" />

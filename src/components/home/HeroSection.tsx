@@ -153,24 +153,37 @@ const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* CTA Button with enhanced micro-interactions */}
+            {/* CTA Buttons with enhanced micro-interactions */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease: smoothEase }}
+              className="flex flex-wrap gap-4"
             >
               <motion.div
                 whileHover={{ 
                   scale: 1.05, 
                   y: -4,
-                  boxShadow: "0 15px 40px rgba(27, 77, 62, 0.4)"
                 }}
                 whileTap={{ scale: 0.97, y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className="inline-block"
               >
-                <Button asChild className="btn-primary pulse-subtle">
-                  <Link to="/contact">DÉCOUVRIR NOS FORMATIONS</Link>
+                <Button asChild className="btn-accent pulse-subtle">
+                  <a href="#rendez-vous">PRENDRE RENDEZ-VOUS</a>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -4,
+                }}
+                whileTap={{ scale: 0.97, y: -2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="inline-block"
+              >
+                <Button asChild className="btn-secondary">
+                  <Link to="/formations">DÉCOUVRIR NOS FORMATIONS</Link>
                 </Button>
               </motion.div>
             </motion.div>
