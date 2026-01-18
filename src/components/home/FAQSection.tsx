@@ -17,8 +17,8 @@ const faqs = [
     answer: "La durée varie selon la formation choisie. La formation VTC dure environ 250 heures, tandis que la formation Taxi nécessite environ 300 heures. Nous proposons également des formations accélérées et des stages de perfectionnement."
   },
   {
-    question: "La formation est-elle éligible au CPF ?",
-    answer: "Oui, toutes nos formations sont éligibles au Compte Personnel de Formation (CPF). Vous pouvez utiliser vos droits acquis pour financer tout ou partie de votre formation. Notre équipe vous accompagne dans les démarches administratives."
+    question: "Quelles sont les options de financement disponibles ?",
+    answer: "Nous proposons plusieurs facilités de paiement pour rendre nos formations accessibles : paiement en 4 fois sans frais, échelonnement personnalisé selon votre situation. Notre équipe vous accompagne pour trouver la solution adaptée à votre budget."
   },
   {
     question: "Quel est le taux de réussite de vos formations ?",

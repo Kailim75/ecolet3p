@@ -510,8 +510,8 @@ const Formations = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-8"
           >
-            Découvrez nos formations professionnelles pour devenir chauffeur 
-            ou maintenir vos compétences à jour. Éligibles CPF.
+          Découvrez nos formations professionnelles pour devenir chauffeur 
+            ou maintenir vos compétences à jour.
           </motion.p>
 
           {/* Stats in hero */}
@@ -896,7 +896,7 @@ const Formations = () => {
                     <CreditCard className="w-6 h-6 text-gold" />
                     <div>
                       <p className="font-bold text-forest">Paiement en 4x sans frais</p>
-                      <p className="text-sm text-muted-foreground">Éligible au CPF • Facilités de paiement disponibles</p>
+                      <p className="text-sm text-muted-foreground">Facilités de paiement disponibles</p>
                     </div>
                   </div>
                 </div>
