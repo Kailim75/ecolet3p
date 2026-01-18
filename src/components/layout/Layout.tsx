@@ -21,13 +21,14 @@ const organizationSchema = {
     "url": "https://t3pcampus.fr/logo.png"
   },
   "image": "https://t3pcampus.fr/og-image.jpg",
-  "telephone": "+33 1 XX XX XX XX",
-  "email": "contact@t3pcampus.fr",
+  "telephone": "+33 1 88 75 05 55",
+  "email": "dropacademymontrouge@gmail.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Adresse du centre",
+    "streetAddress": "3 rue Corneille",
     "addressLocality": "Montrouge",
     "postalCode": "92120",
+    "addressRegion": "Île-de-France",
     "addressCountry": "FR"
   },
   "geo": {
@@ -39,26 +40,31 @@ const organizationSchema = {
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
+      "opens": "09:30",
+      "closes": "12:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "13:30",
       "closes": "18:00"
     }
   ],
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
-  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+  "paymentAccepted": "Cash, Credit Card, Bank Transfer, 4x Payment",
   "areaServed": {
     "@type": "GeoCircle",
     "geoMidpoint": {
       "@type": "GeoCoordinates",
-      "latitude": "48.8186",
-      "longitude": "2.3196"
+      "latitude": "48.8566",
+      "longitude": "2.3522"
     },
     "geoRadius": "50000"
   },
   "sameAs": [
-    "https://www.facebook.com/t3pcampus",
-    "https://www.instagram.com/t3pcampus",
-    "https://www.linkedin.com/company/t3pcampus"
+    "https://www.facebook.com/dropacademymontrouge",
+    "https://www.instagram.com/t3pcampus"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -69,7 +75,7 @@ const organizationSchema = {
         "itemOffered": {
           "@type": "Course",
           "name": "Formation Taxi",
-          "description": "Formation complète pour obtenir la carte professionnelle Taxi"
+          "description": "Formation complète de 63h pour obtenir la carte professionnelle Taxi"
         }
       },
       {
@@ -84,8 +90,16 @@ const organizationSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
+          "name": "Formation VMDTR",
+          "description": "Formation moto-taxi pour obtenir la carte professionnelle VMDTR"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
           "name": "Formation Mobilité",
-          "description": "Formation passerelle Taxi ↔ VTC"
+          "description": "Formation passerelle de 14h Taxi ↔ VTC"
         }
       }
     ]
@@ -96,7 +110,9 @@ const organizationSchema = {
     "reviewCount": "250",
     "bestRating": "5",
     "worstRating": "1"
-  }
+  },
+  "publicAccess": true,
+  "isAccessibleForFree": false
 };
 
 const Layout = ({ children }: LayoutProps) => {
