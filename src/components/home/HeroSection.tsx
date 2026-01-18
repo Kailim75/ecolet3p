@@ -218,12 +218,13 @@ const HeroSection = () => {
             className="relative hidden lg:block"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <motion.img
+              <img
                 src={formationSession}
                 alt="Session de formation T3P Campus - Chauffeurs professionnels en cours"
-                className="w-full h-[600px] object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.6 }}
+                className="w-full h-[600px] object-cover transition-transform duration-600 hover:scale-105"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent" />
               

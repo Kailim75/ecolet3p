@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import { blogArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowRight, BookOpen } from "lucide-react";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -106,12 +107,11 @@ const Blog = () => {
                 >
                   {/* Article Image */}
                   <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
-                    <motion.img 
+                    <OptimizedImage 
                       src={article.image}
                       alt={article.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
+                      className="group-hover:scale-105 transition-transform duration-400"
+                      priority={index < 3}
                     />
                   </div>
 

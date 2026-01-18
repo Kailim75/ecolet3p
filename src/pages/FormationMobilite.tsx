@@ -327,6 +327,9 @@ const FormationMobilite = () => {
                   src={heroImageMobilite} 
                   alt="Promotion formation Mobilité - T3P Campus" 
                   className="w-full h-64 object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
