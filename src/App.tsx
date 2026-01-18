@@ -13,9 +13,12 @@ import BlogArticle from "./pages/BlogArticle";
 import LegalMentions from "./pages/LegalMentions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Unsubscribe from "./pages/Unsubscribe";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 import NotFound from "./pages/NotFound";
 import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
+import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
 
@@ -38,28 +41,32 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <PageLoader isLoading={isLoading} onLoadingComplete={handleLoadingComplete} />
-        <div style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.3s ease' }}>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/formations" element={<Formations />} />
-              <Route path="/a-propos" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogArticle />} />
-              <Route path="/mentions-legales" element={<LegalMentions />} />
-              <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
-              <Route path="/unsubscribe" element={<Unsubscribe />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <CookieConsent />
-          </BrowserRouter>
-        </div>
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <PageLoader isLoading={isLoading} onLoadingComplete={handleLoadingComplete} />
+          <div style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.3s ease' }}>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/formations" element={<Formations />} />
+                <Route path="/a-propos" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogArticle />} />
+                <Route path="/mentions-legales" element={<LegalMentions />} />
+                <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+                <Route path="/unsubscribe" element={<Unsubscribe />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <CookieConsent />
+            </BrowserRouter>
+          </div>
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
