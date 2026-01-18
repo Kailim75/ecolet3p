@@ -31,8 +31,19 @@ const FloatingAppointmentButton = () => {
   return (
     <motion.button
       initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      animate={{ 
+        y: 0, 
+        opacity: 1,
+        boxShadow: [
+          "0 8px 25px rgba(212, 168, 83, 0.4)",
+          "0 8px 35px rgba(212, 168, 83, 0.6)",
+          "0 8px 25px rgba(212, 168, 83, 0.4)",
+        ]
+      }}
+      transition={{ 
+        y: { type: "spring", stiffness: 300, damping: 30 },
+        boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+      }}
       whileHover={{ scale: 1.05, y: -4 }}
       whileTap={{ scale: 0.95 }}
       onClick={scrollToAppointment}
@@ -40,7 +51,6 @@ const FloatingAppointmentButton = () => {
       style={{
         background: "linear-gradient(135deg, #D4A853 0%, #E4BE73 100%)",
         color: "#1B4D3E",
-        boxShadow: "0 8px 25px rgba(212, 168, 83, 0.4)",
       }}
       aria-label="Prendre rendez-vous"
     >
