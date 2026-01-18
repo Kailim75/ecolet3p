@@ -2,8 +2,8 @@ import { useState, useRef } from "react";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
-  GraduationCap, Star, CreditCard, Car, Bike, Accessibility, Zap, Laptop, 
-  RefreshCw, Navigation, BookOpen, Target, LucideIcon, UserPlus
+  GraduationCap, Star, CreditCard, Car, Bike, Accessibility, 
+  RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -16,404 +16,24 @@ import {
 } from "@/components/ui/dialog";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
+import { useFormations, Formation, getCategoryFilter, getCategoryLabel } from "@/hooks/useFormations";
 
 const categories = ["Toutes", "TAXI", "VTC", "Autres"];
-const modalities = ["Tous", "Présentiel", "À distance", "Cours du soir"];
 
-interface Formation {
-  id: number;
-  icon: LucideIcon;
-  iconColor: string;
-  title: string;
-  description: string;
-  duration: string;
-  level: string;
-  price: string;
-  category: string;
-  modality: string;
-  popular: boolean;
-  objectives: string[];
-  prerequisites: string;
-  program: string[];
-  certification: string | null;
-}
+// Icon mapping from string to component
+const ICON_MAP: Record<string, LucideIcon> = {
+  Car: Car,
+  Bike: Bike,
+  Accessibility: Accessibility,
+  RefreshCw: RefreshCw,
+  MapPin: MapPin,
+  BookOpen: BookOpen,
+};
 
-const formations: Formation[] = [
-  {
-    id: 1,
-    icon: Car,
-    iconColor: "#D4A853",
-    title: "Formation TAXI Initiale",
-    description: "Formation complète pour devenir chauffeur de taxi professionnel. Préparez l'examen officiel avec nos experts.",
-    duration: "63 heures",
-    level: "Tous niveaux",
-    price: "Nous consulter",
-    category: "TAXI",
-    modality: "Présentiel",
-    popular: true,
-    objectives: [
-      "Maîtriser la réglementation du transport de personnes",
-      "Connaître la géographie locale et les itinéraires",
-      "Développer les compétences en relation client",
-      "Préparer l'examen de la carte professionnelle"
-    ],
-    prerequisites: "Permis B de plus de 3 ans, casier judiciaire vierge",
-    program: [
-      "Réglementation nationale et locale",
-      "Gestion et comptabilité",
-      "Sécurité routière",
-      "Français et communication",
-      "Anglais professionnel",
-      "Orientation et cartographie locale"
-    ],
-    certification: "RS5635"
-  },
-  {
-    id: 2,
-    icon: Car,
-    iconColor: "#1B4D3E",
-    title: "Formation VTC Initiale",
-    description: "Devenez chauffeur privé professionnel avec notre formation VTC complète et personnalisée.",
-    duration: "63 heures",
-    level: "Tous niveaux",
-    price: "Nous consulter",
-    category: "VTC",
-    modality: "Présentiel",
-    popular: true,
-    objectives: [
-      "Acquérir les compétences du transport privé de personnes",
-      "Maîtriser la relation client haut de gamme",
-      "Connaître la réglementation VTC",
-      "Préparer l'examen de la carte professionnelle"
-    ],
-    prerequisites: "Permis B de plus de 3 ans, casier judiciaire vierge",
-    program: [
-      "Réglementation VTC",
-      "Gestion d'entreprise",
-      "Sécurité routière",
-      "Français et anglais",
-      "Développement commercial",
-      "Service client premium"
-    ],
-    certification: "RS5637"
-  },
-  {
-    id: 3,
-    icon: Bike,
-    iconColor: "#D4A853",
-    title: "Formation VMDTR",
-    description: "Formation moto-taxi pour le transport rapide et sécurisé de passagers en milieu urbain.",
-    duration: "63 heures",
-    level: "Tous niveaux",
-    price: "À partir de 1 500 €",
-    category: "Autres",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Maîtriser les techniques de conduite moto en milieu urbain",
-      "Assurer la sécurité des passagers",
-      "Connaître la réglementation spécifique VMDTR",
-      "Préparer l'examen de la carte professionnelle"
-    ],
-    prerequisites: "Permis A de plus de 3 ans, casier judiciaire vierge",
-    program: [
-      "Réglementation VMDTR",
-      "Conduite sécuritaire en deux-roues",
-      "Relation client",
-      "Gestion d'activité",
-      "Équipements de sécurité",
-      "Navigation urbaine"
-    ],
-    certification: null
-  },
-  {
-    id: 4,
-    icon: Accessibility,
-    iconColor: "#1B4D3E",
-    title: "Formation TPMR",
-    description: "Formation spécialisée pour le transport de personnes à mobilité réduite avec bienveillance.",
-    duration: "14 heures",
-    level: "Tous niveaux",
-    price: "Nous consulter",
-    category: "Autres",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Accompagner les personnes à mobilité réduite",
-      "Maîtriser les équipements spécifiques",
-      "Connaître les pathologies et handicaps",
-      "Assurer confort et sécurité des passagers"
-    ],
-    prerequisites: "Permis B valide",
-    program: [
-      "Handicaps et pathologies",
-      "Équipements adaptés",
-      "Techniques d'accompagnement",
-      "Sécurité et ergonomie",
-      "Communication adaptée",
-      "Aspects juridiques"
-    ],
-    certification: null
-  },
-  {
-    id: 5,
-    icon: Zap,
-    iconColor: "#D4A853",
-    title: "Formation Accélérée",
-    description: "Formation intensive en cours du soir pour une reconversion rapide et efficace.",
-    duration: "33 heures",
-    level: "Tous niveaux",
-    price: "Nous consulter",
-    category: "TAXI",
-    modality: "Cours du soir",
-    popular: false,
-    objectives: [
-      "Préparer rapidement l'examen professionnel",
-      "Réviser les points essentiels",
-      "S'entraîner aux examens blancs",
-      "Optimiser son temps de formation"
-    ],
-    prerequisites: "Permis B de plus de 3 ans",
-    program: [
-      "Révisions intensives",
-      "Examens blancs",
-      "Coaching personnalisé",
-      "Méthodologie d'examen",
-      "Questions fréquentes",
-      "Simulations orales"
-    ],
-    certification: null
-  },
-  {
-    id: 6,
-    icon: Laptop,
-    iconColor: "#1B4D3E",
-    title: "Formation à Distance",
-    description: "Formation 100% en ligne, à votre rythme, accessible 24h/24 depuis n'importe où.",
-    duration: "63 heures",
-    level: "Tous niveaux",
-    price: "Nous consulter",
-    category: "VTC",
-    modality: "À distance",
-    popular: false,
-    objectives: [
-      "Se former à son rythme",
-      "Accéder aux cours 24h/24",
-      "Bénéficier d'un suivi personnalisé",
-      "Préparer l'examen à distance"
-    ],
-    prerequisites: "Permis B de plus de 3 ans, accès internet",
-    program: [
-      "Modules e-learning interactifs",
-      "Visioconférences avec formateurs",
-      "Examens blancs en ligne",
-      "Forum d'entraide",
-      "Ressources téléchargeables",
-      "Suivi personnalisé"
-    ],
-    certification: null
-  },
-  {
-    id: 7,
-    icon: RefreshCw,
-    iconColor: "#D4A853",
-    title: "Formation Passerelle",
-    description: "Passez d'une activité à l'autre : TAXI ↔ VTC ↔ VMDTR facilement.",
-    duration: "Variable",
-    level: "Professionnels",
-    price: "Nous consulter",
-    category: "Autres",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Acquérir les compétences complémentaires",
-      "Valider une nouvelle carte professionnelle",
-      "Diversifier son activité",
-      "Élargir sa clientèle"
-    ],
-    prerequisites: "Carte professionnelle valide (TAXI, VTC ou VMDTR)",
-    program: [
-      "Modules spécifiques selon passerelle",
-      "Réglementation complémentaire",
-      "Spécificités métier",
-      "Examen de validation",
-      "Accompagnement administratif"
-    ],
-    certification: null
-  },
-  {
-    id: 8,
-    icon: Navigation,
-    iconColor: "#1B4D3E",
-    title: "Formation Mobilité TAXI 75",
-    description: "Changez de département d'exercice et étendez votre zone d'activité sur Paris.",
-    duration: "35 heures",
-    level: "Professionnels",
-    price: "Nous consulter",
-    category: "TAXI",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Connaître la zone géographique parisienne",
-      "Mettre à jour ses connaissances réglementaires",
-      "Obtenir l'attestation de mobilité",
-      "Exercer sur Paris (75)"
-    ],
-    prerequisites: "Carte professionnelle TAXI valide",
-    program: [
-      "Réglementation parisienne",
-      "Géographie de Paris et Île-de-France",
-      "Tarification spécifique",
-      "Points d'intérêt majeurs",
-      "Examen de validation"
-    ],
-    certification: null
-  },
-  {
-    id: 9,
-    icon: Navigation,
-    iconColor: "#D4A853",
-    title: "Formation Mobilité TAXI 92",
-    description: "Étendez votre activité aux Hauts-de-Seine avec notre formation mobilité.",
-    duration: "14 heures",
-    level: "Professionnels",
-    price: "Nous consulter",
-    category: "TAXI",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Connaître la zone géographique des Hauts-de-Seine",
-      "Mettre à jour ses connaissances réglementaires",
-      "Obtenir l'attestation de mobilité",
-      "Exercer sur les Hauts-de-Seine (92)"
-    ],
-    prerequisites: "Carte professionnelle TAXI valide",
-    program: [
-      "Réglementation locale",
-      "Géographie du 92",
-      "Tarification spécifique",
-      "Points d'intérêt majeurs",
-      "Examen de validation"
-    ],
-    certification: null
-  },
-  {
-    id: 10,
-    icon: BookOpen,
-    iconColor: "#1B4D3E",
-    title: "Formation Continue TAXI",
-    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle TAXI.",
-    duration: "14 heures",
-    level: "Professionnels",
-    price: "Nous consulter",
-    category: "TAXI",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Mettre à jour ses connaissances",
-      "Renouveler sa carte professionnelle",
-      "Se conformer à la réglementation",
-      "Améliorer ses pratiques professionnelles"
-    ],
-    prerequisites: "Carte professionnelle TAXI de plus de 5 ans",
-    program: [
-      "Actualités réglementaires",
-      "Sécurité routière",
-      "Relation client",
-      "Nouvelles technologies",
-      "Éco-conduite",
-      "Attestation de formation"
-    ],
-    certification: null
-  },
-  {
-    id: 11,
-    icon: BookOpen,
-    iconColor: "#D4A853",
-    title: "Formation Continue VTC",
-    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle VTC.",
-    duration: "14 heures",
-    level: "Professionnels",
-    price: "Nous consulter",
-    category: "VTC",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Mettre à jour ses connaissances",
-      "Renouveler sa carte professionnelle",
-      "Se conformer à la réglementation",
-      "Améliorer ses pratiques professionnelles"
-    ],
-    prerequisites: "Carte professionnelle VTC de plus de 5 ans",
-    program: [
-      "Actualités réglementaires",
-      "Sécurité routière",
-      "Relation client premium",
-      "Nouvelles technologies",
-      "Éco-conduite",
-      "Attestation de formation"
-    ],
-    certification: null
-  },
-  {
-    id: 12,
-    icon: BookOpen,
-    iconColor: "#1B4D3E",
-    title: "Formation Continue VMDTR",
-    description: "Formation obligatoire tous les 5 ans pour maintenir votre carte professionnelle moto-taxi.",
-    duration: "14 heures",
-    level: "Professionnels",
-    price: "Nous consulter",
-    category: "Autres",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Mettre à jour ses connaissances",
-      "Renouveler sa carte professionnelle",
-      "Se conformer à la réglementation",
-      "Améliorer ses pratiques professionnelles"
-    ],
-    prerequisites: "Carte professionnelle VMDTR de plus de 5 ans",
-    program: [
-      "Actualités réglementaires",
-      "Sécurité routière moto",
-      "Relation client",
-      "Équipements de sécurité",
-      "Éco-conduite",
-      "Attestation de formation"
-    ],
-    certification: null
-  },
-  {
-    id: 13,
-    icon: Target,
-    iconColor: "#D4A853",
-    title: "Récupération de Points",
-    description: "Stage de sensibilisation pour récupérer 4 points sur votre permis de conduire.",
-    duration: "2 jours",
-    level: "Tous",
-    price: "Nous consulter",
-    category: "Autres",
-    modality: "Présentiel",
-    popular: false,
-    objectives: [
-      "Récupérer 4 points sur votre permis",
-      "Comprendre les comportements à risque",
-      "Adopter une conduite responsable",
-      "Éviter les récidives"
-    ],
-    prerequisites: "Permis de conduire valide avec moins de 12 points",
-    program: [
-      "Sécurité routière",
-      "Comportements à risque",
-      "Psychologie du conducteur",
-      "Facteurs d'accidents",
-      "Prévention",
-      "Attestation de stage"
-    ],
-    certification: null
-  },
-];
+const getIconComponent = (iconName: string | null): LucideIcon => {
+  return iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : Car;
+};
+
 const staggerContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -433,10 +53,11 @@ const staggerItemVariants: Variants = {
 
 const Formations = () => {
   const [activeCategory, setActiveCategory] = useState("Toutes");
-  const [activeModality, setActiveModality] = useState("Tous");
   const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
   const [preRegistrationFormation, setPreRegistrationFormation] = useState<Formation | null>(null);
   const heroRef = useRef<HTMLElement>(null);
+
+  const { formations, isLoading, error } = useFormations(true);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -446,18 +67,18 @@ const Formations = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
 
+  // Filter formations by category
   const filteredFormations = formations.filter((f) => {
-    const categoryMatch = activeCategory === "Toutes" || f.category === activeCategory;
-    const modalityMatch = activeModality === "Tous" || f.modality === activeModality;
-    return categoryMatch && modalityMatch;
+    if (activeCategory === "Toutes") return true;
+    return getCategoryFilter(f.category) === activeCategory;
   });
 
-  const getModalityIcon = (modality: string) => {
-    switch (modality) {
-      case "À distance": return <Monitor className="w-4 h-4" />;
-      case "Cours du soir": return <Moon className="w-4 h-4" />;
-      default: return <MapPin className="w-4 h-4" />;
-    }
+  // Check if any formation is "popular" (first 2 of taxi/vtc)
+  const isPopular = (formation: Formation) => {
+    const popularCategories = ["taxi", "vtc"];
+    if (!popularCategories.includes(formation.category)) return false;
+    const sameCategory = formations.filter(f => f.category === formation.category);
+    return sameCategory.indexOf(formation) < 1;
   };
 
   return (
@@ -490,7 +111,7 @@ const Formations = () => {
           >
             <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-gold/20 text-cream">
               <GraduationCap className="w-4 h-4" />
-              10 formations certifiantes
+              {formations.length} formations certifiantes
             </span>
           </motion.div>
           
@@ -510,7 +131,7 @@ const Formations = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-8"
           >
-          Découvrez nos formations professionnelles pour devenir chauffeur 
+            Découvrez nos formations professionnelles pour devenir chauffeur 
             ou maintenir vos compétences à jour.
           </motion.p>
 
@@ -571,148 +192,153 @@ const Formations = () => {
               ))}
             </div>
 
-            {/* Modality Filters */}
-            <div className="flex flex-wrap gap-2 justify-center">
-              {modalities.map((modality) => (
-                <motion.button
-                  key={modality}
-                  onClick={() => setActiveModality(modality)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
-                    activeModality === modality
-                      ? "bg-gold text-forest shadow-md"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
-                  }`}
-                >
-                  {modality !== "Tous" && getModalityIcon(modality)}
-                  {modality}
-                </motion.button>
-              ))}
-            </div>
-
             {/* Results count */}
             <p className="text-center text-muted-foreground text-sm">
               {filteredFormations.length} formation{filteredFormations.length > 1 ? "s" : ""} trouvée{filteredFormations.length > 1 ? "s" : ""}
             </p>
           </motion.div>
 
+          {/* Loading State */}
+          {isLoading && (
+            <div className="flex flex-col items-center justify-center py-16">
+              <Loader2 className="w-8 h-8 text-forest animate-spin mb-4" />
+              <p className="text-muted-foreground">Chargement des formations...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <div className="text-center py-16">
+              <p className="text-destructive mb-4">{error}</p>
+              <Button variant="outline" onClick={() => window.location.reload()}>
+                Réessayer
+              </Button>
+            </div>
+          )}
+
           {/* Grid */}
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={staggerContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            {filteredFormations.map((formation) => (
-              <motion.div
-                key={formation.id}
-                variants={staggerItemVariants}
-                whileHover={{ 
-                  y: -8, 
-                  boxShadow: "0 20px 40px rgba(27, 77, 62, 0.15)",
-                  borderColor: "rgba(212, 168, 83, 0.5)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="group card-livementor relative"
-              >
-                {/* Popular badge */}
-                {formation.popular && (
-                  <motion.div 
-                    className="absolute -top-3 -right-3 z-10"
-                    initial={{ rotate: -12, scale: 0 }}
-                    animate={{ rotate: -12, scale: 1 }}
-                    transition={{ delay: 0.3, type: "spring" }}
+          {!isLoading && !error && (
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              variants={staggerContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              {filteredFormations.map((formation) => {
+                const IconComponent = getIconComponent(formation.icon);
+                const popular = isPopular(formation);
+                
+                return (
+                  <motion.div
+                    key={formation.id}
+                    variants={staggerItemVariants}
+                    whileHover={{ 
+                      y: -8, 
+                      boxShadow: "0 20px 40px rgba(27, 77, 62, 0.15)",
+                      borderColor: "rgba(212, 168, 83, 0.5)"
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group card-livementor relative"
                   >
-                    <span className="flex items-center gap-1 bg-gold text-forest text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                      <Star className="w-3 h-3 fill-current" />
-                      Populaire
-                    </span>
-                  </motion.div>
-                )}
+                    {/* Popular badge */}
+                    {popular && (
+                      <motion.div 
+                        className="absolute -top-3 -right-3 z-10"
+                        initial={{ rotate: -12, scale: 0 }}
+                        animate={{ rotate: -12, scale: 1 }}
+                        transition={{ delay: 0.3, type: "spring" }}
+                      >
+                        <span className="flex items-center gap-1 bg-gold text-forest text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                          <Star className="w-3 h-3 fill-current" />
+                          Populaire
+                        </span>
+                      </motion.div>
+                    )}
 
-                {/* Header */}
-                <div className="mb-4">
-                  <div className="flex items-start justify-between mb-4">
-                    <motion.div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center"
-                      style={{ backgroundColor: `${formation.iconColor}15` }}
-                      whileHover={{ scale: 1.15, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <formation.icon className="w-6 h-6" style={{ color: formation.iconColor }} />
-                    </motion.div>
-                    <div className="flex flex-col items-end gap-2">
-                      <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
-                        {formation.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                        {getModalityIcon(formation.modality)}
-                        {formation.modality}
-                      </span>
+                    {/* Header */}
+                    <div className="mb-4">
+                      <div className="flex items-start justify-between mb-4">
+                        <motion.div 
+                          className="w-12 h-12 rounded-xl flex items-center justify-center bg-forest/10"
+                          whileHover={{ scale: 1.15, rotate: 5 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <IconComponent className="w-6 h-6 text-forest" />
+                        </motion.div>
+                        <div className="flex flex-col items-end gap-2">
+                          <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
+                            {getCategoryLabel(formation.category)}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <motion.h3 
+                        className="font-bold text-xl text-forest mb-2 group-hover:text-gold transition-colors duration-300"
+                        whileHover={{ x: 5 }}
+                      >
+                        {formation.title}
+                      </motion.h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                        {formation.description || "Formation professionnelle certifiante."}
+                      </p>
                     </div>
-                  </div>
-                  
-                  <motion.h3 
-                    className="font-bold text-xl text-forest mb-2 group-hover:text-gold transition-colors duration-300"
-                    whileHover={{ x: 5 }}
-                  >
-                    {formation.title}
-                  </motion.h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                    {formation.description}
-                  </p>
-                </div>
 
-                {/* Meta */}
-                <div className="grid grid-cols-3 gap-3 text-xs mb-5">
-                  <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
-                    <Clock className="w-4 h-4 text-forest mb-1" />
-                    <span className="font-semibold text-forest">{formation.duration}</span>
-                  </div>
-                  <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
-                    <Users className="w-4 h-4 text-forest mb-1" />
-                    <span className="font-semibold text-forest">{formation.level}</span>
-                  </div>
-                  <div className="flex flex-col items-center p-2 rounded-lg bg-gold/10">
-                    <Euro className="w-4 h-4 text-gold mb-1" />
-                    <span className="font-semibold text-forest text-center">{formation.price}</span>
-                  </div>
-                </div>
+                    {/* Meta */}
+                    <div className="grid grid-cols-2 gap-3 text-xs mb-5">
+                      <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
+                        <Clock className="w-4 h-4 text-forest mb-1" />
+                        <span className="font-semibold text-forest">{formation.duration}</span>
+                      </div>
+                      <div className="flex flex-col items-center p-2 rounded-lg bg-gold/10">
+                        <Euro className="w-4 h-4 text-gold mb-1" />
+                        <span className="font-semibold text-forest text-center">
+                          {formation.price ? `${formation.price.toFixed(0)} €` : "Nous consulter"}
+                        </span>
+                      </div>
+                    </div>
 
-                {/* Certification badge */}
-                {formation.certification && (
-                  <div className="mb-4 px-3 py-2 bg-forest/5 rounded-lg border border-forest/10">
-                    <p className="text-xs text-forest font-medium flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-gold" />
-                      Certification {formation.certification}
-                    </p>
-                  </div>
-                )}
+                    {/* Features preview */}
+                    {formation.features && formation.features.length > 0 && (
+                      <div className="mb-4 space-y-1">
+                        {formation.features.slice(0, 2).map((feature, i) => (
+                          <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <CheckCircle2 className="w-3 h-3 text-forest shrink-0" />
+                            <span className="line-clamp-1">{feature}</span>
+                          </div>
+                        ))}
+                        {formation.features.length > 2 && (
+                          <p className="text-xs text-muted-foreground pl-5">
+                            +{formation.features.length - 2} autres
+                          </p>
+                        )}
+                      </div>
+                    )}
 
-                <div className="flex gap-2 pt-4 border-t border-border">
-                  <Button 
-                    variant="outline" 
-                    className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream transition-all duration-300"
-                    onClick={() => setSelectedFormation(formation)}
-                  >
-                    <Info className="w-4 h-4 mr-2" />
-                    Détails
-                  </Button>
-                  <Button 
-                    className="flex-1 btn-primary"
-                    onClick={() => setPreRegistrationFormation(formation)}
-                  >
-                    <UserPlus className="w-4 h-4 mr-2" />
-                    S'inscrire
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                    <div className="flex gap-2 pt-4 border-t border-border">
+                      <Button 
+                        variant="outline" 
+                        className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream transition-all duration-300"
+                        onClick={() => setSelectedFormation(formation)}
+                      >
+                        <Info className="w-4 h-4 mr-2" />
+                        Détails
+                      </Button>
+                      <Button 
+                        className="flex-1 btn-primary"
+                        onClick={() => setPreRegistrationFormation(formation)}
+                      >
+                        <UserPlus className="w-4 h-4 mr-2" />
+                        S'inscrire
+                      </Button>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          )}
 
-          {filteredFormations.length === 0 && (
+          {!isLoading && !error && filteredFormations.length === 0 && (
             <motion.div 
               className="text-center py-16"
               initial={{ opacity: 0 }}
@@ -722,7 +348,7 @@ const Formations = () => {
               <Button 
                 variant="outline" 
                 className="mt-4"
-                onClick={() => { setActiveCategory("Toutes"); setActiveModality("Tous"); }}
+                onClick={() => setActiveCategory("Toutes")}
               >
                 Réinitialiser les filtres
               </Button>
@@ -781,20 +407,18 @@ const Formations = () => {
             <>
               <DialogHeader>
                 <div className="flex items-center gap-3 mb-3">
-                  <div 
-                    className="w-14 h-14 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: `${selectedFormation.iconColor}15` }}
-                  >
-                    <selectedFormation.icon className="w-7 h-7" style={{ color: selectedFormation.iconColor }} />
-                  </div>
+                  {(() => {
+                    const IconComp = getIconComponent(selectedFormation.icon);
+                    return (
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-forest/10">
+                        <IconComp className="w-7 h-7 text-forest" />
+                      </div>
+                    );
+                  })()}
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
-                        {selectedFormation.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                        {getModalityIcon(selectedFormation.modality)}
-                        {selectedFormation.modality}
+                        {getCategoryLabel(selectedFormation.category)}
                       </span>
                     </div>
                     <DialogTitle className="text-xl md:text-2xl font-black text-forest">
@@ -803,92 +427,50 @@ const Formations = () => {
                   </div>
                 </div>
                 <DialogDescription className="text-muted-foreground">
-                  {selectedFormation.description}
+                  {selectedFormation.description || "Formation professionnelle certifiante."}
                 </DialogDescription>
               </DialogHeader>
 
               <div className="space-y-6 mt-6">
                 {/* Info grid */}
-                <div className="grid grid-cols-3 gap-4 p-4 bg-muted/50 rounded-xl">
+                <div className="grid grid-cols-2 gap-4 p-4 bg-muted/50 rounded-xl">
                   <div className="text-center">
                     <Clock className="w-6 h-6 text-forest mx-auto mb-2" />
                     <p className="text-sm font-bold text-forest">{selectedFormation.duration}</p>
                     <p className="text-xs text-muted-foreground">Durée</p>
                   </div>
                   <div className="text-center">
-                    <Users className="w-6 h-6 text-forest mx-auto mb-2" />
-                    <p className="text-sm font-bold text-forest">{selectedFormation.level}</p>
-                    <p className="text-xs text-muted-foreground">Niveau</p>
-                  </div>
-                  <div className="text-center">
                     <Euro className="w-6 h-6 text-gold mx-auto mb-2" />
-                    <p className="text-sm font-bold text-forest">{selectedFormation.price}</p>
+                    <p className="text-sm font-bold text-forest">
+                      {selectedFormation.price ? `${selectedFormation.price.toFixed(0)} €` : "Nous consulter"}
+                    </p>
                     <p className="text-xs text-muted-foreground">Tarif</p>
                   </div>
                 </div>
 
-                {/* Certification */}
-                {selectedFormation.certification && (
-                  <div className="flex items-center gap-3 p-4 bg-gold/10 rounded-xl border border-gold/20">
-                    <CheckCircle2 className="w-6 h-6 text-gold shrink-0" />
-                    <div>
-                      <p className="font-bold text-forest">Certification officielle {selectedFormation.certification}</p>
-                      <p className="text-sm text-muted-foreground">Formation certifiante reconnue par l'État</p>
-                    </div>
+                {/* Features */}
+                {selectedFormation.features && selectedFormation.features.length > 0 && (
+                  <div>
+                    <h4 className="font-bold text-forest mb-4 uppercase text-sm flex items-center gap-2">
+                      <span className="w-1 h-4 bg-gold rounded-full" />
+                      Contenu de la formation
+                    </h4>
+                    <ul className="space-y-3">
+                      {selectedFormation.features.map((feature, i) => (
+                        <motion.li 
+                          key={i} 
+                          className="flex items-start gap-3 text-sm text-muted-foreground"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-forest shrink-0 mt-0.5" />
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </ul>
                   </div>
                 )}
-
-                {/* Objectives */}
-                <div>
-                  <h4 className="font-bold text-forest mb-4 uppercase text-sm flex items-center gap-2">
-                    <span className="w-1 h-4 bg-gold rounded-full" />
-                    Objectifs de la formation
-                  </h4>
-                  <ul className="space-y-3">
-                    {selectedFormation.objectives.map((obj, i) => (
-                      <motion.li 
-                        key={i} 
-                        className="flex items-start gap-3 text-sm text-muted-foreground"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-forest shrink-0 mt-0.5" />
-                        {obj}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Prerequisites */}
-                <div>
-                  <h4 className="font-bold text-forest mb-3 uppercase text-sm flex items-center gap-2">
-                    <span className="w-1 h-4 bg-gold rounded-full" />
-                    Prérequis
-                  </h4>
-                  <p className="text-sm text-muted-foreground bg-muted/50 p-4 rounded-lg">
-                    {selectedFormation.prerequisites}
-                  </p>
-                </div>
-
-                {/* Program */}
-                <div>
-                  <h4 className="font-bold text-forest mb-3 uppercase text-sm flex items-center gap-2">
-                    <span className="w-1 h-4 bg-gold rounded-full" />
-                    Programme
-                  </h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {selectedFormation.program.map((item, i) => (
-                      <div 
-                        key={i}
-                        className="flex items-center gap-2 text-sm text-muted-foreground p-2 bg-muted/30 rounded-lg"
-                      >
-                        <span className="w-2 h-2 bg-gold rounded-full shrink-0" />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
                 {/* Payment info */}
                 <div className="p-4 bg-forest/5 rounded-xl border border-forest/10">
