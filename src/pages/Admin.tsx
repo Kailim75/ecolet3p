@@ -38,8 +38,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import FormationsManager from "@/components/admin/FormationsManager";
 import SessionsManager from "@/components/admin/SessionsManager";
+import AppointmentsManager from "@/components/admin/AppointmentsManager";
 
-type Tab = "newsletter" | "preregistrations" | "formations" | "sessions";
+type Tab = "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments";
 
 interface NewsletterSubscriber {
   id: string;
@@ -365,6 +366,17 @@ const Admin = () => {
                 <Calendar className="w-4 h-4 inline-block mr-2" />
                 Sessions
               </button>
+              <button
+                onClick={() => { setActiveTab("appointments"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors ${
+                  activeTab === "appointments"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <Clock className="w-4 h-4 inline-block mr-2" />
+                Rendez-vous
+              </button>
             </div>
           </div>
 
@@ -373,6 +385,8 @@ const Admin = () => {
             <FormationsManager />
           ) : activeTab === "sessions" ? (
             <SessionsManager />
+          ) : activeTab === "appointments" ? (
+            <AppointmentsManager />
           ) : (
             <>
               {/* Toolbar */}
