@@ -1,5 +1,6 @@
-import { motion, type Easing } from "framer-motion";
+import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { Star } from "lucide-react";
+import { useRef } from "react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -20,9 +21,34 @@ const staggerItemVariants = {
 };
 
 const TestimonialsSection = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-60, 60]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.1, 0.9]);
+
   return (
-    <section className="section-padding gradient-warm overflow-hidden">
-      <div className="container-custom">
+    <section ref={containerRef} className="section-padding gradient-warm overflow-hidden relative">
+      {/* Parallax Background Elements */}
+      <motion.div 
+        style={{ y: y1, scale }}
+        className="absolute -top-20 right-1/4 w-72 h-72 bg-gold/15 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute top-1/2 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y3 }}
+        className="absolute -bottom-32 right-10 w-56 h-56 bg-gold/10 rounded-full blur-2xl pointer-events-none"
+      />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

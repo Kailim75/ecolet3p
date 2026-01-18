@@ -41,8 +41,25 @@ const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 10]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+
   return (
     <section ref={containerRef} className="relative min-h-[90vh] flex items-center hero-bg overflow-hidden pt-20">
+      {/* Enhanced Parallax Background Elements */}
+      <motion.div 
+        style={{ y: y2, rotate, scale }}
+        className="absolute -top-32 -right-32 w-96 h-96 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y, rotate }}
+        className="absolute top-1/3 -left-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute bottom-20 right-1/4 w-48 h-48 bg-forest/5 rounded-full blur-2xl pointer-events-none"
+      />
       {/* Vertical text */}
       <motion.div 
         className="hidden xl:block absolute left-8 top-1/2 -translate-y-1/2 z-10"

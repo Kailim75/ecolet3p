@@ -1,4 +1,5 @@
-import { motion, type Easing } from "framer-motion";
+import { motion, useScroll, useTransform, type Easing } from "framer-motion";
+import { useRef } from "react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -29,9 +30,34 @@ const staggerItemVariants = {
 };
 
 const AdvantagesSection = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-60, 60]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -10]);
+
   return (
-    <section className="section-padding bg-card overflow-hidden">
-      <div className="container-custom">
+    <section ref={containerRef} className="section-padding bg-card overflow-hidden relative">
+      {/* Parallax Background Elements */}
+      <motion.div 
+        style={{ y: y1, rotate: rotate1 }}
+        className="absolute -top-20 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y2, rotate: rotate2 }}
+        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y1 }}
+        className="absolute top-1/2 right-0 w-32 h-32 bg-forest/5 rounded-full blur-2xl pointer-events-none"
+      />
+
+      <div className="container-custom relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}

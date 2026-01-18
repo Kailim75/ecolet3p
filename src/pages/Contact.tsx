@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, type Variants } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -196,18 +196,45 @@ const Contact = () => {
     }
   };
 
+  const heroRef = useRef(null);
+  const contactRef = useRef(null);
+  
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const { scrollYProgress: contactScroll } = useScroll({
+    target: contactRef,
+    offset: ["start end", "end start"]
+  });
+
+  const heroY = useTransform(heroScroll, [0, 1], [0, 100]);
+  const heroScale = useTransform(heroScroll, [0, 1], [1, 1.1]);
+  const contactY1 = useTransform(contactScroll, [0, 1], [80, -80]);
+  const contactY2 = useTransform(contactScroll, [0, 1], [-60, 60]);
+  const contactRotate = useTransform(contactScroll, [0, 1], [-5, 5]);
+
   return (
     <Layout>
-      {/* Hero - LiveMentor Style */}
-      <section className="bg-cream py-20 md:py-28 relative overflow-hidden">
-        {/* Decorative Elements */}
+      {/* Hero - LiveMentor Style with Parallax */}
+      <section ref={heroRef} className="bg-cream py-20 md:py-28 relative overflow-hidden">
+        {/* Parallax Decorative Elements */}
         <motion.div 
-          className="absolute top-20 left-10 w-32 h-32 bg-forest/5 rounded-full blur-3xl"
+          style={{ y: heroY, scale: heroScale }}
+          className="absolute -top-20 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: heroY }}
+          className="absolute top-1/2 -right-32 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          className="absolute bottom-10 left-1/4 w-40 h-40 bg-forest/5 rounded-full blur-2xl pointer-events-none"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 4, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-10 right-20 w-40 h-40 bg-gold/10 rounded-full blur-3xl"
+          className="absolute top-20 right-1/4 w-32 h-32 bg-gold/15 rounded-full blur-2xl pointer-events-none"
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 5, repeat: Infinity }}
         />
@@ -242,9 +269,23 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      {/* Contact Section with Parallax */}
+      <section ref={contactRef} className="section-padding bg-background relative overflow-hidden">
+        {/* Parallax Background Elements */}
+        <motion.div 
+          style={{ y: contactY1, rotate: contactRotate }}
+          className="absolute -top-32 left-10 w-72 h-72 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: contactY2 }}
+          className="absolute top-1/3 -right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: contactY1 }}
+          className="absolute -bottom-20 left-1/3 w-56 h-56 bg-forest/5 rounded-full blur-2xl pointer-events-none"
+        />
+
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
             <motion.div 
