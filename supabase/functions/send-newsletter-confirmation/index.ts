@@ -48,7 +48,7 @@ const handler = async (req: Request): Promise<Response> => {
     const unsubscribeUrl = `https://campust3ptest.lovable.app/unsubscribe?token=${unsubscribeToken}`;
 
     const emailResponse = await resend.emails.send({
-      from: "Campus T3P <montrouge@t3pformation.fr>",
+      from: "Campus T3P <montrouge@t3pcampus.fr>",
       to: [email],
       subject: "Bienvenue dans notre newsletter !",
       html: `

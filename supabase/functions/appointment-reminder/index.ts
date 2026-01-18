@@ -161,7 +161,7 @@ const handler = async (req: Request): Promise<Response> => {
             Authorization: `Bearer ${RESEND_API_KEY}`,
           },
           body: JSON.stringify({
-            from: "Campus T3P <montrouge@t3pformation.fr>",
+            from: "Campus T3P <montrouge@t3pcampus.fr>",
             to: [apt.email],
             subject: "⏰ Rappel : Votre rendez-vous demain au Campus T3P",
             html: emailHtml,
