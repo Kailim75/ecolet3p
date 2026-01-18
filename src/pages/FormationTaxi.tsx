@@ -300,7 +300,7 @@ const FormationTaxi = () => {
             >
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
                 <CarTaxiFront className="h-4 w-4 mr-2" />
-                Formation Certifiante RS5635
+                Formation Taxi
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -310,7 +310,7 @@ const FormationTaxi = () => {
               
               <p className="text-lg text-muted-foreground mb-8">
                 Devenez chauffeur de taxi professionnel avec notre formation complète de 63 heures. 
-                Taux de réussite de 85% et accompagnement personnalisé jusqu'à l'obtention de votre carte.
+                Taux de réussite de 94% et accompagnement personnalisé jusqu'à l'obtention de votre carte.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
