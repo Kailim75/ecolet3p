@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          created_at: string
+          email: string
+          first_name: string
+          formation_choice: string
+          id: string
+          last_name: string
+          notes: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          created_at?: string
+          email: string
+          first_name: string
+          formation_choice: string
+          id?: string
+          last_name: string
+          notes?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          created_at?: string
+          email?: string
+          first_name?: string
+          formation_choice?: string
+          id?: string
+          last_name?: string
+          notes?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       formation_sessions: {
         Row: {
           created_at: string
