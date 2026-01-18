@@ -25,6 +25,7 @@ const getFormationDetailRoute = (category: string): string | null => {
   const routes: Record<string, string> = {
     taxi: "/formations/taxi",
     vtc: "/formations/vtc",
+    vmdtr: "/formations/vmdtr",
     mobilite: "/formations/mobilite",
   };
   return routes[category] || null;
