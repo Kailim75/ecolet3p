@@ -73,7 +73,12 @@ const FormationsSection = () => {
             <motion.div
               key={formation.title}
               variants={staggerItemVariants}
-              whileHover={{ y: -8, boxShadow: "0 25px 50px rgba(27, 77, 62, 0.15)" }}
+              whileHover={{ 
+                y: -12, 
+                boxShadow: "0 30px 60px rgba(27, 77, 62, 0.18)",
+                borderColor: "rgba(212, 168, 83, 0.6)"
+              }}
+              whileTap={{ scale: 0.98, y: -6 }}
               className="card-livementor relative group cursor-pointer"
             >
               {formation.popular && (
@@ -83,6 +88,7 @@ const FormationsSection = () => {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1, type: "spring" }}
+                  whileHover={{ scale: 1.1, rotate: [-2, 2, -2, 0] }}
                 >
                   Populaire
                 </motion.div>
@@ -90,27 +96,37 @@ const FormationsSection = () => {
 
               <motion.div 
                 className="text-5xl mb-5"
-                whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-                transition={{ duration: 0.4 }}
+                whileHover={{ 
+                  scale: 1.3, 
+                  rotate: [0, -15, 15, -10, 10, 0],
+                  transition: { duration: 0.5 }
+                }}
               >
                 {formation.emoji}
               </motion.div>
 
-              <h3 className="text-xl font-bold text-forest mb-3 group-hover:text-gold transition-colors">
+              <motion.h3 
+                className="text-xl font-bold text-forest mb-3 group-hover:text-gold transition-colors duration-300"
+              >
                 {formation.title}
-              </h3>
+              </motion.h3>
               <p className="text-warm-gray-600 mb-6">{formation.description}</p>
 
               <div className="space-y-2 mb-6">
-                <div className="flex items-center gap-2 text-sm text-warm-gray-600">
-                  <Clock className="w-4 h-4 text-forest" />{formation.duration}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-warm-gray-600">
-                  <Users className="w-4 h-4 text-forest" />{formation.level}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-warm-gray-600">
-                  <CreditCard className="w-4 h-4 text-forest" />{formation.payment}
-                </div>
+                {[
+                  { Icon: Clock, text: formation.duration },
+                  { Icon: Users, text: formation.level },
+                  { Icon: CreditCard, text: formation.payment }
+                ].map(({ Icon, text }, idx) => (
+                  <motion.div 
+                    key={idx}
+                    className="flex items-center gap-2 text-sm text-warm-gray-600"
+                    whileHover={{ x: 5, color: "#1B4D3E" }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    <Icon className="w-4 h-4 text-forest" />{text}
+                  </motion.div>
+                ))}
               </div>
 
               <div className="flex items-center justify-between pt-5 border-t border-border">
@@ -118,8 +134,12 @@ const FormationsSection = () => {
                   <span className="text-xs text-warm-gray-500 uppercase">Tarif</span>
                   <p className="font-bold text-forest">Nous consulter</p>
                 </div>
-                <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400 }}>
-                  <Link to="/contact" className="flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase">
+                <motion.div 
+                  whileHover={{ x: 8, scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <Link to="/contact" className="flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline">
                     En savoir plus<ArrowRight className="w-4 h-4" />
                   </Link>
                 </motion.div>
@@ -135,8 +155,12 @@ const FormationsSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <motion.div whileHover={{ x: 10 }} className="inline-block">
-            <Link to="/formations" className="inline-flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase">
+          <motion.div 
+            whileHover={{ x: 10, scale: 1.02 }} 
+            whileTap={{ scale: 0.98 }}
+            className="inline-block"
+          >
+            <Link to="/formations" className="inline-flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline">
               Voir toutes nos formations<ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>

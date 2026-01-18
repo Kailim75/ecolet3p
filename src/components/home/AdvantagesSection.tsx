@@ -107,12 +107,17 @@ const AdvantagesSection = () => {
             <motion.div
               key={adv.title}
               variants={staggerItemVariants}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(27, 77, 62, 0.15)" }}
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 25px 50px rgba(27, 77, 62, 0.18)",
+                borderColor: "rgba(212, 168, 83, 0.5)"
+              }}
+              whileTap={{ scale: 0.98, y: -5 }}
               className="card-livementor text-center group cursor-pointer"
             >
               <motion.div 
                 className="mb-4"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
                 <motion.span 
@@ -125,8 +130,20 @@ const AdvantagesSection = () => {
                   {adv.value}
                 </motion.span>
               </motion.div>
-              <h3 className="text-lg font-bold text-forest mb-2">{adv.title}</h3>
+              <motion.h3 
+                className="text-lg font-bold text-forest mb-2 group-hover:text-gold transition-colors duration-300"
+              >
+                {adv.title}
+              </motion.h3>
               <p className="text-warm-gray-600 text-sm leading-relaxed">{adv.description}</p>
+              
+              {/* Hover indicator */}
+              <motion.div
+                className="w-12 h-1 bg-gold/30 rounded-full mx-auto mt-4"
+                initial={{ width: 0 }}
+                whileHover={{ width: 48 }}
+                transition={{ duration: 0.3 }}
+              />
             </motion.div>
           ))}
         </motion.div>

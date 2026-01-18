@@ -82,7 +82,12 @@ const ProcessSection = () => {
 
               <motion.div 
                 className="relative bg-card rounded-xl p-6 border border-border group cursor-pointer"
-                whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(27, 77, 62, 0.12)", borderColor: "rgba(27, 77, 62, 0.3)" }}
+                whileHover={{ 
+                  y: -10, 
+                  boxShadow: "0 25px 50px rgba(27, 77, 62, 0.15)", 
+                  borderColor: "rgba(212, 168, 83, 0.5)"
+                }}
+                whileTap={{ scale: 0.98, y: -5 }}
               >
                 <motion.div 
                   className="step-number mb-4 group-hover:bg-gold group-hover:text-forest transition-colors"
@@ -90,19 +95,27 @@ const ProcessSection = () => {
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 300, damping: 15 }}
+                  whileHover={{ scale: 1.15, rotate: [0, -10, 10, 0] }}
                 >
                   {step.number}
                 </motion.div>
 
                 <motion.div 
                   className="text-4xl mb-4"
-                  whileHover={{ scale: 1.3, rotate: [0, -15, 15, 0] }}
-                  transition={{ duration: 0.4 }}
+                  whileHover={{ 
+                    scale: 1.4, 
+                    rotate: [0, -20, 20, -10, 10, 0],
+                    transition: { duration: 0.5 }
+                  }}
                 >
                   {step.emoji}
                 </motion.div>
 
-                <h3 className="text-lg font-bold text-forest mb-2">{step.title}</h3>
+                <motion.h3 
+                  className="text-lg font-bold text-forest mb-2 group-hover:text-gold transition-colors duration-300"
+                >
+                  {step.title}
+                </motion.h3>
                 <p className="text-warm-gray-600 text-sm">{step.description}</p>
               </motion.div>
             </motion.div>
@@ -120,8 +133,12 @@ const ProcessSection = () => {
             <span className="font-semibold text-forest">En moyenne,</span> nos élèves obtiennent leur carte en{" "}
             <span className="font-semibold text-forest">2 à 3 mois</span>
           </p>
-          <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
-            <Button asChild className="btn-primary">
+          <motion.div 
+            whileHover={{ scale: 1.05, y: -4 }} 
+            whileTap={{ scale: 0.97 }}
+            className="inline-block"
+          >
+            <Button asChild className="btn-primary glow-hover">
               <Link to="/contact">COMMENCER MON PARCOURS</Link>
             </Button>
           </motion.div>

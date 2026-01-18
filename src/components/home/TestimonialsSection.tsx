@@ -71,7 +71,12 @@ const TestimonialsSection = () => {
             <motion.div
               key={testimonial.name}
               variants={staggerItemVariants}
-              whileHover={{ y: -8, boxShadow: "0 25px 50px rgba(27, 77, 62, 0.12)" }}
+              whileHover={{ 
+                y: -12, 
+                boxShadow: "0 30px 60px rgba(27, 77, 62, 0.15)",
+                borderColor: "rgba(212, 168, 83, 0.5)"
+              }}
+              whileTap={{ scale: 0.98, y: -6 }}
               className="card-livementor cursor-pointer"
             >
               <div className="flex gap-1 mb-4">
@@ -82,6 +87,7 @@ const TestimonialsSection = () => {
                     whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.1 + j * 0.05, type: "spring", stiffness: 400 }}
+                    whileHover={{ scale: 1.3, rotate: 15 }}
                   >
                     <Star className="w-5 h-5 fill-gold text-gold" />
                   </motion.div>
@@ -101,13 +107,22 @@ const TestimonialsSection = () => {
               <div className="flex items-center gap-4 pt-4 border-t border-border">
                 <motion.div 
                   className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-bold"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileHover={{ 
+                    scale: 1.15, 
+                    rotate: [0, -10, 10, 0],
+                    boxShadow: "0 5px 20px rgba(27, 77, 62, 0.4)"
+                  }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
                   {testimonial.initials}
                 </motion.div>
                 <div>
-                  <p className="font-bold text-forest">{testimonial.name}</p>
+                  <motion.p 
+                    className="font-bold text-forest"
+                    whileHover={{ color: "#D4A853" }}
+                  >
+                    {testimonial.name}
+                  </motion.p>
                   <p className="text-sm text-warm-gray-500">{testimonial.role}</p>
                 </div>
               </div>

@@ -135,13 +135,24 @@ const HeroSection = () => {
                 <motion.div 
                   key={index} 
                   variants={staggerItemVariants}
-                  className="flex items-center gap-3"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className="flex items-center gap-3 cursor-pointer"
+                  whileHover={{ 
+                    scale: 1.08, 
+                    x: 5,
+                    transition: { type: "spring", stiffness: 400, damping: 17 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center">
+                  <motion.div 
+                    className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center"
+                    whileHover={{ 
+                      rotate: [0, -10, 10, 0],
+                      backgroundColor: "rgba(27, 77, 62, 0.2)"
+                    }}
+                    transition={{ duration: 0.4 }}
+                  >
                     <stat.icon className="w-5 h-5 text-forest" />
-                  </div>
+                  </motion.div>
                   <div>
                     <span className="font-black text-forest text-lg">{stat.value}</span>
                     <span className="text-warm-gray-500 text-sm ml-1">{stat.label}</span>
@@ -150,18 +161,23 @@ const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* CTA Button */}
+            {/* CTA Button with enhanced micro-interactions */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease: smoothEase }}
             >
               <motion.div
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -4,
+                  boxShadow: "0 15px 40px rgba(27, 77, 62, 0.4)"
+                }}
+                whileTap={{ scale: 0.97, y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="inline-block"
               >
-                <Button asChild className="btn-primary">
+                <Button asChild className="btn-primary pulse-subtle">
                   <Link to="/contact">DÉCOUVRIR NOS FORMATIONS</Link>
                 </Button>
               </motion.div>
