@@ -8,8 +8,11 @@ import Index from "./pages/Index";
 import Formations from "./pages/Formations";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import LegalMentions from "./pages/LegalMentions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import PageLoader from "./components/ui/PageLoader";
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -43,8 +46,11 @@ const App = () => {
               <Route path="/formations" element={<Formations />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/mentions-legales" element={<LegalMentions />} />
+              <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <CookieConsent />
           </BrowserRouter>
         </div>
       </TooltipProvider>

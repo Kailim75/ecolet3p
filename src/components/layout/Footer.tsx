@@ -105,8 +105,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-cream/50">
             <p>© 2025 T3P Campus - Tous droits réservés</p>
             <div className="flex gap-6">
-              <Link to="#" className="hover:text-gold transition-colors">Mentions légales</Link>
-              <Link to="#" className="hover:text-gold transition-colors">Confidentialité</Link>
+              <Link to="/mentions-legales" className="hover:text-gold transition-colors">Mentions légales</Link>
+              <Link to="/politique-de-confidentialite" className="hover:text-gold transition-colors">Confidentialité</Link>
             </div>
           </div>
         </div>

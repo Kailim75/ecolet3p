@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
+import FAQSchemaOrg from "./FAQSchemaOrg";
 const faqs = [
   {
     question: "Qu'est-ce que la carte professionnelle T3P ?",
@@ -67,6 +67,8 @@ const FAQSection = () => {
       className="section-padding relative overflow-hidden"
       style={{ backgroundColor: "#FBF7EF" }}
     >
+      {/* Schema.org JSON-LD for SEO */}
+      <FAQSchemaOrg faqs={faqs} />
       {/* Background decorations */}
       <motion.div 
         className="absolute top-20 left-10 w-32 h-32 rounded-full opacity-20"
