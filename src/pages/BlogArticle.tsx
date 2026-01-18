@@ -228,8 +228,12 @@ const BlogArticle = () => {
                   to={`/blog/${relatedArticle.slug}`}
                   className="card-livementor group"
                 >
-                  <div className="w-full h-32 bg-forest/5 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-4xl">{relatedArticle.image}</span>
+                  <div className="w-full h-32 rounded-lg mb-4 overflow-hidden">
+                    <img 
+                      src={relatedArticle.image} 
+                      alt={relatedArticle.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   <span className="inline-block bg-gold/20 text-forest text-xs font-bold px-2 py-1 rounded-full mb-2">
                     {relatedArticle.category}

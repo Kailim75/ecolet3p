@@ -1,3 +1,11 @@
+import vtcDriver2025 from "@/assets/blog/vtc-driver-2025.jpg";
+import taxiDriverFormation from "@/assets/blog/taxi-driver-formation.jpg";
+import vtcVsTaxiComparison from "@/assets/blog/vtc-vs-taxi-comparison.jpg";
+import carteProfessionnelleVtc from "@/assets/blog/carte-professionnelle-vtc.jpg";
+import financementFormation from "@/assets/blog/financement-formation.jpg";
+import motoTaxiVmdtr from "@/assets/blog/moto-taxi-vmdtr.jpg";
+import formationContinue from "@/assets/blog/formation-continue.jpg";
+
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -21,7 +29,7 @@ export const blogArticles: BlogArticle[] = [
     readTime: "8 min",
     publishDate: "2025-01-15",
     author: "T3P Campus",
-    image: "🚗",
+    image: vtcDriver2025,
     content: `
 ## Introduction
 
@@ -92,7 +100,7 @@ Devenir chauffeur VTC est un projet accessible avec une bonne préparation. T3P 
     readTime: "7 min",
     publishDate: "2025-01-10",
     author: "T3P Campus",
-    image: "🚕",
+    image: taxiDriverFormation,
     content: `
 ## Qu'est-ce que la carte professionnelle T3P ?
 
@@ -158,7 +166,7 @@ La carte professionnelle taxi ouvre les portes d'un métier stable et recherché
     readTime: "10 min",
     publishDate: "2025-01-08",
     author: "T3P Campus",
-    image: "🔄",
+    image: vtcVsTaxiComparison,
     content: `
 ## Introduction
 
@@ -248,7 +256,7 @@ VTC et Taxi sont deux beaux métiers avec chacun leurs avantages. L'important es
     readTime: "6 min",
     publishDate: "2025-01-05",
     author: "T3P Campus",
-    image: "📋",
+    image: carteProfessionnelleVtc,
     content: `
 ## Les 5 étapes vers votre carte VTC
 
@@ -356,7 +364,7 @@ Le parcours vers la carte VTC est structuré et accessible. Avec T3P Campus, vou
     readTime: "5 min",
     publishDate: "2025-01-02",
     author: "T3P Campus",
-    image: "💰",
+    image: financementFormation,
     content: `
 ## Le financement, un obstacle ?
 
@@ -453,7 +461,7 @@ Le financement ne doit pas être un frein à votre projet professionnel. Entre l
     readTime: "7 min",
     publishDate: "2025-01-18",
     author: "T3P Campus",
-    image: "🏍️",
+    image: motoTaxiVmdtr,
     content: `
 ## Qu'est-ce que la formation VMDTR ?
 
@@ -556,7 +564,7 @@ La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs d
     readTime: "6 min",
     publishDate: "2025-01-16",
     author: "T3P Campus",
-    image: "📚",
+    image: formationContinue,
     content: `
 ## La formation continue : une obligation légale
 

@@ -85,15 +85,15 @@ const Blog = () => {
                   to={`/blog/${article.slug}`}
                   className="block card-livementor h-full group"
                 >
-                  {/* Image placeholder */}
-                  <div className="w-full h-48 bg-forest/5 rounded-lg mb-6 flex items-center justify-center overflow-hidden">
-                    <motion.span 
-                      className="text-6xl"
-                      whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                  {/* Article Image */}
+                  <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
+                    <motion.img 
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.4 }}
-                    >
-                      {article.image}
-                    </motion.span>
+                    />
                   </div>
 
                   {/* Category badge */}
