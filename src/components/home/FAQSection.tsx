@@ -138,19 +138,13 @@ const FAQSection = () => {
               <motion.div
                 key={index}
                 variants={staggerItemVariants}
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.2 }}
               >
                 <AccordionItem 
                   value={`item-${index}`}
                   className="bg-card rounded-xl border border-border px-6 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
                   <AccordionTrigger className="text-left py-5 hover:no-underline group">
-                    <motion.span 
-                      className="flex items-center gap-4 text-forest font-semibold text-base md:text-lg"
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
+                    <span className="flex items-center gap-4 text-forest font-semibold text-base md:text-lg">
                       <span 
                         className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold shrink-0"
                         style={{ backgroundColor: "rgba(27, 77, 62, 0.1)", color: "#1B4D3E" }}
@@ -158,7 +152,7 @@ const FAQSection = () => {
                         {index + 1}
                       </span>
                       {faq.question}
-                    </motion.span>
+                    </span>
                   </AccordionTrigger>
                   <AccordionContent className="pb-5 pt-0">
                     <motion.p 

@@ -135,24 +135,11 @@ const HeroSection = () => {
                 <motion.div 
                   key={index} 
                   variants={staggerItemVariants}
-                  className="flex items-center gap-3 cursor-pointer"
-                  whileHover={{ 
-                    scale: 1.08, 
-                    x: 5,
-                    transition: { type: "spring", stiffness: 400, damping: 17 }
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-3 group"
                 >
-                  <motion.div 
-                    className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center"
-                    whileHover={{ 
-                      rotate: [0, -10, 10, 0],
-                      backgroundColor: "rgba(27, 77, 62, 0.2)"
-                    }}
-                    transition={{ duration: 0.4 }}
-                  >
+                  <div className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center group-hover:bg-forest/20 transition-colors">
                     <stat.icon className="w-5 h-5 text-forest" />
-                  </motion.div>
+                  </div>
                   <div>
                     <span className="font-black text-forest text-lg">{stat.value}</span>
                     <span className="text-warm-gray-500 text-sm ml-1">{stat.label}</span>

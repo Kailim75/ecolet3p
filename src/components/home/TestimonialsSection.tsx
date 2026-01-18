@@ -81,16 +81,7 @@ const TestimonialsSection = () => {
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, j) => (
-                  <motion.div
-                    key={j}
-                    initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1 + j * 0.05, type: "spring", stiffness: 400 }}
-                    whileHover={{ scale: 1.3, rotate: 15 }}
-                  >
-                    <Star className="w-5 h-5 fill-gold text-gold" />
-                  </motion.div>
+                  <Star key={j} className="w-5 h-5 fill-gold text-gold" />
                 ))}
               </div>
 
@@ -105,24 +96,11 @@ const TestimonialsSection = () => {
               </motion.p>
 
               <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <motion.div 
-                  className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-bold"
-                  whileHover={{ 
-                    scale: 1.15, 
-                    rotate: [0, -10, 10, 0],
-                    boxShadow: "0 5px 20px rgba(27, 77, 62, 0.4)"
-                  }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
+                <div className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-bold">
                   {testimonial.initials}
-                </motion.div>
+                </div>
                 <div>
-                  <motion.p 
-                    className="font-bold text-forest"
-                    whileHover={{ color: "#D4A853" }}
-                  >
-                    {testimonial.name}
-                  </motion.p>
+                  <p className="font-bold text-forest">{testimonial.name}</p>
                   <p className="text-sm text-warm-gray-500">{testimonial.role}</p>
                 </div>
               </div>

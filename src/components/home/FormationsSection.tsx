@@ -82,28 +82,14 @@ const FormationsSection = () => {
               className="card-livementor relative group cursor-pointer"
             >
               {formation.popular && (
-                <motion.div 
-                  className="absolute -top-3 left-6 bg-gold text-forest px-4 py-1 rounded-full text-xs font-bold uppercase"
-                  initial={{ opacity: 0, y: -10, scale: 0.8 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1, type: "spring" }}
-                  whileHover={{ scale: 1.1, rotate: [-2, 2, -2, 0] }}
-                >
+                <div className="absolute -top-3 left-6 bg-gold text-forest px-4 py-1 rounded-full text-xs font-bold uppercase">
                   Populaire
-                </motion.div>
+                </div>
               )}
 
-              <motion.div 
-                className="text-5xl mb-5"
-                whileHover={{ 
-                  scale: 1.3, 
-                  rotate: [0, -15, 15, -10, 10, 0],
-                  transition: { duration: 0.5 }
-                }}
-              >
+              <div className="text-5xl mb-5">
                 {formation.emoji}
-              </motion.div>
+              </div>
 
               <motion.h3 
                 className="text-xl font-bold text-forest mb-3 group-hover:text-gold transition-colors duration-300"
