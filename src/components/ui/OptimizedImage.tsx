@@ -9,6 +9,8 @@ interface OptimizedImageProps {
   aspectRatio?: "video" | "square" | "portrait" | "auto";
   priority?: boolean;
   sizes?: string;
+  width?: number;
+  height?: number;
 }
 
 const aspectRatioClasses = {
@@ -44,6 +46,8 @@ const OptimizedImage = ({
   aspectRatio = "auto",
   priority = false,
   sizes = "100vw",
+  width,
+  height,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -119,9 +123,12 @@ const OptimizedImage = ({
           <img
             src={src}
             alt={alt}
+            width={width}
+            height={height}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
             sizes={sizes}
+            fetchPriority={priority ? "high" : "auto"}
             onLoad={() => setIsLoaded(true)}
             onError={handleWebPError}
             className={cn(

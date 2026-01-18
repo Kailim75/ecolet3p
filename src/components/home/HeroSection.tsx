@@ -217,10 +217,12 @@ const HeroSection = () => {
             transition={{ duration: 0.9, delay: 0.3, ease: smoothEase }}
             className="relative hidden lg:block"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: '4/3' }}>
               <img
                 src={formationSession}
                 alt="Session de formation T3P Campus - Chauffeurs professionnels en cours"
+                width={800}
+                height={600}
                 className="w-full h-[600px] object-cover transition-transform duration-600 hover:scale-105"
                 loading="eager"
                 decoding="async"

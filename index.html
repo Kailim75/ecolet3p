@@ -5,23 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T3P Campus - Centre de Formation Professionnelle</title>
     <meta name="description" content="T3P Campus, votre centre de formation professionnelle. Développez vos compétences avec nos formations certifiantes en informatique, management et marketing." />
-    <meta name="keywords" content="formation professionnelle, formation certifiante, développement web, management, marketing digital, Paris" />
+    <meta name="keywords" content="formation taxi, formation VTC, centre formation Montrouge, carte professionnelle taxi, carte VTC, T3P Campus" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     
+    <!-- DNS Prefetch & Preconnect for critical resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Preload critical fonts with font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Critical CSS inlined for faster first paint -->
+    <style>
+      /* Critical above-the-fold styles */
+      :root {
+        --background: 42 35% 96%;
+        --foreground: 158 54% 18%;
+        --forest: #1B4D3E;
+        --gold: #D4A853;
+        --cream: #F5EBD7;
+      }
+      html { scroll-behavior: smooth; }
+      body { 
+        margin: 0; 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: hsl(42, 35%, 96%);
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Prevent CLS from font loading */
+      h1, h2, h3, h4, h5, h6 { 
+        font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        font-weight: 800;
+      }
+      /* Initial loading state */
+      #root:empty {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #FBF7EF 0%, #F5EBD7 100%);
+      }
+      /* Reserve space for hero image to prevent CLS */
+      .hero-image-placeholder {
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, rgba(27,77,62,0.1) 0%, rgba(212,168,83,0.1) 100%);
+      }
+    </style>
+
     <!-- Open Graph -->
-    <meta property="og:title" content="T3P Campus - Centre de Formation Professionnelle" />
-    <meta property="og:description" content="Développez vos compétences avec nos formations certifiantes. Formateurs experts, accompagnement personnalisé." />
+    <meta property="og:title" content="T3P Campus - Formation Taxi VTC à Montrouge" />
+    <meta property="og:description" content="Centre de formation leader avec 96% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://t3pcampus.fr/" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:locale" content="fr_FR" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@T3PCampus" />
+    <meta name="twitter:title" content="T3P Campus - Formation Taxi VTC Montrouge" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#1B4D3E" />
   </head>
   <body>
     <div id="root"></div>
