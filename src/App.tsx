@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
+import PWAStatus from "./components/pwa/PWAStatus";
 import { AuthProvider } from "./hooks/useAuth";
 
 // Critical pages loaded immediately
@@ -89,6 +90,7 @@ const App = () => {
                 </Routes>
               </Suspense>
               <CookieConsent />
+              <PWAStatus />
             </BrowserRouter>
           </div>
         </TooltipProvider>
