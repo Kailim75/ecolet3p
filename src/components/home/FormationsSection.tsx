@@ -20,6 +20,16 @@ const getIconComponent = (iconName: string | null): LucideIcon => {
   return iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : Car;
 };
 
+// Get detail page route for formation category
+const getFormationDetailRoute = (category: string): string | null => {
+  const routes: Record<string, string> = {
+    taxi: "/formations/taxi",
+    vtc: "/formations/vtc",
+    mobilite: "/formations/mobilite",
+  };
+  return routes[category] || null;
+};
+
 const staggerContainerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
@@ -164,7 +174,10 @@ const FormationsSection = () => {
                       whileTap={{ scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 400 }}
                     >
-                      <Link to="/formations" className="flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline">
+                      <Link 
+                        to={getFormationDetailRoute(formation.category) || "/formations"} 
+                        className="flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline"
+                      >
                         En savoir plus<ArrowRight className="w-4 h-4" />
                       </Link>
                     </motion.div>
