@@ -10,7 +10,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import PageLoader from "./components/ui/PageLoader";
-import CustomCursor from "./components/ui/CustomCursor";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +33,6 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <CustomCursor />
         <PageLoader isLoading={isLoading} onLoadingComplete={handleLoadingComplete} />
         <div style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.3s ease' }}>
           <Toaster />
