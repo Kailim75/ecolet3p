@@ -87,9 +87,13 @@ const FormationsSection = () => {
                 </div>
               )}
 
-              <div className="w-14 h-14 rounded-2xl bg-forest/10 flex items-center justify-center mb-5 group-hover:bg-forest/15 transition-colors">
+              <motion.div 
+                className="w-14 h-14 rounded-2xl bg-forest/10 flex items-center justify-center mb-5"
+                whileHover={{ scale: 1.1, backgroundColor: "rgba(27, 77, 62, 0.2)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
                 <formation.icon className="w-7 h-7 text-forest" />
-              </div>
+              </motion.div>
 
               <motion.h3 
                 className="text-xl font-bold text-forest mb-3 group-hover:text-gold transition-colors duration-300"

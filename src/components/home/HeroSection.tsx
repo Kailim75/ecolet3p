@@ -137,9 +137,13 @@ const HeroSection = () => {
                   variants={staggerItemVariants}
                   className="flex items-center gap-3 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center group-hover:bg-forest/20 transition-colors">
+                  <motion.div 
+                    className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center"
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(27, 77, 62, 0.2)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
                     <stat.icon className="w-5 h-5 text-forest" />
-                  </div>
+                  </motion.div>
                   <div>
                     <span className="font-black text-forest text-lg">{stat.value}</span>
                     <span className="text-warm-gray-500 text-sm ml-1">{stat.label}</span>
