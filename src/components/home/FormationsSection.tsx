@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Check, Users, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const formations = [
   {
@@ -53,20 +54,78 @@ const formations = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
+const headerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
 const FormationsSection = () => {
   return (
     <section className="section-padding section-light relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-100 rounded-full blur-3xl opacity-50" />
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 0.5, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl"
+      />
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 0.5, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="absolute bottom-0 left-0 w-80 h-80 bg-orange-100 rounded-full blur-3xl"
+      />
 
       <div className="container-custom relative">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 rounded-full px-4 py-2 text-sm font-semibold mb-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={headerVariants}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 rounded-full px-4 py-2 text-sm font-semibold mb-6"
+          >
             <Sparkles className="w-4 h-4" />
             Nos formations
-          </div>
+          </motion.div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Choisissez Votre{" "}
             <span className="text-gradient-blue">Formation</span>
@@ -74,30 +133,46 @@ const FormationsSection = () => {
           <p className="text-lg text-gray-600 leading-relaxed">
             4 formations principales pour démarrer votre carrière de chauffeur professionnel
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {formations.map((formation, index) => (
-            <div
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+        >
+          {formations.map((formation) => (
+            <motion.div
               key={formation.title}
-              className="group card-premium relative p-6 animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={cardVariants}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group card-premium relative p-6"
             >
               {/* Popular badge */}
               {formation.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 z-10"
+                >
                   <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-orange-400 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-orange-500/30">
                     <span className="text-sm">⭐</span>
                     Populaire
                   </span>
-                </div>
+                </motion.div>
               )}
 
               {/* Icon */}
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${formation.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${formation.color} flex items-center justify-center mb-5 shadow-lg`}
+              >
                 <span className="text-3xl">{formation.emoji}</span>
-              </div>
+              </motion.div>
 
               {/* Title */}
               <div className="mb-3">
@@ -147,12 +222,18 @@ const FormationsSection = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* View All Link */}
-        <div className="text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center"
+        >
           <Link
             to="/formations"
             className="inline-flex items-center gap-3 text-blue-600 font-semibold hover:text-blue-700 transition-colors group"
@@ -160,7 +241,7 @@ const FormationsSection = () => {
             <span>Voir toutes nos formations (10 au total)</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
