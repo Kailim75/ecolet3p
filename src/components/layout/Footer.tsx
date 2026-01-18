@@ -1,26 +1,28 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-forest text-cream">
       {/* Main Footer */}
-      <div className="container-custom py-16">
+      <div className="container-custom py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
-          <div>
-            <Link to="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold">T3P</span>
-              <span className="text-2xl font-medium text-gray-400 ml-1">Campus</span>
-            </Link>
-            <p className="text-gray-400 leading-relaxed mb-4">
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-2 mb-5">
+              <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center">
+                <span className="text-forest text-lg font-bold">T</span>
+              </div>
+              <span className="text-xl font-black text-cream tracking-tight uppercase">T3P Campus</span>
+            </div>
+            <p className="text-cream/70 text-sm leading-relaxed mb-6">
               Votre partenaire pour devenir chauffeur professionnel depuis 2014.
             </p>
-            <div className="flex gap-2">
-              <span className="bg-white/10 text-xs font-semibold px-3 py-1.5 rounded-full">
+            <div className="flex gap-3">
+              <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
                 RS5635
               </span>
-              <span className="bg-white/10 text-xs font-semibold px-3 py-1.5 rounded-full">
+              <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
                 RS5637
               </span>
             </div>
@@ -28,88 +30,83 @@ const Footer = () => {
 
           {/* Formations */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Nos Formations</h4>
-            <nav className="space-y-3">
-              <Link to="/formations" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                Formation TAXI
-              </Link>
-              <Link to="/formations" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                Formation VTC
-              </Link>
-              <Link to="/formations" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                Formation VMDTR
-              </Link>
-              <Link to="/formations" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                Formation Continue
-              </Link>
-              <Link to="/formations" className="block text-orange-400 font-medium hover:text-orange-300 transition-colors">
-                Voir toutes →
-              </Link>
-            </nav>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-cream mb-5">
+              Nos Formations
+            </h4>
+            <ul className="space-y-3">
+              {["Formation TAXI", "Formation VTC", "Formation VMDTR", "Formation Continue"].map((item) => (
+                <li key={item}>
+                  <Link to="/formations" className="text-cream/70 hover:text-gold transition-colors text-sm">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Liens Utiles</h4>
-            <nav className="space-y-3">
-              <Link to="/" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                Accueil
-              </Link>
-              <Link to="/a-propos" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                À propos
-              </Link>
-              <Link to="/contact" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                Contact
-              </Link>
-              <Link to="/formations" className="block text-gray-400 hover:text-orange-400 transition-colors">
-                FAQ
-              </Link>
-            </nav>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-cream mb-5">
+              Liens Utiles
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { name: "Accueil", path: "/" },
+                { name: "À propos", path: "/a-propos" },
+                { name: "Contact", path: "/contact" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link to={item.path} className="text-cream/70 hover:text-gold transition-colors text-sm">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Nous Contacter</h4>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-400">
-                  3 rue Corneille<br />
-                  92120 Montrouge
+            <h4 className="text-sm font-bold uppercase tracking-wider text-cream mb-5">
+              Nous Contacter
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-gold mt-1 shrink-0" />
+                <span className="text-cream/70 text-sm">
+                  3 rue Corneille,<br />92120 Montrouge
                 </span>
-              </div>
-              <a href="tel:0188750555" className="flex items-center gap-3 text-gray-400 hover:text-orange-400 transition-colors">
-                <Phone className="w-5 h-5 text-orange-400 flex-shrink-0" />
-                01 88 75 05 55
-              </a>
-              <a href="mailto:dropacademymontrouge@gmail.com" className="flex items-start gap-3 text-gray-400 hover:text-orange-400 transition-colors">
-                <Mail className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                <span className="break-all">dropacademymontrouge@gmail.com</span>
-              </a>
-              <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-400">
-                  Lun-Ven: 9h30-12h30<br />
-                  13h30-18h00
+              </li>
+              <li>
+                <a href="tel:0188750555" className="flex items-center gap-3 text-cream/70 hover:text-gold transition-colors text-sm">
+                  <Phone className="w-4 h-4 text-gold shrink-0" />
+                  01 88 75 05 55
+                </a>
+              </li>
+              <li>
+                <a href="mailto:dropacademymontrouge@gmail.com" className="flex items-start gap-3 text-cream/70 hover:text-gold transition-colors text-sm">
+                  <Mail className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                  <span className="break-all">dropacademymontrouge@gmail.com</span>
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-gold mt-1 shrink-0" />
+                <span className="text-cream/70 text-sm">
+                  Lun-Ven: 9h30-12h30<br />13h30-18h00
                 </span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-cream/10">
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-cream/50">
             <p>© 2025 T3P Campus - Tous droits réservés</p>
-            <div className="flex items-center gap-6">
-              <Link to="/mentions-legales" className="hover:text-orange-400 transition-colors">
-                Mentions légales
-              </Link>
-              <Link to="/confidentialite" className="hover:text-orange-400 transition-colors">
-                Confidentialité
-              </Link>
+            <div className="flex gap-6">
+              <Link to="#" className="hover:text-gold transition-colors">Mentions légales</Link>
+              <Link to="#" className="hover:text-gold transition-colors">Confidentialité</Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import { Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, X } from "lucide-react";
+import { Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -10,6 +10,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { motion } from "framer-motion";
 
 const categories = ["Toutes", "TAXI", "VTC", "Autres"];
 const modalities = ["Tous", "Présentiel", "À distance", "Cours du soir"];
@@ -218,21 +219,31 @@ const Formations = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      {/* Hero - LiveMentor style */}
       <section className="gradient-hero py-20 md:py-28">
         <div className="container-custom text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fade-up">
-            Nos Formations TAXI • VTC • VMDTR
-          </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto animate-fade-up stagger-1">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-black text-cream uppercase tracking-tight mb-4"
+          >
+            Nos Formations <span className="text-gold">TAXI • VTC • VMDTR</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg text-cream/80 max-w-2xl mx-auto"
+          >
             Découvrez nos 10 formations professionnelles pour devenir chauffeur ou 
             maintenir vos compétences à jour.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Filters & Grid */}
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           {/* Filters */}
           <div className="mb-10 space-y-4">
@@ -242,10 +253,10 @@ const Formations = () => {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                  className={`px-5 py-2.5 rounded-md text-sm font-bold uppercase tracking-wide transition-all ${
                     activeCategory === category
-                      ? "bg-primary text-primary-foreground shadow-primary"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      ? "bg-forest text-cream"
+                      : "bg-card text-forest border border-border hover:border-forest"
                   }`}
                 >
                   {category}
@@ -259,9 +270,9 @@ const Formations = () => {
                 <button
                   key={modality}
                   onClick={() => setActiveModality(modality)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
                     activeModality === modality
-                      ? "bg-accent text-accent-foreground"
+                      ? "bg-gold text-forest"
                       : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }`}
                 >
@@ -275,71 +286,72 @@ const Formations = () => {
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredFormations.map((formation, index) => (
-              <div
+              <motion.div
                 key={formation.id}
-                className="group bg-card rounded-xl overflow-hidden border border-border card-hover animate-fade-up"
-                style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'forwards' }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group card-livementor"
               >
                 {/* Header */}
-                <div className="p-6 pb-4">
+                <div className="mb-4">
                   <div className="flex items-start justify-between mb-3">
-                    <span className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                    <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded">
                       {formation.category}
                     </span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1 text-xs text-warm-gray-500">
                       {getModalityIcon(formation.modality)}
                       {formation.modality}
                     </span>
                   </div>
                   
-                  <h3 className="font-semibold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-bold text-xl text-forest mb-2 group-hover:text-gold transition-colors">
                     {formation.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                  <p className="text-warm-gray-600 text-sm mb-4 line-clamp-2">
                     {formation.description}
                   </p>
                 </div>
 
                 {/* Meta */}
-                <div className="px-6 pb-4">
-                  <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4 text-primary" />
-                      <span>{formation.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4 text-primary" />
-                      <span>{formation.level}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Euro className="w-4 h-4 text-accent" />
-                      <span className="font-semibold text-foreground">{formation.price}</span>
-                    </div>
+                <div className="grid grid-cols-3 gap-2 text-xs text-warm-gray-600 mb-4">
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-4 h-4 text-forest" />
+                    <span>{formation.duration}</span>
                   </div>
-
-                  <div className="flex gap-2">
-                    <Button 
-                      variant="outline" 
-                      className="flex-1"
-                      onClick={() => setSelectedFormation(formation)}
-                    >
-                      <Info className="w-4 h-4 mr-2" />
-                      Détails
-                    </Button>
-                    <Button asChild className="flex-1 btn-accent">
-                      <Link to="/contact">
-                        Nous contacter
-                      </Link>
-                    </Button>
+                  <div className="flex items-center gap-1">
+                    <Users className="w-4 h-4 text-forest" />
+                    <span>{formation.level}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Euro className="w-4 h-4 text-gold" />
+                    <span className="font-semibold text-forest">{formation.price}</span>
                   </div>
                 </div>
-              </div>
+
+                <div className="flex gap-2 pt-4 border-t border-border">
+                  <Button 
+                    variant="outline" 
+                    className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream"
+                    onClick={() => setSelectedFormation(formation)}
+                  >
+                    <Info className="w-4 h-4 mr-2" />
+                    Détails
+                  </Button>
+                  <Button asChild className="flex-1 btn-primary">
+                    <Link to="/contact">
+                      Contacter
+                    </Link>
+                  </Button>
+                </div>
+              </motion.div>
             ))}
           </div>
 
           {filteredFormations.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">Aucune formation ne correspond à vos critères.</p>
+              <p className="text-warm-gray-600">Aucune formation ne correspond à vos critères.</p>
             </div>
           )}
         </div>
@@ -347,49 +359,49 @@ const Formations = () => {
 
       {/* Details Modal */}
       <Dialog open={!!selectedFormation} onOpenChange={() => setSelectedFormation(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-cream-light">
           {selectedFormation && (
             <>
               <DialogHeader>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                  <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded">
                     {selectedFormation.category}
                   </span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-warm-gray-500">
                     {selectedFormation.modality}
                   </span>
                 </div>
-                <DialogTitle className="text-2xl">{selectedFormation.title}</DialogTitle>
-                <DialogDescription>{selectedFormation.description}</DialogDescription>
+                <DialogTitle className="text-2xl font-black text-forest uppercase">{selectedFormation.title}</DialogTitle>
+                <DialogDescription className="text-warm-gray-600">{selectedFormation.description}</DialogDescription>
               </DialogHeader>
 
               <div className="space-y-6 mt-4">
                 {/* Info grid */}
-                <div className="grid grid-cols-3 gap-4 p-4 bg-muted rounded-lg">
+                <div className="grid grid-cols-3 gap-4 p-4 bg-card rounded-lg border border-border">
                   <div className="text-center">
-                    <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
-                    <p className="text-sm font-medium">{selectedFormation.duration}</p>
-                    <p className="text-xs text-muted-foreground">Durée</p>
+                    <Clock className="w-5 h-5 text-forest mx-auto mb-1" />
+                    <p className="text-sm font-bold text-forest">{selectedFormation.duration}</p>
+                    <p className="text-xs text-warm-gray-500">Durée</p>
                   </div>
                   <div className="text-center">
-                    <Users className="w-5 h-5 text-primary mx-auto mb-1" />
-                    <p className="text-sm font-medium">{selectedFormation.level}</p>
-                    <p className="text-xs text-muted-foreground">Niveau</p>
+                    <Users className="w-5 h-5 text-forest mx-auto mb-1" />
+                    <p className="text-sm font-bold text-forest">{selectedFormation.level}</p>
+                    <p className="text-xs text-warm-gray-500">Niveau</p>
                   </div>
                   <div className="text-center">
-                    <Euro className="w-5 h-5 text-accent mx-auto mb-1" />
-                    <p className="text-sm font-medium">{selectedFormation.price}</p>
-                    <p className="text-xs text-muted-foreground">Tarif</p>
+                    <Euro className="w-5 h-5 text-gold mx-auto mb-1" />
+                    <p className="text-sm font-bold text-forest">{selectedFormation.price}</p>
+                    <p className="text-xs text-warm-gray-500">Tarif</p>
                   </div>
                 </div>
 
                 {/* Objectives */}
                 <div>
-                  <h4 className="font-semibold mb-3">Objectifs de la formation</h4>
+                  <h4 className="font-bold text-forest mb-3 uppercase text-sm">Objectifs de la formation</h4>
                   <ul className="space-y-2">
                     {selectedFormation.objectives.map((obj, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
+                      <li key={i} className="flex items-start gap-2 text-sm text-warm-gray-600">
+                        <span className="w-1.5 h-1.5 bg-gold rounded-full mt-2 shrink-0" />
                         {obj}
                       </li>
                     ))}
@@ -398,32 +410,32 @@ const Formations = () => {
 
                 {/* Prerequisites */}
                 <div>
-                  <h4 className="font-semibold mb-2">Prérequis</h4>
-                  <p className="text-sm text-muted-foreground">{selectedFormation.prerequisites}</p>
+                  <h4 className="font-bold text-forest mb-2 uppercase text-sm">Prérequis</h4>
+                  <p className="text-sm text-warm-gray-600">{selectedFormation.prerequisites}</p>
                 </div>
 
                 {/* Program */}
                 <div>
-                  <h4 className="font-semibold mb-2">Programme</h4>
-                  <p className="text-sm text-muted-foreground">{selectedFormation.program}</p>
+                  <h4 className="font-bold text-forest mb-2 uppercase text-sm">Programme</h4>
+                  <p className="text-sm text-warm-gray-600">{selectedFormation.program}</p>
                 </div>
 
                 {/* Payment info */}
-                <div className="p-4 bg-accent/10 rounded-lg">
-                  <p className="text-sm font-medium text-accent">
+                <div className="p-4 bg-gold/10 rounded-lg border border-gold/20">
+                  <p className="text-sm font-bold text-forest">
                     💳 Paiement en 4x sans frais disponible
                   </p>
                 </div>
 
                 {/* CTAs */}
                 <div className="flex gap-3">
-                  <Button asChild className="flex-1 btn-accent">
+                  <Button asChild className="flex-1 btn-primary">
                     <Link to="/contact">
                       Prendre rendez-vous
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" className="flex-1">
+                  <Button asChild variant="outline" className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream">
                     <a href="tel:0188750555">
                       Appeler le 01 88 75 05 55
                     </a>

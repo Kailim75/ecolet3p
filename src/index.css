@@ -1,53 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 18%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
-    --primary: 207 79% 28%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 20% 96%;
-    --secondary-foreground: 0 0% 18%;
-    --muted: 40 10% 94%;
-    --muted-foreground: 0 0% 42%;
-    --accent: 18 100% 60%;
-    --accent-foreground: 0 0% 100%;
+    /* LiveMentor-Inspired: Forest Green + Warm Cream */
+    --background: 40 33% 94%;
+    --foreground: 158 54% 20%;
+    --card: 40 40% 98%;
+    --card-foreground: 158 54% 20%;
+    --popover: 40 40% 98%;
+    --popover-foreground: 158 54% 20%;
+    --primary: 158 54% 20%;
+    --primary-foreground: 40 40% 96%;
+    --secondary: 40 30% 92%;
+    --secondary-foreground: 158 54% 20%;
+    --muted: 40 25% 90%;
+    --muted-foreground: 158 20% 40%;
+    --accent: 43 85% 58%;
+    --accent-foreground: 158 54% 15%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 207 79% 28%;
-    --radius: 0.75rem;
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 158 54% 30%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 12%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 207 79% 45%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 18 100% 60%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
+    --background: 158 54% 8%;
+    --foreground: 40 30% 95%;
+    --card: 158 54% 12%;
+    --card-foreground: 40 30% 95%;
+    --popover: 158 54% 12%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 158 54% 35%;
+    --primary-foreground: 40 30% 95%;
+    --secondary: 158 40% 20%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 158 40% 18%;
+    --muted-foreground: 40 20% 65%;
+    --accent: 43 85% 58%;
+    --accent-foreground: 158 54% 10%;
+    --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 207 79% 45%;
+    --border: 158 40% 20%;
+    --input: 158 40% 20%;
+    --ring: 43 85% 58%;
   }
 }
 
@@ -61,139 +62,149 @@
   }
 
   body {
-    @apply bg-cream font-sans text-warm-gray-900 antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-warm-gray-900;
+    @apply font-black tracking-tight text-forest;
   }
 }
 
 @layer components {
   /* Container */
   .container-custom {
-    @apply mx-auto max-w-7xl px-6 lg:px-8;
+    @apply mx-auto max-w-7xl px-5 md:px-8 lg:px-12;
   }
 
   /* Section padding */
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-16 md:py-24 lg:py-32;
   }
 
-  /* Section backgrounds */
-  .section-cream {
-    @apply bg-cream;
+  /* LiveMentor Hero Background - Warm Cream */
+  .hero-bg {
+    background-color: #F5EBD7;
   }
 
-  .section-white {
-    @apply bg-white;
-  }
-
-  /* Cards - Warm style */
-  .card-warm {
-    @apply bg-white rounded-2xl border border-warm-gray-100 shadow-sm transition-all duration-300;
-  }
-
-  .card-warm:hover {
-    @apply shadow-lg;
-    transform: translateY(-4px);
-    border-color: rgba(255, 107, 53, 0.3);
-  }
-
-  /* Buttons - Primary Orange */
+  /* LiveMentor Primary Button - Forest Green */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 font-semibold 
-           px-6 py-3 rounded-xl shadow-md transition-all;
-    background-color: #FF6B35;
-    color: white;
+    @apply inline-flex items-center justify-center font-bold
+           px-7 py-4 rounded-md transition-all duration-300
+           text-sm tracking-wider uppercase;
+    background-color: #1B4D3E;
+    color: #F5EBD7;
   }
 
   .btn-primary:hover {
-    background-color: #E85A2A;
+    background-color: #143D31;
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 8px 20px rgba(27, 77, 62, 0.25);
   }
 
-  .btn-primary:active {
-    transform: scale(0.98);
-  }
-
-  .btn-primary-lg {
-    @apply btn-primary px-8 py-4 text-lg;
-  }
-
-  /* Buttons - Secondary */
+  /* LiveMentor Secondary Button - Outline */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 bg-white font-semibold 
-           px-6 py-3 rounded-xl border-2 border-warm-gray-200 transition-all;
-    color: #0F4C81;
+    @apply inline-flex items-center justify-center font-bold
+           px-7 py-4 rounded-md border-2 transition-all duration-300
+           text-sm tracking-wider uppercase;
+    background-color: transparent;
+    border-color: #1B4D3E;
+    color: #1B4D3E;
   }
 
   .btn-secondary:hover {
-    border-color: #0F4C81;
-    background-color: rgba(15, 76, 129, 0.05);
-    transform: translateY(-2px);
+    background-color: #1B4D3E;
+    color: #F5EBD7;
   }
 
-  /* Badge styles */
-  .badge-primary {
-    @apply inline-flex items-center gap-2 font-semibold px-4 py-2 rounded-full text-sm;
-    background-color: rgba(15, 76, 129, 0.1);
-    color: #0F4C81;
+  /* LiveMentor Card */
+  .card-livementor {
+    @apply bg-card rounded-lg p-6 md:p-8 border border-border
+           transition-all duration-300;
   }
 
-  .badge-orange {
-    @apply inline-flex items-center gap-2 font-semibold px-4 py-2 rounded-full text-sm;
-    background-color: rgba(255, 107, 53, 0.1);
-    color: #FF6B35;
+  .card-livementor:hover {
+    @apply shadow-xl;
+    border-color: rgba(27, 77, 62, 0.3);
+    transform: translateY(-4px);
   }
 
-  .badge-success {
-    @apply inline-flex items-center gap-2 font-semibold px-4 py-2 rounded-full text-sm;
-    background-color: rgba(0, 196, 140, 0.1);
-    color: #00C48C;
+  /* LiveMentor Section Title - Uppercase Bold */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight;
+    color: #1B4D3E;
   }
 
-  /* Gradient backgrounds */
+  .section-subtitle {
+    @apply text-lg md:text-xl max-w-2xl leading-relaxed;
+    color: #6B6B6B;
+  }
+
+  /* LiveMentor Badge */
+  .badge-livementor {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold;
+    background-color: rgba(212, 168, 83, 0.2);
+    color: #1B4D3E;
+  }
+
+  /* Step Number */
+  .step-number {
+    @apply w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg;
+    background-color: #1B4D3E;
+    color: #F5EBD7;
+  }
+
+  /* LiveMentor Stat Number */
+  .stat-number {
+    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight;
+    color: #1B4D3E;
+  }
+
+  /* Hero Gradient - Forest Green */
   .gradient-hero {
-    background: linear-gradient(135deg, #0F4C81 0%, #2E7AB3 100%);
+    background: linear-gradient(135deg, #1B4D3E 0%, #2A6B54 100%);
   }
 
+  /* Warm Gradient Background */
   .gradient-warm {
-    background: linear-gradient(180deg, #FAF9F6 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, #F5EBD7 0%, #FBF7EF 100%);
   }
 
-  /* Text gradients */
-  .text-gradient-navy {
-    background: linear-gradient(135deg, #0F4C81 0%, #2E7AB3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-orange {
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C5E 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Icon containers */
+  /* Icon Container */
   .icon-container {
-    @apply flex items-center justify-center w-14 h-14 rounded-2xl;
-    background-color: rgba(255, 107, 53, 0.1);
-    color: #FF6B35;
+    @apply flex items-center justify-center w-14 h-14 rounded-xl;
+    background-color: rgba(27, 77, 62, 0.1);
+    color: #1B4D3E;
   }
 
-  .icon-container-lg {
-    @apply flex items-center justify-center w-20 h-20 rounded-3xl;
-    background-color: rgba(255, 107, 53, 0.1);
+  /* Text Colors */
+  .text-forest {
+    color: #1B4D3E;
+  }
+
+  .text-gold {
+    color: #D4A853;
+  }
+
+  .text-cream {
+    color: #F5EBD7;
+  }
+
+  /* Background Colors */
+  .bg-forest {
+    background-color: #1B4D3E;
+  }
+
+  .bg-cream {
+    background-color: #F5EBD7;
+  }
+
+  .bg-gold {
+    background-color: #D4A853;
   }
 }
 
 @layer utilities {
-  /* Duration utilities */
   .duration-250 {
     transition-duration: 250ms;
   }

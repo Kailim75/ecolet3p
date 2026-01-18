@@ -45,12 +45,10 @@ const Header = () => {
             <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center">
               <span className="text-cream text-lg font-bold">T</span>
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-xl font-bold text-forest tracking-tight">T3P CAMPUS</span>
-            </div>
+            <span className="text-xl font-black text-forest tracking-tight uppercase">T3P Campus</span>
           </Link>
 
-          {/* Desktop Navigation - LiveMentor style */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -73,7 +71,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA - LiveMentor style */}
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-5">
             <a
               href="tel:0188750555"
@@ -98,7 +96,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu - LiveMentor style */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

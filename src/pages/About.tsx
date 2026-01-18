@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { Target, Eye, Heart, Users, Trophy, Calendar, GraduationCap, Award } from "lucide-react";
+import { Target, Heart, Users, Trophy } from "lucide-react";
+import { motion } from "framer-motion";
 
 const values = [
   {
@@ -34,29 +35,44 @@ const stats = [
 const About = () => {
   return (
     <Layout>
-      {/* Hero */}
+      {/* Hero - LiveMentor style */}
       <section className="gradient-hero py-20 md:py-28">
         <div className="container-custom text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fade-up">
-            À propos de T3P Campus
-          </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto animate-fade-up stagger-1">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-black text-cream uppercase tracking-tight mb-4"
+          >
+            À propos de <span className="text-gold">T3P Campus</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg text-cream/80 max-w-2xl mx-auto"
+          >
             Votre centre de formation de référence pour devenir chauffeur professionnel TAXI, VTC ou VMDTR.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-up">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Qui sommes-nous ?
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="section-title mb-6">
+                QUI SOMMES-NOUS ?
               </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-warm-gray-600 leading-relaxed">
                 <p>
-                  Fondé en 2014, <strong className="text-foreground">T3P Campus</strong> est un centre de formation 
+                  Fondé en 2014, <strong className="text-forest">T3P Campus</strong> est un centre de formation 
                   professionnel situé à Montrouge, aux portes de Paris. Nous sommes spécialisés dans la formation 
                   des chauffeurs professionnels : TAXI, VTC et VMDTR (moto-taxi).
                 </p>
@@ -66,109 +82,138 @@ const About = () => {
                   de leurs compétences.
                 </p>
                 <p>
-                  Avec un taux de réussite de 96% à l'examen professionnel, nous sommes reconnus comme 
+                  Avec un taux de réussite de <strong className="text-gold">96%</strong> à l'examen professionnel, nous sommes reconnus comme 
                   l'un des meilleurs centres de formation de la région parisienne.
                 </p>
               </div>
-            </div>
-            <div className="animate-fade-up stagger-2">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <img
                 src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop"
                 alt="Formation chauffeur professionnel"
-                className="rounded-xl shadow-large w-full"
+                className="rounded-xl shadow-warm-lg w-full"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="section-padding section-alt">
+      <section className="section-padding bg-card">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div
+              <motion.div
                 key={stat.label}
-                className="text-center animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                <div className="stat-number mb-2">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
+                <div className="text-warm-gray-600">{stat.label}</div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Notre mission
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="section-title mb-6">
+              NOTRE MISSION
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-warm-gray-600 leading-relaxed">
               Former des chauffeurs professionnels compétents, responsables et prêts à exercer leur métier 
               dans les meilleures conditions. Nous croyons que chaque personne mérite une formation de qualité 
               pour réussir sa reconversion professionnelle.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="section-padding section-alt">
+      <section className="section-padding bg-card">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            Nos valeurs
-          </h2>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="section-title">NOS VALEURS</h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div
+              <motion.div
                 key={value.title}
-                className="bg-card rounded-xl p-6 border border-border shadow-soft card-hover animate-fade-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="card-livementor text-center group"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                  <value.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 bg-forest/10 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
+                  <value.icon className="w-7 h-7 text-forest group-hover:text-gold transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-bold text-forest mb-3">
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-warm-gray-600 text-sm leading-relaxed">
                   {value.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Certifications */}
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Certifications & Agréments
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="section-title mb-6">
+              CERTIFICATIONS & AGRÉMENTS
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-warm-gray-600 mb-8">
               T3P Campus est un centre de formation agréé, reconnu par les autorités compétentes.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-primary/10 text-primary px-6 py-3 rounded-full font-semibold">
+              <div className="bg-forest/10 text-forest px-6 py-3 rounded-lg font-bold">
                 Certification RS5635
               </div>
-              <div className="bg-primary/10 text-primary px-6 py-3 rounded-full font-semibold">
+              <div className="bg-forest/10 text-forest px-6 py-3 rounded-lg font-bold">
                 Certification RS5637
               </div>
-              <div className="bg-accent/10 text-accent px-6 py-3 rounded-full font-semibold">
+              <div className="bg-gold/20 text-forest px-6 py-3 rounded-lg font-bold">
                 Centre agréé Préfecture
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </Layout>
