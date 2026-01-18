@@ -18,10 +18,10 @@ const App = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Simulate initial page load
+    // Quick initial page load animation
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
