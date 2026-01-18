@@ -87,6 +87,7 @@ export default {
       },
       fontFamily: {
         sans: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
+        display: ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"],
       },
       fontSize: {
         "display-1": ["4.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: "900" }],
