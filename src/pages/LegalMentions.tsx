@@ -50,7 +50,7 @@ const LegalMentions = () => {
                 <strong>Siège social :</strong> 3 rue Corneille, 92120 Montrouge<br />
                 <strong>SIRET :</strong> 948 564 802 00023<br />
                 <strong>Téléphone :</strong> 01 88 75 05 55<br />
-                <strong>Email :</strong> dropacademymontrouge@gmail.com
+                <strong>Email :</strong> montrouge@t3pcampus.fr
               </p>
               <p className="text-muted-foreground">
                 <strong>Directeur de la publication :</strong> Karim KATI

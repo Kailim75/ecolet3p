@@ -115,8 +115,8 @@ const CTASection = () => {
               <motion.a href="tel:0188750555" className="text-cream hover:text-gold font-semibold" whileHover={{ scale: 1.05 }}>
                 📞 01 88 75 05 55
               </motion.a>
-              <motion.a href="mailto:dropacademymontrouge@gmail.com" className="text-cream hover:text-gold font-semibold" whileHover={{ scale: 1.05 }}>
-                ✉️ dropacademymontrouge@gmail.com
+              <motion.a href="mailto:montrouge@t3pcampus.fr" className="text-cream hover:text-gold font-semibold" whileHover={{ scale: 1.05 }}>
+                ✉️ montrouge@t3pcampus.fr
               </motion.a>
             </div>
           </motion.div>

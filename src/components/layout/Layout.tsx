@@ -22,7 +22,7 @@ const organizationSchema = {
   },
   "image": "https://t3pcampus.fr/og-image.jpg",
   "telephone": "+33 1 88 75 05 55",
-  "email": "dropacademymontrouge@gmail.com",
+  "email": "montrouge@t3pcampus.fr",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "3 rue Corneille",

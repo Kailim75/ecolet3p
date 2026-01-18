@@ -32,8 +32,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "dropacademymontrouge@gmail.com",
-    href: "mailto:dropacademymontrouge@gmail.com",
+    content: "montrouge@t3pcampus.fr",
+    href: "mailto:montrouge@t3pcampus.fr",
   },
   {
     icon: Clock,

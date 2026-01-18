@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
                 T3P Campus, dont le siège social est situé au 3 rue Corneille, 92120 Montrouge, est responsable du traitement de vos données personnelles collectées sur ce site.
               </p>
               <p className="text-muted-foreground mt-2">
-                <strong>Contact :</strong> dropacademymontrouge@gmail.com<br />
+                <strong>Contact :</strong> montrouge@t3pcampus.fr<br />
                 <strong>Téléphone :</strong> 01 88 75 05 55
               </p>
             </div>
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                 <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
               </ul>
               <p className="text-muted-foreground mt-4">
-                Pour exercer ces droits, contactez-nous à : <a href="mailto:dropacademymontrouge@gmail.com" className="text-forest hover:text-gold font-semibold">dropacademymontrouge@gmail.com</a>
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:montrouge@t3pcampus.fr" className="text-forest hover:text-gold font-semibold">montrouge@t3pcampus.fr</a>
               </p>
             </div>
 
