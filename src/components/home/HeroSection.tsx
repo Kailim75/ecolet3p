@@ -1,122 +1,95 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Trophy, Users, CreditCard } from "lucide-react";
 import { motion } from "framer-motion";
+import { Award, Users, CreditCard } from "lucide-react";
 
 const stats = [
-  { icon: Trophy, value: "96%", label: "de réussite" },
+  { icon: Award, value: "96%", label: "de réussite" },
   { icon: Users, value: "10 000+", label: "élèves formés" },
   { icon: CreditCard, value: "Paiement 4x", label: "sans frais" },
 ];
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-cream" />
-      
-      {/* Subtle pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #0F4C81 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
-        }}
-      />
-
-      {/* Decorative shapes */}
-      <motion.div 
-        className="absolute top-32 right-10 w-64 h-64 bg-orange/5 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-20 left-10 w-80 h-80 bg-navy/5 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.6, 0.5] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
+    <section className="relative min-h-[90vh] flex items-center hero-bg overflow-hidden pt-20">
+      {/* Vertical text - LiveMentor style */}
+      <div className="hidden xl:block absolute left-8 top-1/2 -translate-y-1/2 z-10">
+        <span 
+          className="text-forest/20 font-black text-sm uppercase tracking-[0.3em] block"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
+          T3P CAMPUS
+        </span>
+      </div>
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Text Content */}
-          <div className="text-center lg:text-left">
+          {/* Left Content */}
+          <div className="max-w-xl">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="mb-6"
             >
-              <span className="badge-success">
-                <span className="w-2 h-2 rounded-full bg-green-success animate-pulse" />
+              <span className="badge-livementor">
+                <span className="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
                 Inscriptions ouvertes
               </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Title - LiveMentor condensed uppercase style */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-warm-gray-900 mt-6 mb-4 leading-tight"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-forest uppercase leading-[1.05] tracking-tight mb-6"
             >
-              Devenez Chauffeur{" "}
-              <span className="text-gradient-navy">Professionnel</span>
+              Des formations pour{" "}
+              <span className="text-gold">devenir chauffeur</span>{" "}
+              et réussir
             </motion.h1>
 
+            {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-xl text-navy font-semibold mb-2"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-warm-gray-600 leading-relaxed mb-8"
             >
-              TAXI • VTC • VMDTR
+              Un accompagnement personnalisé pour obtenir votre carte professionnelle TAXI, VTC ou VMDTR et commencer à vivre de votre activité.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-warm-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
-            >
-              Formation d'excellence à Montrouge avec <strong className="text-orange">96% de réussite</strong>. 
-              Rejoignez 10 000+ professionnels formés depuis 2014.
-            </motion.p>
-
-            {/* Stats */}
+            {/* Stats - Inline like LiveMentor */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-6 mb-8"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-6 mb-10"
             >
               {stats.map((stat, index) => (
-                <div key={stat.label} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange/10 flex items-center justify-center">
-                    <stat.icon className="w-5 h-5 text-orange" />
+                <div key={index} className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center">
+                    <stat.icon className="w-5 h-5 text-forest" />
                   </div>
-                  <div className="text-left">
-                    <div className="text-lg font-bold text-warm-gray-900">{stat.value}</div>
-                    <div className="text-sm text-warm-gray-600">{stat.label}</div>
+                  <div>
+                    <span className="font-black text-forest text-lg">{stat.value}</span>
+                    <span className="text-warm-gray-500 text-sm ml-1">{stat.label}</span>
                   </div>
                 </div>
               ))}
             </motion.div>
 
-            {/* CTAs */}
+            {/* CTA Button - LiveMentor style */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4"
             >
-              <Button asChild className="btn-primary-lg">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Prendre rendez-vous
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button asChild className="btn-secondary px-6 py-3">
-                <Link to="/formations">Voir nos formations</Link>
+              <Button asChild className="btn-primary">
+                <Link to="/contact">DÉCOUVRIR NOS FORMATIONS</Link>
               </Button>
             </motion.div>
 
@@ -124,69 +97,69 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-warm-gray-600"
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-10 flex items-center gap-4 text-sm text-warm-gray-500"
             >
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-success" />
-                Certifications RS5635 & RS5637
+                <span className="w-5 h-5 rounded-full bg-forest flex items-center justify-center text-cream text-xs">✓</span>
+                <span>Certifications RS5635 & RS5637</span>
               </div>
               <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-success" />
-                Centre agréé
+                <span className="w-5 h-5 rounded-full bg-forest flex items-center justify-center text-cream text-xs">✓</span>
+                <span>Centre agréé</span>
               </div>
             </motion.div>
           </div>
 
-          {/* Visual Element */}
+          {/* Right Side - Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:block"
           >
-            <div className="relative">
-              {/* Main visual card */}
-              <div className="bg-white rounded-3xl shadow-warm-lg p-8 border border-warm-gray-100">
-                <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-navy/5 to-orange/5 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=450&fit=crop" 
-                    alt="Chauffeur professionnel"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                </div>
-                
-                {/* Floating stats card */}
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-lg p-5 border border-warm-gray-100"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-green-success/10 flex items-center justify-center">
-                      <Trophy className="w-6 h-6 text-green-success" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-warm-gray-900">96%</div>
-                      <div className="text-sm text-warm-gray-600">Taux de réussite</div>
-                    </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=700&fit=crop"
+                alt="Chauffeur professionnel"
+                className="w-full h-[600px] object-cover"
+              />
+              
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent" />
+              
+              {/* Bottom card on image */}
+              <div className="absolute bottom-6 right-6 left-6 bg-cream-light/95 backdrop-blur-sm rounded-xl p-5">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-forest flex items-center justify-center text-cream font-bold text-xl">
+                    MB
                   </div>
-                </motion.div>
-
-                {/* Floating badge */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute -top-4 -right-4 bg-orange text-white rounded-2xl shadow-orange px-4 py-3"
-                >
-                  <div className="text-sm font-bold">10 000+</div>
-                  <div className="text-xs opacity-90">élèves formés</div>
-                </motion.div>
+                  <div>
+                    <p className="font-bold text-forest">Mohamed B.</p>
+                    <p className="text-warm-gray-600 text-sm">Chauffeur VTC • Alumni T3P Campus</p>
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* Floating stat card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="absolute -left-8 top-1/4 bg-card rounded-xl shadow-xl p-5 border border-border"
+            >
+              <p className="stat-number mb-1">87%</p>
+              <p className="text-sm text-warm-gray-600 max-w-[140px]">
+                des entreprises créées existent toujours 3 ans après
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
+
+      {/* Decorative shape */}
+      <div className="absolute top-20 right-0 w-1/3 h-full bg-forest/5 -skew-x-12 transform origin-top-right" />
     </section>
   );
 };
