@@ -156,8 +156,24 @@ const AppointmentForm = () => {
         });
         console.log('Confirmation email sent');
       } catch (emailError) {
-        // Don't block the user if email fails
         console.error('Failed to send confirmation email:', emailError);
+      }
+
+      // Send notification to admin
+      try {
+        await supabase.functions.invoke('notify-new-appointment', {
+          body: {
+            firstName: result.data.firstName,
+            lastName: result.data.lastName,
+            email: result.data.email,
+            formationChoice: result.data.formationChoice,
+            appointmentDate: format(result.data.appointmentDate, 'yyyy-MM-dd'),
+            appointmentTime: result.data.appointmentTime,
+          }
+        });
+        console.log('Admin notification sent');
+      } catch (notifyError) {
+        console.error('Failed to send admin notification:', notifyError);
       }
 
       setIsSubmitting(false);
