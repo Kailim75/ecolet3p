@@ -34,60 +34,62 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-md border-b border-gray-100"
-          : "bg-white/95 backdrop-blur-sm"
+          ? "bg-cream-light shadow-md"
+          : "bg-cream-light/95 backdrop-blur-sm"
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-[72px]">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold" style={{ color: '#0F4C81' }}>T3P</span>
-            <span className="text-2xl font-medium text-gray-500 ml-1">Campus</span>
+          {/* Logo - LiveMentor style */}
+          <Link to="/" className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center">
+              <span className="text-cream text-lg font-bold">T</span>
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-xl font-bold text-forest tracking-tight">T3P CAMPUS</span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - LiveMentor style */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative font-medium transition-colors duration-200 py-2 ${
+                className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 ${
                   isActive(link.path)
-                    ? "text-orange-500"
-                    : "text-gray-700 hover:text-orange-500"
+                    ? "text-forest"
+                    : "text-warm-gray-600 hover:text-forest"
                 }`}
               >
                 {link.name}
                 {isActive(link.path) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full"
-                    style={{ backgroundColor: '#FF6B35' }}
+                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full"
                   />
                 )}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop CTA - LiveMentor style */}
+          <div className="hidden lg:flex items-center gap-5">
             <a
               href="tel:0188750555"
-              className="flex items-center gap-2 font-medium transition-colors"
-              style={{ color: '#0F4C81' }}
+              className="flex items-center gap-2 font-semibold text-forest hover:text-forest-light transition-colors text-sm"
             >
               <Phone className="w-4 h-4" />
-              <span>01 88 75 05 55</span>
+              <span>+33 1 88 75 05 55</span>
             </a>
-            <Button asChild className="btn-primary">
-              <Link to="/contact">Prendre rendez-vous</Link>
+            <Button asChild className="btn-secondary">
+              <Link to="/contact">NOUS CONTACTER</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-orange-500 transition-colors"
+            className="lg:hidden p-2 text-forest hover:text-forest-light transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -96,7 +98,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - LiveMentor style */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -104,10 +106,10 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-white border-t border-gray-100"
+            className="lg:hidden bg-cream-light border-t border-cream-dark"
           >
             <div className="container-custom py-6">
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-1">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
@@ -117,10 +119,10 @@ const Header = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`block text-xl font-medium py-2 transition-colors ${
+                      className={`block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors ${
                         isActive(link.path)
-                          ? "text-orange-500"
-                          : "text-gray-700 hover:text-orange-500"
+                          ? "text-forest bg-forest/10"
+                          : "text-warm-gray-700 hover:text-forest hover:bg-forest/5"
                       }`}
                     >
                       {link.name}
@@ -129,17 +131,16 @@ const Header = () => {
                 ))}
               </nav>
               
-              <div className="mt-6 pt-6 border-t border-gray-200 space-y-4">
+              <div className="mt-6 pt-6 border-t border-cream-dark space-y-4">
                 <a
                   href="tel:0188750555"
-                  className="flex items-center gap-2 font-medium"
-                  style={{ color: '#0F4C81' }}
+                  className="flex items-center gap-3 font-semibold text-forest py-2"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>01 88 75 05 55</span>
+                  <span>+33 1 88 75 05 55</span>
                 </a>
                 <Button asChild className="btn-primary w-full">
-                  <Link to="/contact">Prendre rendez-vous</Link>
+                  <Link to="/contact">NOUS CONTACTER</Link>
                 </Button>
               </div>
             </div>
