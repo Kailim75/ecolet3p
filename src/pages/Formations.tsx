@@ -22,7 +22,7 @@ import { useFormations, Formation, getCategoryFilter, getCategoryLabel } from "@
 import { useFormationSessions, FormationSession } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
 
-const categories = ["Toutes", "TAXI", "VTC", "Autres"];
+const categories = ["Toutes", "TAXI", "VTC", "VMDTR", "Autres"];
 
 // Icon mapping from string to component
 const ICON_MAP: Record<string, LucideIcon> = {
