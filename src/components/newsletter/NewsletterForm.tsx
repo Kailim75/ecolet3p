@@ -47,6 +47,23 @@ const NewsletterForm = ({ source = "blog", variant = "card" }: NewsletterFormPro
         return;
       }
 
+      // Send confirmation email
+      try {
+        const { error: emailError } = await supabase.functions.invoke(
+          "send-newsletter-confirmation",
+          {
+            body: { email: validation.data, source },
+          }
+        );
+        
+        if (emailError) {
+          console.warn("Failed to send confirmation email:", emailError);
+          // Don't block the subscription if email fails
+        }
+      } catch (emailErr) {
+        console.warn("Email sending error:", emailErr);
+      }
+
       setStatus("success");
       setEmail("");
     } catch (err) {
