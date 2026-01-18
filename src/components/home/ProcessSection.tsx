@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { useRef } from "react";
+import { ClipboardEdit, BookOpen, Target, Award } from "lucide-react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const steps = [
-  { number: "1", emoji: "✍️", title: "Inscription", description: "Prenez rendez-vous. Nous étudions ensemble votre projet." },
-  { number: "2", emoji: "📚", title: "Formation", description: "Suivez votre formation avec nos formateurs experts." },
-  { number: "3", emoji: "🎯", title: "Examen", description: "Passez votre examen avec confiance." },
-  { number: "4", emoji: "🏆", title: "Carte Pro", description: "Obtenez votre carte et démarrez votre carrière." },
+  { number: "1", icon: ClipboardEdit, title: "Inscription", description: "Prenez rendez-vous. Nous étudions ensemble votre projet." },
+  { number: "2", icon: BookOpen, title: "Formation", description: "Suivez votre formation avec nos formateurs experts." },
+  { number: "3", icon: Target, title: "Examen", description: "Passez votre examen avec confiance." },
+  { number: "4", icon: Award, title: "Carte Pro", description: "Obtenez votre carte et démarrez votre carrière." },
 ];
 
 const staggerContainerVariants = {
@@ -99,8 +100,8 @@ const ProcessSection = () => {
                   {step.number}
                 </motion.div>
 
-                <div className="text-4xl mb-4">
-                  {step.emoji}
+                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
+                  <step.icon className="w-6 h-6 text-forest" />
                 </div>
 
                 <motion.h3 

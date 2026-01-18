@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import { HelpCircle } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -105,10 +106,11 @@ const FAQSection = () => {
           variants={staggerContainerVariants}
         >
           <motion.span 
-            className="badge-livementor mb-6 inline-block"
+            className="badge-livementor mb-6 inline-flex items-center gap-2"
             variants={staggerItemVariants}
           >
-            ❓ Questions Fréquentes
+            <HelpCircle className="w-4 h-4" />
+            Questions Fréquentes
           </motion.span>
           <motion.h2 
             className="section-title mb-6"

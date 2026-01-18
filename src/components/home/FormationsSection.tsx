@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { ArrowRight, Clock, Users, CreditCard } from "lucide-react";
+import { ArrowRight, Clock, Users, CreditCard, Car, CarTaxiFront, Bike, GraduationCap } from "lucide-react";
 import { useRef } from "react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const formations = [
-  { emoji: "🚕", title: "Formation TAXI Initiale", description: "Formation complète pour devenir chauffeur de taxi.", duration: "10 jours", level: "Tous niveaux", payment: "Paiement 4x sans frais", popular: true },
-  { emoji: "🚗", title: "Formation VTC Initiale", description: "Devenez chauffeur VTC et lancez votre activité.", duration: "10 jours", level: "Tous niveaux", payment: "Paiement 4x sans frais", popular: true },
-  { emoji: "🏍️", title: "Formation VMDTR", description: "Formation spécialisée pour le transport en deux-roues.", duration: "7 jours", level: "Permis moto requis", payment: "Paiement 4x sans frais", popular: false },
-  { emoji: "📚", title: "Formation Continue", description: "Remise à niveau pour les professionnels.", duration: "2 jours", level: "Professionnels", payment: "Paiement 4x sans frais", popular: false },
+  { icon: CarTaxiFront, title: "Formation TAXI Initiale", description: "Formation complète pour devenir chauffeur de taxi.", duration: "10 jours", level: "Tous niveaux", payment: "Paiement 4x sans frais", popular: true },
+  { icon: Car, title: "Formation VTC Initiale", description: "Devenez chauffeur VTC et lancez votre activité.", duration: "10 jours", level: "Tous niveaux", payment: "Paiement 4x sans frais", popular: true },
+  { icon: Bike, title: "Formation VMDTR", description: "Formation spécialisée pour le transport en deux-roues.", duration: "7 jours", level: "Permis moto requis", payment: "Paiement 4x sans frais", popular: false },
+  { icon: GraduationCap, title: "Formation Continue", description: "Remise à niveau pour les professionnels.", duration: "2 jours", level: "Professionnels", payment: "Paiement 4x sans frais", popular: false },
 ];
 
 const staggerContainerVariants = {
@@ -87,8 +87,8 @@ const FormationsSection = () => {
                 </div>
               )}
 
-              <div className="text-5xl mb-5">
-                {formation.emoji}
+              <div className="w-14 h-14 rounded-2xl bg-forest/10 flex items-center justify-center mb-5 group-hover:bg-forest/15 transition-colors">
+                <formation.icon className="w-7 h-7 text-forest" />
               </div>
 
               <motion.h3 
