@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Formations from "./pages/Formations";
 import FormationTaxi from "./pages/FormationTaxi";
 import FormationVTC from "./pages/FormationVTC";
+import FormationVMDTR from "./pages/FormationVMDTR";
 import FormationMobilite from "./pages/FormationMobilite";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -57,6 +58,7 @@ const App = () => {
                 <Route path="/formations" element={<Formations />} />
                 <Route path="/formations/taxi" element={<FormationTaxi />} />
                 <Route path="/formations/vtc" element={<FormationVTC />} />
+                <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
                 <Route path="/formations/mobilite" element={<FormationMobilite />} />
                 <Route path="/a-propos" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
