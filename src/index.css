@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -73,7 +73,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-black tracking-tight text-forest;
+    @apply tracking-tight text-forest;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
   }
 }
 
@@ -212,7 +214,9 @@
 
   /* T3P Campus Section Title - Modern Bold */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
     color: #1B4D3E;
     text-transform: none;
   }
