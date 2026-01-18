@@ -64,6 +64,18 @@
   body {
     @apply bg-background font-sans text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    cursor: none;
+  }
+
+  /* Show default cursor on touch devices and form inputs */
+  @media (hover: none) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  input, textarea, select {
+    cursor: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
