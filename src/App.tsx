@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Formations from "./pages/Formations";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 import LegalMentions from "./pages/LegalMentions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
@@ -46,6 +48,8 @@ const App = () => {
               <Route path="/formations" element={<Formations />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/mentions-legales" element={<LegalMentions />} />
               <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
               <Route path="*" element={<NotFound />} />
