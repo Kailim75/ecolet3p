@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { 
   Download, Palette, Type, Layout, FileText, 
-  CheckCircle, XCircle, Copy, Check
+  CheckCircle, XCircle, Copy, Check, ExternalLink
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -284,13 +284,10 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => {
-                          window.open('/templates/flyer-campus-t3p.pdf', '_blank');
-                          toast.info("Le template PDF sera bientôt disponible");
-                        }}
+                        onClick={() => window.open('/templates/flyer-campus-t3p.html', '_blank')}
                       >
-                        <Download className="w-3 h-3 mr-1" />
-                        PDF
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Ouvrir
                       </Button>
                     </div>
                   </CardContent>
@@ -332,13 +329,10 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => {
-                          window.open('/templates/attestation-campus-t3p.pdf', '_blank');
-                          toast.info("Le template PDF sera bientôt disponible");
-                        }}
+                        onClick={() => window.open('/templates/attestation-campus-t3p.html', '_blank')}
                       >
-                        <Download className="w-3 h-3 mr-1" />
-                        PDF
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Ouvrir
                       </Button>
                     </div>
                   </CardContent>
@@ -378,13 +372,10 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => {
-                          window.open('/templates/contrat-campus-t3p.pdf', '_blank');
-                          toast.info("Le template PDF sera bientôt disponible");
-                        }}
+                        onClick={() => window.open('/templates/contrat-campus-t3p.html', '_blank')}
                       >
-                        <Download className="w-3 h-3 mr-1" />
-                        PDF
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Ouvrir
                       </Button>
                     </div>
                   </CardContent>
@@ -418,13 +409,10 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => {
-                          window.open('/templates/carte-visite-campus-t3p.pdf', '_blank');
-                          toast.info("Le template PDF sera bientôt disponible");
-                        }}
+                        onClick={() => window.open('/templates/carte-visite-campus-t3p.html', '_blank')}
                       >
-                        <Download className="w-3 h-3 mr-1" />
-                        PDF
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Ouvrir
                       </Button>
                     </div>
                   </CardContent>

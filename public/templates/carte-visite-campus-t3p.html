@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte de Visite - Campus T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    
+    .page {
+      width: 210mm;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 24px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+    
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 85mm);
+      grid-template-rows: repeat(5, 55mm);
+      gap: 5mm;
+      justify-content: center;
+    }
+    
+    .card {
+      width: 85mm;
+      height: 55mm;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      border-radius: 4mm;
+      padding: 5mm;
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+      color: #F5EBD7;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    
+    .logo {
+      width: 14mm;
+      height: 14mm;
+      background: #D4A853;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 5mm;
+      color: #1B4D3E;
+      flex-shrink: 0;
+    }
+    
+    .content {
+      flex: 1;
+    }
+    
+    .company-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 4mm;
+      font-weight: 700;
+      margin-bottom: 1mm;
+    }
+    
+    .tagline {
+      font-size: 2.5mm;
+      opacity: 0.8;
+      margin-bottom: 3mm;
+    }
+    
+    .contact-info {
+      font-size: 2.2mm;
+      opacity: 0.7;
+    }
+    
+    .contact-info div {
+      margin: 0.8mm 0;
+    }
+    
+    .instructions {
+      margin-top: 40px;
+      padding: 20px;
+      background: #F5EBD7;
+      border-radius: 8px;
+    }
+    
+    .instructions h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .instructions ul {
+      font-size: 12px;
+      color: #333;
+      padding-left: 20px;
+    }
+    
+    .instructions li {
+      margin: 6px 0;
+    }
+    
+    @media print {
+      body { 
+        background: white; 
+        padding: 0; 
+      }
+      .page { 
+        box-shadow: none;
+        padding: 10mm;
+      }
+      .instructions {
+        display: none;
+      }
+      .cards-grid {
+        margin-top: 0;
+      }
+      h1, .subtitle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Cartes de Visite - Campus T3P</h1>
+    <p class="subtitle">Format 85 × 55 mm • Impression recto</p>
+    
+    <div class="cards-grid">
+      <!-- 10 cartes identiques pour impression -->
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="logo">T3P</div>
+        <div class="content">
+          <div class="company-name">Campus T3P</div>
+          <div class="tagline">Centre de Formation VTC & Taxi</div>
+          <div class="contact-info">
+            <div>📍 Montrouge</div>
+            <div>📞 01 XX XX XX XX</div>
+            <div>✉️ contact@t3pcampus.fr</div>
+            <div>🌐 t3pcampus.fr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="instructions">
+      <h3>📋 Instructions d'impression</h3>
+      <ul>
+        <li>Format : A4</li>
+        <li>Papier recommandé : Couché mat 350g/m²</li>
+        <li>Utilisez Ctrl+P (ou Cmd+P) pour imprimer</li>
+        <li>Sélectionnez "Enregistrer en PDF" pour créer un fichier PDF</li>
+        <li>Découpez selon les contours des cartes</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

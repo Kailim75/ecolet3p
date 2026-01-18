@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer Campus T3P - Formation VTC & Taxi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @page {
+      size: A5 portrait;
+      margin: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F5EBD7;
+      min-height: 100vh;
+      padding: 0;
+    }
+    
+    .flyer {
+      width: 148mm;
+      height: 210mm;
+      margin: 0 auto;
+      background: #F5EBD7;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      padding: 24px;
+      text-align: center;
+      color: #F5EBD7;
+    }
+    
+    .logo {
+      width: 60px;
+      height: 60px;
+      background: #D4A853;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: #1B4D3E;
+    }
+    
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    
+    .tagline {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .content {
+      padding: 24px;
+    }
+    
+    .badge {
+      background: #D4A853;
+      color: #1B4D3E;
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    
+    .formations {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .formation-item {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      border-left: 4px solid #D4A853;
+    }
+    
+    .formation-item h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    
+    .formation-item p {
+      color: #666;
+      font-size: 12px;
+    }
+    
+    .advantages {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .advantages h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .advantages ul {
+      list-style: none;
+    }
+    
+    .advantages li {
+      font-size: 12px;
+      color: #333;
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    
+    .advantages li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #D4A853;
+      font-weight: 700;
+    }
+    
+    .cta {
+      background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
+      color: #1B4D3E;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+    
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1B4D3E;
+      color: #F5EBD7;
+      padding: 16px;
+      text-align: center;
+      font-size: 11px;
+    }
+    
+    .footer a {
+      color: #D4A853;
+      text-decoration: none;
+    }
+    
+    @media print {
+      body { background: white; }
+      .flyer { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="header">
+      <div class="logo">T3P</div>
+      <h1>Campus T3P</h1>
+      <p class="tagline">Centre de Formation VTC, Taxi & VMDTR</p>
+    </div>
+    
+    <div class="content">
+      <div class="badge">🎯 96% de Réussite</div>
+      
+      <h2>Nos Formations</h2>
+      
+      <div class="formations">
+        <div class="formation-item">
+          <h3>Formation VTC</h3>
+          <p>Devenez chauffeur VTC professionnel • 3 semaines</p>
+        </div>
+        <div class="formation-item">
+          <h3>Formation Taxi</h3>
+          <p>Obtenez votre carte professionnelle Taxi • 3 semaines</p>
+        </div>
+        <div class="formation-item">
+          <h3>Formation VMDTR</h3>
+          <p>Transport de personnes à moto • 1 semaine</p>
+        </div>
+      </div>
+      
+      <div class="advantages">
+        <h3>Pourquoi choisir Campus T3P ?</h3>
+        <ul>
+          <li>Formateurs experts avec 15+ ans d'expérience</li>
+          <li>Paiement en 4x sans frais</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Locaux modernes à Montrouge</li>
+        </ul>
+      </div>
+      
+      <div class="cta">
+        📞 Prenez rendez-vous dès maintenant !
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p><strong>Campus T3P</strong> • Montrouge</p>
+      <p><a href="https://t3pcampus.fr">t3pcampus.fr</a></p>
+    </div>
+  </div>
+</body>
+</html>
