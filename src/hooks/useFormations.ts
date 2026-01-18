@@ -72,5 +72,6 @@ export const getCategoryLabel = (category: string): string => {
 export const getCategoryFilter = (category: string): string => {
   if (category === "taxi") return "TAXI";
   if (category === "vtc") return "VTC";
+  if (category === "vmdtr") return "VMDTR";
   return "Autres";
 };
