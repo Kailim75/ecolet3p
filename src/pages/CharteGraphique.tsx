@@ -263,27 +263,108 @@ const CharteGraphique = () => {
             {/* Templates Tab */}
             <TabsContent value="templates" className="space-y-8">
               <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  { title: "Flyer A5/A4", desc: "Présentation des formations", icon: "📄" },
-                  { title: "Attestation de Formation", desc: "Document officiel certifié", icon: "🎓" },
-                  { title: "Contrat de Formation", desc: "Accord stagiaire/organisme", icon: "📝" },
-                  { title: "Carte de Visite", desc: "Format 85×55mm", icon: "💳" },
-                ].map((template, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-4">
-                        <span className="text-4xl">{template.icon}</span>
-                        <div>
-                          <h3 className="font-bold text-forest">{template.title}</h3>
-                          <p className="text-warm-gray-600 text-sm">{template.desc}</p>
-                          <p className="text-xs text-muted-foreground mt-2">
-                            Voir le document Markdown pour les spécifications détaillées
-                          </p>
+                {/* Flyer Template */}
+                <Card className="overflow-hidden">
+                  <div className="bg-forest p-6 text-center">
+                    <div className="bg-cream rounded-lg p-4 mx-auto max-w-[200px] shadow-lg">
+                      <div className="text-forest font-display font-bold text-sm mb-2">Campus T3P</div>
+                      <div className="w-full h-16 bg-gradient-to-r from-forest to-forest-light rounded mb-2" />
+                      <div className="text-xs text-forest font-medium mb-1">Formation VTC</div>
+                      <div className="h-2 bg-gold/50 rounded w-3/4 mx-auto mb-1" />
+                      <div className="h-2 bg-muted rounded w-1/2 mx-auto" />
+                    </div>
+                  </div>
+                  <CardContent className="pt-4">
+                    <h3 className="font-bold text-forest">📄 Flyer A5/A4</h3>
+                    <p className="text-warm-gray-600 text-sm">Présentation des formations avec visuels impactants</p>
+                  </CardContent>
+                </Card>
+
+                {/* Attestation Template */}
+                <Card className="overflow-hidden">
+                  <div className="bg-cream-dark p-6 text-center">
+                    <div className="bg-white rounded-lg p-4 mx-auto max-w-[200px] shadow-lg border">
+                      <div className="flex justify-between items-center mb-3">
+                        <div className="w-8 h-8 bg-forest rounded-full flex items-center justify-center text-cream text-xs font-bold">T3P</div>
+                        <div className="text-right">
+                          <div className="h-1.5 bg-forest rounded w-12 mb-1" />
+                          <div className="h-1 bg-muted rounded w-8" />
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                      <div className="text-center mb-3">
+                        <div className="text-forest font-bold text-xs">ATTESTATION</div>
+                        <div className="text-[10px] text-muted-foreground">de Formation</div>
+                      </div>
+                      <div className="space-y-1 mb-3">
+                        <div className="h-1.5 bg-muted rounded w-full" />
+                        <div className="h-1.5 bg-muted rounded w-4/5" />
+                        <div className="h-1.5 bg-muted rounded w-3/4" />
+                      </div>
+                      <div className="flex justify-between items-end">
+                        <div className="h-6 w-12 border-2 border-gold rounded" />
+                        <div className="text-[8px] text-muted-foreground">Signature</div>
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="pt-4">
+                    <h3 className="font-bold text-forest">🎓 Attestation de Formation</h3>
+                    <p className="text-warm-gray-600 text-sm">Document officiel certifié avec cachet et signature</p>
+                  </CardContent>
+                </Card>
+
+                {/* Contrat Template */}
+                <Card className="overflow-hidden">
+                  <div className="bg-forest-light p-6 text-center">
+                    <div className="bg-white rounded-lg p-4 mx-auto max-w-[200px] shadow-lg">
+                      <div className="flex justify-center mb-2">
+                        <div className="w-10 h-10 bg-forest rounded-full flex items-center justify-center text-cream text-xs font-bold">T3P</div>
+                      </div>
+                      <div className="text-forest font-bold text-xs mb-2">CONTRAT DE FORMATION</div>
+                      <div className="text-left space-y-2 text-[8px]">
+                        <div className="border-b pb-1">
+                          <span className="text-muted-foreground">Article 1</span>
+                          <div className="h-1 bg-muted rounded w-full mt-1" />
+                        </div>
+                        <div className="border-b pb-1">
+                          <span className="text-muted-foreground">Article 2</span>
+                          <div className="h-1 bg-muted rounded w-3/4 mt-1" />
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Article 3</span>
+                          <div className="h-1 bg-muted rounded w-5/6 mt-1" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="pt-4">
+                    <h3 className="font-bold text-forest">📝 Contrat de Formation</h3>
+                    <p className="text-warm-gray-600 text-sm">Accord stagiaire/organisme conforme réglementation</p>
+                  </CardContent>
+                </Card>
+
+                {/* Business Card Template */}
+                <Card className="overflow-hidden">
+                  <div className="bg-cream p-6 text-center">
+                    <div className="bg-forest rounded-lg p-3 mx-auto shadow-lg" style={{ width: '170px', height: '100px' }}>
+                      <div className="flex h-full items-center gap-2">
+                        <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-forest text-xs font-bold flex-shrink-0">T3P</div>
+                        <div className="text-left flex-1">
+                          <div className="text-cream font-bold text-[10px]">Campus T3P</div>
+                          <div className="text-cream/70 text-[7px] mb-2">Centre de Formation VTC & Taxi</div>
+                          <div className="space-y-0.5 text-[6px] text-cream/60">
+                            <div>📍 Montrouge</div>
+                            <div>📞 01 XX XX XX XX</div>
+                            <div>🌐 t3pcampus.fr</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="pt-4">
+                    <h3 className="font-bold text-forest">💳 Carte de Visite</h3>
+                    <p className="text-warm-gray-600 text-sm">Format 85×55mm, recto seul</p>
+                  </CardContent>
+                </Card>
               </div>
 
               <Card className="bg-forest text-cream">
