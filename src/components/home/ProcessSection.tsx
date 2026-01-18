@@ -1,36 +1,32 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ClipboardCheck, BookOpen, Car, GraduationCap, ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const steps = [
   {
-    icon: ClipboardCheck,
-    number: "01",
+    number: "1",
+    emoji: "✍️",
     title: "Inscription",
-    description: "Prenez rendez-vous dans notre centre. Nous étudions ensemble votre projet professionnel.",
-    color: "from-blue-600 to-blue-500",
+    description: "Prenez rendez-vous dans notre centre. Nous étudions ensemble votre projet.",
   },
   {
-    icon: BookOpen,
-    number: "02",
+    number: "2",
+    emoji: "📖",
     title: "Formation Théorique",
-    description: "10 jours de formation intensive en salle avec nos formateurs experts certifiés.",
-    color: "from-purple-600 to-purple-500",
+    description: "10 jours de formation intensive avec nos formateurs experts.",
   },
   {
-    icon: Car,
-    number: "03",
+    number: "3",
+    emoji: "🚗",
     title: "Formation Pratique",
-    description: "Mises en situation réelles pour vous préparer au métier et à l'examen.",
-    color: "from-emerald-500 to-emerald-400",
+    description: "Mises en situation réelles pour vous préparer au métier.",
   },
   {
-    icon: GraduationCap,
-    number: "04",
+    number: "4",
+    emoji: "🎓",
     title: "Examen & Carte Pro",
-    description: "Passez l'examen et obtenez votre carte professionnelle. Prêt à travailler !",
-    color: "from-orange-500 to-orange-400",
+    description: "Passez l'examen et obtenez votre carte professionnelle.",
   },
 ];
 
@@ -39,187 +35,100 @@ const containerVariants = {
   visible: {
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.3
+      delayChildren: 0.2
     }
   }
 };
 
 const stepVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut" as const
-    }
-  }
-};
-
-const headerVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.5,
       ease: "easeOut" as const
-    }
-  }
-};
-
-const lineVariants = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: {
-      duration: 1,
-      ease: "easeOut" as const,
-      delay: 0.5
     }
   }
 };
 
 const ProcessSection = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="absolute top-20 left-0 w-72 h-72 bg-blue-50 rounded-full blur-3xl"
-        />
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="absolute top-40 right-0 w-64 h-64 bg-orange-50 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="container-custom relative">
+    <section className="section-padding section-white">
+      <div className="container-custom">
         {/* Header */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={headerVariants}
-          className="text-center max-w-3xl mx-auto mb-20"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 rounded-full px-4 py-2 text-sm font-semibold mb-6"
-          >
-            <Zap className="w-4 h-4 text-orange-500" />
-            Votre parcours
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
-            Devenez Chauffeur en{" "}
-            <span className="text-gradient-orange">4 Étapes</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-warm-gray-900 mb-4">
+            Comment ça marche ?
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Un parcours simple et accompagné jusqu'à l'obtention de votre carte professionnelle
+          <p className="text-lg text-warm-gray-600 leading-relaxed">
+            4 étapes simples pour obtenir votre carte professionnelle
           </p>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Connection line - desktop */}
-          <motion.div 
-            variants={lineVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="hidden lg:block absolute top-24 left-[12%] right-[12%] h-1 bg-gradient-to-r from-blue-500 via-purple-500 via-emerald-500 to-orange-500 rounded-full origin-left"
-          />
+        {/* Steps */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+        >
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.title}
+              variants={stepVariants}
+              className="relative"
+            >
+              {/* Connector line (desktop) */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-warm-gray-200" />
+              )}
 
-          {/* Steps */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6"
-          >
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                variants={stepVariants}
-                className="relative group"
-              >
-                {/* Number connector - desktop */}
-                <motion.div 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1, duration: 0.4, ease: "backOut" }}
-                  className="hidden lg:flex absolute -top-2 left-1/2 -translate-x-1/2 flex-col items-center"
-                >
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-500 z-10`}>
-                    <span className="text-white font-black text-lg">{step.number}</span>
-                  </div>
-                </motion.div>
+              <div className="bg-white rounded-2xl p-6 border border-warm-gray-100 shadow-sm hover:shadow-md hover:border-orange/20 transition-all duration-250 relative z-10">
+                {/* Number badge */}
+                <div className="absolute -top-3 left-6 w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">
+                  {step.number}
+                </div>
 
-                {/* Card */}
-                <motion.div 
-                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className="bg-gray-50 rounded-3xl p-8 pt-16 lg:pt-20 text-center group-hover:bg-white group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-gray-100"
-                >
-                  {/* Mobile number */}
-                  <div className={`lg:hidden w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg mx-auto mb-6`}>
-                    <span className="text-white font-black text-lg">{step.number}</span>
-                  </div>
+                {/* Emoji */}
+                <div className="text-4xl mb-4 mt-2">{step.emoji}</div>
 
-                  {/* Icon */}
-                  <motion.div 
-                    whileHover={{ rotate: 10 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white shadow-md flex items-center justify-center group-hover:shadow-lg transition-shadow duration-500"
-                  >
-                    <step.icon className={`w-8 h-8`} style={{ color: index === 0 ? '#2563eb' : index === 1 ? '#9333ea' : index === 2 ? '#10b981' : '#f97316' }} />
-                  </motion.div>
+                {/* Title */}
+                <h3 className="text-xl font-bold text-warm-gray-900 mb-2">
+                  {step.title}
+                </h3>
 
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+                {/* Description */}
+                <p className="text-warm-gray-600 text-sm leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center"
         >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-green-50 text-green-700 rounded-full px-5 py-2.5 text-sm font-semibold mb-6"
-          >
-            <span className="text-lg">⏱️</span>
+          <div className="inline-flex items-center gap-2 bg-green-success/10 text-green-success font-medium px-5 py-2.5 rounded-full text-sm mb-6">
+            <span>⏱️</span>
             En moyenne, nos élèves obtiennent leur carte en 2 à 3 mois
-          </motion.div>
+          </div>
           <div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild className="btn-premium-orange px-8 py-6 rounded-full text-base">
+              <Button asChild className="btn-primary-lg">
                 <Link to="/contact" className="flex items-center gap-2">
                   Commencer mon parcours
                   <ArrowRight className="w-5 h-5" />
