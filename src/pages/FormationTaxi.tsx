@@ -30,6 +30,7 @@ import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import { useFormations } from "@/hooks/useFormations";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
+import heroImageTaxi from "@/assets/center/formation-session.jpg";
 
 const programModules = [
   {
@@ -337,8 +338,22 @@ const FormationTaxi = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="hidden lg:block"
+              className="hidden lg:block space-y-6"
             >
+              {/* Hero Image */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroImageTaxi} 
+                  alt="Formation Taxi en session - T3P Campus" 
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white font-medium">Salle de formation équipée</p>
+                  <p className="text-white/80 text-sm">Centre T3P Campus - Montrouge</p>
+                </div>
+              </div>
+
               <Card className="bg-background/80 backdrop-blur border-2">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
