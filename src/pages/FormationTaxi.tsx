@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
   CarTaxiFront, Clock, Euro, Users, CheckCircle, Calendar, 
-  MapPin, Phone, ChevronRight, Star, GraduationCap, FileText,
-  Award, Target, BookOpen
+  MapPin, Phone, Star, GraduationCap, FileText,
+  Award, Target, BookOpen, Home
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import { useFormations } from "@/hooks/useFormations";
@@ -216,17 +224,32 @@ const FormationTaxi = () => {
       </Helmet>
 
       {/* Breadcrumb */}
-      <nav className="bg-muted/30 py-3 border-b">
+      <div className="bg-muted/30 py-3 border-b">
         <div className="container mx-auto px-4">
-          <ol className="flex items-center gap-2 text-sm">
-            <li><Link to="/" className="text-muted-foreground hover:text-primary">Accueil</Link></li>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <li><Link to="/formations" className="text-muted-foreground hover:text-primary">Formations</Link></li>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-            <li className="text-foreground font-medium">Formation Taxi</li>
-          </ol>
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center gap-1">
+                    <Home className="h-4 w-4" />
+                    Accueil
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/formations">Formations</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Formation Taxi</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
-      </nav>
+      </div>
 
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
