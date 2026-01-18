@@ -51,7 +51,7 @@ const stepVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
+      ease: "easeOut" as const
     }
   }
 };
@@ -63,7 +63,7 @@ const headerVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
+      ease: "easeOut" as const
     }
   }
 };
@@ -74,7 +74,7 @@ const lineVariants = {
     scaleX: 1,
     transition: {
       duration: 1,
-      ease: [0.22, 1, 0.36, 1],
+      ease: "easeOut" as const,
       delay: 0.5
     }
   }

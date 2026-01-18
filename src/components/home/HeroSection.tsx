@@ -18,7 +18,7 @@ const fadeUpVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
+      ease: "easeOut" as const
     }
   })
 };
@@ -41,7 +41,7 @@ const statVariants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1]
+      ease: "easeOut" as const
     }
   }
 };
@@ -113,7 +113,7 @@ const HeroSection = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 mb-8"
           >
             <span className="relative flex h-2.5 w-2.5">
