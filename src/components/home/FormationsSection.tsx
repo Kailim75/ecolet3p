@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { motion, type Easing } from "framer-motion";
+import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { ArrowRight, Clock, Users, CreditCard } from "lucide-react";
+import { useRef } from "react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -22,9 +23,34 @@ const staggerItemVariants = {
 };
 
 const FormationsSection = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+
   return (
-    <section className="section-padding gradient-warm overflow-hidden">
-      <div className="container-custom">
+    <section ref={containerRef} className="section-padding gradient-warm overflow-hidden relative">
+      {/* Parallax Background Elements */}
+      <motion.div 
+        style={{ y: y1, scale }}
+        className="absolute -top-32 left-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute top-1/3 -right-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y3 }}
+        className="absolute -bottom-20 left-10 w-48 h-48 bg-gold/15 rounded-full blur-2xl pointer-events-none"
+      />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

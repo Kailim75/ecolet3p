@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { motion, type Easing } from "framer-motion";
+import { motion, useScroll, useTransform, type Easing } from "framer-motion";
+import { useRef } from "react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -22,9 +23,33 @@ const staggerItemVariants = {
 };
 
 const ProcessSection = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+
   return (
-    <section className="section-padding bg-card overflow-hidden">
-      <div className="container-custom">
+    <section ref={containerRef} className="section-padding bg-card overflow-hidden relative">
+      {/* Parallax Background Elements */}
+      <motion.div 
+        style={{ y: y1, rotate }}
+        className="absolute top-20 -left-32 w-72 h-72 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y2 }}
+        className="absolute -bottom-20 right-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div 
+        style={{ y: y1 }}
+        className="absolute top-1/2 -right-16 w-40 h-40 bg-forest/5 rounded-full blur-2xl pointer-events-none"
+      />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
