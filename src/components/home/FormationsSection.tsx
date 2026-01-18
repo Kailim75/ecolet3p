@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Clock, Users, ArrowRight } from "lucide-react";
+import { Clock, Users, ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const formations = [
@@ -11,6 +11,7 @@ const formations = [
     level: "Débutant à Intermédiaire",
     category: "Informatique",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
+    featured: true,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const formations = [
     level: "Tous niveaux",
     category: "Management",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop",
+    featured: false,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const formations = [
     level: "Intermédiaire",
     category: "Marketing",
     image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&h=250&fit=crop",
+    featured: false,
   },
   {
     id: 4,
@@ -38,22 +41,38 @@ const formations = [
     level: "Avancé",
     category: "Informatique",
     image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=250&fit=crop",
+    featured: true,
   },
 ];
 
 const FormationsSection = () => {
   return (
-    <section className="section-padding">
-      <div className="container-custom">
+    <section className="section-padding relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl" />
+      
+      <div className="container-custom relative">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Nos formations phares
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Des parcours complets conçus par des experts pour vous accompagner 
-            vers la réussite professionnelle.
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-wider mb-4">
+              <Zap className="w-4 h-4" />
+              Nos formations
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Des parcours conçus pour votre{" "}
+              <span className="text-gradient">réussite</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Des formations certifiantes, conçues par des experts et adaptées aux besoins réels du marché.
+            </p>
+          </div>
+          <Button asChild variant="outline" className="self-start lg:self-end rounded-full px-6">
+            <Link to="/formations" className="flex items-center gap-2">
+              Voir tout
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
 
         {/* Grid */}
@@ -61,63 +80,66 @@ const FormationsSection = () => {
           {formations.map((formation, index) => (
             <div
               key={formation.id}
-              className={`group bg-card rounded-xl overflow-hidden border border-border card-hover animate-fade-up opacity-0 stagger-${index + 1}`}
+              className={`group card-modern overflow-hidden animate-fade-up opacity-0 stagger-${index + 1}`}
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-52 overflow-hidden">
                 <img
                   src={formation.image}
                   alt={formation.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-3 left-3">
-                  <span className="bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                
+                {/* Category badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/90 text-foreground backdrop-blur-sm">
                     {formation.category}
                   </span>
                 </div>
-              </div>
+                
+                {/* Featured badge */}
+                {formation.featured && (
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold gradient-accent text-white">
+                      <Zap className="w-3 h-3" />
+                      Populaire
+                    </span>
+                  </div>
+                )}
 
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="font-semibold text-lg text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                  {formation.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {formation.description}
-                </p>
-
-                {/* Meta */}
-                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                  <div className="flex items-center gap-1">
+                {/* Duration on image */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center gap-4 text-white/90 text-sm">
+                  <div className="flex items-center gap-1.5">
                     <Clock className="w-4 h-4" />
                     <span>{formation.duration}</span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1.5">
                     <Users className="w-4 h-4" />
                     <span>{formation.level}</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="font-bold text-lg text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                  {formation.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
+                  {formation.description}
+                </p>
 
                 <Link
                   to="/formations"
-                  className="inline-flex items-center text-sm font-medium text-primary hover:text-accent transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all"
                 >
                   En savoir plus
-                  <ArrowRight className="ml-1 w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <Button asChild size="lg" className="gradient-primary border-0">
-            <Link to="/formations">
-              Voir toutes les formations
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>
