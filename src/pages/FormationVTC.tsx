@@ -29,7 +29,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
-import heroImageVTC from "@/assets/center/salle-moderne.jpg";
+import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
 
 const programModules = [
   {

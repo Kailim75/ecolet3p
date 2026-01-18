@@ -30,7 +30,7 @@ import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import { useFormations } from "@/hooks/useFormations";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
-import heroImageTaxi from "@/assets/center/formation-session.jpg";
+import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
 
 const programModules = [
   {
