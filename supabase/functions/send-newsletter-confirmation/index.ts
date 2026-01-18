@@ -1,8 +1,10 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@2.0.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -29,10 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log(`Sending confirmation email to: ${email} (source: ${source})`);
 
     // Get the unsubscribe token for this subscriber
-    const supabaseAdmin = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
-    );
+    const supabaseAdmin = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
 
     const { data: subscriber, error: fetchError } = await supabaseAdmin
       .from("newsletter_subscribers")
@@ -46,11 +45,12 @@ const handler = async (req: Request): Promise<Response> => {
 
     const unsubscribeToken = subscriber?.unsubscribe_token || "";
     const unsubscribeUrl = `https://campust3ptest.lovable.app/unsubscribe?token=${unsubscribeToken}`;
+    const emailSubject = "Bienvenue dans notre newsletter !";
 
     const emailResponse = await resend.emails.send({
       from: "Campus T3P <montrouge@t3pcampus.fr>",
       to: [email],
-      subject: "Bienvenue dans notre newsletter !",
+      subject: emailSubject,
       html: `
         <!DOCTYPE html>
         <html lang="fr">
@@ -128,6 +128,18 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     console.log("Email sent successfully:", emailResponse);
+
+    // Log email to database
+    const resendId = emailResponse.data?.id || null;
+    await supabaseAdmin.from("email_logs").insert({
+      email_type: "newsletter_confirmation",
+      recipient_email: email,
+      subject: emailSubject,
+      status: resendId ? "sent" : "failed",
+      resend_id: resendId,
+      error_message: emailResponse.error?.message || null,
+      metadata: { source },
+    });
 
     return new Response(JSON.stringify({ success: true, data: emailResponse }), {
       status: 200,

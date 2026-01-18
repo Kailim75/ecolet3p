@@ -1,6 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -38,6 +41,8 @@ const handler = async (req: Request): Promise<Response> => {
       month: 'long',
       year: 'numeric'
     });
+
+    const emailSubject = `📅 Nouvelle demande de RDV : ${firstName} ${lastName} - ${formattedDate}`;
 
     const emailHtml = `
       <!DOCTYPE html>
@@ -131,13 +136,25 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Campus T3P <montrouge@t3pcampus.fr>",
         to: [adminEmail],
-        subject: `📅 Nouvelle demande de RDV : ${firstName} ${lastName} - ${formattedDate}`,
+        subject: emailSubject,
         html: emailHtml,
       }),
     });
 
     const emailResponse = await res.json();
     console.log("Admin notification sent:", emailResponse);
+
+    // Log email to database
+    const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
+    await supabase.from("email_logs").insert({
+      email_type: "admin_notification_appointment",
+      recipient_email: adminEmail,
+      subject: emailSubject,
+      status: emailResponse.id ? "sent" : "failed",
+      resend_id: emailResponse.id || null,
+      error_message: emailResponse.error?.message || null,
+      metadata: { firstName, lastName, email, formationChoice, appointmentDate, appointmentTime },
+    });
 
     return new Response(JSON.stringify({ success: true, emailResponse }), {
       status: 200,
