@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import PrefetchLink from "@/components/ui/PrefetchLink";
 
 const Footer = () => {
   return (
@@ -34,11 +34,16 @@ const Footer = () => {
               Nos Formations
             </h4>
             <ul className="space-y-3">
-              {["Formation TAXI", "Formation VTC", "Formation VMDTR", "Formation Continue"].map((item) => (
-                <li key={item}>
-                  <Link to="/formations" className="text-cream/70 hover:text-gold transition-colors text-sm">
-                    {item}
-                  </Link>
+              {[
+                { name: "Formation TAXI", path: "/formations/taxi" },
+                { name: "Formation VTC", path: "/formations/vtc" },
+                { name: "Formation VMDTR", path: "/formations/vmdtr" },
+                { name: "Formation Continue", path: "/formations/mobilite" }
+              ].map((item) => (
+                <li key={item.name}>
+                  <PrefetchLink to={item.path} className="text-cream/70 hover:text-gold transition-colors text-sm">
+                    {item.name}
+                  </PrefetchLink>
                 </li>
               ))}
             </ul>
@@ -56,9 +61,9 @@ const Footer = () => {
                 { name: "Contact", path: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.path} className="text-cream/70 hover:text-gold transition-colors text-sm">
+                  <PrefetchLink to={item.path} className="text-cream/70 hover:text-gold transition-colors text-sm">
                     {item.name}
-                  </Link>
+                  </PrefetchLink>
                 </li>
               ))}
             </ul>
@@ -105,8 +110,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-cream/50">
             <p>© 2025 T3P Campus - Tous droits réservés</p>
             <div className="flex gap-6">
-              <Link to="/mentions-legales" className="hover:text-gold transition-colors">Mentions légales</Link>
-              <Link to="/politique-de-confidentialite" className="hover:text-gold transition-colors">Confidentialité</Link>
+              <PrefetchLink to="/mentions-legales" className="hover:text-gold transition-colors">Mentions légales</PrefetchLink>
+              <PrefetchLink to="/politique-de-confidentialite" className="hover:text-gold transition-colors">Confidentialité</PrefetchLink>
             </div>
           </div>
         </div>

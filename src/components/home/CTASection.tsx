@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { Phone, Mail, Check } from "lucide-react";
 import { useRef } from "react";
+import PrefetchLink from "@/components/ui/PrefetchLink";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 const benefits = ["Premier rendez-vous gratuit", "Paiement 4x sans frais", "Réponse sous 24h"];
@@ -93,12 +93,12 @@ const CTASection = () => {
           >
             <motion.div whileHover={{ scale: 1.02, y: -3 }} whileTap={{ scale: 0.98 }}>
               <Button asChild className="bg-gold text-forest font-bold px-8 py-4 rounded-md hover:bg-gold-light text-sm uppercase tracking-wide">
-                <Link to="/contact"><Phone className="w-4 h-4 mr-2" />PRENDRE RENDEZ-VOUS</Link>
+                <PrefetchLink to="/contact"><Phone className="w-4 h-4 mr-2" />PRENDRE RENDEZ-VOUS</PrefetchLink>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02, y: -3 }} whileTap={{ scale: 0.98 }}>
               <Button asChild className="bg-transparent border-2 border-cream text-cream font-bold px-8 py-4 rounded-md hover:bg-cream hover:text-forest text-sm uppercase tracking-wide">
-                <Link to="/contact"><Mail className="w-4 h-4 mr-2" />NOUS CONTACTER</Link>
+                <PrefetchLink to="/contact"><Mail className="w-4 h-4 mr-2" />NOUS CONTACTER</PrefetchLink>
               </Button>
             </motion.div>
           </motion.div>

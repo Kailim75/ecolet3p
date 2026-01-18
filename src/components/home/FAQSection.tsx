@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import FAQSchemaOrg from "./FAQSchemaOrg";
+import PrefetchLink from "@/components/ui/PrefetchLink";
 const faqs = [
   {
     question: "Qu'est-ce que la carte professionnelle T3P ?",
@@ -183,14 +184,11 @@ const FAQSection = () => {
           <p className="text-muted-foreground mb-4">
             Vous ne trouvez pas la réponse à votre question ?
           </p>
-          <motion.a
-            href="/contact"
-            className="btn-secondary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span>Contactez-nous</span>
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <PrefetchLink to="/contact" className="btn-secondary inline-block">
+              <span>Contactez-nous</span>
+            </PrefetchLink>
+          </motion.div>
         </motion.div>
       </div>
     </section>
