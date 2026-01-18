@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { 
   Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
   GraduationCap, Star, CreditCard, Car, Bike, Accessibility, Zap, Laptop, 
-  RefreshCw, Navigation, BookOpen, Target, LucideIcon
+  RefreshCw, Navigation, BookOpen, Target, LucideIcon, UserPlus
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 
 const categories = ["Toutes", "TAXI", "VTC", "Autres"];
 const modalities = ["Tous", "Présentiel", "À distance", "Cours du soir"];
@@ -433,7 +434,8 @@ const staggerItemVariants: Variants = {
 const Formations = () => {
   const [activeCategory, setActiveCategory] = useState("Toutes");
   const [activeModality, setActiveModality] = useState("Tous");
-  const [selectedFormation, setSelectedFormation] = useState<typeof formations[0] | null>(null);
+  const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
+  const [preRegistrationFormation, setPreRegistrationFormation] = useState<Formation | null>(null);
   const heroRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -698,10 +700,12 @@ const Formations = () => {
                     <Info className="w-4 h-4 mr-2" />
                     Détails
                   </Button>
-                  <Button asChild className="flex-1 btn-primary">
-                    <Link to="/contact">
-                      S'inscrire
-                    </Link>
+                  <Button 
+                    className="flex-1 btn-primary"
+                    onClick={() => setPreRegistrationFormation(formation)}
+                  >
+                    <UserPlus className="w-4 h-4 mr-2" />
+                    S'inscrire
                   </Button>
                 </div>
               </motion.div>
@@ -899,11 +903,15 @@ const Formations = () => {
 
                 {/* CTAs */}
                 <div className="flex gap-3 pt-4">
-                  <Button asChild className="flex-1 btn-primary">
-                    <Link to="/contact">
-                      <span>Prendre rendez-vous</span>
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
+                  <Button 
+                    className="flex-1 btn-primary"
+                    onClick={() => {
+                      setSelectedFormation(null);
+                      setPreRegistrationFormation(selectedFormation);
+                    }}
+                  >
+                    <UserPlus className="w-4 h-4 mr-2" />
+                    <span>Pré-inscription</span>
                   </Button>
                   <Button asChild variant="outline" className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream">
                     <a href="tel:0188750555">
@@ -916,6 +924,14 @@ const Formations = () => {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Pre-registration Form Modal */}
+      <PreRegistrationForm
+        isOpen={!!preRegistrationFormation}
+        onClose={() => setPreRegistrationFormation(null)}
+        formationTitle={preRegistrationFormation?.title || ""}
+        formationDuration={preRegistrationFormation?.duration || ""}
+      />
     </Layout>
   );
 };
