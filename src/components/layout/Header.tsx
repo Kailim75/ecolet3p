@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,6 +16,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -30,6 +31,25 @@ const Header = () => {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
+
+  const scrollToAppointment = () => {
+    setIsMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const element = document.getElementById("rendez-vous");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById("rendez-vous");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
 
   return (
     <header
@@ -73,7 +93,7 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:0188750555"
               className="flex items-center gap-2 font-semibold text-forest hover:text-forest-light transition-colors text-sm"
@@ -81,8 +101,12 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>+33 1 88 75 05 55</span>
             </a>
-            <Button asChild className="btn-secondary">
-              <Link to="/contact">NOUS CONTACTER</Link>
+            <Button
+              onClick={scrollToAppointment}
+              className="bg-orange hover:bg-orange/90 text-white font-bold"
+            >
+              <Calendar className="w-4 h-4 mr-2" />
+              Prendre RDV
             </Button>
           </div>
 
@@ -128,6 +152,22 @@ const Header = () => {
                     </Link>
                   </motion.div>
                 ))}
+                {/* Appointment link in mobile menu */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                >
+                  <button
+                    onClick={scrollToAppointment}
+                    className="w-full text-left block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors text-orange hover:bg-orange/10"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Calendar className="w-5 h-5" />
+                      Prendre RDV
+                    </span>
+                  </button>
+                </motion.div>
               </nav>
               
               <div className="mt-6 pt-6 border-t border-cream-dark space-y-4">
