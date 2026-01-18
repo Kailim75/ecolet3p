@@ -33,7 +33,7 @@ const values = [
   {
     icon: Trophy,
     title: "Excellence",
-    description: "Nous visons l'excellence avec un taux de réussite de 96% à l'examen professionnel.",
+    description: "Nous visons l'excellence avec un taux de réussite de 94% à l'examen professionnel.",
   },
   {
     icon: Heart,
@@ -53,10 +53,10 @@ const values = [
 ];
 
 const stats = [
-  { value: "96%", label: "Taux de réussite" },
+  { value: "94%", label: "Taux de réussite" },
   { value: "10 ans", label: "D'expérience" },
-  { value: "10 000+", label: "Apprenants formés" },
-  { value: "10", label: "Formations proposées" },
+  { value: "2 000+", label: "Apprenants formés" },
+  { value: "4", label: "Formations proposées" },
 ];
 
 const About = () => {
@@ -81,12 +81,12 @@ const About = () => {
     <Layout>
       <Helmet>
         <title>À propos de T3P Campus - Centre de Formation Taxi VTC | Montrouge</title>
-        <meta name="description" content="Découvrez T3P Campus, centre de formation leader à Montrouge depuis 2014. 96% de taux de réussite, formateurs experts, 10 000+ apprenants formés. Formations Taxi, VTC et VMDTR." />
+        <meta name="description" content="Découvrez T3P Campus, centre de formation à Montrouge depuis 2014. 94% de taux de réussite, formateurs experts, 2 000+ apprenants formés. Formations Taxi, VTC et VMDTR." />
         <meta name="keywords" content="T3P Campus, centre formation taxi, formation VTC Montrouge, école chauffeur professionnel, formation transport" />
         <link rel="canonical" href="https://t3pcampus.fr/a-propos" />
         
         <meta property="og:title" content="À propos de T3P Campus - Centre de Formation Taxi VTC" />
-        <meta property="og:description" content="Centre de formation leader depuis 2014. 96% de réussite, formateurs experts issus du métier. Découvrez nos locaux et notre équipe." />
+        <meta property="og:description" content="Centre de formation depuis 2014. 94% de réussite, formateurs experts issus du métier. Découvrez nos locaux et notre équipe." />
         <meta property="og:url" content="https://t3pcampus.fr/a-propos" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://t3pcampus.fr/og-about.jpg" />
@@ -142,7 +142,7 @@ const About = () => {
                   de leurs compétences.
                 </p>
                 <p>
-                  Avec un taux de réussite de <strong className="text-gold">96%</strong> à l'examen professionnel, nous sommes reconnus comme 
+                  Avec un taux de réussite de <strong className="text-gold">94%</strong> à l'examen professionnel, nous sommes reconnus comme 
                   l'un des meilleurs centres de formation de la région parisienne.
                 </p>
               </div>
@@ -335,7 +335,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Engagement Qualité */}
       <section className="section-padding bg-card">
         <div className="container-custom">
           <motion.div 
@@ -346,20 +346,20 @@ const About = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h2 className="section-title mb-6">
-              CERTIFICATIONS & AGRÉMENTS
+              NOTRE ENGAGEMENT QUALITÉ
             </h2>
             <p className="text-warm-gray-600 mb-8">
-              T3P Campus est un centre de formation agréé, reconnu par les autorités compétentes.
+              T3P Campus s'engage à vous offrir une formation de qualité avec un accompagnement personnalisé.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-forest/10 text-forest px-6 py-3 rounded-lg font-bold">
-                Certification RS5635
+                Depuis 2014
               </div>
               <div className="bg-forest/10 text-forest px-6 py-3 rounded-lg font-bold">
-                Certification RS5637
+                94% de réussite
               </div>
               <div className="bg-gold/20 text-forest px-6 py-3 rounded-lg font-bold">
-                Centre agréé Préfecture
+                Formateurs experts
               </div>
             </div>
           </motion.div>

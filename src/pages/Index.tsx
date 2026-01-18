@@ -37,8 +37,8 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>T3P Campus - Formation Taxi VTC Montrouge | 96% de Réussite</title>
-        <meta name="description" content="Centre de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 96%, paiement en 4x sans frais, formateurs experts. Obtenez votre carte professionnelle !" />
+        <title>T3P Campus - Formation Taxi VTC Montrouge | 94% de Réussite</title>
+        <meta name="description" content="Centre de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, paiement en 4x sans frais, formateurs experts. Obtenez votre carte professionnelle !" />
         <meta name="keywords" content="formation taxi, formation VTC, centre formation Montrouge, carte professionnelle taxi, carte VTC, T3P Campus, formation chauffeur" />
         <link rel="canonical" href="https://t3pcampus.fr/" />
         
@@ -51,7 +51,7 @@ const Index = () => {
         />
         
         <meta property="og:title" content="T3P Campus - Formation Taxi VTC à Montrouge" />
-        <meta property="og:description" content="Centre de formation leader avec 96% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />
+        <meta property="og:description" content="Centre de formation avec 94% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />
         <meta property="og:url" content="https://t3pcampus.fr/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="T3P Campus" />
@@ -59,7 +59,7 @@ const Index = () => {
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="T3P Campus - Formation Taxi VTC Montrouge" />
-        <meta name="twitter:description" content="Centre de formation avec 96% de réussite. Obtenez votre carte professionnelle Taxi ou VTC." />
+        <meta name="twitter:description" content="Centre de formation avec 94% de réussite. Obtenez votre carte professionnelle Taxi ou VTC." />
         
         <meta name="robots" content="index, follow" />
         <meta name="author" content="T3P Campus" />

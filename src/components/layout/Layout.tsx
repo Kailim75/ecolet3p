@@ -14,7 +14,7 @@ const organizationSchema = {
   "@id": "https://t3pcampus.fr/#organization",
   "name": "T3P Campus",
   "alternateName": "T3P Campus - Centre de Formation Taxi VTC",
-  "description": "Centre de formation leader spécialisé dans les certifications de chauffeurs professionnels (TAXI, VTC, VMDTR). Taux de réussite 96%, 10 ans d'expertise.",
+  "description": "Centre de formation spécialisé dans les formations de chauffeurs professionnels (TAXI, VTC, VMDTR). Taux de réussite 94%, 10 ans d'expertise.",
   "url": "https://t3pcampus.fr",
   "logo": {
     "@type": "ImageObject",
@@ -104,13 +104,7 @@ const organizationSchema = {
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "250",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
+  "foundingDate": "2014",
   "publicAccess": true,
   "isAccessibleForFree": false
 };

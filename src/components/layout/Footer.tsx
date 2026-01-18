@@ -16,14 +16,14 @@ const Footer = () => {
               <span className="text-xl font-black text-cream tracking-tight uppercase">T3P Campus</span>
             </div>
             <p className="text-cream/70 text-sm leading-relaxed mb-6">
-              Votre partenaire pour devenir chauffeur professionnel depuis 2014.
+              Votre partenaire pour devenir chauffeur professionnel depuis 2014. Plus de 2 000 élèves formés avec un taux de réussite de 94%.
             </p>
             <div className="flex gap-3">
               <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
-                RS5635
+                Depuis 2014
               </span>
               <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
-                RS5637
+                94% réussite
               </span>
             </div>
           </div>

@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "Combien de temps dure la formation ?",
-    answer: "La durée varie selon la formation choisie. La formation VTC dure environ 250 heures, tandis que la formation Taxi nécessite environ 300 heures. Nous proposons également des formations accélérées et des stages de perfectionnement."
+    answer: "La durée varie selon la formation choisie : Formation TAXI 63h (journée) ou 33h (soir), Formation VTC 63h (journée) ou 33h (soir), Formation Mobilité 14h à 35h selon le département. Nous proposons des formats adaptés à votre emploi du temps."
   },
   {
     question: "Quelles sont les options de financement disponibles ?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: "Quel est le taux de réussite de vos formations ?",
-    answer: "Notre taux de réussite est de 94% aux examens officiels. Ce résultat exceptionnel est le fruit de notre méthodologie pédagogique éprouvée, de nos formateurs experts et de notre accompagnement personnalisé tout au long du parcours."
+    answer: "Notre taux de réussite est de 94% aux examens officiels. Ce résultat est le fruit de notre méthodologie pédagogique éprouvée, de nos formateurs experts issus du métier et de notre accompagnement personnalisé tout au long du parcours."
   },
   {
     question: "Comment se déroule l'inscription ?",

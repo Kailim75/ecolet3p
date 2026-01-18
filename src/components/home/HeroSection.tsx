@@ -8,8 +8,8 @@ import formationSession from "@/assets/center/formation-session.jpg";
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const stats = [
-  { icon: Award, value: "96%", label: "de réussite" },
-  { icon: Users, value: "10 000+", label: "élèves formés" },
+  { icon: Award, value: "94%", label: "de réussite" },
+  { icon: Users, value: "2 000+", label: "élèves formés" },
   { icon: CreditCard, value: "Paiement 4x", label: "sans frais" },
 ];
 
@@ -195,7 +195,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.9 }}
               className="mt-10 flex items-center gap-4 text-sm text-warm-gray-500"
             >
-              {["Certifications RS5635 & RS5637", "Centre agréé"].map((text, i) => (
+              {["Formateurs experts", "Depuis 2014"].map((text, i) => (
                 <motion.div 
                   key={text}
                   className="flex items-center gap-2"

@@ -291,7 +291,7 @@ const FormationVTC = () => {
             >
               <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
                 <Car className="h-4 w-4 mr-2" />
-                Formation Certifiante RS5637
+                Formation VTC
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
