@@ -11,6 +11,7 @@ import formationSession from "@/assets/center/formation-session.jpg";
 const AdvantagesSection = lazy(() => import("@/components/home/AdvantagesSection"));
 const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
 const LocalsSection = lazy(() => import("@/components/home/LocalsSection"));
+const GoogleReviewsSection = lazy(() => import("@/components/home/GoogleReviewsSection"));
 const TestimonialsSection = lazy(() => import("@/components/home/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const AppointmentSection = lazy(() => import("@/components/home/AppointmentSection"));
@@ -78,6 +79,9 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <LocalsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <GoogleReviewsSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <TestimonialsSection />

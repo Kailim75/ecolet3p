@@ -104,6 +104,13 @@ const organizationSchema = {
       }
     ]
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "359",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "foundingDate": "2014",
   "publicAccess": true,
   "isAccessibleForFree": false
