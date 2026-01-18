@@ -575,19 +575,12 @@ const FormationTaxi = () => {
         </div>
       </section>
 
-      {/* Pre-registration Dialog */}
-      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Pré-inscription Formation Taxi</DialogTitle>
-          </DialogHeader>
-          <PreRegistrationForm
-            formationTitle={taxiFormation?.title || "Formation Taxi"}
-            formationDuration={taxiFormation?.duration || "63h"}
-            onSuccess={() => setShowPreRegistration(false)}
-          />
-        </DialogContent>
-      </Dialog>
+      <PreRegistrationForm
+        isOpen={showPreRegistration}
+        onClose={() => setShowPreRegistration(false)}
+        formationTitle={taxiFormation?.title || "Formation Taxi"}
+        formationDuration={taxiFormation?.duration || "63h"}
+      />
     </Layout>
   );
 };

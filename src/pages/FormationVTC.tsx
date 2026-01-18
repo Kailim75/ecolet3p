@@ -566,19 +566,12 @@ const FormationVTC = () => {
         </div>
       </section>
 
-      {/* Pre-registration Dialog */}
-      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Pré-inscription Formation VTC</DialogTitle>
-          </DialogHeader>
-          <PreRegistrationForm
-            formationTitle={vtcFormation?.title || "Formation VTC"}
-            formationDuration={vtcFormation?.duration || "63h"}
-            onSuccess={() => setShowPreRegistration(false)}
-          />
-        </DialogContent>
-      </Dialog>
+      <PreRegistrationForm
+        isOpen={showPreRegistration}
+        onClose={() => setShowPreRegistration(false)}
+        formationTitle={vtcFormation?.title || "Formation VTC"}
+        formationDuration={vtcFormation?.duration || "63h"}
+      />
     </Layout>
   );
 };

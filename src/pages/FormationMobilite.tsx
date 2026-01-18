@@ -640,19 +640,12 @@ const FormationMobilite = () => {
         </div>
       </section>
 
-      {/* Pre-registration Dialog */}
-      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Pré-inscription Formation Mobilité</DialogTitle>
-          </DialogHeader>
-          <PreRegistrationForm
-            formationTitle={mobiliteFormation?.title || "Formation Mobilité"}
-            formationDuration={mobiliteFormation?.duration || "14h"}
-            onSuccess={() => setShowPreRegistration(false)}
-          />
-        </DialogContent>
-      </Dialog>
+      <PreRegistrationForm
+        isOpen={showPreRegistration}
+        onClose={() => setShowPreRegistration(false)}
+        formationTitle={mobiliteFormation?.title || "Formation Mobilité"}
+        formationDuration={mobiliteFormation?.duration || "14h"}
+      />
     </Layout>
   );
 };
