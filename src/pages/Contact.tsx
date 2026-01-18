@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
@@ -105,9 +104,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    civility: "",
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     phone: "",
     formation: "",
@@ -119,16 +116,10 @@ const Contact = () => {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.civility) {
-      newErrors.civility = "Veuillez sélectionner une civilité";
-    }
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "Le prénom est requis";
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Le nom est requis";
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Le nom complet est requis";
+    } else if (formData.fullName.trim().length < 3) {
+      newErrors.fullName = "Le nom doit contenir au moins 3 caractères";
     }
 
     if (!formData.email.trim()) {
@@ -145,10 +136,6 @@ const Contact = () => {
 
     if (!formData.formation) {
       newErrors.formation = "Veuillez sélectionner une formation";
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Le message est requis";
     }
 
     if (!formData.consent) {
@@ -172,9 +159,7 @@ const Contact = () => {
     setIsSubmitting(false);
     setIsSubmitted(true);
     setFormData({
-      civility: "",
-      firstName: "",
-      lastName: "",
+      fullName: "",
       email: "",
       phone: "",
       formation: "",
@@ -415,72 +400,25 @@ const Contact = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Civility */}
+                    {/* Full Name */}
                     <motion.div 
                       className="space-y-2"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 }}
                     >
-                      <Label className="font-bold text-forest">Civilité *</Label>
-                      <RadioGroup
-                        value={formData.civility}
-                        onValueChange={(value) => {
-                          setFormData((prev) => ({ ...prev, civility: value }));
-                          if (errors.civility) setErrors((prev) => ({ ...prev, civility: "" }));
-                        }}
-                        className="flex gap-6"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="M." id="mr" className="border-forest text-forest" />
-                          <Label htmlFor="mr" className="font-normal cursor-pointer">M.</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="Mme" id="mme" className="border-forest text-forest" />
-                          <Label htmlFor="mme" className="font-normal cursor-pointer">Mme</Label>
-                        </div>
-                      </RadioGroup>
-                      {errors.civility && (
-                        <p className="text-sm text-destructive">{errors.civility}</p>
+                      <Label htmlFor="fullName" className="font-bold text-forest">Nom complet *</Label>
+                      <Input
+                        id="fullName"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        placeholder="Jean Dupont"
+                        className={`border-2 focus:border-forest focus:ring-forest ${errors.fullName ? "border-destructive" : "border-border"}`}
+                      />
+                      {errors.fullName && (
+                        <p className="text-sm text-destructive">{errors.fullName}</p>
                       )}
-                    </motion.div>
-
-                    {/* Name fields */}
-                    <motion.div 
-                      className="grid md:grid-cols-2 gap-6"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName" className="font-bold text-forest">Prénom *</Label>
-                        <Input
-                          id="firstName"
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleChange}
-                          placeholder="Jean"
-                          className={`border-2 focus:border-forest focus:ring-forest ${errors.firstName ? "border-destructive" : "border-border"}`}
-                        />
-                        {errors.firstName && (
-                          <p className="text-sm text-destructive">{errors.firstName}</p>
-                        )}
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName" className="font-bold text-forest">Nom *</Label>
-                        <Input
-                          id="lastName"
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleChange}
-                          placeholder="Dupont"
-                          className={`border-2 focus:border-forest focus:ring-forest ${errors.lastName ? "border-destructive" : "border-border"}`}
-                        />
-                        {errors.lastName && (
-                          <p className="text-sm text-destructive">{errors.lastName}</p>
-                        )}
-                      </div>
                     </motion.div>
 
                     {/* Contact fields */}
@@ -554,26 +492,23 @@ const Contact = () => {
                       )}
                     </motion.div>
 
-                    {/* Message */}
+                    {/* Message (optional) */}
                     <motion.div 
                       className="space-y-2"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
+                      transition={{ delay: 0.4 }}
                     >
-                      <Label htmlFor="message" className="font-bold text-forest">Message *</Label>
+                      <Label htmlFor="message" className="font-bold text-forest">Message <span className="font-normal text-muted-foreground">(optionnel)</span></Label>
                       <Textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Décrivez votre projet ou posez vos questions..."
-                        rows={5}
-                        className={`border-2 focus:border-forest focus:ring-forest ${errors.message ? "border-destructive" : "border-border"}`}
+                        rows={4}
+                        className="border-2 focus:border-forest focus:ring-forest border-border"
                       />
-                      {errors.message && (
-                        <p className="text-sm text-destructive">{errors.message}</p>
-                      )}
                     </motion.div>
 
                     {/* Consent */}
