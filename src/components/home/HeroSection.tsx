@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { Award, Users, CreditCard } from "lucide-react";
 import { useRef } from "react";
+import formationSession from "@/assets/center/formation-session.jpg";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -205,8 +206,8 @@ const HeroSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <motion.img
-                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=700&fit=crop"
-                alt="Chauffeur professionnel"
+                src={formationSession}
+                alt="Session de formation T3P Campus - Chauffeurs professionnels en cours"
                 className="w-full h-[600px] object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6 }}
