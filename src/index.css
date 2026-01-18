@@ -6,49 +6,55 @@
 
 @layer base {
   :root {
-    /* LiveMentor-Inspired: Forest Green + Warm Cream */
-    --background: 40 33% 94%;
-    --foreground: 158 54% 20%;
-    --card: 40 40% 98%;
-    --card-foreground: 158 54% 20%;
-    --popover: 40 40% 98%;
-    --popover-foreground: 158 54% 20%;
+    /* T3P Campus: Forest Green + Warm Cream - Enhanced Contrast */
+    --background: 42 35% 96%;
+    --foreground: 158 54% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 158 54% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 158 54% 18%;
     --primary: 158 54% 20%;
-    --primary-foreground: 40 40% 96%;
-    --secondary: 40 30% 92%;
-    --secondary-foreground: 158 54% 20%;
-    --muted: 40 25% 90%;
-    --muted-foreground: 158 20% 40%;
-    --accent: 43 85% 58%;
-    --accent-foreground: 158 54% 15%;
+    --primary-foreground: 42 40% 98%;
+    --secondary: 42 25% 93%;
+    --secondary-foreground: 158 54% 18%;
+    --muted: 42 20% 90%;
+    --muted-foreground: 158 25% 35%;
+    --accent: 38 90% 55%;
+    --accent-foreground: 158 54% 12%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 20% 85%;
-    --input: 40 20% 85%;
-    --ring: 158 54% 30%;
-    --radius: 0.5rem;
+    --border: 42 15% 88%;
+    --input: 42 20% 92%;
+    --ring: 158 54% 25%;
+    --radius: 0.75rem;
+    
+    /* Enhanced accent colors */
+    --success: 158 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 90% 55%;
+    --warning-foreground: 158 54% 12%;
   }
 
   .dark {
-    --background: 158 54% 8%;
-    --foreground: 40 30% 95%;
-    --card: 158 54% 12%;
-    --card-foreground: 40 30% 95%;
-    --popover: 158 54% 12%;
-    --popover-foreground: 40 30% 95%;
-    --primary: 158 54% 35%;
-    --primary-foreground: 40 30% 95%;
-    --secondary: 158 40% 20%;
-    --secondary-foreground: 40 30% 95%;
-    --muted: 158 40% 18%;
-    --muted-foreground: 40 20% 65%;
-    --accent: 43 85% 58%;
-    --accent-foreground: 158 54% 10%;
+    --background: 158 54% 6%;
+    --foreground: 42 30% 96%;
+    --card: 158 54% 10%;
+    --card-foreground: 42 30% 96%;
+    --popover: 158 54% 10%;
+    --popover-foreground: 42 30% 96%;
+    --primary: 158 50% 45%;
+    --primary-foreground: 42 30% 98%;
+    --secondary: 158 40% 16%;
+    --secondary-foreground: 42 30% 96%;
+    --muted: 158 40% 14%;
+    --muted-foreground: 42 20% 70%;
+    --accent: 38 90% 58%;
+    --accent-foreground: 158 54% 8%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 158 40% 20%;
-    --input: 158 40% 20%;
-    --ring: 43 85% 58%;
+    --border: 158 40% 18%;
+    --input: 158 40% 18%;
+    --ring: 38 90% 58%;
   }
 }
 
@@ -82,47 +88,45 @@
     @apply py-16 md:py-24 lg:py-32;
   }
 
-  /* LiveMentor Hero Background - Warm Cream */
+  /* T3P Campus Hero Background - Enhanced Gradient */
   .hero-bg {
-    background-color: #F5EBD7;
+    background: linear-gradient(180deg, #FBF7EF 0%, #F5EBD7 50%, #EDE3CD 100%);
   }
 
-  /* LiveMentor Primary Button - Enhanced Micro-interactions */
+  /* T3P Campus Primary Button - Bold & Modern */
   .btn-primary {
     @apply inline-flex items-center justify-center font-bold
-           px-7 py-4 rounded-md transition-all duration-300
+           px-8 py-4 rounded-xl transition-all duration-300
            text-sm tracking-wider uppercase relative overflow-hidden;
-    background-color: #1B4D3E;
-    color: #F5EBD7;
+    background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(27, 77, 62, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .btn-primary::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(212, 168, 83, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
   }
 
   .btn-primary:hover::before {
-    width: 300px;
-    height: 300px;
+    left: 100%;
   }
 
   .btn-primary:hover {
-    background-color: #143D31;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(27, 77, 62, 0.35);
+    background: linear-gradient(135deg, #143D31 0%, #1B4D3E 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(27, 77, 62, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
 
   .btn-primary:active {
-    transform: translateY(-1px) scale(0.98);
-    box-shadow: 0 5px 15px rgba(27, 77, 62, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(27, 77, 62, 0.3);
   }
 
   .btn-primary span,
@@ -131,10 +135,10 @@
     z-index: 1;
   }
 
-  /* LiveMentor Secondary Button - Enhanced Micro-interactions */
+  /* T3P Campus Secondary Button - Clean & Modern */
   .btn-secondary {
     @apply inline-flex items-center justify-center font-bold
-           px-7 py-4 rounded-md border-2 transition-all duration-300
+           px-8 py-4 rounded-xl border-2 transition-all duration-300
            text-sm tracking-wider uppercase relative overflow-hidden;
     background-color: transparent;
     border-color: #1B4D3E;
@@ -144,27 +148,28 @@
   .btn-secondary::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #1B4D3E;
-    transition: height 0.3s ease;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+    transition: width 0.3s ease;
     z-index: 0;
   }
 
   .btn-secondary:hover::before {
-    height: 100%;
+    width: 100%;
   }
 
   .btn-secondary:hover {
-    color: #F5EBD7;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(27, 77, 62, 0.2);
+    color: #FFFFFF;
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(27, 77, 62, 0.3);
   }
 
   .btn-secondary:active {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
   .btn-secondary span {
@@ -172,83 +177,112 @@
     z-index: 1;
   }
 
-  /* LiveMentor Card with Enhanced Micro-interactions */
+  /* T3P Campus Card - Modern with Subtle Depth */
   .card-livementor {
-    @apply bg-card rounded-lg p-6 md:p-8 border border-border
+    @apply bg-card rounded-2xl p-6 md:p-8 border border-border/50
            transition-all duration-300 relative overflow-hidden;
+    box-shadow: 0 2px 8px rgba(27, 77, 62, 0.04);
   }
 
   .card-livementor::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.08), transparent);
-    transition: left 0.6s ease;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1B4D3E, #D4A853, #1B4D3E);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .card-livementor:hover::before {
-    left: 100%;
+    opacity: 1;
   }
 
   .card-livementor:hover {
-    @apply shadow-xl;
-    border-color: rgba(27, 77, 62, 0.3);
-    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(27, 77, 62, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(27, 77, 62, 0.12), 0 8px 16px rgba(27, 77, 62, 0.08);
   }
 
   .card-livementor:active {
-    transform: translateY(-2px) scale(0.99);
+    transform: translateY(-4px);
   }
 
-  /* LiveMentor Section Title - Uppercase Bold */
+  /* T3P Campus Section Title - Modern Bold */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight;
     color: #1B4D3E;
+    text-transform: none;
   }
 
   .section-subtitle {
     @apply text-lg md:text-xl max-w-2xl leading-relaxed;
-    color: #6B6B6B;
+    color: #5A5A5A;
   }
 
-  /* LiveMentor Badge */
+  /* T3P Campus Badge - More vibrant */
   .badge-livementor {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold;
-    background-color: rgba(212, 168, 83, 0.2);
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold;
+    background: linear-gradient(135deg, rgba(212, 168, 83, 0.25) 0%, rgba(212, 168, 83, 0.15) 100%);
     color: #1B4D3E;
+    border: 1px solid rgba(212, 168, 83, 0.3);
   }
 
-  /* Step Number */
+  /* Step Number - Enhanced */
   .step-number {
-    @apply w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg;
-    background-color: #1B4D3E;
-    color: #F5EBD7;
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl;
+    background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.25);
   }
 
-  /* LiveMentor Stat Number */
+  /* T3P Campus Stat Number - Gradient accent */
   .stat-number {
     @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight;
-    color: #1B4D3E;
-  }
-
-  /* Hero Gradient - Forest Green */
-  .gradient-hero {
     background: linear-gradient(135deg, #1B4D3E 0%, #2A6B54 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Warm Gradient Background */
+  /* Hero Gradient - Enhanced depth */
+  .gradient-hero {
+    background: linear-gradient(135deg, #1B4D3E 0%, #1F5545 50%, #2A6B54 100%);
+  }
+
+  /* Warm Gradient Background - Richer */
   .gradient-warm {
-    background: linear-gradient(180deg, #F5EBD7 0%, #FBF7EF 100%);
+    background: linear-gradient(180deg, #FBF7EF 0%, #F5EBD7 40%, #EDE3CD 100%);
   }
 
-  /* Icon Container */
+  /* Icon Container - Modern */
   .icon-container {
-    @apply flex items-center justify-center w-14 h-14 rounded-xl;
-    background-color: rgba(27, 77, 62, 0.1);
+    @apply flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-300;
+    background: linear-gradient(135deg, rgba(27, 77, 62, 0.08) 0%, rgba(27, 77, 62, 0.12) 100%);
     color: #1B4D3E;
+  }
+
+  .icon-container:hover {
+    background: linear-gradient(135deg, rgba(27, 77, 62, 0.12) 0%, rgba(27, 77, 62, 0.18) 100%);
+    transform: scale(1.05);
+  }
+
+  /* CTA Accent Button - Gold variant for urgency */
+  .btn-accent {
+    @apply inline-flex items-center justify-center font-bold
+           px-8 py-4 rounded-xl transition-all duration-300
+           text-sm tracking-wider uppercase relative overflow-hidden;
+    background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
+    color: #1B4D3E;
+    box-shadow: 0 4px 15px rgba(212, 168, 83, 0.35);
+  }
+
+  .btn-accent:hover {
+    background: linear-gradient(135deg, #C49843 0%, #D4A853 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(212, 168, 83, 0.45);
   }
 
   /* Text Colors */
