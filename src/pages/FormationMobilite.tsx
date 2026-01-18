@@ -202,6 +202,30 @@ const FormationMobilite = () => {
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://t3pcampus.fr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Formations",
+              "item": "https://t3pcampus.fr/formations"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Formation Mobilité",
+              "item": "https://t3pcampus.fr/formations/mobilite"
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Breadcrumb */}
