@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { 
   Users, Mail, FileText, LogOut, Download, Trash2, 
   RefreshCw, Search, Filter, ChevronDown, Loader2,
-  CheckCircle, XCircle, Clock, BookOpen
+  CheckCircle, XCircle, Clock, BookOpen, Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,8 +37,9 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import FormationsManager from "@/components/admin/FormationsManager";
+import SessionsManager from "@/components/admin/SessionsManager";
 
-type Tab = "newsletter" | "preregistrations" | "formations";
+type Tab = "newsletter" | "preregistrations" | "formations" | "sessions";
 
 interface NewsletterSubscriber {
   id: string;
@@ -353,12 +354,25 @@ const Admin = () => {
                 <BookOpen className="w-4 h-4 inline-block mr-2" />
                 Formations
               </button>
+              <button
+                onClick={() => { setActiveTab("sessions"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors ${
+                  activeTab === "sessions"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <Calendar className="w-4 h-4 inline-block mr-2" />
+                Sessions
+              </button>
             </div>
           </div>
 
           {/* Formations Tab - Separate component */}
           {activeTab === "formations" ? (
             <FormationsManager />
+          ) : activeTab === "sessions" ? (
+            <SessionsManager />
           ) : (
             <>
               {/* Toolbar */}
