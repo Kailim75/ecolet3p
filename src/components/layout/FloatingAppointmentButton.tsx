@@ -33,8 +33,15 @@ const FloatingAppointmentButton = () => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      whileHover={{ scale: 1.05, y: -4 }}
+      whileTap={{ scale: 0.95 }}
       onClick={scrollToAppointment}
-      className="fixed bottom-8 right-8 z-50 flex items-center justify-center gap-2 bg-forest hover:bg-forest-light text-cream font-bold py-3 px-6 rounded-full shadow-lg shadow-forest/30 active:scale-95 transition-all hover:shadow-xl"
+      className="fixed bottom-8 right-8 z-50 flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-full transition-all"
+      style={{
+        background: "linear-gradient(135deg, #D4A853 0%, #E4BE73 100%)",
+        color: "#1B4D3E",
+        boxShadow: "0 8px 25px rgba(212, 168, 83, 0.4)",
+      }}
       aria-label="Prendre rendez-vous"
     >
       <Calendar className="w-5 h-5" />
