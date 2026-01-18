@@ -275,8 +275,24 @@ const CharteGraphique = () => {
                     </div>
                   </div>
                   <CardContent className="pt-4">
-                    <h3 className="font-bold text-forest">📄 Flyer A5/A4</h3>
-                    <p className="text-warm-gray-600 text-sm">Présentation des formations avec visuels impactants</p>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-bold text-forest">📄 Flyer A5/A4</h3>
+                        <p className="text-warm-gray-600 text-sm">Présentation des formations</p>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-shrink-0"
+                        onClick={() => {
+                          window.open('/templates/flyer-campus-t3p.pdf', '_blank');
+                          toast.info("Le template PDF sera bientôt disponible");
+                        }}
+                      >
+                        <Download className="w-3 h-3 mr-1" />
+                        PDF
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -307,8 +323,24 @@ const CharteGraphique = () => {
                     </div>
                   </div>
                   <CardContent className="pt-4">
-                    <h3 className="font-bold text-forest">🎓 Attestation de Formation</h3>
-                    <p className="text-warm-gray-600 text-sm">Document officiel certifié avec cachet et signature</p>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-bold text-forest">🎓 Attestation de Formation</h3>
+                        <p className="text-warm-gray-600 text-sm">Document officiel certifié</p>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-shrink-0"
+                        onClick={() => {
+                          window.open('/templates/attestation-campus-t3p.pdf', '_blank');
+                          toast.info("Le template PDF sera bientôt disponible");
+                        }}
+                      >
+                        <Download className="w-3 h-3 mr-1" />
+                        PDF
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -337,8 +369,24 @@ const CharteGraphique = () => {
                     </div>
                   </div>
                   <CardContent className="pt-4">
-                    <h3 className="font-bold text-forest">📝 Contrat de Formation</h3>
-                    <p className="text-warm-gray-600 text-sm">Accord stagiaire/organisme conforme réglementation</p>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-bold text-forest">📝 Contrat de Formation</h3>
+                        <p className="text-warm-gray-600 text-sm">Accord stagiaire/organisme</p>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-shrink-0"
+                        onClick={() => {
+                          window.open('/templates/contrat-campus-t3p.pdf', '_blank');
+                          toast.info("Le template PDF sera bientôt disponible");
+                        }}
+                      >
+                        <Download className="w-3 h-3 mr-1" />
+                        PDF
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -361,8 +409,24 @@ const CharteGraphique = () => {
                     </div>
                   </div>
                   <CardContent className="pt-4">
-                    <h3 className="font-bold text-forest">💳 Carte de Visite</h3>
-                    <p className="text-warm-gray-600 text-sm">Format 85×55mm, recto seul</p>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="font-bold text-forest">💳 Carte de Visite</h3>
+                        <p className="text-warm-gray-600 text-sm">Format 85×55mm</p>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-shrink-0"
+                        onClick={() => {
+                          window.open('/templates/carte-visite-campus-t3p.pdf', '_blank');
+                          toast.info("Le template PDF sera bientôt disponible");
+                        }}
+                      >
+                        <Download className="w-3 h-3 mr-1" />
+                        PDF
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
