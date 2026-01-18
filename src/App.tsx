@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import LegalMentions from "./pages/LegalMentions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Unsubscribe from "./pages/Unsubscribe";
 import NotFound from "./pages/NotFound";
 import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
@@ -52,6 +53,7 @@ const App = () => {
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/mentions-legales" element={<LegalMentions />} />
               <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+              <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <CookieConsent />

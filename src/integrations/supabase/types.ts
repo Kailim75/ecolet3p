@@ -21,6 +21,7 @@ export type Database = {
           source: string | null
           status: string
           subscribed_at: string
+          unsubscribe_token: string
         }
         Insert: {
           email: string
@@ -28,6 +29,7 @@ export type Database = {
           source?: string | null
           status?: string
           subscribed_at?: string
+          unsubscribe_token?: string
         }
         Update: {
           email?: string
@@ -35,6 +37,7 @@ export type Database = {
           source?: string | null
           status?: string
           subscribed_at?: string
+          unsubscribe_token?: string
         }
         Relationships: []
       }
