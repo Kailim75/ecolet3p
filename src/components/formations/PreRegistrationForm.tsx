@@ -89,7 +89,7 @@ const PreRegistrationForm = ({
 
     try {
       // Insert into database
-      const { error: dbError } = await supabase
+      const { data: insertedData, error: dbError } = await supabase
         .from('pre_registrations')
         .insert({
           first_name: result.data.firstName,
@@ -98,7 +98,9 @@ const PreRegistrationForm = ({
           phone: result.data.phone,
           formation_title: formationTitle,
           formation_duration: formationDuration,
-        });
+        })
+        .select()
+        .single();
 
       if (dbError) {
         console.error('Database error:', dbError);
@@ -109,6 +111,21 @@ const PreRegistrationForm = ({
         });
         setIsSubmitting(false);
         return;
+      }
+
+      // Send notification to admin
+      try {
+        await supabase.functions.invoke('notify-new-registration', {
+          body: {
+            type: "INSERT",
+            table: "pre_registrations",
+            record: insertedData
+          }
+        });
+        console.log('Admin notification sent');
+      } catch (notifyError) {
+        // Don't block the user if notification fails
+        console.error('Failed to send admin notification:', notifyError);
       }
 
       setIsSubmitting(false);
