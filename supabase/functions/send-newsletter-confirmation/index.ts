@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@2.0.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -26,6 +27,25 @@ const handler = async (req: Request): Promise<Response> => {
     const { email, source = "blog" }: NewsletterConfirmationRequest = await req.json();
     
     console.log(`Sending confirmation email to: ${email} (source: ${source})`);
+
+    // Get the unsubscribe token for this subscriber
+    const supabaseAdmin = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+    );
+
+    const { data: subscriber, error: fetchError } = await supabaseAdmin
+      .from("newsletter_subscribers")
+      .select("unsubscribe_token")
+      .eq("email", email)
+      .maybeSingle();
+
+    if (fetchError) {
+      console.error("Error fetching subscriber:", fetchError);
+    }
+
+    const unsubscribeToken = subscriber?.unsubscribe_token || "";
+    const unsubscribeUrl = `https://campust3ptest.lovable.app/unsubscribe?token=${unsubscribeToken}`;
 
     const emailResponse = await resend.emails.send({
       from: "Campus T3P <onboarding@resend.dev>",
@@ -90,9 +110,12 @@ const handler = async (req: Request): Promise<Response> => {
                       <p style="color: #718096; font-size: 14px; margin: 0 0 10px;">
                         Campus T3P - Centre de formation professionnelle
                       </p>
-                      <p style="color: #a0aec0; font-size: 12px; margin: 0;">
-                        Vous pouvez vous désabonner à tout moment en cliquant sur le lien de désinscription présent dans chaque email.
+                      <p style="color: #a0aec0; font-size: 12px; margin: 0 0 15px;">
+                        Vous recevez cet email car vous vous êtes inscrit(e) à notre newsletter.
                       </p>
+                      <a href="${unsubscribeUrl}" style="color: #718096; font-size: 12px; text-decoration: underline;">
+                        Se désinscrire de la newsletter
+                      </a>
                     </td>
                   </tr>
                 </table>
