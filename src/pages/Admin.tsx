@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { 
   Users, Mail, FileText, LogOut, Download, Trash2, 
   RefreshCw, Search, Filter, ChevronDown, Loader2,
-  CheckCircle, XCircle, Clock
+  CheckCircle, XCircle, Clock, BookOpen
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,8 +36,9 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import FormationsManager from "@/components/admin/FormationsManager";
 
-type Tab = "newsletter" | "preregistrations";
+type Tab = "newsletter" | "preregistrations" | "formations";
 
 interface NewsletterSubscriber {
   id: string;
@@ -74,12 +75,12 @@ const Admin = () => {
 
   useEffect(() => {
     if (!isLoading && (!user || !isAdmin)) {
-      navigate("/admin/login");
+      navigate("/admin-login");
     }
   }, [user, isAdmin, isLoading, navigate]);
 
   useEffect(() => {
-    if (user && isAdmin) {
+    if (user && isAdmin && activeTab !== "formations") {
       fetchData();
     }
   }, [user, isAdmin, activeTab]);
@@ -180,7 +181,7 @@ const Admin = () => {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/admin/login");
+    navigate("/admin-login");
   };
 
   const getStatusBadge = (status: string) => {
@@ -341,54 +342,70 @@ const Admin = () => {
                 <FileText className="w-4 h-4 inline-block mr-2" />
                 Pré-inscriptions
               </button>
+              <button
+                onClick={() => { setActiveTab("formations"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors ${
+                  activeTab === "formations"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <BookOpen className="w-4 h-4 inline-block mr-2" />
+                Formations
+              </button>
             </div>
           </div>
 
-          {/* Toolbar */}
-          <div className="p-4 border-b border-gray-100 flex flex-wrap items-center gap-4">
-            <div className="relative flex-1 min-w-[200px]">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-warm-gray-400" />
-              <Input
-                placeholder="Rechercher..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-9"
-              />
-            </div>
-            
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[150px]">
-                <Filter className="w-4 h-4 mr-2" />
-                <SelectValue placeholder="Statut" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Tous</SelectItem>
-                {activeTab === "newsletter" ? (
-                  <>
-                    <SelectItem value="active">Actif</SelectItem>
-                    <SelectItem value="unsubscribed">Désinscrit</SelectItem>
-                  </>
-                ) : (
-                  <>
-                    <SelectItem value="pending">En attente</SelectItem>
-                    <SelectItem value="contacted">Contacté</SelectItem>
-                    <SelectItem value="confirmed">Confirmé</SelectItem>
-                    <SelectItem value="cancelled">Annulé</SelectItem>
-                  </>
-                )}
-              </SelectContent>
-            </Select>
+          {/* Formations Tab - Separate component */}
+          {activeTab === "formations" ? (
+            <FormationsManager />
+          ) : (
+            <>
+              {/* Toolbar */}
+              <div className="p-4 border-b border-gray-100 flex flex-wrap items-center gap-4">
+                <div className="relative flex-1 min-w-[200px]">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-warm-gray-400" />
+                  <Input
+                    placeholder="Rechercher..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-9"
+                  />
+                </div>
+                
+                <Select value={statusFilter} onValueChange={setStatusFilter}>
+                  <SelectTrigger className="w-[150px]">
+                    <Filter className="w-4 h-4 mr-2" />
+                    <SelectValue placeholder="Statut" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous</SelectItem>
+                    {activeTab === "newsletter" ? (
+                      <>
+                        <SelectItem value="active">Actif</SelectItem>
+                        <SelectItem value="unsubscribed">Désinscrit</SelectItem>
+                      </>
+                    ) : (
+                      <>
+                        <SelectItem value="pending">En attente</SelectItem>
+                        <SelectItem value="contacted">Contacté</SelectItem>
+                        <SelectItem value="confirmed">Confirmé</SelectItem>
+                        <SelectItem value="cancelled">Annulé</SelectItem>
+                      </>
+                    )}
+                  </SelectContent>
+                </Select>
 
-            <Button variant="outline" size="sm" onClick={fetchData}>
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Actualiser
-            </Button>
-            
-            <Button variant="outline" size="sm" onClick={exportToCSV}>
-              <Download className="w-4 h-4 mr-2" />
-              Exporter CSV
-            </Button>
-          </div>
+                <Button variant="outline" size="sm" onClick={fetchData}>
+                  <RefreshCw className="w-4 h-4 mr-2" />
+                  Actualiser
+                </Button>
+                
+                <Button variant="outline" size="sm" onClick={exportToCSV}>
+                  <Download className="w-4 h-4 mr-2" />
+                  Exporter CSV
+                </Button>
+              </div>
 
           {/* Table */}
           <div className="overflow-x-auto">
@@ -536,6 +553,8 @@ const Admin = () => {
               </Table>
             )}
           </div>
+            </>
+          )}
         </div>
       </main>
 

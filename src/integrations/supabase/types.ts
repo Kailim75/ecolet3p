@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      formations: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          display_order: number
+          duration: string
+          features: string[] | null
+          icon: string | null
+          id: string
+          is_active: boolean
+          price: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          duration: string
+          features?: string[] | null
+          icon?: string | null
+          id?: string
+          is_active?: boolean
+          price?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          duration?: string
+          features?: string[] | null
+          icon?: string | null
+          id?: string
+          is_active?: boolean
+          price?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       newsletter_subscribers: {
         Row: {
           email: string
