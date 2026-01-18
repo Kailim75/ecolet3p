@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, type Variants } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,6 +60,45 @@ const formations = [
   "Récupération de Points",
   "Autre",
 ];
+
+// Animation variants with proper typing
+const fadeUpVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6 }
+  }
+};
+
+const staggerContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const staggerItemVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.5 }
+  }
+};
+
+const scaleUpVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.5 }
+  }
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -158,42 +198,89 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="gradient-hero py-20 md:py-28">
-        <div className="container-custom text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 animate-fade-up">
-            Contactez-nous
-          </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto animate-fade-up stagger-1">
-            Une question sur nos formations ? Prenez rendez-vous ou envoyez-nous un message.
-          </p>
+      {/* Hero - LiveMentor Style */}
+      <section className="bg-cream py-20 md:py-28 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <motion.div 
+          className="absolute top-20 left-10 w-32 h-32 bg-forest/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-10 right-20 w-40 h-40 bg-gold/10 rounded-full blur-3xl"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        />
+        
+        <div className="container-custom text-center relative z-10">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainerVariants}
+          >
+            <motion.span 
+              variants={fadeUpVariants}
+              className="badge-livementor mb-6 inline-block"
+            >
+              📬 Contactez-nous
+            </motion.span>
+            <motion.h1 
+              variants={fadeUpVariants}
+              className="section-title mb-6"
+            >
+              PARLONS DE VOTRE<br />
+              <span className="text-gold">PROJET</span>
+            </motion.h1>
+            <motion.p 
+              variants={fadeUpVariants}
+              className="section-subtitle mx-auto"
+            >
+              Une question sur nos formations ? Prenez rendez-vous ou envoyez-nous un message.
+              Notre équipe vous répond sous 24h.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-6">
+            <motion.div 
+              className="lg:col-span-2 space-y-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainerVariants}
+            >
+              <motion.div variants={fadeUpVariants}>
+                <h2 className="text-2xl font-black text-forest uppercase tracking-tight mb-6">
                   Nos coordonnées
                 </h2>
                 <div className="space-y-5">
-                  {contactInfo.map((info) => (
-                    <div key={info.title} className="flex gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                        <info.icon className="w-6 h-6 text-primary" />
-                      </div>
+                  {contactInfo.map((info, index) => (
+                    <motion.div 
+                      key={info.title} 
+                      className="flex gap-4"
+                      variants={staggerItemVariants}
+                      custom={index}
+                    >
+                      <motion.div 
+                        className="icon-container shrink-0"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
+                        <info.icon className="w-6 h-6" />
+                      </motion.div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">
+                        <h3 className="font-bold text-forest mb-1">
                           {info.title}
                         </h3>
                         {info.href ? (
                           <a
                             href={info.href}
-                            className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line"
+                            className="text-muted-foreground hover:text-forest transition-colors whitespace-pre-line"
                           >
                             {info.content}
                           </a>
@@ -203,13 +290,16 @@ const Contact = () => {
                           </p>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Map Placeholder */}
-              <div className="bg-muted rounded-xl h-64 flex items-center justify-center overflow-hidden">
+              {/* Map */}
+              <motion.div 
+                variants={scaleUpVariants}
+                className="rounded-xl h-64 overflow-hidden border-2 border-border shadow-lg"
+              >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.0833183533!2d2.3137!3d48.8155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDQ4JzU1LjgiTiAywrAxOCc0OS4zIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
                   width="100%"
@@ -220,69 +310,116 @@ const Contact = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Localisation T3P Campus"
                 />
-              </div>
-            </div>
+              </motion.div>
+
+              {/* Quick Contact CTA */}
+              <motion.div 
+                variants={fadeUpVariants}
+                className="card-livementor bg-forest text-cream"
+              >
+                <h3 className="font-bold text-lg mb-2">📞 Besoin d'un conseil rapide ?</h3>
+                <p className="text-cream/80 text-sm mb-4">
+                  Appelez-nous directement, notre équipe est disponible du lundi au vendredi.
+                </p>
+                <a 
+                  href="tel:0188750555" 
+                  className="inline-flex items-center gap-2 bg-gold text-forest font-bold py-3 px-6 rounded-md hover:bg-gold/90 transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  01 88 75 05 55
+                </a>
+              </motion.div>
+            </motion.div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-card rounded-xl border border-border p-6 md:p-8 shadow-soft">
-                <h2 className="text-2xl font-bold text-foreground mb-6">
+            <motion.div 
+              className="lg:col-span-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={scaleUpVariants}
+            >
+              <div className="card-livementor">
+                <h2 className="text-2xl font-black text-forest uppercase tracking-tight mb-6">
                   Envoyez votre demande
                 </h2>
 
                 {isSubmitted ? (
-                  <div className="text-center py-12 animate-scale-in">
-                    <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-accent" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      Demande envoyée !
+                  <motion.div 
+                    className="text-center py-12"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <motion.div 
+                      className="w-20 h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-6"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    >
+                      <CheckCircle className="w-10 h-10 text-forest" />
+                    </motion.div>
+                    <h3 className="text-xl font-bold text-forest mb-2">
+                      Demande envoyée avec succès !
                     </h3>
                     <p className="text-muted-foreground mb-6">
                       Nous vous recontacterons dans les plus brefs délais.
                     </p>
-                    <Button onClick={() => setIsSubmitted(false)} variant="outline">
+                    <button 
+                      onClick={() => setIsSubmitted(false)} 
+                      className="btn-secondary"
+                    >
                       Envoyer une autre demande
-                    </Button>
-                  </div>
+                    </button>
+                  </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Civility */}
-                    <div className="space-y-2">
-                      <Label>Civilité *</Label>
+                    <motion.div 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <Label className="font-bold text-forest">Civilité *</Label>
                       <RadioGroup
                         value={formData.civility}
                         onValueChange={(value) => {
                           setFormData((prev) => ({ ...prev, civility: value }));
                           if (errors.civility) setErrors((prev) => ({ ...prev, civility: "" }));
                         }}
-                        className="flex gap-4"
+                        className="flex gap-6"
                       >
                         <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="M." id="mr" />
+                          <RadioGroupItem value="M." id="mr" className="border-forest text-forest" />
                           <Label htmlFor="mr" className="font-normal cursor-pointer">M.</Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="Mme" id="mme" />
+                          <RadioGroupItem value="Mme" id="mme" className="border-forest text-forest" />
                           <Label htmlFor="mme" className="font-normal cursor-pointer">Mme</Label>
                         </div>
                       </RadioGroup>
                       {errors.civility && (
                         <p className="text-sm text-destructive">{errors.civility}</p>
                       )}
-                    </div>
+                    </motion.div>
 
                     {/* Name fields */}
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <motion.div 
+                      className="grid md:grid-cols-2 gap-6"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
                       <div className="space-y-2">
-                        <Label htmlFor="firstName">Prénom *</Label>
+                        <Label htmlFor="firstName" className="font-bold text-forest">Prénom *</Label>
                         <Input
                           id="firstName"
                           name="firstName"
                           value={formData.firstName}
                           onChange={handleChange}
                           placeholder="Jean"
-                          className={errors.firstName ? "border-destructive" : ""}
+                          className={`border-2 focus:border-forest focus:ring-forest ${errors.firstName ? "border-destructive" : "border-border"}`}
                         />
                         {errors.firstName && (
                           <p className="text-sm text-destructive">{errors.firstName}</p>
@@ -290,25 +427,30 @@ const Contact = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="lastName">Nom *</Label>
+                        <Label htmlFor="lastName" className="font-bold text-forest">Nom *</Label>
                         <Input
                           id="lastName"
                           name="lastName"
                           value={formData.lastName}
                           onChange={handleChange}
                           placeholder="Dupont"
-                          className={errors.lastName ? "border-destructive" : ""}
+                          className={`border-2 focus:border-forest focus:ring-forest ${errors.lastName ? "border-destructive" : "border-border"}`}
                         />
                         {errors.lastName && (
                           <p className="text-sm text-destructive">{errors.lastName}</p>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
 
                     {/* Contact fields */}
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <motion.div 
+                      className="grid md:grid-cols-2 gap-6"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="email" className="font-bold text-forest">Email *</Label>
                         <Input
                           id="email"
                           name="email"
@@ -316,7 +458,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="jean.dupont@exemple.fr"
-                          className={errors.email ? "border-destructive" : ""}
+                          className={`border-2 focus:border-forest focus:ring-forest ${errors.email ? "border-destructive" : "border-border"}`}
                         />
                         {errors.email && (
                           <p className="text-sm text-destructive">{errors.email}</p>
@@ -324,7 +466,7 @@ const Contact = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Téléphone *</Label>
+                        <Label htmlFor="phone" className="font-bold text-forest">Téléphone *</Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -332,17 +474,22 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="06 12 34 56 78"
-                          className={errors.phone ? "border-destructive" : ""}
+                          className={`border-2 focus:border-forest focus:ring-forest ${errors.phone ? "border-destructive" : "border-border"}`}
                         />
                         {errors.phone && (
                           <p className="text-sm text-destructive">{errors.phone}</p>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
 
                     {/* Formation select */}
-                    <div className="space-y-2">
-                      <Label>Formation souhaitée *</Label>
+                    <motion.div 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <Label className="font-bold text-forest">Formation souhaitée *</Label>
                       <Select
                         value={formData.formation}
                         onValueChange={(value) => {
@@ -350,7 +497,7 @@ const Contact = () => {
                           if (errors.formation) setErrors((prev) => ({ ...prev, formation: "" }));
                         }}
                       >
-                        <SelectTrigger className={errors.formation ? "border-destructive" : ""}>
+                        <SelectTrigger className={`border-2 focus:border-forest ${errors.formation ? "border-destructive" : "border-border"}`}>
                           <SelectValue placeholder="Sélectionnez une formation" />
                         </SelectTrigger>
                         <SelectContent>
@@ -364,11 +511,16 @@ const Contact = () => {
                       {errors.formation && (
                         <p className="text-sm text-destructive">{errors.formation}</p>
                       )}
-                    </div>
+                    </motion.div>
 
                     {/* Message */}
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                    <motion.div 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <Label htmlFor="message" className="font-bold text-forest">Message *</Label>
                       <Textarea
                         id="message"
                         name="message"
@@ -376,15 +528,20 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="Décrivez votre projet ou posez vos questions..."
                         rows={5}
-                        className={errors.message ? "border-destructive" : ""}
+                        className={`border-2 focus:border-forest focus:ring-forest ${errors.message ? "border-destructive" : "border-border"}`}
                       />
                       {errors.message && (
                         <p className="text-sm text-destructive">{errors.message}</p>
                       )}
-                    </div>
+                    </motion.div>
 
                     {/* Consent */}
-                    <div className="space-y-2">
+                    <motion.div 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                    >
                       <div className="flex items-start space-x-3">
                         <Checkbox
                           id="consent"
@@ -393,8 +550,9 @@ const Contact = () => {
                             setFormData((prev) => ({ ...prev, consent: checked as boolean }));
                             if (errors.consent) setErrors((prev) => ({ ...prev, consent: "" }));
                           }}
+                          className="border-forest data-[state=checked]:bg-forest data-[state=checked]:border-forest mt-1"
                         />
-                        <Label htmlFor="consent" className="font-normal text-sm leading-relaxed cursor-pointer">
+                        <Label htmlFor="consent" className="font-normal text-sm leading-relaxed cursor-pointer text-muted-foreground">
                           J'accepte que mes données soient utilisées pour traiter ma demande et être recontacté(e) 
                           par T3P Campus. *
                         </Label>
@@ -402,27 +560,39 @@ const Contact = () => {
                       {errors.consent && (
                         <p className="text-sm text-destructive">{errors.consent}</p>
                       )}
-                    </div>
+                    </motion.div>
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full btn-accent"
-                      disabled={isSubmitting}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 }}
                     >
-                      {isSubmitting ? (
-                        "Envoi en cours..."
-                      ) : (
-                        <>
-                          Envoyer ma demande
-                          <Send className="ml-2 w-5 h-5" />
-                        </>
-                      )}
-                    </Button>
+                      <motion.button
+                        type="submit"
+                        className="btn-primary w-full flex items-center justify-center gap-2"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {isSubmitting ? (
+                          <motion.span
+                            animate={{ opacity: [1, 0.5, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                          >
+                            Envoi en cours...
+                          </motion.span>
+                        ) : (
+                          <>
+                            ENVOYER MA DEMANDE
+                            <Send className="w-5 h-5" />
+                          </>
+                        )}
+                      </motion.button>
+                    </motion.div>
                   </form>
                 )}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
