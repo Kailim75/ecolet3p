@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, type Easing } from "framer-motion";
 import { MapPin, Users, Monitor, Coffee } from "lucide-react";
 import {

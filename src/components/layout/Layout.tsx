@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "./Header";
 import Footer from "./Footer";

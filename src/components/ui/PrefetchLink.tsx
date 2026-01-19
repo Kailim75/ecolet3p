@@ -1,5 +1,5 @@
+import React, { useCallback, useState } from "react";
 import { Link, LinkProps } from "react-router-dom";
-import { useCallback, useState } from "react";
 
 // Map routes to their lazy import functions
 const routeImports: Record<string, () => Promise<unknown>> = {
