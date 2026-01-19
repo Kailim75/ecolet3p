@@ -1,15 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-
-// Import all logo variants
-import logoFull from "@/assets/logo/t3p-campus-logo.svg";
-import logoWhite from "@/assets/logo/t3p-campus-logo-white.svg";
-import logoMono from "@/assets/logo/t3p-campus-logo-mono.svg";
-import logoHorizontal from "@/assets/logo/t3p-campus-logo-horizontal.svg";
-import iconFull from "@/assets/logo/t3p-campus-icon.svg";
-import iconWhite from "@/assets/logo/t3p-campus-icon-white.svg";
-import iconMono from "@/assets/logo/t3p-campus-icon-mono.svg";
+import { T3PCampusLogo, T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
 
 const LogoPreview = () => {
   return (
@@ -37,25 +29,25 @@ const LogoPreview = () => {
             {/* Standard Logo */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <p className="text-sm font-semibold text-warm-gray-500 mb-4">Logo Standard (fond clair)</p>
-              <img src={logoFull} alt="Logo T3P Campus" className="h-16" />
+              <T3PCampusLogo className="h-16" theme="color" />
             </div>
 
             {/* White Logo on dark background */}
             <div className="bg-forest rounded-2xl p-8 shadow-lg">
               <p className="text-sm font-semibold text-cream/70 mb-4">Logo Blanc (fond sombre)</p>
-              <img src={logoWhite} alt="Logo T3P Campus Blanc" className="h-16" />
+              <T3PCampusLogo className="h-16" theme="white" />
             </div>
 
             {/* Mono Logo */}
             <div className="bg-cream-light rounded-2xl p-8 shadow-lg border border-forest/10">
               <p className="text-sm font-semibold text-warm-gray-500 mb-4">Logo Monochrome</p>
-              <img src={logoMono} alt="Logo T3P Campus Monochrome" className="h-16" />
+              <T3PCampusLogo className="h-16" theme="mono" />
             </div>
 
             {/* Horizontal Logo */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <p className="text-sm font-semibold text-warm-gray-500 mb-4">Logo Horizontal Compact</p>
-              <img src={logoHorizontal} alt="Logo T3P Campus Horizontal" className="h-12" />
+              <T3PCampusLogo className="h-12" variant="horizontal" />
             </div>
           </div>
         </section>
@@ -70,19 +62,19 @@ const LogoPreview = () => {
             {/* Standard Icon */}
             <div className="bg-white rounded-2xl p-8 shadow-lg flex flex-col items-center">
               <p className="text-sm font-semibold text-warm-gray-500 mb-4">Icône Standard</p>
-              <img src={iconFull} alt="Icône T3P Campus" className="w-24 h-24" />
+              <T3PCampusIcon className="w-24 h-24" theme="color" />
             </div>
 
             {/* White Icon on dark background */}
             <div className="bg-forest rounded-2xl p-8 shadow-lg flex flex-col items-center">
               <p className="text-sm font-semibold text-cream/70 mb-4">Icône Blanc</p>
-              <img src={iconWhite} alt="Icône T3P Campus Blanc" className="w-24 h-24" />
+              <T3PCampusIcon className="w-24 h-24" theme="white" />
             </div>
 
             {/* Mono Icon */}
             <div className="bg-cream-light rounded-2xl p-8 shadow-lg border border-forest/10 flex flex-col items-center">
               <p className="text-sm font-semibold text-warm-gray-500 mb-4">Icône Monochrome</p>
-              <img src={iconMono} alt="Icône T3P Campus Monochrome" className="w-24 h-24" />
+              <T3PCampusIcon className="w-24 h-24" theme="mono" />
             </div>
           </div>
         </section>
@@ -96,27 +88,27 @@ const LogoPreview = () => {
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <div className="flex items-end gap-8 flex-wrap">
               <div className="text-center">
-                <img src={iconFull} alt="24px" className="w-6 h-6 mb-2" />
+                <T3PCampusIcon className="w-6 h-6 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">24px</p>
               </div>
               <div className="text-center">
-                <img src={iconFull} alt="32px" className="w-8 h-8 mb-2" />
+                <T3PCampusIcon className="w-8 h-8 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">32px</p>
               </div>
               <div className="text-center">
-                <img src={iconFull} alt="40px" className="w-10 h-10 mb-2" />
+                <T3PCampusIcon className="w-10 h-10 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">40px</p>
               </div>
               <div className="text-center">
-                <img src={iconFull} alt="48px" className="w-12 h-12 mb-2" />
+                <T3PCampusIcon className="w-12 h-12 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">48px</p>
               </div>
               <div className="text-center">
-                <img src={iconFull} alt="64px" className="w-16 h-16 mb-2" />
+                <T3PCampusIcon className="w-16 h-16 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">64px</p>
               </div>
               <div className="text-center">
-                <img src={iconFull} alt="96px" className="w-24 h-24 mb-2" />
+                <T3PCampusIcon className="w-24 h-24 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">96px</p>
               </div>
             </div>
@@ -132,7 +124,7 @@ const LogoPreview = () => {
           <div className="bg-cream-light rounded-2xl p-4 shadow-lg">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img src={iconFull} alt="Logo" className="w-10 h-10" />
+                <T3PCampusIcon className="w-10 h-10" theme="color" />
                 <span className="text-xl font-black text-forest tracking-tight uppercase">T3P Campus</span>
               </div>
               <div className="flex gap-6 text-sm font-semibold text-warm-gray-600">
@@ -146,7 +138,7 @@ const LogoPreview = () => {
           <div className="bg-forest rounded-2xl p-4 shadow-lg mt-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img src={iconWhite} alt="Logo" className="w-10 h-10" />
+                <T3PCampusIcon className="w-10 h-10" theme="white" />
                 <span className="text-xl font-black text-cream tracking-tight uppercase">T3P Campus</span>
               </div>
               <div className="flex gap-6 text-sm font-semibold text-cream/70">
