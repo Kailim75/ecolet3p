@@ -1,6 +1,7 @@
 import React from "react";
 import { Phone, Mail, MapPin, Clock, Download } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
+import { T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
 
 const Footer = () => {
   return (
@@ -11,9 +12,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center">
-                <span className="text-forest text-lg font-bold">T</span>
-              </div>
+              <T3PCampusIcon className="w-10 h-10" theme="white" />
               <span className="text-xl font-black text-cream tracking-tight uppercase">T3P Campus</span>
             </div>
             <p className="text-cream/70 text-sm leading-relaxed mb-6">

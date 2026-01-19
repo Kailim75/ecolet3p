@@ -4,6 +4,7 @@ import { Menu, X, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
+import { T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -64,9 +65,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo - LiveMentor style */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center">
-              <span className="text-cream text-lg font-bold">T</span>
-            </div>
+            <T3PCampusIcon className="w-10 h-10" theme="color" />
             <span className="text-xl font-black text-forest tracking-tight uppercase">T3P Campus</span>
           </Link>
 
