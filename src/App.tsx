@@ -34,6 +34,7 @@ const AdminSignup = lazy(() => import("./pages/AdminSignup"));
 const CharteGraphique = lazy(() => import("./pages/CharteGraphique"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const LogoPreview = lazy(() => import("./pages/LogoPreview"));
+const LogoExport = lazy(() => import("./pages/LogoExport"));
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,7 @@ const App = () => {
                     <Route path="/admin-signup" element={<AdminSignup />} />
                     <Route path="/charte-graphique" element={<CharteGraphique />} />
                     <Route path="/logo-preview" element={<LogoPreview />} />
+                    <Route path="/logo-export" element={<LogoExport />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
