@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
 
 interface PageLoaderProps {
   isLoading: boolean;
@@ -66,7 +67,7 @@ const PageLoader = ({ isLoading, onLoadingComplete }: PageLoaderProps) => {
             {/* Outer ring */}
             <motion.div
               className="absolute inset-0 rounded-full border-4 border-forest/20"
-              style={{ width: 120, height: 120 }}
+              style={{ width: 140, height: 140 }}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -75,54 +76,32 @@ const PageLoader = ({ isLoading, onLoadingComplete }: PageLoaderProps) => {
             {/* Spinning ring */}
             <motion.div
               className="absolute inset-0 rounded-full border-4 border-transparent border-t-gold border-r-gold"
-              style={{ width: 120, height: 120 }}
+              style={{ width: 140, height: 140 }}
               animate={{ rotate: 360 }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
             />
 
-            {/* Inner pulsing circle */}
-            <motion.div
-              className="absolute rounded-full bg-forest"
-              style={{ 
-                width: 100, 
-                height: 100, 
-                top: 10, 
-                left: 10 
-              }}
-              animate={{
-                scale: [1, 1.05, 1],
-                boxShadow: [
-                  "0 0 0 0 rgba(27, 77, 62, 0.4)",
-                  "0 0 0 20px rgba(27, 77, 62, 0)",
-                  "0 0 0 0 rgba(27, 77, 62, 0)"
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-
-            {/* Logo text */}
+            {/* T3P Campus Icon */}
             <motion.div
               className="relative flex items-center justify-center"
-              style={{ width: 120, height: 120 }}
+              style={{ width: 140, height: 140 }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
             >
-              <div className="text-center">
-                <motion.span
-                  className="text-2xl font-black text-cream block"
-                  animate={{ 
-                    textShadow: [
-                      "0 0 10px rgba(212, 168, 83, 0)",
-                      "0 0 20px rgba(212, 168, 83, 0.5)",
-                      "0 0 10px rgba(212, 168, 83, 0)"
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  T3P
-                </motion.span>
-              </div>
+              <motion.div
+                animate={{
+                  scale: [1, 1.05, 1],
+                  filter: [
+                    "drop-shadow(0 0 0 rgba(212, 168, 83, 0))",
+                    "drop-shadow(0 0 15px rgba(212, 168, 83, 0.4))",
+                    "drop-shadow(0 0 0 rgba(212, 168, 83, 0))"
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <T3PCampusIcon className="w-24 h-24" theme="color" />
+              </motion.div>
             </motion.div>
           </div>
 
