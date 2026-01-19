@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Download } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 
 const Footer = () => {
@@ -67,6 +67,12 @@ const Footer = () => {
                   </PrefetchLink>
                 </li>
               ))}
+              <li>
+                <PrefetchLink to="/logo-export" className="text-cream/70 hover:text-gold transition-colors text-sm flex items-center gap-2">
+                  <Download className="w-3 h-3" />
+                  Télécharger le logo (PDF)
+                </PrefetchLink>
+              </li>
             </ul>
           </div>
 
