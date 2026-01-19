@@ -1,6 +1,6 @@
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { ArrowRight, Clock, Users, CreditCard, Car, Bike, GraduationCap, Loader2, LucideIcon } from "lucide-react";
-import { useRef } from "react";
 import { useFormations, getCategoryLabel } from "@/hooks/useFormations";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 

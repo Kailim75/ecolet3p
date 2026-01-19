@@ -1,7 +1,7 @@
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { useRef } from "react";
 import { ClipboardEdit, BookOpen, Target, Award } from "lucide-react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
