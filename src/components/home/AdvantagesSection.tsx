@@ -1,5 +1,5 @@
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { useRef } from "react";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
