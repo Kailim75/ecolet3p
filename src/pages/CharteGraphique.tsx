@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Download, Palette, Type, Layout, FileText, 
-  CheckCircle, XCircle, Copy, Check, ExternalLink
+  CheckCircle, XCircle, Copy, Check, ExternalLink, Image
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -77,13 +78,25 @@ const CharteGraphique = () => {
               <p className="text-cream/80 text-lg max-w-2xl mx-auto">
                 Guide complet de l'identité visuelle Campus T3P
               </p>
-              <Button 
-                onClick={downloadMarkdown}
-                className="mt-6 btn-accent"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Télécharger le document complet
-              </Button>
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <Button 
+                  onClick={downloadMarkdown}
+                  className="btn-accent"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Télécharger le document complet
+                </Button>
+                <Button 
+                  asChild
+                  variant="outline"
+                  className="bg-cream/10 border-cream/30 text-cream hover:bg-cream/20"
+                >
+                  <Link to="/logo-export">
+                    <Image className="w-4 h-4 mr-2" />
+                    Télécharger le logo (PDF)
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </header>
