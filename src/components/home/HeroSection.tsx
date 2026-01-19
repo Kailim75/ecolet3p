@@ -1,8 +1,8 @@
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { Award, Users, CreditCard } from "lucide-react";
-import { useRef } from "react";
 import formationSession from "@/assets/center/formation-session.jpg";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];

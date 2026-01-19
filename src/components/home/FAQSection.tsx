@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { HelpCircle } from "lucide-react";
 import {

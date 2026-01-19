@@ -1,6 +1,6 @@
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
-import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 
 const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=T3P+Campus+Montrouge+avis";
