@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, Copy, Check } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const WHATSAPP_NUMBER = "33783787663"; // +33 7 83 78 76 63
 const DEFAULT_MESSAGE = "Bonjour, je souhaite avoir des informations sur vos formations.";
@@ -8,12 +9,36 @@ const DEFAULT_MESSAGE = "Bonjour, je souhaite avoir des informations sur vos for
 const FloatingWhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState(DEFAULT_MESSAGE);
+  const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
+
+  const getWhatsAppUrl = () => {
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+  };
 
   const handleSendMessage = () => {
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    const whatsappUrl = getWhatsAppUrl();
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setIsOpen(false);
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(getWhatsAppUrl());
+      setCopied(true);
+      toast({
+        title: "Lien copié !",
+        description: "Collez le lien dans votre navigateur pour ouvrir WhatsApp.",
+      });
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      toast({
+        title: "Erreur",
+        description: "Impossible de copier le lien.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -106,15 +131,33 @@ const FloatingWhatsAppButton = () => {
                   className="flex-1 resize-none rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                   rows={2}
                 />
-                <button
-                  onClick={handleSendMessage}
-                  className="self-end p-3 rounded-full text-white transition-transform hover:scale-105"
-                  style={{ backgroundColor: "#25D366" }}
-                  aria-label="Envoyer sur WhatsApp"
-                >
-                  <Send className="w-5 h-5" />
-                </button>
+                <div className="flex flex-col gap-1 self-end">
+                  <button
+                    onClick={handleSendMessage}
+                    className="p-3 rounded-full text-white transition-transform hover:scale-105"
+                    style={{ backgroundColor: "#25D366" }}
+                    aria-label="Envoyer sur WhatsApp"
+                    title="Ouvrir WhatsApp"
+                  >
+                    <Send className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={handleCopyLink}
+                    className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                    aria-label="Copier le lien"
+                    title="Copier le lien WhatsApp"
+                  >
+                    {copied ? (
+                      <Check className="w-4 h-4 text-green-600" />
+                    ) : (
+                      <Copy className="w-4 h-4 text-muted-foreground" />
+                    )}
+                  </button>
+                </div>
               </div>
+              <p className="text-xs text-muted-foreground mt-2 text-center">
+                Ou appelez le <a href="tel:+33783787663" className="text-primary hover:underline">07 83 78 76 63</a>
+              </p>
             </div>
           </motion.div>
         )}
