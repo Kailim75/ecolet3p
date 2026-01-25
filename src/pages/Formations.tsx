@@ -145,7 +145,15 @@ const Formations = () => {
     return sameCategory.indexOf(formation) < 1;
   };
 
-  // Generate ItemList schema for SEO
+  // Image mapping for formations
+  const formationImages: Record<string, string> = {
+    taxi: "https://t3pcampus.fr/og-image.jpg",
+    vtc: "https://t3pcampus.fr/og-image.jpg",
+    vmdtr: "https://t3pcampus.fr/og-image.jpg",
+    mobilite: "https://t3pcampus.fr/og-image.jpg"
+  };
+
+  // Generate ItemList schema for SEO (simplified to avoid Carousel validation issues)
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -156,31 +164,65 @@ const Formations = () => {
     "itemListElement": formations.map((formation, index) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "item": {
-        "@type": "Course",
-        "name": formation.title,
-        "description": formation.description || `Formation ${formation.title} certifiante`,
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "T3P Campus",
-          "sameAs": "https://t3pcampus.fr"
-        },
-        "offers": formation.price ? {
-          "@type": "Offer",
-          "price": formation.price,
-          "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock"
-        } : undefined,
-        "timeRequired": `PT${formation.duration.replace(/[^0-9]/g, '')}H`,
-        "educationalCredentialAwarded": formation.category === "taxi" ? "Carte Professionnelle Taxi" :
-          formation.category === "vtc" ? "Carte Professionnelle VTC" :
-          formation.category === "vmdtr" ? "Certification VMDTR" : "Attestation de formation",
-        "url": getFormationDetailRoute(formation.category) 
-          ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
-          : "https://t3pcampus.fr/formations"
-      }
+      "name": formation.title,
+      "url": getFormationDetailRoute(formation.category) 
+        ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
+        : "https://t3pcampus.fr/formations"
     }))
   };
+
+  // Separate Course schemas for each formation (not nested in ItemList)
+  const courseSchemas = formations.map((formation) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": formation.title,
+    "description": formation.description || `Formation ${formation.title} certifiante`,
+    "image": formationImages[formation.category] || "https://t3pcampus.fr/og-image.jpg",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "T3P Campus",
+      "sameAs": "https://t3pcampus.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Corneille",
+        "addressLocality": "Montrouge",
+        "postalCode": "92120",
+        "addressCountry": "FR"
+      }
+    },
+    "offers": formation.price ? {
+      "@type": "Offer",
+      "price": formation.price,
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "url": getFormationDetailRoute(formation.category) 
+        ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
+        : "https://t3pcampus.fr/formations"
+    } : undefined,
+    "timeRequired": `PT${formation.duration.replace(/[^0-9]/g, '')}H`,
+    "educationalCredentialAwarded": formation.category === "taxi" ? "Carte Professionnelle Taxi" :
+      formation.category === "vtc" ? "Carte Professionnelle VTC" :
+      formation.category === "vmdtr" ? "Certification VMDTR" : "Attestation de formation",
+    "url": getFormationDetailRoute(formation.category) 
+      ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
+      : "https://t3pcampus.fr/formations",
+    "inLanguage": "fr-FR",
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "Onsite",
+      "location": {
+        "@type": "Place",
+        "name": "T3P Campus Montrouge",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3 rue Corneille",
+          "addressLocality": "Montrouge",
+          "postalCode": "92120",
+          "addressCountry": "FR"
+        }
+      }
+    }
+  }));
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -222,6 +264,9 @@ const Formations = () => {
         
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {courseSchemas.map((schema, index) => (
+          <script key={index} type="application/ld+json">{JSON.stringify(schema)}</script>
+        ))}
       </Helmet>
 
       {/* Hero - Immersive with parallax */}
