@@ -64,9 +64,15 @@ const isDigitalFeature = (feature: string): boolean => {
   const lowerFeature = feature.toLowerCase();
   return lowerFeature.includes('e-learning') || 
          lowerFeature.includes('quiz') || 
-         lowerFeature.includes('application') ||
+         lowerFeature.includes('application quiz') ||
          lowerFeature.includes('illimité') ||
          lowerFeature.includes('entraînement illimité');
+};
+
+// Check if formation has any digital features
+const hasDigitalFeatures = (features: string[] | null): boolean => {
+  if (!features) return false;
+  return features.some(feature => isDigitalFeature(feature));
 };
 
 const staggerContainerVariants: Variants = {
@@ -301,6 +307,7 @@ const Formations = () => {
               {filteredFormations.map((formation) => {
                 const IconComponent = getIconComponent(formation.icon);
                 const popular = isPopular(formation);
+                const hasDigital = hasDigitalFeatures(formation.features);
                 
                 return (
                   <motion.div
@@ -343,6 +350,12 @@ const Formations = () => {
                           <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
                             {getCategoryLabel(formation.category)}
                           </span>
+                          {hasDigital && (
+                            <span className="flex items-center gap-1 bg-gradient-to-r from-gold/20 to-orange/20 text-gold text-xs font-bold px-2.5 py-1 rounded-full border border-gold/30">
+                              <Laptop className="w-3 h-3" />
+                              Digital inclus
+                            </span>
+                          )}
                         </div>
                       </div>
                       
