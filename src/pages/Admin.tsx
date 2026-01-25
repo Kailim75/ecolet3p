@@ -83,11 +83,80 @@ const Admin = () => {
     }
   }, [user, isAdmin, isLoading, navigate]);
 
+  // Initial data fetch
   useEffect(() => {
     if (user && isAdmin) {
       fetchData();
       fetchAppointmentsStats();
     }
+  }, [user, isAdmin, activeTab]);
+
+  // Real-time subscriptions for live updates
+  useEffect(() => {
+    if (!user || !isAdmin) return;
+
+    // Subscribe to newsletter_subscribers changes
+    const newsletterChannel = supabase
+      .channel('newsletter-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'newsletter_subscribers' },
+        () => {
+          console.log('Newsletter data changed, refreshing...');
+          if (activeTab === 'newsletter') {
+            fetchData();
+          } else {
+            // Just update count for stats card
+            supabase
+              .from('newsletter_subscribers')
+              .select('*')
+              .order('subscribed_at', { ascending: false })
+              .then(({ data }) => setSubscribers(data || []));
+          }
+        }
+      )
+      .subscribe();
+
+    // Subscribe to pre_registrations changes
+    const preRegChannel = supabase
+      .channel('prereg-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'pre_registrations' },
+        () => {
+          console.log('Pre-registration data changed, refreshing...');
+          if (activeTab === 'preregistrations') {
+            fetchData();
+          } else {
+            supabase
+              .from('pre_registrations')
+              .select('*')
+              .order('created_at', { ascending: false })
+              .then(({ data }) => setPreRegistrations(data || []));
+          }
+        }
+      )
+      .subscribe();
+
+    // Subscribe to appointments changes
+    const appointmentsChannel = supabase
+      .channel('appointments-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'appointments' },
+        () => {
+          console.log('Appointments data changed, refreshing...');
+          fetchAppointmentsStats();
+        }
+      )
+      .subscribe();
+
+    // Cleanup subscriptions
+    return () => {
+      supabase.removeChannel(newsletterChannel);
+      supabase.removeChannel(preRegChannel);
+      supabase.removeChannel(appointmentsChannel);
+    };
   }, [user, isAdmin, activeTab]);
 
   const fetchAppointmentsStats = async () => {
