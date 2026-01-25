@@ -4,7 +4,8 @@ import Layout from "@/components/layout/Layout";
 import { 
   Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
   GraduationCap, Star, CreditCard, Car, Bike, Accessibility, 
-  RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon, Calendar
+  RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon, Calendar,
+  Laptop, Brain, RotateCcw
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -47,6 +48,25 @@ const getFormationDetailRoute = (category: string): string | null => {
     mobilite: "/formations/mobilite",
   };
   return routes[category] || null;
+};
+
+// Get icon for feature based on keywords
+const getFeatureIcon = (feature: string): LucideIcon => {
+  const lowerFeature = feature.toLowerCase();
+  if (lowerFeature.includes('e-learning') || lowerFeature.includes('elearning')) return Laptop;
+  if (lowerFeature.includes('quiz') || lowerFeature.includes('application')) return Brain;
+  if (lowerFeature.includes('illimité') || lowerFeature.includes('entraînement')) return RotateCcw;
+  return CheckCircle2;
+};
+
+// Check if feature is a digital/e-learning feature
+const isDigitalFeature = (feature: string): boolean => {
+  const lowerFeature = feature.toLowerCase();
+  return lowerFeature.includes('e-learning') || 
+         lowerFeature.includes('quiz') || 
+         lowerFeature.includes('application') ||
+         lowerFeature.includes('illimité') ||
+         lowerFeature.includes('entraînement illimité');
 };
 
 const staggerContainerVariants: Variants = {
@@ -354,15 +374,22 @@ const Formations = () => {
                     {/* Features preview */}
                     {formation.features && formation.features.length > 0 && (
                       <div className="mb-4 space-y-1">
-                        {formation.features.slice(0, 2).map((feature, i) => (
-                          <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                            <CheckCircle2 className="w-3 h-3 text-forest shrink-0" />
-                            <span className="line-clamp-1">{feature}</span>
-                          </div>
-                        ))}
-                        {formation.features.length > 2 && (
+                        {formation.features.slice(0, 3).map((feature, i) => {
+                          const FeatureIcon = getFeatureIcon(feature);
+                          const isDigital = isDigitalFeature(feature);
+                          return (
+                            <div 
+                              key={i} 
+                              className={`flex items-center gap-2 text-xs ${isDigital ? 'text-gold font-medium' : 'text-muted-foreground'}`}
+                            >
+                              <FeatureIcon className={`w-3 h-3 shrink-0 ${isDigital ? 'text-gold' : 'text-forest'}`} />
+                              <span className="line-clamp-1">{feature}</span>
+                            </div>
+                          );
+                        })}
+                        {formation.features.length > 3 && (
                           <p className="text-xs text-muted-foreground pl-5">
-                            +{formation.features.length - 2} autres
+                            +{formation.features.length - 3} autres
                           </p>
                         )}
                       </div>
@@ -523,18 +550,22 @@ const Formations = () => {
                       Contenu de la formation
                     </h4>
                     <ul className="space-y-3">
-                      {selectedFormation.features.map((feature, i) => (
-                        <motion.li 
-                          key={i} 
-                          className="flex items-start gap-3 text-sm text-muted-foreground"
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                        >
-                          <CheckCircle2 className="w-5 h-5 text-forest shrink-0 mt-0.5" />
-                          {feature}
-                        </motion.li>
-                      ))}
+                      {selectedFormation.features.map((feature, i) => {
+                        const FeatureIcon = getFeatureIcon(feature);
+                        const isDigital = isDigitalFeature(feature);
+                        return (
+                          <motion.li 
+                            key={i} 
+                            className={`flex items-start gap-3 text-sm ${isDigital ? 'text-gold font-medium' : 'text-muted-foreground'}`}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            <FeatureIcon className={`w-5 h-5 shrink-0 mt-0.5 ${isDigital ? 'text-gold' : 'text-forest'}`} />
+                            {feature}
+                          </motion.li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}
