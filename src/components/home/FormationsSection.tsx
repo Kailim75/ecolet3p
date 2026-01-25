@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { ArrowRight, Clock, Users, CreditCard, Car, Bike, GraduationCap, Loader2, LucideIcon } from "lucide-react";
+import { ArrowRight, Clock, Users, CreditCard, Car, Bike, GraduationCap, Loader2, LucideIcon, Laptop, Sparkles } from "lucide-react";
 import { useFormations, getCategoryLabel } from "@/hooks/useFormations";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 
@@ -18,6 +18,22 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 const getIconComponent = (iconName: string | null): LucideIcon => {
   return iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : Car;
+};
+
+// Check if feature is digital (e-learning, quiz, etc.)
+const isDigitalFeature = (feature: string): boolean => {
+  const lowerFeature = feature.toLowerCase();
+  return lowerFeature.includes('e-learning') || 
+         lowerFeature.includes('quiz') || 
+         lowerFeature.includes('application quiz') ||
+         lowerFeature.includes('illimité') ||
+         lowerFeature.includes('entraînement illimité');
+};
+
+// Check if formation has any digital features
+const hasDigitalFeatures = (features: string[] | null): boolean => {
+  if (!features) return false;
+  return features.some(feature => isDigitalFeature(feature));
 };
 
 // Get detail page route for formation category
@@ -65,6 +81,9 @@ const FormationsSection = () => {
     return sameCategory.indexOf(displayedFormations[index]) === 0;
   };
 
+  // Check if formation is VMDTR (highlighted)
+  const isVMDTR = (category: string) => category === "vmdtr";
+
   return (
     <section ref={containerRef} className="section-padding gradient-warm overflow-hidden relative">
       {/* Parallax Background Elements */}
@@ -110,6 +129,8 @@ const FormationsSection = () => {
             {displayedFormations.map((formation, i) => {
               const IconComponent = getIconComponent(formation.icon);
               const popular = isPopular(formation.category, i);
+              const vmdtr = isVMDTR(formation.category);
+              const hasDigital = hasDigitalFeatures(formation.features);
               
               return (
                 <motion.div
@@ -117,31 +138,49 @@ const FormationsSection = () => {
                   variants={staggerItemVariants}
                   whileHover={{ 
                     y: -12, 
-                    boxShadow: "0 30px 60px rgba(27, 77, 62, 0.18)",
+                    boxShadow: vmdtr 
+                      ? "0 30px 60px rgba(212, 168, 83, 0.25)" 
+                      : "0 30px 60px rgba(27, 77, 62, 0.18)",
                     borderColor: "rgba(212, 168, 83, 0.6)"
                   }}
                   whileTap={{ scale: 0.98, y: -6 }}
-                  className="card-livementor relative group cursor-pointer"
+                  className={`card-livementor relative group cursor-pointer ${vmdtr ? 'ring-2 ring-gold/40 bg-gradient-to-br from-cream to-gold/5' : ''}`}
                 >
-                  {popular && (
+                  {/* VMDTR Highlight Badge */}
+                  {vmdtr && (
+                    <div className="absolute -top-3 -right-3 bg-gradient-to-r from-gold to-orange text-forest px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1 shadow-lg">
+                      <Sparkles className="w-3 h-3" />
+                      Nouveauté
+                    </div>
+                  )}
+                  
+                  {popular && !vmdtr && (
                     <div className="absolute -top-3 left-6 bg-gold text-forest px-4 py-1 rounded-full text-xs font-bold uppercase">
                       Populaire
                     </div>
                   )}
 
                   <motion.div 
-                    className="w-14 h-14 rounded-2xl bg-forest/10 flex items-center justify-center mb-5"
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(27, 77, 62, 0.2)" }}
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${vmdtr ? 'bg-gold/20' : 'bg-forest/10'}`}
+                    whileHover={{ scale: 1.1, backgroundColor: vmdtr ? "rgba(212, 168, 83, 0.3)" : "rgba(27, 77, 62, 0.2)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <IconComponent className="w-7 h-7 text-forest" />
+                    <IconComponent className={`w-7 h-7 ${vmdtr ? 'text-gold' : 'text-forest'}`} />
                   </motion.div>
 
-                  <motion.h3 
-                    className="text-xl font-bold text-forest mb-3 group-hover:text-gold transition-colors duration-300"
-                  >
-                    {formation.title}
-                  </motion.h3>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <motion.h3 
+                      className="text-xl font-bold text-forest group-hover:text-gold transition-colors duration-300"
+                    >
+                      {formation.title}
+                    </motion.h3>
+                    {hasDigital && (
+                      <span className="flex items-center gap-1 bg-gradient-to-r from-gold/20 to-orange/20 text-gold text-xs font-bold px-2 py-1 rounded-full border border-gold/30 whitespace-nowrap">
+                        <Laptop className="w-3 h-3" />
+                        Digital inclus
+                      </span>
+                    )}
+                  </div>
                   <p className="text-warm-gray-600 mb-6 line-clamp-2">
                     {formation.description || "Formation professionnelle certifiante."}
                   </p>
