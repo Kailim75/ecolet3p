@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
 
-const WHATSAPP_NUMBER = "33188750555"; // +33 1 88 75 05 55
+const WHATSAPP_NUMBER = "33783787663"; // +33 7 83 78 76 63
 const DEFAULT_MESSAGE = "Bonjour, je souhaite avoir des informations sur vos formations.";
 
 const FloatingWhatsAppButton = () => {
