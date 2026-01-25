@@ -159,7 +159,7 @@ const FormationMobilite = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Nice"
+        "name": session.location || "T3P Campus Montrouge"
       }
     })),
     "educationalCredentialAwarded": "Carte Professionnelle complémentaire",
@@ -191,9 +191,9 @@ const FormationMobilite = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Mobilité - Passerelle Taxi VTC | T3P Campus Nice</title>
+        <title>Formation Mobilité - Passerelle Taxi VTC | T3P Campus Montrouge</title>
         <meta name="description" content="Formation Mobilité 14h pour passer de Taxi à VTC ou inversement. Obtenez votre double carte professionnelle en 2 jours. Formation rapide et efficace." />
-        <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation T3P nice" />
+        <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation T3P montrouge" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/mobilite" />
         
         {/* Preload critical hero image */}
@@ -704,9 +704,9 @@ const FormationMobilite = () => {
               S'inscrire maintenant
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-amber-600" asChild>
-              <a href="tel:+33XXXXXXXXX">
+              <a href="tel:0188750555">
                 <Phone className="mr-2 h-5 w-5" />
-                04 XX XX XX XX
+                01 88 75 05 55
               </a>
             </Button>
           </div>

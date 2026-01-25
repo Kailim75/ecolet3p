@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const advantages = [
-  { value: "96%", title: "De Réussite", description: "Notre taux de réussite aux examens TAXI et VTC." },
-  { value: "10 000+", title: "Élèves Formés", description: "Depuis 2014, nous accompagnons les futurs chauffeurs." },
+  { value: "94%", title: "De Réussite", description: "Notre taux de réussite aux examens TAXI et VTC." },
+  { value: "2 000+", title: "Élèves Formés", description: "Depuis 2014, nous accompagnons les futurs chauffeurs." },
   { value: "10 ans", title: "D'Expérience", description: "Une décennie d'expertise dans la formation." },
   { value: "4x", title: "Paiement Sans Frais", description: "Facilitez votre formation avec le paiement en plusieurs fois." },
 ];
@@ -81,7 +81,7 @@ const AdvantagesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
             >
-              10 000 PROJETS
+              2 000 PROJETS
             </motion.span>
           </motion.h2>
           <motion.p 
