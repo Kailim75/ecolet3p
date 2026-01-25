@@ -17,9 +17,21 @@ const FloatingWhatsAppButton = () => {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     const whatsappUrl = getWhatsAppUrl();
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    // In preview (sandboxed iframe), opening WhatsApp can be blocked and tries to navigate
+    // the iframe, causing ERR_BLOCKED_BY_RESPONSE. Detect popup failure and fallback to copy.
+    const win = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (!win) {
+      await handleCopyLink();
+      toast({
+        title: "Ouverture bloquée",
+        description:
+          "La prévisualisation bloque WhatsApp. Le lien a été copié : collez-le dans un nouvel onglet.",
+      });
+    }
+
     setIsOpen(false);
   };
 
