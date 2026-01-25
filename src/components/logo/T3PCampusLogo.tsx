@@ -3,13 +3,33 @@ import React from "react";
 interface LogoProps {
   className?: string;
   variant?: "full" | "icon" | "horizontal";
-  theme?: "color" | "white" | "mono";
+  theme?: "color" | "white" | "mono" | "gold";
 }
 
 export const T3PCampusIcon = ({ 
   className = "w-10 h-10",
   theme = "color" 
-}: { className?: string; theme?: "color" | "white" | "mono" }) => {
+}: { className?: string; theme?: "color" | "white" | "mono" | "gold" }) => {
+  // Gold premium version - matches the favicon
+  if (theme === "gold") {
+    return (
+      <svg viewBox="0 0 60 60" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldGradientIconPremium" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#E4BE73"/>
+            <stop offset="50%" stopColor="#D4A853"/>
+            <stop offset="100%" stopColor="#C49843"/>
+          </linearGradient>
+        </defs>
+        <circle cx="30" cy="30" r="28" fill="url(#goldGradientIconPremium)"/>
+        <circle cx="30" cy="30" r="24" fill="none" stroke="#FFFFFF" strokeWidth="2" opacity="0.4"/>
+        <text x="30" y="28" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="16" fontWeight="900" fill="#FFFFFF" letterSpacing="-0.02em">T3P</text>
+        <path d="M16 40 L30 33 L44 40" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <circle cx="30" cy="33" r="2.5" fill="#FFFFFF"/>
+      </svg>
+    );
+  }
+
   if (theme === "white") {
     return (
       <svg viewBox="0 0 60 60" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
