@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import Header from "./Header";
 import Footer from "./Footer";
 import FloatingAppointmentButton from "./FloatingAppointmentButton";
+import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
+import ExitIntentPopup from "@/components/newsletter/ExitIntentPopup";
 
 interface LayoutProps {
   children: ReactNode;
@@ -128,6 +130,8 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="flex-1">{children}</main>
       <Footer />
       <FloatingAppointmentButton />
+      <FloatingWhatsAppButton />
+      <ExitIntentPopup />
     </div>
   );
 };
