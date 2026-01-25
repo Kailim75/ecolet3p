@@ -66,6 +66,43 @@ const Blog = () => {
     }))
   };
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Articles Blog T3P Campus",
+    "description": "Liste des articles sur les formations Taxi, VTC et VMDTR",
+    "url": "https://t3pcampus.fr/blog",
+    "numberOfItems": blogArticles.length,
+    "itemListElement": blogArticles.map((article, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "BlogPosting",
+        "headline": article.title,
+        "description": article.excerpt,
+        "datePublished": article.publishDate,
+        "dateModified": article.publishDate,
+        "author": {
+          "@type": "Organization",
+          "name": "T3P Campus"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "T3P Campus",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg"
+          }
+        },
+        "url": `https://t3pcampus.fr/blog/${article.slug}`,
+        "mainEntityOfPage": `https://t3pcampus.fr/blog/${article.slug}`,
+        "articleSection": article.category,
+        "wordCount": article.readTime.replace(/[^0-9]/g, '') ? parseInt(article.readTime.replace(/[^0-9]/g, '')) * 200 : 1000,
+        "inLanguage": "fr-FR"
+      }
+    }))
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -105,6 +142,7 @@ const Blog = () => {
         <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
