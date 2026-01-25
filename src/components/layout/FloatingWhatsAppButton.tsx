@@ -12,45 +12,66 @@ const FloatingWhatsAppButton = () => {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
+  const isEmbeddedPreview = (() => {
+    try {
+      return window.self !== window.top;
+    } catch {
+      return true;
+    }
+  })();
+
   const getWhatsAppUrl = () => {
     const encodedMessage = encodeURIComponent(message);
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
   };
 
+  const handleCopyLinkWithFallback = async (url: string) => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      toast({
+        title: "Lien copié !",
+        description: "Collez le lien dans un nouvel onglet pour ouvrir WhatsApp.",
+      });
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard can be restricted in iframes. Prompt fallback always works.
+      window.prompt("Copiez ce lien WhatsApp :", url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleCopyLink = async () => {
+    await handleCopyLinkWithFallback(getWhatsAppUrl());
+  };
+
   const handleSendMessage = async () => {
     const whatsappUrl = getWhatsAppUrl();
 
-    // In preview (sandboxed iframe), opening WhatsApp can be blocked and tries to navigate
-    // the iframe, causing ERR_BLOCKED_BY_RESPONSE. Detect popup failure and fallback to copy.
+    // ✅ In Lovable preview (iframe), WhatsApp embedding is blocked.
+    // So we copy the link instead of trying to open it.
+    if (isEmbeddedPreview) {
+      await handleCopyLinkWithFallback(whatsappUrl);
+      toast({
+        title: "Prévisualisation : WhatsApp bloqué",
+        description:
+          "Le lien est copié. Collez-le dans un nouvel onglet (ou utilisez le lien “Ouvrir”).",
+      });
+      setIsOpen(false);
+      return;
+    }
+
     const win = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     if (!win) {
-      await handleCopyLink();
+      await handleCopyLinkWithFallback(whatsappUrl);
       toast({
-        title: "Ouverture bloquée",
-        description:
-          "La prévisualisation bloque WhatsApp. Le lien a été copié : collez-le dans un nouvel onglet.",
+        title: "Popup bloquée",
+        description: "Le lien WhatsApp a été copié.",
       });
     }
 
     setIsOpen(false);
-  };
-
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(getWhatsAppUrl());
-      setCopied(true);
-      toast({
-        title: "Lien copié !",
-        description: "Collez le lien dans votre navigateur pour ouvrir WhatsApp.",
-      });
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      toast({
-        title: "Erreur",
-        description: "Impossible de copier le lien.",
-        variant: "destructive",
-      });
-    }
   };
 
   return (
@@ -58,10 +79,7 @@ const FloatingWhatsAppButton = () => {
       {/* WhatsApp Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-colors duration-300"
-        style={{ 
-          backgroundColor: "#25D366",
-        }}
+        className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-colors duration-300 bg-forest"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Contacter via WhatsApp"
@@ -102,10 +120,7 @@ const FloatingWhatsAppButton = () => {
             className="fixed bottom-24 left-6 z-50 w-80 bg-card rounded-2xl shadow-2xl overflow-hidden border border-border"
           >
             {/* Header */}
-            <div 
-              className="p-4 text-white"
-              style={{ backgroundColor: "#25D366" }}
-            >
+            <div className="p-4 text-cream bg-forest">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <MessageCircle className="w-5 h-5" />
@@ -146,8 +161,7 @@ const FloatingWhatsAppButton = () => {
                 <div className="flex flex-col gap-1 self-end">
                   <button
                     onClick={handleSendMessage}
-                    className="p-3 rounded-full text-white transition-transform hover:scale-105"
-                    style={{ backgroundColor: "#25D366" }}
+                    className="p-3 rounded-full text-cream transition-transform hover:scale-105 bg-forest"
                     aria-label="Envoyer sur WhatsApp"
                     title="Ouvrir WhatsApp"
                   >
@@ -160,12 +174,22 @@ const FloatingWhatsAppButton = () => {
                     title="Copier le lien WhatsApp"
                   >
                     {copied ? (
-                      <Check className="w-4 h-4 text-green-600" />
+                      <Check className="w-4 h-4 text-forest" />
                     ) : (
                       <Copy className="w-4 h-4 text-muted-foreground" />
                     )}
                   </button>
                 </div>
+              </div>
+              <div className="mt-3 text-center">
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline"
+                >
+                  Ouvrir WhatsApp dans un nouvel onglet
+                </a>
               </div>
               <p className="text-xs text-muted-foreground mt-2 text-center">
                 Ou appelez le <a href="tel:+33783787663" className="text-primary hover:underline">07 83 78 76 63</a>
