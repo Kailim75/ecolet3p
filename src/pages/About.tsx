@@ -77,29 +77,121 @@ const About = () => {
     }
   };
 
-  const aboutSchema = {
+  // Organization schema - supported by Google Rich Results
+  const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "À propos de T3P Campus",
-    "description": "Centre de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge depuis 2014",
+    "@type": "EducationalOrganization",
+    "@id": "https://t3pcampus.fr/#organization",
+    "name": "T3P Campus",
+    "alternateName": "T3P Campus - Centre de Formation Taxi VTC",
+    "description": "Centre de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge depuis 2014. 94% de taux de réussite, 2000+ apprenants formés.",
+    "url": "https://t3pcampus.fr",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg"
+    },
+    "image": "https://t3pcampus.fr/og-image.jpg",
+    "foundingDate": "2014",
+    "telephone": "+33 1 88 75 05 55",
+    "email": "montrouge@t3pcampus.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 rue Corneille",
+      "addressLocality": "Montrouge",
+      "postalCode": "92120",
+      "addressRegion": "Île-de-France",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "48.8186",
+      "longitude": "2.3196"
+    },
+    "sameAs": [
+      "https://www.facebook.com/dropacademymontrouge",
+      "https://www.instagram.com/t3pcampus"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Formations professionnelles T3P Campus",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "Formation Taxi",
+            "description": "Formation complète de 63h pour obtenir la carte professionnelle Taxi"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "Formation VTC",
+            "description": "Formation complète pour obtenir la carte professionnelle VTC"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "Formation VMDTR",
+            "description": "Formation moto-taxi pour obtenir la carte professionnelle VMDTR"
+          }
+        }
+      ]
+    }
+  };
+
+  // Local Business schema for rich results
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "T3P Campus",
+    "image": "https://t3pcampus.fr/og-image.jpg",
     "url": "https://t3pcampus.fr/a-propos",
-    "mainEntity": {
-      "@type": "EducationalOrganization",
-      "name": "T3P Campus",
-      "foundingDate": "2014",
-      "description": "Centre de formation leader pour chauffeurs professionnels à Montrouge",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3 rue Corneille",
-        "addressLocality": "Montrouge",
-        "postalCode": "92120",
-        "addressCountry": "FR"
+    "telephone": "+33 1 88 75 05 55",
+    "email": "montrouge@t3pcampus.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3 rue Corneille",
+      "addressLocality": "Montrouge",
+      "postalCode": "92120",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "48.8186",
+      "longitude": "2.3196"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:30",
+        "closes": "12:30"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "359"
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "13:30",
+        "closes": "18:00"
       }
+    ],
+    "priceRange": "€€",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
@@ -141,7 +233,8 @@ const About = () => {
         <meta name="twitter:description" content="Centre de formation leader depuis 2014. 94% de réussite, formateurs experts issus du métier." />
         <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
         
-        <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       {/* Hero - LiveMentor style */}
