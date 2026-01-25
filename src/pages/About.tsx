@@ -77,6 +77,51 @@ const About = () => {
     }
   };
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "À propos de T3P Campus",
+    "description": "Centre de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge depuis 2014",
+    "url": "https://t3pcampus.fr/a-propos",
+    "mainEntity": {
+      "@type": "EducationalOrganization",
+      "name": "T3P Campus",
+      "foundingDate": "2014",
+      "description": "Centre de formation leader pour chauffeurs professionnels à Montrouge",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Corneille",
+        "addressLocality": "Montrouge",
+        "postalCode": "92120",
+        "addressCountry": "FR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "359"
+      }
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://t3pcampus.fr/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "À propos",
+        "item": "https://t3pcampus.fr/a-propos"
+      }
+    ]
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -89,11 +134,15 @@ const About = () => {
         <meta property="og:description" content="Centre de formation depuis 2014. 94% de réussite, formateurs experts issus du métier. Découvrez nos locaux et notre équipe." />
         <meta property="og:url" content="https://t3pcampus.fr/a-propos" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-about.jpg" />
+        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="À propos de T3P Campus - Centre de Formation Taxi VTC" />
-        <meta name="twitter:description" content="Centre de formation leader depuis 2014. 96% de réussite, formateurs experts issus du métier." />
+        <meta name="twitter:description" content="Centre de formation leader depuis 2014. 94% de réussite, formateurs experts issus du métier." />
+        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
+        
+        <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       {/* Hero - LiveMentor style */}
       <section className="gradient-hero py-20 md:py-28">

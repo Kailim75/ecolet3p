@@ -201,6 +201,59 @@ const Contact = () => {
   const contactY2 = useTransform(contactScroll, [0, 1], [-60, 60]);
   const contactRotate = useTransform(contactScroll, [0, 1], [-5, 5]);
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact T3P Campus",
+    "description": "Contactez notre centre de formation Taxi VTC à Montrouge",
+    "url": "https://t3pcampus.fr/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "T3P Campus",
+      "telephone": "+33188750555",
+      "email": "montrouge@t3pcampus.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Corneille",
+        "addressLocality": "Montrouge",
+        "postalCode": "92120",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8155,
+        "longitude": 2.3137
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:30",
+          "closes": "18:00"
+        }
+      ]
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://t3pcampus.fr/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact",
+        "item": "https://t3pcampus.fr/contact"
+      }
+    ]
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -213,10 +266,14 @@ const Contact = () => {
         <meta property="og:description" content="Demandez un devis gratuit. Adresse : 3 rue Corneille 92120 Montrouge. Tél : 01 88 75 05 55. Métro Mairie de Montrouge." />
         <meta property="og:url" content="https://t3pcampus.fr/contact" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Contact T3P Campus - Formation Taxi VTC" />
         <meta name="twitter:description" content="Contactez-nous au 01 88 75 05 55. 3 rue Corneille, 92120 Montrouge." />
+        
+        <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero - LiveMentor Style with Parallax */}

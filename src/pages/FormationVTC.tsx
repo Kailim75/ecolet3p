@@ -149,18 +149,26 @@ const FormationVTC = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation VTC - Carte Professionnelle T3P",
-    "description": "Formation complète pour obtenir votre carte professionnelle VTC. Apprenez le métier de chauffeur privé, les applications et la gestion d'entreprise.",
+    "name": "Formation VTC - Carte Professionnelle | T3P Campus Montrouge",
+    "description": "Formation complète pour obtenir votre carte professionnelle VTC à Montrouge. Apprenez le métier de chauffeur privé, les applications et la gestion d'entreprise.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "T3P Campus",
-      "sameAs": "https://t3pcampus.fr"
+      "sameAs": "https://t3pcampus.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Corneille",
+        "addressLocality": "Montrouge",
+        "postalCode": "92120",
+        "addressCountry": "FR"
+      }
     },
     "offers": {
       "@type": "Offer",
       "price": vtcFormation?.price || "1690",
       "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "validFrom": new Date().toISOString().split('T')[0]
     },
     "hasCourseInstance": sessions.map((session) => ({
       "@type": "CourseInstance",
@@ -169,12 +177,20 @@ const FormationVTC = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Nice"
+        "name": session.location || "T3P Campus Montrouge",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3 rue Corneille",
+          "addressLocality": "Montrouge",
+          "postalCode": "92120"
+        }
       }
     })),
     "educationalCredentialAwarded": "Carte Professionnelle VTC",
-    "timeRequired": "PT50H",
-    "occupationalCategory": "Chauffeur VTC"
+    "timeRequired": "PT63H",
+    "occupationalCategory": "Chauffeur VTC",
+    "coursePrerequisites": "Permis B de plus de 3 ans",
+    "inLanguage": "fr"
   };
 
   const faqSchema = {
@@ -201,9 +217,9 @@ const FormationVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VTC Nice - Carte Professionnelle | T3P Campus</title>
-        <meta name="description" content="Formation VTC complète à Nice. Obtenez votre carte professionnelle VTC, travaillez avec Uber, Bolt. Paiement en 4x sans frais, taux de réussite élevé." />
-        <meta name="keywords" content="formation vtc nice, carte professionnelle vtc, devenir chauffeur vtc, uber, formation T3P" />
+        <title>Formation VTC Montrouge Paris - Carte Professionnelle | T3P Campus</title>
+        <meta name="description" content="Formation VTC complète à Montrouge (Paris). Obtenez votre carte professionnelle VTC, travaillez avec Uber, Bolt. Paiement en 4x sans frais, 94% de réussite." />
+        <meta name="keywords" content="formation vtc montrouge, formation vtc paris, carte professionnelle vtc, devenir chauffeur vtc, uber, formation T3P" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/vtc" />
         
         {/* Preload critical hero image */}
@@ -214,10 +230,11 @@ const FormationVTC = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation VTC Nice - Carte Professionnelle | T3P Campus" />
-        <meta property="og:description" content="Formation VTC complète à Nice. Devenez chauffeur VTC professionnel et travaillez avec les grandes plateformes." />
+        <meta property="og:title" content="Formation VTC Montrouge Paris - Carte Professionnelle | T3P Campus" />
+        <meta property="og:description" content="Formation VTC complète à Montrouge. Devenez chauffeur VTC professionnel et travaillez avec Uber, Bolt, Heetch." />
         <meta property="og:url" content="https://t3pcampus.fr/formations/vtc" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

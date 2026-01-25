@@ -34,6 +34,57 @@ const Blog = () => {
     });
   };
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog T3P Campus - Formation Taxi VTC",
+    "description": "Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR",
+    "url": "https://t3pcampus.fr/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "T3P Campus",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg"
+      }
+    },
+    "blogPost": blogArticles.map(article => ({
+      "@type": "BlogPosting",
+      "headline": article.title,
+      "description": article.excerpt,
+      "datePublished": article.publishDate,
+      "author": {
+        "@type": "Organization",
+        "name": "T3P Campus"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "T3P Campus"
+      },
+      "url": `https://t3pcampus.fr/blog/${article.slug}`,
+      "mainEntityOfPage": `https://t3pcampus.fr/blog/${article.slug}`
+    }))
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://t3pcampus.fr/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://t3pcampus.fr/blog"
+      }
+    ]
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -42,14 +93,19 @@ const Blog = () => {
         <meta name="keywords" content="blog formation taxi, actualités VTC, conseils examen taxi, guide chauffeur VTC, formation VMDTR" />
         <link rel="canonical" href="https://t3pcampus.fr/blog" />
         
-        <meta property="og:title" content="Blog T3P Campus - Formation Taxi VTC" />
+        <meta property="og:title" content="Blog T3P Campus - Formation Taxi VTC Montrouge" />
         <meta property="og:description" content="Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR. Guides pratiques et témoignages." />
         <meta property="og:url" content="https://t3pcampus.fr/blog" />
         <meta property="og:type" content="blog" />
+        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog T3P Campus - Formation Taxi VTC" />
         <meta name="twitter:description" content="Articles et conseils pour réussir votre formation Taxi ou VTC." />
+        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
+        
+        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}

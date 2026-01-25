@@ -34,6 +34,110 @@ const SectionSkeleton = () => (
   </div>
 );
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "T3P Campus",
+  "alternateName": "T3P Campus Montrouge",
+  "url": "https://t3pcampus.fr",
+  "logo": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg",
+  "image": "https://t3pcampus.fr/og-image.jpg",
+  "description": "Centre de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, formateurs experts du métier.",
+  "telephone": "+33188750555",
+  "email": "montrouge@t3pcampus.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 rue Corneille",
+    "addressLocality": "Montrouge",
+    "postalCode": "92120",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.8155,
+    "longitude": 2.3137
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:30",
+      "closes": "18:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "359",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.google.com/maps/place/T3P+Campus"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Formations T3P Campus",
+    "itemListElement": [
+      {
+        "@type": "Course",
+        "name": "Formation Taxi Initiale",
+        "description": "Formation complète pour obtenir votre carte professionnelle Taxi",
+        "provider": { "@type": "Organization", "name": "T3P Campus" }
+      },
+      {
+        "@type": "Course",
+        "name": "Formation VTC",
+        "description": "Formation pour devenir chauffeur VTC professionnel",
+        "provider": { "@type": "Organization", "name": "T3P Campus" }
+      },
+      {
+        "@type": "Course",
+        "name": "Formation VMDTR",
+        "description": "Formation moto-taxi pour obtenir votre certification",
+        "provider": { "@type": "Organization", "name": "T3P Campus" }
+      }
+    ]
+  }
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://t3pcampus.fr/#localbusiness",
+  "name": "T3P Campus - Formation Taxi VTC Montrouge",
+  "image": "https://t3pcampus.fr/og-image.jpg",
+  "telephone": "+33188750555",
+  "email": "montrouge@t3pcampus.fr",
+  "url": "https://t3pcampus.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 rue Corneille",
+    "addressLocality": "Montrouge",
+    "postalCode": "92120",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.8155,
+    "longitude": 2.3137
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:30",
+      "closes": "18:00"
+    }
+  ],
+  "priceRange": "€€",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "359"
+  }
+};
+
 const Index = () => {
   return (
     <Layout>
@@ -57,13 +161,20 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="T3P Campus" />
         <meta property="og:locale" content="fr_FR" />
+        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="T3P Campus - Formation Taxi VTC Montrouge" />
         <meta name="twitter:description" content="Centre de formation avec 94% de réussite. Obtenez votre carte professionnelle Taxi ou VTC." />
+        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
         
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="author" content="T3P Campus" />
+        <meta name="geo.region" content="FR-92" />
+        <meta name="geo.placename" content="Montrouge" />
+        
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
       
       {/* Critical above-the-fold content */}
