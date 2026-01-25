@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Copy, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const WHATSAPP_NUMBER = "33783787663"; // +33 7 83 78 76 63
+const WHATSAPP_NUMBER = "33783787663";
 const DEFAULT_MESSAGE = "Bonjour, je souhaite avoir des informations sur vos formations.";
 
-const FloatingWhatsAppButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState(DEFAULT_MESSAGE);
-  const [copied, setCopied] = useState(false);
+const FloatingWhatsAppButton: React.FC = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [message, setMessage] = React.useState(DEFAULT_MESSAGE);
+  const [copied, setCopied] = React.useState(false);
   const { toast } = useToast();
 
-  const isEmbeddedPreview = (() => {
+  const isEmbeddedPreview = React.useMemo(() => {
     try {
       return window.self !== window.top;
     } catch {
       return true;
     }
-  })();
+  }, []);
 
   const getWhatsAppUrl = () => {
     const encodedMessage = encodeURIComponent(message);
