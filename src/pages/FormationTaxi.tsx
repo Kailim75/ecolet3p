@@ -97,7 +97,7 @@ const faqs = [
   },
   {
     question: "Quel est le taux de réussite à l'examen taxi ?",
-    answer: "Notre taux de réussite est de 85% dès la première présentation. Nous proposons un accompagnement personnalisé et des sessions de révision pour maximiser vos chances de réussite."
+    answer: "Notre taux de réussite est de 94% dès la première présentation. Nous proposons un accompagnement personnalisé et des sessions de révision pour maximiser vos chances de réussite."
   },
   {
     question: "Comment financer ma formation taxi ?",
@@ -153,7 +153,7 @@ const FormationTaxi = () => {
     "@context": "https://schema.org",
     "@type": "Course",
     "name": "Formation Taxi - Carte Professionnelle T3P",
-    "description": "Formation complète de 63 heures pour obtenir votre carte professionnelle de chauffeur de taxi. Taux de réussite 85%, formateurs experts, paiement en 4x sans frais.",
+    "description": "Formation complète de 63 heures pour obtenir votre carte professionnelle de chauffeur de taxi. Taux de réussite 94%, formateurs experts, paiement en 4x sans frais.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "T3P Campus",
@@ -173,10 +173,10 @@ const FormationTaxi = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Nice",
+        "name": session.location || "T3P Campus Montrouge",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Nice",
+          "addressLocality": "Montrouge",
           "addressCountry": "FR"
         }
       }
@@ -210,9 +210,9 @@ const FormationTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi Nice - Carte Professionnelle | T3P Campus</title>
-        <meta name="description" content="Formation taxi complète à Nice. 63h de formation, taux de réussite 85%, paiement en 4x sans frais. Obtenez votre carte professionnelle de chauffeur de taxi." />
-        <meta name="keywords" content="formation taxi nice, carte professionnelle taxi, devenir chauffeur taxi, examen taxi, formation T3P" />
+        <title>Formation Taxi Montrouge - Carte Professionnelle | T3P Campus</title>
+        <meta name="description" content="Formation taxi complète à Montrouge. 63h de formation, taux de réussite 94%, paiement en 4x sans frais. Obtenez votre carte professionnelle de chauffeur de taxi." />
+        <meta name="keywords" content="formation taxi montrouge, carte professionnelle taxi, devenir chauffeur taxi, examen taxi, formation T3P" />
         <link rel="canonical" href="https://t3pcampus.fr/formations/taxi" />
         
         {/* Preload critical hero image */}
@@ -223,8 +223,8 @@ const FormationTaxi = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation Taxi Nice - Carte Professionnelle | T3P Campus" />
-        <meta property="og:description" content="Formation taxi complète à Nice. 63h de formation, taux de réussite 85%. Devenez chauffeur de taxi professionnel." />
+        <meta property="og:title" content="Formation Taxi Montrouge - Carte Professionnelle | T3P Campus" />
+        <meta property="og:description" content="Formation taxi complète à Montrouge. 63h de formation, taux de réussite 94%. Devenez chauffeur de taxi professionnel." />
         <meta property="og:url" content="https://t3pcampus.fr/formations/taxi" />
         <meta property="og:type" content="website" />
         
@@ -324,7 +324,7 @@ const FormationTaxi = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-4 py-2 rounded-lg border">
                   <Award className="h-5 w-5 text-primary" />
-                  <span className="font-medium">85% réussite</span>
+                  <span className="font-medium">94% réussite</span>
                 </div>
               </div>
               
@@ -639,9 +639,9 @@ const FormationTaxi = () => {
               S'inscrire maintenant
             </Button>
             <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-              <a href="tel:+33XXXXXXXXX">
+              <a href="tel:0188750555">
                 <Phone className="mr-2 h-5 w-5" />
-                04 XX XX XX XX
+                01 88 75 05 55
               </a>
             </Button>
           </div>
