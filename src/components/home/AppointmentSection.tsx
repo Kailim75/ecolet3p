@@ -124,7 +124,7 @@ const AppointmentSection = () => {
             <div className="mt-6 pt-6 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-4 text-white/90 text-sm">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>21 Rue Hoche, Montrouge</span>
+                <span>3 rue Corneille, 92120 Montrouge</span>
               </div>
               <div className="hidden sm:block w-1 h-1 rounded-full bg-white/40" />
               <div className="flex items-center gap-2">
