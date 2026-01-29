@@ -7,24 +7,30 @@ import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
-// T3P sub-paths (Taxi, VTC, VMDTR) with duration info
+// T3P sub-paths (Taxi, VTC, VMDTR) with duration and price info
 const t3pPaths = [
   {
     id: "taxi",
     title: "Parcours TAXI",
     duration: "63h jour / 33h soir",
+    priceDay: "1 190€",
+    priceEvening: "990€",
     link: "/formations/taxi",
   },
   {
     id: "vtc",
     title: "Parcours VTC",
     duration: "63h jour / 33h soir",
+    priceDay: "1 190€",
+    priceEvening: "990€",
     link: "/formations/vtc",
   },
   {
     id: "vmdtr",
     title: "Parcours VMDTR",
     duration: "63h jour / 33h soir",
+    priceDay: "1 190€",
+    priceEvening: "990€",
     link: "/formations/vmdtr",
     badge: "Nouveau",
   },
@@ -189,7 +195,10 @@ const OffersSection = () => {
                             <span className="text-sm font-semibold text-forest group-hover:text-gold transition-colors text-center">
                               {path.title}
                             </span>
-                            <span className="text-xs text-muted-foreground text-center">{path.duration}</span>
+                            <div className="flex flex-col items-center mt-1">
+                              <span className="text-xs font-bold text-gold">{path.priceDay} <span className="font-normal text-muted-foreground">jour</span></span>
+                              <span className="text-xs font-bold text-forest/70">{path.priceEvening} <span className="font-normal text-muted-foreground">soir</span></span>
+                            </div>
                           </PrefetchLink>
                         ))}
                       </div>
