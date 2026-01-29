@@ -38,73 +38,168 @@
     
     .subtitle {
       text-align: center;
-      color: #666;
+      color: #5A5A5A;
       font-size: 14px;
       margin-bottom: 40px;
     }
     
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 85mm);
-      grid-template-rows: repeat(5, 55mm);
-      gap: 5mm;
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 16px;
+      margin: 30px 0 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #D4A853;
+    }
+    
+    /* Grille pour impression recto/verso côte à côte */
+    .cards-pair {
+      display: flex;
+      gap: 10mm;
+      margin-bottom: 8mm;
       justify-content: center;
     }
     
-    .card {
+    /* === RECTO (Fond Vert Forêt) === */
+    .card-recto {
       width: 85mm;
       height: 55mm;
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      border-radius: 4mm;
-      padding: 5mm;
+      border-radius: 3mm;
+      padding: 6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #F5EBD7;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-recto::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3mm;
+      background: linear-gradient(90deg, #D4A853, #E4BE73, #D4A853);
+    }
+    
+    .recto-header {
       display: flex;
       align-items: center;
       gap: 4mm;
-      color: #F5EBD7;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     
-    .logo {
-      width: 14mm;
-      height: 14mm;
-      background: #D4A853;
+    .recto-logo {
+      width: 12mm;
+      height: 12mm;
+      background: #F5EBD7;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 5mm;
+      font-size: 4mm;
       color: #1B4D3E;
       flex-shrink: 0;
     }
     
-    .content {
+    .recto-brand {
       flex: 1;
     }
     
-    .company-name {
+    .recto-company {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 4mm;
+      font-size: 4.5mm;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1mm;
+    }
+    
+    .recto-tagline {
+      font-size: 2.2mm;
+      opacity: 0.8;
+      font-weight: 500;
+    }
+    
+    .recto-person {
+      padding-bottom: 4mm;
+    }
+    
+    .recto-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3.5mm;
       font-weight: 700;
       margin-bottom: 1mm;
     }
     
-    .tagline {
+    .recto-function {
       font-size: 2.5mm;
-      opacity: 0.8;
-      margin-bottom: 3mm;
-    }
-    
-    .contact-info {
-      font-size: 2.2mm;
       opacity: 0.7;
     }
     
-    .contact-info div {
-      margin: 0.8mm 0;
+    /* === VERSO (Fond Crème) === */
+    .card-verso {
+      width: 85mm;
+      height: 55mm;
+      background: #F5EBD7;
+      border-radius: 3mm;
+      padding: 6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     
+    .verso-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+    }
+    
+    .verso-item {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      font-size: 2.5mm;
+      color: #4B463C;
+    }
+    
+    .verso-icon {
+      width: 4mm;
+      height: 4mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1B4D3E;
+      font-size: 3mm;
+    }
+    
+    .verso-certif {
+      margin-top: 4mm;
+      padding-top: 3mm;
+      border-top: 1px solid #E8DCC4;
+      text-align: center;
+    }
+    
+    .verso-certif-text {
+      font-size: 2mm;
+      color: #898172;
+      font-weight: 500;
+    }
+    
+    .verso-certif-badge {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.5mm;
+      color: #1B4D3E;
+      font-weight: 700;
+      margin-top: 1mm;
+    }
+    
+    /* Instructions */
     .instructions {
       margin-top: 40px;
       padding: 20px;
@@ -121,12 +216,49 @@
     
     .instructions ul {
       font-size: 12px;
-      color: #333;
+      color: #4B463C;
       padding-left: 20px;
     }
     
     .instructions li {
       margin: 6px 0;
+    }
+    
+    .specs {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border: 1px solid #E0DCD4;
+      border-radius: 8px;
+    }
+    
+    .specs h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 11px;
+    }
+    
+    .spec-item {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .spec-label {
+      color: #898172;
+      min-width: 80px;
+    }
+    
+    .spec-value {
+      color: #1B4D3E;
+      font-weight: 600;
     }
     
     @media print {
@@ -138,13 +270,7 @@
         box-shadow: none;
         padding: 10mm;
       }
-      .instructions {
-        display: none;
-      }
-      .cards-grid {
-        margin-top: 0;
-      }
-      h1, .subtitle {
+      .instructions, .specs, h1, .subtitle, .section-title {
         display: none;
       }
     }
@@ -153,138 +279,185 @@
 <body>
   <div class="page">
     <h1>Cartes de Visite - ECOLE T3P</h1>
-    <p class="subtitle">Format 85 × 55 mm • Impression recto</p>
+    <p class="subtitle">Format 85 × 55 mm • Recto vert forêt / Verso crème</p>
     
-    <div class="cards-grid">
-      <!-- 10 cartes identiques pour impression -->
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
+    <h3 class="section-title">📇 Modèle Recto / Verso</h3>
+    
+    <!-- Paire 1 : Karim KATI -->
+    <div class="cards-pair">
+      <div class="card-recto">
+        <div class="recto-header">
+          <div class="recto-logo">T3P</div>
+          <div class="recto-brand">
+            <div class="recto-company">ECOLE T3P</div>
+            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
-          </div>
+        <div class="recto-person">
+          <div class="recto-name">Karim KATI</div>
+          <div class="recto-function">Directeur</div>
         </div>
       </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
+      <div class="card-verso">
+        <div class="verso-contact">
+          <div class="verso-item">
+            <span class="verso-icon">📞</span>
+            <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">✉️</span>
+            <span>montrouge@ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">📍</span>
+            <span>3 rue Corneille, 92120 Montrouge</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🚇</span>
+            <span>M° Mairie de Montrouge (Ligne 4)</span>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
-          </div>
+        <div class="verso-certif">
+          <div class="verso-certif-text">Formations certifiées</div>
+          <div class="verso-certif-badge">RS5635 & RS5637</div>
         </div>
       </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
+    </div>
+    
+    <!-- Paire 2 : Modèle vierge -->
+    <div class="cards-pair">
+      <div class="card-recto">
+        <div class="recto-header">
+          <div class="recto-logo">T3P</div>
+          <div class="recto-brand">
+            <div class="recto-company">ECOLE T3P</div>
+            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
-          </div>
+        <div class="recto-person">
+          <div class="recto-name">[Nom du collaborateur]</div>
+          <div class="recto-function">[Fonction]</div>
         </div>
       </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
+      <div class="card-verso">
+        <div class="verso-contact">
+          <div class="verso-item">
+            <span class="verso-icon">📞</span>
+            <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">✉️</span>
+            <span>montrouge@ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">📍</span>
+            <span>3 rue Corneille, 92120 Montrouge</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🚇</span>
+            <span>M° Mairie de Montrouge (Ligne 4)</span>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
-          </div>
+        <div class="verso-certif">
+          <div class="verso-certif-text">Formations certifiées</div>
+          <div class="verso-certif-badge">RS5635 & RS5637</div>
         </div>
       </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
+    </div>
+    
+    <!-- Paires supplémentaires pour impression -->
+    <div class="cards-pair">
+      <div class="card-recto">
+        <div class="recto-header">
+          <div class="recto-logo">T3P</div>
+          <div class="recto-brand">
+            <div class="recto-company">ECOLE T3P</div>
+            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
           </div>
         </div>
+        <div class="recto-person">
+          <div class="recto-name">[Nom du collaborateur]</div>
+          <div class="recto-function">[Fonction]</div>
+        </div>
       </div>
-      <div class="card">
-        <div class="logo">T3P</div>
-        <div class="content">
-          <div class="company-name">ECOLE T3P</div>
-          <div class="tagline">Centre de Formation VTC & Taxi</div>
-          <div class="contact-info">
-            <div>📍 3 rue Corneille, 92120 Montrouge</div>
-            <div>📞 01 88 75 05 55</div>
-            <div>✉️ montrouge@ecolet3p.fr</div>
-            <div>🌐 ecolet3p.fr</div>
+      <div class="card-verso">
+        <div class="verso-contact">
+          <div class="verso-item">
+            <span class="verso-icon">📞</span>
+            <span>01 88 75 05 55</span>
           </div>
+          <div class="verso-item">
+            <span class="verso-icon">✉️</span>
+            <span>montrouge@ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">📍</span>
+            <span>3 rue Corneille, 92120 Montrouge</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🚇</span>
+            <span>M° Mairie de Montrouge (Ligne 4)</span>
+          </div>
+        </div>
+        <div class="verso-certif">
+          <div class="verso-certif-text">Formations certifiées</div>
+          <div class="verso-certif-badge">RS5635 & RS5637</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cards-pair">
+      <div class="card-recto">
+        <div class="recto-header">
+          <div class="recto-logo">T3P</div>
+          <div class="recto-brand">
+            <div class="recto-company">ECOLE T3P</div>
+            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
+          </div>
+        </div>
+        <div class="recto-person">
+          <div class="recto-name">[Nom du collaborateur]</div>
+          <div class="recto-function">[Fonction]</div>
+        </div>
+      </div>
+      <div class="card-verso">
+        <div class="verso-contact">
+          <div class="verso-item">
+            <span class="verso-icon">📞</span>
+            <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">✉️</span>
+            <span>montrouge@ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">📍</span>
+            <span>3 rue Corneille, 92120 Montrouge</span>
+          </div>
+          <div class="verso-item">
+            <span class="verso-icon">🚇</span>
+            <span>M° Mairie de Montrouge (Ligne 4)</span>
+          </div>
+        </div>
+        <div class="verso-certif">
+          <div class="verso-certif-text">Formations certifiées</div>
+          <div class="verso-certif-badge">RS5635 & RS5637</div>
         </div>
       </div>
     </div>
@@ -294,10 +467,41 @@
       <ul>
         <li>Format : A4</li>
         <li>Papier recommandé : Couché mat 350g/m²</li>
+        <li>Finition : Pelliculage mat + vernis sélectif sur le logo (optionnel)</li>
         <li>Utilisez Ctrl+P (ou Cmd+P) pour imprimer</li>
-        <li>Sélectionnez "Enregistrer en PDF" pour créer un fichier PDF</li>
+        <li>Sélectionnez "Enregistrer en PDF" pour créer un fichier</li>
         <li>Découpez selon les contours des cartes</li>
       </ul>
+      
+      <div class="specs">
+        <h4>Spécifications techniques (Charte V3.0)</h4>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Dimensions :</span>
+            <span class="spec-value">85 × 55 mm</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Recto fond :</span>
+            <span class="spec-value">#1B4D3E (Forest)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Verso fond :</span>
+            <span class="spec-value">#F5EBD7 (Cream)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Filet décoratif :</span>
+            <span class="spec-value">#D4A853 (Gold)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Typo nom :</span>
+            <span class="spec-value">Plus Jakarta Sans Bold</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Typo contact :</span>
+            <span class="spec-value">Inter Regular 9pt</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

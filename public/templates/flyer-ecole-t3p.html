@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flyer ECOLE T3P - Formation VTC & Taxi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Flyer ECOLE T3P - Formation VTC, Taxi & VMDTR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -15,9 +15,9 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: #F5EBD7;
+      background: #f5f5f5;
       min-height: 100vh;
-      padding: 0;
+      padding: 20px;
     }
     
     .flyer {
@@ -27,102 +27,171 @@
       background: #F5EBD7;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     
+    /* Bandeau Header */
     .header {
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      padding: 24px;
+      padding: 20px 24px;
       text-align: center;
       color: #F5EBD7;
     }
     
     .logo {
-      width: 60px;
-      height: 60px;
-      background: #D4A853;
+      width: 50px;
+      height: 50px;
+      background: #F5EBD7;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 16px;
+      margin: 0 auto 12px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 18px;
+      font-weight: 900;
+      font-size: 16px;
       color: #1B4D3E;
     }
     
-    h1 {
+    .header h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+      color: #F5EBD7;
     }
     
-    .tagline {
-      font-size: 14px;
+    .header .tagline {
+      font-size: 12px;
       opacity: 0.9;
     }
     
+    /* Contenu principal */
     .content {
-      padding: 24px;
+      padding: 20px 24px;
     }
     
-    .badge {
-      background: #D4A853;
-      color: #1B4D3E;
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 14px;
+    /* Badge de réassurance */
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
       margin-bottom: 20px;
     }
     
-    h2 {
+    .badge {
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.3) 0%, rgba(212, 168, 83, 0.15) 100%);
+      color: #1B4D3E;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 11px;
+      border: 1px solid rgba(212, 168, 83, 0.4);
+    }
+    
+    /* Titre accrocheur */
+    .main-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .main-title h2 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #1B4D3E;
-      font-size: 20px;
-      margin-bottom: 16px;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    
+    /* Statistiques */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.06);
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #1B4D3E;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 10px;
+      color: #5A5A5A;
+      margin-top: 4px;
+    }
+    
+    /* Liste des formations */
+    .formations-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1B4D3E;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #D4A853;
+      display: inline-block;
     }
     
     .formations {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
     
     .formation-item {
       background: white;
-      border-radius: 12px;
-      padding: 16px;
+      border-radius: 10px;
+      padding: 12px 16px;
       border-left: 4px solid #D4A853;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     
     .formation-item h3 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #1B4D3E;
-      font-size: 16px;
-      margin-bottom: 4px;
+      font-size: 13px;
+      font-weight: 700;
     }
     
-    .formation-item p {
-      color: #666;
-      font-size: 12px;
+    .formation-item .duration {
+      color: #5A5A5A;
+      font-size: 11px;
+      background: #F5EBD7;
+      padding: 4px 10px;
+      border-radius: 12px;
     }
     
+    /* Avantages */
     .advantages {
       background: white;
       border-radius: 12px;
       padding: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     
     .advantages h3 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #1B4D3E;
-      font-size: 14px;
-      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
     
     .advantages ul {
@@ -130,10 +199,10 @@
     }
     
     .advantages li {
-      font-size: 12px;
-      color: #333;
-      padding: 6px 0;
-      padding-left: 24px;
+      font-size: 11px;
+      color: #4B463C;
+      padding: 5px 0;
+      padding-left: 22px;
       position: relative;
     }
     
@@ -145,84 +214,146 @@
       font-weight: 700;
     }
     
+    /* CTA */
     .cta {
       background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
       color: #1B4D3E;
       text-align: center;
       padding: 16px;
       border-radius: 12px;
-      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.35);
     }
     
+    .cta-phone {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    
+    .cta-text {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Footer */
     .footer {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: #1B4D3E;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
       color: #F5EBD7;
-      padding: 16px;
+      padding: 14px 24px;
       text-align: center;
+      font-size: 10px;
+    }
+    
+    .footer strong {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 11px;
     }
     
     .footer a {
       color: #D4A853;
       text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .footer .address {
+      opacity: 0.8;
+      margin-top: 4px;
     }
     
     @media print {
-      body { background: white; }
+      body { background: white; padding: 0; }
       .flyer { box-shadow: none; }
     }
   </style>
 </head>
 <body>
   <div class="flyer">
+    <!-- Header -->
     <div class="header">
       <div class="logo">T3P</div>
       <h1>ECOLE T3P</h1>
-      <p class="tagline">École de Formation VTC, Taxi & VMDTR</p>
+      <p class="tagline">Centre de Formation VTC, Taxi & VMDTR</p>
     </div>
     
+    <!-- Contenu -->
     <div class="content">
-      <div class="badge">🎯 94% de Réussite</div>
+      <!-- Badges -->
+      <div class="badge-row">
+        <span class="badge">🎯 94% de Réussite</span>
+        <span class="badge">💳 4× sans frais</span>
+      </div>
       
-      <h2>Nos Formations</h2>
+      <!-- Titre -->
+      <div class="main-title">
+        <h2>Devenez Chauffeur<br>Professionnel</h2>
+      </div>
       
-      <div class="formations">
-        <div class="formation-item">
-          <h3>Formation VTC</h3>
-          <p>Devenez chauffeur VTC professionnel • 3 semaines</p>
+      <!-- Statistiques -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">94%</div>
+          <div class="stat-label">de réussite</div>
         </div>
-        <div class="formation-item">
-          <h3>Formation Taxi</h3>
-          <p>Obtenez votre carte professionnelle Taxi • 3 semaines</p>
+        <div class="stat">
+          <div class="stat-number">2000+</div>
+          <div class="stat-label">formés</div>
         </div>
-        <div class="formation-item">
-          <h3>Formation VMDTR</h3>
-          <p>Transport de personnes à moto • 1 semaine</p>
+        <div class="stat">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">ans d'expérience</div>
         </div>
       </div>
       
+      <!-- Formations -->
+      <h3 class="formations-title">Nos Formations</h3>
+      <div class="formations">
+        <div class="formation-item">
+          <h3>🚗 Formation VTC</h3>
+          <span class="duration">63h</span>
+        </div>
+        <div class="formation-item">
+          <h3>🚕 Formation Taxi</h3>
+          <span class="duration">63h</span>
+        </div>
+        <div class="formation-item">
+          <h3>🏍️ Formation VMDTR</h3>
+          <span class="duration">14h</span>
+        </div>
+        <div class="formation-item">
+          <h3>🔄 Récupération de Points</h3>
+          <span class="duration">2 jours</span>
+        </div>
+      </div>
+      
+      <!-- Avantages -->
       <div class="advantages">
         <h3>Pourquoi choisir ECOLE T3P ?</h3>
         <ul>
           <li>Formateurs experts avec 15+ ans d'expérience</li>
-          <li>Paiement en 4x sans frais</li>
-          <li>Accompagnement personnalisé</li>
-          <li>Locaux modernes à Montrouge</li>
+          <li>Paiement en 4× sans frais</li>
+          <li>Accompagnement jusqu'à la carte pro</li>
+          <li>Locaux modernes à Montrouge (M° Ligne 4)</li>
         </ul>
       </div>
       
+      <!-- CTA -->
       <div class="cta">
-        📞 Prenez rendez-vous dès maintenant !
+        <div class="cta-phone">📞 01 88 75 05 55</div>
+        <div class="cta-text">Prenez rendez-vous dès maintenant !</div>
       </div>
     </div>
     
+    <!-- Footer -->
     <div class="footer">
-      <p><strong>ECOLE T3P</strong> • Montrouge</p>
-      <p><a href="https://ecolet3p.fr">ecolet3p.fr</a></p>
+      <p><strong>ECOLE T3P</strong> • 3 rue Corneille, 92120 Montrouge</p>
+      <p class="address"><a href="https://ecolet3p.fr">www.ecolet3p.fr</a> • montrouge@ecolet3p.fr</p>
     </div>
   </div>
 </body>
