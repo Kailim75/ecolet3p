@@ -1,5 +1,5 @@
 import { useInView, type Easing } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 // Custom easing as tuple for TypeScript compatibility
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
