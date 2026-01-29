@@ -651,6 +651,8 @@ const FormationVTC = () => {
             <DialogTitle>Pré-inscription Formation VTC</DialogTitle>
           </DialogHeader>
           <PreRegistrationForm
+            isOpen={showPreRegistration}
+            onClose={() => setShowPreRegistration(false)}
             formationTitle="Formation VTC"
             formationDuration={vtcFormation?.duration || "63h"}
           />
