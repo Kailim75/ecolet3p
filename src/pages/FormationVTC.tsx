@@ -149,8 +149,8 @@ const FormationVTC = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation VTC - Carte Professionnelle | ECOLE T3P Montrouge",
-    "description": "Formation complète pour obtenir votre carte professionnelle VTC à Montrouge. Apprenez le métier de chauffeur privé, les applications et la gestion d'entreprise.",
+    "name": "Formation T3P - Parcours VTC Professionnel",
+    "description": "Parcours VTC de la formation T3P pour obtenir votre carte professionnelle. Apprenez le métier de chauffeur privé, les applications et la gestion d'entreprise.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
@@ -217,9 +217,9 @@ const FormationVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VTC Montrouge Paris - Carte Professionnelle | ECOLE T3P</title>
-        <meta name="description" content="Formation VTC complète à Montrouge (Paris). Obtenez votre carte professionnelle VTC, travaillez avec Uber, Bolt. Paiement en 4x sans frais, 94% de réussite." />
-        <meta name="keywords" content="formation vtc montrouge, formation vtc paris, carte professionnelle vtc, devenir chauffeur vtc, uber, formation ECOLE T3P" />
+        <title>Formation T3P Parcours VTC Montrouge Paris | ECOLE T3P</title>
+        <meta name="description" content="Parcours VTC de la formation T3P à Montrouge. Obtenez votre carte professionnelle VTC, travaillez avec Uber, Bolt. Paiement en 4x sans frais, 94% de réussite." />
+        <meta name="keywords" content="formation T3P VTC, parcours VTC montrouge, carte professionnelle vtc, devenir chauffeur vtc, uber, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations/vtc" />
         
         {/* Preload critical hero image */}
@@ -230,8 +230,8 @@ const FormationVTC = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation VTC Montrouge Paris - Carte Professionnelle | ECOLE T3P" />
-        <meta property="og:description" content="Formation VTC complète à Montrouge. Devenez chauffeur VTC professionnel et travaillez avec Uber, Bolt, Heetch." />
+        <meta property="og:title" content="Formation T3P Parcours VTC | ECOLE T3P Montrouge" />
+        <meta property="og:description" content="Parcours VTC de la formation T3P. Devenez chauffeur VTC professionnel et travaillez avec Uber, Bolt, Heetch." />
         <meta property="og:url" content="https://ecolet3p.fr/formations/vtc" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
@@ -257,7 +257,7 @@ const FormationVTC = () => {
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Formation VTC",
+              "name": "Parcours VTC",
               "item": "https://ecolet3p.fr/formations/vtc"
             }
           ]
@@ -285,7 +285,7 @@ const FormationVTC = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Formation VTC</BreadcrumbPage>
+                <BreadcrumbPage>Parcours VTC</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -308,17 +308,17 @@ const FormationVTC = () => {
             >
               <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
                 <Car className="h-4 w-4 mr-2" />
-                Formation VTC
+                Formation T3P – Parcours VTC
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Formation <span className="text-secondary">VTC</span>
+                Parcours <span className="text-secondary">VTC</span>
                 <br />Carte Professionnelle
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
-                Devenez chauffeur VTC et travaillez avec Uber, Bolt, Heetch et plus encore. 
-                Formation complète incluant gestion d'entreprise et relation client premium.
+                Le parcours VTC fait partie de la formation T3P. Devenez chauffeur VTC et travaillez 
+                avec Uber, Bolt, Heetch. Formation complète incluant gestion d'entreprise et relation client premium.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
