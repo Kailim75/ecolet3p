@@ -143,9 +143,9 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ECOLE T3P - Formation Taxi, VTC & VMDTR (Taxi Moto) | Montrouge</title>
-        <meta name="description" content="Devenez Taxi, VTC ou VMDTR (taxi moto) avec ECOLE T3P à Montrouge. 94% de réussite, paiement 4x sans frais. Récupération de points. Devis gratuit sous 24h !" />
-        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, taxi moto, stage récupération points, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P" />
+        <title>ECOLE T3P - Formation Taxi, VTC & VMDTR | 94% Réussite Montrouge Paris</title>
+        <meta name="description" content="Devenez chauffeur professionnel avec ECOLE T3P à Montrouge. Formation Taxi, VTC et VMDTR agréée. 94% de réussite, paiement 4x sans frais. Obtenez votre devis gratuit en 2 min !" />
+        <meta name="keywords" content="formation taxi Paris, formation VTC Paris, formation VMDTR, taxi moto, récupération de points permis, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P, reconversion professionnelle chauffeur" />
         <link rel="canonical" href="https://ecolet3p.fr/" />
         
         {/* Preload critical hero image */}
@@ -156,8 +156,8 @@ const Index = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR à Montrouge" />
-        <meta property="og:description" content="Devenez Taxi, VTC ou VMDTR (taxi moto) avec 94% de réussite. Paiement en 4x sans frais." />
+        <meta property="og:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR | 94% Réussite à Montrouge" />
+        <meta property="og:description" content="Devenez chauffeur professionnel avec une formation agréée. 94% de réussite, paiement en 4x sans frais. Devis gratuit !" />
         <meta property="og:url" content="https://ecolet3p.fr/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ECOLE T3P" />

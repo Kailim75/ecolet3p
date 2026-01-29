@@ -210,9 +210,9 @@ const FormationTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation T3P Parcours Taxi Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Parcours Taxi de la formation T3P à Montrouge. 63h de formation, taux de réussite 94%, paiement en 4x sans frais. Obtenez votre carte professionnelle taxi." />
-        <meta name="keywords" content="formation T3P taxi, parcours taxi montrouge, carte professionnelle taxi, devenir chauffeur taxi, ECOLE T3P" />
+        <title>Formation Taxi Paris Montrouge | ECOLE T3P - Carte Professionnelle 94% Réussite</title>
+        <meta name="description" content="Obtenez votre carte professionnelle Taxi avec ECOLE T3P. 63h de formation agréée à Montrouge, 94% de réussite, paiement 4x sans frais. Démarrez votre reconversion !" />
+        <meta name="keywords" content="formation taxi Paris, carte professionnelle taxi, devenir chauffeur taxi, formation taxi agréée, centre formation taxi Montrouge, reconversion taxi, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations/taxi" />
         
         {/* Preload critical hero image */}
@@ -223,8 +223,8 @@ const FormationTaxi = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation T3P Parcours Taxi | ECOLE T3P Montrouge" />
-        <meta property="og:description" content="Parcours Taxi de la formation T3P. 63h de formation, taux de réussite 94%. Devenez chauffeur de taxi professionnel." />
+        <meta property="og:title" content="Formation Taxi Paris | ECOLE T3P - 94% Réussite" />
+        <meta property="og:description" content="Devenez chauffeur de taxi professionnel. 63h de formation agréée, 94% de réussite. Paiement en 4x sans frais." />
         <meta property="og:url" content="https://ecolet3p.fr/formations/taxi" />
         <meta property="og:type" content="website" />
         

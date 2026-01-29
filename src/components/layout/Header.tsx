@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, FileText } from "lucide-react";
+import { Menu, X, Phone, FileText, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
+const formationSubLinks = [
+  { name: "Formation TAXI", path: "/formations/taxi" },
+  { name: "Formation VTC", path: "/formations/vtc" },
+  { name: "Formation VMDTR", path: "/formations/vmdtr" },
+  { name: "Récupération de points", path: "/formations/recuperation-points" },
+];
+
 const navLinks = [
   { name: "Accueil", path: "/" },
-  { name: "Formations", path: "/formations" },
+  { name: "Formations", path: "/formations", hasSubmenu: true },
   { name: "Blog", path: "/blog" },
   { name: "À propos", path: "/a-propos" },
   { name: "Contact", path: "/contact" },
@@ -18,10 +25,12 @@ const navLinks = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isFormationsOpen, setIsFormationsOpen] = useState(false);
   const location = useLocation();
   const { openQuoteModal } = useQuoteModal();
 
   const isActive = (path: string) => location.pathname === path;
+  const isFormationActive = location.pathname.startsWith("/formations");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,24 +63,82 @@ const Header = () => {
           {/* Desktop Navigation with Prefetch */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <PrefetchLink
-                key={link.path}
-                to={link.path}
-                prefetchOnHover={link.path !== "/"}
-                className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 ${
-                  isActive(link.path)
-                    ? "text-forest"
-                    : "text-warm-gray-600 hover:text-forest"
-                }`}
-              >
-                {link.name}
-                {isActive(link.path) && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full"
-                  />
-                )}
-              </PrefetchLink>
+              link.hasSubmenu ? (
+                <div
+                  key={link.path}
+                  className="relative"
+                  onMouseEnter={() => setIsFormationsOpen(true)}
+                  onMouseLeave={() => setIsFormationsOpen(false)}
+                >
+                  <PrefetchLink
+                    to={link.path}
+                    prefetchOnHover
+                    className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 flex items-center gap-1 ${
+                      isFormationActive
+                        ? "text-forest"
+                        : "text-warm-gray-600 hover:text-forest"
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isFormationsOpen ? "rotate-180" : ""}`} />
+                    {isFormationActive && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full"
+                      />
+                    )}
+                  </PrefetchLink>
+                  
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {isFormationsOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-2 w-64 bg-cream-light border border-cream-dark rounded-xl shadow-xl overflow-hidden z-50"
+                      >
+                        <div className="py-2">
+                          {formationSubLinks.map((subLink) => (
+                            <PrefetchLink
+                              key={subLink.path}
+                              to={subLink.path}
+                              prefetchOnHover
+                              className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                                isActive(subLink.path)
+                                  ? "bg-forest/10 text-forest"
+                                  : "text-warm-gray-700 hover:bg-forest/5 hover:text-forest"
+                              }`}
+                            >
+                              {subLink.name}
+                            </PrefetchLink>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <PrefetchLink
+                  key={link.path}
+                  to={link.path}
+                  prefetchOnHover={link.path !== "/"}
+                  className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 ${
+                    isActive(link.path)
+                      ? "text-forest"
+                      : "text-warm-gray-600 hover:text-forest"
+                  }`}
+                >
+                  {link.name}
+                  {isActive(link.path) && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full"
+                    />
+                  )}
+                </PrefetchLink>
+              )
             ))}
           </nav>
 
@@ -123,16 +190,53 @@ const Header = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <Link
-                      to={link.path}
-                      className={`block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors ${
-                        isActive(link.path)
-                          ? "text-forest bg-forest/10"
-                          : "text-warm-gray-700 hover:text-forest hover:bg-forest/5"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+                    {link.hasSubmenu ? (
+                      <>
+                        <Link
+                          to={link.path}
+                          className={`block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors ${
+                            isFormationActive
+                              ? "text-forest bg-forest/10"
+                              : "text-warm-gray-700 hover:text-forest hover:bg-forest/5"
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                        {/* Sub-links for mobile */}
+                        <div className="ml-4 mt-1 space-y-1">
+                          {formationSubLinks.map((subLink, subIndex) => (
+                            <motion.div
+                              key={subLink.path}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: (index + subIndex + 1) * 0.03 }}
+                            >
+                              <Link
+                                to={subLink.path}
+                                className={`block text-base font-medium py-2 px-4 rounded-lg transition-colors ${
+                                  isActive(subLink.path)
+                                    ? "text-forest bg-forest/10"
+                                    : "text-warm-gray-600 hover:text-forest hover:bg-forest/5"
+                                }`}
+                              >
+                                {subLink.name}
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className={`block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors ${
+                          isActive(link.path)
+                            ? "text-forest bg-forest/10"
+                            : "text-warm-gray-700 hover:text-forest hover:bg-forest/5"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
                 {/* Quote CTA in mobile menu */}

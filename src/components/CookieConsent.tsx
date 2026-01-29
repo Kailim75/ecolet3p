@@ -170,18 +170,22 @@ const CookieConsent = () => {
                     {showDetails ? "Masquer les détails" : "Personnaliser mes choix"}
                   </button>
 
-                  <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
                     {showDetails ? (
                       <Button onClick={saveCustom} className="btn-secondary text-xs px-4 py-2">
                         Enregistrer mes préférences
                       </Button>
                     ) : (
-                      <Button onClick={acceptEssential} variant="outline" className="border-2 border-forest text-forest hover:bg-forest hover:text-cream text-xs px-4 py-2">
-                        Refuser les optionnels
+                      <Button 
+                        onClick={acceptEssential} 
+                        variant="outline" 
+                        className="border-2 border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground text-xs px-4 py-2 font-semibold"
+                      >
+                        ✕ Refuser
                       </Button>
                     )}
                     <Button onClick={acceptAll} className="btn-primary text-xs px-6 py-2">
-                      Tout accepter
+                      ✓ Tout accepter
                     </Button>
                   </div>
                 </div>
