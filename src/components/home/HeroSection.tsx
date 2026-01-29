@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef } from "react"; // v1
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
