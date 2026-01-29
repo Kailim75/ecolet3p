@@ -1,9 +1,9 @@
+import React, { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2 } from "lucide-react";
-import { useEffect } from "react";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 const fadeUpVariants = {
@@ -22,7 +22,7 @@ const BlogArticle = () => {
 
     // Update meta tags for SEO
     if (article) {
-      document.title = `${article.title} | T3P Campus`;
+      document.title = `${article.title} | ECOLE T3P`;
       
       // Update meta description
       let metaDescription = document.querySelector('meta[name="description"]');
@@ -41,14 +41,14 @@ const BlogArticle = () => {
         "description": article.metaDescription,
         "author": {
           "@type": "Organization",
-          "name": "T3P Campus"
+          "name": "ECOLE T3P"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "T3P Campus",
+          "name": "ECOLE T3P",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://campust3ptest.lovable.app/favicon.ico"
+            "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg"
           }
         },
         "datePublished": article.publishDate,
@@ -63,7 +63,7 @@ const BlogArticle = () => {
       return () => {
         const scriptToRemove = document.getElementById('article-schema');
         if (scriptToRemove) scriptToRemove.remove();
-        document.title = 'T3P Campus - Centre de Formation Professionnelle';
+        document.title = 'ECOLE T3P - Centre de Formation Professionnelle';
       };
     }
   }, [article]);
@@ -179,7 +179,7 @@ const BlogArticle = () => {
             >
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-forest rounded-full flex items-center justify-center">
-                  <span className="text-cream text-2xl font-bold">T</span>
+                  <span className="text-cream text-2xl font-bold">E</span>
                 </div>
                 <div>
                   <p className="font-bold text-forest">{article.author}</p>

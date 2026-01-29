@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { Target, Heart, Users, Trophy, ChevronLeft, ChevronRight } from "lucide-react";
@@ -18,7 +18,7 @@ import salleModerne from "@/assets/center/salle-moderne.jpg";
 import salleProjecteur from "@/assets/center/salle-projecteur.jpg";
 
 const galleryImages = [
-  { src: entreeCentre, alt: "Entrée du centre T3P Campus", caption: "Entrée du centre" },
+  { src: entreeCentre, alt: "Entrée du centre ECOLE T3P", caption: "Entrée du centre" },
   { src: accueilReception, alt: "Accueil et réception", caption: "Accueil et réception" },
   { src: salleModerne, alt: "Salle de formation moderne", caption: "Salle moderne" },
   { src: salleFormationEquipee, alt: "Salle de formation équipée", caption: "Salle équipée" },
@@ -81,19 +81,19 @@ const About = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "@id": "https://t3pcampus.fr/#organization",
-    "name": "T3P Campus",
-    "alternateName": "T3P Campus - Centre de Formation Taxi VTC",
+    "@id": "https://ecolet3p.fr/#organization",
+    "name": "ECOLE T3P",
+    "alternateName": "ECOLE T3P - Centre de Formation Taxi VTC",
     "description": "Centre de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge depuis 2014. 94% de taux de réussite, 2000+ apprenants formés.",
-    "url": "https://t3pcampus.fr",
+    "url": "https://ecolet3p.fr",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg"
+      "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg"
     },
-    "image": "https://t3pcampus.fr/og-image.jpg",
+    "image": "https://ecolet3p.fr/og-image.jpg",
     "foundingDate": "2014",
     "telephone": "+33 1 88 75 05 55",
-    "email": "montrouge@t3pcampus.fr",
+    "email": "montrouge@ecolet3p.fr",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
@@ -108,8 +108,8 @@ const About = () => {
       "longitude": "2.3196"
     },
     "sameAs": [
-      "https://www.facebook.com/dropacademymontrouge",
-      "https://www.instagram.com/t3pcampus"
+      "https://www.facebook.com/ecolet3p",
+      "https://www.instagram.com/ecolet3p"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -120,7 +120,7 @@ const About = () => {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Formations professionnelles T3P Campus",
+      "name": "Formations professionnelles ECOLE T3P",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -154,11 +154,11 @@ const About = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "T3P Campus",
-    "image": "https://t3pcampus.fr/og-image.jpg",
-    "url": "https://t3pcampus.fr/a-propos",
+    "name": "ECOLE T3P",
+    "image": "https://ecolet3p.fr/og-image.jpg",
+    "url": "https://ecolet3p.fr/a-propos",
     "telephone": "+33 1 88 75 05 55",
-    "email": "montrouge@t3pcampus.fr",
+    "email": "montrouge@ecolet3p.fr",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
@@ -203,13 +203,13 @@ const About = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://t3pcampus.fr/"
+        "item": "https://ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "À propos",
-        "item": "https://t3pcampus.fr/a-propos"
+        "item": "https://ecolet3p.fr/a-propos"
       }
     ]
   };
@@ -217,21 +217,21 @@ const About = () => {
   return (
     <Layout>
       <Helmet>
-        <title>À propos de T3P Campus - Centre de Formation Taxi VTC | Montrouge</title>
-        <meta name="description" content="Découvrez T3P Campus, centre de formation à Montrouge depuis 2014. 94% de taux de réussite, formateurs experts, 2 000+ apprenants formés. Formations Taxi, VTC et VMDTR." />
-        <meta name="keywords" content="T3P Campus, centre formation taxi, formation VTC Montrouge, école chauffeur professionnel, formation transport" />
-        <link rel="canonical" href="https://t3pcampus.fr/a-propos" />
+        <title>À propos de ECOLE T3P - Centre de Formation Taxi VTC | Montrouge</title>
+        <meta name="description" content="Découvrez ECOLE T3P, centre de formation à Montrouge depuis 2014. 94% de taux de réussite, formateurs experts, 2 000+ apprenants formés. Formations Taxi, VTC et VMDTR." />
+        <meta name="keywords" content="ECOLE T3P, centre formation taxi, formation VTC Montrouge, école chauffeur professionnel, formation transport" />
+        <link rel="canonical" href="https://ecolet3p.fr/a-propos" />
         
-        <meta property="og:title" content="À propos de T3P Campus - Centre de Formation Taxi VTC" />
+        <meta property="og:title" content="À propos de ECOLE T3P - Centre de Formation Taxi VTC" />
         <meta property="og:description" content="Centre de formation depuis 2014. 94% de réussite, formateurs experts issus du métier. Découvrez nos locaux et notre équipe." />
-        <meta property="og:url" content="https://t3pcampus.fr/a-propos" />
+        <meta property="og:url" content="https://ecolet3p.fr/a-propos" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="À propos de T3P Campus - Centre de Formation Taxi VTC" />
+        <meta name="twitter:title" content="À propos de ECOLE T3P - Centre de Formation Taxi VTC" />
         <meta name="twitter:description" content="Centre de formation leader depuis 2014. 94% de réussite, formateurs experts issus du métier." />
-        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
@@ -246,7 +246,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-black text-cream uppercase tracking-tight mb-4"
           >
-            À propos de <span className="text-gold">T3P Campus</span>
+            À propos de <span className="text-gold">ECOLE T3P</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -274,7 +274,7 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-warm-gray-600 leading-relaxed">
                 <p>
-                  Fondé en 2014, <strong className="text-forest">T3P Campus</strong> est un centre de formation 
+                  Fondé en 2014, <strong className="text-forest">ECOLE T3P</strong> est un centre de formation 
                   professionnel situé à Montrouge, aux portes de Paris. Nous sommes spécialisés dans la formation 
                   des chauffeurs professionnels : TAXI, VTC et VMDTR (moto-taxi).
                 </p>
@@ -297,7 +297,7 @@ const About = () => {
             >
               <img
                 src={formationSession}
-                alt="Formation chauffeur professionnel - T3P Campus"
+                alt="Formation chauffeur professionnel - ECOLE T3P"
                 className="rounded-xl shadow-warm-lg w-full"
               />
             </motion.div>
@@ -449,10 +449,13 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="section-title">NOS VALEURS</h2>
+            <h2 className="section-title mb-4">NOS VALEURS</h2>
+            <p className="section-subtitle mx-auto">
+              Les principes qui guident notre approche pédagogique
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -460,50 +463,40 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card-livementor text-center group"
+                className="card-livementor text-center"
               >
-                <div className="w-14 h-14 bg-forest/10 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
-                  <value.icon className="w-7 h-7 text-forest group-hover:text-gold transition-colors" />
+                <div className="w-16 h-16 rounded-full bg-forest/10 flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="w-8 h-8 text-forest" />
                 </div>
-                <h3 className="text-xl font-bold text-forest mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-warm-gray-600 text-sm leading-relaxed">
-                  {value.description}
-                </p>
+                <h3 className="font-bold text-forest text-lg mb-2">{value.title}</h3>
+                <p className="text-warm-gray-600 text-sm">{value.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Engagement Qualité */}
-      <section className="section-padding bg-card">
-        <div className="container-custom">
-          <motion.div 
+      {/* CTA */}
+      <section className="section-padding bg-forest text-cream">
+        <div className="container-custom text-center">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="section-title mb-6">
-              NOTRE ENGAGEMENT QUALITÉ
+            <h2 className="text-2xl md:text-3xl font-black uppercase mb-4">
+              Rejoignez-nous
             </h2>
-            <p className="text-warm-gray-600 mb-8">
-              T3P Campus s'engage à vous offrir une formation de qualité avec un accompagnement personnalisé.
+            <p className="text-cream/80 mb-8 max-w-xl mx-auto">
+              Prenez rendez-vous pour découvrir notre centre et discuter de votre projet professionnel.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-forest/10 text-forest px-6 py-3 rounded-lg font-bold">
-                Depuis 2014
-              </div>
-              <div className="bg-forest/10 text-forest px-6 py-3 rounded-lg font-bold">
-                94% de réussite
-              </div>
-              <div className="bg-gold/20 text-forest px-6 py-3 rounded-lg font-bold">
-                Formateurs experts
-              </div>
-            </div>
+            <a 
+              href="/contact" 
+              className="inline-block bg-gold text-forest font-bold py-4 px-8 rounded-md hover:bg-gold/90 transition-colors"
+            >
+              Prendre rendez-vous
+            </a>
           </motion.div>
         </div>
       </section>

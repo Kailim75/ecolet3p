@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -40,7 +40,7 @@ const CharteGraphique = () => {
   };
 
   const typography = [
-    { element: "Display 1", font: "Plus Jakarta Sans", size: "72px", weight: "900", sample: "Campus T3P" },
+    { element: "Display 1", font: "Plus Jakarta Sans", size: "72px", weight: "900", sample: "ECOLE T3P" },
     { element: "H1", font: "Plus Jakarta Sans", size: "40px", weight: "800", sample: "Formation VTC" },
     { element: "H2", font: "Plus Jakarta Sans", size: "32px", weight: "700", sample: "Nos avantages" },
     { element: "H3", font: "Plus Jakarta Sans", size: "24px", weight: "700", sample: "Prérequis" },
@@ -50,8 +50,8 @@ const CharteGraphique = () => {
 
   const downloadMarkdown = () => {
     const link = document.createElement('a');
-    link.href = '/charte-graphique-campus-t3p.md';
-    link.download = 'charte-graphique-campus-t3p.md';
+    link.href = '/charte-graphique-ecole-t3p.md';
+    link.download = 'charte-graphique-ecole-t3p.md';
     link.click();
     toast.success("Téléchargement lancé !");
   };
@@ -59,7 +59,7 @@ const CharteGraphique = () => {
   return (
     <>
       <Helmet>
-        <title>Charte Graphique - Campus T3P</title>
+        <title>Charte Graphique - ECOLE T3P</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -76,7 +76,7 @@ const CharteGraphique = () => {
                 Charte Graphique
               </h1>
               <p className="text-cream/80 text-lg max-w-2xl mx-auto">
-                Guide complet de l'identité visuelle Campus T3P
+                Guide complet de l'identité visuelle ECOLE T3P
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 <Button 
@@ -280,7 +280,7 @@ const CharteGraphique = () => {
                 <Card className="overflow-hidden">
                   <div className="bg-forest p-6 text-center">
                     <div className="bg-cream rounded-lg p-4 mx-auto max-w-[200px] shadow-lg">
-                      <div className="text-forest font-display font-bold text-sm mb-2">Campus T3P</div>
+                      <div className="text-forest font-display font-bold text-sm mb-2">ECOLE T3P</div>
                       <div className="w-full h-16 bg-gradient-to-r from-forest to-forest-light rounded mb-2" />
                       <div className="text-xs text-forest font-medium mb-1">Formation VTC</div>
                       <div className="h-2 bg-gold/50 rounded w-3/4 mx-auto mb-1" />
@@ -297,7 +297,7 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => window.open('/templates/flyer-campus-t3p.html', '_blank')}
+                        onClick={() => window.open('/templates/flyer-ecole-t3p.html', '_blank')}
                       >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         Ouvrir
@@ -311,7 +311,7 @@ const CharteGraphique = () => {
                   <div className="bg-cream-dark p-6 text-center">
                     <div className="bg-white rounded-lg p-4 mx-auto max-w-[200px] shadow-lg border">
                       <div className="flex justify-between items-center mb-3">
-                        <div className="w-8 h-8 bg-forest rounded-full flex items-center justify-center text-cream text-xs font-bold">T3P</div>
+                        <div className="w-8 h-8 bg-forest rounded-full flex items-center justify-center text-cream text-xs font-bold">E</div>
                         <div className="text-right">
                           <div className="h-1.5 bg-forest rounded w-12 mb-1" />
                           <div className="h-1 bg-muted rounded w-8" />
@@ -342,7 +342,7 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => window.open('/templates/attestation-campus-t3p.html', '_blank')}
+                        onClick={() => window.open('/templates/attestation-ecole-t3p.html', '_blank')}
                       >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         Ouvrir
@@ -356,7 +356,7 @@ const CharteGraphique = () => {
                   <div className="bg-forest-light p-6 text-center">
                     <div className="bg-white rounded-lg p-4 mx-auto max-w-[200px] shadow-lg">
                       <div className="flex justify-center mb-2">
-                        <div className="w-10 h-10 bg-forest rounded-full flex items-center justify-center text-cream text-xs font-bold">T3P</div>
+                        <div className="w-10 h-10 bg-forest rounded-full flex items-center justify-center text-cream text-xs font-bold">E</div>
                       </div>
                       <div className="text-forest font-bold text-xs mb-2">CONTRAT DE FORMATION</div>
                       <div className="text-left space-y-2 text-[8px]">
@@ -385,7 +385,7 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => window.open('/templates/contrat-campus-t3p.html', '_blank')}
+                        onClick={() => window.open('/templates/contrat-ecole-t3p.html', '_blank')}
                       >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         Ouvrir
@@ -399,14 +399,14 @@ const CharteGraphique = () => {
                   <div className="bg-cream p-6 text-center">
                     <div className="bg-forest rounded-lg p-3 mx-auto shadow-lg" style={{ width: '170px', height: '100px' }}>
                       <div className="flex h-full items-center gap-2">
-                        <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-forest text-xs font-bold flex-shrink-0">T3P</div>
+                        <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-forest text-xs font-bold flex-shrink-0">E</div>
                         <div className="text-left flex-1">
-                          <div className="text-cream font-bold text-[10px]">Campus T3P</div>
+                          <div className="text-cream font-bold text-[10px]">ECOLE T3P</div>
                           <div className="text-cream/70 text-[7px] mb-2">Centre de Formation VTC & Taxi</div>
                           <div className="space-y-0.5 text-[6px] text-cream/60">
                             <div>📍 Montrouge</div>
-                            <div>📞 01 XX XX XX XX</div>
-                            <div>🌐 t3pcampus.fr</div>
+                            <div>📞 01 88 75 05 55</div>
+                            <div>🌐 ecolet3p.fr</div>
                           </div>
                         </div>
                       </div>
@@ -422,7 +422,7 @@ const CharteGraphique = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-shrink-0"
-                        onClick={() => window.open('/templates/carte-visite-campus-t3p.html', '_blank')}
+                        onClick={() => window.open('/templates/carte-visite-ecole-t3p.html', '_blank')}
                       >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         Ouvrir
@@ -496,7 +496,7 @@ const CharteGraphique = () => {
         <footer className="bg-forest text-cream py-8 mt-12">
           <div className="container-custom text-center">
             <p className="text-cream/70 text-sm">
-              Campus T3P — Charte Graphique v1.0 — Janvier 2026
+              ECOLE T3P — Charte Graphique v1.0 — Janvier 2026
             </p>
           </div>
         </footer>
