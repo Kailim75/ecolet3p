@@ -2,36 +2,10 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { Award, Users, CreditCard, FileText } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
 import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
-
-const stats = [
-  { icon: Award, value: "94%", label: "de réussite" },
-  { icon: Users, value: "2 000+", label: "élèves formés" },
-  { icon: CreditCard, value: "Paiement 4x", label: "sans frais" },
-];
-
-const staggerContainerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
-};
-
-const staggerItemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.5, ease: smoothEase }
-  }
-};
 
 const HeroSection = () => {
   const { openQuoteModal } = useQuoteModal();
@@ -105,16 +79,15 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
               className="text-4xl md:text-5xl lg:text-6xl font-black text-forest leading-[1.05] tracking-tight mb-6"
             >
-              Devenez{" "}
+              Formation T3P –{" "}
               <motion.span 
                 className="text-gold inline-block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
               >
-                Taxi, VTC ou VMDTR (taxi moto)
-              </motion.span>{" "}
-              avec ECOLE T3P
+                Taxi, VTC & VMDTR
+              </motion.span>
             </motion.h1>
 
             {/* Subtitle - Benefit oriented */}
@@ -124,37 +97,19 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
               className="text-lg md:text-xl text-warm-gray-600 leading-relaxed mb-8"
             >
-              <strong>94% de réussite aux examens</strong> — Obtenez votre carte professionnelle TAXI ou VTC, 
-              devenez moto-taxi, ou récupérez vos points avec nos formations agréées.
+              Préparez l'examen T3P et obtenez votre carte professionnelle pour exercer légalement comme chauffeur Taxi, VTC ou VMDTR.
             </motion.p>
 
-            {/* Stats */}
-            <motion.div
-              variants={staggerContainerVariants}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-wrap gap-6 mb-10"
+            {/* Reassurance phrase */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4, ease: smoothEase }}
+              className="text-base md:text-lg font-semibold text-forest mb-8"
             >
-              {stats.map((stat, index) => (
-                <motion.div 
-                  key={index} 
-                  variants={staggerItemVariants}
-                  className="flex items-center gap-3 group"
-                >
-                  <motion.div 
-                    className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center"
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(27, 77, 62, 0.2)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <stat.icon className="w-5 h-5 text-forest" />
-                  </motion.div>
-                  <div>
-                    <span className="font-black text-forest text-lg">{stat.value}</span>
-                    <span className="text-warm-gray-500 text-sm ml-1">{stat.label}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+              94 % de réussite – plus de 2 000 élèves formés – paiement 4× sans frais
+            </motion.p>
+
 
             {/* CTA Buttons - Conversion oriented */}
             <motion.div
@@ -173,8 +128,7 @@ const HeroSection = () => {
                 className="inline-block"
               >
                 <Button onClick={() => openQuoteModal()} className="btn-accent pulse-subtle">
-                  <FileText className="w-5 h-5 mr-2" />
-                  DEMANDER UN DEVIS GRATUIT
+                  👉 Demander un devis gratuit
                 </Button>
               </motion.div>
               <motion.div
@@ -187,31 +141,11 @@ const HeroSection = () => {
                 className="inline-block"
               >
                 <Button asChild className="btn-secondary">
-                  <Link to="/formations">DÉCOUVRIR NOS FORMATIONS</Link>
+                  <Link to="/formations">Découvrir la formation T3P</Link>
                 </Button>
               </motion.div>
             </motion.div>
 
-            {/* Trust badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="mt-10 flex items-center gap-4 text-sm text-warm-gray-500"
-            >
-              {["Formateurs experts", "Depuis 2014"].map((text, i) => (
-                <motion.div 
-                  key={text}
-                  className="flex items-center gap-2"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1 + i * 0.1, duration: 0.4 }}
-                >
-                  <span className="w-5 h-5 rounded-full bg-forest flex items-center justify-center text-cream text-xs">✓</span>
-                  <span>{text}</span>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
 
           {/* Right Side - Image */}
@@ -259,17 +193,17 @@ const HeroSection = () => {
               whileHover={{ y: -5 }}
               className="absolute -left-8 top-1/4 bg-card rounded-xl shadow-xl p-5 border border-border"
             >
-              <motion.p 
-                className="stat-number mb-1"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1.2, type: "spring", stiffness: 300 }}
-              >
-                87%
-              </motion.p>
-              <p className="text-sm text-warm-gray-600 max-w-[140px]">
-                des entreprises créées existent toujours 3 ans après
-              </p>
+              <div className="space-y-2 text-sm text-forest">
+                <p className="flex items-center gap-2">
+                  <span className="text-gold">✔</span> Formation conforme à la réglementation T3P
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-gold">✔</span> Accompagnement jusqu'à la carte pro
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-gold">✔</span> Formateurs expérimentés et agréés
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
