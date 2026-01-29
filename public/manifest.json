@@ -1,7 +1,7 @@
 {
-  "name": "T3P Campus - Formation Taxi VTC",
-  "short_name": "T3P Campus",
-  "description": "Centre de formation professionnelle Taxi, VTC et VMDTR à Montrouge. Taux de réussite 96%.",
+  "name": "ECOLE T3P - Formation Taxi VTC",
+  "short_name": "ECOLE T3P",
+  "description": "École de formation professionnelle Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F5EBD7",

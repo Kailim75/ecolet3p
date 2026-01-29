@@ -44,10 +44,10 @@ const PrivacyPolicy = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">1. Responsable du traitement</h2>
               <p className="text-muted-foreground">
-                T3P Campus, dont le siège social est situé au 3 rue Corneille, 92120 Montrouge, est responsable du traitement de vos données personnelles collectées sur ce site.
+                ECOLE T3P, dont le siège social est situé au 3 rue Corneille, 92120 Montrouge, est responsable du traitement de vos données personnelles collectées sur ce site.
               </p>
               <p className="text-muted-foreground mt-2">
-                <strong>Contact :</strong> montrouge@t3pcampus.fr<br />
+                <strong>Contact :</strong> montrouge@ecolet3p.fr<br />
                 <strong>Téléphone :</strong> 01 88 75 05 55
               </p>
             </div>
@@ -93,7 +93,7 @@ const PrivacyPolicy = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">5. Destinataires des données</h2>
               <p className="text-muted-foreground">
-                Vos données sont destinées uniquement à T3P Campus et ne sont jamais vendues à des tiers. Elles peuvent être transmises à nos sous-traitants techniques (hébergement, envoi d'emails) dans le cadre strict de leurs missions, dans le respect du RGPD.
+                Vos données sont destinées uniquement à ECOLE T3P et ne sont jamais vendues à des tiers. Elles peuvent être transmises à nos sous-traitants techniques (hébergement, envoi d'emails) dans le cadre strict de leurs missions, dans le respect du RGPD.
               </p>
             </div>
 
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                 <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
               </ul>
               <p className="text-muted-foreground mt-4">
-                Pour exercer ces droits, contactez-nous à : <a href="mailto:montrouge@t3pcampus.fr" className="text-forest hover:text-gold font-semibold">montrouge@t3pcampus.fr</a>
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:montrouge@ecolet3p.fr" className="text-forest hover:text-gold font-semibold">montrouge@ecolet3p.fr</a>
               </p>
             </div>
 

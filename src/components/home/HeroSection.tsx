@@ -72,7 +72,7 @@ const HeroSection = () => {
           className="text-forest/20 font-black text-sm uppercase tracking-[0.3em] block"
           style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
         >
-          T3P CAMPUS
+          ECOLE T3P
         </span>
       </motion.div>
 
@@ -220,7 +220,7 @@ const HeroSection = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: '4/3' }}>
               <img
                 src={formationSession}
-                alt="Session de formation T3P Campus - Chauffeurs professionnels en cours"
+                alt="Session de formation ECOLE T3P - Chauffeurs professionnels en cours"
                 width={800}
                 height={600}
                 className="w-full h-[600px] object-cover transition-transform duration-600 hover:scale-105"
@@ -242,7 +242,7 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="font-bold text-forest">Mohamed B.</p>
-                    <p className="text-warm-gray-600 text-sm">Chauffeur VTC • Alumni T3P Campus</p>
+                    <p className="text-warm-gray-600 text-sm">Chauffeur VTC • Alumni ECOLE T3P</p>
                   </div>
                 </div>
               </motion.div>

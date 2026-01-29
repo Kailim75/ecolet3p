@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- ECOLE T3P - Favicon Gold Premium (32x32) -->
+  <defs>
+    <linearGradient id="goldGradientFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E4BE73"/>
+      <stop offset="50%" style="stop-color:#D4A853"/>
+      <stop offset="100%" style="stop-color:#C49843"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Circle - Gold -->
+  <circle cx="16" cy="16" r="15" fill="url(#goldGradientFav)"/>
+  
+  <!-- Inner Ring - White subtle -->
+  <circle cx="16" cy="16" r="12" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+  
+  <!-- T3P Text - White -->
+  <text x="16" y="14" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="7" font-weight="900" fill="#FFFFFF">T3P</text>
+  
+  <!-- Road Symbol - White -->
+  <path d="M9 21 L16 17 L23 21" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="16" cy="17" r="1.2" fill="#FFFFFF"/>
+</svg>
