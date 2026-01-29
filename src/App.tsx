@@ -11,6 +11,7 @@ import PWAStatus from "./components/pwa/PWAStatus";
 import PWAInstallPrompt from "./components/pwa/PWAInstallPrompt";
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
+import { QuoteModalProvider } from "./components/quote/QuoteRequestModal";
 
 // Critical pages loaded immediately
 import Index from "./pages/Index";
@@ -35,6 +36,7 @@ const CharteGraphique = lazy(() => import("./pages/CharteGraphique"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const LogoPreview = lazy(() => import("./pages/LogoPreview"));
 const LogoExport = lazy(() => import("./pages/LogoExport"));
+const RecuperationPoints = lazy(() => import("./pages/RecuperationPoints"));
 
 const queryClient = new QueryClient();
 
@@ -68,44 +70,47 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <TooltipProvider>
-          <PageLoader isLoading={isLoading} onLoadingComplete={handleLoadingComplete} />
-          <div style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.3s ease' }}>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <AnalyticsProvider>
-                <Suspense fallback={<PageFallback />}>
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/formations" element={<Formations />} />
-                    <Route path="/formations/taxi" element={<FormationTaxi />} />
-                    <Route path="/formations/vtc" element={<FormationVTC />} />
-                    <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
-                    <Route path="/formations/mobilite" element={<FormationMobilite />} />
-                    <Route path="/a-propos" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/blog/:slug" element={<BlogArticle />} />
-                    <Route path="/mentions-legales" element={<LegalMentions />} />
-                    <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
-                    <Route path="/unsubscribe" element={<Unsubscribe />} />
-                    <Route path="/admin" element={<Admin />} />
-                    <Route path="/admin-login" element={<AdminLogin />} />
-                    <Route path="/admin-signup" element={<AdminSignup />} />
-                    <Route path="/charte-graphique" element={<CharteGraphique />} />
-                    <Route path="/logo-preview" element={<LogoPreview />} />
-                    <Route path="/logo-export" element={<LogoExport />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Suspense>
-                <CookieConsent />
-                <PWAStatus />
-                <PWAInstallPrompt />
-              </AnalyticsProvider>
-            </BrowserRouter>
-          </div>
-        </TooltipProvider>
+        <QuoteModalProvider>
+          <TooltipProvider>
+            <PageLoader isLoading={isLoading} onLoadingComplete={handleLoadingComplete} />
+            <div style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.3s ease' }}>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <AnalyticsProvider>
+                  <Suspense fallback={<PageFallback />}>
+                    <Routes>
+                      <Route path="/" element={<Index />} />
+                      <Route path="/formations" element={<Formations />} />
+                      <Route path="/formations/taxi" element={<FormationTaxi />} />
+                      <Route path="/formations/vtc" element={<FormationVTC />} />
+                      <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
+                      <Route path="/formations/mobilite" element={<FormationMobilite />} />
+                      <Route path="/formations/recuperation-points" element={<RecuperationPoints />} />
+                      <Route path="/a-propos" element={<About />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:slug" element={<BlogArticle />} />
+                      <Route path="/mentions-legales" element={<LegalMentions />} />
+                      <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+                      <Route path="/unsubscribe" element={<Unsubscribe />} />
+                      <Route path="/admin" element={<Admin />} />
+                      <Route path="/admin-login" element={<AdminLogin />} />
+                      <Route path="/admin-signup" element={<AdminSignup />} />
+                      <Route path="/charte-graphique" element={<CharteGraphique />} />
+                      <Route path="/logo-preview" element={<LogoPreview />} />
+                      <Route path="/logo-export" element={<LogoExport />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Suspense>
+                  <CookieConsent />
+                  <PWAStatus />
+                  <PWAInstallPrompt />
+                </AnalyticsProvider>
+              </BrowserRouter>
+            </div>
+          </TooltipProvider>
+        </QuoteModalProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

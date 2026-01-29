@@ -1,78 +1,94 @@
-# Plan de Rebranding : T3P Campus → ECOLE T3P
+# Plan de Développement - ECOLE T3P
 
-## ✅ STATUT : TERMINÉ
+## ✅ Phase 1 : Rebranding T3P Campus → ECOLE T3P (TERMINÉ - 29/01/2026)
 
-> Migration complète effectuée le 29 janvier 2026
+> Migration complète effectuée
 
----
-
-## Résumé des modifications effectuées
-
-### ✅ Phase 1 : Pages de Formations
-- `FormationTaxi.tsx` - SEO, schemas JSON-LD, URLs
-- `FormationVTC.tsx` - SEO, schemas JSON-LD, URLs
-- `FormationVMDTR.tsx` - SEO, schemas JSON-LD, URLs
-- `FormationMobilite.tsx` - SEO, schemas JSON-LD, URLs
-- `Formations.tsx` - Catalogue, schemas ItemList/Course
-
-### ✅ Phase 2 : Autres Pages Principales
-- `Contact.tsx` - Email montrouge@ecolet3p.fr, schemas
-- `About.tsx` - SEO, schemas Organization/LocalBusiness
-- `Blog.tsx` - Métadonnées, schemas
-- `BlogArticle.tsx` - Schema Article, publisher
-- `CharteGraphique.tsx` - Palette Vert/Crème/Or, templates
-- `LogoExport.tsx` - Composant EcoleT3PLogo
-
-### ✅ Phase 3 : Données et Contenus
-- `blogArticles.ts` - Auteur "ECOLE T3P", 18 mentions corrigées
-
-### ✅ Phase 4 : Templates HTML (renommés et mis à jour)
-- `attestation-ecole-t3p.html` (ex attestation-campus-t3p.html)
-- `carte-visite-ecole-t3p.html` (ex carte-visite-campus-t3p.html)
-- `contrat-ecole-t3p.html` (ex contrat-campus-t3p.html)
-- `flyer-ecole-t3p.html` (nouveau)
-
-### ✅ Phase 5 : Documentation
-- `charte-graphique-ecole-t3p.md` (ex charte-graphique-campus-t3p.md)
-
-### ✅ Phases précédentes (déjà complétées)
-- Header et Footer avec EcoleT3PLogo
-- Index.tsx (page d'accueil)
-- Pages légales (Mentions, Politique de confidentialité)
-- Favicon et manifeste PWA
-- Composant `EcoleT3PLogo.tsx`
+### Modifications effectuées
+- Pages de formations avec SEO et schemas JSON-LD
+- Contact, About, Blog avec nouvelles métadonnées
+- Templates HTML renommés (attestation, carte-visite, contrat, flyer)
+- Documentation charte graphique mise à jour
+- Composant EcoleT3PLogo intégré partout
 
 ---
 
-## Tableau des remplacements effectués
+## ✅ Phase 2 : Restructuration Conversion (29/01/2026)
 
-| Ancien | Nouveau |
-|--------|---------|
-| T3P Campus | ECOLE T3P |
-| Campus T3P | ECOLE T3P |
-| t3pcampus.fr | ecolet3p.fr |
-| montrouge@t3pcampus.fr | montrouge@ecolet3p.fr |
-| T3PCampusLogo | EcoleT3PLogo |
-| 21 Rue Hoche | 3 rue Corneille |
-| 09 75 18 05 35 | 01 88 75 05 55 |
+### Objectifs atteints
+- ✅ Améliorer les conversions (demandes de devis / inscriptions)
+- ✅ Clarifier les offres avec 3 blocs principaux
+- ✅ Optimiser le SEO et l'UX
+
+### Réalisations
+
+#### 1. Hero Section refondée
+- Nouveau H1 SEO optimisé : "Centre de Formation T3P, VMDTR & Récupération de Points"
+- Sous-titre orienté bénéfices avec 94% de réussite mis en avant
+- CTA principal : "Demander un devis gratuit"
+
+#### 2. Popup de Devis Gratuit (Modal global)
+- `src/components/quote/QuoteRequestModal.tsx`
+- Accessible depuis n'importe quelle page via `useQuoteModal()`
+- Formulaire simplifié avec réponse sous 24h
+- Intégration Supabase pour stockage des demandes
+
+#### 3. Nouvelle page : Récupération de Points
+- Route : `/formations/recuperation-points`
+- Page complète avec hero, avantages, processus, FAQ
+- Schema.org Course pour le SEO
+- CTAs orientés conversion
+
+#### 4. Section "Nos Offres" sur l'accueil
+- `src/components/home/OffersSection.tsx`
+- 3 cartes principales : T3P (Taxi/VTC), VMDTR, Récupération de Points
+- CTAs "Demander un devis" sur chaque carte
+- Badges visuels (Populaire, En vogue, Nouveau)
+
+#### 5. Section "Pourquoi nous choisir"
+- `src/components/home/WhyChooseUsSection.tsx`
+- 6 raisons clés avec icônes
+- 94% réussite, 2000+ élèves, formateurs experts, paiement 4x
+
+#### 6. CTAs optimisés sur tout le site
+- Header : "Devis Gratuit" au lieu de "Prendre RDV"
+- Bouton flottant desktop : "Devis Gratuit"
+- CTAs visibles sur chaque section
+
+#### 7. Sitemap mis à jour
+- Domaine migré vers ecolet3p.fr
+- Nouvelle page récupération de points ajoutée
+
+---
+
+## 📋 Prochaines étapes (Phase 3)
+
+### Haute priorité
+- [ ] Ajouter CTAs "Demander un devis" sur les pages formation existantes
+- [ ] Mettre à jour les Edge Functions emails avec branding ECOLE T3P
+- [ ] Créer un article de blog sur la récupération de points
+
+### Moyenne priorité
+- [ ] Optimiser les meta descriptions des pages existantes
+- [ ] Ajouter des témoignages spécifiques par formation
+- [ ] Créer une FAQ globale sur la page contact
+
+### Basse priorité
+- [ ] Intégrer un chatbot ou widget d'aide
+- [ ] Ajouter des vidéos de présentation
+- [ ] Créer des landing pages A/B testées
 
 ---
 
 ## Informations légales ECOLE T3P
 
-- **Raison sociale** : ECOLE T3P (EURL)
-- **SIRET** : 94856480200023
-- **Capital** : 2 000 €
-- **Dirigeant** : Karim KATI
-- **Adresse** : 3 rue Corneille, 92120 Montrouge
-- **Téléphone** : 01 88 75 05 55
-- **Email** : montrouge@ecolet3p.fr
-- **Site** : www.ecolet3p.fr
-
----
-
-## Prochaines étapes suggérées (optionnel)
-
-- [ ] Mettre à jour les Edge Functions emails avec branding ECOLE T3P
-- [ ] Publier le site en production
-- [ ] Vérifier le référencement Google après publication
+| Champ | Valeur |
+|-------|--------|
+| Raison sociale | ECOLE T3P (EURL) |
+| SIRET | 94856480200023 |
+| Capital | 2 000 € |
+| Dirigeant | Karim KATI |
+| Adresse | 3 rue Corneille, 92120 Montrouge |
+| Téléphone | 01 88 75 05 55 |
+| Email | montrouge@ecolet3p.fr |
+| Site | www.ecolet3p.fr |
