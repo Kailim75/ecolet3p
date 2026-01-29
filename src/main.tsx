@@ -1,4 +1,4 @@
-// main.tsx - Application entry point - Vite refresh trigger
+// main.tsx - Application entry point - v2.1
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
