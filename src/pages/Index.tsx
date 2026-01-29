@@ -37,14 +37,14 @@ const SectionSkeleton = () => (
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  "name": "T3P Campus",
-  "alternateName": "T3P Campus Montrouge",
-  "url": "https://t3pcampus.fr",
-  "logo": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg",
-  "image": "https://t3pcampus.fr/og-image.jpg",
-  "description": "Centre de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, formateurs experts du métier.",
+  "name": "ECOLE T3P",
+  "alternateName": "ECOLE T3P Montrouge",
+  "url": "https://ecolet3p.fr",
+  "logo": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg",
+  "image": "https://ecolet3p.fr/og-image.jpg",
+  "description": "École de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, formateurs experts du métier.",
   "telephone": "+33188750555",
-  "email": "montrouge@t3pcampus.fr",
+  "email": "montrouge@ecolet3p.fr",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "3 rue Corneille",
@@ -73,29 +73,29 @@ const organizationSchema = {
     "worstRating": "1"
   },
   "sameAs": [
-    "https://www.google.com/maps/place/T3P+Campus"
+    "https://www.google.com/maps/place/ECOLE+T3P"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Formations T3P Campus",
+    "name": "Formations ECOLE T3P",
     "itemListElement": [
       {
         "@type": "Course",
         "name": "Formation Taxi Initiale",
         "description": "Formation complète pour obtenir votre carte professionnelle Taxi",
-        "provider": { "@type": "Organization", "name": "T3P Campus" }
+        "provider": { "@type": "Organization", "name": "ECOLE T3P" }
       },
       {
         "@type": "Course",
         "name": "Formation VTC",
         "description": "Formation pour devenir chauffeur VTC professionnel",
-        "provider": { "@type": "Organization", "name": "T3P Campus" }
+        "provider": { "@type": "Organization", "name": "ECOLE T3P" }
       },
       {
         "@type": "Course",
         "name": "Formation VMDTR",
         "description": "Formation moto-taxi pour obtenir votre certification",
-        "provider": { "@type": "Organization", "name": "T3P Campus" }
+        "provider": { "@type": "Organization", "name": "ECOLE T3P" }
       }
     ]
   }
@@ -104,12 +104,12 @@ const organizationSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://t3pcampus.fr/#localbusiness",
-  "name": "T3P Campus - Formation Taxi VTC Montrouge",
-  "image": "https://t3pcampus.fr/og-image.jpg",
+  "@id": "https://ecolet3p.fr/#localbusiness",
+  "name": "ECOLE T3P - Formation Taxi VTC Montrouge",
+  "image": "https://ecolet3p.fr/og-image.jpg",
   "telephone": "+33188750555",
-  "email": "montrouge@t3pcampus.fr",
-  "url": "https://t3pcampus.fr",
+  "email": "montrouge@ecolet3p.fr",
+  "url": "https://ecolet3p.fr",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "3 rue Corneille",
@@ -142,10 +142,10 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>T3P Campus - Formation Taxi VTC Montrouge | 94% de Réussite</title>
-        <meta name="description" content="Centre de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, paiement en 4x sans frais, formateurs experts. Obtenez votre carte professionnelle !" />
-        <meta name="keywords" content="formation taxi, formation VTC, centre formation Montrouge, carte professionnelle taxi, carte VTC, T3P Campus, formation chauffeur" />
-        <link rel="canonical" href="https://t3pcampus.fr/" />
+        <title>ECOLE T3P - Formation Taxi VTC Montrouge | 94% de Réussite</title>
+        <meta name="description" content="École de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, paiement en 4x sans frais, formateurs experts. Obtenez votre carte professionnelle !" />
+        <meta name="keywords" content="formation taxi, formation VTC, école formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P, formation chauffeur" />
+        <link rel="canonical" href="https://ecolet3p.fr/" />
         
         {/* Preload critical hero image */}
         <link 
@@ -155,21 +155,21 @@ const Index = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="T3P Campus - Formation Taxi VTC à Montrouge" />
-        <meta property="og:description" content="Centre de formation avec 94% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />
-        <meta property="og:url" content="https://t3pcampus.fr/" />
+        <meta property="og:title" content="ECOLE T3P - Formation Taxi VTC à Montrouge" />
+        <meta property="og:description" content="École de formation avec 94% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />
+        <meta property="og:url" content="https://ecolet3p.fr/" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="T3P Campus" />
+        <meta property="og:site_name" content="ECOLE T3P" />
         <meta property="og:locale" content="fr_FR" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="T3P Campus - Formation Taxi VTC Montrouge" />
-        <meta name="twitter:description" content="Centre de formation avec 94% de réussite. Obtenez votre carte professionnelle Taxi ou VTC." />
-        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta name="twitter:title" content="ECOLE T3P - Formation Taxi VTC Montrouge" />
+        <meta name="twitter:description" content="École de formation avec 94% de réussite. Obtenez votre carte professionnelle Taxi ou VTC." />
+        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="author" content="T3P Campus" />
+        <meta name="author" content="ECOLE T3P" />
         <meta name="geo.region" content="FR-92" />
         <meta name="geo.placename" content="Montrouge" />
         

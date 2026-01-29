@@ -1,7 +1,7 @@
 import React from "react";
 import { Phone, Mail, MapPin, Clock, Download } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
-import { T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
+import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 
 const Footer = () => {
   return (
@@ -12,11 +12,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-5">
-              <T3PCampusIcon className="w-10 h-10" theme="white" />
-              <span className="text-xl font-black text-cream tracking-tight uppercase">T3P Campus</span>
+              <EcoleT3PIcon className="w-10 h-10" theme="white" />
+              <span className="text-xl font-black text-cream tracking-tight uppercase">ECOLE T3P</span>
             </div>
             <p className="text-cream/70 text-sm leading-relaxed mb-6">
-              Votre partenaire pour devenir chauffeur professionnel depuis 2014. Plus de 2 000 élèves formés avec un taux de réussite de 94%.
+              Votre école de formation pour devenir chauffeur professionnel depuis 2014. Plus de 2 000 élèves formés avec un taux de réussite de 94%.
             </p>
             <div className="flex gap-3">
               <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
@@ -94,9 +94,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:montrouge@t3pcampus.fr" className="flex items-start gap-3 text-cream/70 hover:text-gold transition-colors text-sm">
+                <a href="mailto:montrouge@ecolet3p.fr" className="flex items-start gap-3 text-cream/70 hover:text-gold transition-colors text-sm">
                   <Mail className="w-4 h-4 text-gold mt-0.5 shrink-0" />
-                  <span className="break-all">montrouge@t3pcampus.fr</span>
+                  <span className="break-all">montrouge@ecolet3p.fr</span>
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -114,7 +114,7 @@ const Footer = () => {
       <div className="border-t border-cream/10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-cream/50">
-            <p>© 2025 T3P Campus - Tous droits réservés</p>
+            <p>© 2025 ECOLE T3P - Tous droits réservés</p>
             <div className="flex gap-6">
               <PrefetchLink to="/mentions-legales" className="hover:text-gold transition-colors">Mentions légales</PrefetchLink>
               <PrefetchLink to="/politique-de-confidentialite" className="hover:text-gold transition-colors">Confidentialité</PrefetchLink>

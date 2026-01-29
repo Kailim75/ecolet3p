@@ -27,7 +27,7 @@ const LegalMentions = () => {
             animate="visible"
             variants={fadeUpVariants}
           >
-            Informations légales concernant le site T3P Campus
+            Informations légales concernant le site ECOLE T3P
           </motion.p>
         </div>
       </section>
@@ -44,13 +44,13 @@ const LegalMentions = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">1. Éditeur du site</h2>
               <p className="text-muted-foreground mb-2">
-                <strong>Raison sociale :</strong> T3P Campus<br />
+                <strong>Raison sociale :</strong> ECOLE T3P<br />
                 <strong>Forme juridique :</strong> EURL<br />
                 <strong>Capital social :</strong> 2 000 €<br />
                 <strong>Siège social :</strong> 3 rue Corneille, 92120 Montrouge<br />
                 <strong>SIRET :</strong> 948 564 802 00023<br />
                 <strong>Téléphone :</strong> 01 88 75 05 55<br />
-                <strong>Email :</strong> montrouge@t3pcampus.fr
+                <strong>Email :</strong> montrouge@ecolet3p.fr
               </p>
               <p className="text-muted-foreground">
                 <strong>Directeur de la publication :</strong> Karim KATI
@@ -69,17 +69,17 @@ const LegalMentions = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">3. Propriété intellectuelle</h2>
               <p className="text-muted-foreground mb-4">
-                L'ensemble du contenu de ce site (textes, images, logos, icônes, sons, logiciels, etc.) est la propriété exclusive de T3P Campus ou de ses partenaires et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.
+                L'ensemble du contenu de ce site (textes, images, logos, icônes, sons, logiciels, etc.) est la propriété exclusive d'ECOLE T3P ou de ses partenaires et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.
               </p>
               <p className="text-muted-foreground">
-                Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de T3P Campus.
+                Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable d'ECOLE T3P.
               </p>
             </div>
 
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">4. Données personnelles</h2>
               <p className="text-muted-foreground mb-4">
-                Les informations collectées via les formulaires de ce site sont destinées à T3P Campus pour le traitement de vos demandes. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+                Les informations collectées via les formulaires de ce site sont destinées à ECOLE T3P pour le traitement de vos demandes. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
               </p>
               <p className="text-muted-foreground">
                 Pour plus d'informations, consultez notre <Link to="/politique-de-confidentialite" className="text-forest hover:text-gold font-semibold">Politique de Confidentialité</Link>.
@@ -96,17 +96,17 @@ const LegalMentions = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">6. Responsabilité</h2>
               <p className="text-muted-foreground mb-4">
-                T3P Campus s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, T3P Campus ne peut garantir l'exactitude, la complétude ou l'actualité des informations publiées.
+                ECOLE T3P s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, ECOLE T3P ne peut garantir l'exactitude, la complétude ou l'actualité des informations publiées.
               </p>
               <p className="text-muted-foreground">
-                T3P Campus ne saurait être tenu responsable des dommages directs ou indirects résultant de l'accès ou de l'utilisation du site.
+                ECOLE T3P ne saurait être tenu responsable des dommages directs ou indirects résultant de l'accès ou de l'utilisation du site.
               </p>
             </div>
 
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">7. Liens hypertextes</h2>
               <p className="text-muted-foreground">
-                Ce site peut contenir des liens vers d'autres sites web. T3P Campus n'exerce aucun contrôle sur le contenu de ces sites et décline toute responsabilité quant à leur contenu.
+                Ce site peut contenir des liens vers d'autres sites web. ECOLE T3P n'exerce aucun contrôle sur le contenu de ces sites et décline toute responsabilité quant à leur contenu.
               </p>
             </div>
 

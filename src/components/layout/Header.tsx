@@ -4,7 +4,7 @@ import { Menu, X, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
-import { T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
+import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -63,10 +63,10 @@ const Header = () => {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-[72px]">
-          {/* Logo - LiveMentor style */}
+          {/* Logo - ECOLE T3P */}
           <Link to="/" className="flex items-center gap-2">
-            <T3PCampusIcon className="w-10 h-10" theme="color" />
-            <span className="text-xl font-black text-forest tracking-tight uppercase">T3P Campus</span>
+            <EcoleT3PIcon className="w-10 h-10" theme="color" />
+            <span className="text-xl font-black text-forest tracking-tight uppercase">ECOLE T3P</span>
           </Link>
 
           {/* Desktop Navigation with Prefetch */}
