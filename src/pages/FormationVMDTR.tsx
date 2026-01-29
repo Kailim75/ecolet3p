@@ -149,8 +149,8 @@ const FormationVMDTR = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation VMDTR - Moto-Taxi Professionnel",
-    "description": "Formation complète pour obtenir votre carte professionnelle VMDTR (moto-taxi). Apprenez la sécurité, la réglementation et la gestion d'entreprise.",
+    "name": "Formation T3P - Parcours VMDTR Moto-Taxi",
+    "description": "Parcours VMDTR de la formation T3P pour obtenir votre carte professionnelle moto-taxi. Apprenez la sécurité, la réglementation et la gestion d'entreprise.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
@@ -201,9 +201,9 @@ const FormationVMDTR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VMDTR Moto-Taxi - Carte Professionnelle | ECOLE T3P</title>
-        <meta name="description" content="Formation VMDTR moto-taxi complète à Montrouge. 48h de formation, équipements de sécurité, paiement en 4x sans frais. Obtenez votre carte professionnelle moto-taxi." />
-        <meta name="keywords" content="formation VMDTR, formation moto-taxi, carte professionnelle moto-taxi, devenir moto-taxi, formation ECOLE T3P" />
+        <title>Formation T3P Parcours VMDTR Moto-Taxi | ECOLE T3P Montrouge</title>
+        <meta name="description" content="Parcours VMDTR de la formation T3P à Montrouge. Formation moto-taxi complète, équipements de sécurité, paiement en 4x sans frais. Obtenez votre carte professionnelle." />
+        <meta name="keywords" content="formation T3P VMDTR, formation moto-taxi, parcours VMDTR, carte professionnelle moto-taxi, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations/vmdtr" />
         
         {/* Preload critical hero image */}
@@ -214,8 +214,8 @@ const FormationVMDTR = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation VMDTR Moto-Taxi - Carte Professionnelle | ECOLE T3P" />
-        <meta property="og:description" content="Formation VMDTR moto-taxi complète. 48h de formation professionnelle. Devenez moto-taxi professionnel." />
+        <meta property="og:title" content="Formation T3P Parcours VMDTR Moto-Taxi | ECOLE T3P" />
+        <meta property="og:description" content="Parcours VMDTR de la formation T3P. Formation moto-taxi professionnelle complète." />
         <meta property="og:url" content="https://ecolet3p.fr/formations/vmdtr" />
         <meta property="og:type" content="website" />
         
@@ -268,7 +268,7 @@ const FormationVMDTR = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Formation VMDTR</BreadcrumbPage>
+                <BreadcrumbPage>Parcours VMDTR</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -291,17 +291,17 @@ const FormationVMDTR = () => {
             >
               <Badge className="mb-4 bg-orange-500/10 text-orange-600 border-orange-500/20">
                 <Bike className="h-4 w-4 mr-2" />
-                Formation Moto-Taxi
+                Formation T3P – Parcours VMDTR
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Formation <span className="text-orange-600">VMDTR</span>
+                Parcours <span className="text-orange-600">VMDTR</span>
                 <br />Moto-Taxi Professionnel
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
-                Devenez moto-taxi professionnel avec notre formation complète de 48 heures. 
-                Maîtrisez la sécurité, la réglementation et lancez votre activité.
+                Le parcours VMDTR fait partie de la formation T3P. Devenez moto-taxi professionnel 
+                avec notre formation complète. Maîtrisez la sécurité, la réglementation et lancez votre activité.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
