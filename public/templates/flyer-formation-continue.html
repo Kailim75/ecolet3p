@@ -230,42 +230,120 @@
     }
     
     .legal-icon {
-      font-size: 18px;
+      font-size: 16px;
       flex-shrink: 0;
     }
     
     .legal-text {
-      font-size: 10px;
+      font-size: 9px;
       color: #1B4D3E;
-      line-height: 1.5;
+      line-height: 1.4;
     }
     
     .legal-text strong {
       font-weight: 700;
     }
     
-    /* CTA */
-    .cta {
+    /* Tarifs Note */
+    .tarifs-note {
+      font-size: 9px;
+      color: #5A5A5A;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+    
+    /* CTA Principal */
+    .cta-main {
       background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
       color: #1B4D3E;
       text-align: center;
-      padding: 14px;
+      padding: 14px 16px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(212, 168, 83, 0.35);
+      margin-bottom: 14px;
     }
     
-    .cta-phone {
+    .cta-header {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 12px;
       font-weight: 800;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     
-    .cta-text {
-      font-size: 11px;
+    .cta-contact {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 6px;
+    }
+    
+    .cta-main .cta-phone {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    
+    .cta-website {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    .cta-urgency {
+      font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
+      opacity: 0.9;
+    }
+    
+    /* Bottom Section */
+    .bottom-section {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+    }
+    
+    .qr-section {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    
+    .qr-placeholder {
+      width: 50px;
+      height: 50px;
+      background: #1B4D3E;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F5EBD7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      margin: 0 auto 6px;
+    }
+    
+    .qr-label {
+      font-size: 8px;
+      color: #1B4D3E;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .bottom-section .legal-note {
+      flex: 1;
+      background: rgba(27, 77, 62, 0.08);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 0;
     }
     
     /* Footer */
@@ -377,31 +455,33 @@
         </div>
       </div>
       
-      <!-- Avantages -->
-      <div class="info-box">
-        <h3>✨ Pourquoi choisir ECOLE T3P ?</h3>
-        <ul>
-          <li>94% de taux de réussite</li>
-          <li>Paiement 4× sans frais</li>
-          <li>Sessions régulières</li>
-          <li>Attestation immédiate</li>
-          <li>Formateurs experts</li>
-          <li>15+ ans d'expérience</li>
-        </ul>
+      <!-- Tarifs Note -->
+      <p class="tarifs-note">Tarifs définis selon la réglementation et le contenu de la formation</p>
+      
+      <!-- CTA Principal -->
+      <div class="cta-main">
+        <div class="cta-header">👉 Inscription immédiate – Formation continue obligatoire</div>
+        <div class="cta-contact">
+          <div class="cta-phone">📞 01 88 75 05 55</div>
+          <div class="cta-website">🌐 www.ecolet3p.fr</div>
+        </div>
+        <div class="cta-urgency">Places limitées – Sessions toute l'année</div>
       </div>
       
-      <!-- Legal Note -->
-      <div class="legal-note">
-        <span class="legal-icon">⚠️</span>
-        <p class="legal-text">
-          <strong>Obligation légale :</strong> La formation continue est obligatoire tous les 5 ans pour maintenir votre carte professionnelle VTC, Taxi ou VMDTR en cours de validité.
-        </p>
-      </div>
-      
-      <!-- CTA -->
-      <div class="cta">
-        <div class="cta-phone">📞 01 88 75 05 55</div>
-        <div class="cta-text">Réservez votre place maintenant !</div>
+      <!-- QR Code + Legal -->
+      <div class="bottom-section">
+        <div class="qr-section">
+          <div class="qr-placeholder">
+            <span>QR</span>
+          </div>
+          <p class="qr-label">Scannez pour<br>vous inscrire</p>
+        </div>
+        <div class="legal-note">
+          <span class="legal-icon">⚠️</span>
+          <p class="legal-text">
+            <strong>Obligation légale :</strong> Formation continue obligatoire tous les 5 ans pour maintenir votre carte professionnelle.
+          </p>
+        </div>
       </div>
     </div>
     
