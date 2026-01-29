@@ -1,13 +1,16 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const testimonials = [
-  { name: "Mohamed K.", role: "Chauffeur VTC", content: "Excellente formation ! Les formateurs sont très compétents. J'ai obtenu ma carte VTC en 2 mois.", rating: 5, initials: "MK" },
-  { name: "Sophie L.", role: "Chauffeur TAXI", content: "Je recommande T3P Campus à 100%. L'accompagnement est top. Réussite au premier passage !", rating: 5, initials: "SL" },
-  { name: "Alexandre D.", role: "Chauffeur VTC", content: "Le paiement en 4 fois m'a permis de suivre la formation sereinement. Merci à toute l'équipe.", rating: 5, initials: "AD" },
+  { name: "Mohamed K.", role: "Chauffeur VTC", content: "Excellente formation ! Les formateurs sont très compétents. J'ai obtenu ma carte VTC en 2 mois.", rating: 5, initials: "MK", formation: "vtc" },
+  { name: "Sophie L.", role: "Chauffeur TAXI", content: "Je recommande ECOLE T3P à 100%. L'accompagnement est top. Réussite au premier passage !", rating: 5, initials: "SL", formation: "taxi" },
+  { name: "Alexandre D.", role: "Chauffeur VTC", content: "Le paiement en 4 fois m'a permis de suivre la formation sereinement. Merci à toute l'équipe.", rating: 5, initials: "AD", formation: "vtc" },
+  { name: "Fatima R.", role: "Auto-entrepreneuse VTC", content: "L'accompagnement pour créer mon entreprise a été précieux. Je suis aujourd'hui à mon compte avec une activité florissante.", rating: 5, initials: "FR", formation: "vtc" },
+  { name: "Marc D.", role: "Chauffeur Taxi depuis 2024", content: "Formation très complète. Les formateurs connaissent parfaitement le métier et transmettent leur passion. J'ai obtenu ma carte professionnelle du premier coup !", rating: 5, initials: "MD", formation: "taxi" },
 ];
 
 const staggerContainerVariants = {
@@ -65,9 +68,9 @@ const TestimonialsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {testimonials.map((testimonial, i) => (
+          {testimonials.slice(0, 3).map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
               variants={staggerItemVariants}
@@ -86,7 +89,7 @@ const TestimonialsSection = () => {
               </div>
 
               <motion.p 
-                className="text-warm-gray-700 leading-relaxed mb-6 italic"
+                className="text-foreground leading-relaxed mb-6 italic"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -95,14 +98,74 @@ const TestimonialsSection = () => {
                 "{testimonial.content}"
               </motion.p>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <div className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-bold">
-                  {testimonial.initials}
+              <div className="flex items-center justify-between pt-4 border-t border-border">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-forest flex items-center justify-center text-cream font-bold">
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <p className="font-bold text-forest">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-bold text-forest">{testimonial.name}</p>
-                  <p className="text-sm text-warm-gray-500">{testimonial.role}</p>
+                {/* Internal link to formation */}
+                <Link 
+                  to={`/formations/${testimonial.formation}`}
+                  className="text-xs font-semibold text-gold hover:text-gold-dark transition-colors flex items-center gap-1"
+                >
+                  Voir la formation
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Additional testimonials row */}
+        <motion.div
+          variants={staggerContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto"
+        >
+          {testimonials.slice(3).map((testimonial, i) => (
+            <motion.div
+              key={testimonial.name}
+              variants={staggerItemVariants}
+              whileHover={{ 
+                y: -8, 
+                boxShadow: "0 20px 40px rgba(27, 77, 62, 0.12)",
+              }}
+              className="card-livementor cursor-pointer"
+            >
+              <div className="flex gap-1 mb-3">
+                {[...Array(testimonial.rating)].map((_, j) => (
+                  <Star key={j} className="w-4 h-4 fill-gold text-gold" />
+                ))}
+              </div>
+
+              <p className="text-foreground leading-relaxed mb-4 italic text-sm">
+                "{testimonial.content}"
+              </p>
+
+              <div className="flex items-center justify-between pt-3 border-t border-border">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-forest flex items-center justify-center text-cream font-bold text-sm">
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-forest text-sm">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  </div>
                 </div>
+                <Link 
+                  to={`/formations/${testimonial.formation}`}
+                  className="text-xs font-semibold text-gold hover:text-gold-dark transition-colors flex items-center gap-1"
+                >
+                  Voir
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
             </motion.div>
           ))}

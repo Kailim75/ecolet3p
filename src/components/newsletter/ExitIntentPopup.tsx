@@ -20,20 +20,31 @@ const ExitIntentPopup = () => {
     const wasShown = sessionStorage.getItem("exitIntentShown");
     if (wasShown) return;
 
+    // Detect mobile device
+    const isMobile = window.innerWidth < 768;
+
     const handleMouseLeave = (e: MouseEvent) => {
-      // Only trigger when mouse leaves from the top
+      // Only trigger when mouse leaves from the top (desktop only)
       if (e.clientY <= 0) {
         setIsOpen(true);
         sessionStorage.setItem("exitIntentShown", "true");
-        // Remove listener after showing
         document.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
 
-    // Delay adding the listener to avoid triggering immediately
+    // On mobile: show popup after 30 seconds of inactivity instead of exit intent
+    // On desktop: wait 8 seconds before activating exit intent listener
+    const delayTime = isMobile ? 30000 : 8000;
+
     const timer = setTimeout(() => {
-      document.addEventListener("mouseleave", handleMouseLeave);
-    }, 5000); // Wait 5 seconds before activating
+      if (isMobile) {
+        // On mobile, show directly after delay (less intrusive timing)
+        setIsOpen(true);
+        sessionStorage.setItem("exitIntentShown", "true");
+      } else {
+        document.addEventListener("mouseleave", handleMouseLeave);
+      }
+    }, delayTime);
 
     return () => {
       clearTimeout(timer);
@@ -116,13 +127,13 @@ const ExitIntentPopup = () => {
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Popup */}
+          {/* Popup - Mobile optimized: smaller, bottom positioned */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[90%] max-w-md"
+            className="fixed z-[101] w-[92%] max-w-md md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 bottom-4 left-1/2 -translate-x-1/2 md:bottom-auto"
           >
             <div className="bg-card rounded-2xl shadow-2xl overflow-hidden">
               {/* Close button */}
@@ -134,29 +145,29 @@ const ExitIntentPopup = () => {
                 <X className="w-5 h-5 text-muted-foreground" />
               </button>
 
-              {/* Header with gradient */}
-              <div className="bg-gradient-to-br from-forest to-forest/80 p-6 text-center">
+              {/* Header with gradient - More compact on mobile */}
+              <div className="bg-gradient-to-br from-forest to-forest/80 p-4 md:p-6 text-center">
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: "spring" }}
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/20 mb-4"
+                  className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-gold/20 mb-3 md:mb-4"
                 >
-                  <Gift className="w-8 h-8 text-gold" />
+                  <Gift className="w-6 h-6 md:w-8 md:h-8 text-gold" />
                 </motion.div>
-                <h2 className="text-2xl font-bold text-cream mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-cream mb-1 md:mb-2">
                   Attendez ! 🎁
                 </h2>
-                <p className="text-cream/80 text-sm">
+                <p className="text-cream/80 text-xs md:text-sm">
                   Recevez notre guide gratuit pour réussir votre examen
                 </p>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
+              {/* Content - Compact on mobile */}
+              <div className="p-4 md:p-6">
                 {!isSubmitted ? (
                   <>
-                    <div className="mb-4 space-y-2 text-sm text-muted-foreground">
+                    <div className="mb-3 md:mb-4 space-y-1.5 md:space-y-2 text-xs md:text-sm text-foreground">
                       <div className="flex items-center gap-2">
                         <span className="text-gold">✓</span>
                         <span>Les 10 erreurs à éviter le jour J</span>
