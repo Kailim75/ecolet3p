@@ -201,7 +201,7 @@ const RecuperationPoints = () => {
               {[
                 { icon: Clock, text: "2 jours (14h)" },
                 { icon: MapPin, text: "Montrouge (92)" },
-                { icon: Users, text: "Groupe 10-20 personnes" }
+                { icon: CreditCard, text: "250 €" }
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-forest">
                   <item.icon className="w-5 h-5 text-gold" />
