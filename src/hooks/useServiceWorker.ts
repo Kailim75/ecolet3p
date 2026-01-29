@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 interface ServiceWorkerState {
   isInstalled: boolean;
@@ -20,7 +20,26 @@ export const useServiceWorker = () => {
       return;
     }
 
+    // Avoid registering SW in dev/preview (Vite module URLs must not be cached)
+    if (!import.meta.env.PROD) {
+      // Best-effort cleanup in case a SW was previously registered
+      (async () => {
+        try {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(regs.map((r) => r.unregister()));
+          const keys = await caches.keys();
+          await Promise.all(keys.map((k) => caches.delete(k)));
+          console.log('Service Worker disabled in dev/preview');
+        } catch (e) {
+          console.warn('Service Worker cleanup failed (non-blocking):', e);
+        }
+      })();
+      return;
+    }
+
     // Register the service worker
+    let updateIntervalId: number | undefined;
+
     const registerSW = async () => {
       try {
         const registration = await navigator.serviceWorker.register('/sw.js', {
@@ -44,7 +63,7 @@ export const useServiceWorker = () => {
         });
 
         // Check for updates periodically (every hour)
-        setInterval(() => {
+        updateIntervalId = window.setInterval(() => {
           registration.update();
         }, 60 * 60 * 1000);
 
@@ -65,6 +84,10 @@ export const useServiceWorker = () => {
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
+
+      if (updateIntervalId) {
+        window.clearInterval(updateIntervalId);
+      }
     };
   }, []);
 

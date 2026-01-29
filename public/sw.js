@@ -1,12 +1,16 @@
-// T3P Campus Service Worker - Cache Strategy
-const CACHE_NAME = 't3p-campus-v1';
-const RUNTIME_CACHE = 't3p-runtime-v1';
+// ECOLE T3P Service Worker - Cache Strategy
+// IMPORTANT: Never cache Vite dev modules (/src, /@vite, ?t=...) or it can cause
+// mixed React module instances ("Invalid hook call" / "useRef null") after hot updates.
+const CACHE_NAME = 't3p-campus-v2';
+const RUNTIME_CACHE = 't3p-runtime-v2';
 
 // Assets to cache immediately on install
 const PRECACHE_ASSETS = [
   '/',
-  '/index.html',
   '/favicon.ico',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
 ];
 
 // Cache strategies
@@ -98,6 +102,19 @@ self.addEventListener('fetch', (event) => {
   
   // Skip chrome-extension and other non-http(s) requests
   if (!url.protocol.startsWith('http')) return;
+
+  // Never cache Vite dev server assets (critical to avoid React hook crashes)
+  const isViteDevAsset =
+    url.pathname.startsWith('/@vite') ||
+    url.pathname.startsWith('/@react-refresh') ||
+    url.pathname.startsWith('/src/') ||
+    url.pathname.startsWith('/node_modules/') ||
+    url.pathname.startsWith('/@id/');
+
+  // Vite appends ?t=... for HMR-busted module URLs
+  if (isViteDevAsset || url.searchParams.has('t')) {
+    return;
+  }
   
   // Skip API calls (Supabase, external APIs)
   if (url.hostname.includes('supabase') || 
