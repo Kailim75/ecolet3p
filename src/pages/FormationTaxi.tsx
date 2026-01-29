@@ -156,8 +156,8 @@ const FormationTaxi = () => {
     "description": "Formation complète de 63 heures pour obtenir votre carte professionnelle de chauffeur de taxi. Taux de réussite 94%, formateurs experts, paiement en 4x sans frais.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "T3P Campus",
-      "sameAs": "https://t3pcampus.fr"
+      "name": "ECOLE T3P",
+      "sameAs": "https://ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -173,7 +173,7 @@ const FormationTaxi = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Montrouge",
+        "name": session.location || "ECOLE T3P Montrouge",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Montrouge",
@@ -210,10 +210,10 @@ const FormationTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi Montrouge - Carte Professionnelle | T3P Campus</title>
+        <title>Formation Taxi Montrouge - Carte Professionnelle | ECOLE T3P</title>
         <meta name="description" content="Formation taxi complète à Montrouge. 63h de formation, taux de réussite 94%, paiement en 4x sans frais. Obtenez votre carte professionnelle de chauffeur de taxi." />
-        <meta name="keywords" content="formation taxi montrouge, carte professionnelle taxi, devenir chauffeur taxi, examen taxi, formation T3P" />
-        <link rel="canonical" href="https://t3pcampus.fr/formations/taxi" />
+        <meta name="keywords" content="formation taxi montrouge, carte professionnelle taxi, devenir chauffeur taxi, examen taxi, formation ECOLE T3P" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/taxi" />
         
         {/* Preload critical hero image */}
         <link 
@@ -223,9 +223,9 @@ const FormationTaxi = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation Taxi Montrouge - Carte Professionnelle | T3P Campus" />
+        <meta property="og:title" content="Formation Taxi Montrouge - Carte Professionnelle | ECOLE T3P" />
         <meta property="og:description" content="Formation taxi complète à Montrouge. 63h de formation, taux de réussite 94%. Devenez chauffeur de taxi professionnel." />
-        <meta property="og:url" content="https://t3pcampus.fr/formations/taxi" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations/taxi" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -238,19 +238,19 @@ const FormationTaxi = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://t3pcampus.fr/"
+              "item": "https://ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://t3pcampus.fr/formations"
+              "item": "https://ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Formation Taxi",
-              "item": "https://t3pcampus.fr/formations/taxi"
+              "item": "https://ecolet3p.fr/formations/taxi"
             }
           ]
         })}</script>
@@ -352,7 +352,7 @@ const FormationTaxi = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImageTaxi} 
-                  alt="Formation Taxi en session - T3P Campus" 
+                  alt="Formation Taxi en session - ECOLE T3P" 
                   className="w-full h-64 object-cover"
                   loading="eager"
                   decoding="async"
@@ -361,7 +361,7 @@ const FormationTaxi = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-medium">Salle de formation équipée</p>
-                  <p className="text-white/80 text-sm">Centre T3P Campus - Montrouge</p>
+                  <p className="text-white/80 text-sm">Centre ECOLE T3P - Montrouge</p>
                 </div>
               </div>
 
@@ -444,10 +444,10 @@ const FormationTaxi = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {module.topics.map((topic, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          {topic}
+                      {module.topics.map((topic, topicIndex) => (
+                        <li key={topicIndex} className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{topic}</span>
                         </li>
                       ))}
                     </ul>
@@ -472,20 +472,15 @@ const FormationTaxi = () => {
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 Prérequis pour la formation
               </h2>
-              <p className="text-muted-foreground mb-8">
-                Avant de vous inscrire à la formation taxi, assurez-vous de remplir les conditions suivantes :
-              </p>
-              
               <div className="space-y-4">
                 {[
                   { icon: Users, text: "Avoir 21 ans minimum" },
-                  { icon: FileText, text: "Permis B depuis 3 ans minimum" },
-                  { icon: Award, text: "Casier judiciaire vierge (bulletin n°2)" },
-                  { icon: Target, text: "Être apte médicalement (visite préfectorale)" },
-                  { icon: BookOpen, text: "Maîtriser le français (lu, écrit, parlé)" }
+                  { icon: FileText, text: "Permis B valide depuis au moins 3 ans" },
+                  { icon: CheckCircle, text: "Casier judiciaire vierge (bulletin n°2)" },
+                  { icon: Target, text: "Aptitude médicale (visite médicale préfectorale)" },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-4 p-4 bg-background rounded-lg border">
-                    <div className="p-2 bg-primary/10 rounded-lg">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
                     <span className="font-medium">{item.text}</span>
@@ -499,42 +494,31 @@ const FormationTaxi = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Euro className="h-5 w-5 text-primary" />
-                    Tarif et financement
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="text-center py-6 bg-background rounded-lg">
-                    <p className="text-4xl font-bold text-primary">{taxiFormation?.price || 1890}€</p>
-                    <p className="text-muted-foreground">Formation complète</p>
+              <Card className="p-8 bg-primary text-primary-foreground">
+                <h3 className="text-2xl font-bold mb-4">Financement</h3>
+                <p className="text-primary-foreground/90 mb-6">
+                  Nous proposons des solutions adaptées à votre budget pour vous permettre de réaliser votre projet professionnel.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Paiement en 4x sans frais</span>
                   </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Paiement en 4x sans frais</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Supports de cours inclus</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Accès plateforme e-learning</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Préparation examen incluse</span>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Éligible CPF (sous conditions)</span>
                   </div>
-                  
-                  <Button className="w-full" size="lg" onClick={() => setShowPreRegistration(true)}>
-                    Demander un devis personnalisé
-                  </Button>
-                </CardContent>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Aide Pôle Emploi possible</span>
+                  </div>
+                </div>
+                <Button 
+                  className="w-full mt-6 bg-white text-primary hover:bg-white/90"
+                  onClick={() => setShowPreRegistration(true)}
+                >
+                  Demander un devis
+                </Button>
               </Card>
             </motion.div>
           </div>
@@ -552,7 +536,7 @@ const FormationTaxi = () => {
           >
             <Badge className="mb-4">Témoignages</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Ils ont réussi leur formation
+              Ils ont réussi avec nous
             </h2>
           </motion.div>
           
@@ -572,17 +556,10 @@ const FormationTaxi = () => {
                         <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground mb-6 italic">
-                      "{testimonial.content}"
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <span className="font-bold text-primary">{testimonial.name[0]}</span>
-                      </div>
-                      <div>
-                        <p className="font-medium">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                      </div>
+                    <p className="text-muted-foreground mb-4">"{testimonial.content}"</p>
+                    <div>
+                      <p className="font-medium">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -610,7 +587,7 @@ const FormationTaxi = () => {
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`} className="bg-background rounded-lg border px-6">
+                <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-lg border px-6">
                   <AccordionTrigger className="text-left font-medium">
                     {faq.question}
                   </AccordionTrigger>
@@ -627,33 +604,49 @@ const FormationTaxi = () => {
       {/* CTA */}
       <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Prêt à devenir chauffeur de taxi ?
-          </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Inscrivez-vous dès maintenant et rejoignez notre prochaine session de formation
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary" onClick={() => setShowPreRegistration(true)}>
-              <GraduationCap className="mr-2 h-5 w-5" />
-              S'inscrire maintenant
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-              <a href="tel:0188750555">
-                <Phone className="mr-2 h-5 w-5" />
-                01 88 75 05 55
-              </a>
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Prêt à devenir chauffeur de taxi ?
+            </h2>
+            <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+              Rejoignez nos prochaines sessions de formation et obtenez votre carte professionnelle
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button 
+                size="lg" 
+                variant="secondary"
+                onClick={() => setShowPreRegistration(true)}
+              >
+                <GraduationCap className="mr-2 h-5 w-5" />
+                S'inscrire maintenant
+              </Button>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" asChild>
+                <Link to="/contact">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Nous appeler
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <PreRegistrationForm
-        isOpen={showPreRegistration}
-        onClose={() => setShowPreRegistration(false)}
-        formationTitle={taxiFormation?.title || "Formation Taxi"}
-        formationDuration={taxiFormation?.duration || "63h"}
-      />
+      {/* Pre-registration Modal */}
+      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Pré-inscription Formation Taxi</DialogTitle>
+          </DialogHeader>
+          <PreRegistrationForm
+            formationTitle="Formation Taxi"
+            formationDuration="63h"
+          />
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };

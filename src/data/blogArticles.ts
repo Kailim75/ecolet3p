@@ -28,7 +28,7 @@ export const blogArticles: BlogArticle[] = [
     category: "VTC",
     readTime: "8 min",
     publishDate: "2025-01-15",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: vtcDriver2025,
     content: `
 ## Introduction
@@ -99,7 +99,7 @@ Devenir chauffeur VTC est un projet accessible avec une bonne préparation. T3P 
     category: "TAXI",
     readTime: "7 min",
     publishDate: "2025-01-10",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: taxiDriverFormation,
     content: `
 ## Qu'est-ce que la carte professionnelle T3P ?
@@ -165,7 +165,7 @@ La carte professionnelle taxi ouvre les portes d'un métier stable et recherché
     category: "Guide",
     readTime: "10 min",
     publishDate: "2025-01-08",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: vtcVsTaxiComparison,
     content: `
 ## Introduction
@@ -255,7 +255,7 @@ VTC et Taxi sont deux beaux métiers avec chacun leurs avantages. L'important es
     category: "VTC",
     readTime: "6 min",
     publishDate: "2025-01-05",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: carteProfessionnelleVtc,
     content: `
 ## Les 5 étapes vers votre carte VTC
@@ -363,7 +363,7 @@ Le parcours vers la carte VTC est structuré et accessible. Avec T3P Campus, vou
     category: "Financement",
     readTime: "5 min",
     publishDate: "2025-01-02",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: financementFormation,
     content: `
 ## Le financement, un obstacle ?
@@ -460,7 +460,7 @@ Le financement ne doit pas être un frein à votre projet professionnel. Entre l
     category: "VMDTR",
     readTime: "7 min",
     publishDate: "2025-01-18",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: motoTaxiVmdtr,
     content: `
 ## Qu'est-ce que la formation VMDTR ?

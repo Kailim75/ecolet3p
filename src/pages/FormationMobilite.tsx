@@ -143,8 +143,8 @@ const FormationMobilite = () => {
     "description": "Formation passerelle de 14 heures pour passer de Taxi à VTC ou inversement. Obtenez votre double carte professionnelle en 2 jours.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "T3P Campus",
-      "sameAs": "https://t3pcampus.fr"
+      "name": "ECOLE T3P",
+      "sameAs": "https://ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -159,7 +159,7 @@ const FormationMobilite = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Montrouge"
+        "name": session.location || "ECOLE T3P Montrouge"
       }
     })),
     "educationalCredentialAwarded": "Carte Professionnelle complémentaire",
@@ -191,10 +191,10 @@ const FormationMobilite = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Mobilité - Passerelle Taxi VTC | T3P Campus Montrouge</title>
+        <title>Formation Mobilité - Passerelle Taxi VTC | ECOLE T3P Montrouge</title>
         <meta name="description" content="Formation Mobilité 14h pour passer de Taxi à VTC ou inversement. Obtenez votre double carte professionnelle en 2 jours. Formation rapide et efficace." />
-        <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation T3P montrouge" />
-        <link rel="canonical" href="https://t3pcampus.fr/formations/mobilite" />
+        <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation ECOLE T3P montrouge" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/mobilite" />
         
         {/* Preload critical hero image */}
         <link 
@@ -204,9 +204,9 @@ const FormationMobilite = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation Mobilité - Passerelle Taxi VTC | T3P Campus" />
+        <meta property="og:title" content="Formation Mobilité - Passerelle Taxi VTC | ECOLE T3P" />
         <meta property="og:description" content="Passez de Taxi à VTC ou inversement en seulement 2 jours avec notre formation Mobilité." />
-        <meta property="og:url" content="https://t3pcampus.fr/formations/mobilite" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations/mobilite" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -219,19 +219,19 @@ const FormationMobilite = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://t3pcampus.fr/"
+              "item": "https://ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://t3pcampus.fr/formations"
+              "item": "https://ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Formation Mobilité",
-              "item": "https://t3pcampus.fr/formations/mobilite"
+              "item": "https://ecolet3p.fr/formations/mobilite"
             }
           ]
         })}</script>
@@ -342,7 +342,7 @@ const FormationMobilite = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-medium">Nos promotions réussies</p>
-                  <p className="text-white/80 text-sm">Centre T3P Campus - Montrouge</p>
+                  <p className="text-white/80 text-sm">Centre ECOLE T3P - Montrouge</p>
                 </div>
               </div>
 

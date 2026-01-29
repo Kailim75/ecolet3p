@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.7, ease: smoothEase }}
           className="text-center mb-16"
         >
-          <h2 className="section-title mb-4">ILS ONT RÉUSSI AVEC <span className="text-gold">T3P CAMPUS</span></h2>
+          <h2 className="section-title mb-4">ILS ONT RÉUSSI AVEC <span className="text-gold">ECOLE T3P</span></h2>
           <p className="section-subtitle mx-auto">Rejoignez les 2 000+ professionnels formés depuis 2014</p>
         </motion.div>
 

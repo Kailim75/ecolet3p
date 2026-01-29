@@ -147,27 +147,27 @@ const Formations = () => {
 
   // Image mapping for formations
   const formationImages: Record<string, string> = {
-    taxi: "https://t3pcampus.fr/og-image.jpg",
-    vtc: "https://t3pcampus.fr/og-image.jpg",
-    vmdtr: "https://t3pcampus.fr/og-image.jpg",
-    mobilite: "https://t3pcampus.fr/og-image.jpg"
+    taxi: "https://ecolet3p.fr/og-image.jpg",
+    vtc: "https://ecolet3p.fr/og-image.jpg",
+    vmdtr: "https://ecolet3p.fr/og-image.jpg",
+    mobilite: "https://ecolet3p.fr/og-image.jpg"
   };
 
   // Generate ItemList schema for SEO (simplified to avoid Carousel validation issues)
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Formations T3P Campus - Taxi, VTC, VMDTR",
+    "name": "Formations ECOLE T3P - Taxi, VTC, VMDTR",
     "description": "Catalogue des formations professionnelles pour chauffeurs à Montrouge",
-    "url": "https://t3pcampus.fr/formations",
+    "url": "https://ecolet3p.fr/formations",
     "numberOfItems": formations.length,
     "itemListElement": formations.map((formation, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "name": formation.title,
       "url": getFormationDetailRoute(formation.category) 
-        ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
-        : "https://t3pcampus.fr/formations"
+        ? `https://ecolet3p.fr${getFormationDetailRoute(formation.category)}`
+        : "https://ecolet3p.fr/formations"
     }))
   };
 
@@ -177,11 +177,11 @@ const Formations = () => {
     "@type": "Course",
     "name": formation.title,
     "description": formation.description || `Formation ${formation.title} certifiante`,
-    "image": formationImages[formation.category] || "https://t3pcampus.fr/og-image.jpg",
+    "image": formationImages[formation.category] || "https://ecolet3p.fr/og-image.jpg",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "T3P Campus",
-      "sameAs": "https://t3pcampus.fr",
+      "name": "ECOLE T3P",
+      "sameAs": "https://ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
@@ -196,23 +196,23 @@ const Formations = () => {
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "url": getFormationDetailRoute(formation.category) 
-        ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
-        : "https://t3pcampus.fr/formations"
+        ? `https://ecolet3p.fr${getFormationDetailRoute(formation.category)}`
+        : "https://ecolet3p.fr/formations"
     } : undefined,
     "timeRequired": `PT${formation.duration.replace(/[^0-9]/g, '')}H`,
     "educationalCredentialAwarded": formation.category === "taxi" ? "Carte Professionnelle Taxi" :
       formation.category === "vtc" ? "Carte Professionnelle VTC" :
       formation.category === "vmdtr" ? "Certification VMDTR" : "Attestation de formation",
     "url": getFormationDetailRoute(formation.category) 
-      ? `https://t3pcampus.fr${getFormationDetailRoute(formation.category)}`
-      : "https://t3pcampus.fr/formations",
+      ? `https://ecolet3p.fr${getFormationDetailRoute(formation.category)}`
+      : "https://ecolet3p.fr/formations",
     "inLanguage": "fr-FR",
     "hasCourseInstance": {
       "@type": "CourseInstance",
       "courseMode": "Onsite",
       "location": {
         "@type": "Place",
-        "name": "T3P Campus Montrouge",
+        "name": "ECOLE T3P Montrouge",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "3 rue Corneille",
@@ -232,13 +232,13 @@ const Formations = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://t3pcampus.fr/"
+        "item": "https://ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Formations",
-        "item": "https://t3pcampus.fr/formations"
+        "item": "https://ecolet3p.fr/formations"
       }
     ]
   };
@@ -246,21 +246,21 @@ const Formations = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formations Taxi VTC VMDTR à Montrouge | T3P Campus - 94% Réussite</title>
+        <title>Formations Taxi VTC VMDTR à Montrouge | ECOLE T3P - 94% Réussite</title>
         <meta name="description" content="Découvrez nos formations Taxi, VTC et VMDTR certifiantes à Montrouge. Taux de réussite 94%, paiement en 4x sans frais, formateurs experts. Inscrivez-vous dès maintenant !" />
-        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, carte professionnelle taxi, carte VTC, centre formation Montrouge, T3P Campus" />
-        <link rel="canonical" href="https://t3pcampus.fr/formations" />
+        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, carte professionnelle taxi, carte VTC, centre formation Montrouge, ECOLE T3P" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations" />
         
-        <meta property="og:title" content="Formations Taxi VTC VMDTR - T3P Campus Montrouge" />
+        <meta property="og:title" content="Formations Taxi VTC VMDTR - ECOLE T3P Montrouge" />
         <meta property="og:description" content="Formations certifiantes Taxi, VTC et VMDTR. 94% de réussite, paiement en 4x, formateurs experts du métier." />
-        <meta property="og:url" content="https://t3pcampus.fr/formations" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Formations Taxi VTC VMDTR - T3P Campus" />
+        <meta name="twitter:title" content="Formations Taxi VTC VMDTR - ECOLE T3P" />
         <meta name="twitter:description" content="Formations certifiantes avec 94% de réussite. Inscrivez-vous maintenant !" />
-        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

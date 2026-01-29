@@ -149,12 +149,12 @@ const FormationVTC = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation VTC - Carte Professionnelle | T3P Campus Montrouge",
+    "name": "Formation VTC - Carte Professionnelle | ECOLE T3P Montrouge",
     "description": "Formation complète pour obtenir votre carte professionnelle VTC à Montrouge. Apprenez le métier de chauffeur privé, les applications et la gestion d'entreprise.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "T3P Campus",
-      "sameAs": "https://t3pcampus.fr",
+      "name": "ECOLE T3P",
+      "sameAs": "https://ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
@@ -177,7 +177,7 @@ const FormationVTC = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Montrouge",
+        "name": session.location || "ECOLE T3P Montrouge",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "3 rue Corneille",
@@ -217,10 +217,10 @@ const FormationVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VTC Montrouge Paris - Carte Professionnelle | T3P Campus</title>
+        <title>Formation VTC Montrouge Paris - Carte Professionnelle | ECOLE T3P</title>
         <meta name="description" content="Formation VTC complète à Montrouge (Paris). Obtenez votre carte professionnelle VTC, travaillez avec Uber, Bolt. Paiement en 4x sans frais, 94% de réussite." />
-        <meta name="keywords" content="formation vtc montrouge, formation vtc paris, carte professionnelle vtc, devenir chauffeur vtc, uber, formation T3P" />
-        <link rel="canonical" href="https://t3pcampus.fr/formations/vtc" />
+        <meta name="keywords" content="formation vtc montrouge, formation vtc paris, carte professionnelle vtc, devenir chauffeur vtc, uber, formation ECOLE T3P" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/vtc" />
         
         {/* Preload critical hero image */}
         <link 
@@ -230,11 +230,11 @@ const FormationVTC = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation VTC Montrouge Paris - Carte Professionnelle | T3P Campus" />
+        <meta property="og:title" content="Formation VTC Montrouge Paris - Carte Professionnelle | ECOLE T3P" />
         <meta property="og:description" content="Formation VTC complète à Montrouge. Devenez chauffeur VTC professionnel et travaillez avec Uber, Bolt, Heetch." />
-        <meta property="og:url" content="https://t3pcampus.fr/formations/vtc" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations/vtc" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -246,19 +246,19 @@ const FormationVTC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://t3pcampus.fr/"
+              "item": "https://ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://t3pcampus.fr/formations"
+              "item": "https://ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Formation VTC",
-              "item": "https://t3pcampus.fr/formations/vtc"
+              "item": "https://ecolet3p.fr/formations/vtc"
             }
           ]
         })}</script>
@@ -360,7 +360,7 @@ const FormationVTC = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImageVTC} 
-                  alt="Formation VTC en session - T3P Campus" 
+                  alt="Formation VTC en session - ECOLE T3P" 
                   className="w-full h-64 object-cover"
                   loading="eager"
                   decoding="async"
@@ -369,7 +369,7 @@ const FormationVTC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-medium">Environnement moderne</p>
-                  <p className="text-white/80 text-sm">Centre T3P Campus - Montrouge</p>
+                  <p className="text-white/80 text-sm">Centre ECOLE T3P - Montrouge</p>
                 </div>
               </div>
 
@@ -430,7 +430,7 @@ const FormationVTC = () => {
               Le programme de formation VTC
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Une formation complète pour maîtriser tous les aspects du métier de chauffeur VTC
+              Une formation intensive pour maîtriser tous les aspects du métier de chauffeur VTC
             </p>
           </motion.div>
           
@@ -452,10 +452,10 @@ const FormationVTC = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {module.topics.map((topic, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          {topic}
+                      {module.topics.map((topic, topicIndex) => (
+                        <li key={topicIndex} className="flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 text-secondary mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{topic}</span>
                         </li>
                       ))}
                     </ul>
@@ -467,7 +467,7 @@ const FormationVTC = () => {
         </div>
       </section>
 
-      {/* Avantages VTC */}
+      {/* Prérequis */}
       <section className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -476,27 +476,22 @@ const FormationVTC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Badge className="mb-4">Pourquoi le VTC ?</Badge>
+              <Badge className="mb-4">Conditions d'accès</Badge>
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Les avantages du métier VTC
+                Prérequis pour la formation
               </h2>
-              
               <div className="space-y-4">
                 {[
-                  { icon: Clock, title: "Flexibilité horaire", text: "Choisissez vos heures de travail selon votre vie personnelle" },
-                  { icon: Euro, title: "Revenus attractifs", text: "Potentiel de 3000€ à 5000€ CA mensuel" },
-                  { icon: Smartphone, title: "Multi-plateformes", text: "Travaillez avec Uber, Bolt, Heetch et autres" },
-                  { icon: Users, title: "Indépendance", text: "Soyez votre propre patron, gérez votre activité" },
-                  { icon: Car, title: "Véhicule au choix", text: "Location ou achat, neuf ou occasion" }
+                  { icon: Users, text: "Avoir 21 ans minimum" },
+                  { icon: FileText, text: "Permis B valide depuis au moins 3 ans" },
+                  { icon: CheckCircle, text: "Casier judiciaire vierge (bulletin n°2)" },
+                  { icon: Target, text: "Aptitude médicale (visite médicale préfectorale)" },
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-4 p-4 bg-background rounded-lg border">
-                    <div className="p-2 bg-secondary/10 rounded-lg">
+                  <div key={index} className="flex items-center gap-4 p-4 bg-background rounded-lg border">
+                    <div className="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center">
                       <item.icon className="h-5 w-5 text-secondary" />
                     </div>
-                    <div>
-                      <h3 className="font-medium">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.text}</p>
-                    </div>
+                    <span className="font-medium">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -507,42 +502,31 @@ const FormationVTC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gradient-to-br from-secondary/5 to-primary/5 border-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Euro className="h-5 w-5 text-secondary" />
-                    Tarif et financement
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="text-center py-6 bg-background rounded-lg">
-                    <p className="text-4xl font-bold text-secondary">{vtcFormation?.price || 1690}€</p>
-                    <p className="text-muted-foreground">Formation complète</p>
+              <Card className="p-8 bg-secondary text-secondary-foreground">
+                <h3 className="text-2xl font-bold mb-4">Financement</h3>
+                <p className="text-secondary-foreground/90 mb-6">
+                  Nous proposons des solutions adaptées à votre budget pour vous permettre de réaliser votre projet professionnel.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Paiement en 4x sans frais</span>
                   </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Paiement en 4x sans frais</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Supports de cours inclus</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Module anglais inclus</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-3 bg-background rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>Accompagnement création entreprise</span>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Éligible CPF (sous conditions)</span>
                   </div>
-                  
-                  <Button className="w-full" size="lg" onClick={() => setShowPreRegistration(true)}>
-                    Demander un devis personnalisé
-                  </Button>
-                </CardContent>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Aide Pôle Emploi possible</span>
+                  </div>
+                </div>
+                <Button 
+                  className="w-full mt-6 bg-white text-secondary hover:bg-white/90"
+                  onClick={() => setShowPreRegistration(true)}
+                >
+                  Demander un devis
+                </Button>
               </Card>
             </motion.div>
           </div>
@@ -560,7 +544,7 @@ const FormationVTC = () => {
           >
             <Badge className="mb-4">Témoignages</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Ils sont devenus chauffeurs VTC
+              Ils ont réussi avec nous
             </h2>
           </motion.div>
           
@@ -580,17 +564,10 @@ const FormationVTC = () => {
                         <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-muted-foreground mb-6 italic">
-                      "{testimonial.content}"
-                    </p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                        <span className="font-bold text-secondary">{testimonial.name[0]}</span>
-                      </div>
-                      <div>
-                        <p className="font-medium">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                      </div>
+                    <p className="text-muted-foreground mb-4">"{testimonial.content}"</p>
+                    <div>
+                      <p className="font-medium">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -611,14 +588,14 @@ const FormationVTC = () => {
           >
             <Badge className="mb-4">FAQ</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Questions fréquentes VTC
+              Questions fréquentes
             </h2>
           </motion.div>
           
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`} className="bg-background rounded-lg border px-6">
+                <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-lg border px-6">
                   <AccordionTrigger className="text-left font-medium">
                     {faq.question}
                   </AccordionTrigger>
@@ -635,33 +612,50 @@ const FormationVTC = () => {
       {/* CTA */}
       <section className="py-16 lg:py-24 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Prêt à devenir chauffeur VTC ?
-          </h2>
-          <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Rejoignez les milliers de chauffeurs VTC qui ont démarré leur activité grâce à notre formation
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="outline" className="bg-background text-secondary hover:bg-background/90" onClick={() => setShowPreRegistration(true)}>
-              <GraduationCap className="mr-2 h-5 w-5" />
-              S'inscrire maintenant
-            </Button>
-            <Button size="lg" variant="outline" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary" asChild>
-              <a href="tel:+33XXXXXXXXX">
-                <Phone className="mr-2 h-5 w-5" />
-                04 XX XX XX XX
-              </a>
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Prêt à devenir chauffeur VTC ?
+            </h2>
+            <p className="text-lg text-secondary-foreground/90 mb-8 max-w-2xl mx-auto">
+              Rejoignez nos prochaines sessions de formation et obtenez votre carte professionnelle
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button 
+                size="lg" 
+                variant="default"
+                className="bg-white text-secondary hover:bg-white/90"
+                onClick={() => setShowPreRegistration(true)}
+              >
+                <GraduationCap className="mr-2 h-5 w-5" />
+                S'inscrire maintenant
+              </Button>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10" asChild>
+                <Link to="/contact">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Nous appeler
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <PreRegistrationForm
-        isOpen={showPreRegistration}
-        onClose={() => setShowPreRegistration(false)}
-        formationTitle={vtcFormation?.title || "Formation VTC"}
-        formationDuration={vtcFormation?.duration || "63h"}
-      />
+      {/* Pre-registration Modal */}
+      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Pré-inscription Formation VTC</DialogTitle>
+          </DialogHeader>
+          <PreRegistrationForm
+            formationTitle="Formation VTC"
+            formationDuration={vtcFormation?.duration || "63h"}
+          />
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };
