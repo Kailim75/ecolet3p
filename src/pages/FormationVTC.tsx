@@ -217,9 +217,9 @@ const FormationVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation T3P Parcours VTC Montrouge Paris | ECOLE T3P</title>
-        <meta name="description" content="Parcours VTC de la formation T3P à Montrouge. Obtenez votre carte professionnelle VTC, travaillez avec Uber, Bolt. Paiement en 4x sans frais, 94% de réussite." />
-        <meta name="keywords" content="formation T3P VTC, parcours VTC montrouge, carte professionnelle vtc, devenir chauffeur vtc, uber, ECOLE T3P" />
+        <title>Formation VTC Paris Montrouge | ECOLE T3P - Uber, Bolt - 94% Réussite</title>
+        <meta name="description" content="Devenez chauffeur VTC professionnel avec ECOLE T3P à Montrouge. Travaillez avec Uber, Bolt, Heetch. 94% de réussite, paiement 4x sans frais. Demandez votre devis !" />
+        <meta name="keywords" content="formation VTC Paris, carte professionnelle VTC, devenir chauffeur VTC, formation Uber, formation Bolt, centre formation VTC Montrouge, reconversion VTC, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations/vtc" />
         
         {/* Preload critical hero image */}
@@ -230,8 +230,8 @@ const FormationVTC = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation T3P Parcours VTC | ECOLE T3P Montrouge" />
-        <meta property="og:description" content="Parcours VTC de la formation T3P. Devenez chauffeur VTC professionnel et travaillez avec Uber, Bolt, Heetch." />
+        <meta property="og:title" content="Formation VTC Paris | ECOLE T3P - Uber, Bolt - 94% Réussite" />
+        <meta property="og:description" content="Devenez chauffeur VTC et travaillez avec Uber, Bolt, Heetch. 94% de réussite, paiement 4x sans frais." />
         <meta property="og:url" content="https://ecolet3p.fr/formations/vtc" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />

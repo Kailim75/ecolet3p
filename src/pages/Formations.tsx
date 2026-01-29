@@ -246,13 +246,13 @@ const Formations = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formations Taxi VTC VMDTR à Montrouge | ECOLE T3P - 94% Réussite</title>
-        <meta name="description" content="Découvrez nos formations Taxi, VTC et VMDTR certifiantes à Montrouge. Taux de réussite 94%, paiement en 4x sans frais, formateurs experts. Inscrivez-vous dès maintenant !" />
-        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, carte professionnelle taxi, carte VTC, centre formation Montrouge, ECOLE T3P" />
+        <title>Formation Taxi VTC VMDTR Paris Montrouge | ECOLE T3P - 94% Réussite</title>
+        <meta name="description" content="Obtenez votre carte professionnelle Taxi ou VTC avec ECOLE T3P. Formation agréée à Montrouge, 94% de réussite, paiement en 4x sans frais. Demandez votre devis gratuit !" />
+        <meta name="keywords" content="formation taxi Paris, formation VTC Paris, formation VMDTR, carte professionnelle taxi, carte VTC, centre formation agréé Montrouge, reconversion chauffeur professionnel, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations" />
         
-        <meta property="og:title" content="Formations Taxi VTC VMDTR - ECOLE T3P Montrouge" />
-        <meta property="og:description" content="Formations certifiantes Taxi, VTC et VMDTR. 94% de réussite, paiement en 4x, formateurs experts du métier." />
+        <meta property="og:title" content="Formation Taxi VTC VMDTR Paris - ECOLE T3P | 94% Réussite" />
+        <meta property="og:description" content="Devenez chauffeur professionnel avec une formation agréée. Taxi, VTC, VMDTR. 94% de réussite, paiement 4x sans frais." />
         <meta property="og:url" content="https://ecolet3p.fr/formations" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
