@@ -46,7 +46,7 @@ Avant de vous lancer, assurez-vous de remplir ces conditions :
 
 ## La formation VTC obligatoire
 
-La formation initiale VTC est **obligatoire** pour passer l'examen. Chez T3P Campus, notre formation de 10 jours couvre :
+La formation initiale VTC est **obligatoire** pour passer l'examen. Chez ECOLE T3P, notre formation de 10 jours couvre :
 
 ### Module théorique
 - Réglementation du transport public particulier de personnes
@@ -70,7 +70,7 @@ L'examen se compose de 7 épreuves :
 6. Développement commercial
 7. Réglementation nationale
 
-**Taux de réussite T3P Campus : 97%**
+**Taux de réussite ECOLE T3P : 97%**
 
 ## Obtenir sa carte professionnelle VTC
 
@@ -88,7 +88,7 @@ Plusieurs options s'offrent à vous :
 
 ## Conclusion
 
-Devenir chauffeur VTC est un projet accessible avec une bonne préparation. T3P Campus vous accompagne à chaque étape de votre reconversion.
+Devenir chauffeur VTC est un projet accessible avec une bonne préparation. ECOLE T3P vous accompagne à chaque étape de votre reconversion.
     `
   },
   {
@@ -115,7 +115,7 @@ La formation n'est pas obligatoire pour passer l'examen, mais elle est **forteme
 - **Accompagnement** : Suivi personnalisé par des formateurs experts
 - **Préparation complète** : Théorie + pratique
 
-## Le programme de formation taxi T3P Campus
+## Le programme de formation taxi ECOLE T3P
 
 ### Semaine 1 : Théorie
 - Réglementation du transport de personnes
@@ -150,7 +150,7 @@ L'examen comprend des épreuves écrites et pratiques :
 
 ## Le coût de la formation
 
-Chez T3P Campus, nous proposons des facilités de paiement en 4x sans frais pour rendre la formation accessible à tous.
+Chez ECOLE T3P, nous proposons des facilités de paiement en 4x sans frais pour rendre la formation accessible à tous.
 
 ## Conclusion
 
@@ -234,7 +234,7 @@ VTC ou Taxi ? C'est LA question que se posent tous les candidats au transport de
 
 Saviez-vous qu'il existe une **formation passerelle** ? Si vous êtes déjà VTC, vous pouvez devenir taxi (et inversement) avec une formation complémentaire courte.
 
-Chez T3P Campus, nous proposons cette formation passerelle de 7 jours pour les professionnels souhaitant élargir leur activité.
+Chez ECOLE T3P, nous proposons cette formation passerelle de 7 jours pour les professionnels souhaitant élargir leur activité.
 
 ## Notre recommandation
 
@@ -244,7 +244,7 @@ Il n'y a pas de "meilleur" choix universel. Tout dépend de votre situation pers
 
 ## Conclusion
 
-VTC et Taxi sont deux beaux métiers avec chacun leurs avantages. L'important est de choisir celui qui correspond à vos aspirations. T3P Campus vous forme aux deux avec le même niveau d'excellence.
+VTC et Taxi sont deux beaux métiers avec chacun leurs avantages. L'important est de choisir celui qui correspond à vos aspirations. ECOLE T3P vous forme aux deux avec le même niveau d'excellence.
     `
   },
   {
@@ -271,13 +271,13 @@ Avant tout, assurez-vous de remplir les conditions :
 ✅ Avoir un casier judiciaire compatible
 ✅ Être apte médicalement
 
-**Conseil T3P** : Nous vérifions gratuitement votre éligibilité lors de votre premier rendez-vous.
+**Conseil ECOLE T3P** : Nous vérifions gratuitement votre éligibilité lors de votre premier rendez-vous.
 
 ## Étape 2 : Suivre la formation VTC
 
 La formation initiale est votre meilleur atout pour réussir l'examen.
 
-### Chez T3P Campus :
+### Chez ECOLE T3P :
 - **Durée** : 10 jours intensifs
 - **Format** : Présentiel à Montrouge
 - **Contenu** : Théorie + pratique
@@ -352,7 +352,7 @@ Avec votre carte en poche, vous pouvez exercer ! Mais il reste quelques démarch
 
 ## Conclusion
 
-Le parcours vers la carte VTC est structuré et accessible. Avec T3P Campus, vous bénéficiez d'un accompagnement à chaque étape. Contactez-nous pour démarrer votre projet !
+Le parcours vers la carte VTC est structuré et accessible. Avec ECOLE T3P, vous bénéficiez d'un accompagnement à chaque étape. Contactez-nous pour démarrer votre projet !
     `
   },
   {
@@ -372,7 +372,7 @@ Le coût d'une formation professionnelle peut sembler élevé. Mais de nombreuse
 
 ## Option 1 : Paiement en plusieurs fois
 
-Chez T3P Campus, nous proposons un **paiement en 4x sans frais** pour toutes nos formations.
+Chez ECOLE T3P, nous proposons un **paiement en 4x sans frais** pour toutes nos formations.
 
 ### Comment ça marche ?
 - 1er versement à l'inscription
@@ -418,7 +418,7 @@ Chaque région dispose de budgets formation :
 Si vous n'êtes pas éligible aux aides :
 
 ### Le paiement échelonné
-- Jusqu'à 4x sans frais chez T3P Campus
+- Jusqu'à 4x sans frais chez ECOLE T3P
 - Pas de conditions de revenus
 
 ### L'épargne personnelle
@@ -438,7 +438,7 @@ Si vous n'êtes pas éligible aux aides :
 
 ## Notre accompagnement
 
-Chez T3P Campus, nous vous aidons à identifier les aides auxquelles vous avez droit :
+Chez ECOLE T3P, nous vous aidons à identifier les aides auxquelles vous avez droit :
 
 ✅ Entretien gratuit pour évaluer votre situation
 ✅ Aide à la constitution des dossiers
@@ -497,7 +497,7 @@ Pour vous inscrire à notre formation, vous devez :
 
 **Important** : Le permis A est obligatoire. Le permis A2 ne suffit pas pour exercer en moto-taxi.
 
-## Le programme de formation T3P Campus
+## Le programme de formation ECOLE T3P
 
 Notre formation VMDTR dure **7 jours** et couvre l'ensemble des compétences nécessaires.
 
@@ -552,7 +552,7 @@ Les revenus mensuels estimés vont de 1500-2500€ en temps partiel à 3000-5000
 
 ## Conclusion
 
-La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs de deux-roues. Avec T3P Campus, bénéficiez d'une formation complète et d'un accompagnement personnalisé.
+La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs de deux-roues. Avec ECOLE T3P, bénéficiez d'une formation complète et d'un accompagnement personnalisé.
     `
   },
   {
@@ -563,7 +563,7 @@ La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs d
     category: "Formation Continue",
     readTime: "6 min",
     publishDate: "2025-01-16",
-    author: "T3P Campus",
+    author: "ECOLE T3P",
     image: formationContinue,
     content: `
 ## La formation continue : une obligation légale
@@ -617,7 +617,7 @@ Notre formation continue dure **14 heures** réparties sur 2 jours.
 - Développement commercial
 - Bien-être au travail
 
-## Les modalités pratiques chez T3P Campus
+## Les modalités pratiques chez ECOLE T3P
 
 - **Durée** : 2 jours (14 heures)
 - **Lieu** : Montrouge (92)
@@ -648,7 +648,7 @@ Au-delà de l'obligation légale, la formation continue vous apporte :
 
 La formation continue n'est pas qu'une contrainte administrative : c'est l'occasion de faire le point sur votre pratique et de vous perfectionner.
 
-Chez T3P Campus, nous rendons cette formation agréable et enrichissante. Réservez votre place dès maintenant !
+Chez ECOLE T3P, nous rendons cette formation agréable et enrichissante. Réservez votre place dès maintenant !
     `
   }
 ];
