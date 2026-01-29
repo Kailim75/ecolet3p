@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carte de Visite - ECOLE T3P</title>
+  <title>Carte de Visite V2 - ECOLE T3P</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,13 +60,13 @@
       justify-content: center;
     }
     
-    /* === RECTO (Fond Vert Forêt) === */
+    /* === RECTO V2 (Fond Vert Forêt + mention agréé) === */
     .card-recto {
       width: 85mm;
       height: 55mm;
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
       border-radius: 3mm;
-      padding: 6mm;
+      padding: 5mm 6mm 6mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -86,10 +86,22 @@
       background: linear-gradient(90deg, #D4A853, #E4BE73, #D4A853);
     }
     
+    .recto-badge {
+      position: absolute;
+      top: 4mm;
+      right: 5mm;
+      font-size: 1.8mm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.7;
+      font-weight: 500;
+    }
+    
     .recto-header {
       display: flex;
       align-items: center;
       gap: 4mm;
+      margin-top: 2mm;
     }
     
     .recto-logo {
@@ -141,13 +153,13 @@
       opacity: 0.7;
     }
     
-    /* === VERSO (Fond Crème) === */
+    /* === VERSO V2 (Fond Crème - visibilité renforcée) === */
     .card-verso {
       width: 85mm;
       height: 55mm;
       background: #F5EBD7;
       border-radius: 3mm;
-      padding: 6mm;
+      padding: 5mm 6mm;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -157,7 +169,7 @@
     .verso-contact {
       display: flex;
       flex-direction: column;
-      gap: 2.5mm;
+      gap: 2.2mm;
     }
     
     .verso-item {
@@ -166,6 +178,17 @@
       gap: 3mm;
       font-size: 2.5mm;
       color: #4B463C;
+    }
+    
+    /* Mise en évidence téléphone et site web */
+    .verso-item.highlight {
+      font-size: 2.8mm;
+      font-weight: 600;
+      color: #1B4D3E;
+    }
+    
+    .verso-item.highlight .verso-icon {
+      color: #D4A853;
     }
     
     .verso-icon {
@@ -179,8 +202,8 @@
     }
     
     .verso-certif {
-      margin-top: 4mm;
-      padding-top: 3mm;
+      margin-top: 3mm;
+      padding-top: 2.5mm;
       border-top: 1px solid #E8DCC4;
       text-align: center;
     }
@@ -197,6 +220,66 @@
       color: #1B4D3E;
       font-weight: 700;
       margin-top: 1mm;
+    }
+    
+    /* === VERSO ALTERNATIF avec QR Code === */
+    .card-verso-qr {
+      width: 85mm;
+      height: 55mm;
+      background: #F5EBD7;
+      border-radius: 3mm;
+      padding: 5mm 6mm;
+      display: flex;
+      gap: 4mm;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    
+    .verso-qr-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2mm;
+    }
+    
+    .verso-qr-left .verso-item {
+      font-size: 2.3mm;
+    }
+    
+    .verso-qr-left .verso-item.highlight {
+      font-size: 2.6mm;
+    }
+    
+    .verso-qr-right {
+      width: 24mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2mm;
+    }
+    
+    .qr-placeholder {
+      width: 20mm;
+      height: 20mm;
+      background: white;
+      border: 1px solid #E0DCD4;
+      border-radius: 2mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2mm;
+      color: #898172;
+      text-align: center;
+      padding: 2mm;
+    }
+    
+    .qr-label {
+      font-size: 1.8mm;
+      color: #1B4D3E;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.3;
     }
     
     /* Instructions */
@@ -261,6 +344,31 @@
       font-weight: 600;
     }
     
+    .version-tag {
+      display: inline-block;
+      background: #1B4D3E;
+      color: #F5EBD7;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+    
+    .print-notes {
+      margin-top: 15px;
+      padding: 12px;
+      background: #fff9e6;
+      border: 1px solid #D4A853;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #5A5030;
+    }
+    
+    .print-notes strong {
+      color: #1B4D3E;
+    }
+    
     @media print {
       body { 
         background: white; 
@@ -270,7 +378,7 @@
         box-shadow: none;
         padding: 10mm;
       }
-      .instructions, .specs, h1, .subtitle, .section-title {
+      .instructions, .specs, h1, .subtitle, .section-title, .print-notes {
         display: none;
       }
     }
@@ -278,14 +386,15 @@
 </head>
 <body>
   <div class="page">
-    <h1>Cartes de Visite - ECOLE T3P</h1>
-    <p class="subtitle">Format 85 × 55 mm • Recto vert forêt / Verso crème</p>
+    <h1>Cartes de Visite - ECOLE T3P <span class="version-tag">V2</span></h1>
+    <p class="subtitle">Format 85 × 55 mm • Recto vert forêt / Verso crème • Prêt pour impression</p>
     
-    <h3 class="section-title">📇 Modèle Recto / Verso</h3>
+    <h3 class="section-title">📇 Version Standard (Recto / Verso)</h3>
     
     <!-- Paire 1 : Karim KATI -->
     <div class="cards-pair">
       <div class="card-recto">
+        <span class="recto-badge">Centre de formation T3P agréé</span>
         <div class="recto-header">
           <div class="recto-logo">T3P</div>
           <div class="recto-brand">
@@ -300,17 +409,17 @@
       </div>
       <div class="card-verso">
         <div class="verso-contact">
-          <div class="verso-item">
+          <div class="verso-item highlight">
             <span class="verso-icon">📞</span>
             <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item highlight">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
           </div>
           <div class="verso-item">
             <span class="verso-icon">✉️</span>
             <span>montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
           </div>
           <div class="verso-item">
             <span class="verso-icon">📍</span>
@@ -331,6 +440,7 @@
     <!-- Paire 2 : Modèle vierge -->
     <div class="cards-pair">
       <div class="card-recto">
+        <span class="recto-badge">Centre de formation T3P agréé</span>
         <div class="recto-header">
           <div class="recto-logo">T3P</div>
           <div class="recto-brand">
@@ -345,17 +455,17 @@
       </div>
       <div class="card-verso">
         <div class="verso-contact">
-          <div class="verso-item">
+          <div class="verso-item highlight">
             <span class="verso-icon">📞</span>
             <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item highlight">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
           </div>
           <div class="verso-item">
             <span class="verso-icon">✉️</span>
             <span>montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
           </div>
           <div class="verso-item">
             <span class="verso-icon">📍</span>
@@ -373,9 +483,12 @@
       </div>
     </div>
     
-    <!-- Paires supplémentaires pour impression -->
+    <h3 class="section-title">📱 Version Alternative avec QR Code</h3>
+    
+    <!-- Paire avec QR Code -->
     <div class="cards-pair">
       <div class="card-recto">
+        <span class="recto-badge">Centre de formation T3P agréé</span>
         <div class="recto-header">
           <div class="recto-logo">T3P</div>
           <div class="recto-brand">
@@ -384,42 +497,42 @@
           </div>
         </div>
         <div class="recto-person">
-          <div class="recto-name">[Nom du collaborateur]</div>
-          <div class="recto-function">[Fonction]</div>
+          <div class="recto-name">Karim KATI</div>
+          <div class="recto-function">Directeur</div>
         </div>
       </div>
-      <div class="card-verso">
-        <div class="verso-contact">
-          <div class="verso-item">
+      <div class="card-verso-qr">
+        <div class="verso-qr-left">
+          <div class="verso-item highlight">
             <span class="verso-icon">📞</span>
             <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item highlight">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
           </div>
           <div class="verso-item">
             <span class="verso-icon">✉️</span>
             <span>montrouge@ecolet3p.fr</span>
           </div>
           <div class="verso-item">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
             <span class="verso-icon">📍</span>
             <span>3 rue Corneille, 92120 Montrouge</span>
           </div>
-          <div class="verso-item">
-            <span class="verso-icon">🚇</span>
-            <span>M° Mairie de Montrouge (Ligne 4)</span>
-          </div>
         </div>
-        <div class="verso-certif">
-          <div class="verso-certif-text">Formations certifiées</div>
-          <div class="verso-certif-badge">RS5635 & RS5637</div>
+        <div class="verso-qr-right">
+          <div class="qr-placeholder">
+            QR Code<br>à générer
+          </div>
+          <div class="qr-label">Demandez<br>votre devis</div>
         </div>
       </div>
     </div>
     
+    <!-- Paire vierge avec QR -->
     <div class="cards-pair">
       <div class="card-recto">
+        <span class="recto-badge">Centre de formation T3P agréé</span>
         <div class="recto-header">
           <div class="recto-logo">T3P</div>
           <div class="recto-brand">
@@ -432,45 +545,48 @@
           <div class="recto-function">[Fonction]</div>
         </div>
       </div>
-      <div class="card-verso">
-        <div class="verso-contact">
-          <div class="verso-item">
+      <div class="card-verso-qr">
+        <div class="verso-qr-left">
+          <div class="verso-item highlight">
             <span class="verso-icon">📞</span>
             <span>01 88 75 05 55</span>
+          </div>
+          <div class="verso-item highlight">
+            <span class="verso-icon">🌐</span>
+            <span>www.ecolet3p.fr</span>
           </div>
           <div class="verso-item">
             <span class="verso-icon">✉️</span>
             <span>montrouge@ecolet3p.fr</span>
           </div>
           <div class="verso-item">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
             <span class="verso-icon">📍</span>
             <span>3 rue Corneille, 92120 Montrouge</span>
           </div>
-          <div class="verso-item">
-            <span class="verso-icon">🚇</span>
-            <span>M° Mairie de Montrouge (Ligne 4)</span>
-          </div>
         </div>
-        <div class="verso-certif">
-          <div class="verso-certif-text">Formations certifiées</div>
-          <div class="verso-certif-badge">RS5635 & RS5637</div>
+        <div class="verso-qr-right">
+          <div class="qr-placeholder">
+            QR Code<br>à générer
+          </div>
+          <div class="qr-label">Demandez<br>votre devis</div>
         </div>
       </div>
+    </div>
+    
+    <div class="print-notes">
+      <strong>🔗 URL pour le QR Code :</strong> https://www.ecolet3p.fr/contact (formulaire de devis)<br>
+      Générez le QR via <a href="https://www.qr-code-generator.com/" target="_blank">qr-code-generator.com</a> et remplacez le placeholder.
     </div>
     
     <div class="instructions">
-      <h3>📋 Instructions d'impression</h3>
+      <h3>📋 Instructions d'impression V2</h3>
       <ul>
-        <li>Format : A4</li>
-        <li>Papier recommandé : Couché mat 350g/m²</li>
-        <li>Finition : Pelliculage mat + vernis sélectif sur le logo (optionnel)</li>
-        <li>Utilisez Ctrl+P (ou Cmd+P) pour imprimer</li>
-        <li>Sélectionnez "Enregistrer en PDF" pour créer un fichier</li>
-        <li>Découpez selon les contours des cartes</li>
+        <li><strong>Format :</strong> A4 (pour découpe) ou directement 85 × 55 mm</li>
+        <li><strong>Papier recommandé :</strong> Couché mat 350g/m² (optimal pour les couleurs)</li>
+        <li><strong>Finition :</strong> Pelliculage mat + vernis sélectif sur le logo (optionnel)</li>
+        <li><strong>Zones de sécurité :</strong> 3mm de marge intérieure respectées</li>
+        <li><strong>Fond perdu :</strong> Prévoir 2mm si impression professionnelle</li>
+        <li>Utilisez Ctrl+P (ou Cmd+P) pour imprimer ou enregistrer en PDF</li>
       </ul>
       
       <div class="specs">
@@ -498,7 +614,15 @@
           </div>
           <div class="spec-item">
             <span class="spec-label">Typo contact :</span>
-            <span class="spec-value">Inter Regular 9pt</span>
+            <span class="spec-value">Inter Semi-Bold 10pt</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Corps min :</span>
+            <span class="spec-value">7pt (lisible impression)</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">QR Code :</span>
+            <span class="spec-value">20×20mm (scannable)</span>
           </div>
         </div>
       </div>
