@@ -105,16 +105,16 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
               className="text-4xl md:text-5xl lg:text-6xl font-black text-forest leading-[1.05] tracking-tight mb-6"
             >
-              Centre de Formation{" "}
+              Devenez{" "}
               <motion.span 
                 className="text-gold inline-block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
               >
-                T3P, VMDTR
+                Taxi, VTC ou Moto-Taxi
               </motion.span>{" "}
-              & Récupération de Points
+              avec ECOLE T3P
             </motion.h1>
 
             {/* Subtitle - Benefit oriented */}
