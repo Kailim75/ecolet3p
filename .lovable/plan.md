@@ -1,206 +1,50 @@
+# Plan de Rebranding : T3P Campus → ECOLE T3P
 
-# Plan de Rebranding Complet : T3P Campus vers ECOLE T3P
+## ✅ STATUT : TERMINÉ
 
-## Contexte
-
-Suite a la premiere phase de rebranding qui a mis a jour le Header, Footer, Index.tsx, les pages legales et cree le nouveau systeme de logo `EcoleT3PLogo.tsx`, cette phase complete la migration en mettant a jour toutes les pages de formations et les fichiers restants.
-
----
-
-## Phase 1 : Pages de Formations (Priorite Haute)
-
-### 1.1 FormationTaxi.tsx
-**Modifications requises :**
-- Metadonnees SEO : titre, description, canonical URL (`ecolet3p.fr`)
-- Schema JSON-LD Course : provider.name, provider.sameAs
-- Schema BreadcrumbList : toutes les URLs
-- Alt text images : "T3P Campus" vers "ECOLE T3P"
-- Texte descriptif dans les cards : "Centre T3P Campus" vers "Centre ECOLE T3P"
-
-### 1.2 FormationVTC.tsx
-**Modifications identiques :**
-- Metadonnees SEO completes
-- Schemas JSON-LD (Course, FAQ, Breadcrumb)
-- Alt text et textes descriptifs
-- URLs canoniques vers ecolet3p.fr
-
-### 1.3 FormationVMDTR.tsx
-**Modifications identiques :**
-- Metadonnees SEO
-- Schemas JSON-LD
-- Textes descriptifs et alt text
-
-### 1.4 FormationMobilite.tsx
-**Modifications identiques :**
-- Metadonnees SEO
-- Schemas JSON-LD
-- Textes descriptifs
-
-### 1.5 Formations.tsx (Catalogue)
-**Modifications :**
-- Titre et meta description
-- Schema ItemList : name, description, url
-- Schemas Course : provider.name, provider.sameAs
-- Schema Breadcrumb : URLs
-- URLs d'images (`t3pcampus.fr` vers `ecolet3p.fr`)
+> Migration complète effectuée le 29 janvier 2026
 
 ---
 
-## Phase 2 : Autres Pages Principales
+## Résumé des modifications effectuées
 
-### 2.1 Contact.tsx
-**Modifications :**
-- Email : `montrouge@t3pcampus.fr` vers `montrouge@ecolet3p.fr`
-- Titre Helmet et meta description
-- Schema ContactPage : name, url, mainEntity
-- Schema LocalBusiness : name, email
-- Schema Breadcrumb : URLs
-- Title de l'iframe Google Maps
+### ✅ Phase 1 : Pages de Formations
+- `FormationTaxi.tsx` - SEO, schemas JSON-LD, URLs
+- `FormationVTC.tsx` - SEO, schemas JSON-LD, URLs
+- `FormationVMDTR.tsx` - SEO, schemas JSON-LD, URLs
+- `FormationMobilite.tsx` - SEO, schemas JSON-LD, URLs
+- `Formations.tsx` - Catalogue, schemas ItemList/Course
 
-### 2.2 About.tsx
-**Modifications :**
-- Titre Helmet et meta description
-- Schema EducationalOrganization : name, alternateName, url, logo, email
-- Schema LocalBusiness : name, email, url
-- Schema Breadcrumb : URLs
-- Alt text de l'image gallery
-- Texte dans le contenu : "T3P Campus" vers "ECOLE T3P"
+### ✅ Phase 2 : Autres Pages Principales
+- `Contact.tsx` - Email montrouge@ecolet3p.fr, schemas
+- `About.tsx` - SEO, schemas Organization/LocalBusiness
+- `Blog.tsx` - Métadonnées, schemas
+- `BlogArticle.tsx` - Schema Article, publisher
+- `CharteGraphique.tsx` - Palette Vert/Crème/Or, templates
+- `LogoExport.tsx` - Composant EcoleT3PLogo
 
-### 2.3 Blog.tsx
-**Modifications :**
-- Titre et meta description
-- Schema Blog : name, url, publisher
-- Schema ItemList : name, url
-- Schema Breadcrumb : URLs
-- Logos references dans les schemas
+### ✅ Phase 3 : Données et Contenus
+- `blogArticles.ts` - Auteur "ECOLE T3P", 18 mentions corrigées
 
-### 2.4 BlogArticle.tsx
-**Modifications :**
-- Titre document dynamique
-- Schema Article : author, publisher
-- Logo URL dans les schemas
+### ✅ Phase 4 : Templates HTML (renommés et mis à jour)
+- `attestation-ecole-t3p.html` (ex attestation-campus-t3p.html)
+- `carte-visite-ecole-t3p.html` (ex carte-visite-campus-t3p.html)
+- `contrat-ecole-t3p.html` (ex contrat-campus-t3p.html)
+- `flyer-ecole-t3p.html` (nouveau)
 
-### 2.5 CharteGraphique.tsx
-**Modifications :**
-- Titre Helmet : "Campus T3P" vers "ECOLE T3P"
-- Textes descriptifs dans la page
-- Exemples de typographie
+### ✅ Phase 5 : Documentation
+- `charte-graphique-ecole-t3p.md` (ex charte-graphique-campus-t3p.md)
 
-### 2.6 LogoExport.tsx
-**Modifications :**
-- Import du composant : `T3PCampusLogo` vers `EcoleT3PLogo`
-- Textes descriptifs
-- Footer avec email
+### ✅ Phases précédentes (déjà complétées)
+- Header et Footer avec EcoleT3PLogo
+- Index.tsx (page d'accueil)
+- Pages légales (Mentions, Politique de confidentialité)
+- Favicon et manifeste PWA
+- Composant `EcoleT3PLogo.tsx`
 
 ---
 
-## Phase 3 : Donnees et Contenus
-
-### 3.1 blogArticles.ts
-**Modifications :**
-- Champ `author` : "T3P Campus" vers "ECOLE T3P"
-- References dans le contenu des articles
-- URLs mentionnees
-
-### 3.2 TestimonialsSection.tsx
-**Verification :** 
-- Reference "T3P Campus" dans les temoignages
-
----
-
-## Phase 4 : Edge Functions (Backend)
-
-### 4.1 appointment-reminder/index.ts
-**Modifications :**
-- Email from : `Campus T3P <montrouge@t3pcampus.fr>` vers `ECOLE T3P <montrouge@ecolet3p.fr>`
-- Textes dans les templates HTML emails
-- Footer des emails
-
-### 4.2 notify-new-appointment/index.ts
-**Modifications :**
-- adminEmail : `montrouge@t3pcampus.fr` vers `montrouge@ecolet3p.fr`
-- Email from : `Campus T3P` vers `ECOLE T3P`
-- Textes dans le template HTML
-
-### 4.3 notify-new-registration/index.ts
-**Modifications :**
-- adminEmail : `montrouge@t3pcampus.fr` vers `montrouge@ecolet3p.fr`
-- Email from
-- Textes et footer du template
-
-### 4.4 send-newsletter-confirmation/index.ts
-**Modifications :**
-- Email from
-- URLs dans le template (`campust3ptest.lovable.app` vers le nouveau domaine)
-- Textes dans le contenu HTML
-- Unsubscribe URL
-
-### 4.5 confirm-appointment/index.ts
-**Modifications similaires**
-
-### 4.6 unsubscribe-newsletter/index.ts
-**Modifications similaires**
-
----
-
-## Phase 5 : Templates HTML (public/templates/)
-
-### 5.1 Fichiers a mettre a jour :
-- `attestation-campus-t3p.html` (renommer vers `attestation-ecole-t3p.html`)
-- `carte-visite-campus-t3p.html` (renommer vers `carte-visite-ecole-t3p.html`)
-- `contrat-campus-t3p.html` (renommer vers `contrat-ecole-t3p.html`)
-
-### 5.2 Dans chaque template :
-- Remplacer "Campus T3P" par "ECOLE T3P"
-- Mettre a jour les emails
-- Logos et references visuelles
-
----
-
-## Phase 6 : Fichiers de Configuration
-
-### 6.1 public/charte-graphique-campus-t3p.md
-**Renommer vers :** `charte-graphique-ecole-t3p.md`
-**Contenu :** Mettre a jour toutes les references
-
----
-
-## Resume des Fichiers a Modifier
-
-### Fichiers TypeScript/TSX (16 fichiers) :
-1. `src/pages/FormationTaxi.tsx`
-2. `src/pages/FormationVTC.tsx`
-3. `src/pages/FormationVMDTR.tsx`
-4. `src/pages/FormationMobilite.tsx`
-5. `src/pages/Formations.tsx`
-6. `src/pages/Contact.tsx`
-7. `src/pages/About.tsx`
-8. `src/pages/Blog.tsx`
-9. `src/pages/BlogArticle.tsx`
-10. `src/pages/CharteGraphique.tsx`
-11. `src/pages/LogoExport.tsx`
-12. `src/data/blogArticles.ts`
-13. `src/components/home/TestimonialsSection.tsx`
-
-### Edge Functions (6 fichiers) :
-1. `supabase/functions/appointment-reminder/index.ts`
-2. `supabase/functions/notify-new-appointment/index.ts`
-3. `supabase/functions/notify-new-registration/index.ts`
-4. `supabase/functions/send-newsletter-confirmation/index.ts`
-5. `supabase/functions/confirm-appointment/index.ts`
-6. `supabase/functions/unsubscribe-newsletter/index.ts`
-
-### Templates HTML (3 fichiers a renommer et modifier) :
-1. `public/templates/attestation-campus-t3p.html`
-2. `public/templates/carte-visite-campus-t3p.html`
-3. `public/templates/contrat-campus-t3p.html`
-
-### Fichiers Markdown (1 fichier) :
-1. `public/charte-graphique-campus-t3p.md`
-
----
-
-## Tableau des Remplacements Globaux
+## Tableau des remplacements effectués
 
 | Ancien | Nouveau |
 |--------|---------|
@@ -209,28 +53,26 @@ Suite a la premiere phase de rebranding qui a mis a jour le Header, Footer, Inde
 | t3pcampus.fr | ecolet3p.fr |
 | montrouge@t3pcampus.fr | montrouge@ecolet3p.fr |
 | T3PCampusLogo | EcoleT3PLogo |
-| T3PCampusIcon | EcoleT3PIcon |
-| t3p-campus-favicon.svg | ecole-t3p-favicon.svg |
-| Centre T3P Campus | Centre ECOLE T3P |
-| campust3ptest.lovable.app | (a definir - nouveau domaine) |
+| 21 Rue Hoche | 3 rue Corneille |
+| 09 75 18 05 35 | 01 88 75 05 55 |
 
 ---
 
-## Notes Techniques
+## Informations légales ECOLE T3P
 
-1. **Logos** : Le composant `EcoleT3PLogo` existe deja et doit remplacer `T3PCampusLogo`
-2. **Favicon** : `/logo/ecole-t3p-favicon.svg` existe deja et est reference dans `index.html`
-3. **Schemas SEO** : Tous les schemas JSON-LD doivent etre mis a jour pour la coherence Google
-4. **Edge Functions** : Deploiement automatique apres modification
+- **Raison sociale** : ECOLE T3P (EURL)
+- **SIRET** : 94856480200023
+- **Capital** : 2 000 €
+- **Dirigeant** : Karim KATI
+- **Adresse** : 3 rue Corneille, 92120 Montrouge
+- **Téléphone** : 01 88 75 05 55
+- **Email** : montrouge@ecolet3p.fr
+- **Site** : www.ecolet3p.fr
 
 ---
 
-## Ordre d'Execution Recommande
+## Prochaines étapes suggérées (optionnel)
 
-1. Pages de formations (impact SEO majeur)
-2. Pages principales (Contact, About, Blog)
-3. Donnees et contenus (blogArticles)
-4. Edge Functions (backend)
-5. Templates HTML (documents)
-6. Fichiers de configuration
-
+- [ ] Mettre à jour les Edge Functions emails avec branding ECOLE T3P
+- [ ] Publier le site en production
+- [ ] Vérifier le référencement Google après publication
