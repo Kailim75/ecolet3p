@@ -112,7 +112,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
               >
-                Taxi, VTC ou Moto-Taxi
+                Taxi, VTC ou VMDTR (taxi moto)
               </motion.span>{" "}
               avec ECOLE T3P
             </motion.h1>
