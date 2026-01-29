@@ -503,7 +503,7 @@ const FormationVTC = () => {
               viewport={{ once: true }}
             >
               <Card className="p-8 bg-secondary text-secondary-foreground">
-                <h3 className="text-2xl font-bold mb-4">Financement</h3>
+                <h3 className="text-2xl font-bold mb-4">Modalités de paiement</h3>
                 <p className="text-secondary-foreground/90 mb-6">
                   Nous proposons des solutions adaptées à votre budget pour vous permettre de réaliser votre projet professionnel.
                 </p>
@@ -514,11 +514,11 @@ const FormationVTC = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-5 w-5" />
-                    <span>Éligible CPF (sous conditions)</span>
+                    <span>Échelonnement personnalisé</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-5 w-5" />
-                    <span>Aide Pôle Emploi possible</span>
+                    <span>Accompagnement administratif</span>
                   </div>
                 </div>
                 <Button 

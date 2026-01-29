@@ -101,7 +101,7 @@ const faqs = [
   },
   {
     question: "Comment financer ma formation taxi ?",
-    answer: "Nous proposons un paiement en 4x sans frais. Vous pouvez également vous renseigner auprès de Pôle Emploi ou de votre OPCO pour d'éventuelles aides au financement."
+    answer: "Nous proposons un paiement en 4x sans frais pour faciliter votre accès à la formation. Notre équipe vous accompagne pour trouver la solution adaptée à votre budget."
   },
   {
     question: "L'examen taxi est-il difficile ?",
@@ -495,7 +495,7 @@ const FormationTaxi = () => {
               viewport={{ once: true }}
             >
               <Card className="p-8 bg-primary text-primary-foreground">
-                <h3 className="text-2xl font-bold mb-4">Financement</h3>
+                <h3 className="text-2xl font-bold mb-4">Modalités de paiement</h3>
                 <p className="text-primary-foreground/90 mb-6">
                   Nous proposons des solutions adaptées à votre budget pour vous permettre de réaliser votre projet professionnel.
                 </p>
@@ -506,11 +506,11 @@ const FormationTaxi = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-5 w-5" />
-                    <span>Éligible CPF (sous conditions)</span>
+                    <span>Échelonnement personnalisé</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-5 w-5" />
-                    <span>Aide Pôle Emploi possible</span>
+                    <span>Accompagnement administratif</span>
                   </div>
                 </div>
                 <Button 
