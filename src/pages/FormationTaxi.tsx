@@ -642,6 +642,8 @@ const FormationTaxi = () => {
             <DialogTitle>Pré-inscription Formation Taxi</DialogTitle>
           </DialogHeader>
           <PreRegistrationForm
+            isOpen={showPreRegistration}
+            onClose={() => setShowPreRegistration(false)}
             formationTitle="Formation Taxi"
             formationDuration="63h"
           />
