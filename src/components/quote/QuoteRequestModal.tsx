@@ -234,12 +234,25 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: Quote
     }
   };
 
+  // Calculate form completion for progress indicator
+  const getFormProgress = () => {
+    let filled = 0;
+    if (formData.firstName && formData.firstName.length >= 2) filled++;
+    if (formData.lastName && formData.lastName.length >= 2) filled++;
+    if (formData.email && formData.email.includes("@")) filled++;
+    if (formData.phone && formData.phone.length >= 10) filled++;
+    if (formData.formationChoice) filled++;
+    return Math.round((filled / 5) * 100);
+  };
+
+  const progress = getFormProgress();
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-2xl font-bold text-forest">
-            <FileText className="w-6 h-6 text-gold" />
+          <DialogTitle className="flex items-center gap-2 text-xl md:text-2xl font-bold text-forest">
+            <FileText className="w-5 h-5 md:w-6 md:h-6 text-gold" />
             Demander un devis gratuit
           </DialogTitle>
         </DialogHeader>
@@ -275,6 +288,22 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: Quote
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
+              {/* Progress bar */}
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>Progression</span>
+                  <span className="font-medium text-forest">{progress}%</span>
+                </div>
+                <div className="h-2 bg-muted rounded-full overflow-hidden">
+                  <motion.div 
+                    className="h-full bg-gradient-to-r from-forest to-gold rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progress}%` }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
+              </div>
+
               {/* Reassurance banner */}
               <div className="flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-lg p-3 text-sm">
                 <Sparkles className="w-4 h-4 text-gold shrink-0" />
