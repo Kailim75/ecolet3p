@@ -12,7 +12,6 @@ const t3pPaths = [
   {
     id: "taxi",
     title: "Parcours TAXI",
-    duration: "63h jour / 33h soir",
     priceDay: "1 190€",
     priceEvening: "990€",
     link: "/formations/taxi",
@@ -20,7 +19,6 @@ const t3pPaths = [
   {
     id: "vtc",
     title: "Parcours VTC",
-    duration: "63h jour / 33h soir",
     priceDay: "1 190€",
     priceEvening: "990€",
     link: "/formations/vtc",
@@ -28,11 +26,9 @@ const t3pPaths = [
   {
     id: "vmdtr",
     title: "Parcours VMDTR",
-    duration: "63h jour / 33h soir",
     priceDay: "1 190€",
     priceEvening: "990€",
     link: "/formations/vmdtr",
-    badge: "Nouveau",
   },
 ];
 
@@ -48,9 +44,9 @@ const offers = [
     id: "t3p",
     icon: Car,
     title: "Formation T3P",
-    subtitle: "TAXI • VTC • VMDTR",
-    description: "Obtenez votre carte professionnelle de transport de personnes. Formation complète avec 94% de taux de réussite.",
-    features: ["3 parcours disponibles", "94% de réussite", "Paiement 4x sans frais"],
+    subtitle: "Transport de Personnes à Titre Onéreux",
+    description: "La formation T3P regroupe les 3 parcours professionnels : TAXI, VTC et VMDTR. Obtenez votre carte professionnelle avec 94% de taux de réussite.",
+    features: ["3 parcours au choix", "94% de réussite", "Paiement 4x sans frais"],
     link: "/formations",
     formationValue: "t3p",
     popular: true,
@@ -65,6 +61,7 @@ const offers = [
     features: ["Jusqu'à 4 points récupérés", "14h sur 2 jours", "Attestation immédiate"],
     link: "/formations/recuperation-points",
     formationValue: "recup-points",
+    price: "250€",
     new: true,
   },
 ];
@@ -178,7 +175,7 @@ const OffersSection = () => {
                     {/* Main paths */}
                     <div className="p-4 bg-forest/5 rounded-xl">
                       <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                        Formations initiales T3P
+                        Parcours T3P – Formation Initiale (63h jour / 33h soir)
                       </p>
                       <div className="grid grid-cols-3 gap-2">
                         {t3pPaths.map((path) => (
@@ -187,11 +184,6 @@ const OffersSection = () => {
                             to={path.link}
                             className="relative flex flex-col items-center p-3 bg-white rounded-lg border border-border/50 hover:border-gold/50 hover:shadow-md transition-all group"
                           >
-                            {path.badge && (
-                              <span className="absolute -top-2 -right-2 bg-gradient-to-r from-gold to-orange text-forest text-[10px] font-bold px-2 py-0.5 rounded-full">
-                                {path.badge}
-                              </span>
-                            )}
                             <span className="text-sm font-semibold text-forest group-hover:text-gold transition-colors text-center">
                               {path.title}
                             </span>
