@@ -81,8 +81,8 @@ const FormationsSection = () => {
     return sameCategory.indexOf(displayedFormations[index]) === 0;
   };
 
-  // Check if formation is VMDTR (highlighted)
-  const isVMDTR = (category: string) => category === "vmdtr";
+  // Check if formation is VMDTR (part of T3P, but highlighted as new path)
+  const isNewPath = (category: string) => category === "vmdtr";
 
   return (
     <section ref={containerRef} className="section-padding gradient-warm overflow-hidden relative">
@@ -129,7 +129,7 @@ const FormationsSection = () => {
             {displayedFormations.map((formation, i) => {
               const IconComponent = getIconComponent(formation.icon);
               const popular = isPopular(formation.category, i);
-              const vmdtr = isVMDTR(formation.category);
+              const newPath = isNewPath(formation.category);
               const hasDigital = hasDigitalFeatures(formation.features);
               
               return (
@@ -138,34 +138,34 @@ const FormationsSection = () => {
                   variants={staggerItemVariants}
                   whileHover={{ 
                     y: -12, 
-                    boxShadow: vmdtr 
+                    boxShadow: newPath 
                       ? "0 30px 60px rgba(212, 168, 83, 0.25)" 
                       : "0 30px 60px rgba(27, 77, 62, 0.18)",
                     borderColor: "rgba(212, 168, 83, 0.6)"
                   }}
                   whileTap={{ scale: 0.98, y: -6 }}
-                  className={`card-livementor relative group cursor-pointer ${vmdtr ? 'ring-2 ring-gold/40 bg-gradient-to-br from-cream to-gold/5' : ''}`}
+                  className={`card-livementor relative group cursor-pointer ${newPath ? 'ring-2 ring-gold/40 bg-gradient-to-br from-cream to-gold/5' : ''}`}
                 >
-                  {/* VMDTR Highlight Badge */}
-                  {vmdtr && (
+                  {/* VMDTR is part of T3P, highlighted as new path */}
+                  {newPath && (
                     <div className="absolute -top-3 -right-3 bg-gradient-to-r from-gold to-orange text-forest px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1 shadow-lg">
                       <Sparkles className="w-3 h-3" />
-                      Nouveauté
+                      Nouveau parcours T3P
                     </div>
                   )}
                   
-                  {popular && !vmdtr && (
+                  {popular && !newPath && (
                     <div className="absolute -top-3 left-6 bg-gold text-forest px-4 py-1 rounded-full text-xs font-bold uppercase">
                       Populaire
                     </div>
                   )}
 
                   <motion.div 
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${vmdtr ? 'bg-gold/20' : 'bg-forest/10'}`}
-                    whileHover={{ scale: 1.1, backgroundColor: vmdtr ? "rgba(212, 168, 83, 0.3)" : "rgba(27, 77, 62, 0.2)" }}
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${newPath ? 'bg-gold/20' : 'bg-forest/10'}`}
+                    whileHover={{ scale: 1.1, backgroundColor: newPath ? "rgba(212, 168, 83, 0.3)" : "rgba(27, 77, 62, 0.2)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <IconComponent className={`w-7 h-7 ${vmdtr ? 'text-gold' : 'text-forest'}`} />
+                    <IconComponent className={`w-7 h-7 ${newPath ? 'text-gold' : 'text-forest'}`} />
                   </motion.div>
 
                   <div className="flex items-start justify-between gap-2 mb-3">
