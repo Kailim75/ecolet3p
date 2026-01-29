@@ -153,8 +153,8 @@ const FormationVMDTR = () => {
     "description": "Formation complète pour obtenir votre carte professionnelle VMDTR (moto-taxi). Apprenez la sécurité, la réglementation et la gestion d'entreprise.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "T3P Campus",
-      "sameAs": "https://t3pcampus.fr"
+      "name": "ECOLE T3P",
+      "sameAs": "https://ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -169,7 +169,7 @@ const FormationVMDTR = () => {
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "T3P Campus Montrouge"
+        "name": session.location || "ECOLE T3P Montrouge"
       }
     })),
     "educationalCredentialAwarded": "Carte Professionnelle VMDTR",
@@ -201,10 +201,10 @@ const FormationVMDTR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VMDTR Moto-Taxi - Carte Professionnelle | T3P Campus</title>
+        <title>Formation VMDTR Moto-Taxi - Carte Professionnelle | ECOLE T3P</title>
         <meta name="description" content="Formation VMDTR moto-taxi complète à Montrouge. 48h de formation, équipements de sécurité, paiement en 4x sans frais. Obtenez votre carte professionnelle moto-taxi." />
-        <meta name="keywords" content="formation VMDTR, formation moto-taxi, carte professionnelle moto-taxi, devenir moto-taxi, formation T3P" />
-        <link rel="canonical" href="https://t3pcampus.fr/formations/vmdtr" />
+        <meta name="keywords" content="formation VMDTR, formation moto-taxi, carte professionnelle moto-taxi, devenir moto-taxi, formation ECOLE T3P" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/vmdtr" />
         
         {/* Preload critical hero image */}
         <link 
@@ -214,9 +214,9 @@ const FormationVMDTR = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation VMDTR Moto-Taxi - Carte Professionnelle | T3P Campus" />
+        <meta property="og:title" content="Formation VMDTR Moto-Taxi - Carte Professionnelle | ECOLE T3P" />
         <meta property="og:description" content="Formation VMDTR moto-taxi complète. 48h de formation professionnelle. Devenez moto-taxi professionnel." />
-        <meta property="og:url" content="https://t3pcampus.fr/formations/vmdtr" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations/vmdtr" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -229,19 +229,19 @@ const FormationVMDTR = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://t3pcampus.fr/"
+              "item": "https://ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://t3pcampus.fr/formations"
+              "item": "https://ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Formation VMDTR",
-              "item": "https://t3pcampus.fr/formations/vmdtr"
+              "item": "https://ecolet3p.fr/formations/vmdtr"
             }
           ]
         })}</script>
@@ -352,7 +352,7 @@ const FormationVMDTR = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-medium">Formation spécialisée moto-taxi</p>
-                  <p className="text-white/80 text-sm">Centre T3P Campus - Montrouge</p>
+                  <p className="text-white/80 text-sm">Centre ECOLE T3P - Montrouge</p>
                 </div>
               </div>
 

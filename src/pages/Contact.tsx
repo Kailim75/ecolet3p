@@ -32,8 +32,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "montrouge@t3pcampus.fr",
-    href: "mailto:montrouge@t3pcampus.fr",
+    content: "montrouge@ecolet3p.fr",
+    href: "mailto:montrouge@ecolet3p.fr",
   },
   {
     icon: Clock,
@@ -204,14 +204,14 @@ const Contact = () => {
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact T3P Campus",
+    "name": "Contact ECOLE T3P",
     "description": "Contactez notre centre de formation Taxi VTC à Montrouge",
-    "url": "https://t3pcampus.fr/contact",
+    "url": "https://ecolet3p.fr/contact",
     "mainEntity": {
       "@type": "LocalBusiness",
-      "name": "T3P Campus",
+      "name": "ECOLE T3P",
       "telephone": "+33188750555",
-      "email": "montrouge@t3pcampus.fr",
+      "email": "montrouge@ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
@@ -243,13 +243,13 @@ const Contact = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://t3pcampus.fr/"
+        "item": "https://ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Contact",
-        "item": "https://t3pcampus.fr/contact"
+        "item": "https://ecolet3p.fr/contact"
       }
     ]
   };
@@ -257,19 +257,19 @@ const Contact = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Contact T3P Campus - Formation Taxi VTC Montrouge | 01 88 75 05 55</title>
-        <meta name="description" content="Contactez T3P Campus à Montrouge. Adresse : 3 rue Corneille 92120. Tél : 01 88 75 05 55. Métro Mairie de Montrouge. Demandez un devis gratuit pour votre formation Taxi ou VTC." />
-        <meta name="keywords" content="contact T3P Campus, formation taxi Montrouge, formation VTC Paris, centre formation chauffeur, devis formation taxi" />
-        <link rel="canonical" href="https://t3pcampus.fr/contact" />
+        <title>Contact ECOLE T3P - Formation Taxi VTC Montrouge | 01 88 75 05 55</title>
+        <meta name="description" content="Contactez ECOLE T3P à Montrouge. Adresse : 3 rue Corneille 92120. Tél : 01 88 75 05 55. Métro Mairie de Montrouge. Demandez un devis gratuit pour votre formation Taxi ou VTC." />
+        <meta name="keywords" content="contact ECOLE T3P, formation taxi Montrouge, formation VTC Paris, centre formation chauffeur, devis formation taxi" />
+        <link rel="canonical" href="https://ecolet3p.fr/contact" />
         
-        <meta property="og:title" content="Contactez T3P Campus - Formation Taxi VTC à Montrouge" />
+        <meta property="og:title" content="Contactez ECOLE T3P - Formation Taxi VTC à Montrouge" />
         <meta property="og:description" content="Demandez un devis gratuit. Adresse : 3 rue Corneille 92120 Montrouge. Tél : 01 88 75 05 55. Métro Mairie de Montrouge." />
-        <meta property="og:url" content="https://t3pcampus.fr/contact" />
+        <meta property="og:url" content="https://ecolet3p.fr/contact" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Contact T3P Campus - Formation Taxi VTC" />
+        <meta name="twitter:title" content="Contact ECOLE T3P - Formation Taxi VTC" />
         <meta name="twitter:description" content="Contactez-nous au 01 88 75 05 55. 3 rue Corneille, 92120 Montrouge." />
         
         <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
@@ -408,7 +408,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation T3P Campus"
+                  title="Localisation ECOLE T3P"
                 />
               </motion.div>
 
