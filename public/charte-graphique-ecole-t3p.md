@@ -1,8 +1,8 @@
-# 🎨 Charte Graphique - Campus T3P
+# 🎨 Charte Graphique - ECOLE T3P
 
 > Centre de Formation VTC, TAXI & VMDTR | Montrouge
 > 
-> Version 1.0 — Janvier 2026
+> Version 2.0 — Janvier 2026
 
 ---
 
@@ -28,7 +28,7 @@
 
 ### Philosophie
 
-Campus T3P incarne **l'excellence professionnelle** dans la formation des chauffeurs VTC, TAXI et VMDTR. Notre identité visuelle reflète :
+ECOLE T3P incarne **l'excellence professionnelle** dans la formation des chauffeurs VTC, TAXI et VMDTR. Notre identité visuelle reflète :
 
 - **Professionnalisme** : Couleurs sobres et élégantes
 - **Confiance** : Vert forêt rassurant et stable
@@ -194,8 +194,8 @@ button {
 
 ### Logo principal
 
-Le logo Campus T3P est composé de :
-- **Texte** : "Campus T3P" en Plus Jakarta Sans Extra-bold
+Le logo ECOLE T3P est composé de :
+- **Texte** : "ECOLE T3P" en Plus Jakarta Sans Extra-bold
 - **Couleur principale** : Vert forêt `#1B4D3E`
 
 ### Déclinaisons
@@ -425,7 +425,7 @@ Basé sur un multiple de **4px** :
 ┌─────────────────────────────────────────────┐
 │                                             │
 │   ┌─────────────────────────────────────┐   │
-│   │         [LOGO CAMPUS T3P]           │   │
+│   │         [LOGO ECOLE T3P]            │   │
 │   │     Formation VTC & TAXI            │   │
 │   └─────────────────────────────────────┘   │
 │                                             │
@@ -439,8 +439,8 @@ Basé sur un multiple de **4px** :
 │   └─────────────────────────────────────┘   │
 │                                             │
 │   ┌───────────┐  ┌───────────┐  ┌────────┐  │
-│   │    96%    │  │   10+     │  │  4x    │  │
-│   │  réussite │  │   ans     │  │ s/frais│  │
+│   │    94%    │  │   2000+   │  │  4x    │  │
+│   │  réussite │  │   élèves  │  │ s/frais│  │
 │   └───────────┘  └───────────┘  └────────┘  │
 │                                             │
 │   ┌─────────────────────────────────────┐   │
@@ -454,14 +454,14 @@ Basé sur un multiple de **4px** :
 │                                             │
 │   ╔═════════════════════════════════════╗   │
 │   ║     PRENDRE RENDEZ-VOUS             ║   │
-│   ║     📞 09 75 18 05 35               ║   │
+│   ║     📞 01 88 75 05 55               ║   │
 │   ╚═════════════════════════════════════╝   │
 │                                             │
-│   21 Rue Hoche, 92120 Montrouge             │
+│   3 rue Corneille, 92120 Montrouge          │
 │   M° Mairie de Montrouge (Ligne 4)          │
 │                                             │
-│   montrouge@t3pcampus.fr                    │
-│   www.campust3p.fr                          │
+│   montrouge@ecolet3p.fr                     │
+│   www.ecolet3p.fr                           │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
@@ -482,8 +482,8 @@ Basé sur un multiple de **4px** :
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │                                                                │
-│   [LOGO CAMPUS T3P]                  N° Attestation: ATT-2026- │
-│   Centre de Formation Professionnelle                         │
+│   [LOGO ECOLE T3P]                   N° Attestation: ATT-2026- │
+│   Centre de Formation Professionnelle                          │
 │   Agrément Préfecture n° XXXXX                                 │
 │                                                                │
 │ ════════════════════════════════════════════════════════════  │
@@ -492,7 +492,7 @@ Basé sur un multiple de **4px** :
 │                                                                │
 │ ════════════════════════════════════════════════════════════  │
 │                                                                │
-│   Le centre de formation Campus T3P certifie que :            │
+│   Le centre de formation ECOLE T3P certifie que :              │
 │                                                                │
 │   ┌────────────────────────────────────────────────────────┐   │
 │   │                                                        │   │
@@ -530,16 +530,16 @@ Basé sur un multiple de **4px** :
 │                                   Le Directeur de la Formation │
 │                                                                │
 │ ─────────────────────────────────────────────────────────────  │
-│   Campus T3P - 21 Rue Hoche, 92120 Montrouge                   │
-│   Tél: 09 75 18 05 35 | montrouge@t3pcampus.fr                │
-│   SIRET: XXX XXX XXX XXXXX | N° Déclaration: XXXXXXXXXX       │
+│   ECOLE T3P - 3 rue Corneille, 92120 Montrouge                 │
+│   Tél: 01 88 75 05 55 | montrouge@ecolet3p.fr                  │
+│   SIRET: 948 564 802 00023 | N° Déclaration: XXXXXXXXXX        │
 └────────────────────────────────────────────────────────────────┘
 ```
 
 **Spécifications techniques :**
 - Format : A4 portrait (210 × 297 mm)
 - Papier : 120g/m² minimum, ivoire ou blanc cassé
-- Filigrane : Logo Campus T3P en fond, opacité 5%
+- Filigrane : Logo ECOLE T3P en fond, opacité 5%
 - Bordure : Ligne `#1B4D3E` à 10mm des bords
 - Titre : Plus Jakarta Sans Bold 24pt, `#1B4D3E`
 - Corps : Inter Regular 11pt, `#2C2922`
@@ -552,7 +552,7 @@ Basé sur un multiple de **4px** :
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │                                                                │
-│   [LOGO CAMPUS T3P]                                            │
+│   [LOGO ECOLE T3P]                                             │
 │                                                                │
 │              CONTRAT DE FORMATION PROFESSIONNELLE              │
 │                      (Article L.6353-3 du Code du Travail)     │
@@ -562,12 +562,11 @@ Basé sur un multiple de **4px** :
 │   ENTRE LES SOUSSIGNÉS :                                       │
 │                                                                │
 │   L'organisme de formation :                                   │
-│   Campus T3P                                                   │
-│   21 Rue Hoche, 92120 Montrouge                                │
-│   SIRET : XXX XXX XXX XXXXX                                    │
+│   ECOLE T3P                                                    │
+│   3 rue Corneille, 92120 Montrouge                             │
+│   SIRET : 948 564 802 00023                                    │
 │   N° Déclaration d'activité : XXXXXXXXXX                       │
-│   Représenté par : [Nom du responsable], en qualité de         │
-│   Directeur                                                    │
+│   Représenté par : Karim KATI, en qualité de Dirigeant         │
 │   Ci-après dénommé "l'Organisme de formation"                  │
 │                                                                │
 │   ET                                                           │
@@ -590,7 +589,7 @@ Basé sur un multiple de **4px** :
 │   Durée totale : _______ heures                                │
 │   Dates : Du __/__/____ au __/__/____                          │
 │   Horaires : _________________________                         │
-│   Lieu : 21 Rue Hoche, 92120 Montrouge                        │
+│   Lieu : 3 rue Corneille, 92120 Montrouge                      │
 │                                                                │
 │   ARTICLE 2 : PROGRAMME                                        │
 │   Le programme détaillé de la formation figure en annexe 1     │
@@ -647,13 +646,13 @@ RECTO                                      VERSO
 │                                 │       │                                 │
 │   ┌─────────────────────────┐   │       │   ┌─────────────────────────┐   │
 │   │                         │   │       │   │                         │   │
-│   │    CAMPUS T3P           │   │       │   │  ☎ 09 75 18 05 35       │   │
+│   │    ECOLE T3P            │   │       │   │  ☎ 01 88 75 05 55       │   │
 │   │    ──────────           │   │       │   │                         │   │
-│   │    Formation VTC & Taxi │   │       │   │  ✉ montrouge@t3pcampus.fr│  │
+│   │    Formation VTC & Taxi │   │       │   │  ✉ montrouge@ecolet3p.fr│   │
 │   │                         │   │       │   │                         │   │
-│   └─────────────────────────┘   │       │   │  🌐 www.campust3p.fr     │   │
+│   └─────────────────────────┘   │       │   │  🌐 www.ecolet3p.fr      │   │
 │                                 │       │   │                         │   │
-│   [Nom du collaborateur]        │       │   │  📍 21 Rue Hoche        │   │
+│   [Nom du collaborateur]        │       │   │  📍 3 rue Corneille     │   │
 │   [Fonction]                    │       │   │     92120 Montrouge     │   │
 │                                 │       │   │     M° Mairie de         │   │
 │                                 │       │   │     Montrouge (L4)       │   │
@@ -733,13 +732,13 @@ RECTO                                      VERSO
 
 ### Contacts
 
-**Campus T3P Montrouge**
-- 📍 21 Rue Hoche, 92120 Montrouge
-- 📞 09 75 18 05 35
-- ✉️ montrouge@t3pcampus.fr
-- 🌐 www.campust3p.fr
+**ECOLE T3P Montrouge**
+- 📍 3 rue Corneille, 92120 Montrouge
+- 📞 01 88 75 05 55
+- ✉️ montrouge@ecolet3p.fr
+- 🌐 www.ecolet3p.fr
 
 ---
 
 *Document créé le 18 janvier 2026*
-*Version 1.0 — Campus T3P*
+*Version 2.0 — ECOLE T3P*
