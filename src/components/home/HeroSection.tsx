@@ -128,7 +128,7 @@ const HeroSection = () => {
                 className="inline-block"
               >
                 <Button onClick={() => openQuoteModal()} className="btn-accent pulse-subtle">
-                  👉 Demander un devis gratuit
+                  Obtenez votre devis gratuit en 2 minutes !
                 </Button>
               </motion.div>
               <motion.div

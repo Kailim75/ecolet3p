@@ -122,6 +122,10 @@ const LocalsSection = () => {
                       <img
                         src={image.src}
                         alt={image.alt}
+                        loading="lazy"
+                        decoding="async"
+                        width={400}
+                        height={300}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       {/* Overlay gradient */}
