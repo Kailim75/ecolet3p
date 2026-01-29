@@ -1,3 +1,4 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -37,15 +38,15 @@ const Blog = () => {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Blog T3P Campus - Formation Taxi VTC",
+    "name": "Blog ECOLE T3P - Formation Taxi VTC",
     "description": "Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR",
-    "url": "https://t3pcampus.fr/blog",
+    "url": "https://ecolet3p.fr/blog",
     "publisher": {
       "@type": "Organization",
-      "name": "T3P Campus",
+      "name": "ECOLE T3P",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg"
+        "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg"
       }
     },
     "blogPost": blogArticles.map(article => ({
@@ -55,23 +56,23 @@ const Blog = () => {
       "datePublished": article.publishDate,
       "author": {
         "@type": "Organization",
-        "name": "T3P Campus"
+        "name": "ECOLE T3P"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "T3P Campus"
+        "name": "ECOLE T3P"
       },
-      "url": `https://t3pcampus.fr/blog/${article.slug}`,
-      "mainEntityOfPage": `https://t3pcampus.fr/blog/${article.slug}`
+      "url": `https://ecolet3p.fr/blog/${article.slug}`,
+      "mainEntityOfPage": `https://ecolet3p.fr/blog/${article.slug}`
     }))
   };
 
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Articles Blog T3P Campus",
+    "name": "Articles Blog ECOLE T3P",
     "description": "Liste des articles sur les formations Taxi, VTC et VMDTR",
-    "url": "https://t3pcampus.fr/blog",
+    "url": "https://ecolet3p.fr/blog",
     "numberOfItems": blogArticles.length,
     "itemListElement": blogArticles.map((article, index) => ({
       "@type": "ListItem",
@@ -84,18 +85,18 @@ const Blog = () => {
         "dateModified": article.publishDate,
         "author": {
           "@type": "Organization",
-          "name": "T3P Campus"
+          "name": "ECOLE T3P"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "T3P Campus",
+          "name": "ECOLE T3P",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://t3pcampus.fr/logo/t3p-campus-favicon.svg"
+            "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg"
           }
         },
-        "url": `https://t3pcampus.fr/blog/${article.slug}`,
-        "mainEntityOfPage": `https://t3pcampus.fr/blog/${article.slug}`,
+        "url": `https://ecolet3p.fr/blog/${article.slug}`,
+        "mainEntityOfPage": `https://ecolet3p.fr/blog/${article.slug}`,
         "articleSection": article.category,
         "wordCount": article.readTime.replace(/[^0-9]/g, '') ? parseInt(article.readTime.replace(/[^0-9]/g, '')) * 200 : 1000,
         "inLanguage": "fr-FR"
@@ -111,13 +112,13 @@ const Blog = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://t3pcampus.fr/"
+        "item": "https://ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://t3pcampus.fr/blog"
+        "item": "https://ecolet3p.fr/blog"
       }
     ]
   };
@@ -125,21 +126,21 @@ const Blog = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Blog Formation Taxi VTC - Conseils et Actualités | T3P Campus</title>
+        <title>Blog Formation Taxi VTC - Conseils et Actualités | ECOLE T3P</title>
         <meta name="description" content="Découvrez nos articles sur les formations Taxi, VTC et VMDTR. Conseils pour réussir votre examen, actualités du secteur, témoignages et guides pratiques." />
         <meta name="keywords" content="blog formation taxi, actualités VTC, conseils examen taxi, guide chauffeur VTC, formation VMDTR" />
-        <link rel="canonical" href="https://t3pcampus.fr/blog" />
+        <link rel="canonical" href="https://ecolet3p.fr/blog" />
         
-        <meta property="og:title" content="Blog T3P Campus - Formation Taxi VTC Montrouge" />
+        <meta property="og:title" content="Blog ECOLE T3P - Formation Taxi VTC Montrouge" />
         <meta property="og:description" content="Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR. Guides pratiques et témoignages." />
-        <meta property="og:url" content="https://t3pcampus.fr/blog" />
+        <meta property="og:url" content="https://ecolet3p.fr/blog" />
         <meta property="og:type" content="blog" />
-        <meta property="og:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog T3P Campus - Formation Taxi VTC" />
+        <meta name="twitter:title" content="Blog ECOLE T3P - Formation Taxi VTC" />
         <meta name="twitter:description" content="Articles et conseils pour réussir votre formation Taxi ou VTC." />
-        <meta name="twitter:image" content="https://t3pcampus.fr/og-image.jpg" />
+        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>

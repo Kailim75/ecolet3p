@@ -1,5 +1,5 @@
 import React from "react";
-import { T3PCampusLogo, T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
+import { EcoleT3PLogo, EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -34,7 +34,7 @@ const LogoExport = () => {
           {/* Header */}
           <div className="text-center mb-12 pb-8 border-b-2 border-forest">
             <h1 className="text-3xl font-black text-forest mb-2">CHARTE LOGO</h1>
-            <p className="text-warm-gray-600">T3P Campus - Centre de Formation Taxi VTC VMDTR</p>
+            <p className="text-warm-gray-600">ECOLE T3P - Centre de Formation Taxi VTC VMDTR</p>
           </div>
 
           {/* Logo Principal */}
@@ -43,7 +43,7 @@ const LogoExport = () => {
               Logo Principal
             </h2>
             <div className="bg-cream-light rounded-xl p-12 flex items-center justify-center border border-forest/10">
-              <T3PCampusLogo className="h-20" theme="color" />
+              <EcoleT3PLogo className="h-20" theme="color" />
             </div>
             <p className="text-sm text-warm-gray-500 mt-4 text-center">
               Version couleur - À utiliser sur fonds clairs
@@ -58,19 +58,19 @@ const LogoExport = () => {
             <div className="grid grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="bg-cream-light rounded-xl p-8 flex items-center justify-center border border-forest/10 mb-3">
-                  <T3PCampusIcon className="w-20 h-20" theme="color" />
+                  <EcoleT3PIcon className="w-20 h-20" theme="color" />
                 </div>
                 <p className="text-xs text-warm-gray-500">Standard</p>
               </div>
               <div className="text-center">
                 <div className="bg-forest rounded-xl p-8 flex items-center justify-center mb-3">
-                  <T3PCampusIcon className="w-20 h-20" theme="white" />
+                  <EcoleT3PIcon className="w-20 h-20" theme="white" />
                 </div>
                 <p className="text-xs text-warm-gray-500">Fond sombre</p>
               </div>
               <div className="text-center">
                 <div className="bg-cream-light rounded-xl p-8 flex items-center justify-center border border-forest/10 mb-3">
-                  <T3PCampusIcon className="w-20 h-20" theme="mono" />
+                  <EcoleT3PIcon className="w-20 h-20" theme="mono" />
                 </div>
                 <p className="text-xs text-warm-gray-500">Monochrome</p>
               </div>
@@ -116,25 +116,25 @@ const LogoExport = () => {
               {/* Version standard */}
               <div className="bg-white rounded-xl p-8 border border-forest/10">
                 <p className="text-sm font-semibold text-forest mb-4">Version Standard (fond clair)</p>
-                <T3PCampusLogo className="h-14" theme="color" />
+                <EcoleT3PLogo className="h-14" theme="color" />
               </div>
 
               {/* Version blanche */}
               <div className="bg-forest rounded-xl p-8">
                 <p className="text-sm font-semibold text-cream/80 mb-4">Version Blanche (fond sombre)</p>
-                <T3PCampusLogo className="h-14" theme="white" />
+                <EcoleT3PLogo className="h-14" theme="white" />
               </div>
 
               {/* Version monochrome */}
               <div className="bg-cream-light rounded-xl p-8 border border-forest/10">
                 <p className="text-sm font-semibold text-forest mb-4">Version Monochrome</p>
-                <T3PCampusLogo className="h-14" theme="mono" />
+                <EcoleT3PLogo className="h-14" theme="mono" />
               </div>
 
               {/* Version horizontale */}
               <div className="bg-white rounded-xl p-8 border border-forest/10">
                 <p className="text-sm font-semibold text-forest mb-4">Version Horizontale Compacte</p>
-                <T3PCampusLogo className="h-12" variant="horizontal" />
+                <EcoleT3PLogo className="h-12" variant="horizontal" />
               </div>
             </div>
           </section>
@@ -146,22 +146,22 @@ const LogoExport = () => {
             </h2>
             <div className="flex items-end gap-8 flex-wrap bg-cream-light rounded-xl p-8 border border-forest/10">
               <div className="text-center">
-                <T3PCampusIcon className="w-6 h-6 mb-2 mx-auto" theme="color" />
+                <EcoleT3PIcon className="w-6 h-6 mb-2 mx-auto" theme="color" />
                 <p className="text-xs text-warm-gray-500">24px</p>
                 <p className="text-xs text-forest font-semibold">Min. digital</p>
               </div>
               <div className="text-center">
-                <T3PCampusIcon className="w-10 h-10 mb-2 mx-auto" theme="color" />
+                <EcoleT3PIcon className="w-10 h-10 mb-2 mx-auto" theme="color" />
                 <p className="text-xs text-warm-gray-500">40px</p>
                 <p className="text-xs text-forest font-semibold">Recommandé</p>
               </div>
               <div className="text-center">
-                <T3PCampusIcon className="w-16 h-16 mb-2 mx-auto" theme="color" />
+                <EcoleT3PIcon className="w-16 h-16 mb-2 mx-auto" theme="color" />
                 <p className="text-xs text-warm-gray-500">64px</p>
                 <p className="text-xs text-forest font-semibold">Standard</p>
               </div>
               <div className="text-center">
-                <T3PCampusIcon className="w-24 h-24 mb-2 mx-auto" theme="color" />
+                <EcoleT3PIcon className="w-24 h-24 mb-2 mx-auto" theme="color" />
                 <p className="text-xs text-warm-gray-500">96px</p>
                 <p className="text-xs text-forest font-semibold">Grand format</p>
               </div>
@@ -171,10 +171,10 @@ const LogoExport = () => {
           {/* Footer */}
           <footer className="text-center pt-8 border-t border-forest/20">
             <p className="text-sm text-warm-gray-500">
-              © 2025 T3P Campus - Tous droits réservés
+              © 2025 ECOLE T3P - Tous droits réservés
             </p>
             <p className="text-xs text-warm-gray-400 mt-2">
-              3 rue Corneille, 92120 Montrouge | montrouge@t3pcampus.fr | 01 88 75 05 55
+              3 rue Corneille, 92120 Montrouge | montrouge@ecolet3p.fr | 01 88 75 05 55
             </p>
           </footer>
         </div>
