@@ -7,27 +7,34 @@ import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
-// T3P sub-paths (Taxi, VTC, VMDTR)
+// T3P sub-paths (Taxi, VTC, VMDTR) with duration info
 const t3pPaths = [
   {
     id: "taxi",
     title: "Parcours TAXI",
-    duration: "182h",
+    duration: "63h jour / 33h soir",
     link: "/formations/taxi",
   },
   {
     id: "vtc",
     title: "Parcours VTC",
-    duration: "182h",
+    duration: "63h jour / 33h soir",
     link: "/formations/vtc",
   },
   {
     id: "vmdtr",
     title: "Parcours VMDTR",
-    duration: "14h",
+    duration: "63h jour / 33h soir",
     link: "/formations/vmdtr",
-    badge: "Nouveauté",
+    badge: "Nouveau",
   },
+];
+
+// Additional T3P info
+const t3pExtras = [
+  { label: "Formation Continue", duration: "14h", note: "Taxi, VTC, VMDTR" },
+  { label: "Mobilité Taxi 75", duration: "35h" },
+  { label: "Mobilité Taxi 92", duration: "14h" },
 ];
 
 const offers = [
@@ -161,28 +168,46 @@ const OffersSection = () => {
 
                 {/* T3P Sub-paths */}
                 {isT3P && (
-                  <div className="mb-6 p-4 bg-forest/5 rounded-xl">
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                      3 parcours disponibles
-                    </p>
-                    <div className="grid grid-cols-3 gap-2">
-                      {t3pPaths.map((path) => (
-                        <PrefetchLink 
-                          key={path.id}
-                          to={path.link}
-                          className="relative flex flex-col items-center p-3 bg-white rounded-lg border border-border/50 hover:border-gold/50 hover:shadow-md transition-all group"
-                        >
-                          {path.badge && (
-                            <span className="absolute -top-2 -right-2 bg-gradient-to-r from-gold to-orange text-forest text-[10px] font-bold px-2 py-0.5 rounded-full">
-                              {path.badge}
+                  <div className="mb-6 space-y-4">
+                    {/* Main paths */}
+                    <div className="p-4 bg-forest/5 rounded-xl">
+                      <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
+                        Formations initiales T3P
+                      </p>
+                      <div className="grid grid-cols-3 gap-2">
+                        {t3pPaths.map((path) => (
+                          <PrefetchLink 
+                            key={path.id}
+                            to={path.link}
+                            className="relative flex flex-col items-center p-3 bg-white rounded-lg border border-border/50 hover:border-gold/50 hover:shadow-md transition-all group"
+                          >
+                            {path.badge && (
+                              <span className="absolute -top-2 -right-2 bg-gradient-to-r from-gold to-orange text-forest text-[10px] font-bold px-2 py-0.5 rounded-full">
+                                {path.badge}
+                              </span>
+                            )}
+                            <span className="text-sm font-semibold text-forest group-hover:text-gold transition-colors text-center">
+                              {path.title}
                             </span>
-                          )}
-                          <span className="text-sm font-semibold text-forest group-hover:text-gold transition-colors">
-                            {path.title}
+                            <span className="text-xs text-muted-foreground text-center">{path.duration}</span>
+                          </PrefetchLink>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Additional T3P offerings */}
+                    <div className="p-3 bg-gold/5 rounded-lg border border-gold/20">
+                      <p className="text-xs font-bold uppercase tracking-wider text-gold mb-2">
+                        Autres formations T3P
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {t3pExtras.map((extra, idx) => (
+                          <span key={idx} className="inline-flex items-center gap-1 text-xs bg-white px-2 py-1 rounded-full border border-border/50">
+                            <span className="font-medium text-forest">{extra.label}</span>
+                            <span className="text-muted-foreground">({extra.duration})</span>
                           </span>
-                          <span className="text-xs text-muted-foreground">{path.duration}</span>
-                        </PrefetchLink>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
