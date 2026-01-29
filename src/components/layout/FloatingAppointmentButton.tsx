@@ -1,30 +1,12 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Calendar } from "lucide-react";
+import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 const FloatingAppointmentButton = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const isMobile = useIsMobile();
-
-  const scrollToAppointment = () => {
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        const element = document.getElementById("rendez-vous");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById("rendez-vous");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  };
+  const { openQuoteModal } = useQuoteModal();
 
   // Only show on desktop
   if (isMobile) return null;
@@ -47,16 +29,16 @@ const FloatingAppointmentButton = () => {
       }}
       whileHover={{ scale: 1.05, y: -4 }}
       whileTap={{ scale: 0.95 }}
-      onClick={scrollToAppointment}
+      onClick={() => openQuoteModal()}
       className="fixed bottom-8 right-8 z-50 flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-full transition-all"
       style={{
         background: "linear-gradient(135deg, #D4A853 0%, #E4BE73 100%)",
         color: "#1B4D3E",
       }}
-      aria-label="Prendre rendez-vous"
+      aria-label="Demander un devis gratuit"
     >
-      <Calendar className="w-5 h-5" />
-      <span>Prendre RDV</span>
+      <FileText className="w-5 h-5" />
+      <span>Devis Gratuit</span>
     </motion.button>
   );
 };

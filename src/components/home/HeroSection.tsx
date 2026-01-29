@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { Award, Users, CreditCard } from "lucide-react";
+import { Award, Users, CreditCard, FileText } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
+import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -33,6 +34,7 @@ const staggerItemVariants = {
 };
 
 const HeroSection = () => {
+  const { openQuoteModal } = useQuoteModal();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -96,33 +98,34 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* Title */}
+            {/* Title - SEO Optimized H1 */}
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-forest uppercase leading-[1.05] tracking-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-forest leading-[1.05] tracking-tight mb-6"
             >
-              Des formations pour{" "}
+              Centre de Formation{" "}
               <motion.span 
                 className="text-gold inline-block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
               >
-                devenir chauffeur
+                T3P, VMDTR
               </motion.span>{" "}
-              et réussir
+              & Récupération de Points
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle - Benefit oriented */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
               className="text-lg md:text-xl text-warm-gray-600 leading-relaxed mb-8"
             >
-              Un accompagnement personnalisé pour obtenir votre carte professionnelle TAXI, VTC ou VMDTR.
+              <strong>94% de réussite aux examens</strong> — Obtenez votre carte professionnelle TAXI ou VTC, 
+              devenez moto-taxi, ou récupérez vos points avec nos formations agréées.
             </motion.p>
 
             {/* Stats */}
@@ -153,7 +156,7 @@ const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* CTA Buttons with enhanced micro-interactions */}
+            {/* CTA Buttons - Conversion oriented */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -169,8 +172,9 @@ const HeroSection = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className="inline-block"
               >
-                <Button asChild className="btn-accent pulse-subtle">
-                  <a href="#rendez-vous">PRENDRE RENDEZ-VOUS</a>
+                <Button onClick={() => openQuoteModal()} className="btn-accent pulse-subtle">
+                  <FileText className="w-5 h-5 mr-2" />
+                  DEMANDER UN DEVIS GRATUIT
                 </Button>
               </motion.div>
               <motion.div

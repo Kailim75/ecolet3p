@@ -2,108 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://t3pcampus.fr/</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://t3pcampus.fr/og-image.jpg</image:loc>
-      <image:title>T3P Campus - Centre de Formation Taxi VTC Montrouge</image:title>
+      <image:loc>https://ecolet3p.fr/og-image.jpg</image:loc>
+      <image:title>ECOLE T3P - Centre de Formation T3P, VMDTR & Récupération de Points</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/formations</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/formations</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/formations/taxi</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/formations/taxi</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/formations/vtc</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/formations/vtc</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/formations/mobilite</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/formations/mobilite</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/formations/vmdtr</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/formations/vmdtr</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/formations/recuperation-points</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ecolet3p.fr/blog</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog/devenir-chauffeur-vtc-2025</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/blog/devenir-chauffeur-vtc-2025</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog/formation-taxi-vs-vtc</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/blog/formation-taxi-vs-vtc</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog/financement-formation-taxi-vtc</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/blog/financement-formation-taxi-vtc</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog/carte-professionnelle-vtc</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/blog/carte-professionnelle-vtc</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog/formation-continue-taxi-vtc</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/blog/formation-continue-taxi-vtc</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/blog/moto-taxi-vmdtr</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/blog/moto-taxi-vmdtr</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/a-propos</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/a-propos</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/contact</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/contact</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/mentions-legales</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/mentions-legales</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://t3pcampus.fr/politique-de-confidentialite</loc>
-    <lastmod>2025-01-25</lastmod>
+    <loc>https://ecolet3p.fr/politique-de-confidentialite</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

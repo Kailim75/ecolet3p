@@ -2,12 +2,13 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import FormationsSection from "@/components/home/FormationsSection";
+import OffersSection from "@/components/home/OffersSection";
 
 // Import critical images for preload
 import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
+const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
 const AdvantagesSection = lazy(() => import("@/components/home/AdvantagesSection"));
 const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
 const LocalsSection = lazy(() => import("@/components/home/LocalsSection"));
@@ -142,9 +143,9 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ECOLE T3P - Formation Taxi VTC Montrouge | 94% de Réussite</title>
-        <meta name="description" content="École de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, paiement en 4x sans frais, formateurs experts. Obtenez votre carte professionnelle !" />
-        <meta name="keywords" content="formation taxi, formation VTC, école formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P, formation chauffeur" />
+        <title>ECOLE T3P - Centre de Formation T3P, VMDTR & Récupération de Points | Montrouge</title>
+        <meta name="description" content="Centre de formation T3P (Taxi, VTC), VMDTR et stages de récupération de points à Montrouge. 94% de réussite, paiement 4x sans frais. Devis gratuit sous 24h !" />
+        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, stage récupération points, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/" />
         
         {/* Preload critical hero image */}
@@ -179,9 +180,12 @@ const Index = () => {
       
       {/* Critical above-the-fold content */}
       <HeroSection />
-      <FormationsSection />
+      <OffersSection />
       
       {/* Lazy loaded below-the-fold sections */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <WhyChooseUsSection />
+      </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <AdvantagesSection />
       </Suspense>

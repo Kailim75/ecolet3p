@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Calendar } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
+import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -18,7 +19,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const { openQuoteModal } = useQuoteModal();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -33,25 +34,6 @@ const Header = () => {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
-
-  const scrollToAppointment = () => {
-    setIsMenuOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/");
-      // Wait for navigation then scroll
-      setTimeout(() => {
-        const element = document.getElementById("rendez-vous");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById("rendez-vous");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  };
 
   return (
     <header
@@ -103,11 +85,11 @@ const Header = () => {
               <span>+33 1 88 75 05 55</span>
             </a>
             <Button
-              onClick={scrollToAppointment}
+              onClick={() => openQuoteModal()}
               className="btn-accent"
             >
-              <Calendar className="w-4 h-4 mr-2" />
-              Prendre RDV
+              <FileText className="w-4 h-4 mr-2" />
+              Devis Gratuit
             </Button>
           </div>
 
@@ -153,19 +135,22 @@ const Header = () => {
                     </Link>
                   </motion.div>
                 ))}
-                {/* Appointment link in mobile menu */}
+                {/* Quote CTA in mobile menu */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
                 >
                   <button
-                    onClick={scrollToAppointment}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      openQuoteModal();
+                    }}
                     className="w-full text-left block text-lg font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors text-gold-dark hover:bg-gold/10"
                   >
                     <span className="flex items-center gap-2">
-                      <Calendar className="w-5 h-5" />
-                      Prendre RDV
+                      <FileText className="w-5 h-5" />
+                      Devis Gratuit
                     </span>
                   </button>
                 </motion.div>
