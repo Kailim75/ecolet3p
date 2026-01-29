@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ReactNode } from "react";
+import React, { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -138,11 +138,11 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: Quote
   });
 
   // Update formation when preselected changes
-  useState(() => {
+  useEffect(() => {
     if (preselectedFormation) {
       setFormData(prev => ({ ...prev, formationChoice: preselectedFormation }));
     }
-  });
+  }, [preselectedFormation]);
 
   const handleInputChange = (field: keyof QuoteData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
