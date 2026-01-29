@@ -152,8 +152,8 @@ const FormationTaxi = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation Taxi - Carte Professionnelle T3P",
-    "description": "Formation complète de 63 heures pour obtenir votre carte professionnelle de chauffeur de taxi. Taux de réussite 94%, formateurs experts, paiement en 4x sans frais.",
+    "name": "Formation T3P - Parcours Taxi Professionnel",
+    "description": "Parcours Taxi de la formation T3P pour obtenir votre carte professionnelle. 63h de formation, taux de réussite 94%, formateurs experts, paiement en 4x sans frais.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
@@ -210,9 +210,9 @@ const FormationTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi Montrouge - Carte Professionnelle | ECOLE T3P</title>
-        <meta name="description" content="Formation taxi complète à Montrouge. 63h de formation, taux de réussite 94%, paiement en 4x sans frais. Obtenez votre carte professionnelle de chauffeur de taxi." />
-        <meta name="keywords" content="formation taxi montrouge, carte professionnelle taxi, devenir chauffeur taxi, examen taxi, formation ECOLE T3P" />
+        <title>Formation T3P Parcours Taxi Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Parcours Taxi de la formation T3P à Montrouge. 63h de formation, taux de réussite 94%, paiement en 4x sans frais. Obtenez votre carte professionnelle taxi." />
+        <meta name="keywords" content="formation T3P taxi, parcours taxi montrouge, carte professionnelle taxi, devenir chauffeur taxi, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations/taxi" />
         
         {/* Preload critical hero image */}
@@ -223,8 +223,8 @@ const FormationTaxi = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation Taxi Montrouge - Carte Professionnelle | ECOLE T3P" />
-        <meta property="og:description" content="Formation taxi complète à Montrouge. 63h de formation, taux de réussite 94%. Devenez chauffeur de taxi professionnel." />
+        <meta property="og:title" content="Formation T3P Parcours Taxi | ECOLE T3P Montrouge" />
+        <meta property="og:description" content="Parcours Taxi de la formation T3P. 63h de formation, taux de réussite 94%. Devenez chauffeur de taxi professionnel." />
         <meta property="og:url" content="https://ecolet3p.fr/formations/taxi" />
         <meta property="og:type" content="website" />
         
@@ -249,7 +249,7 @@ const FormationTaxi = () => {
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Formation Taxi",
+              "name": "Parcours Taxi",
               "item": "https://ecolet3p.fr/formations/taxi"
             }
           ]
@@ -277,7 +277,7 @@ const FormationTaxi = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Formation Taxi</BreadcrumbPage>
+                <BreadcrumbPage>Parcours Taxi</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -300,17 +300,17 @@ const FormationTaxi = () => {
             >
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
                 <CarTaxiFront className="h-4 w-4 mr-2" />
-                Formation Taxi
+                Formation T3P – Parcours Taxi
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Formation <span className="text-primary">Taxi</span>
+                Parcours <span className="text-primary">TAXI</span>
                 <br />Carte Professionnelle
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
-                Devenez chauffeur de taxi professionnel avec notre formation complète de 63 heures. 
-                Taux de réussite de 94% et accompagnement personnalisé jusqu'à l'obtention de votre carte.
+                Le parcours Taxi fait partie de la formation T3P. Devenez chauffeur de taxi professionnel 
+                avec notre formation complète. Taux de réussite de 94% et accompagnement personnalisé.
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
