@@ -143,9 +143,9 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ECOLE T3P - Centre de Formation T3P, VMDTR & Récupération de Points | Montrouge</title>
-        <meta name="description" content="Centre de formation T3P (Taxi, VTC), VMDTR et stages de récupération de points à Montrouge. 94% de réussite, paiement 4x sans frais. Devis gratuit sous 24h !" />
-        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, stage récupération points, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P" />
+        <title>ECOLE T3P - Formation Taxi, VTC & VMDTR (Taxi Moto) | Montrouge</title>
+        <meta name="description" content="Devenez Taxi, VTC ou VMDTR (taxi moto) avec ECOLE T3P à Montrouge. 94% de réussite, paiement 4x sans frais. Récupération de points. Devis gratuit sous 24h !" />
+        <meta name="keywords" content="formation taxi, formation VTC, formation VMDTR, taxi moto, stage récupération points, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/" />
         
         {/* Preload critical hero image */}
@@ -156,8 +156,8 @@ const Index = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="ECOLE T3P - Formation Taxi VTC à Montrouge" />
-        <meta property="og:description" content="École de formation avec 94% de réussite. Formations Taxi, VTC et VMDTR. Paiement en 4x sans frais." />
+        <meta property="og:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR à Montrouge" />
+        <meta property="og:description" content="Devenez Taxi, VTC ou VMDTR (taxi moto) avec 94% de réussite. Paiement en 4x sans frais." />
         <meta property="og:url" content="https://ecolet3p.fr/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ECOLE T3P" />
@@ -165,8 +165,8 @@ const Index = () => {
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ECOLE T3P - Formation Taxi VTC Montrouge" />
-        <meta name="twitter:description" content="École de formation avec 94% de réussite. Obtenez votre carte professionnelle Taxi ou VTC." />
+        <meta name="twitter:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR Montrouge" />
+        <meta name="twitter:description" content="Devenez Taxi, VTC ou VMDTR (taxi moto). 94% de réussite aux examens." />
         <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
