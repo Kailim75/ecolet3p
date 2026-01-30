@@ -30,10 +30,10 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     
-    /* Header */
+    /* Header with animated badge */
     .header {
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      padding: 14px 24px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,12 +43,12 @@
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     
     .logo {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: #F5EBD7;
       border-radius: 50%;
       display: flex;
@@ -56,73 +56,103 @@
       justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
-      font-size: 13px;
+      font-size: 11px;
       color: #1B4D3E;
     }
     
     .brand-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
     
     .header-badge {
-      background: #E53935;
+      background: linear-gradient(135deg, #E53935 0%, #FF6B6B 100%);
       color: white;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
       font-size: 9px;
       font-weight: 700;
       text-transform: uppercase;
       animation: pulse 2s infinite;
+      box-shadow: 0 2px 8px rgba(229, 57, 53, 0.4);
     }
     
     @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(229, 57, 53, 0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(229, 57, 53, 0.6); }
     }
     
-    /* Hero Section */
+    /* Hero Section - URGENT red */
     .hero {
       background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
-      padding: 22px 24px;
+      padding: 18px 20px;
       text-align: center;
-      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
     }
     
     .hero-label {
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      opacity: 0.9;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.9);
       margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
     }
     
     .hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 900;
-      line-height: 1.1;
+      color: white;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
     }
     
     .hero-subtitle {
-      font-size: 13px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.95);
       margin-top: 8px;
       font-weight: 600;
-      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 20px;
     }
     
-    /* Credibility Bar */
+    /* Credibility Bar - Enhanced */
     .credibility-bar {
-      background: #1B4D3E;
-      padding: 10px 24px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      padding: 10px 16px;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
     }
     
     .credibility-item {
@@ -130,8 +160,11 @@
       align-items: center;
       gap: 6px;
       color: #F5EBD7;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
+      background: rgba(255,255,255,0.08);
+      padding: 4px 10px;
+      border-radius: 15px;
     }
     
     .credibility-icon {
@@ -146,23 +179,37 @@
     
     /* Content */
     .content {
-      padding: 18px 20px;
+      padding: 14px 16px;
     }
     
-    /* Price Box */
+    /* Price Box - Very visible */
     .price-box {
       background: white;
       border-radius: 16px;
-      padding: 20px;
+      padding: 18px;
       text-align: center;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.1);
-      border: 2px solid #D4A853;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 20px rgba(27, 77, 62, 0.12);
+      border: 3px solid #D4A853;
+      position: relative;
+    }
+    
+    .price-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
     
     .price-main {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 42px;
+      font-size: 48px;
       font-weight: 900;
       color: #1B4D3E;
       line-height: 1;
@@ -181,52 +228,55 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      background: rgba(27, 77, 62, 0.06);
+      padding: 4px 10px;
+      border-radius: 10px;
     }
     
     /* Benefits List */
     .benefits {
       background: white;
       border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
       box-shadow: 0 2px 8px rgba(27, 77, 62, 0.06);
     }
     
     .benefits-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       color: #1B4D3E;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-bottom: 4px;
-      border-bottom: 2px solid #D4A853;
+      border-bottom: 2px solid #2ecc71;
       display: inline-block;
     }
     
     .benefits-list {
       list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
     }
     
     .benefits-list li {
-      font-size: 11px;
+      font-size: 9px;
       color: #4B463C;
-      padding: 8px 0;
-      padding-left: 26px;
+      padding: 6px 8px;
+      padding-left: 22px;
       position: relative;
-      border-bottom: 1px solid rgba(27, 77, 62, 0.06);
-    }
-    
-    .benefits-list li:last-child {
-      border-bottom: none;
+      background: rgba(46, 204, 113, 0.06);
+      border-radius: 6px;
     }
     
     .benefits-list li::before {
       content: "✓";
       position: absolute;
-      left: 0;
-      color: #1B4D3E;
+      left: 8px;
+      color: #2ecc71;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 12px;
     }
     
     .benefits-list strong {
@@ -234,27 +284,28 @@
       font-weight: 700;
     }
     
-    /* Info Note */
+    /* Info Note - Clearer */
     .info-note {
-      background: rgba(52, 152, 219, 0.1);
-      border: 1px solid rgba(52, 152, 219, 0.3);
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.08) 0%, rgba(52, 152, 219, 0.04) 100%);
+      border: 1px solid rgba(52, 152, 219, 0.2);
+      border-left: 3px solid #3498db;
       border-radius: 8px;
-      padding: 12px 14px;
-      margin-bottom: 14px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      align-items: center;
+      gap: 8px;
     }
     
     .info-icon {
-      font-size: 18px;
+      font-size: 16px;
       flex-shrink: 0;
     }
     
     .info-text {
-      font-size: 10px;
+      font-size: 8px;
       color: #1B4D3E;
-      line-height: 1.5;
+      line-height: 1.4;
     }
     
     .info-text strong {
@@ -262,24 +313,44 @@
       color: #3498db;
     }
     
-    /* CTA Principal */
+    /* CTA Principal - Very visible ORANGE */
     .cta-main {
-      background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
-      color: #1B4D3E;
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+      color: white;
       text-align: center;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.4);
-      margin-bottom: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 2s infinite;
+    }
+    
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
     }
     
     .cta-header {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 12px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-phone {
@@ -288,27 +359,35 @@
       font-weight: 900;
       margin-bottom: 4px;
       letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     
     .cta-website {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
       margin-bottom: 6px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-urgency {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      background: rgba(27, 77, 62, 0.15);
+      background: rgba(255,255,255,0.25);
       display: inline-block;
       padding: 4px 14px;
       border-radius: 12px;
+      position: relative;
+      z-index: 1;
     }
     
-    /* Bottom Section */
+    /* Bottom Section - QR + Testimonial */
     .bottom-section {
       display: flex;
       gap: 10px;
@@ -321,52 +400,90 @@
       padding: 10px;
       text-align: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.08);
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      border: 2px dashed rgba(27, 77, 62, 0.15);
     }
     
     .qr-placeholder {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      border-radius: 6px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #F5EBD7;
+      color: white;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 12px;
+      font-size: 11px;
       margin: 0 auto 6px;
     }
     
     .qr-label {
-      font-size: 8px;
+      font-size: 7px;
       color: #1B4D3E;
       font-weight: 600;
       line-height: 1.3;
     }
     
-    /* Info Box */
-    .info-box {
+    /* Testimonial - 5 stars */
+    .testimonial {
       flex: 1;
-      background: white;
+      background: linear-gradient(135deg, #ffffff 0%, #fefcf8 100%);
       border-radius: 10px;
-      padding: 12px 14px;
-      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.08);
+      padding: 10px 12px;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.3);
     }
     
-    .info-box-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      color: #1B4D3E;
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 6px;
     }
     
-    .info-box-text {
+    .testimonial-stars {
+      color: #D4A853;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    
+    .testimonial-rating {
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+    
+    .testimonial-text {
       font-size: 9px;
       color: #4B463C;
+      font-style: italic;
       line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    
+    .testimonial-author {
+      font-size: 8px;
+      color: #1B4D3E;
+      font-weight: 700;
+    }
+    
+    .testimonial-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 7px;
+      color: #666;
+      margin-top: 4px;
+      background: rgba(46, 204, 113, 0.1);
+      padding: 3px 8px;
+      border-radius: 10px;
+      display: inline-flex;
     }
     
     /* Footer */
@@ -377,11 +494,11 @@
       right: 0;
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
       color: #F5EBD7;
-      padding: 10px 24px;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 8px;
+      font-size: 7px;
     }
     
     .footer-left {
@@ -404,7 +521,6 @@
     
     .footer-right {
       text-align: right;
-      opacity: 0.8;
     }
     
     .footer-cert {
@@ -414,11 +530,30 @@
       font-size: 7px;
       color: #D4A853;
       font-weight: 600;
+      margin-bottom: 4px;
+      display: inline-block;
     }
     
     @media print {
       body { background: white; padding: 0; }
       .flyer { box-shadow: none; }
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 480px) {
+      .flyer {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+      }
+      
+      .benefits-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .bottom-section {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -433,11 +568,11 @@
       <span class="header-badge">⚠️ Protégez votre permis</span>
     </div>
     
-    <!-- Hero -->
+    <!-- Hero - URGENT red -->
     <div class="hero">
-      <p class="hero-label">Ne perdez pas votre permis de conduire</p>
-      <h1>Récupérez Vos<br>Points de Permis</h1>
-      <p class="hero-subtitle">Stage agréé Préfecture – Récupérez jusqu'à 4 points</p>
+      <p class="hero-label">🚨 Ne perdez pas votre permis !</p>
+      <h1>Récupérez Jusqu'à<br>4 Points</h1>
+      <p class="hero-subtitle">Stage agréé Préfecture – En 2 jours seulement</p>
     </div>
     
     <!-- Credibility Bar -->
@@ -451,8 +586,8 @@
         <span><span class="credibility-value">2000+</span> stagiaires</span>
       </div>
       <div class="credibility-item">
-        <span class="credibility-icon">🏆</span>
-        <span>Centre <span class="credibility-value">certifié</span></span>
+        <span class="credibility-icon">📜</span>
+        <span>Attestation <span class="credibility-value">48h</span></span>
       </div>
     </div>
     
@@ -460,10 +595,11 @@
     <div class="content">
       <!-- Price Box -->
       <div class="price-box">
+        <span class="price-badge">Meilleur prix</span>
         <div class="price-main">250 €</div>
         <div class="price-details">
           <span class="price-detail">⏱️ 2 jours</span>
-          <span class="price-detail">📅 Week-end disponible</span>
+          <span class="price-detail">📅 Week-end dispo</span>
           <span class="price-detail">📍 Montrouge</span>
         </div>
       </div>
@@ -472,11 +608,12 @@
       <div class="benefits">
         <h3 class="benefits-title">✅ Ce que vous gagnez</h3>
         <ul class="benefits-list">
-          <li><strong>Récupération de 4 points</strong> sur votre permis de conduire</li>
-          <li><strong>Attestation officielle</strong> délivrée sous 48h</li>
-          <li><strong>Formation agréée</strong> par la Préfecture</li>
-          <li><strong>Sessions régulières</strong> y compris le week-end</li>
-          <li><strong>Groupe réduit</strong> pour un meilleur accompagnement</li>
+          <li><strong>+4 points</strong> sur votre permis</li>
+          <li><strong>Attestation</strong> sous 48h</li>
+          <li><strong>Formation agréée</strong> Préfecture</li>
+          <li><strong>Sessions week-end</strong> disponibles</li>
+          <li><strong>Groupe réduit</strong> 20 personnes max</li>
+          <li><strong>Formateurs experts</strong> certifiés</li>
         </ul>
       </div>
       
@@ -484,11 +621,11 @@
       <div class="info-note">
         <span class="info-icon">ℹ️</span>
         <p class="info-text">
-          <strong>Conditions :</strong> Stage accessible à tous les titulaires du permis de conduire. Limité à un stage par an. Les points sont crédités le lendemain du stage.
+          <strong>Conditions :</strong> Stage accessible à tous les titulaires du permis. Limité à 1 stage/an. Points crédités le lendemain.
         </p>
       </div>
       
-      <!-- CTA Principal -->
+      <!-- CTA Principal - Orange vibrant -->
       <div class="cta-main">
         <div class="cta-header">👉 Réservez votre place maintenant !</div>
         <div class="cta-phone">📞 07 83 78 76 63</div>
@@ -496,7 +633,7 @@
         <span class="cta-urgency">Places limitées – Sessions toute l'année</span>
       </div>
       
-      <!-- Bottom Section: QR + Info -->
+      <!-- Bottom Section: QR + Testimonial -->
       <div class="bottom-section">
         <div class="qr-section">
           <div class="qr-placeholder">
@@ -504,11 +641,17 @@
           </div>
           <p class="qr-label">Scannez pour<br>réserver</p>
         </div>
-        <div class="info-box">
-          <p class="info-box-title">🚗 Pourquoi choisir ECOLE T3P ?</p>
-          <p class="info-box-text">
-            Formateurs expérimentés et pédagogues. Locaux modernes et accessibles. Attestation délivrée rapidement. Centre agréé par la Préfecture.
-          </p>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div class="testimonial-stars">★★★★★</div>
+            <span class="testimonial-rating">5/5</span>
+          </div>
+          <p class="testimonial-text">"Très bon stage ! Récupéré mes 4 points rapidement. Ambiance agréable et formateurs compétents."</p>
+          <p class="testimonial-author">— Sophie M., Automobiliste</p>
+          <div class="testimonial-badge">
+            <span>✓</span>
+            <span>Basé sur 200+ avis vérifiés</span>
+          </div>
         </div>
       </div>
     </div>
@@ -521,10 +664,9 @@
         <a href="https://ecolet3p.fr">www.ecolet3p.fr</a>
       </div>
       <div class="footer-right">
-        <span class="footer-cert">Centre agréé Préfecture</span>
-        <div style="margin-top: 4px;">
-          <span>Métro Ligne 4</span><br>
-          <span>Mairie de Montrouge</span>
+        <span class="footer-cert">Stage agréé Préfecture</span>
+        <div>
+          <span>Métro Ligne 4 – Mairie de Montrouge</span>
         </div>
       </div>
     </div>
