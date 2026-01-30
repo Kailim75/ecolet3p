@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imprimer tous les flyers | ECOLE T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @page {
+      size: A5 portrait;
+      margin: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+    }
+    
+    /* Print Controls - Hidden when printing */
+    .print-controls {
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      color: #F5EBD7;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    
+    .print-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .print-logo {
+      width: 50px;
+      height: 50px;
+      background: #F5EBD7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: #1B4D3E;
+    }
+    
+    .print-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    
+    .print-subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .print-actions {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-print {
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    }
+    
+    .btn-print:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+    }
+    
+    .btn-back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #F5EBD7;
+    }
+    
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    
+    /* Flyers Container */
+    .flyers-container {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    /* Flyer Wrapper */
+    .flyer-wrapper {
+      position: relative;
+    }
+    
+    .flyer-label {
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      color: #F5EBD7;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(27, 77, 62, 0.3);
+    }
+    
+    .flyer-frame {
+      width: 148mm;
+      height: 210mm;
+      border: none;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Page break indicator */
+    .page-break {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #999;
+      font-size: 12px;
+      margin: 10px 0;
+    }
+    
+    .page-break::before,
+    .page-break::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #ccc, transparent);
+    }
+    
+    .page-break-icon {
+      font-size: 16px;
+    }
+    
+    /* Print instructions */
+    .print-instructions {
+      background: white;
+      border-radius: 16px;
+      padding: 25px 30px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-left: 4px solid #D4A853;
+    }
+    
+    .print-instructions h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .print-instructions ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    
+    .print-instructions li {
+      font-size: 13px;
+      color: #4B463C;
+      padding-left: 22px;
+      position: relative;
+    }
+    
+    .print-instructions li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2ecc71;
+      font-weight: 700;
+    }
+    
+    /* Print Styles */
+    @media print {
+      .print-controls,
+      .flyer-label,
+      .page-break,
+      .print-instructions {
+        display: none !important;
+      }
+      
+      body {
+        background: white;
+      }
+      
+      .flyers-container {
+        padding: 0;
+        gap: 0;
+      }
+      
+      .flyer-wrapper {
+        page-break-after: always;
+        break-after: page;
+      }
+      
+      .flyer-wrapper:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      
+      .flyer-frame {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .print-controls {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .print-info {
+        flex-direction: column;
+      }
+      
+      .flyer-frame {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 148 / 210;
+      }
+      
+      .print-instructions ul {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Print Controls -->
+  <div class="print-controls">
+    <div class="print-info">
+      <div class="print-logo">T3P</div>
+      <div>
+        <div class="print-title">Impression Groupée</div>
+        <div class="print-subtitle">4 flyers A5 prêts à imprimer</div>
+      </div>
+    </div>
+    <div class="print-actions">
+      <a href="index.html" class="btn btn-back">
+        ← Retour
+      </a>
+      <button onclick="window.print()" class="btn btn-print">
+        🖨️ Imprimer les 4 flyers
+      </button>
+    </div>
+  </div>
+  
+  <!-- Print Instructions -->
+  <div class="flyers-container">
+    <div class="print-instructions">
+      <h3>💡 Conseils d'impression</h3>
+      <ul>
+        <li>Format : A5 Portrait (148 × 210 mm)</li>
+        <li>Qualité : Haute résolution</li>
+        <li>Couleur : CMJN recommandé</li>
+        <li>Papier : 170g/m² minimum</li>
+        <li>Marges : Sans bordure si possible</li>
+        <li>Recto seul (pas de recto-verso)</li>
+      </ul>
+    </div>
+    
+    <!-- Flyer 1: Formation Continue -->
+    <div class="flyer-wrapper">
+      <span class="flyer-label">1/4 – Formation Continue</span>
+      <iframe src="flyer-formation-continue.html" class="flyer-frame"></iframe>
+    </div>
+    
+    <div class="page-break">
+      <span class="page-break-icon">✂️</span>
+      <span>Saut de page à l'impression</span>
+    </div>
+    
+    <!-- Flyer 2: Formation Initiale -->
+    <div class="flyer-wrapper">
+      <span class="flyer-label">2/4 – Formation Initiale</span>
+      <iframe src="flyer-formation-initiale.html" class="flyer-frame"></iframe>
+    </div>
+    
+    <div class="page-break">
+      <span class="page-break-icon">✂️</span>
+      <span>Saut de page à l'impression</span>
+    </div>
+    
+    <!-- Flyer 3: Récupération Points -->
+    <div class="flyer-wrapper">
+      <span class="flyer-label">3/4 – Récupération de Points</span>
+      <iframe src="flyer-recuperation-points.html" class="flyer-frame"></iframe>
+    </div>
+    
+    <div class="page-break">
+      <span class="page-break-icon">✂️</span>
+      <span>Saut de page à l'impression</span>
+    </div>
+    
+    <!-- Flyer 4: VMDTR -->
+    <div class="flyer-wrapper">
+      <span class="flyer-label">4/4 – Formation VMDTR</span>
+      <iframe src="flyer-vmdtr.html" class="flyer-frame"></iframe>
+    </div>
+  </div>
+</body>
+</html>
