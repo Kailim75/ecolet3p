@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Templates Marketing | ECOLE T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8f6f3 0%, #F5EBD7 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 30px rgba(27, 77, 62, 0.3);
+    }
+    
+    .logo span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      color: #F5EBD7;
+    }
+    
+    .header h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #1B4D3E;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    
+    .header p {
+      font-size: 18px;
+      color: #4B463C;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .header-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
+      color: #1B4D3E;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 15px;
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3);
+    }
+    
+    /* Section */
+    .section {
+      margin-bottom: 50px;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #D4A853;
+    }
+    
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.2);
+    }
+    
+    .section h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #1B4D3E;
+    }
+    
+    .section-count {
+      background: #1B4D3E;
+      color: #F5EBD7;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-left: auto;
+    }
+    
+    /* Templates Grid */
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    
+    /* Template Card */
+    .template-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(27, 77, 62, 0.1);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .template-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(27, 77, 62, 0.2);
+      border-color: #D4A853;
+    }
+    
+    .template-preview {
+      position: relative;
+      height: 280px;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+    
+    .template-preview iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
+    
+    .template-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(27, 77, 62, 0.9) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .template-card:hover .template-overlay {
+      opacity: 1;
+    }
+    
+    .template-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1B4D3E;
+    }
+    
+    .btn-secondary:hover {
+      background: white;
+    }
+    
+    .template-info {
+      padding: 20px;
+    }
+    
+    .template-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    
+    .badge-flyer {
+      background: rgba(52, 152, 219, 0.15);
+      color: #2980b9;
+    }
+    
+    .badge-document {
+      background: rgba(46, 204, 113, 0.15);
+      color: #27ae60;
+    }
+    
+    .badge-card {
+      background: rgba(155, 89, 182, 0.15);
+      color: #8e44ad;
+    }
+    
+    .template-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 8px;
+    }
+    
+    .template-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+    
+    .template-meta {
+      display: flex;
+      gap: 15px;
+      font-size: 12px;
+      color: #888;
+    }
+    
+    .template-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px solid rgba(27, 77, 62, 0.1);
+    }
+    
+    .footer-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #1B4D3E;
+      margin-bottom: 10px;
+    }
+    
+    .footer-text {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .footer-link {
+      color: #D4A853;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      color: #F5EBD7;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 28px;
+      }
+      
+      .templates-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-header {
+        flex-wrap: wrap;
+      }
+      
+      .section-count {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+    
+    /* Print */
+    @media print {
+      body {
+        background: white;
+        padding: 20px;
+      }
+      
+      .template-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      
+      .template-overlay {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span>T3P</span>
+      </div>
+      <h1>Templates Marketing</h1>
+      <p>Catalogue complet des supports de communication ECOLE T3P. Tous les templates sont prêts à imprimer au format A5.</p>
+      <span class="header-badge">📄 8 Templates disponibles</span>
+    </header>
+    
+    <!-- Flyers Section -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">📄</div>
+        <h2>Flyers Formations</h2>
+        <span class="section-count">4 flyers</span>
+      </div>
+      
+      <div class="templates-grid">
+        <!-- Formation Continue -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="flyer-formation-continue.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="flyer-formation-continue.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="flyer-formation-continue.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-flyer">Flyer A5</span>
+            <h3 class="template-title">Formation Continue</h3>
+            <p class="template-description">Flyer pour la formation continue obligatoire Taxi, VTC et VMDTR. Message d'urgence pour le renouvellement de la carte professionnelle.</p>
+            <div class="template-meta">
+              <span>📐 A5 Portrait</span>
+              <span>🎨 Rouge/Orange</span>
+              <span>✅ Prêt impression</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Formation Initiale -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="flyer-formation-initiale.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="flyer-formation-initiale.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="flyer-formation-initiale.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-flyer">Flyer A5</span>
+            <h3 class="template-title">Formation Initiale</h3>
+            <p class="template-description">Flyer pour les formations initiales Taxi, VTC et VMDTR. Cible les personnes en création ou reconversion professionnelle.</p>
+            <div class="template-meta">
+              <span>📐 A5 Portrait</span>
+              <span>🎨 Bleu/Orange</span>
+              <span>✅ Prêt impression</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Récupération Points -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="flyer-recuperation-points.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="flyer-recuperation-points.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="flyer-recuperation-points.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-flyer">Flyer A5</span>
+            <h3 class="template-title">Récupération de Points</h3>
+            <p class="template-description">Flyer pour les stages de récupération de points. Message d'urgence et tarif attractif mis en avant.</p>
+            <div class="template-meta">
+              <span>📐 A5 Portrait</span>
+              <span>🎨 Rouge/Orange</span>
+              <span>✅ Prêt impression</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- VMDTR -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="flyer-vmdtr.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="flyer-vmdtr.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="flyer-vmdtr.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-flyer">Flyer A5</span>
+            <h3 class="template-title">Formation VMDTR</h3>
+            <p class="template-description">Flyer spécifique pour la formation VMDTR (Taxi Moto). Mise en avant des avantages du transport 2-3 roues.</p>
+            <div class="template-meta">
+              <span>📐 A5 Portrait</span>
+              <span>🎨 Rouge/Orange</span>
+              <span>✅ Prêt impression</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Documents Section -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <h2>Documents Administratifs</h2>
+        <span class="section-count">3 documents</span>
+      </div>
+      
+      <div class="templates-grid">
+        <!-- Attestation -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="attestation-ecole-t3p.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="attestation-ecole-t3p.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="attestation-ecole-t3p.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-document">Document A4</span>
+            <h3 class="template-title">Attestation de Formation</h3>
+            <p class="template-description">Modèle d'attestation de formation officielle délivrée aux stagiaires après leur formation.</p>
+            <div class="template-meta">
+              <span>📐 A4 Portrait</span>
+              <span>🎨 Vert/Or</span>
+              <span>✅ Officiel</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Contrat -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="contrat-ecole-t3p.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="contrat-ecole-t3p.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="contrat-ecole-t3p.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-document">Document A4</span>
+            <h3 class="template-title">Contrat de Formation</h3>
+            <p class="template-description">Modèle de contrat de formation professionnelle conforme aux exigences réglementaires.</p>
+            <div class="template-meta">
+              <span>📐 A4 Portrait</span>
+              <span>🎨 Vert/Or</span>
+              <span>✅ Légal</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Flyer général -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="flyer-ecole-t3p.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="flyer-ecole-t3p.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="flyer-ecole-t3p.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-flyer">Flyer A5</span>
+            <h3 class="template-title">Flyer Général ECOLE T3P</h3>
+            <p class="template-description">Flyer de présentation générale de l'école avec toutes les formations proposées.</p>
+            <div class="template-meta">
+              <span>📐 A5 Portrait</span>
+              <span>🎨 Vert/Or</span>
+              <span>✅ Prêt impression</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Cartes Section -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">💳</div>
+        <h2>Cartes de Visite</h2>
+        <span class="section-count">1 modèle</span>
+      </div>
+      
+      <div class="templates-grid">
+        <!-- Carte de visite -->
+        <article class="template-card">
+          <div class="template-preview">
+            <iframe src="carte-visite-ecole-t3p.html" loading="lazy"></iframe>
+            <div class="template-overlay">
+              <div class="template-actions">
+                <a href="carte-visite-ecole-t3p.html" target="_blank" class="btn btn-primary">
+                  👁️ Voir
+                </a>
+                <a href="carte-visite-ecole-t3p.html" download class="btn btn-secondary">
+                  ⬇️ Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="template-info">
+            <span class="template-badge badge-card">Carte 85x55mm</span>
+            <h3 class="template-title">Carte de Visite V2</h3>
+            <p class="template-description">Carte de visite professionnelle avec le nouveau numéro de contact et QR code vers le site.</p>
+            <div class="template-meta">
+              <span>📐 85x55mm</span>
+              <span>🎨 Vert/Or</span>
+              <span>✅ Recto-verso</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">ECOLE T3P</div>
+      <p class="footer-text">
+        Centre de formation agréé T3P – Taxi, VTC, VMDTR<br>
+        3 rue Corneille, 92120 Montrouge<br>
+        <a href="https://ecolet3p.fr" class="footer-link">www.ecolet3p.fr</a>
+      </p>
+      <div class="footer-contact">
+        📞 07 83 78 76 63
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
