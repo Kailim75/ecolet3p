@@ -1,0 +1,180 @@
+import { Helmet } from "react-helmet-async";
+import Layout from "@/components/layout/Layout";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, FileText, CreditCard, Printer } from "lucide-react";
+
+const templates = [
+  {
+    title: "Flyer Formation Continue",
+    description: "Flyer A5 pour promouvoir la formation continue obligatoire",
+    path: "/templates/flyer-formation-continue.html",
+    icon: FileText,
+    category: "Flyer"
+  },
+  {
+    title: "Flyer Formation Initiale",
+    description: "Flyer A5 pour les formations initiales Taxi/VTC",
+    path: "/templates/flyer-formation-initiale.html",
+    icon: FileText,
+    category: "Flyer"
+  },
+  {
+    title: "Flyer Récupération de Points",
+    description: "Flyer A5 pour les stages de récupération de points",
+    path: "/templates/flyer-recuperation-points.html",
+    icon: FileText,
+    category: "Flyer"
+  },
+  {
+    title: "Flyer VMDTR",
+    description: "Flyer A5 pour la formation taxi moto (VMDTR)",
+    path: "/templates/flyer-vmdtr.html",
+    icon: FileText,
+    category: "Flyer"
+  },
+  {
+    title: "Carte de Visite",
+    description: "Carte de visite professionnelle ECOLE T3P",
+    path: "/templates/carte-visite-ecole-t3p.html",
+    icon: CreditCard,
+    category: "Document"
+  },
+  {
+    title: "Contrat de Formation",
+    description: "Modèle de contrat de formation professionnelle",
+    path: "/templates/contrat-ecole-t3p.html",
+    icon: FileText,
+    category: "Document"
+  },
+  {
+    title: "Attestation de Formation",
+    description: "Attestation de suivi de formation",
+    path: "/templates/attestation-ecole-t3p.html",
+    icon: FileText,
+    category: "Document"
+  },
+  {
+    title: "Flyer Général",
+    description: "Flyer générique ECOLE T3P",
+    path: "/templates/flyer-ecole-t3p.html",
+    icon: FileText,
+    category: "Flyer"
+  }
+];
+
+const Templates = () => {
+  const flyers = templates.filter(t => t.category === "Flyer");
+  const documents = templates.filter(t => t.category === "Document");
+
+  return (
+    <Layout>
+      <Helmet>
+        <title>Templates Marketing | ECOLE T3P</title>
+        <meta name="description" content="Accédez aux templates marketing ECOLE T3P : flyers, cartes de visite, contrats et attestations." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
+      <div className="min-h-screen bg-cream py-20">
+        <div className="container-custom">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-black text-forest mb-4">
+              Templates Marketing
+            </h1>
+            <p className="text-forest/70 text-lg max-w-2xl mx-auto">
+              Accédez à tous les supports de communication ECOLE T3P prêts à imprimer
+            </p>
+          </div>
+
+          {/* Print All Button */}
+          <div className="flex justify-center mb-12">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gold hover:bg-gold/90 text-forest font-bold gap-2"
+            >
+              <a href="/templates/print-all.html" target="_blank" rel="noopener noreferrer">
+                <Printer className="w-5 h-5" />
+                Imprimer tous les flyers (4)
+              </a>
+            </Button>
+          </div>
+
+          {/* Flyers Section */}
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-forest mb-6 flex items-center gap-2">
+              <FileText className="w-6 h-6 text-gold" />
+              Flyers Promotionnels
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {flyers.map((template) => (
+                <Card key={template.path} className="bg-white border-forest/10 hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
+                      <template.icon className="w-6 h-6 text-gold" />
+                    </div>
+                    <h3 className="font-bold text-forest mb-2">{template.title}</h3>
+                    <p className="text-forest/60 text-sm mb-4">{template.description}</p>
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="w-full border-forest/20 hover:bg-forest hover:text-cream"
+                    >
+                      <a href={template.path} target="_blank" rel="noopener noreferrer" className="gap-2">
+                        <ExternalLink className="w-4 h-4" />
+                        Ouvrir
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Documents Section */}
+          <section>
+            <h2 className="text-2xl font-bold text-forest mb-6 flex items-center gap-2">
+              <CreditCard className="w-6 h-6 text-gold" />
+              Documents Administratifs
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {documents.map((template) => (
+                <Card key={template.path} className="bg-white border-forest/10 hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 bg-forest/10 rounded-lg flex items-center justify-center mb-4">
+                      <template.icon className="w-6 h-6 text-forest" />
+                    </div>
+                    <h3 className="font-bold text-forest mb-2">{template.title}</h3>
+                    <p className="text-forest/60 text-sm mb-4">{template.description}</p>
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="w-full border-forest/20 hover:bg-forest hover:text-cream"
+                    >
+                      <a href={template.path} target="_blank" rel="noopener noreferrer" className="gap-2">
+                        <ExternalLink className="w-4 h-4" />
+                        Ouvrir
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Info */}
+          <div className="mt-12 p-6 bg-forest/5 rounded-xl text-center">
+            <p className="text-forest/70 text-sm">
+              💡 <strong>Conseil :</strong> Pour une impression professionnelle, utilisez du papier 170g/m² en mode CMJN.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default Templates;

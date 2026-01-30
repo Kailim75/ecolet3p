@@ -72,6 +72,11 @@ const Footer = () => {
                   Télécharger le logo (PDF)
                 </PrefetchLink>
               </li>
+              <li>
+                <PrefetchLink to="/templates" className="text-cream/70 hover:text-gold transition-colors text-sm">
+                  Templates Marketing
+                </PrefetchLink>
+              </li>
             </ul>
           </div>
 
