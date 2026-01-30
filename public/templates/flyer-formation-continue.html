@@ -30,10 +30,10 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     
-    /* Header */
+    /* Header with animated badge */
     .header {
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      padding: 14px 24px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,12 +43,12 @@
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     
     .logo {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: #F5EBD7;
       border-radius: 50%;
       display: flex;
@@ -56,74 +56,103 @@
       justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
-      font-size: 13px;
+      font-size: 11px;
       color: #1B4D3E;
     }
     
     .brand-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
     
     .header-badge {
-      background: #E53935;
+      background: linear-gradient(135deg, #E53935 0%, #FF6B6B 100%);
       color: white;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 20px;
       font-size: 9px;
       font-weight: 700;
       text-transform: uppercase;
       animation: pulse 2s infinite;
+      box-shadow: 0 2px 8px rgba(229, 57, 53, 0.4);
     }
     
     @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(229, 57, 53, 0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(229, 57, 53, 0.6); }
     }
     
-    /* Hero Section */
+    /* Hero Section - More impactful */
     .hero {
-      background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
-      padding: 18px 24px;
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      padding: 16px 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
     }
     
     .hero-label {
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #1B4D3E;
-      opacity: 0.8;
-      margin-bottom: 4px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
     }
     
     .hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 900;
-      color: #1B4D3E;
-      line-height: 1.1;
+      color: white;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
     }
     
     .hero-subtitle {
-      font-size: 12px;
-      color: #1B4D3E;
+      font-size: 11px;
+      color: rgba(255,255,255,0.95);
       margin-top: 6px;
       font-weight: 600;
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 20px;
     }
     
-    /* Credibility Bar */
+    /* Credibility Bar - Enhanced */
     .credibility-bar {
-      background: #1B4D3E;
-      padding: 10px 24px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      padding: 10px 16px;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
     }
     
     .credibility-item {
@@ -131,8 +160,11 @@
       align-items: center;
       gap: 6px;
       color: #F5EBD7;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
+      background: rgba(255,255,255,0.08);
+      padding: 4px 10px;
+      border-radius: 15px;
     }
     
     .credibility-icon {
@@ -147,41 +179,58 @@
     
     /* Content */
     .content {
-      padding: 16px 20px;
+      padding: 12px 16px;
     }
     
-    /* Section Title */
+    /* Section Title with icon */
     .section-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       color: #1B4D3E;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-bottom: 4px;
       border-bottom: 2px solid #D4A853;
       display: inline-block;
     }
     
-    /* Formations Table */
+    /* Comparative Table - Clean design */
     .formations-table {
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      margin-bottom: 14px;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      margin-bottom: 10px;
+      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.1);
+      border: 2px solid rgba(27, 77, 62, 0.1);
+    }
+    
+    .table-header {
+      display: grid;
+      grid-template-columns: 1.5fr 0.8fr 0.8fr 0.8fr;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      padding: 8px 12px;
+      font-size: 8px;
+      font-weight: 700;
+      color: #F5EBD7;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     
     .formation-row {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1.5fr 0.8fr 0.8fr 0.8fr;
       align-items: center;
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-bottom: 1px solid rgba(27, 77, 62, 0.08);
-      gap: 12px;
+      transition: background 0.2s;
     }
     
     .formation-row:last-child {
       border-bottom: none;
+    }
+    
+    .formation-row:hover {
+      background: rgba(212, 168, 83, 0.08);
     }
     
     .formation-row.vtc {
@@ -196,77 +245,85 @@
       border-left: 4px solid #e74c3c;
     }
     
-    .formation-icon {
-      font-size: 22px;
-      width: 32px;
-      text-align: center;
+    .formation-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     
-    .formation-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+    .formation-icon {
+      font-size: 18px;
     }
     
     .formation-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
       color: #1B4D3E;
     }
     
-    .formation-details {
-      display: flex;
-      gap: 12px;
-      font-size: 9px;
-      color: #666;
+    .formation-cell {
+      font-size: 10px;
+      color: #4B463C;
+      text-align: center;
     }
     
     .formation-price {
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      color: #F5EBD7;
-      padding: 8px 14px;
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+      color: white;
+      padding: 6px 10px;
       border-radius: 8px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 13px;
       text-align: center;
+      box-shadow: 0 2px 6px rgba(255, 107, 53, 0.3);
     }
     
     /* Tarifs Note */
     .tarifs-note {
-      font-size: 8px;
+      font-size: 7px;
       color: #777;
       text-align: center;
       font-style: italic;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     
-    /* Advantages Grid */
+    /* Advantages Grid - Fun icons */
     .advantages-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     
     .advantage-item {
       background: white;
-      border-radius: 8px;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 1px 4px rgba(27, 77, 62, 0.06);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      border: 1px solid rgba(27, 77, 62, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     
+    .advantage-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.12);
+    }
+    
+    .advantage-item:nth-child(1) .advantage-icon { color: #3498db; }
+    .advantage-item:nth-child(2) .advantage-icon { color: #2ecc71; }
+    .advantage-item:nth-child(3) .advantage-icon { color: #D4A853; }
+    
     .advantage-icon {
-      font-size: 18px;
-      flex-shrink: 0;
+      font-size: 22px;
+      margin-bottom: 4px;
+      display: block;
     }
     
     .advantage-text {
-      font-size: 9px;
+      font-size: 8px;
       color: #1B4D3E;
       font-weight: 600;
       line-height: 1.3;
@@ -275,28 +332,31 @@
     .advantage-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      color: #D4A853;
+      color: #1B4D3E;
+      font-size: 11px;
+      display: block;
     }
     
-    /* Legal Note */
+    /* Legal Note - Clearer */
     .legal-note {
-      background: rgba(229, 57, 53, 0.1);
-      border: 1px solid rgba(229, 57, 53, 0.3);
+      background: linear-gradient(135deg, rgba(229, 57, 53, 0.08) 0%, rgba(229, 57, 53, 0.04) 100%);
+      border: 1px solid rgba(229, 57, 53, 0.2);
+      border-left: 3px solid #E53935;
       border-radius: 8px;
-      padding: 10px 12px;
-      margin-bottom: 12px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     
     .legal-icon {
-      font-size: 18px;
+      font-size: 16px;
       flex-shrink: 0;
     }
     
     .legal-text {
-      font-size: 9px;
+      font-size: 8px;
       color: #1B4D3E;
       line-height: 1.4;
     }
@@ -306,40 +366,65 @@
       color: #E53935;
     }
     
-    /* CTA Principal */
+    /* CTA Principal - Very visible */
     .cta-main {
-      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
       color: white;
       text-align: center;
       padding: 14px 16px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
-      margin-bottom: 12px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shine 2s infinite;
+    }
+    
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
     }
     
     .cta-header {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
       margin-bottom: 4px;
       letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     
     .cta-website {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       margin-bottom: 6px;
       opacity: 0.95;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-urgency {
@@ -347,14 +432,15 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      opacity: 0.9;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.25);
       display: inline-block;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 12px;
+      position: relative;
+      z-index: 1;
     }
     
-    /* Bottom Section */
+    /* Bottom Section - QR + Testimonial */
     .bottom-section {
       display: flex;
       gap: 10px;
@@ -367,44 +453,63 @@
       padding: 10px;
       text-align: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.08);
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      border: 2px dashed rgba(27, 77, 62, 0.15);
     }
     
     .qr-placeholder {
-      width: 52px;
-      height: 52px;
+      width: 50px;
+      height: 50px;
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      border-radius: 6px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #F5EBD7;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 12px;
+      font-size: 11px;
       margin: 0 auto 6px;
     }
     
     .qr-label {
-      font-size: 8px;
+      font-size: 7px;
       color: #1B4D3E;
       font-weight: 600;
       line-height: 1.3;
     }
     
-    /* Testimonial */
+    /* Testimonial - 5 stars */
     .testimonial {
       flex: 1;
-      background: white;
+      background: linear-gradient(135deg, #ffffff 0%, #fefcf8 100%);
       border-radius: 10px;
       padding: 10px 12px;
-      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.08);
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+    }
+    
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
     }
     
     .testimonial-stars {
       color: #D4A853;
-      font-size: 12px;
-      margin-bottom: 4px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    
+    .testimonial-rating {
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 10px;
     }
     
     .testimonial-text {
@@ -412,22 +517,26 @@
       color: #4B463C;
       font-style: italic;
       line-height: 1.4;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     
     .testimonial-author {
       font-size: 8px;
       color: #1B4D3E;
-      font-weight: 600;
+      font-weight: 700;
     }
     
     .testimonial-badge {
       display: flex;
       align-items: center;
       gap: 4px;
-      font-size: 8px;
+      font-size: 7px;
       color: #666;
       margin-top: 4px;
+      background: rgba(46, 204, 113, 0.1);
+      padding: 3px 8px;
+      border-radius: 10px;
+      display: inline-flex;
     }
     
     /* Footer */
@@ -438,11 +547,11 @@
       right: 0;
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
       color: #F5EBD7;
-      padding: 10px 24px;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 8px;
+      font-size: 7px;
     }
     
     .footer-left {
@@ -465,7 +574,6 @@
     
     .footer-right {
       text-align: right;
-      opacity: 0.8;
     }
     
     .footer-cert {
@@ -475,11 +583,36 @@
       font-size: 7px;
       color: #D4A853;
       font-weight: 600;
+      margin-bottom: 4px;
+      display: inline-block;
     }
     
     @media print {
       body { background: white; padding: 0; }
       .flyer { box-shadow: none; }
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 480px) {
+      .flyer {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+      }
+      
+      .table-header,
+      .formation-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      
+      .advantages-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .bottom-section {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -494,10 +627,10 @@
       <span class="header-badge">⚠️ Obligatoire tous les 5 ans</span>
     </div>
     
-    <!-- Hero -->
+    <!-- Hero - Impactful red -->
     <div class="hero">
-      <p class="hero-label">Ne perdez pas votre carte professionnelle</p>
-      <h1>Maintenez Votre<br>Carte Professionnelle</h1>
+      <p class="hero-label">⚠️ Attention chauffeurs !</p>
+      <h1>Ne Perdez Pas Votre<br>Carte Professionnelle</h1>
       <p class="hero-subtitle">Formation Continue Taxi • VTC • VMDTR</p>
     </div>
     
@@ -505,7 +638,7 @@
     <div class="credibility-bar">
       <div class="credibility-item">
         <span class="credibility-icon">⭐</span>
-        <span><span class="credibility-value">94%</span> de réussite</span>
+        <span><span class="credibility-value">94%</span> réussite</span>
       </div>
       <div class="credibility-item">
         <span class="credibility-icon">👥</span>
@@ -513,76 +646,77 @@
       </div>
       <div class="credibility-item">
         <span class="credibility-icon">🏆</span>
-        <span>Centre <span class="credibility-value">agréé T3P</span></span>
+        <span>Centre <span class="credibility-value">agréé</span></span>
       </div>
     </div>
     
     <!-- Content -->
     <div class="content">
       <!-- Section Title -->
-      <h2 class="section-title">📋 Nos Formations Continues</h2>
+      <h2 class="section-title">📋 Tableau comparatif des formations</h2>
       
-      <!-- Formations Table -->
+      <!-- Comparative Table -->
       <div class="formations-table">
+        <div class="table-header">
+          <span>Formation</span>
+          <span>Durée</span>
+          <span>Lieu</span>
+          <span>Prix</span>
+        </div>
+        
         <!-- VTC -->
         <div class="formation-row vtc">
-          <span class="formation-icon">🚗</span>
-          <div class="formation-info">
-            <span class="formation-title">Formation Continue VTC</span>
-            <div class="formation-details">
-              <span>⏱️ 14 heures</span>
-              <span>📅 2 jours</span>
-              <span>📍 Montrouge</span>
-            </div>
+          <div class="formation-name">
+            <span class="formation-icon">🚗</span>
+            <span class="formation-title">Continue VTC</span>
           </div>
+          <span class="formation-cell">14h (2 jours)</span>
+          <span class="formation-cell">Montrouge</span>
           <div class="formation-price">170 €</div>
         </div>
         
         <!-- Taxi -->
         <div class="formation-row taxi">
-          <span class="formation-icon">🚕</span>
-          <div class="formation-info">
-            <span class="formation-title">Formation Continue Taxi</span>
-            <div class="formation-details">
-              <span>⏱️ 14 heures</span>
-              <span>📅 2 jours</span>
-              <span>📍 Montrouge</span>
-            </div>
+          <div class="formation-name">
+            <span class="formation-icon">🚕</span>
+            <span class="formation-title">Continue Taxi</span>
           </div>
+          <span class="formation-cell">14h (2 jours)</span>
+          <span class="formation-cell">Montrouge</span>
           <div class="formation-price">239 €</div>
         </div>
         
         <!-- VMDTR -->
         <div class="formation-row vmdtr">
-          <span class="formation-icon">🏍️</span>
-          <div class="formation-info">
-            <span class="formation-title">Formation Continue VMDTR</span>
-            <div class="formation-details">
-              <span>⏱️ 14 heures</span>
-              <span>📅 2 jours</span>
-              <span>📍 Montrouge</span>
-            </div>
+          <div class="formation-name">
+            <span class="formation-icon">🏍️</span>
+            <span class="formation-title">Continue VMDTR</span>
           </div>
+          <span class="formation-cell">14h (2 jours)</span>
+          <span class="formation-cell">Montrouge</span>
           <div class="formation-price">239 €</div>
         </div>
       </div>
       
       <!-- Tarifs Note -->
-      <p class="tarifs-note">Tarifs définis selon la réglementation et le contenu de la formation</p>
+      <p class="tarifs-note">Tarifs conformes à la réglementation en vigueur</p>
       
-      <!-- Advantages -->
+      <!-- Advantages with colorful icons -->
       <div class="advantages-grid">
         <div class="advantage-item">
-          <span class="advantage-icon">✅</span>
-          <span class="advantage-text">Taux de réussite <span class="advantage-value">94%</span></span>
+          <span class="advantage-icon">⭐</span>
+          <span class="advantage-value">94%</span>
+          <span class="advantage-text">Taux de réussite</span>
         </div>
         <div class="advantage-item">
           <span class="advantage-icon">📅</span>
-          <span class="advantage-text">Sessions <span class="advantage-value">toute l'année</span></span>
+          <span class="advantage-value">Toute l'année</span>
+          <span class="advantage-text">Sessions disponibles</span>
         </div>
         <div class="advantage-item">
-          <span class="advantage-icon">🎓</span>
-          <span class="advantage-text">Centre <span class="advantage-value">agréé T3P</span></span>
+          <span class="advantage-icon">🏆</span>
+          <span class="advantage-value">Agréé T3P</span>
+          <span class="advantage-text">Centre certifié</span>
         </div>
       </div>
       
@@ -590,13 +724,13 @@
       <div class="legal-note">
         <span class="legal-icon">⚠️</span>
         <p class="legal-text">
-          <strong>Obligation légale :</strong> Renouvelez votre formation tous les 5 ans pour conserver votre carte professionnelle et continuer à exercer légalement.
+          <strong>Obligation légale :</strong> Renouvelez votre formation tous les 5 ans pour conserver votre carte et exercer légalement.
         </p>
       </div>
       
-      <!-- CTA Principal -->
+      <!-- CTA Principal - Orange vibrant -->
       <div class="cta-main">
-        <div class="cta-header">👉 Inscrivez-vous maintenant !</div>
+        <div class="cta-header">👉 Réservez votre place maintenant !</div>
         <div class="cta-phone">📞 07 83 78 76 63</div>
         <div class="cta-website">🌐 www.ecolet3p.fr</div>
         <span class="cta-urgency">Sessions toute l'année – Places limitées</span>
@@ -611,12 +745,15 @@
           <p class="qr-label">Scannez pour<br>vous inscrire</p>
         </div>
         <div class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Formation claire et efficace. J'ai renouvelé ma carte en toute sérénité."</p>
+          <div class="testimonial-header">
+            <div class="testimonial-stars">★★★★★</div>
+            <span class="testimonial-rating">5/5</span>
+          </div>
+          <p class="testimonial-text">"Formation claire et efficace ! J'ai renouvelé ma carte en toute sérénité. Équipe top !"</p>
           <p class="testimonial-author">— Mohammed K., Chauffeur VTC</p>
           <div class="testimonial-badge">
-            <span>📊</span>
-            <span>4.8/5 basé sur 200+ avis</span>
+            <span>✓</span>
+            <span>Basé sur 200+ avis vérifiés</span>
           </div>
         </div>
       </div>
@@ -631,9 +768,8 @@
       </div>
       <div class="footer-right">
         <span class="footer-cert">Centre agréé T3P</span>
-        <div style="margin-top: 4px;">
-          <span>Métro Ligne 4</span><br>
-          <span>Mairie de Montrouge</span>
+        <div>
+          <span>Métro Ligne 4 – Mairie de Montrouge</span>
         </div>
       </div>
     </div>
