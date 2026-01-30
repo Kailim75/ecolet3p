@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flyer Formation Continue - Taxi, VTC & VMDTR | ECOLE T3P</title>
+  <title>Flyer Formation Initiale - Taxi, VTC & VMDTR | ECOLE T3P</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,25 +68,19 @@
     }
     
     .header-badge {
-      background: #E53935;
-      color: white;
+      background: #D4A853;
+      color: #1B4D3E;
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 9px;
       font-weight: 700;
       text-transform: uppercase;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
     }
     
     /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
-      padding: 18px 24px;
+      padding: 20px 24px;
       text-align: center;
     }
     
@@ -102,7 +96,7 @@
     
     .hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
       color: #1B4D3E;
       line-height: 1.1;
@@ -225,12 +219,20 @@
     .formation-price {
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
       color: #F5EBD7;
-      padding: 8px 14px;
+      padding: 8px 10px;
       border-radius: 8px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 13px;
       text-align: center;
+      line-height: 1.2;
+    }
+    
+    .formation-price small {
+      display: block;
+      font-size: 8px;
+      opacity: 0.8;
+      font-weight: 600;
     }
     
     /* Tarifs Note */
@@ -245,7 +247,7 @@
     /* Advantages Grid */
     .advantages-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-bottom: 12px;
     }
@@ -278,10 +280,10 @@
       color: #D4A853;
     }
     
-    /* Legal Note */
-    .legal-note {
-      background: rgba(229, 57, 53, 0.1);
-      border: 1px solid rgba(229, 57, 53, 0.3);
+    /* Info Note */
+    .info-note {
+      background: rgba(52, 152, 219, 0.1);
+      border: 1px solid rgba(52, 152, 219, 0.3);
       border-radius: 8px;
       padding: 10px 12px;
       margin-bottom: 12px;
@@ -290,20 +292,20 @@
       gap: 10px;
     }
     
-    .legal-icon {
+    .info-icon {
       font-size: 18px;
       flex-shrink: 0;
     }
     
-    .legal-text {
+    .info-text {
       font-size: 9px;
       color: #1B4D3E;
       line-height: 1.4;
     }
     
-    .legal-text strong {
+    .info-text strong {
       font-weight: 700;
-      color: #E53935;
+      color: #3498db;
     }
     
     /* CTA Principal */
@@ -491,14 +493,14 @@
         <div class="logo">T3P</div>
         <span class="brand-name">ECOLE T3P</span>
       </div>
-      <span class="header-badge">⚠️ Obligatoire tous les 5 ans</span>
+      <span class="header-badge">🎓 Formation Initiale</span>
     </div>
     
     <!-- Hero -->
     <div class="hero">
-      <p class="hero-label">Ne perdez pas votre carte professionnelle</p>
-      <h1>Maintenez Votre<br>Carte Professionnelle</h1>
-      <p class="hero-subtitle">Formation Continue Taxi • VTC • VMDTR</p>
+      <p class="hero-label">Créez votre activité professionnelle</p>
+      <h1>Devenez Chauffeur<br>Professionnel</h1>
+      <p class="hero-subtitle">Formation Initiale Taxi • VTC • VMDTR</p>
     </div>
     
     <!-- Credibility Bar -->
@@ -520,50 +522,64 @@
     <!-- Content -->
     <div class="content">
       <!-- Section Title -->
-      <h2 class="section-title">📋 Nos Formations Continues</h2>
+      <h2 class="section-title">🎓 Nos Formations Initiales</h2>
       
       <!-- Formations Table -->
       <div class="formations-table">
-        <!-- VTC -->
+        <!-- VTC Jour -->
         <div class="formation-row vtc">
           <span class="formation-icon">🚗</span>
           <div class="formation-info">
-            <span class="formation-title">Formation Continue VTC</span>
+            <span class="formation-title">Formation Initiale VTC - Jour</span>
             <div class="formation-details">
-              <span>⏱️ 14 heures</span>
-              <span>📅 2 jours</span>
+              <span>⏱️ 63 heures</span>
+              <span>📅 2 semaines</span>
               <span>📍 Montrouge</span>
             </div>
           </div>
-          <div class="formation-price">170 €</div>
+          <div class="formation-price">1 190 €</div>
+        </div>
+        
+        <!-- VTC Soir -->
+        <div class="formation-row vtc">
+          <span class="formation-icon">🚗</span>
+          <div class="formation-info">
+            <span class="formation-title">Formation Initiale VTC - Soir</span>
+            <div class="formation-details">
+              <span>⏱️ 33 heures</span>
+              <span>📅 Cours du soir</span>
+              <span>📍 Montrouge</span>
+            </div>
+          </div>
+          <div class="formation-price">990 €</div>
         </div>
         
         <!-- Taxi -->
         <div class="formation-row taxi">
           <span class="formation-icon">🚕</span>
           <div class="formation-info">
-            <span class="formation-title">Formation Continue Taxi</span>
+            <span class="formation-title">Formation Initiale Taxi</span>
             <div class="formation-details">
-              <span>⏱️ 14 heures</span>
-              <span>📅 2 jours</span>
+              <span>⏱️ 63 heures</span>
+              <span>📅 2 semaines</span>
               <span>📍 Montrouge</span>
             </div>
           </div>
-          <div class="formation-price">239 €</div>
+          <div class="formation-price">1 190 €</div>
         </div>
         
         <!-- VMDTR -->
         <div class="formation-row vmdtr">
           <span class="formation-icon">🏍️</span>
           <div class="formation-info">
-            <span class="formation-title">Formation Continue VMDTR</span>
+            <span class="formation-title">Formation Initiale VMDTR</span>
             <div class="formation-details">
               <span>⏱️ 14 heures</span>
               <span>📅 2 jours</span>
               <span>📍 Montrouge</span>
             </div>
           </div>
-          <div class="formation-price">239 €</div>
+          <div class="formation-price">490 €</div>
         </div>
       </div>
       
@@ -581,16 +597,20 @@
           <span class="advantage-text">Sessions <span class="advantage-value">toute l'année</span></span>
         </div>
         <div class="advantage-item">
+          <span class="advantage-icon">📚</span>
+          <span class="advantage-text">Préparation <span class="advantage-value">examen CMA</span></span>
+        </div>
+        <div class="advantage-item">
           <span class="advantage-icon">🎓</span>
           <span class="advantage-text">Centre <span class="advantage-value">agréé T3P</span></span>
         </div>
       </div>
       
-      <!-- Legal Note -->
-      <div class="legal-note">
-        <span class="legal-icon">⚠️</span>
-        <p class="legal-text">
-          <strong>Obligation légale :</strong> Renouvelez votre formation tous les 5 ans pour conserver votre carte professionnelle et continuer à exercer légalement.
+      <!-- Info Note -->
+      <div class="info-note">
+        <span class="info-icon">💼</span>
+        <p class="info-text">
+          <strong>Reconversion professionnelle :</strong> Nos formations vous préparent à l'examen de la CMA et vous accompagnent jusqu'à l'obtention de votre carte professionnelle.
         </p>
       </div>
       
@@ -612,8 +632,8 @@
         </div>
         <div class="testimonial">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Formation claire et efficace. J'ai renouvelé ma carte en toute sérénité."</p>
-          <p class="testimonial-author">— Mohammed K., Chauffeur VTC</p>
+          <p class="testimonial-text">"Grâce à l'ECOLE T3P, j'ai obtenu ma carte VTC du premier coup. Formateurs au top !"</p>
+          <p class="testimonial-author">— Yassine B., Chauffeur VTC</p>
           <div class="testimonial-badge">
             <span>📊</span>
             <span>4.8/5 basé sur 200+ avis</span>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer Stage Récupération de Points | ECOLE T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    @page {
+      size: A5 portrait;
+      margin: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .flyer {
+      width: 148mm;
+      height: 210mm;
+      margin: 0 auto;
+      background: #F5EBD7;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #F5EBD7;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo {
+      width: 40px;
+      height: 40px;
+      background: #F5EBD7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      color: #1B4D3E;
+    }
+    
+    .brand-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    
+    .header-badge {
+      background: #E53935;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      padding: 22px 24px;
+      text-align: center;
+      color: white;
+    }
+    
+    .hero-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+    
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    
+    .hero-subtitle {
+      font-size: 13px;
+      margin-top: 8px;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+    
+    /* Credibility Bar */
+    .credibility-bar {
+      background: #1B4D3E;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    
+    .credibility-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #F5EBD7;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    
+    .credibility-icon {
+      font-size: 14px;
+    }
+    
+    .credibility-value {
+      color: #D4A853;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+    }
+    
+    /* Content */
+    .content {
+      padding: 18px 20px;
+    }
+    
+    /* Price Box */
+    .price-box {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.1);
+      border: 2px solid #D4A853;
+    }
+    
+    .price-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #1B4D3E;
+      line-height: 1;
+    }
+    
+    .price-details {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #666;
+    }
+    
+    .price-detail {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    /* Benefits List */
+    .benefits {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.06);
+    }
+    
+    .benefits-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #D4A853;
+      display: inline-block;
+    }
+    
+    .benefits-list {
+      list-style: none;
+    }
+    
+    .benefits-list li {
+      font-size: 11px;
+      color: #4B463C;
+      padding: 8px 0;
+      padding-left: 26px;
+      position: relative;
+      border-bottom: 1px solid rgba(27, 77, 62, 0.06);
+    }
+    
+    .benefits-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .benefits-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #1B4D3E;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .benefits-list strong {
+      color: #1B4D3E;
+      font-weight: 700;
+    }
+    
+    /* Info Note */
+    .info-note {
+      background: rgba(52, 152, 219, 0.1);
+      border: 1px solid rgba(52, 152, 219, 0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .info-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    
+    .info-text {
+      font-size: 10px;
+      color: #1B4D3E;
+      line-height: 1.5;
+    }
+    
+    .info-text strong {
+      font-weight: 700;
+      color: #3498db;
+    }
+    
+    /* CTA Principal */
+    .cta-main {
+      background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
+      color: #1B4D3E;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.4);
+      margin-bottom: 14px;
+    }
+    
+    .cta-header {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    
+    .cta-phone {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 4px;
+      letter-spacing: 0.02em;
+    }
+    
+    .cta-website {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    
+    .cta-urgency {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: rgba(27, 77, 62, 0.15);
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 12px;
+    }
+    
+    /* Bottom Section */
+    .bottom-section {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+    
+    .qr-section {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.08);
+    }
+    
+    .qr-placeholder {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F5EBD7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      margin: 0 auto 6px;
+    }
+    
+    .qr-label {
+      font-size: 8px;
+      color: #1B4D3E;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    /* Info Box */
+    .info-box {
+      flex: 1;
+      background: white;
+      border-radius: 10px;
+      padding: 12px 14px;
+      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.08);
+    }
+    
+    .info-box-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 6px;
+    }
+    
+    .info-box-text {
+      font-size: 9px;
+      color: #4B463C;
+      line-height: 1.4;
+    }
+    
+    /* Footer */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      color: #F5EBD7;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8px;
+    }
+    
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    
+    .footer-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 10px;
+    }
+    
+    .footer a {
+      color: #D4A853;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .footer-right {
+      text-align: right;
+      opacity: 0.8;
+    }
+    
+    .footer-cert {
+      background: rgba(212, 168, 83, 0.2);
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-size: 7px;
+      color: #D4A853;
+      font-weight: 600;
+    }
+    
+    @media print {
+      body { background: white; padding: 0; }
+      .flyer { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-section">
+        <div class="logo">T3P</div>
+        <span class="brand-name">ECOLE T3P</span>
+      </div>
+      <span class="header-badge">⚠️ Protégez votre permis</span>
+    </div>
+    
+    <!-- Hero -->
+    <div class="hero">
+      <p class="hero-label">Ne perdez pas votre permis de conduire</p>
+      <h1>Récupérez Vos<br>Points de Permis</h1>
+      <p class="hero-subtitle">Stage agréé Préfecture – Récupérez jusqu'à 4 points</p>
+    </div>
+    
+    <!-- Credibility Bar -->
+    <div class="credibility-bar">
+      <div class="credibility-item">
+        <span class="credibility-icon">✅</span>
+        <span>Stage <span class="credibility-value">agréé</span></span>
+      </div>
+      <div class="credibility-item">
+        <span class="credibility-icon">👥</span>
+        <span><span class="credibility-value">2000+</span> stagiaires</span>
+      </div>
+      <div class="credibility-item">
+        <span class="credibility-icon">🏆</span>
+        <span>Centre <span class="credibility-value">certifié</span></span>
+      </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="content">
+      <!-- Price Box -->
+      <div class="price-box">
+        <div class="price-main">250 €</div>
+        <div class="price-details">
+          <span class="price-detail">⏱️ 2 jours</span>
+          <span class="price-detail">📅 Week-end disponible</span>
+          <span class="price-detail">📍 Montrouge</span>
+        </div>
+      </div>
+      
+      <!-- Benefits -->
+      <div class="benefits">
+        <h3 class="benefits-title">✅ Ce que vous gagnez</h3>
+        <ul class="benefits-list">
+          <li><strong>Récupération de 4 points</strong> sur votre permis de conduire</li>
+          <li><strong>Attestation officielle</strong> délivrée sous 48h</li>
+          <li><strong>Formation agréée</strong> par la Préfecture</li>
+          <li><strong>Sessions régulières</strong> y compris le week-end</li>
+          <li><strong>Groupe réduit</strong> pour un meilleur accompagnement</li>
+        </ul>
+      </div>
+      
+      <!-- Info Note -->
+      <div class="info-note">
+        <span class="info-icon">ℹ️</span>
+        <p class="info-text">
+          <strong>Conditions :</strong> Stage accessible à tous les titulaires du permis de conduire. Limité à un stage par an. Les points sont crédités le lendemain du stage.
+        </p>
+      </div>
+      
+      <!-- CTA Principal -->
+      <div class="cta-main">
+        <div class="cta-header">👉 Réservez votre place maintenant !</div>
+        <div class="cta-phone">📞 07 83 78 76 63</div>
+        <div class="cta-website">🌐 www.ecolet3p.fr</div>
+        <span class="cta-urgency">Places limitées – Sessions toute l'année</span>
+      </div>
+      
+      <!-- Bottom Section: QR + Info -->
+      <div class="bottom-section">
+        <div class="qr-section">
+          <div class="qr-placeholder">
+            <span>QR</span>
+          </div>
+          <p class="qr-label">Scannez pour<br>réserver</p>
+        </div>
+        <div class="info-box">
+          <p class="info-box-title">🚗 Pourquoi choisir ECOLE T3P ?</p>
+          <p class="info-box-text">
+            Formateurs expérimentés et pédagogues. Locaux modernes et accessibles. Attestation délivrée rapidement. Centre agréé par la Préfecture.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-left">
+        <span class="footer-brand">ECOLE T3P</span>
+        <span>3 rue Corneille, 92120 Montrouge</span>
+        <a href="https://ecolet3p.fr">www.ecolet3p.fr</a>
+      </div>
+      <div class="footer-right">
+        <span class="footer-cert">Centre agréé Préfecture</span>
+        <div style="margin-top: 4px;">
+          <span>Métro Ligne 4</span><br>
+          <span>Mairie de Montrouge</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
