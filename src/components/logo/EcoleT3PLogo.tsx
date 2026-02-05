@@ -2,14 +2,44 @@ import React from "react";
 
 interface LogoProps {
   className?: string;
-  variant?: "full" | "icon" | "horizontal";
-  theme?: "color" | "white" | "mono" | "gold";
+  variant?: "full" | "icon" | "horizontal" | "stamp";
+  theme?: "color" | "white" | "mono" | "gold" | "stamp";
 }
 
 export const EcoleT3PIcon = ({ 
   className = "w-10 h-10",
   theme = "color" 
-}: { className?: string; theme?: "color" | "white" | "mono" | "gold" }) => {
+}: { className?: string; theme?: "color" | "white" | "mono" | "gold" | "stamp" }) => {
+  // Stamp vintage version
+  if (theme === "stamp") {
+    return (
+      <svg viewBox="0 0 120 120" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="roughEdgeIcon" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5"/>
+          </filter>
+        </defs>
+        <g transform="rotate(-3 60 60)" filter="url(#roughEdgeIcon)">
+          <circle cx="60" cy="60" r="55" fill="none" stroke="#1B4D3E" strokeWidth="4"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#1B4D3E" strokeWidth="2"/>
+          <g fill="#1B4D3E">
+            <circle cx="60" cy="8" r="2"/>
+            <circle cx="60" cy="112" r="2"/>
+            <circle cx="8" cy="60" r="2"/>
+            <circle cx="112" cy="60" r="2"/>
+          </g>
+          <circle cx="60" cy="60" r="42" fill="none" stroke="#1B4D3E" strokeWidth="1" strokeDasharray="3 2"/>
+          <text x="60" y="50" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="10" fontWeight="800" fill="#1B4D3E" letterSpacing="0.15em">ÉCOLE</text>
+          <text x="60" y="72" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="24" fontWeight="900" fill="#1B4D3E" letterSpacing="-0.02em">T3P</text>
+          <path d="M35 82 L60 74 L85 82" stroke="#D4A853" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          <circle cx="60" cy="74" r="3" fill="#D4A853"/>
+          <text x="25" y="62" fontSize="8" fill="#D4A853">★</text>
+          <text x="90" y="62" fontSize="8" fill="#D4A853">★</text>
+        </g>
+      </svg>
+    );
+  }
   // Gold premium version - matches the favicon
   if (theme === "gold") {
     return (
