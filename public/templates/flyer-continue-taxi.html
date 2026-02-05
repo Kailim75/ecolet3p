@@ -532,16 +532,9 @@
     .qr-code {
       width: 64px;
       height: 64px;
-      background: #1B4D3E;
       border-radius: 8px;
       margin: 0 auto 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #F5EBD7;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 11px;
+      object-fit: contain;
     }
     
     .qr-label {
@@ -748,7 +741,7 @@
           <!-- QR -->
           <div class="qr-section">
             <div class="qr-box">
-              <div class="qr-code">QR</div>
+              <img src="qr-formation-continue.png" alt="QR Code inscription" class="qr-code">
               <p class="qr-label">Scannez pour<br>vous inscrire en ligne</p>
             </div>
           </div>
