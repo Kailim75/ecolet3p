@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
- import { ExternalLink, FileText, CreditCard, Printer, Car, Bike } from "lucide-react";
+ import { ExternalLink, FileText, CreditCard, Printer, Car, Bike, Download } from "lucide-react";
 
 const templates = [
   {
@@ -131,6 +131,21 @@ const Templates = () => {
                Flyers Formation Continue (Recto-Verso)
             </h2>
              <p className="text-forest/60 text-sm mb-4">3 flyers distincts par métier, format A5 recto-verso prêts à l'impression PDF haute qualité.</p>
+             
+             {/* Export PDF Button */}
+             <div className="mb-6">
+               <Button
+                 asChild
+                 size="lg"
+                className="bg-gold hover:bg-gold/90 text-forest font-bold gap-2 shadow-lg"
+               >
+                 <a href="/templates/print-formation-continue.html" target="_blank" rel="noopener noreferrer">
+                   <Download className="w-5 h-5" />
+                   Exporter les 3 flyers en PDF
+                 </a>
+               </Button>
+             </div>
+             
              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                {continueFlyers.map((template) => (
                 <Card key={template.path} className="bg-white border-forest/10 hover:shadow-lg transition-shadow">
