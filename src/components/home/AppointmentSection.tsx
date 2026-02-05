@@ -1,10 +1,10 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, MapPin, Phone, ChevronUp, Sparkles, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AppointmentForm from "@/components/appointments/AppointmentForm";
 
-const AppointmentSection = forwardRef<HTMLElement>((_, ref) => {
+const AppointmentSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const benefits = [
@@ -166,8 +166,6 @@ const AppointmentSection = forwardRef<HTMLElement>((_, ref) => {
       </div>
     </section>
   );
-});
-
-AppointmentSection.displayName = "AppointmentSection";
+};
 
 export default AppointmentSection;
