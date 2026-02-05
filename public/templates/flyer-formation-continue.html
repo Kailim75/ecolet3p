@@ -51,123 +51,127 @@
     
     /* ==================== RECTO ==================== */
     
-    /* ZONE 1 - Header immédiatement compréhensible */
-    .zone-1 {
+    /* BLOC 1 - Identité Produit (visible à 2 mètres) */
+    .bloc-1 {
       background: #1B4D3E;
-      padding: 20px 24px;
+      padding: 28px 24px 20px;
       text-align: center;
     }
     
-    .zone-1-title {
+    .bloc-1-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 900;
       color: #F5EBD7;
       text-transform: uppercase;
       letter-spacing: 0.02em;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      line-height: 1.1;
     }
     
-    .zone-1-subtitle {
+    .bloc-1-targets {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: #D4A853;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
     }
     
-    .zone-1-targets {
-      font-size: 12px;
+    .bloc-1-duration {
+      font-size: 13px;
       color: rgba(245, 235, 215, 0.9);
       font-weight: 600;
-      letter-spacing: 0.1em;
     }
     
-    /* ZONE 2 - Accroche émotionnelle */
-    .zone-2 {
+    /* BLOC 2 - Accroche Décisionnelle */
+    .bloc-2 {
       background: #F5EBD7;
-      padding: 18px 24px;
+      padding: 20px 24px;
       text-align: center;
-      border-bottom: 1px solid rgba(27, 77, 62, 0.1);
     }
     
-    .zone-2-hook {
+    .bloc-2-hook {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
       color: #1B4D3E;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      line-height: 1.2;
     }
     
-    .zone-2-checks {
+    .bloc-2-checks {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
     }
     
-    .zone-2-check {
+    .bloc-2-check {
       font-size: 11px;
       color: #4B463C;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      font-weight: 500;
     }
     
-    .zone-2-check .check-icon {
+    .bloc-2-check .check-icon {
       color: #1B4D3E;
       font-weight: 700;
+      font-size: 13px;
     }
     
-    /* ZONE 3 - Simplicité anti-friction */
-    .zone-3 {
+    /* BLOC 3 - Anti-friction */
+    .bloc-3 {
       background: #F5EBD7;
-      padding: 14px 24px;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(27, 77, 62, 0.1);
     }
     
-    .zone-3-grid {
+    .bloc-3-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     
-    .zone-3-item {
+    .bloc-3-item {
       background: white;
-      padding: 10px 6px;
+      padding: 12px 6px;
       border-radius: 8px;
       text-align: center;
       box-shadow: 0 2px 6px rgba(27, 77, 62, 0.06);
     }
     
-    .zone-3-icon {
+    .bloc-3-icon {
       font-size: 18px;
       margin-bottom: 4px;
     }
     
-    .zone-3-value {
+    .bloc-3-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 800;
       color: #1B4D3E;
-      line-height: 1.2;
+      line-height: 1.3;
     }
     
-    .zone-3-note {
+    .bloc-3-note {
       font-size: 9px;
       color: #6B6560;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.5;
       font-style: italic;
     }
     
-    /* ZONE 4 - Tarifs encadrés */
-    .zone-4 {
-      padding: 0 24px 14px;
+    /* BLOC 4 - Tarifs (encadré, fond différent) */
+    .bloc-4 {
+      padding: 0 24px 16px;
       background: #F5EBD7;
     }
     
-    .zone-4-box {
+    .bloc-4-box {
       background: white;
       border: 2px solid #1B4D3E;
       border-radius: 12px;
@@ -175,13 +179,13 @@
       box-shadow: 0 4px 12px rgba(27, 77, 62, 0.1);
     }
     
-    .zone-4-header {
+    .bloc-4-header {
       background: #1B4D3E;
       padding: 10px 16px;
       text-align: center;
     }
     
-    .zone-4-header-text {
+    .bloc-4-header-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 11px;
       font-weight: 700;
@@ -190,11 +194,11 @@
       letter-spacing: 0.05em;
     }
     
-    .zone-4-content {
+    .bloc-4-content {
       padding: 12px 16px;
     }
     
-    .zone-4-row {
+    .bloc-4-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -202,24 +206,24 @@
       border-bottom: 1px solid rgba(27, 77, 62, 0.1);
     }
     
-    .zone-4-row:last-child {
+    .bloc-4-row:last-child {
       border-bottom: none;
     }
     
-    .zone-4-label {
+    .bloc-4-label {
       font-size: 11px;
       color: #4B463C;
       font-weight: 600;
     }
     
-    .zone-4-price {
+    .bloc-4-price {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 15px;
+      font-weight: 900;
       color: #1B4D3E;
     }
     
-    .zone-4-note {
+    .bloc-4-note {
       text-align: center;
       font-size: 9px;
       color: #898172;
@@ -227,80 +231,86 @@
       font-weight: 500;
     }
     
-    /* ZONE 7 - CTA Recto */
-    .zone-7-recto {
-      padding: 0 24px 70px;
+    /* BLOC 6 - Action Unique (CTA principal) */
+    .bloc-6 {
+      padding: 0 24px;
+      padding-bottom: 60px;
       background: #F5EBD7;
     }
     
-    .zone-7-box {
+    .bloc-6-box {
       background: #1B4D3E;
       color: #F5EBD7;
-      padding: 14px 16px;
+      padding: 16px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      box-shadow: 0 4px 16px rgba(27, 77, 62, 0.3);
+      gap: 14px;
+      box-shadow: 0 6px 20px rgba(27, 77, 62, 0.35);
     }
     
-    .zone-7-left {
+    .bloc-6-left {
       flex: 1;
     }
     
-    .zone-7-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+    .bloc-6-intro {
       font-size: 10px;
-      font-weight: 600;
-      margin-bottom: 4px;
       opacity: 0.9;
+      margin-bottom: 4px;
     }
     
-    .zone-7-phone {
+    .bloc-6-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    
+    .bloc-6-phone {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
       font-weight: 900;
       color: #D4A853;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     
-    .zone-7-response {
+    .bloc-6-response {
       font-size: 9px;
-      opacity: 0.85;
+      opacity: 0.9;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
     
-    .zone-7-badge {
+    .bloc-6-badge {
       background: #25D366;
       color: white;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 8px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 9px;
       font-weight: 700;
     }
     
-    .zone-7-qr {
+    .bloc-6-qr {
       background: #F5EBD7;
-      padding: 6px;
+      padding: 8px;
       border-radius: 8px;
       text-align: center;
       text-decoration: none;
       flex-shrink: 0;
     }
     
-    .zone-7-qr img {
-      width: 38px;
-      height: 38px;
+    .bloc-6-qr img {
+      width: 44px;
+      height: 44px;
       border-radius: 4px;
     }
     
-    .zone-7-qr-label {
-      font-size: 7px;
+    .bloc-6-qr-label {
+      font-size: 8px;
       font-weight: 700;
-      margin-top: 2px;
+      margin-top: 3px;
       color: #1B4D3E;
     }
     
@@ -311,18 +321,18 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 8px 24px;
+      padding: 10px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #F5EBD7;
-      font-size: 7px;
+      font-size: 8px;
     }
     
     .footer-left {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
     }
     
     .footer-address {
@@ -331,13 +341,13 @@
     
     .footer-siret {
       opacity: 0.7;
-      font-size: 6px;
+      font-size: 7px;
     }
     
     .footer-right {
       text-align: right;
-      font-size: 9px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 700;
       color: #D4A853;
     }
     
@@ -345,7 +355,7 @@
     
     .verso .header {
       background: #1B4D3E;
-      padding: 14px 24px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -354,18 +364,19 @@
     
     .verso .header-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 800;
     }
     
     .verso .header-subtitle {
       font-size: 10px;
       opacity: 0.8;
+      margin-top: 2px;
     }
     
     .logo-small {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       background: #F5EBD7;
       border-radius: 50%;
       display: flex;
@@ -373,96 +384,98 @@
       justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
-      font-size: 9px;
+      font-size: 10px;
       color: #1B4D3E;
     }
     
     .verso .content {
-      padding: 16px 24px;
-      padding-bottom: 65px;
+      padding: 18px 24px;
+      padding-bottom: 70px;
       background: #F5EBD7;
     }
     
-    /* ZONE 5 - Contenu formation */
-    .zone-5 {
-      margin-bottom: 14px;
+    /* BLOC 5 - Contenu formation */
+    .bloc-5 {
+      margin-bottom: 18px;
     }
     
     .section-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: #1B4D3E;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       padding-bottom: 4px;
       border-bottom: 2px solid #D4A853;
       display: inline-block;
     }
     
-    .zone-5-grid {
+    .bloc-5-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
     
-    .zone-5-item {
+    .bloc-5-item {
       background: white;
-      padding: 12px 14px;
-      border-radius: 8px;
+      padding: 14px 16px;
+      border-radius: 10px;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.06);
     }
     
-    .zone-5-icon {
-      width: 28px;
-      height: 28px;
-      background: rgba(27, 77, 62, 0.1);
-      border-radius: 6px;
+    .bloc-5-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(27, 77, 62, 0.08);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 16px;
       flex-shrink: 0;
     }
     
-    .zone-5-text {
+    .bloc-5-text {
       font-size: 10px;
       color: #4B463C;
       line-height: 1.4;
     }
     
-    .zone-5-text strong {
+    .bloc-5-text strong {
       color: #1B4D3E;
       font-weight: 700;
       display: block;
       margin-bottom: 2px;
+      font-size: 11px;
     }
     
-    /* ZONE 6 - Infos pratiques */
-    .zone-6 {
+    /* BLOC 7 - Infos Pratiques */
+    .bloc-7 {
       background: white;
-      padding: 12px 16px;
-      border-radius: 10px;
-      margin-bottom: 14px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin-bottom: 16px;
     }
     
-    .zone-6-grid {
+    .bloc-7-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
     
-    .zone-6-item {
+    .bloc-7-item {
       text-align: center;
     }
     
-    .zone-6-icon {
-      font-size: 16px;
+    .bloc-7-icon {
+      font-size: 18px;
       margin-bottom: 4px;
     }
     
-    .zone-6-label {
+    .bloc-7-label {
       font-size: 8px;
       color: #898172;
       text-transform: uppercase;
@@ -470,7 +483,7 @@
       letter-spacing: 0.03em;
     }
     
-    .zone-6-value {
+    .bloc-7-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 10px;
       font-weight: 700;
@@ -478,60 +491,61 @@
       margin-top: 2px;
     }
     
-    /* ZONE 7 - CTA Verso */
-    .zone-7-verso {
+    /* CTA Verso */
+    .cta-verso {
       background: #1B4D3E;
       color: #F5EBD7;
-      padding: 14px 16px;
-      border-radius: 10px;
+      padding: 14px 18px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 16px;
     }
     
-    .zone-7-verso-left {
+    .cta-verso-left {
       flex: 1;
     }
     
-    .zone-7-verso-title {
+    .cta-verso-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    
+    .cta-verso-phone {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: #D4A853;
       margin-bottom: 4px;
     }
     
-    .zone-7-verso-phone {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 900;
-      color: #D4A853;
-      margin-bottom: 2px;
-    }
-    
-    .zone-7-verso-info {
+    .cta-verso-info {
       font-size: 9px;
       opacity: 0.85;
+      line-height: 1.5;
     }
     
     .qr-box {
       background: white;
-      padding: 6px;
+      padding: 8px;
       border-radius: 8px;
       text-align: center;
     }
     
     .qr-code {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 4px;
     }
     
     .qr-label {
-      font-size: 7px;
+      font-size: 8px;
       color: #1B4D3E;
-      font-weight: 600;
-      margin-top: 2px;
+      font-weight: 700;
+      margin-top: 3px;
       line-height: 1.2;
     }
     
@@ -542,22 +556,22 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 8px 24px;
+      padding: 10px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #F5EBD7;
-      font-size: 7px;
+      font-size: 8px;
     }
     
     .footer-legal {
-      opacity: 0.8;
+      opacity: 0.85;
     }
     
     .footer-website {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 9px;
+      font-size: 10px;
       color: #D4A853;
     }
     
@@ -584,93 +598,94 @@
       <div class="page-label">▼ RECTO (Face avant)</div>
       <div class="flyer-page recto">
         
-        <!-- ZONE 1 - Immédiatement compréhensible -->
-        <div class="zone-1">
-          <div class="zone-1-title">Formation Continue Obligatoire</div>
-          <div class="zone-1-subtitle">14h – 2 jours</div>
-          <div class="zone-1-targets">Taxi • VTC • VMDTR</div>
+        <!-- BLOC 1 - Identité Produit (visible à 2 mètres) -->
+        <div class="bloc-1">
+          <div class="bloc-1-title">Formation Continue<br>Obligatoire</div>
+          <div class="bloc-1-targets">Taxi • VTC • VMDTR</div>
+          <div class="bloc-1-duration">14h – 2 jours</div>
         </div>
         
-        <!-- ZONE 2 - Accroche émotionnelle -->
-        <div class="zone-2">
-          <div class="zone-2-hook">2 jours → 5 ans de tranquillité</div>
-          <div class="zone-2-checks">
-            <div class="zone-2-check">
+        <!-- BLOC 2 - Accroche Décisionnelle -->
+        <div class="bloc-2">
+          <div class="bloc-2-hook">2 jours → 5 ans de tranquillité</div>
+          <div class="bloc-2-checks">
+            <div class="bloc-2-check">
               <span class="check-icon">✔</span>
               <span>Renouvellement de la carte professionnelle</span>
             </div>
-            <div class="zone-2-check">
+            <div class="bloc-2-check">
               <span class="check-icon">✔</span>
               <span>Centre agréé Préfecture</span>
             </div>
-            <div class="zone-2-check">
+            <div class="bloc-2-check">
               <span class="check-icon">✔</span>
-              <span>Attestation officielle délivrée à l'issue de la formation</span>
+              <span>Attestation officielle conforme délivrée à l'issue de la formation</span>
             </div>
           </div>
         </div>
         
-        <!-- ZONE 3 - Simplicité anti-friction -->
-        <div class="zone-3">
-          <div class="zone-3-grid">
-            <div class="zone-3-item">
-              <div class="zone-3-icon">🗓</div>
-              <div class="zone-3-value">2 jours<br>seulement</div>
+        <!-- BLOC 3 - Anti-friction -->
+        <div class="bloc-3">
+          <div class="bloc-3-grid">
+            <div class="bloc-3-item">
+              <div class="bloc-3-icon">🗓</div>
+              <div class="bloc-3-value">2 jours<br>seulement</div>
             </div>
-            <div class="zone-3-item">
-              <div class="zone-3-icon">📜</div>
-              <div class="zone-3-value">Attestation<br>conforme</div>
+            <div class="bloc-3-item">
+              <div class="bloc-3-icon">📜</div>
+              <div class="bloc-3-value">Attestation<br>valable 5 ans</div>
             </div>
-            <div class="zone-3-item">
-              <div class="zone-3-icon">⏱</div>
-              <div class="zone-3-value">Valable<br>5 ans</div>
+            <div class="bloc-3-item">
+              <div class="bloc-3-icon">🚫</div>
+              <div class="bloc-3-value">Aucun<br>examen</div>
             </div>
-            <div class="zone-3-item">
-              <div class="zone-3-icon">🚫</div>
-              <div class="zone-3-value">Aucun<br>examen</div>
+            <div class="bloc-3-item">
+              <div class="bloc-3-icon">🛂</div>
+              <div class="bloc-3-value">Acceptée<br>Préfectures</div>
             </div>
           </div>
-          <div class="zone-3-note">Formation conforme aux exigences réglementaires pour continuer à exercer sans interruption.</div>
+          <div class="bloc-3-note">Formation conforme aux exigences réglementaires<br>pour continuer à exercer sans interruption d'activité.</div>
         </div>
         
-        <!-- ZONE 4 - Tarifs encadrés -->
-        <div class="zone-4">
-          <div class="zone-4-box">
-            <div class="zone-4-header">
-              <span class="zone-4-header-text">Tarifs – Formation Continue Obligatoire</span>
+        <!-- BLOC 4 - Tarifs (encadré, fond différent) -->
+        <div class="bloc-4">
+          <div class="bloc-4-box">
+            <div class="bloc-4-header">
+              <span class="bloc-4-header-text">Tarifs – Formation Continue Obligatoire</span>
             </div>
-            <div class="zone-4-content">
-              <div class="zone-4-row">
-                <span class="zone-4-label">Formation Continue VTC (14h)</span>
-                <span class="zone-4-price">170 € TTC</span>
+            <div class="bloc-4-content">
+              <div class="bloc-4-row">
+                <span class="bloc-4-label">Formation Continue VTC (14h)</span>
+                <span class="bloc-4-price">170 € TTC</span>
               </div>
-              <div class="zone-4-row">
-                <span class="zone-4-label">Formation Continue Taxi (14h)</span>
-                <span class="zone-4-price">239 € TTC</span>
+              <div class="bloc-4-row">
+                <span class="bloc-4-label">Formation Continue Taxi (14h)</span>
+                <span class="bloc-4-price">239 € TTC</span>
               </div>
-              <div class="zone-4-row">
-                <span class="zone-4-label">Formation Continue VMDTR (14h)</span>
-                <span class="zone-4-price">239 € TTC</span>
+              <div class="bloc-4-row">
+                <span class="bloc-4-label">Formation Continue VMDTR (14h)</span>
+                <span class="bloc-4-price">239 € TTC</span>
               </div>
             </div>
-            <div class="zone-4-note">Prix tout compris – attestation incluse</div>
+            <div class="bloc-4-note">Prix tout compris — attestation incluse</div>
           </div>
         </div>
         
-        <!-- ZONE 7 - CTA Recto -->
-        <div class="zone-7-recto">
-          <div class="zone-7-box">
-            <div class="zone-7-left">
-              <div class="zone-7-title">Réservez votre formation en 30 secondes</div>
-              <div class="zone-7-phone">07 83 78 76 63</div>
-              <div class="zone-7-response">
-                <span class="zone-7-badge">WhatsApp</span>
+        <!-- BLOC 6 - Action Unique (CTA principal) -->
+        <div class="bloc-6">
+          <div class="bloc-6-box">
+            <div class="bloc-6-left">
+              <div class="bloc-6-intro">Un message WhatsApp suffit</div>
+              <div class="bloc-6-title">Réservez votre formation en 30 secondes</div>
+              <div class="bloc-6-phone">07 83 78 76 63</div>
+              <div class="bloc-6-response">
+                <span class="bloc-6-badge">WhatsApp</span>
                 <span>Réponse rapide</span>
               </div>
             </div>
-            <a class="zone-7-qr" href="https://wa.me/33783787663" target="_blank" rel="noopener noreferrer">
+            <a class="bloc-6-qr" href="https://wa.me/33783787663" target="_blank" rel="noopener noreferrer">
               <img src="qr-whatsapp.png" alt="QR WhatsApp">
-              <div class="zone-7-qr-label">Scannez</div>
+              <div class="bloc-6-qr-label">Scannez</div>
             </a>
           </div>
         </div>
@@ -704,33 +719,33 @@
         <!-- Content -->
         <div class="content">
           
-          <!-- ZONE 5 - Contenu formation -->
-          <div class="zone-5">
-            <div class="zone-5-grid">
-              <div class="zone-5-item">
-                <div class="zone-5-icon">📋</div>
-                <div class="zone-5-text">
+          <!-- BLOC 5 - Contenu formation -->
+          <div class="bloc-5">
+            <div class="bloc-5-grid">
+              <div class="bloc-5-item">
+                <div class="bloc-5-icon">📋</div>
+                <div class="bloc-5-text">
                   <strong>Réglementation T3P</strong>
                   Mise à jour officielle des textes en vigueur
                 </div>
               </div>
-              <div class="zone-5-item">
-                <div class="zone-5-icon">🚗</div>
-                <div class="zone-5-text">
+              <div class="bloc-5-item">
+                <div class="bloc-5-icon">🚗</div>
+                <div class="bloc-5-text">
                   <strong>Sécurité routière</strong>
                   Prévention et bonnes pratiques
                 </div>
               </div>
-              <div class="zone-5-item">
-                <div class="zone-5-icon">👥</div>
-                <div class="zone-5-text">
+              <div class="bloc-5-item">
+                <div class="bloc-5-icon">👥</div>
+                <div class="bloc-5-text">
                   <strong>Relation client</strong>
                   Qualité de service professionnelle
                 </div>
               </div>
-              <div class="zone-5-item">
-                <div class="zone-5-icon">📱</div>
-                <div class="zone-5-text">
+              <div class="bloc-5-item">
+                <div class="bloc-5-icon">📱</div>
+                <div class="bloc-5-text">
                   <strong>Outils digitaux</strong>
                   Évolutions du secteur T3P
                 </div>
@@ -738,33 +753,33 @@
             </div>
           </div>
           
-          <!-- ZONE 6 - Infos pratiques -->
-          <div class="zone-6">
-            <div class="zone-6-grid">
-              <div class="zone-6-item">
-                <div class="zone-6-icon">📍</div>
-                <div class="zone-6-label">Lieu</div>
-                <div class="zone-6-value">Montrouge (92)</div>
+          <!-- BLOC 7 - Infos Pratiques -->
+          <div class="bloc-7">
+            <div class="bloc-7-grid">
+              <div class="bloc-7-item">
+                <div class="bloc-7-icon">📍</div>
+                <div class="bloc-7-label">Lieu</div>
+                <div class="bloc-7-value">Montrouge (92)</div>
               </div>
-              <div class="zone-6-item">
-                <div class="zone-6-icon">🚇</div>
-                <div class="zone-6-label">Métro</div>
-                <div class="zone-6-value">Ligne 4 – Mairie</div>
+              <div class="bloc-7-item">
+                <div class="bloc-7-icon">🚇</div>
+                <div class="bloc-7-label">Métro</div>
+                <div class="bloc-7-value">Ligne 4 – Mairie</div>
               </div>
-              <div class="zone-6-item">
-                <div class="zone-6-icon">🏛</div>
-                <div class="zone-6-label">Agrément</div>
-                <div class="zone-6-value">Centre Préfecture</div>
+              <div class="bloc-7-item">
+                <div class="bloc-7-icon">🏛</div>
+                <div class="bloc-7-label">Agrément</div>
+                <div class="bloc-7-value">Centre Préfecture</div>
               </div>
             </div>
           </div>
           
-          <!-- ZONE 7 - CTA Verso -->
-          <div class="zone-7-verso">
-            <div class="zone-7-verso-left">
-              <div class="zone-7-verso-title">Réservez votre formation continue</div>
-              <div class="zone-7-verso-phone">07 83 78 76 63</div>
-              <div class="zone-7-verso-info">
+          <!-- CTA Verso -->
+          <div class="cta-verso">
+            <div class="cta-verso-left">
+              <div class="cta-verso-title">Réservez votre formation continue</div>
+              <div class="cta-verso-phone">07 83 78 76 63</div>
+              <div class="cta-verso-info">
                 📍 3 rue Corneille – 92120 Montrouge<br>
                 ✉️ montrouge@ecolet3p.fr
               </div>
