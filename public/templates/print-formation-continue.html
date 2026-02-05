@@ -237,6 +237,32 @@
      .flyer-section-title .badge.taxi { background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%); }
      .flyer-section-title .badge.vtc { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; }
      .flyer-section-title .badge.vmdtr { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; }
+      
+      .btn-open {
+        margin-left: auto;
+        padding: 8px 16px;
+        background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+        color: white;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+      }
+      
+      .btn-open:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+      }
+      
+      .flyer-note {
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+        margin-top: 12px;
+        font-style: italic;
+      }
      
      .flyer-pages {
        display: flex;
@@ -399,9 +425,9 @@
        <div class="export-steps">
          <h4>🔧 Comment exporter en PDF :</h4>
          <ol>
-           <li>Cliquez sur le bouton <strong>"Exporter en PDF"</strong> ci-dessus</li>
-           <li>Dans la boîte de dialogue, sélectionnez <strong>"Enregistrer au format PDF"</strong></li>
-           <li>Choisissez le format <strong>A5 Portrait</strong> dans les options</li>
+            <li>Cliquez sur <strong>"Ouvrir le flyer"</strong> pour chaque formation</li>
+            <li>Dans le flyer, utilisez <strong>Ctrl+P</strong> (ou Cmd+P sur Mac)</li>
+            <li>Sélectionnez <strong>"Enregistrer au format PDF"</strong> avec format <strong>A5 Portrait</strong></li>
            <li>Cochez <strong>"Graphiques d'arrière-plan"</strong> pour conserver les couleurs</li>
            <li>Réglez les marges sur <strong>"Aucune"</strong> ou <strong>"Minimum"</strong></li>
            <li>Enregistrez le fichier et envoyez-le à votre imprimeur</li>
@@ -414,11 +440,12 @@
         <div class="flyer-section-title">
           📋 Formation Continue – Générique
           <span class="badge">Multi-profils</span>
+           <a href="flyer-formation-continue.html" target="_blank" class="btn-open">Ouvrir le flyer →</a>
         </div>
         <div class="flyer-pages">
           <div class="flyer-page-wrapper">
             <span class="flyer-page-label">Recto</span>
-            <iframe src="flyer-formation-continue.html" class="flyer-frame"></iframe>
+            <iframe src="flyer-formation-continue.html" class="flyer-frame" loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -430,17 +457,15 @@
        <div class="flyer-section-title">
           Formation Continue TAXI
          <span class="badge taxi">239 €</span>
+          <a href="flyer-continue-taxi.html" target="_blank" class="btn-open">Ouvrir le flyer →</a>
        </div>
        <div class="flyer-pages">
          <div class="flyer-page-wrapper">
            <span class="flyer-page-label">Recto</span>
-           <iframe src="flyer-continue-taxi.html#recto" class="flyer-frame"></iframe>
+            <iframe src="flyer-continue-taxi.html" class="flyer-frame" loading="lazy"></iframe>
          </div>
-          <div class="flyer-page-wrapper">
-            <span class="flyer-page-label">Verso</span>
-            <iframe src="flyer-continue-taxi.html#verso" class="flyer-frame"></iframe>
-          </div>
        </div>
+        <p class="flyer-note">📄 Ce flyer contient un Recto + Verso (2 pages A5)</p>
      </div>
      
      <div class="page-break">✂️ Saut de page</div>
@@ -450,17 +475,15 @@
        <div class="flyer-section-title">
           Formation Continue VTC
          <span class="badge vtc">170 €</span>
+          <a href="flyer-continue-vtc.html" target="_blank" class="btn-open">Ouvrir le flyer →</a>
        </div>
        <div class="flyer-pages">
          <div class="flyer-page-wrapper">
            <span class="flyer-page-label">Recto</span>
-           <iframe src="flyer-continue-vtc.html#recto" class="flyer-frame"></iframe>
+            <iframe src="flyer-continue-vtc.html" class="flyer-frame" loading="lazy"></iframe>
          </div>
-          <div class="flyer-page-wrapper">
-            <span class="flyer-page-label">Verso</span>
-            <iframe src="flyer-continue-vtc.html#verso" class="flyer-frame"></iframe>
-          </div>
        </div>
+        <p class="flyer-note">📄 Ce flyer contient un Recto + Verso (2 pages A5)</p>
      </div>
      
      <div class="page-break">✂️ Saut de page</div>
@@ -470,17 +493,15 @@
        <div class="flyer-section-title">
           Formation Continue VMDTR
          <span class="badge vmdtr">239 €</span>
+          <a href="flyer-continue-vmdtr.html" target="_blank" class="btn-open">Ouvrir le flyer →</a>
        </div>
        <div class="flyer-pages">
          <div class="flyer-page-wrapper">
            <span class="flyer-page-label">Recto</span>
-           <iframe src="flyer-continue-vmdtr.html#recto" class="flyer-frame"></iframe>
+            <iframe src="flyer-continue-vmdtr.html" class="flyer-frame" loading="lazy"></iframe>
          </div>
-          <div class="flyer-page-wrapper">
-            <span class="flyer-page-label">Verso</span>
-            <iframe src="flyer-continue-vmdtr.html#verso" class="flyer-frame"></iframe>
-          </div>
        </div>
+        <p class="flyer-note">📄 Ce flyer contient un Recto + Verso (2 pages A5)</p>
      </div>
      
    </div>
