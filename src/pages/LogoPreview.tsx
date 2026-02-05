@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { T3PCampusLogo, T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
+import { EcoleT3PLogo, EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 
 const LogoPreview = () => {
   return (
@@ -110,6 +111,50 @@ const LogoPreview = () => {
               <div className="text-center">
                 <T3PCampusIcon className="w-24 h-24 mb-2" theme="color" />
                 <p className="text-xs text-warm-gray-500">96px</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stamp Vintage Section */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-forest mb-6 border-b border-forest/20 pb-2">
+            🎫 Variante Stamp/Tampon Vintage
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Stamp on light background */}
+            <div className="bg-cream-light rounded-2xl p-8 shadow-lg flex flex-col items-center">
+              <p className="text-sm font-semibold text-warm-gray-500 mb-4">Stamp Vintage (fond clair)</p>
+              <EcoleT3PIcon className="w-32 h-32" theme="stamp" />
+            </div>
+
+            {/* Stamp on paper texture */}
+            <div className="bg-[#F5EBD7] rounded-2xl p-8 shadow-lg flex flex-col items-center" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.08\'/%3E%3C/svg%3E")' }}>
+              <p className="text-sm font-semibold text-warm-gray-500 mb-4">Stamp Vintage (papier)</p>
+              <EcoleT3PIcon className="w-32 h-32" theme="stamp" />
+            </div>
+          </div>
+
+          {/* Stamp sizes */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg mt-8">
+            <p className="text-sm font-semibold text-warm-gray-500 mb-6">Tailles du Stamp</p>
+            <div className="flex items-end gap-8 flex-wrap">
+              <div className="text-center">
+                <EcoleT3PIcon className="w-12 h-12 mb-2" theme="stamp" />
+                <p className="text-xs text-warm-gray-500">48px</p>
+              </div>
+              <div className="text-center">
+                <EcoleT3PIcon className="w-16 h-16 mb-2" theme="stamp" />
+                <p className="text-xs text-warm-gray-500">64px</p>
+              </div>
+              <div className="text-center">
+                <EcoleT3PIcon className="w-24 h-24 mb-2" theme="stamp" />
+                <p className="text-xs text-warm-gray-500">96px</p>
+              </div>
+              <div className="text-center">
+                <EcoleT3PIcon className="w-32 h-32 mb-2" theme="stamp" />
+                <p className="text-xs text-warm-gray-500">128px</p>
               </div>
             </div>
           </div>
