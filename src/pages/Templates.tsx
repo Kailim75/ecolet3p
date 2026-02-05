@@ -76,11 +76,18 @@ const templates = [
     category: "Document"
   },
   {
-    title: "Flyer Général",
-    description: "Flyer générique ECOLE T3P",
+    title: "Flyer Général (simple)",
+    description: "Flyer A5 recto simple - version basique",
     path: "/templates/flyer-ecole-t3p.html",
     icon: FileText,
     category: "Flyer"
+  },
+  {
+    title: "Flyer Générique (Recto-Verso)",
+    description: "Flyer A5 recto-verso complet avec toutes les formations et tarifs",
+    path: "/templates/flyer-generique-ecole-t3p.html",
+    icon: FileText,
+    category: "Flyer Générique"
   }
 ];
 
