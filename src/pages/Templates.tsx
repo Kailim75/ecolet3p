@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 const templates = [
   {
      title: "Formation Continue (Générique)",
-     description: "Flyer A5 regroupant toutes les formations continues",
+     description: "Flyer A5 recto-verso regroupant toutes les formations continues (VTC 170€, Taxi/VMDTR 239€)",
     path: "/templates/flyer-formation-continue.html",
     icon: FileText,
-    category: "Flyer"
+    category: "Flyer Continue"
   },
   {
      title: "Formation Continue TAXI",
