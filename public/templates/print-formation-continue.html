@@ -1,0 +1,460 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Export PDF - Flyers Formation Continue | ECOLE T3P</title>
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <style>
+     * { margin: 0; padding: 0; box-sizing: border-box; }
+     
+     @page {
+       size: A5 portrait;
+       margin: 0;
+     }
+     
+     body {
+       font-family: 'Inter', sans-serif;
+       background: #f5f5f5;
+     }
+     
+     /* Print Controls - Hidden when printing */
+     .print-controls {
+       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+       color: #F5EBD7;
+       padding: 20px 30px;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       flex-wrap: wrap;
+       gap: 20px;
+       position: sticky;
+       top: 0;
+       z-index: 100;
+       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+     }
+     
+     .print-info {
+       display: flex;
+       align-items: center;
+       gap: 15px;
+     }
+     
+     .print-logo {
+       width: 50px;
+       height: 50px;
+       background: #F5EBD7;
+       border-radius: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-family: 'Plus Jakarta Sans', sans-serif;
+       font-weight: 900;
+       font-size: 16px;
+       color: #1B4D3E;
+     }
+     
+     .print-title {
+       font-family: 'Plus Jakarta Sans', sans-serif;
+       font-size: 22px;
+       font-weight: 800;
+     }
+     
+     .print-subtitle {
+       font-size: 14px;
+       opacity: 0.9;
+     }
+     
+     .print-actions {
+       display: flex;
+       gap: 15px;
+       align-items: center;
+     }
+     
+     .btn {
+       padding: 14px 28px;
+       border-radius: 12px;
+       font-family: 'Plus Jakarta Sans', sans-serif;
+       font-weight: 700;
+       font-size: 15px;
+       text-decoration: none;
+       transition: all 0.2s ease;
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       border: none;
+       cursor: pointer;
+     }
+     
+     .btn-print {
+       background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+       color: white;
+       box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+     }
+     
+     .btn-print:hover {
+       transform: scale(1.05);
+       box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+     }
+     
+     .btn-back {
+       background: rgba(255, 255, 255, 0.15);
+       color: #F5EBD7;
+     }
+     
+     .btn-back:hover {
+       background: rgba(255, 255, 255, 0.25);
+     }
+     
+     /* Flyers Container */
+     .flyers-container {
+       padding: 30px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 40px;
+     }
+     
+     /* Print instructions */
+     .print-instructions {
+       background: white;
+       border-radius: 16px;
+       padding: 25px 30px;
+       max-width: 700px;
+       margin: 0 auto;
+       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+       border-left: 4px solid #D4A853;
+     }
+     
+     .print-instructions h3 {
+       font-family: 'Plus Jakarta Sans', sans-serif;
+       font-size: 16px;
+       font-weight: 700;
+       color: #1B4D3E;
+       margin-bottom: 12px;
+       display: flex;
+       align-items: center;
+       gap: 10px;
+     }
+     
+     .print-instructions ul {
+       list-style: none;
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 8px;
+     }
+     
+     .print-instructions li {
+       font-size: 13px;
+       color: #4B463C;
+       padding-left: 22px;
+       position: relative;
+     }
+     
+     .print-instructions li::before {
+       content: "✓";
+       position: absolute;
+       left: 0;
+       color: #2ecc71;
+       font-weight: 700;
+     }
+     
+     .export-steps {
+       background: linear-gradient(135deg, rgba(27, 77, 62, 0.05) 0%, rgba(212, 168, 83, 0.08) 100%);
+       border-radius: 12px;
+       padding: 20px;
+       margin-top: 15px;
+     }
+     
+     .export-steps h4 {
+       font-family: 'Plus Jakarta Sans', sans-serif;
+       font-size: 14px;
+       font-weight: 700;
+       color: #1B4D3E;
+       margin-bottom: 10px;
+     }
+     
+     .export-steps ol {
+       list-style: none;
+       counter-reset: step;
+     }
+     
+     .export-steps li {
+       font-size: 12px;
+       color: #4B463C;
+       padding: 6px 0 6px 30px;
+       position: relative;
+       counter-increment: step;
+     }
+     
+     .export-steps li::before {
+       content: counter(step);
+       position: absolute;
+       left: 0;
+       top: 5px;
+       width: 20px;
+       height: 20px;
+       background: #1B4D3E;
+       color: #F5EBD7;
+       border-radius: 50%;
+       font-size: 11px;
+       font-weight: 700;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+     
+     /* Flyer Section */
+     .flyer-section {
+       background: white;
+       border-radius: 16px;
+       padding: 20px;
+       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+       width: 100%;
+       max-width: 800px;
+     }
+     
+     .flyer-section-title {
+       font-family: 'Plus Jakarta Sans', sans-serif;
+       font-size: 18px;
+       font-weight: 800;
+       color: #1B4D3E;
+       margin-bottom: 15px;
+       display: flex;
+       align-items: center;
+       gap: 12px;
+     }
+     
+     .flyer-section-title .badge {
+       background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
+       color: #1B4D3E;
+       padding: 4px 12px;
+       border-radius: 15px;
+       font-size: 11px;
+       font-weight: 700;
+     }
+     
+     .flyer-section-title .badge.taxi { background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%); }
+     .flyer-section-title .badge.vtc { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; }
+     .flyer-section-title .badge.vmdtr { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; }
+     
+     .flyer-pages {
+       display: flex;
+       gap: 20px;
+       justify-content: center;
+       flex-wrap: wrap;
+     }
+     
+     .flyer-page-wrapper {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 8px;
+     }
+     
+     .flyer-page-label {
+       font-size: 11px;
+       font-weight: 600;
+       color: #898172;
+       text-transform: uppercase;
+       letter-spacing: 0.05em;
+     }
+     
+     .flyer-frame {
+       width: 148mm;
+       height: 210mm;
+       border: none;
+       box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+       border-radius: 6px;
+       overflow: hidden;
+     }
+     
+     /* Page break indicator */
+     .page-break {
+       width: 100%;
+       max-width: 600px;
+       display: flex;
+       align-items: center;
+       gap: 15px;
+       color: #999;
+       font-size: 12px;
+       margin: 10px 0;
+     }
+     
+     .page-break::before,
+     .page-break::after {
+       content: '';
+       flex: 1;
+       height: 1px;
+       background: linear-gradient(90deg, transparent, #ccc, transparent);
+     }
+     
+     /* Print Styles */
+     @media print {
+       .print-controls,
+       .print-instructions,
+       .flyer-section-title,
+       .flyer-page-label,
+       .page-break {
+         display: none !important;
+       }
+       
+       body {
+         background: white;
+       }
+       
+       .flyers-container {
+         padding: 0;
+         gap: 0;
+       }
+       
+       .flyer-section {
+         background: transparent;
+         box-shadow: none;
+         padding: 0;
+         border-radius: 0;
+       }
+       
+       .flyer-pages {
+         gap: 0;
+       }
+       
+       .flyer-page-wrapper {
+         page-break-after: always;
+         break-after: page;
+       }
+       
+       .flyer-page-wrapper:last-child {
+         page-break-after: avoid;
+         break-after: avoid;
+       }
+       
+       .flyer-frame {
+         box-shadow: none;
+         border-radius: 0;
+       }
+     }
+     
+     /* Responsive */
+     @media (max-width: 768px) {
+       .print-controls {
+         flex-direction: column;
+         text-align: center;
+       }
+       
+       .print-info {
+         flex-direction: column;
+       }
+       
+       .flyer-frame {
+         width: 100%;
+         height: auto;
+         aspect-ratio: 148 / 210;
+       }
+       
+       .print-instructions ul {
+         grid-template-columns: 1fr;
+       }
+       
+       .flyer-pages {
+         flex-direction: column;
+       }
+     }
+   </style>
+ </head>
+ <body>
+   <!-- Print Controls -->
+   <div class="print-controls">
+     <div class="print-info">
+       <div class="print-logo">T3P</div>
+       <div>
+         <div class="print-title">📄 Export PDF Haute Qualité</div>
+         <div class="print-subtitle">3 Flyers Formation Continue – TAXI • VTC • VMDTR</div>
+       </div>
+     </div>
+     <div class="print-actions">
+       <a href="index.html" class="btn btn-back">
+         ← Retour
+       </a>
+       <button onclick="window.print()" class="btn btn-print">
+         📥 Exporter en PDF
+       </button>
+     </div>
+   </div>
+   
+   <div class="flyers-container">
+     
+     <!-- Print Instructions -->
+     <div class="print-instructions">
+       <h3>📋 Export PDF Impression Professionnelle</h3>
+       <ul>
+         <li>Format : A5 Portrait (148 × 210 mm)</li>
+         <li>Qualité : Haute résolution 300 DPI</li>
+         <li>Couleur : CMJN recommandé</li>
+         <li>Papier : 170-250g/m² couché brillant</li>
+         <li>Marges : Fond perdu 3mm inclus</li>
+         <li>Recto-Verso : Reliure bord court</li>
+       </ul>
+       
+       <div class="export-steps">
+         <h4>🔧 Comment exporter en PDF :</h4>
+         <ol>
+           <li>Cliquez sur le bouton <strong>"Exporter en PDF"</strong> ci-dessus</li>
+           <li>Dans la boîte de dialogue, sélectionnez <strong>"Enregistrer au format PDF"</strong></li>
+           <li>Choisissez le format <strong>A5 Portrait</strong> dans les options</li>
+           <li>Cochez <strong>"Graphiques d'arrière-plan"</strong> pour conserver les couleurs</li>
+           <li>Réglez les marges sur <strong>"Aucune"</strong> ou <strong>"Minimum"</strong></li>
+           <li>Enregistrez le fichier et envoyez-le à votre imprimeur</li>
+         </ol>
+       </div>
+     </div>
+     
+     <!-- Flyer 1: TAXI -->
+     <div class="flyer-section">
+       <div class="flyer-section-title">
+         🚕 Formation Continue TAXI
+         <span class="badge taxi">239 €</span>
+       </div>
+       <div class="flyer-pages">
+         <div class="flyer-page-wrapper">
+           <span class="flyer-page-label">Recto</span>
+           <iframe src="flyer-continue-taxi.html#recto" class="flyer-frame"></iframe>
+         </div>
+       </div>
+     </div>
+     
+     <div class="page-break">✂️ Saut de page</div>
+     
+     <!-- Flyer 2: VTC -->
+     <div class="flyer-section">
+       <div class="flyer-section-title">
+         🚗 Formation Continue VTC
+         <span class="badge vtc">170 €</span>
+       </div>
+       <div class="flyer-pages">
+         <div class="flyer-page-wrapper">
+           <span class="flyer-page-label">Recto</span>
+           <iframe src="flyer-continue-vtc.html#recto" class="flyer-frame"></iframe>
+         </div>
+       </div>
+     </div>
+     
+     <div class="page-break">✂️ Saut de page</div>
+     
+     <!-- Flyer 3: VMDTR -->
+     <div class="flyer-section">
+       <div class="flyer-section-title">
+         🏍️ Formation Continue VMDTR
+         <span class="badge vmdtr">239 €</span>
+       </div>
+       <div class="flyer-pages">
+         <div class="flyer-page-wrapper">
+           <span class="flyer-page-label">Recto</span>
+           <iframe src="flyer-continue-vmdtr.html#recto" class="flyer-frame"></iframe>
+         </div>
+       </div>
+     </div>
+     
+   </div>
+ </body>
+ </html>
