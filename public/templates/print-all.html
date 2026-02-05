@@ -3,22 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imprimer tous les flyers | ECOLE T3P</title>
+  <title>Export PDF - Tous les Flyers | ECOLE T3P</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
-    @page {
-      size: A5 portrait;
-      margin: 0;
-    }
-    
     body {
       font-family: 'Inter', sans-serif;
       background: #f5f5f5;
+      min-height: 100vh;
     }
     
-    /* Print Controls - Hidden when printing */
+    /* Print Controls */
     .print-controls {
       background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
       color: #F5EBD7;
@@ -86,17 +82,6 @@
       cursor: pointer;
     }
     
-    .btn-print {
-      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-      color: white;
-      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-    }
-    
-    .btn-print:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
-    }
-    
     .btn-back {
       background: rgba(255, 255, 255, 0.15);
       color: #F5EBD7;
@@ -106,66 +91,11 @@
       background: rgba(255, 255, 255, 0.25);
     }
     
-    /* Flyers Container */
-    .flyers-container {
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-    
-    /* Flyer Wrapper */
-    .flyer-wrapper {
-      position: relative;
-    }
-    
-    .flyer-label {
-      position: absolute;
-      top: -15px;
-      left: 20px;
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      color: #F5EBD7;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      z-index: 10;
-      box-shadow: 0 4px 10px rgba(27, 77, 62, 0.3);
-    }
-    
-    .flyer-frame {
-      width: 148mm;
-      height: 210mm;
-      border: none;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    
-    /* Page break indicator */
-    .page-break {
-      width: 100%;
-      max-width: 600px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      color: #999;
-      font-size: 12px;
-      margin: 10px 0;
-    }
-    
-    .page-break::before,
-    .page-break::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #ccc, transparent);
-    }
-    
-    .page-break-icon {
-      font-size: 16px;
     }
     
     /* Print instructions */
@@ -173,15 +103,14 @@
       background: white;
       border-radius: 16px;
       padding: 25px 30px;
-      max-width: 600px;
-      margin: 0 auto 30px;
+      margin-bottom: 30px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       border-left: 4px solid #D4A853;
     }
     
     .print-instructions h3 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       color: #1B4D3E;
       margin-bottom: 12px;
@@ -193,8 +122,9 @@
     .print-instructions ul {
       list-style: none;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
+      margin-bottom: 20px;
     }
     
     .print-instructions li {
@@ -212,38 +142,230 @@
       font-weight: 700;
     }
     
-    /* Print Styles */
-    @media print {
-      .print-controls,
-      .flyer-label,
-      .page-break,
-      .print-instructions {
-        display: none !important;
-      }
-      
-      body {
-        background: white;
-      }
-      
-      .flyers-container {
-        padding: 0;
-        gap: 0;
-      }
-      
-      .flyer-wrapper {
-        page-break-after: always;
-        break-after: page;
-      }
-      
-      .flyer-wrapper:last-child {
-        page-break-after: avoid;
-        break-after: avoid;
-      }
-      
-      .flyer-frame {
-        box-shadow: none;
-        border-radius: 0;
-      }
+    .export-steps {
+      background: linear-gradient(135deg, rgba(27, 77, 62, 0.05) 0%, rgba(212, 168, 83, 0.08) 100%);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .export-steps h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 10px;
+    }
+    
+    .export-steps ol {
+      list-style: none;
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    
+    .export-steps li {
+      font-size: 12px;
+      color: #4B463C;
+      padding: 6px 0 6px 30px;
+      position: relative;
+      counter-increment: step;
+    }
+    
+    .export-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background: #1B4D3E;
+      color: #F5EBD7;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Flyers Grid */
+    .flyers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+    
+    /* Flyer Card */
+    .flyer-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .flyer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    
+    .flyer-card-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .flyer-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    
+    .flyer-icon.green { background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%); }
+    .flyer-icon.taxi { background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%); }
+    .flyer-icon.vtc { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+    .flyer-icon.vmdtr { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+    .flyer-icon.initiale { background: linear-gradient(135deg, #1B4D3E 0%, #3498db 100%); }
+    .flyer-icon.points { background: linear-gradient(135deg, #C62828 0%, #e74c3c 100%); }
+    
+    .flyer-card-title {
+      flex: 1;
+    }
+    
+    .flyer-card-title h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 2px;
+    }
+    
+    .flyer-card-title p {
+      font-size: 12px;
+      color: #898172;
+    }
+    
+    .flyer-badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #F5EBD7;
+      color: #1B4D3E;
+    }
+    
+    .flyer-badge.optimized {
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: white;
+    }
+    
+    .flyer-preview {
+      position: relative;
+      padding: 15px;
+      background: #f8f8f8;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .flyer-preview img,
+    .flyer-preview iframe {
+      width: 100%;
+      max-width: 200px;
+      height: 280px;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+    
+    .flyer-preview iframe {
+      pointer-events: none;
+      transform: scale(0.5);
+      transform-origin: top center;
+      width: 148mm;
+      height: 210mm;
+      margin: -105mm 0 -105mm 0;
+    }
+    
+    .flyer-card-actions {
+      padding: 16px 20px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn-open {
+      flex: 1;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      color: white;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.3);
+    }
+    
+    .btn-open:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.4);
+    }
+    
+    .btn-pdf {
+      flex: 1;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
+      color: #1B4D3E;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(212, 168, 83, 0.3);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-pdf:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
+    }
+    
+    /* Category Sections */
+    .category-section {
+      margin-bottom: 40px;
+    }
+    
+    .category-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #1B4D3E;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .category-title span {
+      font-size: 24px;
+    }
+    
+    .category-count {
+      background: #F5EBD7;
+      color: #1B4D3E;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
     }
     
     /* Responsive */
@@ -257,13 +379,12 @@
         flex-direction: column;
       }
       
-      .flyer-frame {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 148 / 210;
+      .print-instructions ul,
+      .export-steps ol {
+        grid-template-columns: 1fr;
       }
       
-      .print-instructions ul {
+      .flyers-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -275,72 +396,231 @@
     <div class="print-info">
       <div class="print-logo">T3P</div>
       <div>
-        <div class="print-title">Impression Groupée</div>
-        <div class="print-subtitle">4 flyers A5 prêts à imprimer</div>
+        <div class="print-title">📄 Export PDF Haute Résolution</div>
+        <div class="print-subtitle">7 Flyers optimisés – Prêts pour impression professionnelle</div>
       </div>
     </div>
     <div class="print-actions">
-      <a href="index.html" class="btn btn-back">
-        ← Retour
-      </a>
-      <button onclick="window.print()" class="btn btn-print">
-        🖨️ Imprimer les 4 flyers
-      </button>
+      <a href="index.html" class="btn btn-back">← Retour au catalogue</a>
     </div>
   </div>
   
-  <!-- Print Instructions -->
-  <div class="flyers-container">
+  <div class="container">
+    
+    <!-- Print Instructions -->
     <div class="print-instructions">
-      <h3>💡 Conseils d'impression</h3>
+      <h3>📋 Guide d'export PDF pour impression professionnelle</h3>
       <ul>
         <li>Format : A5 Portrait (148 × 210 mm)</li>
-        <li>Qualité : Haute résolution</li>
+        <li>Qualité : Haute résolution 300 DPI</li>
         <li>Couleur : CMJN recommandé</li>
-        <li>Papier : 170g/m² minimum</li>
-        <li>Marges : Sans bordure si possible</li>
-        <li>Recto seul (pas de recto-verso)</li>
+        <li>Papier : 170-250g/m² couché brillant</li>
+        <li>Marges : Fond perdu 3mm inclus</li>
+        <li>Design : Optimisé psychologie cognitive</li>
       </ul>
+      
+      <div class="export-steps">
+        <h4>🔧 Comment exporter chaque flyer en PDF :</h4>
+        <ol>
+          <li>Cliquez sur <strong>"Ouvrir"</strong> pour le flyer souhaité</li>
+          <li>Utilisez <strong>Ctrl+P</strong> (ou Cmd+P sur Mac)</li>
+          <li>Sélectionnez <strong>"Enregistrer au format PDF"</strong></li>
+          <li>Format : <strong>A5 Portrait</strong></li>
+          <li>Cochez <strong>"Graphiques d'arrière-plan"</strong></li>
+          <li>Marges : <strong>"Aucune"</strong> ou <strong>"Minimum"</strong></li>
+        </ol>
+      </div>
     </div>
     
-    <!-- Flyer 1: Formation Continue -->
-    <div class="flyer-wrapper">
-      <span class="flyer-label">1/4 – Formation Continue</span>
-      <iframe src="flyer-formation-continue.html" class="flyer-frame"></iframe>
+    <!-- Formation Continue Section -->
+    <div class="category-section">
+      <h2 class="category-title">
+        <span>🚗</span>
+        Formation Continue
+        <span class="category-count">4 flyers</span>
+      </h2>
+      
+      <div class="flyers-grid">
+        <!-- Générique -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon green">📋</div>
+            <div class="flyer-card-title">
+              <h3>Formation Continue Générique</h3>
+              <p>Multi-profils • TAXI, VTC, VMDTR</p>
+            </div>
+            <span class="flyer-badge">Multi</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-formation-continue.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-formation-continue.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-formation-continue.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+        
+        <!-- TAXI -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon taxi">🚕</div>
+            <div class="flyer-card-title">
+              <h3>Formation Continue TAXI</h3>
+              <p>Recto-Verso • 239 €</p>
+            </div>
+            <span class="flyer-badge">R/V</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-continue-taxi.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-continue-taxi.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-continue-taxi.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+        
+        <!-- VTC -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon vtc">🚙</div>
+            <div class="flyer-card-title">
+              <h3>Formation Continue VTC</h3>
+              <p>Recto-Verso • 170 €</p>
+            </div>
+            <span class="flyer-badge">R/V</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-continue-vtc.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-continue-vtc.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-continue-vtc.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+        
+        <!-- VMDTR -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon vmdtr">🏍️</div>
+            <div class="flyer-card-title">
+              <h3>Formation Continue VMDTR</h3>
+              <p>Recto-Verso • 239 €</p>
+            </div>
+            <span class="flyer-badge">R/V</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-continue-vmdtr.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-continue-vmdtr.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-continue-vmdtr.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <div class="page-break">
-      <span class="page-break-icon">✂️</span>
-      <span>Saut de page à l'impression</span>
+    <!-- Formation Initiale Section -->
+    <div class="category-section">
+      <h2 class="category-title">
+        <span>🎓</span>
+        Formation Initiale
+        <span class="category-count">1 flyer</span>
+      </h2>
+      
+      <div class="flyers-grid">
+        <!-- Formation Initiale -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon initiale">🎓</div>
+            <div class="flyer-card-title">
+              <h3>Formation Initiale TAXI/VTC/VMDTR</h3>
+              <p>Carte professionnelle • Examen T3P</p>
+            </div>
+            <span class="flyer-badge optimized">✓ Optimisé</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-formation-initiale.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-formation-initiale.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-formation-initiale.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <!-- Flyer 2: Formation Initiale -->
-    <div class="flyer-wrapper">
-      <span class="flyer-label">2/4 – Formation Initiale</span>
-      <iframe src="flyer-formation-initiale.html" class="flyer-frame"></iframe>
+    <!-- Récupération de Points Section -->
+    <div class="category-section">
+      <h2 class="category-title">
+        <span>🚦</span>
+        Récupération de Points
+        <span class="category-count">1 flyer</span>
+      </h2>
+      
+      <div class="flyers-grid">
+        <!-- Récupération Points -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon points">🚦</div>
+            <div class="flyer-card-title">
+              <h3>Stage Récupération de Points</h3>
+              <p>Stage agréé Préfecture • 250 €</p>
+            </div>
+            <span class="flyer-badge optimized">✓ Optimisé</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-recuperation-points.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-recuperation-points.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-recuperation-points.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <div class="page-break">
-      <span class="page-break-icon">✂️</span>
-      <span>Saut de page à l'impression</span>
+    <!-- VMDTR Initiale Section -->
+    <div class="category-section">
+      <h2 class="category-title">
+        <span>🏍️</span>
+        VMDTR Spécifique
+        <span class="category-count">1 flyer</span>
+      </h2>
+      
+      <div class="flyers-grid">
+        <!-- VMDTR -->
+        <div class="flyer-card">
+          <div class="flyer-card-header">
+            <div class="flyer-icon vmdtr">🏍️</div>
+            <div class="flyer-card-title">
+              <h3>Formation VMDTR</h3>
+              <p>Taxi Moto • Formation spécialisée</p>
+            </div>
+            <span class="flyer-badge">Moto</span>
+          </div>
+          <div class="flyer-preview">
+            <iframe src="flyer-vmdtr.html" loading="lazy"></iframe>
+          </div>
+          <div class="flyer-card-actions">
+            <a href="flyer-vmdtr.html" target="_blank" class="btn-open">📂 Ouvrir</a>
+            <button onclick="printFlyer('flyer-vmdtr.html')" class="btn-pdf">📥 Export PDF</button>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <!-- Flyer 3: Récupération Points -->
-    <div class="flyer-wrapper">
-      <span class="flyer-label">3/4 – Récupération de Points</span>
-      <iframe src="flyer-recuperation-points.html" class="flyer-frame"></iframe>
-    </div>
-    
-    <div class="page-break">
-      <span class="page-break-icon">✂️</span>
-      <span>Saut de page à l'impression</span>
-    </div>
-    
-    <!-- Flyer 4: VMDTR -->
-    <div class="flyer-wrapper">
-      <span class="flyer-label">4/4 – Formation VMDTR</span>
-      <iframe src="flyer-vmdtr.html" class="flyer-frame"></iframe>
-    </div>
   </div>
+  
+  <script>
+    function printFlyer(url) {
+      // Open the flyer in a new window and trigger print
+      const printWindow = window.open(url, '_blank');
+      printWindow.addEventListener('load', function() {
+        setTimeout(function() {
+          printWindow.print();
+        }, 500);
+      });
+    }
+  </script>
 </body>
 </html>
