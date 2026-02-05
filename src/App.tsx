@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
 import PWAStatus from "./components/pwa/PWAStatus";
-import PWAInstallPrompt from "./components/pwa/PWAInstallPrompt";
+
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 import { QuoteModalProvider } from "./components/quote/QuoteRequestModal";
@@ -115,7 +115,7 @@ const App = () => {
                   </Suspense>
                   <CookieConsent />
                   <PWAStatus />
-                  <PWAInstallPrompt />
+                  
                 </AnalyticsProvider>
               </BrowserRouter>
             </div>
