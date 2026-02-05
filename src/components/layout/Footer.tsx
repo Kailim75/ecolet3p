@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone, Mail, MapPin, Clock, Download } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 
@@ -15,30 +15,27 @@ const Footer = () => {
               <EcoleT3PIcon className="w-10 h-10" theme="white" />
               <span className="text-xl font-black text-cream tracking-tight uppercase">ECOLE T3P</span>
             </div>
-            <p className="text-cream/70 text-sm leading-relaxed mb-6">
-              Votre école de formation pour devenir chauffeur professionnel depuis 2014. Plus de 2 000 élèves formés avec un taux de réussite de 94%.
+            <p className="text-cream/70 text-sm leading-relaxed mb-4">
+              Centre de formation agréé pour chauffeurs professionnels TAXI, VTC et VMDTR.
             </p>
-            <div className="flex gap-3">
-              <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
-                Depuis 2014
-              </span>
-              <span className="bg-gold/20 text-gold px-3 py-1.5 rounded text-xs font-semibold">
-                94% réussite
-              </span>
-            </div>
+            <p className="text-cream/50 text-xs">
+              Conformément à la réglementation en vigueur
+            </p>
           </div>
 
           {/* Formations */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-cream mb-5">
-              Nos Formations
+              Formations
             </h4>
             <ul className="space-y-3">
               {[
                 { name: "Formation TAXI", path: "/formations/taxi" },
                 { name: "Formation VTC", path: "/formations/vtc" },
                 { name: "Formation VMDTR", path: "/formations/vmdtr" },
-                { name: "Formation Continue", path: "/formations/mobilite" }
+                { name: "Formations Continues", path: "/formations/continue-taxi" },
+                { name: "Mobilité Taxi", path: "/formations/mobilite" },
+                { name: "Récupération de points", path: "/formations/recuperation-points" }
               ].map((item) => (
                 <li key={item.name}>
                   <PrefetchLink to={item.path} className="text-cream/70 hover:text-gold transition-colors text-sm">
@@ -57,7 +54,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: "Accueil", path: "/" },
-                { name: "À propos", path: "/a-propos" },
+                { name: "Pourquoi ECOLE T3P", path: "/a-propos" },
+                { name: "Location véhicule examen", path: "/services/location-vehicule-examen" },
                 { name: "Contact", path: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
@@ -66,17 +64,6 @@ const Footer = () => {
                   </PrefetchLink>
                 </li>
               ))}
-              <li>
-                <PrefetchLink to="/logo-export" className="text-cream/70 hover:text-gold transition-colors text-sm flex items-center gap-2">
-                  <Download className="w-3 h-3" />
-                  Télécharger le logo (PDF)
-                </PrefetchLink>
-              </li>
-              <li>
-                <PrefetchLink to="/templates" className="text-cream/70 hover:text-gold transition-colors text-sm">
-                  Templates Marketing
-                </PrefetchLink>
-              </li>
             </ul>
           </div>
 
@@ -119,7 +106,13 @@ const Footer = () => {
       <div className="border-t border-cream/10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-cream/50">
-            <p>© 2025 ECOLE T3P - Tous droits réservés</p>
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+              <p>© 2025 ECOLE T3P - Tous droits réservés</p>
+              <span className="hidden md:inline">|</span>
+              <p>SIRET : 94856480200023</p>
+              <span className="hidden md:inline">|</span>
+              <p>Centre de formation agréé</p>
+            </div>
             <div className="flex gap-6">
               <PrefetchLink to="/mentions-legales" className="hover:text-gold transition-colors">Mentions légales</PrefetchLink>
               <PrefetchLink to="/politique-de-confidentialite" className="hover:text-gold transition-colors">Confidentialité</PrefetchLink>

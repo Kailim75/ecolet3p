@@ -262,8 +262,8 @@ Informations obligatoires :
 5. ✅ Phase 2 — Header/Navigation (menu restructuré) — Formations (3 catégories) + Services
 6. ✅ Phase 3 — Pages formations continues (continue-taxi, continue-vtc, continue-vmdtr)
 7. ✅ Phase 4 — Page services location véhicule (/services/location-vehicule-examen)
-8. ⬜ Phase 5 — Page "Pourquoi ECOLE T3P"
-9. ⬜ Phase 6 — Footer & nettoyage
+8. ✅ Phase 5 — Page "Pourquoi ECOLE T3P" (refonte /a-propos)
+9. ✅ Phase 6 — Footer (SIRET, mentions légales, liens mis à jour)
 
 ---
 
