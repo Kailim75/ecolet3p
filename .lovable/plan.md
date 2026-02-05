@@ -15,68 +15,170 @@
 
 ## ✅ Phase 2 : Restructuration Conversion (29/01/2026)
 
-### Objectifs atteints
-- ✅ Améliorer les conversions (demandes de devis / inscriptions)
-- ✅ Clarifier les offres avec 3 blocs principaux
-- ✅ Optimiser le SEO et l'UX
-
-### Réalisations
-
-#### 1. Hero Section refondée
-- Nouveau H1 SEO optimisé : "Centre de Formation T3P, VMDTR & Récupération de Points"
-- Sous-titre orienté bénéfices avec 94% de réussite mis en avant
-- CTA principal : "Demander un devis gratuit"
-
-#### 2. Popup de Devis Gratuit (Modal global)
-- `src/components/quote/QuoteRequestModal.tsx`
-- Accessible depuis n'importe quelle page via `useQuoteModal()`
-- Formulaire simplifié avec réponse sous 24h
-- Intégration Supabase pour stockage des demandes
-
-#### 3. Nouvelle page : Récupération de Points
-- Route : `/formations/recuperation-points`
-- Page complète avec hero, avantages, processus, FAQ
-- Schema.org Course pour le SEO
-- CTAs orientés conversion
-
-#### 4. Section "Nos Offres" sur l'accueil
-- `src/components/home/OffersSection.tsx`
-- 3 cartes principales : T3P (Taxi/VTC), VMDTR, Récupération de Points
-- CTAs "Demander un devis" sur chaque carte
-- Badges visuels (Populaire, En vogue, Nouveau)
-
-#### 5. Section "Pourquoi nous choisir"
-- `src/components/home/WhyChooseUsSection.tsx`
-- 6 raisons clés avec icônes
-- 94% réussite, 2000+ élèves, formateurs experts, paiement 4x
-
-#### 6. CTAs optimisés sur tout le site
-- Header : "Devis Gratuit" au lieu de "Prendre RDV"
-- Bouton flottant desktop : "Devis Gratuit"
-- CTAs visibles sur chaque section
-
-#### 7. Sitemap mis à jour
-- Domaine migré vers ecolet3p.fr
-- Nouvelle page récupération de points ajoutée
+> Voir historique ci-dessous
 
 ---
 
-## 📋 Prochaines étapes (Phase 3)
+## 🚧 Phase 3 : Refonte UX Psychologie Cognitive (EN COURS)
 
-### Haute priorité
-- [ ] Ajouter CTAs "Demander un devis" sur les pages formation existantes
-- [ ] Mettre à jour les Edge Functions emails avec branding ECOLE T3P
-- [ ] Créer un article de blog sur la récupération de points
+### 🎯 Objectif Global
+Refondre le site selon les principes de psychologie cognitive et UX institutionnel :
+- Réduire la friction mentale
+- Fluidifier le parcours utilisateur  
+- Renforcer la confiance perçue
+- Augmenter les réservations sans pression commerciale
 
-### Moyenne priorité
-- [ ] Optimiser les meta descriptions des pages existantes
-- [ ] Ajouter des témoignages spécifiques par formation
-- [ ] Créer une FAQ globale sur la page contact
+**Règle d'or** : En moins de 5 secondes, le visiteur comprend :
+1. De quoi il s'agit
+2. Pourquoi c'est obligatoire
+3. Ce qu'il doit faire ensuite
 
-### Basse priorité
-- [ ] Intégrer un chatbot ou widget d'aide
-- [ ] Ajouter des vidéos de présentation
-- [ ] Créer des landing pages A/B testées
+### 📋 Décisions Clés
+
+| Question | Décision |
+|----------|----------|
+| Périmètre produit | Garder formations initiales + continues |
+| Témoignages/Stats | Retirer de l'accueil, conserver sur /a-propos |
+| Priorité | Plan complet puis implémentation |
+
+---
+
+### 🏗️ Architecture Cible
+
+#### PAGE D'ACCUEIL (/)
+
+**Hero Section – CLARTÉ IMMÉDIATE**
+- Titre : "Formation Continue Obligatoire – Chauffeurs TAXI, VTC et VMDTR"
+- Sous-titre : "Renouvellement de la carte professionnelle – Centre de formation agréé"
+- Micro-texte : "Conformément à la réglementation en vigueur"
+- CTA unique : "Voir les formations" (exploratoire, non pressant)
+- ❌ Retirer : badge pulsant, stats 94%, témoignage alumni, CTA devis urgent
+
+**Section Formations – 3 CARTES MAXIMUM**
+- Nom de la formation (TAXI / VTC / VMDTR)
+- Mention "Formation continue obligatoire"
+- Durée : 14h | Prix
+- Bouton : "Voir le programme"
+- ❌ Retirer : arguments commerciaux, pourcentages, badges "Populaire"
+
+**Sections à RETIRER de l'accueil**
+- ❌ WhyChooseUsSection
+- ❌ AdvantagesSection
+- ❌ TestimonialsSection
+- ❌ GoogleReviewsSection
+- ❌ ProcessSection
+
+**Sections à CONSERVER (simplifiées)**
+- ✅ LocalsSection → "Notre Centre" (factuel)
+- ✅ FAQSection → questions réglementaires uniquement
+- ✅ AppointmentSection → "Réserver une session" (neutre)
+
+---
+
+#### PAGES FORMATIONS CONTINUES (/formations/continue-taxi, etc.)
+
+**Structure IDENTIQUE pour chaque formation** :
+
+1. Hero simplifié (titre + sous-titre factuel)
+2. Bloc Définition : "Formation continue obligatoire pour le renouvellement de la carte professionnelle"
+3. Bloc Réglementation : "La formation continue est requise tous les 5 ans conformément à la réglementation en vigueur."
+4. Informations Clés : Durée (14h) | Format | Lieu | Validité (5 ans)
+5. Objectifs (4 max) : Actualisation réglementaire, Sécurité, Conformité, Renouvellement
+6. Tarif : présenté comme "tarif réglementaire", sans promotion
+7. CTA Final : "Réserver une session"
+8. Sessions disponibles (dates factuelles)
+
+---
+
+#### PAGE /A-PROPOS
+
+**Contenu déplacé ici depuis l'accueil** :
+- Témoignages
+- Statistiques de réussite (94%)
+- Avis Google
+- Photos du centre
+
+**Contenu autorisé** :
+- Centre de formation agréé
+- Conformité réglementaire
+- Encadrement pédagogique
+
+---
+
+#### FOOTER
+
+**Obligatoire** :
+- Adresse, Téléphone, Email
+- "Centre de formation agréé"
+- SIRET
+
+**À retirer** :
+- ❌ Badges "94% réussite", "Depuis 2014"
+
+---
+
+### 🎨 Design & UX
+
+| Aspect | Règle |
+|--------|-------|
+| Zones blanches | Assumées, une info = une zone |
+| Typographie | Titres courts, paragraphes ≤ 2 lignes |
+| CTA | Exploratoire ("Voir", "Consulter"), jamais injonctif |
+| Animations | Minimales, pas de pulse/shake |
+
+---
+
+### 🧠 Principes Psychologiques
+
+| Principe | Application |
+|----------|-------------|
+| Loi de Hick | 3 choix max par section |
+| Hiérarchie visuelle | Titre > Sous-titre > CTA |
+| Réassurance implicite | "Centre agréé" visible partout |
+| Fluidité cognitive | Parcours linéaire évident |
+
+---
+
+### 🚫 Interdictions Strictes
+
+- ❌ Marketing agressif
+- ❌ Promesses de résultats
+- ❌ Témoignages sur pages principales
+- ❌ Pourcentages sur accueil
+- ❌ Compte à rebours / urgence
+- ❌ Badges pulsants
+
+---
+
+### 📦 Checklist d'Implémentation
+
+**Phase 3.1 : Page d'Accueil**
+- [ ] Refonte HeroSection (institutionnel)
+- [ ] Nouvelle section "Choisir sa formation" (3 cartes)
+- [ ] Simplification LocalsSection
+- [ ] Simplification FAQSection
+- [ ] Retrait sections marketing
+
+**Phase 3.2 : Pages Formations Continues**
+- [ ] Template unifié FormationContinuePage
+- [ ] Page Formation Continue TAXI
+- [ ] Page Formation Continue VTC
+- [ ] Page Formation Continue VMDTR
+
+**Phase 3.3 : Pages Secondaires**
+- [ ] Refonte /a-propos (déplacer témoignages)
+- [ ] Mise à jour Footer (SIRET visible)
+
+**Phase 3.4 : Nettoyage**
+- [ ] Supprimer composants inutilisés
+- [ ] Tests utilisateur
+
+---
+
+### ✅ Critère de Succès
+
+> Le visiteur pense : "C'est clair. C'est obligatoire. C'est sérieux. Je sais quoi faire."
+> Sans jamais se sentir poussé.
 
 ---
 
