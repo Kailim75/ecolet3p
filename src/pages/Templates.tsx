@@ -55,9 +55,16 @@ const templates = [
     category: "Flyer"
   },
   {
-    title: "Carte de Visite",
-    description: "Carte de visite professionnelle ECOLE T3P",
+    title: "Carte de Visite (Original)",
+    description: "Carte de visite professionnelle ECOLE T3P - Version classique",
     path: "/templates/carte-visite-ecole-t3p.html",
+    icon: CreditCard,
+    category: "Document"
+  },
+  {
+    title: "Carte de Visite Forest Green",
+    description: "Carte de visite premium aux couleurs institutionnelles (fond vert forêt)",
+    path: "/templates/carte-visite-forest-green.html",
     icon: CreditCard,
     category: "Document"
   },
