@@ -2,18 +2,14 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import OffersSection from "@/components/home/OffersSection";
+import FormationsOverviewSection from "@/components/home/FormationsOverviewSection";
+import ServicesSection from "@/components/home/ServicesSection";
 
 // Import critical images for preload
 import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
-const AdvantagesSection = lazy(() => import("@/components/home/AdvantagesSection"));
-const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
-const LocalsSection = lazy(() => import("@/components/home/LocalsSection"));
-const GoogleReviewsSection = lazy(() => import("@/components/home/GoogleReviewsSection"));
-const TestimonialsSection = lazy(() => import("@/components/home/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const AppointmentSection = lazy(() => import("@/components/home/AppointmentSection"));
 const CTASection = lazy(() => import("@/components/home/CTASection"));
@@ -143,9 +139,9 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ECOLE T3P - Formation Taxi, VTC & VMDTR | 94% Réussite Montrouge Paris</title>
-        <meta name="description" content="Devenez chauffeur professionnel avec ECOLE T3P à Montrouge. Formation Taxi, VTC et VMDTR agréée. 94% de réussite, paiement 4x sans frais. Obtenez votre devis gratuit en 2 min !" />
-        <meta name="keywords" content="formation taxi Paris, formation VTC Paris, formation VMDTR, taxi moto, récupération de points permis, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P, reconversion professionnelle chauffeur" />
+        <title>ECOLE T3P - Formations & Services Transport | Centre Agréé Montrouge</title>
+        <meta name="description" content="Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge. Formations initiales, continues, mobilité taxi et récupération de points. Conformément à la réglementation en vigueur." />
+        <meta name="keywords" content="formation taxi Paris, formation VTC Paris, formation VMDTR, formation continue taxi, mobilité taxi 75, récupération de points permis, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/" />
         
         {/* Preload critical hero image */}
@@ -156,8 +152,8 @@ const Index = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR | 94% Réussite à Montrouge" />
-        <meta property="og:description" content="Devenez chauffeur professionnel avec une formation agréée. 94% de réussite, paiement en 4x sans frais. Devis gratuit !" />
+        <meta property="og:title" content="ECOLE T3P - Formations & Services Transport | Centre Agréé Montrouge" />
+        <meta property="og:description" content="Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR. Formations initiales, continues, mobilité taxi et récupération de points." />
         <meta property="og:url" content="https://ecolet3p.fr/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ECOLE T3P" />
@@ -165,8 +161,8 @@ const Index = () => {
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR Montrouge" />
-        <meta name="twitter:description" content="Devenez Taxi, VTC ou VMDTR (taxi moto). 94% de réussite aux examens." />
+        <meta name="twitter:title" content="ECOLE T3P - Formations & Services Transport" />
+        <meta name="twitter:description" content="Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge." />
         <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -180,26 +176,12 @@ const Index = () => {
       
       {/* Critical above-the-fold content */}
       <HeroSection />
-      <OffersSection />
+      <FormationsOverviewSection />
+      <ServicesSection />
       
       {/* Lazy loaded below-the-fold sections */}
       <Suspense fallback={<SectionSkeleton />}>
         <WhyChooseUsSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <AdvantagesSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <ProcessSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <LocalsSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <GoogleReviewsSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <TestimonialsSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />

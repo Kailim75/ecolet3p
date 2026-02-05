@@ -256,9 +256,9 @@ Informations obligatoires :
 ## 6. Ordre d'Exécution
 
 1. ✅ Plan validé
-2. ⬜ Phase 1.1 — Hero Section (accueil)
-3. ⬜ Phase 1.2 — Section Formations (accueil)
-4. ⬜ Phase 1.3 — Section Services (accueil)
+2. ✅ Phase 1.1 — Hero Section (accueil) — Titre institutionnel, CTA exploratoires
+3. ✅ Phase 1.2 — Section Formations (accueil) — 4 blocs sans marketing
+4. ✅ Phase 1.3 — Section Services (accueil) — Location véhicule examen
 5. ⬜ Phase 2 — Header/Navigation (menu restructuré)
 6. ⬜ Phase 3 — Pages formations continues (créer)
 7. ⬜ Phase 4 — Page services location véhicule
