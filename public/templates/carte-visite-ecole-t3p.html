@@ -43,18 +43,55 @@
       text-align: center;
       color: #666;
       font-size: 13px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       font-weight: 400;
+    }
+    
+    .version-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a365d;
+      text-align: center;
+      margin: 40px 0 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .version-title:first-of-type {
+      margin-top: 0;
+    }
+    
+    .version-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .tag-light {
+      background: #f0f0f0;
+      color: #555;
+    }
+    
+    .tag-dark {
+      background: #1a365d;
+      color: #fff;
     }
     
     .cards-container {
       display: flex;
       justify-content: center;
-      gap: 30mm;
-      margin-bottom: 50px;
+      gap: 25mm;
+      margin-bottom: 30px;
     }
     
-    /* === CARTE RECTO — STATUTAIRE === */
+    /* === VERSION CLAIRE === */
     .card {
       width: 85mm;
       height: 55mm;
@@ -68,7 +105,6 @@
       text-align: center;
     }
     
-    /* Filet supérieur discret */
     .card::before {
       content: '';
       position: absolute;
@@ -80,7 +116,6 @@
       background: #1a365d;
     }
     
-    /* Filet inférieur discret */
     .card::after {
       content: '';
       position: absolute;
@@ -100,7 +135,6 @@
       gap: 0;
     }
     
-    /* BLOC 1 — INSTITUTION (dominant) */
     .institution-block {
       margin-bottom: 5mm;
     }
@@ -125,7 +159,6 @@
       text-transform: uppercase;
     }
     
-    /* Séparateur minimaliste */
     .separator {
       width: 8mm;
       height: 0.2mm;
@@ -133,7 +166,6 @@
       margin: 4mm 0;
     }
     
-    /* BLOC 2 — IDENTITÉ DIRECTEUR */
     .identity-block {
       margin-bottom: 4mm;
     }
@@ -155,7 +187,6 @@
       letter-spacing: 0.02em;
     }
     
-    /* BLOC 3 — SPÉCIALITÉS (discret) */
     .specialties {
       font-family: 'Inter', sans-serif;
       font-size: 2mm;
@@ -165,7 +196,7 @@
       text-transform: uppercase;
     }
     
-    /* === CARTE VERSO — COORDONNÉES === */
+    /* === VERSO CLAIR === */
     .card-verso {
       width: 85mm;
       height: 55mm;
@@ -234,6 +265,117 @@
       text-transform: uppercase;
     }
     
+    /* === VERSION SOMBRE (BLEU NUIT) === */
+    .card-dark {
+      width: 85mm;
+      height: 55mm;
+      background: #1a365d;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(26, 54, 93, 0.3);
+    }
+    
+    .card-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.4mm;
+      background: rgba(255,255,255,0.4);
+    }
+    
+    .card-dark::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.4mm;
+      background: rgba(255,255,255,0.4);
+    }
+    
+    .card-dark .school-name {
+      color: #ffffff;
+    }
+    
+    .card-dark .accreditation {
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .card-dark .separator {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    .card-dark .director-name {
+      color: #ffffff;
+    }
+    
+    .card-dark .director-function {
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .card-dark .specialties {
+      color: rgba(255,255,255,0.5);
+    }
+    
+    /* === VERSO SOMBRE === */
+    .card-verso-dark {
+      width: 85mm;
+      height: 55mm;
+      background: #1a365d;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8mm 10mm;
+      box-shadow: 0 4px 20px rgba(26, 54, 93, 0.3);
+    }
+    
+    .card-verso-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.4mm;
+      background: rgba(255,255,255,0.4);
+    }
+    
+    .card-verso-dark::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.4mm;
+      background: rgba(255,255,255,0.4);
+    }
+    
+    .card-verso-dark .contact-line {
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .card-verso-dark .contact-line.address {
+      color: #ffffff;
+    }
+    
+    .card-verso-dark .verso-footer {
+      border-top-color: rgba(255,255,255,0.2);
+    }
+    
+    .card-verso-dark .verso-accreditation {
+      color: rgba(255,255,255,0.7);
+    }
+    
     /* === INSTRUCTIONS === */
     .instructions {
       margin-top: 50px;
@@ -265,23 +407,6 @@
       color: #1a365d;
     }
     
-    .design-notes {
-      margin-top: 30px;
-      padding: 24px;
-      background: #1a365d;
-      color: #f0f0f0;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    
-    .design-notes h4 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 15px;
-      margin-bottom: 12px;
-      font-weight: 500;
-      color: #ffffff;
-    }
-    
     @media print {
       body { 
         background: white; 
@@ -291,12 +416,11 @@
         box-shadow: none;
         padding: 15mm;
       }
-      .instructions, h1, .subtitle, .design-notes {
+      .instructions, h1, .subtitle {
         display: none;
       }
       .card, .card-verso {
         border: none;
-        box-shadow: none;
       }
     }
   </style>
@@ -304,40 +428,32 @@
 <body>
   <div class="page">
     <h1>Carte de Visite Institutionnelle</h1>
-    <p class="subtitle">Format 85 × 55 mm • Recto/Verso • Finition premium</p>
+    <p class="subtitle">Format 85 × 55 mm • Comparaison des deux versions</p>
     
+    <!-- VERSION CLAIRE -->
+    <h3 class="version-title">Version Claire <span class="version-tag tag-light">Classique</span></h3>
     <div class="cards-container">
-      <!-- RECTO — IDENTITÉ STATUTAIRE -->
       <div class="card">
         <div class="card-content">
-          <!-- Bloc 1 : Institution -->
           <div class="institution-block">
             <div class="school-name">École T3P</div>
             <div class="accreditation">Centre de formation agréé Préfecture</div>
           </div>
-          
-          <!-- Séparateur -->
           <div class="separator"></div>
-          
-          <!-- Bloc 2 : Identité -->
           <div class="identity-block">
             <div class="director-name">Karim KATI</div>
             <div class="director-function">Directeur du centre de formation</div>
           </div>
-          
-          <!-- Bloc 3 : Spécialités -->
           <div class="specialties">Formation Taxi • VTC • VMDTR</div>
         </div>
       </div>
       
-      <!-- VERSO — COORDONNÉES -->
       <div class="card-verso">
         <div class="verso-content">
           <div class="contact-line address">3 rue Corneille<br>92120 Montrouge</div>
           <div class="contact-line">01 88 75 05 55</div>
           <div class="contact-line">montrouge@ecolet3p.fr</div>
           <div class="contact-line">www.ecolet3p.fr</div>
-          
           <div class="verso-footer">
             <div class="verso-accreditation">Centre agréé Préfecture</div>
           </div>
@@ -345,27 +461,47 @@
       </div>
     </div>
     
-    <!-- Instructions d'impression -->
+    <!-- VERSION SOMBRE -->
+    <h3 class="version-title">Version Bleu Nuit <span class="version-tag tag-dark">Premium</span></h3>
+    <div class="cards-container">
+      <div class="card-dark">
+        <div class="card-content">
+          <div class="institution-block">
+            <div class="school-name">École T3P</div>
+            <div class="accreditation">Centre de formation agréé Préfecture</div>
+          </div>
+          <div class="separator"></div>
+          <div class="identity-block">
+            <div class="director-name">Karim KATI</div>
+            <div class="director-function">Directeur du centre de formation</div>
+          </div>
+          <div class="specialties">Formation Taxi • VTC • VMDTR</div>
+        </div>
+      </div>
+      
+      <div class="card-verso-dark">
+        <div class="verso-content">
+          <div class="contact-line address">3 rue Corneille<br>92120 Montrouge</div>
+          <div class="contact-line">01 88 75 05 55</div>
+          <div class="contact-line">montrouge@ecolet3p.fr</div>
+          <div class="contact-line">www.ecolet3p.fr</div>
+          <div class="verso-footer">
+            <div class="verso-accreditation">Centre agréé Préfecture</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Instructions -->
     <div class="instructions">
       <h3>Spécifications d'impression</h3>
       <ul>
         <li><strong>Format :</strong> 85 × 55 mm (standard européen)</li>
         <li><strong>Papier :</strong> 350-400 g/m² couché mat ou coton</li>
-        <li><strong>Impression :</strong> Quadrichromie recto/verso</li>
-        <li><strong>Finition :</strong> Pelliculage mat soft-touch recommandé</li>
-        <li><strong>Couleur principale :</strong> Bleu nuit #1a365d</li>
-        <li><strong>Typographies :</strong> Cormorant Garamond (titres) + Inter (corps)</li>
+        <li><strong>Version claire :</strong> Pelliculage mat soft-touch</li>
+        <li><strong>Version sombre :</strong> Pelliculage mat soft-touch + vernis sélectif sur le nom</li>
+        <li><strong>Couleur bleu nuit :</strong> #1a365d (CMJN : C85 M65 J30 N15)</li>
       </ul>
-    </div>
-    
-    <div class="design-notes">
-      <h4>Philosophie de conception</h4>
-      <p>
-        Cette carte incarne l'<strong>autorité calme</strong> d'un centre de formation reconnu. 
-        La hiérarchie en trois temps — Institution, Identité, Spécialités — guide naturellement 
-        le regard. Les espaces généreux et la retenue typographique créent une impression 
-        de stabilité et de professionnalisme institutionnel.
-      </p>
     </div>
   </div>
 </body>
