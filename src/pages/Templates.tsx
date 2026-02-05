@@ -2,17 +2,38 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, FileText, CreditCard, Printer } from "lucide-react";
+ import { ExternalLink, FileText, CreditCard, Printer, Car, Bike } from "lucide-react";
 
 const templates = [
   {
-    title: "Flyer Formation Continue",
-    description: "Flyer A5 pour promouvoir la formation continue obligatoire",
+     title: "Formation Continue (Générique)",
+     description: "Flyer A5 regroupant toutes les formations continues",
     path: "/templates/flyer-formation-continue.html",
     icon: FileText,
     category: "Flyer"
   },
   {
+     title: "Formation Continue TAXI",
+     description: "Flyer A5 recto-verso pour la formation continue Taxi - 239€",
+     path: "/templates/flyer-continue-taxi.html",
+     icon: Car,
+     category: "Flyer Continue"
+   },
+   {
+     title: "Formation Continue VTC",
+     description: "Flyer A5 recto-verso pour la formation continue VTC - 170€",
+     path: "/templates/flyer-continue-vtc.html",
+     icon: Car,
+     category: "Flyer Continue"
+   },
+   {
+     title: "Formation Continue VMDTR",
+     description: "Flyer A5 recto-verso pour la formation continue Moto-Taxi - 239€",
+     path: "/templates/flyer-continue-vmdtr.html",
+     icon: Bike,
+     category: "Flyer Continue"
+   },
+   {
     title: "Flyer Formation Initiale",
     description: "Flyer A5 pour les formations initiales Taxi/VTC",
     path: "/templates/flyer-formation-initiale.html",
@@ -64,7 +85,9 @@ const templates = [
 ];
 
 const Templates = () => {
-  const flyers = templates.filter(t => t.category === "Flyer");
+   const flyers = templates.filter(t => t.category === "Flyer" || t.category === "Flyer Continue");
+   const continueFlyers = templates.filter(t => t.category === "Flyer Continue");
+   const otherFlyers = templates.filter(t => t.category === "Flyer");
   const documents = templates.filter(t => t.category === "Document");
 
   return (
@@ -96,23 +119,24 @@ const Templates = () => {
             >
               <a href="/templates/print-all.html" target="_blank" rel="noopener noreferrer">
                 <Printer className="w-5 h-5" />
-                Imprimer tous les flyers (4)
+                 Imprimer tous les flyers
               </a>
             </Button>
           </div>
 
-          {/* Flyers Section */}
+           {/* Formation Continue Section */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-forest mb-6 flex items-center gap-2">
-              <FileText className="w-6 h-6 text-gold" />
-              Flyers Promotionnels
+               <Car className="w-6 h-6 text-gold" />
+               Flyers Formation Continue (Recto-Verso)
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {flyers.map((template) => (
+             <p className="text-forest/60 text-sm mb-4">3 flyers distincts par métier, format A5 recto-verso prêts à l'impression PDF haute qualité.</p>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {continueFlyers.map((template) => (
                 <Card key={template.path} className="bg-white border-forest/10 hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
-                      <template.icon className="w-6 h-6 text-gold" />
+                     <div className="w-12 h-12 bg-forest/10 rounded-lg flex items-center justify-center mb-4">
+                       <template.icon className="w-6 h-6 text-forest" />
                     </div>
                     <h3 className="font-bold text-forest mb-2">{template.title}</h3>
                     <p className="text-forest/60 text-sm mb-4">{template.description}</p>
@@ -133,6 +157,38 @@ const Templates = () => {
             </div>
           </section>
 
+           {/* Other Flyers Section */}
+           <section className="mb-16">
+             <h2 className="text-2xl font-bold text-forest mb-6 flex items-center gap-2">
+               <FileText className="w-6 h-6 text-gold" />
+               Autres Flyers Promotionnels
+             </h2>
+             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+               {otherFlyers.map((template) => (
+                 <Card key={template.path} className="bg-white border-forest/10 hover:shadow-lg transition-shadow">
+                   <CardContent className="p-6">
+                     <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
+                       <template.icon className="w-6 h-6 text-gold" />
+                     </div>
+                     <h3 className="font-bold text-forest mb-2">{template.title}</h3>
+                     <p className="text-forest/60 text-sm mb-4">{template.description}</p>
+                     <Button
+                       asChild
+                       variant="outline"
+                       size="sm"
+                       className="w-full border-forest/20 hover:bg-forest hover:text-cream"
+                     >
+                       <a href={template.path} target="_blank" rel="noopener noreferrer" className="gap-2">
+                         <ExternalLink className="w-4 h-4" />
+                         Ouvrir
+                       </a>
+                     </Button>
+                   </CardContent>
+                 </Card>
+               ))}
+             </div>
+           </section>
+ 
           {/* Documents Section */}
           <section>
             <h2 className="text-2xl font-bold text-forest mb-6 flex items-center gap-2">
