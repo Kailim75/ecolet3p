@@ -30,10 +30,10 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     
-    /* Header with animated badge */
+    /* Header - Institutional */
     .header {
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      padding: 12px 20px;
+      background: #1B4D3E;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,12 +43,12 @@
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     
     .logo {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: #F5EBD7;
       border-radius: 50%;
       display: flex;
@@ -56,140 +56,92 @@
       justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
-      font-size: 11px;
+      font-size: 12px;
       color: #1B4D3E;
     }
     
     .brand-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
     
     .header-badge {
-      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 9px;
-      font-weight: 700;
-      text-transform: uppercase;
-      animation: pulse 2s infinite;
-      box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4);
+      background: rgba(245, 235, 215, 0.15);
+      color: #F5EBD7;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      border: 1px solid rgba(245, 235, 215, 0.3);
     }
     
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4); }
-      50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(52, 152, 219, 0.6); }
-    }
-    
-    /* Hero Section - Impactful blue */
+    /* Hero Section - Clean institutional blue */
     .hero {
-      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-      padding: 16px 20px;
+      background: #3498db;
+      padding: 24px 20px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-      animation: shimmer 3s infinite;
-    }
-    
-    @keyframes shimmer {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(180deg); }
     }
     
     .hero-label {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 6px;
-      position: relative;
-      z-index: 1;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 10px;
     }
     
     .hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 26px;
       font-weight: 900;
       color: white;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      text-transform: uppercase;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 1;
+      margin-bottom: 10px;
     }
     
     .hero-subtitle {
-      font-size: 11px;
+      font-size: 12px;
       color: rgba(255,255,255,0.95);
-      margin-top: 6px;
       font-weight: 600;
-      position: relative;
-      z-index: 1;
-      background: rgba(255,255,255,0.15);
-      display: inline-block;
-      padding: 4px 16px;
-      border-radius: 20px;
     }
     
-    /* Credibility Bar - Enhanced */
-    .credibility-bar {
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      padding: 10px 16px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    
-    .credibility-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    /* Legal Banner */
+    .legal-banner {
+      background: #1B4D3E;
       color: #F5EBD7;
-      font-size: 9px;
+      padding: 12px 20px;
+      text-align: center;
+    }
+    
+    .legal-banner p {
+      font-size: 11px;
       font-weight: 600;
-      background: rgba(255,255,255,0.08);
-      padding: 4px 10px;
-      border-radius: 15px;
+      line-height: 1.4;
     }
     
-    .credibility-icon {
-      font-size: 14px;
-    }
-    
-    .credibility-value {
+    .legal-banner strong {
       color: #D4A853;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
+      font-weight: 700;
     }
     
     /* Content */
     .content {
-      padding: 12px 16px;
+      padding: 16px 20px;
+      padding-bottom: 70px; /* Reserve space for absolute footer */
     }
     
-    /* Section Title with icon */
+    /* Section Title */
     .section-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: #1B4D3E;
-      margin-bottom: 8px;
-      padding-bottom: 4px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
       border-bottom: 2px solid #D4A853;
       display: inline-block;
     }
@@ -197,346 +149,209 @@
     /* Comparative Table - Clean design */
     .formations-table {
       background: white;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      margin-bottom: 10px;
-      box-shadow: 0 4px 15px rgba(27, 77, 62, 0.1);
-      border: 2px solid rgba(27, 77, 62, 0.1);
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
+      border: 1px solid rgba(27, 77, 62, 0.1);
     }
     
     .table-header {
       display: grid;
-      grid-template-columns: 1.5fr 0.8fr 0.8fr 0.8fr;
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      padding: 8px 12px;
-      font-size: 8px;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 0.9fr;
+      background: #1B4D3E;
+      padding: 10px 14px;
+      font-size: 9px;
       font-weight: 700;
       color: #F5EBD7;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
     
     .formation-row {
       display: grid;
-      grid-template-columns: 1.5fr 0.8fr 0.8fr 0.8fr;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 0.9fr;
       align-items: center;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-bottom: 1px solid rgba(27, 77, 62, 0.08);
-      transition: background 0.2s;
     }
     
     .formation-row:last-child {
       border-bottom: none;
     }
     
-    .formation-row:hover {
-      background: rgba(52, 152, 219, 0.08);
-    }
-    
     .formation-row.vtc {
-      border-left: 4px solid #3498db;
+      border-left: 4px solid #1E3A5F;
     }
     
     .formation-row.taxi {
-      border-left: 4px solid #f1c40f;
+      border-left: 4px solid #D4A853;
     }
     
     .formation-row.vmdtr {
-      border-left: 4px solid #e74c3c;
-    }
-    
-    .formation-name {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .formation-icon {
-      font-size: 18px;
+      border-left: 4px solid #1B4D3E;
     }
     
     .formation-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: #1B4D3E;
     }
     
     .formation-cell {
-      font-size: 10px;
+      font-size: 11px;
       color: #4B463C;
       text-align: center;
     }
     
     .formation-price {
-      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      background: #D4A853;
       color: white;
       padding: 6px 10px;
-      border-radius: 8px;
+      border-radius: 6px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 12px;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
     }
     
-    /* Tarifs Note */
-    .tarifs-note {
-      font-size: 7px;
-      color: #777;
-      text-align: center;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    
-    /* Advantages Grid - Fun icons */
-    .advantages-grid {
+    /* Key Facts - Max 3 items */
+    .facts-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
     
-    .advantage-item {
+    .fact-item {
       background: white;
-      border-radius: 10px;
-      padding: 10px;
+      border-radius: 8px;
+      padding: 14px 10px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
-      border: 1px solid rgba(27, 77, 62, 0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.06);
+      border: 1px solid rgba(27, 77, 62, 0.08);
     }
     
-    .advantage-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.12);
-    }
-    
-    .advantage-item:nth-child(1) .advantage-icon { color: #3498db; }
-    .advantage-item:nth-child(2) .advantage-icon { color: #2ecc71; }
-    .advantage-item:nth-child(3) .advantage-icon { color: #D4A853; }
-    
-    .advantage-icon {
-      font-size: 22px;
-      margin-bottom: 4px;
-      display: block;
-    }
-    
-    .advantage-text {
-      font-size: 8px;
-      color: #1B4D3E;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-    
-    .advantage-value {
+    .fact-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       color: #1B4D3E;
-      font-size: 11px;
+      font-size: 14px;
       display: block;
+      margin-bottom: 4px;
     }
     
-    /* Info Note - Clearer */
+    .fact-label {
+      font-size: 9px;
+      color: #666;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    
+    /* Info Note - Financing */
     .info-note {
-      background: linear-gradient(135deg, rgba(52, 152, 219, 0.08) 0%, rgba(52, 152, 219, 0.04) 100%);
-      border: 1px solid rgba(52, 152, 219, 0.2);
-      border-left: 3px solid #3498db;
+      background: rgba(27, 77, 62, 0.06);
+      border-left: 3px solid #1B4D3E;
       border-radius: 8px;
-      padding: 8px 10px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .info-icon {
-      font-size: 16px;
-      flex-shrink: 0;
+      padding: 12px 14px;
+      margin-bottom: 16px;
     }
     
     .info-text {
-      font-size: 8px;
+      font-size: 10px;
       color: #1B4D3E;
-      line-height: 1.4;
+      line-height: 1.5;
     }
     
     .info-text strong {
       font-weight: 700;
-      color: #3498db;
+      color: #1B4D3E;
     }
     
-    /* CTA Principal - Very visible ORANGE */
-    .cta-main {
-      background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    /* CTA Section - Institutional Gold */
+    .cta-section {
+      background: #D4A853;
       color: white;
       text-align: center;
-      padding: 14px 16px;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-      margin-bottom: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cta-main::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      animation: shine 2s infinite;
-    }
-    
-    @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin-bottom: 16px;
     }
     
     .cta-header {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      position: relative;
-      z-index: 1;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
     
     .cta-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 900;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       letter-spacing: 0.02em;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     
     .cta-website {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      opacity: 0.95;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .cta-urgency {
-      font-size: 9px;
+      font-size: 14px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      background: rgba(255,255,255,0.25);
-      display: inline-block;
-      padding: 4px 14px;
-      border-radius: 12px;
-      position: relative;
-      z-index: 1;
+      opacity: 0.95;
     }
     
-    /* Bottom Section - QR + Testimonial */
+    /* Bottom Section - QR + Info */
     .bottom-section {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: stretch;
     }
     
     .qr-section {
       background: white;
-      border-radius: 10px;
-      padding: 10px;
+      border-radius: 8px;
+      padding: 12px;
       text-align: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
-      border: 2px dashed rgba(27, 77, 62, 0.15);
+      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.06);
+      border: 1px solid rgba(27, 77, 62, 0.08);
     }
     
-    .qr-placeholder {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #F5EBD7;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 11px;
-      margin: 0 auto 6px;
+    .qr-code {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      margin-bottom: 6px;
     }
     
     .qr-label {
-      font-size: 7px;
+      font-size: 8px;
       color: #1B4D3E;
       font-weight: 600;
       line-height: 1.3;
     }
     
-    /* Testimonial - 5 stars */
-    .testimonial {
+    .info-box {
       flex: 1;
-      background: linear-gradient(135deg, #ffffff 0%, #fefcf8 100%);
-      border-radius: 10px;
-      padding: 10px 12px;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
-      border: 1px solid rgba(212, 168, 83, 0.3);
+      background: white;
+      border-radius: 8px;
+      padding: 12px 14px;
+      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.06);
+      border: 1px solid rgba(27, 77, 62, 0.08);
     }
     
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-    
-    .testimonial-stars {
-      color: #D4A853;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
-    
-    .testimonial-rating {
-      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-      color: white;
+    .info-box-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 10px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 10px;
-    }
-    
-    .testimonial-text {
-      font-size: 9px;
-      color: #4B463C;
-      font-style: italic;
-      line-height: 1.4;
+      font-weight: 700;
+      color: #1B4D3E;
       margin-bottom: 6px;
     }
     
-    .testimonial-author {
-      font-size: 8px;
-      color: #1B4D3E;
-      font-weight: 700;
-    }
-    
-    .testimonial-badge {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 7px;
-      color: #666;
-      margin-top: 4px;
-      background: rgba(46, 204, 113, 0.1);
-      padding: 3px 8px;
-      border-radius: 10px;
-      display: inline-flex;
+    .info-box-content {
+      font-size: 9px;
+      color: #4B463C;
+      line-height: 1.5;
     }
     
     /* Footer */
@@ -545,25 +360,25 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      background: #1B4D3E;
       color: #F5EBD7;
-      padding: 10px 20px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 7px;
+      font-size: 8px;
     }
     
     .footer-left {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
     }
     
     .footer-brand {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 10px;
+      font-size: 11px;
     }
     
     .footer a {
@@ -578,9 +393,9 @@
     
     .footer-cert {
       background: rgba(212, 168, 83, 0.2);
-      padding: 3px 8px;
-      border-radius: 10px;
-      font-size: 7px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 8px;
       color: #D4A853;
       font-weight: 600;
       margin-bottom: 4px;
@@ -606,7 +421,7 @@
         gap: 4px;
       }
       
-      .advantages-grid {
+      .facts-grid {
         grid-template-columns: 1fr;
       }
       
@@ -624,36 +439,25 @@
         <div class="logo">T3P</div>
         <span class="brand-name">ECOLE T3P</span>
       </div>
-      <span class="header-badge">🎓 Lancez votre carrière</span>
+      <span class="header-badge">Centre agréé T3P</span>
     </div>
     
-    <!-- Hero - Impactful blue -->
+    <!-- Hero - Institutional blue -->
     <div class="hero">
-      <p class="hero-label">🚀 Création ou reconversion professionnelle</p>
+      <p class="hero-label">Formation professionnelle réglementée</p>
       <h1>Devenez Chauffeur<br>Professionnel</h1>
       <p class="hero-subtitle">Formation Initiale Taxi • VTC • VMDTR</p>
     </div>
     
-    <!-- Credibility Bar -->
-    <div class="credibility-bar">
-      <div class="credibility-item">
-        <span class="credibility-icon">⭐</span>
-        <span><span class="credibility-value">94%</span> réussite</span>
-      </div>
-      <div class="credibility-item">
-        <span class="credibility-icon">👥</span>
-        <span><span class="credibility-value">2000+</span> formés</span>
-      </div>
-      <div class="credibility-item">
-        <span class="credibility-icon">🏆</span>
-        <span>Centre <span class="credibility-value">agréé</span></span>
-      </div>
+    <!-- Legal Banner -->
+    <div class="legal-banner">
+      <p>Préparation complète à <strong>l'examen T3P</strong> pour obtenir votre carte professionnelle.</p>
     </div>
     
     <!-- Content -->
     <div class="content">
       <!-- Section Title -->
-      <h2 class="section-title">📋 Nos formations initiales</h2>
+      <h2 class="section-title">Nos formations initiales</h2>
       
       <!-- Comparative Table -->
       <div class="formations-table">
@@ -661,15 +465,12 @@
           <span>Formation</span>
           <span>Durée</span>
           <span>Lieu</span>
-          <span>Prix</span>
+          <span>Tarif</span>
         </div>
         
         <!-- VTC -->
         <div class="formation-row vtc">
-          <div class="formation-name">
-            <span class="formation-icon">🚗</span>
-            <span class="formation-title">Formation VTC</span>
-          </div>
+          <span class="formation-title">Initiale VTC</span>
           <span class="formation-cell">10 jours</span>
           <span class="formation-cell">Montrouge</span>
           <div class="formation-price">1 400 €</div>
@@ -677,10 +478,7 @@
         
         <!-- Taxi -->
         <div class="formation-row taxi">
-          <div class="formation-name">
-            <span class="formation-icon">🚕</span>
-            <span class="formation-title">Formation Taxi</span>
-          </div>
+          <span class="formation-title">Initiale Taxi</span>
           <span class="formation-cell">15 jours</span>
           <span class="formation-cell">Montrouge</span>
           <div class="formation-price">1 800 €</div>
@@ -688,71 +486,56 @@
         
         <!-- VMDTR -->
         <div class="formation-row vmdtr">
-          <div class="formation-name">
-            <span class="formation-icon">🏍️</span>
-            <span class="formation-title">Formation VMDTR</span>
-          </div>
+          <span class="formation-title">Initiale VMDTR</span>
           <span class="formation-cell">10 jours</span>
           <span class="formation-cell">Montrouge</span>
           <div class="formation-price">1 400 €</div>
         </div>
       </div>
       
-      <!-- Tarifs Note -->
-      <p class="tarifs-note">Préparation complète à l'examen T3P – Carte professionnelle garantie</p>
-      
-      <!-- Advantages with colorful icons -->
-      <div class="advantages-grid">
-        <div class="advantage-item">
-          <span class="advantage-icon">📚</span>
-          <span class="advantage-value">Examen T3P</span>
-          <span class="advantage-text">Préparation complète</span>
+      <!-- Key Facts -->
+      <div class="facts-grid">
+        <div class="fact-item">
+          <span class="fact-value">Examen T3P</span>
+          <span class="fact-label">Préparation complète</span>
         </div>
-        <div class="advantage-item">
-          <span class="advantage-icon">💼</span>
-          <span class="advantage-value">Carte Pro</span>
-          <span class="advantage-text">Accompagnement démarches</span>
+        <div class="fact-item">
+          <span class="fact-value">Carte Pro</span>
+          <span class="fact-label">Accompagnement démarches</span>
         </div>
-        <div class="advantage-item">
-          <span class="advantage-icon">🎯</span>
-          <span class="advantage-value">94% réussite</span>
-          <span class="advantage-text">Taux de succès</span>
+        <div class="fact-item">
+          <span class="fact-value">Agréé</span>
+          <span class="fact-label">Centre certifié T3P</span>
         </div>
       </div>
       
       <!-- Info Note -->
       <div class="info-note">
-        <span class="info-icon">💡</span>
         <p class="info-text">
-          <strong>Financement possible :</strong> CPF, Pôle Emploi, OPCO. Nos conseillers vous accompagnent dans vos démarches de financement.
+          <strong>Financement possible :</strong> CPF, France Travail, OPCO. Nos conseillers vous accompagnent dans vos démarches.
         </p>
       </div>
       
-      <!-- CTA Principal - Orange vibrant -->
-      <div class="cta-main">
-        <div class="cta-header">👉 Inscrivez-vous maintenant !</div>
-        <div class="cta-phone">📞 07 83 78 76 63</div>
-        <div class="cta-website">🌐 www.ecolet3p.fr</div>
-        <span class="cta-urgency">Sessions toute l'année – Places limitées</span>
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="cta-header">Réservez votre place</div>
+        <div class="cta-phone">07 83 78 76 63</div>
+        <div class="cta-website">www.ecolet3p.fr</div>
       </div>
       
-      <!-- Bottom Section: QR + Testimonial -->
+      <!-- Bottom Section: QR + Info -->
       <div class="bottom-section">
         <div class="qr-section">
-          <img src="qr-formation-initiale.png" alt="QR Code" class="qr-code" style="width: 50px; height: 50px; border-radius: 6px; margin-bottom: 6px;">
+          <img src="qr-formation-initiale.png" alt="QR Code inscription" class="qr-code">
           <p class="qr-label">Scannez pour<br>vous inscrire</p>
         </div>
-        <div class="testimonial">
-          <div class="testimonial-header">
-            <div class="testimonial-stars">★★★★★</div>
-            <span class="testimonial-rating">5/5</span>
-          </div>
-          <p class="testimonial-text">"Excellente formation ! J'ai obtenu ma carte VTC du premier coup. Formateurs au top !"</p>
-          <p class="testimonial-author">— Karim B., Chauffeur VTC</p>
-          <div class="testimonial-badge">
-            <span>✓</span>
-            <span>Basé sur 200+ avis vérifiés</span>
-          </div>
+        <div class="info-box">
+          <p class="info-box-title">Sessions disponibles toute l'année</p>
+          <p class="info-box-content">
+            Formation dispensée dans notre centre de Montrouge.<br>
+            Métro Ligne 4 – Mairie de Montrouge.<br>
+            Attestation délivrée en fin de formation.
+          </p>
         </div>
       </div>
     </div>
@@ -766,9 +549,7 @@
       </div>
       <div class="footer-right">
         <span class="footer-cert">Centre agréé T3P</span>
-        <div>
-          <span>Métro Ligne 4 – Mairie de Montrouge</span>
-        </div>
+        <div>Métro Ligne 4 – Mairie de Montrouge</div>
       </div>
     </div>
   </div>
