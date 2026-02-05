@@ -22,6 +22,10 @@ const FormationTaxi = lazy(() => import("./pages/FormationTaxi"));
 const FormationVTC = lazy(() => import("./pages/FormationVTC"));
 const FormationVMDTR = lazy(() => import("./pages/FormationVMDTR"));
 const FormationMobilite = lazy(() => import("./pages/FormationMobilite"));
+const FormationContinueTaxi = lazy(() => import("./pages/FormationContinueTaxi"));
+const FormationContinueVTC = lazy(() => import("./pages/FormationContinueVTC"));
+const FormationContinueVMDTR = lazy(() => import("./pages/FormationContinueVMDTR"));
+const LocationVehiculeExamen = lazy(() => import("./pages/LocationVehiculeExamen"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -87,7 +91,11 @@ const App = () => {
                       <Route path="/formations/vtc" element={<FormationVTC />} />
                       <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
                       <Route path="/formations/mobilite" element={<FormationMobilite />} />
+                      <Route path="/formations/continue-taxi" element={<FormationContinueTaxi />} />
+                      <Route path="/formations/continue-vtc" element={<FormationContinueVTC />} />
+                      <Route path="/formations/continue-vmdtr" element={<FormationContinueVMDTR />} />
                       <Route path="/formations/recuperation-points" element={<RecuperationPoints />} />
+                      <Route path="/services/location-vehicule-examen" element={<LocationVehiculeExamen />} />
                       <Route path="/a-propos" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />
