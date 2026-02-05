@@ -254,40 +254,75 @@
       margin-top: 6px;
     }
     
-    /* CTA Section - Perceived as help, not push */
+    /* CTA Section */
     .cta-section {
-      padding: 0 28px 28px;
+      padding: 0 28px 80px;
       background: #F5EBD7;
+      margin-top: -10px;
     }
     
     .cta-box {
       background: #1B4D3E;
       color: #F5EBD7;
-      padding: 24px;
+      padding: 16px 20px;
       border-radius: 12px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    
+    .cta-left {
+      flex: 1;
+      text-align: left;
     }
     
     .cta-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 600;
-      margin-bottom: 12px;
-      opacity: 0.9;
+      margin-bottom: 4px;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     
     .cta-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 28px;
+      font-size: 22px;
       font-weight: 900;
       color: #D4A853;
-      margin-bottom: 8px;
+      margin-bottom: 2px;
     }
     
     .cta-website {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       opacity: 0.85;
+    }
+    
+    .cta-qr {
+      background: white;
+      padding: 8px;
+      border-radius: 8px;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      flex-shrink: 0;
+    }
+    
+    .cta-qr img {
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
+    }
+    
+    .cta-qr-label {
+      font-size: 7px;
+      font-weight: 700;
+      margin-top: 4px;
+      color: #1B4D3E;
     }
     
     /* Footer */
@@ -297,18 +332,19 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 14px 28px;
+      padding: 8px 28px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
       color: #F5EBD7;
-      font-size: 9px;
+      font-size: 8.2px;
+      line-height: 1.12;
     }
     
     .footer-left {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
     }
     
     .footer-address {
@@ -317,7 +353,8 @@
     
     .footer-metro {
       opacity: 0.7;
-      font-size: 8px;
+      font-size: 7.2px;
+      line-height: 1.12;
     }
     
     .footer-right {
@@ -325,8 +362,8 @@
     }
     
     .footer-cert {
-      font-size: 8px;
-      opacity: 0.7;
+      font-size: 7.2px;
+      opacity: 0.8;
     }
     
     /* ==================== VERSO ==================== */
@@ -644,9 +681,21 @@
         <!-- CTA -->
         <div class="cta-section">
           <div class="cta-box">
-            <div class="cta-title">Réservez votre place</div>
-            <div class="cta-phone">07 83 78 76 63</div>
-            <div class="cta-website">www.ecolet3p.fr</div>
+            <div class="cta-left">
+              <div class="cta-title">Réservez votre place</div>
+              <div class="cta-phone">07 83 78 76 63</div>
+              <div class="cta-website">www.ecolet3p.fr</div>
+            </div>
+            <a
+              class="cta-qr"
+              href="https://wa.me/33783787663"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ouvrir WhatsApp"
+            >
+              <img src="qr-whatsapp.png" alt="QR code WhatsApp">
+              <div class="cta-qr-label">WhatsApp</div>
+            </a>
           </div>
         </div>
         
