@@ -284,23 +284,31 @@
     
     /* CTA Section */
     .cta-section {
-      padding: 0 28px 60px;
+      padding: 0 28px 55px;
       background: #F5EBD7;
     }
     
     .cta-box {
       background: linear-gradient(135deg, #D4A853 0%, #C49A48 100%);
       color: #1B4D3E;
-      padding: 18px 24px;
+      padding: 14px 20px;
       border-radius: 12px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    
+    .cta-left {
+      flex: 1;
+      text-align: left;
     }
     
     .cta-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       opacity: 0.85;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -308,14 +316,34 @@
     
     .cta-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 900;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     
     .cta-website {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
+    }
+    
+    .cta-qr {
+      background: white;
+      padding: 8px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .cta-qr img {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+    }
+    
+    .cta-qr-label {
+      font-size: 7px;
+      font-weight: 700;
+      margin-top: 4px;
+      color: #1B4D3E;
     }
     
     /* Footer */
@@ -681,9 +709,15 @@
         <!-- CTA -->
         <div class="cta-section">
           <div class="cta-box">
-            <div class="cta-title">Réservez votre place</div>
-            <div class="cta-phone">07 83 78 76 63</div>
-            <div class="cta-website">www.ecolet3p.fr</div>
+            <div class="cta-left">
+              <div class="cta-title">Réservez votre place</div>
+              <div class="cta-phone">07 83 78 76 63</div>
+              <div class="cta-website">www.ecolet3p.fr</div>
+            </div>
+            <div class="cta-qr">
+              <img src="qr-whatsapp.png" alt="WhatsApp">
+              <div class="cta-qr-label">WhatsApp</div>
+            </div>
           </div>
         </div>
         
