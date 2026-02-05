@@ -95,6 +95,7 @@ const Templates = () => {
    const flyers = templates.filter(t => t.category === "Flyer" || t.category === "Flyer Continue");
    const continueFlyers = templates.filter(t => t.category === "Flyer Continue");
    const otherFlyers = templates.filter(t => t.category === "Flyer");
+   const genericFlyers = templates.filter(t => t.category === "Flyer Générique");
   const documents = templates.filter(t => t.category === "Document");
 
   return (
@@ -177,7 +178,39 @@ const Templates = () => {
                 </Card>
               ))}
             </div>
-          </section>
+           </section>
+
+           {/* Flyer Générique Section */}
+           <section className="mb-16">
+             <h2 className="text-2xl font-bold text-forest mb-6 flex items-center gap-2">
+               <FileText className="w-6 h-6 text-gold" />
+               Flyer Générique (Recto-Verso)
+             </h2>
+             <p className="text-forest/60 text-sm mb-4">Flyer complet présentant toutes les formations et tarifs ECOLE T3P.</p>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {genericFlyers.map((template) => (
+                 <Card key={template.path} className="bg-white border-forest/10 hover:shadow-lg transition-shadow border-2 border-gold/30">
+                   <CardContent className="p-6">
+                     <div className="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center mb-4">
+                       <template.icon className="w-6 h-6 text-gold" />
+                     </div>
+                     <h3 className="font-bold text-forest mb-2">{template.title}</h3>
+                     <p className="text-forest/60 text-sm mb-4">{template.description}</p>
+                     <Button
+                       asChild
+                       size="sm"
+                       className="w-full bg-gold hover:bg-gold/90 text-forest font-bold"
+                     >
+                       <a href={template.path} target="_blank" rel="noopener noreferrer" className="gap-2">
+                         <ExternalLink className="w-4 h-4" />
+                         Ouvrir le flyer
+                       </a>
+                     </Button>
+                   </CardContent>
+                 </Card>
+               ))}
+             </div>
+           </section>
 
            {/* Other Flyers Section */}
            <section className="mb-16">
