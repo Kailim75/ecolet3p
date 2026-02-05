@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte de Visite Forest Green - ÉCOLE T3P</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Navigation - Hidden when printing */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1B4D3E;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-bar a {
+      color: #F5EBD7;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .nav-bar a:hover {
+      opacity: 0.8;
+    }
+
+    .btn-print {
+      background: #D4A853;
+      color: #1B4D3E;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #c49a4a;
+      transform: translateY(-1px);
+    }
+
+    /* Content */
+    .content {
+      margin-top: 100px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1B4D3E;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #6B6B6B;
+      font-size: 14px;
+    }
+
+    /* Cards Container */
+    .cards-container {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .card-wrapper {
+      text-align: center;
+    }
+
+    .card-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1B4D3E;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Business Card - Forest Green */
+    .card {
+      width: 85mm;
+      height: 55mm;
+      background: #1B4D3E;
+      border-radius: 2mm;
+      padding: 6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.3);
+    }
+
+    /* Accent line top */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #D4A853 20%, #D4A853 80%, transparent 100%);
+    }
+
+    .card-header {
+      text-align: center;
+    }
+
+    .school-name {
+      font-size: 8mm;
+      font-weight: 800;
+      color: #F5EBD7;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 3mm;
+    }
+
+    .separator {
+      width: 15mm;
+      height: 1px;
+      background: #D4A853;
+      margin: 0 auto 3mm;
+    }
+
+    .status {
+      font-size: 2.2mm;
+      font-weight: 500;
+      color: rgba(245, 235, 215, 0.7);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .card-identity {
+      text-align: center;
+    }
+
+    .identity-line {
+      width: 8mm;
+      height: 1px;
+      background: #D4A853;
+      margin: 0 auto 2mm;
+    }
+
+    .director-name {
+      font-size: 4mm;
+      font-weight: 700;
+      color: #F5EBD7;
+      margin-bottom: 1mm;
+    }
+
+    .director-title {
+      font-size: 2.5mm;
+      font-weight: 400;
+      color: rgba(245, 235, 215, 0.7);
+      letter-spacing: 0.1em;
+    }
+
+    .card-footer {
+      text-align: center;
+    }
+
+    .footer-tag {
+      display: inline-block;
+      font-size: 2mm;
+      font-weight: 600;
+      color: #D4A853;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 0.3mm solid rgba(212, 168, 83, 0.4);
+      padding: 1mm 3mm;
+      border-radius: 0.5mm;
+    }
+
+    /* Verso */
+    .card-verso {
+      width: 85mm;
+      height: 55mm;
+      background: #1B4D3E;
+      border-radius: 2mm;
+      padding: 6mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.3);
+    }
+
+    .card-verso::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #D4A853 20%, #D4A853 80%, transparent 100%);
+    }
+
+    .verso-content {
+      text-align: center;
+    }
+
+    .verso-phone {
+      font-size: 4.5mm;
+      font-weight: 700;
+      color: #F5EBD7;
+      margin-bottom: 4mm;
+      letter-spacing: 0.05em;
+    }
+
+    .verso-address {
+      font-size: 2.5mm;
+      font-weight: 400;
+      color: rgba(245, 235, 215, 0.8);
+      line-height: 1.6;
+      margin-bottom: 4mm;
+    }
+
+    .verso-email {
+      font-size: 2.5mm;
+      font-weight: 500;
+      color: #D4A853;
+      letter-spacing: 0.05em;
+    }
+
+    /* Print Instructions */
+    .print-info {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .print-info h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B4D3E;
+      margin-bottom: 12px;
+    }
+
+    .print-info ul {
+      list-style: none;
+      font-size: 13px;
+      color: #6B6B6B;
+    }
+
+    .print-info li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .print-info li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #D4A853;
+      font-weight: 700;
+    }
+
+    /* Print Styles */
+    @media print {
+      @page {
+        size: 85mm 55mm;
+        margin: 0;
+      }
+
+      body {
+        background: transparent;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-bar,
+      .header,
+      .print-info,
+      .card-label {
+        display: none !important;
+      }
+
+      .content {
+        margin: 0;
+        max-width: none;
+      }
+
+      .cards-container {
+        gap: 0;
+        margin: 0;
+        page-break-inside: avoid;
+      }
+
+      .card-wrapper {
+        page-break-after: always;
+      }
+
+      .card,
+      .card-verso {
+        box-shadow: none;
+        border-radius: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <a href="/templates">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Retour aux templates
+    </a>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Télécharger en PDF
+    </button>
+  </nav>
+
+  <div class="content">
+    <!-- Header -->
+    <div class="header">
+      <h1>Carte de Visite Forest Green</h1>
+      <p>Version institutionnelle premium aux couleurs officielles ÉCOLE T3P</p>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-container">
+      <!-- Recto -->
+      <div class="card-wrapper">
+        <div class="card-label">Recto</div>
+        <div class="card">
+          <div class="card-header">
+            <div class="school-name">ÉCOLE T3P</div>
+            <div class="separator"></div>
+            <div class="status">Centre de formation agréé Préfecture</div>
+          </div>
+          
+          <div class="card-identity">
+            <div class="identity-line"></div>
+            <div class="director-name">Karim KATI</div>
+            <div class="director-title">Directeur</div>
+          </div>
+          
+          <div class="card-footer">
+            <span class="footer-tag">Taxi • VTC • VMDTR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verso -->
+      <div class="card-wrapper">
+        <div class="card-label">Verso</div>
+        <div class="card-verso">
+          <div class="verso-content">
+            <div class="verso-phone">01 88 75 05 55</div>
+            <div class="verso-address">
+              3 rue Corneille<br>
+              92120 Montrouge
+            </div>
+            <div class="verso-email">montrouge@ecolet3p.fr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print Instructions -->
+    <div class="print-info">
+      <h3>Instructions d'impression professionnelle</h3>
+      <ul>
+        <li>Format : 85 × 55 mm (standard carte de visite)</li>
+        <li>Papier : 400g/m² couché mat ou soft-touch</li>
+        <li>Couleur Pantone : Forest Green proche de Pantone 3308 C</li>
+        <li>CMJN : C85 M40 J65 N45</li>
+        <li>Finition recommandée : pelliculage soft-touch + dorure à chaud sur accents</li>
+        <li>Activer "Graphiques d'arrière-plan" dans les options d'impression</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
