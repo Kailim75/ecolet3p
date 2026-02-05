@@ -30,12 +30,15 @@ export const EcoleT3PIcon = ({
             <circle cx="112" cy="60" r="2"/>
           </g>
           <circle cx="60" cy="60" r="42" fill="none" stroke="#1B4D3E" strokeWidth="1" strokeDasharray="3 2"/>
-          <text x="60" y="50" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="10" fontWeight="800" fill="#1B4D3E" letterSpacing="0.15em">ÉCOLE</text>
-          <text x="60" y="72" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="24" fontWeight="900" fill="#1B4D3E" letterSpacing="-0.02em">T3P</text>
-          <path d="M35 82 L60 74 L85 82" stroke="#D4A853" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-          <circle cx="60" cy="74" r="3" fill="#D4A853"/>
-          <text x="25" y="62" fontSize="8" fill="#D4A853">★</text>
-          <text x="90" y="62" fontSize="8" fill="#D4A853">★</text>
+          {/* ECOLE T3P - Main brand name */}
+          <text x="60" y="45" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="12" fontWeight="900" fill="#1B4D3E" letterSpacing="0.05em">ECOLE</text>
+          <text x="60" y="68" textAnchor="middle" fontFamily="Plus Jakarta Sans, Arial, sans-serif" fontSize="28" fontWeight="900" fill="#1B4D3E" letterSpacing="-0.02em">T3P</text>
+          {/* Road symbol */}
+          <path d="M35 85 L60 76 L85 85" stroke="#D4A853" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          <circle cx="60" cy="76" r="3" fill="#D4A853"/>
+          {/* Stars decoration */}
+          <text x="22" y="62" fontSize="8" fill="#D4A853">★</text>
+          <text x="93" y="62" fontSize="8" fill="#D4A853">★</text>
         </g>
       </svg>
     );
