@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import FloatingAppointmentButton from "./FloatingAppointmentButton";
 import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
-import ExitIntentPopup from "@/components/newsletter/ExitIntentPopup";
+
 
 interface LayoutProps {
   children: ReactNode;
@@ -131,7 +131,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <FloatingAppointmentButton />
       <FloatingWhatsAppButton />
-      <ExitIntentPopup />
+      
     </div>
   );
 };
