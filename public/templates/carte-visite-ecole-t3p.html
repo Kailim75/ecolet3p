@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carte de Visite V3 - ECOLE T3P</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Carte de Visite Institutionnelle - ECOLE T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -15,9 +15,10 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: #f5f5f5;
+      background: #f8f8f8;
       min-height: 100vh;
       padding: 40px;
+      color: #1a1a1a;
     }
     
     .page {
@@ -25,312 +26,273 @@
       margin: 0 auto;
       background: white;
       padding: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
     
     h1 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #1B4D3E;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #1a1a1a;
       font-size: 24px;
+      font-weight: 600;
       margin-bottom: 8px;
       text-align: center;
+      letter-spacing: 0.02em;
     }
     
     .subtitle {
       text-align: center;
-      color: #5A5A5A;
-      font-size: 14px;
+      color: #666;
+      font-size: 13px;
       margin-bottom: 40px;
+      font-weight: 400;
     }
     
     .section-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #1B4D3E;
-      font-size: 16px;
-      margin: 30px 0 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #D4A853;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #1a1a1a;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 35px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0e0e0;
+      letter-spacing: 0.03em;
     }
     
     .version-tag {
       display: inline-block;
-      background: #D4A853;
-      color: #1B4D3E;
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 8px;
-      font-weight: 700;
+      background: #1a365d;
+      color: white;
+      font-size: 9px;
+      padding: 3px 10px;
+      border-radius: 3px;
+      margin-left: 10px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     
-    /* Grille pour impression recto/verso côte à côte */
+    /* Grille pour impression recto/verso */
     .cards-pair {
       display: flex;
-      gap: 10mm;
-      margin-bottom: 10mm;
+      gap: 12mm;
+      margin-bottom: 12mm;
       justify-content: center;
     }
     
-    /* === RECTO V3 - IDENTITÉ PURE === */
+    /* === RECTO INSTITUTIONNEL === */
     .card-recto {
       width: 85mm;
       height: 55mm;
-      background: linear-gradient(145deg, #1B4D3E 0%, #143D31 100%);
-      border-radius: 3mm;
-      padding: 6mm;
+      background: #ffffff;
+      border: 1px solid #d0d0d0;
+      border-radius: 1mm;
+      padding: 7mm 8mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: #F5EBD7;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+      color: #1a1a1a;
       position: relative;
-      overflow: hidden;
     }
     
-    /* Barre dorée en bas */
-    .card-recto::after {
+    /* Filet bleu discret en haut */
+    .card-recto::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2.5mm;
-      background: linear-gradient(90deg, #C49843, #E4BE73, #D4A853);
+      top: 0;
+      left: 8mm;
+      right: 8mm;
+      height: 0.8mm;
+      background: #1a365d;
     }
     
-    /* Bloc 1 : Nom de l'école - DOMINANT */
-    .recto-brand-block {
-      display: flex;
-      align-items: center;
-      gap: 4mm;
+    /* Bloc École - DOMINANT */
+    .recto-school-block {
+      text-align: left;
+      padding-top: 2mm;
     }
     
-    .recto-logo-circle {
-      width: 14mm;
-      height: 14mm;
-      background: #F5EBD7;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .recto-logo-circle span {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 900;
-      font-size: 5mm;
-      color: #1B4D3E;
-      letter-spacing: -0.03em;
-    }
-    
-    .recto-brand-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 7mm;
-      font-weight: 900;
-      letter-spacing: -0.02em;
+    .recto-school-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 8mm;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.03em;
       line-height: 1;
+      margin-bottom: 2mm;
     }
     
-    /* Bloc 2 : Positionnement */
-    .recto-status {
-      font-size: 2.5mm;
-      font-weight: 600;
-      color: #D4A853;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 3mm;
+    .recto-school-status {
+      font-size: 2.3mm;
+      font-weight: 500;
+      color: #4a4a4a;
+      letter-spacing: 0.04em;
     }
     
-    /* Bloc 3 : Nom et fonction */
-    .recto-person-block {
-      margin-bottom: 4mm;
+    /* Bloc Identité */
+    .recto-identity-block {
+      border-top: 0.5px solid #e0e0e0;
+      padding-top: 3mm;
     }
     
     .recto-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 4mm;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 4.2mm;
+      font-weight: 600;
+      color: #1a1a1a;
       margin-bottom: 1mm;
+      letter-spacing: 0.02em;
     }
     
     .recto-function {
-      font-size: 2.5mm;
-      opacity: 0.75;
-      font-weight: 500;
-    }
-    
-    /* Bloc 4 : Spécialités */
-    .recto-specialties {
       font-size: 2.3mm;
-      opacity: 0.6;
+      color: #555;
       font-weight: 500;
-      letter-spacing: 0.03em;
+      margin-bottom: 2.5mm;
     }
     
-    /* === VERSO V3 - ACTION UNIQUE === */
+    /* Spécialités */
+    .recto-specialties {
+      font-size: 2.2mm;
+      color: #1a365d;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    
+    /* === VERSO INSTITUTIONNEL === */
     .card-verso {
       width: 85mm;
       height: 55mm;
-      background: #F5EBD7;
-      border-radius: 3mm;
-      padding: 5mm 6mm;
+      background: #ffffff;
+      border: 1px solid #d0d0d0;
+      border-radius: 1mm;
+      padding: 7mm 8mm;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-      text-align: center;
+      justify-content: space-between;
       position: relative;
     }
     
-    /* Message principal - secondaire */
-    .verso-headline {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 3.5mm;
-      font-weight: 600;
-      color: #1B4D3E;
-      margin-bottom: 4mm;
-      line-height: 1.2;
+    /* Filet bleu discret en bas */
+    .card-verso::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 8mm;
+      right: 8mm;
+      height: 0.8mm;
+      background: #1a365d;
     }
     
-    /* Numéro WhatsApp - ÉLÉMENT DOMINANT */
-    .verso-whatsapp-number {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3mm;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: white;
-      padding: 3.5mm 6mm;
-      border-radius: 2.5mm;
-      margin-bottom: 4mm;
-      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
-    }
-    
-    .verso-whatsapp-icon {
-      width: 6mm;
-      height: 6mm;
-    }
-    
-    .verso-whatsapp-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: white;
-    }
-    
-    .verso-whatsapp-text {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 5.5mm;
-      font-weight: 900;
-      letter-spacing: 0.03em;
-    }
-    
-    /* QR Code unique */
-    .verso-qr-block {
+    /* Coordonnées */
+    .verso-contact-block {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 1.5mm;
+      gap: 2.5mm;
     }
     
-    .verso-qr {
-      width: 18mm;
-      height: 18mm;
-      background: white;
-      border-radius: 1.5mm;
-      padding: 1mm;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-    
-    .verso-qr img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    
-    .verso-qr-label {
-      font-size: 2mm;
-      color: #1B4D3E;
-      font-weight: 600;
-    }
-    
-    /* Infos secondaires - PETITES, EN BAS */
-    .verso-secondary {
-      position: absolute;
-      bottom: 3mm;
-      left: 0;
-      right: 0;
+    .verso-contact-line {
       display: flex;
+      align-items: center;
+      gap: 3mm;
+      font-size: 2.5mm;
+      color: #1a1a1a;
+    }
+    
+    .verso-contact-icon {
+      width: 3.5mm;
+      height: 3.5mm;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 4mm;
-      font-size: 2mm;
-      color: #6B6B5A;
+      color: #1a365d;
+      font-size: 2.8mm;
     }
     
-    .verso-secondary span {
-      display: flex;
-      align-items: center;
-      gap: 1mm;
+    .verso-contact-text {
+      font-weight: 500;
+    }
+    
+    .verso-contact-text.address {
+      line-height: 1.4;
+    }
+    
+    /* Mention agréé */
+    .verso-accreditation {
+      text-align: center;
+      padding-top: 3mm;
+      border-top: 0.5px solid #e0e0e0;
+    }
+    
+    .verso-accreditation-text {
+      font-size: 2.2mm;
+      color: #4a4a4a;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
     
     /* Instructions */
     .instructions {
       margin-top: 40px;
-      padding: 20px;
-      background: #F5EBD7;
-      border-radius: 8px;
+      padding: 24px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
     }
     
     .instructions h3 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #1B4D3E;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #1a1a1a;
       font-size: 14px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      font-weight: 600;
     }
     
     .instructions ul {
       font-size: 12px;
-      color: #4B463C;
+      color: #4a4a4a;
       padding-left: 20px;
     }
     
     .instructions li {
-      margin: 6px 0;
+      margin: 7px 0;
+      line-height: 1.5;
     }
     
     .print-notes {
-      margin-top: 15px;
-      padding: 12px;
-      background: #fff9e6;
-      border: 1px solid #D4A853;
-      border-radius: 6px;
+      margin-top: 18px;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid #d0d0d0;
+      border-radius: 4px;
       font-size: 11px;
-      color: #5A5030;
+      color: #555;
     }
     
     .print-notes strong {
-      color: #1B4D3E;
+      color: #1a1a1a;
     }
     
     .philosophy-box {
-      margin-top: 20px;
-      padding: 15px;
-      background: #1B4D3E;
-      color: #F5EBD7;
-      border-radius: 8px;
+      margin-top: 24px;
+      padding: 18px;
+      background: #1a365d;
+      color: white;
+      border-radius: 6px;
       font-size: 12px;
     }
     
     .philosophy-box h4 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13px;
-      margin-bottom: 8px;
-      color: #D4A853;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
     
     .philosophy-box p {
-      line-height: 1.5;
+      line-height: 1.6;
       opacity: 0.9;
     }
     
@@ -351,141 +313,82 @@
 </head>
 <body>
   <div class="page">
-    <h1>Carte de Visite - ECOLE T3P <span class="version-tag">V3</span></h1>
-    <p class="subtitle">Format 85 × 55 mm • Design épuré orienté action • Une carte = Un message WhatsApp</p>
+    <h1>Carte de Visite — ÉCOLE T3P <span class="version-tag">Institutionnel</span></h1>
+    <p class="subtitle">Format 85 × 55 mm • Design statutaire sobre • Usage partenaires & institutions</p>
     
-    <h3 class="section-title">📇 Karim KATI - Directeur</h3>
+    <h3 class="section-title">Karim KATI — Directeur du centre de formation</h3>
     
     <!-- Carte Karim KATI -->
     <div class="cards-pair">
-      <!-- RECTO - IDENTITÉ -->
+      <!-- RECTO - IDENTITÉ INSTITUTIONNELLE -->
       <div class="card-recto">
-        <!-- Bloc 1 : Nom école (dominant) -->
-        <div>
-          <div class="recto-brand-block">
-            <div class="recto-logo-circle">
-              <span>T3P</span>
-            </div>
-            <div class="recto-brand-name">ÉCOLE T3P</div>
-          </div>
-          <!-- Bloc 2 : Positionnement -->
-          <div class="recto-status">Centre de formation T3P agréé Préfecture</div>
+        <!-- Bloc École (dominant) -->
+        <div class="recto-school-block">
+          <div class="recto-school-name">ÉCOLE T3P</div>
+          <div class="recto-school-status">Centre de formation T3P agréé Préfecture</div>
         </div>
         
-        <!-- Bloc 3 : Nom et fonction -->
-        <div class="recto-person-block">
+        <!-- Bloc Identité -->
+        <div class="recto-identity-block">
           <div class="recto-name">Karim KATI</div>
           <div class="recto-function">Directeur du centre de formation</div>
+          <div class="recto-specialties">Formation Taxi • VTC • VMDTR</div>
         </div>
-        
-        <!-- Bloc 4 : Spécialités -->
-        <div class="recto-specialties">Formation Taxi • VTC • VMDTR</div>
       </div>
       
-      <!-- VERSO - ACTION UNIQUE -->
+      <!-- VERSO - COORDONNÉES SOBRES -->
       <div class="card-verso">
-        <!-- Message principal (dominant) -->
-        <div class="verso-headline">Un message WhatsApp suffit</div>
-        
-        <!-- Numéro WhatsApp (très visible) -->
-        <div class="verso-whatsapp-number">
-          <div class="verso-whatsapp-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+        <!-- Coordonnées complètes -->
+        <div class="verso-contact-block">
+          <div class="verso-contact-line">
+            <span class="verso-contact-icon">📍</span>
+            <span class="verso-contact-text address">3 rue Corneille<br>92120 Montrouge</span>
           </div>
-          <span class="verso-whatsapp-text">07 83 78 76 63</span>
-        </div>
-        
-        <!-- QR Code unique vers WhatsApp -->
-        <div class="verso-qr-block">
-          <div class="verso-qr">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/33783787663?text=Bonjour,%20je%20viens%20de%20la%20carte%20de%20visite%20%C3%89cole%20T3P." alt="QR WhatsApp">
+          <div class="verso-contact-line">
+            <span class="verso-contact-icon">📞</span>
+            <span class="verso-contact-text">01 88 75 05 55</span>
           </div>
-          <div class="verso-qr-label">Scannez pour nous écrire</div>
-        </div>
-        
-        <!-- Infos secondaires (petites, en bas) -->
-        <div class="verso-secondary">
-          <span>🌐 www.ecolet3p.fr</span>
-          <span>📍 Montrouge (92)</span>
-        </div>
-      </div>
-    </div>
-    
-    <h3 class="section-title">📋 Version Générique (Collaborateur)</h3>
-    
-    <!-- Carte Générique -->
-    <div class="cards-pair">
-      <!-- RECTO - IDENTITÉ -->
-      <div class="card-recto">
-        <div>
-          <div class="recto-brand-block">
-            <div class="recto-logo-circle">
-              <span>T3P</span>
-            </div>
-            <div class="recto-brand-name">ÉCOLE T3P</div>
+          <div class="verso-contact-line">
+            <span class="verso-contact-icon">✉️</span>
+            <span class="verso-contact-text">montrouge@ecolet3p.fr</span>
           </div>
-          <div class="recto-status">Centre de formation T3P agréé Préfecture</div>
-        </div>
-        
-        <div class="recto-person-block">
-          <div class="recto-name">[Prénom NOM]</div>
-          <div class="recto-function">[Fonction]</div>
-        </div>
-        
-        <div class="recto-specialties">Formation Taxi • VTC • VMDTR</div>
-      </div>
-      
-      <!-- VERSO - ACTION UNIQUE -->
-      <div class="card-verso">
-        <div class="verso-headline">Un message WhatsApp suffit</div>
-        
-        <div class="verso-whatsapp-number">
-          <div class="verso-whatsapp-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+          <div class="verso-contact-line">
+            <span class="verso-contact-icon">🌐</span>
+            <span class="verso-contact-text">www.ecolet3p.fr</span>
           </div>
-          <span class="verso-whatsapp-text">07 83 78 76 63</span>
         </div>
         
-        <div class="verso-qr-block">
-          <div class="verso-qr">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/33783787663?text=Bonjour,%20je%20viens%20de%20la%20carte%20de%20visite%20%C3%89cole%20T3P." alt="QR WhatsApp">
-          </div>
-          <div class="verso-qr-label">Scannez pour nous écrire</div>
-        </div>
-        
-        <div class="verso-secondary">
-          <span>🌐 www.ecolet3p.fr</span>
-          <span>📍 Montrouge (92)</span>
+        <!-- Mention agréé -->
+        <div class="verso-accreditation">
+          <span class="verso-accreditation-text">Centre agréé Préfecture</span>
         </div>
       </div>
     </div>
     
     <!-- Instructions -->
     <div class="instructions">
-      <h3>📝 Instructions d'impression</h3>
+      <h3>Instructions d'impression</h3>
       <ul>
         <li><strong>Format :</strong> 85 × 55 mm (standard européen)</li>
-        <li><strong>Papier :</strong> 350g/m² couché mat ou satiné</li>
-        <li><strong>Impression :</strong> Recto/verso, couleurs CMJN</li>
-        <li><strong>Finition recommandée :</strong> Pelliculage mat soft-touch</li>
-        <li><strong>Quantité minimum :</strong> 250 exemplaires</li>
+        <li><strong>Papier :</strong> 350g/m² texturé ou vergé blanc naturel</li>
+        <li><strong>Impression :</strong> Recto/verso, quadrichromie CMJN</li>
+        <li><strong>Finition recommandée :</strong> Pelliculage mat soft-touch ou vernis sélectif</li>
+        <li><strong>Couleur de référence :</strong> Bleu marine #1a365d (Pantone 289 C)</li>
       </ul>
       
       <div class="print-notes">
-        <strong>💡 Astuce :</strong> Activez "Graphiques d'arrière-plan" dans les paramètres d'impression (Ctrl+P) pour conserver les couleurs du fond.
+        <strong>Note :</strong> Activez « Graphiques d'arrière-plan » dans les paramètres d'impression (Ctrl+P) pour conserver les filets bleus. Pour un rendu optimal, privilégiez un papier légèrement texturé.
       </div>
     </div>
     
     <div class="philosophy-box">
-      <h4>🎯 Philosophie de design V3</h4>
+      <h4>Philosophie de conception</h4>
       <p>
-        <strong>Une carte = Une action.</strong> Cette version épurée supprime toute friction cognitive. 
-        Le recto présente l'identité professionnelle sans distraction. Le verso guide vers un seul objectif : 
-        envoyer un message WhatsApp. Le QR code pré-remplit le message pour maximiser le taux de conversion.
+        Cette carte de visite adopte un positionnement <strong>institutionnel et statutaire</strong>. 
+        Elle privilégie la sobriété, l'espace blanc et une typographie classique (Cormorant Garamond) 
+        pour refléter l'autorité d'un centre de formation agréé. Aucun élément marketing : 
+        pas de QR code, pas de slogan, pas d'appel à l'action. Une carte que le directeur 
+        est fier de remettre à des partenaires institutionnels.
       </p>
     </div>
   </div>
