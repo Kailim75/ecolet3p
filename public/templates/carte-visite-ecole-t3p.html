@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carte de Visite Premium - ÉCOLE T3P</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Carte de Visite Institutionnelle — ÉCOLE T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     @page {
       size: A4 portrait;
-      margin: 10mm;
+      margin: 15mm;
     }
     
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f8f6f3 0%, #ebe7e0 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f5f4;
       min-height: 100vh;
-      padding: 40px;
+      padding: 50px;
       color: #1a1a1a;
     }
     
@@ -25,361 +25,261 @@
       width: 210mm;
       margin: 0 auto;
       background: white;
-      padding: 50px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      border-radius: 4px;
+      padding: 60px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     
     h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      color: #1B4D3E;
-      font-size: 26px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #1a1a1a;
+      font-size: 24px;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-align: center;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
     }
     
     .subtitle {
       text-align: center;
-      color: #777;
+      color: #666;
       font-size: 13px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
       font-weight: 400;
-      letter-spacing: 0.02em;
     }
     
-    .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      color: #1B4D3E;
-      font-size: 16px;
-      font-weight: 500;
-      margin: 45px 0 20px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid #D4A853;
-      display: inline-block;
-    }
-    
-    .version-tag {
-      display: inline-block;
-      background: linear-gradient(135deg, #D4A853, #C49843);
-      color: white;
-      font-size: 9px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-left: 12px;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    
-    /* Grille pour impression recto/verso */
-    .cards-pair {
+    .cards-container {
       display: flex;
-      gap: 15mm;
-      margin-bottom: 15mm;
       justify-content: center;
+      gap: 30mm;
+      margin-bottom: 50px;
     }
     
-    /* === RECTO PREMIUM === */
-    .card-recto {
+    /* === CARTE RECTO — STATUTAIRE === */
+    .card {
       width: 85mm;
       height: 55mm;
-      background: linear-gradient(155deg, #1B4D3E 0%, #143D31 60%, #0F2E25 100%);
-      border-radius: 2mm;
-      padding: 0;
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      position: relative;
       display: flex;
       flex-direction: column;
-      color: #F5EBD7;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 
-        0 8px 32px rgba(27, 77, 62, 0.3),
-        0 2px 8px rgba(0,0,0,0.1);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     
-    /* Motif géométrique subtil */
-    .card-recto::before {
+    /* Filet supérieur discret */
+    .card::before {
       content: '';
       position: absolute;
-      top: -20mm;
-      right: -20mm;
-      width: 60mm;
-      height: 60mm;
-      background: radial-gradient(circle, rgba(212, 168, 83, 0.08) 0%, transparent 70%);
-      border-radius: 50%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.3mm;
+      background: #1a365d;
     }
     
-    /* Ligne dorée en bas */
-    .card-recto::after {
+    /* Filet inférieur discret */
+    .card::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1.5mm;
-      background: linear-gradient(90deg, #C49843, #E4BE73, #D4A853, #C49843);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.3mm;
+      background: #1a365d;
     }
     
-    .recto-content {
-      padding: 7mm 8mm;
+    .card-content {
+      padding: 0 10mm;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      position: relative;
-      z-index: 1;
+      align-items: center;
+      gap: 0;
     }
     
-    /* Bloc École - DOMINANT */
-    .recto-school-block {
-      text-align: left;
+    /* BLOC 1 — INSTITUTION (dominant) */
+    .institution-block {
+      margin-bottom: 5mm;
     }
     
-    .recto-school-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 9mm;
+    .school-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 8mm;
       font-weight: 600;
-      color: #F5EBD7;
-      letter-spacing: 0.04em;
+      color: #1a365d;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       line-height: 1;
-      margin-bottom: 2.5mm;
+      margin-bottom: 3mm;
     }
     
-    .recto-school-status {
+    .accreditation {
+      font-family: 'Inter', sans-serif;
       font-size: 2.2mm;
+      font-weight: 400;
+      color: #5a5a5a;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    
+    /* Séparateur minimaliste */
+    .separator {
+      width: 8mm;
+      height: 0.2mm;
+      background: #c0c0c0;
+      margin: 4mm 0;
+    }
+    
+    /* BLOC 2 — IDENTITÉ DIRECTEUR */
+    .identity-block {
+      margin-bottom: 4mm;
+    }
+    
+    .director-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 4mm;
       font-weight: 500;
-      color: #D4A853;
+      color: #1a1a1a;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5mm;
+    }
+    
+    .director-function {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.1mm;
+      font-weight: 400;
+      color: #6a6a6a;
+      letter-spacing: 0.02em;
+    }
+    
+    /* BLOC 3 — SPÉCIALITÉS (discret) */
+    .specialties {
+      font-family: 'Inter', sans-serif;
+      font-size: 2mm;
+      font-weight: 300;
+      color: #888888;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
     
-    /* Séparateur élégant */
-    .recto-separator {
-      width: 12mm;
-      height: 0.4mm;
-      background: linear-gradient(90deg, #D4A853, transparent);
-      margin: 3mm 0;
-    }
-    
-    /* Bloc Identité */
-    .recto-identity-block {
-      margin-bottom: 2mm;
-    }
-    
-    .recto-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 4.5mm;
-      font-weight: 500;
-      color: #F5EBD7;
-      margin-bottom: 1.5mm;
-      letter-spacing: 0.02em;
-    }
-    
-    .recto-function {
-      font-size: 2.3mm;
-      color: rgba(245, 235, 215, 0.7);
-      font-weight: 400;
-      letter-spacing: 0.03em;
-    }
-    
-    /* Spécialités */
-    .recto-specialties {
-      font-size: 2.1mm;
-      color: rgba(245, 235, 215, 0.5);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-    }
-    
-    /* === VERSO PREMIUM === */
+    /* === CARTE VERSO — COORDONNÉES === */
     .card-verso {
       width: 85mm;
       height: 55mm;
-      background: #FDFBF7;
-      border-radius: 2mm;
-      padding: 7mm 8mm;
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 
-        0 8px 32px rgba(0,0,0,0.08),
-        inset 0 0 0 1px rgba(212, 168, 83, 0.2);
+      justify-content: center;
+      padding: 8mm 10mm;
     }
     
-    /* Accent décoratif */
     .card-verso::before {
       content: '';
       position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
-      height: 1.5mm;
-      background: linear-gradient(90deg, #1B4D3E, #2A6B54, #1B4D3E);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.3mm;
+      background: #1a365d;
     }
     
-    /* Motif coin */
     .card-verso::after {
       content: '';
       position: absolute;
-      bottom: -15mm;
-      right: -15mm;
-      width: 40mm;
-      height: 40mm;
-      background: radial-gradient(circle, rgba(27, 77, 62, 0.03) 0%, transparent 70%);
-      border-radius: 50%;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25mm;
+      height: 0.3mm;
+      background: #1a365d;
     }
     
-    /* Coordonnées */
-    .verso-contact-block {
+    .verso-content {
       display: flex;
       flex-direction: column;
-      gap: 3mm;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .verso-contact-line {
-      display: flex;
-      align-items: center;
       gap: 3.5mm;
-      font-size: 2.5mm;
+    }
+    
+    .contact-line {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.4mm;
       color: #2a2a2a;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
     }
     
-    .verso-contact-icon {
-      width: 4mm;
-      height: 4mm;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #1B4D3E;
-      border-radius: 50%;
-      flex-shrink: 0;
+    .contact-line.address {
+      color: #3a3a3a;
     }
     
-    .verso-contact-icon svg {
-      width: 2.2mm;
-      height: 2.2mm;
-      fill: #F5EBD7;
-    }
-    
-    .verso-contact-text {
-      font-weight: 500;
-      color: #333;
-    }
-    
-    .verso-contact-text.address {
-      line-height: 1.5;
-    }
-    
-    /* Mention agréé */
     .verso-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      position: relative;
-      z-index: 1;
+      margin-top: 4mm;
+      padding-top: 3mm;
+      border-top: 0.2mm solid #e0e0e0;
     }
     
     .verso-accreditation {
-      padding: 2mm 4mm;
-      background: rgba(27, 77, 62, 0.06);
-      border-radius: 1mm;
-      border-left: 2px solid #D4A853;
-    }
-    
-    .verso-accreditation-text {
+      font-family: 'Inter', sans-serif;
       font-size: 2mm;
-      color: #1B4D3E;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-weight: 500;
+      color: #1a365d;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
     
-    .verso-logo {
-      width: 10mm;
-      height: 10mm;
-      background: #1B4D3E;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.2);
-    }
-    
-    .verso-logo span {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 3mm;
-      font-weight: 700;
-      color: #F5EBD7;
-      letter-spacing: -0.02em;
-    }
-    
-    /* Instructions */
+    /* === INSTRUCTIONS === */
     .instructions {
       margin-top: 50px;
-      padding: 28px;
-      background: linear-gradient(135deg, #f8f6f3 0%, #f0ede8 100%);
-      border-radius: 8px;
-      border: 1px solid #e0dcd5;
+      padding: 30px;
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
     }
     
     .instructions h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      color: #1B4D3E;
-      font-size: 15px;
-      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #1a1a1a;
+      font-size: 16px;
+      margin-bottom: 20px;
       font-weight: 600;
     }
     
     .instructions ul {
-      font-size: 12px;
-      color: #555;
+      font-size: 13px;
+      color: #444;
       padding-left: 20px;
+      line-height: 1.8;
     }
     
     .instructions li {
-      margin: 8px 0;
-      line-height: 1.6;
+      margin: 6px 0;
     }
     
-    .print-notes {
-      margin-top: 20px;
-      padding: 16px;
-      background: #fff;
-      border: 1px solid #D4A853;
-      border-radius: 6px;
-      font-size: 11px;
-      color: #666;
+    .instructions strong {
+      color: #1a365d;
     }
     
-    .print-notes strong {
-      color: #1B4D3E;
+    .design-notes {
+      margin-top: 30px;
+      padding: 24px;
+      background: #1a365d;
+      color: #f0f0f0;
+      font-size: 13px;
+      line-height: 1.7;
     }
     
-    .philosophy-box {
-      margin-top: 28px;
-      padding: 22px;
-      background: linear-gradient(135deg, #1B4D3E 0%, #143D31 100%);
-      color: #F5EBD7;
-      border-radius: 8px;
-      font-size: 12px;
-      box-shadow: 0 4px 16px rgba(27, 77, 62, 0.2);
-    }
-    
-    .philosophy-box h4 {
-      font-family: 'Playfair Display', Georgia, serif;
+    .design-notes h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 15px;
       margin-bottom: 12px;
       font-weight: 500;
-      color: #D4A853;
-    }
-    
-    .philosophy-box p {
-      line-height: 1.7;
-      opacity: 0.9;
+      color: #ffffff;
     }
     
     @media print {
@@ -389,121 +289,82 @@
       }
       .page { 
         box-shadow: none;
-        padding: 10mm;
+        padding: 15mm;
       }
-      .instructions, h1, .subtitle, .section-title, .print-notes, .philosophy-box {
+      .instructions, h1, .subtitle, .design-notes {
         display: none;
+      }
+      .card, .card-verso {
+        border: none;
+        box-shadow: none;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <h1>Carte de Visite — ÉCOLE T3P <span class="version-tag">Premium</span></h1>
-    <p class="subtitle">Format 85 × 55 mm • Design élégant institutionnel • Finition haut de gamme</p>
+    <h1>Carte de Visite Institutionnelle</h1>
+    <p class="subtitle">Format 85 × 55 mm • Recto/Verso • Finition premium</p>
     
-    <h3 class="section-title">Karim KATI — Directeur</h3>
-    
-    <!-- Carte Karim KATI -->
-    <div class="cards-pair">
-      <!-- RECTO - IDENTITÉ PREMIUM -->
-      <div class="card-recto">
-        <div class="recto-content">
-          <!-- Bloc École (dominant) -->
-          <div>
-            <div class="recto-school-block">
-              <div class="recto-school-name">ÉCOLE T3P</div>
-              <div class="recto-school-status">Centre de formation agréé Préfecture</div>
-            </div>
-            <div class="recto-separator"></div>
+    <div class="cards-container">
+      <!-- RECTO — IDENTITÉ STATUTAIRE -->
+      <div class="card">
+        <div class="card-content">
+          <!-- Bloc 1 : Institution -->
+          <div class="institution-block">
+            <div class="school-name">École T3P</div>
+            <div class="accreditation">Centre de formation agréé Préfecture</div>
           </div>
           
-          <!-- Bloc Identité -->
-          <div>
-            <div class="recto-identity-block">
-              <div class="recto-name">Karim KATI</div>
-              <div class="recto-function">Directeur du centre de formation</div>
-            </div>
-            <div class="recto-specialties">Formation Taxi • VTC • VMDTR</div>
+          <!-- Séparateur -->
+          <div class="separator"></div>
+          
+          <!-- Bloc 2 : Identité -->
+          <div class="identity-block">
+            <div class="director-name">Karim KATI</div>
+            <div class="director-function">Directeur du centre de formation</div>
           </div>
+          
+          <!-- Bloc 3 : Spécialités -->
+          <div class="specialties">Formation Taxi • VTC • VMDTR</div>
         </div>
       </div>
       
-      <!-- VERSO - COORDONNÉES ÉLÉGANTES -->
+      <!-- VERSO — COORDONNÉES -->
       <div class="card-verso">
-        <!-- Coordonnées complètes -->
-        <div class="verso-contact-block">
-          <div class="verso-contact-line">
-            <span class="verso-contact-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-            </span>
-            <span class="verso-contact-text address">3 rue Corneille, 92120 Montrouge</span>
-          </div>
-          <div class="verso-contact-line">
-            <span class="verso-contact-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-              </svg>
-            </span>
-            <span class="verso-contact-text">01 88 75 05 55</span>
-          </div>
-          <div class="verso-contact-line">
-            <span class="verso-contact-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-            </span>
-            <span class="verso-contact-text">montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-contact-line">
-            <span class="verso-contact-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-            </span>
-            <span class="verso-contact-text">www.ecolet3p.fr</span>
-          </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="verso-footer">
-          <div class="verso-accreditation">
-            <span class="verso-accreditation-text">Centre agréé Préfecture</span>
-          </div>
-          <div class="verso-logo">
-            <span>T3P</span>
+        <div class="verso-content">
+          <div class="contact-line address">3 rue Corneille<br>92120 Montrouge</div>
+          <div class="contact-line">01 88 75 05 55</div>
+          <div class="contact-line">montrouge@ecolet3p.fr</div>
+          <div class="contact-line">www.ecolet3p.fr</div>
+          
+          <div class="verso-footer">
+            <div class="verso-accreditation">Centre agréé Préfecture</div>
           </div>
         </div>
       </div>
     </div>
     
-    <!-- Instructions -->
+    <!-- Instructions d'impression -->
     <div class="instructions">
-      <h3>Instructions d'impression premium</h3>
+      <h3>Spécifications d'impression</h3>
       <ul>
         <li><strong>Format :</strong> 85 × 55 mm (standard européen)</li>
-        <li><strong>Papier :</strong> 400g/m² couché mat ou Cotton Crest</li>
-        <li><strong>Impression :</strong> Recto/verso quadrichromie CMJN</li>
-        <li><strong>Finition :</strong> Pelliculage mat soft-touch + dorure à chaud sur le filet</li>
-        <li><strong>Option :</strong> Gaufrage du logo T3P au verso</li>
-        <li><strong>Couleurs :</strong> Forest Green #1B4D3E • Or #D4A853</li>
+        <li><strong>Papier :</strong> 350-400 g/m² couché mat ou coton</li>
+        <li><strong>Impression :</strong> Quadrichromie recto/verso</li>
+        <li><strong>Finition :</strong> Pelliculage mat soft-touch recommandé</li>
+        <li><strong>Couleur principale :</strong> Bleu nuit #1a365d</li>
+        <li><strong>Typographies :</strong> Cormorant Garamond (titres) + Inter (corps)</li>
       </ul>
-      
-      <div class="print-notes">
-        <strong>Conseil :</strong> Pour un rendu luxueux, optez pour un papier texturé ou coton avec pelliculage soft-touch. La dorure à chaud sur le filet du recto apportera une touche d'excellence.
-      </div>
     </div>
     
-    <div class="philosophy-box">
-      <h4>Une carte qui inspire confiance</h4>
+    <div class="design-notes">
+      <h4>Philosophie de conception</h4>
       <p>
-        Cette carte de visite premium allie <strong>élégance institutionnelle</strong> et <strong>sophistication visuelle</strong>. 
-        Le recto vert forêt avec sa ligne dorée exprime l'autorité d'un centre agréé Préfecture. 
-        Le verso crème offre une lisibilité parfaite des coordonnées. Chaque détail — typographie Playfair Display, 
-        icônes raffinées, dégradés subtils — a été pensé pour que le directeur soit fier de la remettre 
-        à ses interlocuteurs les plus exigeants.
+        Cette carte incarne l'<strong>autorité calme</strong> d'un centre de formation reconnu. 
+        La hiérarchie en trois temps — Institution, Identité, Spécialités — guide naturellement 
+        le regard. Les espaces généreux et la retenue typographique créent une impression 
+        de stabilité et de professionnalisme institutionnel.
       </p>
     </div>
   </div>
