@@ -284,8 +284,10 @@
     
     /* CTA Section */
     .cta-section {
-      padding: 0 28px 55px;
+      /* Espace de sécurité pour éviter le recouvrement par le footer (position:absolute) */
+      padding: 0 28px 92px;
       background: #F5EBD7;
+      position: relative;
     }
     
     .cta-box {
@@ -331,6 +333,10 @@
       padding: 8px;
       border-radius: 8px;
       text-align: center;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      flex-shrink: 0;
     }
     
     .cta-qr img {
@@ -353,18 +359,19 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 12px 28px;
+      padding: 10px 28px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
       color: #F5EBD7;
-      font-size: 9px;
+      font-size: 8.5px;
+      line-height: 1.15;
     }
     
     .footer-left {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
     }
     
     .footer-address {
@@ -373,7 +380,8 @@
     
     .footer-metro {
       opacity: 0.7;
-      font-size: 8px;
+      font-size: 7.5px;
+      line-height: 1.15;
     }
     
     .footer-right {
@@ -381,7 +389,7 @@
     }
     
     .footer-cert {
-      font-size: 8px;
+      font-size: 7.5px;
       opacity: 0.8;
     }
     
@@ -714,10 +722,16 @@
               <div class="cta-phone">07 83 78 76 63</div>
               <div class="cta-website">www.ecolet3p.fr</div>
             </div>
-            <div class="cta-qr">
-              <img src="qr-whatsapp.png" alt="WhatsApp">
+            <a
+              class="cta-qr"
+              href="https://wa.me/33783787663"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ouvrir WhatsApp (07 83 78 76 63)"
+            >
+              <img src="qr-whatsapp.png" alt="QR code WhatsApp (07 83 78 76 63)">
               <div class="cta-qr-label">WhatsApp</div>
-            </div>
+            </a>
           </div>
         </div>
         
