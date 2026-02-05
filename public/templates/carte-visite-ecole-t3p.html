@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carte de Visite V2 - ECOLE T3P</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Carte de Visite V3 - ECOLE T3P</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -52,108 +52,123 @@
       border-bottom: 2px solid #D4A853;
     }
     
+    .version-tag {
+      display: inline-block;
+      background: #D4A853;
+      color: #1B4D3E;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      font-weight: 700;
+    }
+    
     /* Grille pour impression recto/verso côte à côte */
     .cards-pair {
       display: flex;
       gap: 10mm;
-      margin-bottom: 8mm;
+      margin-bottom: 10mm;
       justify-content: center;
     }
     
-    /* === RECTO V2 (Fond Vert Forêt + mention agréé) === */
+    /* === RECTO V3 - IDENTITÉ PURE === */
     .card-recto {
       width: 85mm;
       height: 55mm;
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
+      background: linear-gradient(145deg, #1B4D3E 0%, #143D31 100%);
       border-radius: 3mm;
-      padding: 5mm 6mm 6mm;
+      padding: 6mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       color: #F5EBD7;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
       position: relative;
       overflow: hidden;
     }
     
+    /* Barre dorée en bas */
     .card-recto::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 3mm;
-      background: linear-gradient(90deg, #D4A853, #E4BE73, #D4A853);
+      height: 2.5mm;
+      background: linear-gradient(90deg, #C49843, #E4BE73, #D4A853);
     }
     
-    .recto-badge {
-      position: absolute;
-      top: 4mm;
-      right: 5mm;
-      font-size: 1.8mm;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      opacity: 0.7;
-      font-weight: 500;
-    }
-    
-    .recto-header {
+    /* Bloc 1 : Nom de l'école - DOMINANT */
+    .recto-brand-block {
       display: flex;
       align-items: center;
       gap: 4mm;
-      margin-top: 2mm;
     }
     
-    .recto-logo {
-      width: 12mm;
-      height: 12mm;
+    .recto-logo-circle {
+      width: 14mm;
+      height: 14mm;
       background: #F5EBD7;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 4mm;
-      color: #1B4D3E;
       flex-shrink: 0;
     }
     
-    .recto-brand {
-      flex: 1;
-    }
-    
-    .recto-company {
+    .recto-logo-circle span {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 4.5mm;
-      font-weight: 800;
+      font-weight: 900;
+      font-size: 5mm;
+      color: #1B4D3E;
+      letter-spacing: -0.03em;
+    }
+    
+    .recto-brand-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 7mm;
+      font-weight: 900;
       letter-spacing: -0.02em;
-      margin-bottom: 1mm;
+      line-height: 1;
     }
     
-    .recto-tagline {
-      font-size: 2.2mm;
-      opacity: 0.8;
-      font-weight: 500;
+    /* Bloc 2 : Positionnement */
+    .recto-status {
+      font-size: 2.5mm;
+      font-weight: 600;
+      color: #D4A853;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 3mm;
     }
     
-    .recto-person {
-      padding-bottom: 4mm;
+    /* Bloc 3 : Nom et fonction */
+    .recto-person-block {
+      margin-bottom: 4mm;
     }
     
     .recto-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 3.5mm;
+      font-size: 4mm;
       font-weight: 700;
       margin-bottom: 1mm;
     }
     
     .recto-function {
       font-size: 2.5mm;
-      opacity: 0.7;
+      opacity: 0.75;
+      font-weight: 500;
     }
     
-    /* === VERSO V2 (Fond Crème - visibilité renforcée) === */
+    /* Bloc 4 : Spécialités */
+    .recto-specialties {
+      font-size: 2.3mm;
+      opacity: 0.6;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    
+    /* === VERSO V3 - ACTION UNIQUE === */
     .card-verso {
       width: 85mm;
       height: 55mm;
@@ -163,130 +178,99 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    
-    .verso-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 2.2mm;
-    }
-    
-    .verso-item {
-      display: flex;
       align-items: center;
-      gap: 3mm;
-      font-size: 2.5mm;
-      color: #4B463C;
-    }
-    
-    /* Mise en évidence téléphone et site web */
-    .verso-item.highlight {
-      font-size: 2.8mm;
-      font-weight: 600;
-      color: #1B4D3E;
-    }
-    
-    .verso-item.whatsapp {
-      background: linear-gradient(90deg, rgba(37, 211, 102, 0.1), transparent);
-      padding: 1.5mm 2mm;
-      border-radius: 2mm;
-      margin-left: -2mm;
-    }
-    
-    .verso-item.highlight .verso-icon {
-      color: #D4A853;
-    }
-    
-    .verso-icon {
-      width: 4mm;
-      height: 4mm;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1B4D3E;
-      font-size: 3mm;
-    }
-    
-    .verso-certif {
-      margin-top: 3mm;
-      padding-top: 2.5mm;
-      border-top: 1px solid #E8DCC4;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
       text-align: center;
+      position: relative;
     }
     
-    .verso-certif-text {
-      font-size: 2mm;
-      color: #898172;
-      font-weight: 500;
-    }
-    
-    .verso-certif-badge {
+    /* Message principal - DOMINANT */
+    .verso-headline {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.5mm;
+      font-size: 4.5mm;
+      font-weight: 800;
       color: #1B4D3E;
-      font-weight: 700;
-      margin-top: 1mm;
+      margin-bottom: 3mm;
+      line-height: 1.2;
     }
     
-    /* === VERSO ALTERNATIF avec QR Code === */
-    .card-verso-qr {
-      width: 85mm;
-      height: 55mm;
-      background: #F5EBD7;
-      border-radius: 3mm;
-      padding: 5mm 6mm;
+    /* Numéro WhatsApp - TRÈS VISIBLE */
+    .verso-whatsapp-number {
       display: flex;
-      gap: 4mm;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    
-    .verso-qr-left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2mm;
-    }
-    
-    .verso-qr-left .verso-item {
-      font-size: 2.3mm;
-    }
-    
-    .verso-qr-left .verso-item.highlight {
-      font-size: 2.6mm;
-    }
-    
-    .verso-qr-right {
-      width: 24mm;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2mm;
-    }
-    
-    .qr-placeholder {
-      width: 20mm;
-      height: 20mm;
-      background: white;
-      border: 1px solid #E0DCD4;
+      gap: 2.5mm;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      padding: 2.5mm 5mm;
       border-radius: 2mm;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2mm;
-      color: #898172;
-      text-align: center;
-      padding: 2mm;
+      margin-bottom: 3mm;
     }
     
-    .qr-label {
-      font-size: 1.8mm;
+    .verso-whatsapp-icon {
+      width: 5mm;
+      height: 5mm;
+    }
+    
+    .verso-whatsapp-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: white;
+    }
+    
+    .verso-whatsapp-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 4.5mm;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    
+    /* QR Code unique */
+    .verso-qr-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5mm;
+    }
+    
+    .verso-qr {
+      width: 18mm;
+      height: 18mm;
+      background: white;
+      border-radius: 1.5mm;
+      padding: 1mm;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    
+    .verso-qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .verso-qr-label {
+      font-size: 2mm;
       color: #1B4D3E;
       font-weight: 600;
-      text-align: center;
-      line-height: 1.3;
+    }
+    
+    /* Infos secondaires - PETITES, EN BAS */
+    .verso-secondary {
+      position: absolute;
+      bottom: 3mm;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 4mm;
+      font-size: 2mm;
+      color: #6B6B5A;
+    }
+    
+    .verso-secondary span {
+      display: flex;
+      align-items: center;
+      gap: 1mm;
     }
     
     /* Instructions */
@@ -314,54 +298,6 @@
       margin: 6px 0;
     }
     
-    .specs {
-      margin-top: 20px;
-      padding: 15px;
-      background: white;
-      border: 1px solid #E0DCD4;
-      border-radius: 8px;
-    }
-    
-    .specs h4 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #1B4D3E;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-    
-    .specs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      font-size: 11px;
-    }
-    
-    .spec-item {
-      display: flex;
-      gap: 8px;
-    }
-    
-    .spec-label {
-      color: #898172;
-      min-width: 80px;
-    }
-    
-    .spec-value {
-      color: #1B4D3E;
-      font-weight: 600;
-    }
-    
-    .version-tag {
-      display: inline-block;
-      background: #1B4D3E;
-      color: #F5EBD7;
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 8px;
-      font-weight: 600;
-    }
-    
     .print-notes {
       margin-top: 15px;
       padding: 12px;
@@ -376,6 +312,27 @@
       color: #1B4D3E;
     }
     
+    .philosophy-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #1B4D3E;
+      color: #F5EBD7;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    
+    .philosophy-box h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #D4A853;
+    }
+    
+    .philosophy-box p {
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+    
     @media print {
       body { 
         background: white; 
@@ -385,7 +342,7 @@
         box-shadow: none;
         padding: 10mm;
       }
-      .instructions, .specs, h1, .subtitle, .section-title, .print-notes {
+      .instructions, h1, .subtitle, .section-title, .print-notes, .philosophy-box {
         display: none;
       }
     }
@@ -393,244 +350,142 @@
 </head>
 <body>
   <div class="page">
-    <h1>Cartes de Visite - ECOLE T3P <span class="version-tag">V2</span></h1>
-    <p class="subtitle">Format 85 × 55 mm • Recto vert forêt / Verso crème • Prêt pour impression</p>
+    <h1>Carte de Visite - ECOLE T3P <span class="version-tag">V3</span></h1>
+    <p class="subtitle">Format 85 × 55 mm • Design épuré orienté action • Une carte = Un message WhatsApp</p>
     
-    <h3 class="section-title">📇 Version Standard (Recto / Verso)</h3>
+    <h3 class="section-title">📇 Karim KATI - Directeur</h3>
     
-    <!-- Paire 1 : Karim KATI - Version avec QR vCard -->
+    <!-- Carte Karim KATI -->
     <div class="cards-pair">
+      <!-- RECTO - IDENTITÉ -->
       <div class="card-recto">
-        <span class="recto-badge">Centre de formation T3P agréé</span>
-        <div class="recto-header">
-          <div class="recto-logo">T3P</div>
-          <div class="recto-brand">
-            <div class="recto-company">ECOLE T3P</div>
-            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
+        <!-- Bloc 1 : Nom école (dominant) -->
+        <div>
+          <div class="recto-brand-block">
+            <div class="recto-logo-circle">
+              <span>T3P</span>
+            </div>
+            <div class="recto-brand-name">ÉCOLE T3P</div>
           </div>
+          <!-- Bloc 2 : Positionnement -->
+          <div class="recto-status">Centre de formation T3P agréé Préfecture</div>
         </div>
-        <div class="recto-person">
-          <div class="recto-name">KATI Karim</div>
-          <div class="recto-function">Directeur du Centre de Formation</div>
-        </div>
-      </div>
-      <div class="card-verso-qr">
-        <div class="verso-qr-left">
-          <div class="verso-item highlight whatsapp">
-            <span class="verso-icon">📱</span>
-            <span>07 83 78 76 63</span>
-          </div>
-          <div class="verso-item highlight">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">✉️</span>
-            <span>montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">📍</span>
-            <span>3 rue Corneille<br>92120 Montrouge</span>
-          </div>
-        </div>
-        <div class="verso-qr-right">
-          <div class="qr-placeholder">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BEGIN:VCARD%0AVERSION:3.0%0AN:KATI;Karim%0AFN:Karim KATI%0AORG:ECOLE T3P%0ATITLE:Directeur du Centre de Formation%0ATEL;TYPE=CELL:+33783787663%0AEMAIL:montrouge@ecolet3p.fr%0AADR;TYPE=WORK:;;3 rue Corneille;Montrouge;;92120;France%0AURL:https://www.ecolet3p.fr%0AEND:VCARD" alt="QR vCard" style="width: 100%; height: 100%; object-fit: contain;">
-          </div>
-          <div class="qr-label">Scannez pour<br>enregistrer le contact</div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Paire 2 : Modèle vierge -->
-    <div class="cards-pair">
-      <div class="card-recto">
-        <span class="recto-badge">Centre de formation T3P agréé</span>
-        <div class="recto-header">
-          <div class="recto-logo">T3P</div>
-          <div class="recto-brand">
-            <div class="recto-company">ECOLE T3P</div>
-            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
-          </div>
-        </div>
-        <div class="recto-person">
-          <div class="recto-name">[Nom du collaborateur]</div>
-          <div class="recto-function">[Fonction]</div>
-        </div>
-      </div>
-      <div class="card-verso">
-        <div class="verso-contact">
-          <div class="verso-item highlight">
-            <span class="verso-icon">📞</span>
-            <span>01 88 75 05 55</span>
-          </div>
-          <div class="verso-item highlight">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">✉️</span>
-            <span>montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">📍</span>
-            <span>3 rue Corneille, 92120 Montrouge</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">🚇</span>
-            <span>M° Mairie de Montrouge (Ligne 4)</span>
-          </div>
-        </div>
-        <div class="verso-certif">
-          <div class="verso-certif-text">Formations certifiées</div>
-          <div class="verso-certif-badge">RS5635 & RS5637</div>
-        </div>
-      </div>
-    </div>
-    
-    <h3 class="section-title">📱 Version Alternative avec QR Code</h3>
-    
-    <!-- Paire avec QR Code -->
-    <div class="cards-pair">
-      <div class="card-recto">
-        <span class="recto-badge">Centre de formation T3P agréé</span>
-        <div class="recto-header">
-          <div class="recto-logo">T3P</div>
-          <div class="recto-brand">
-            <div class="recto-company">ECOLE T3P</div>
-            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
-          </div>
-        </div>
-        <div class="recto-person">
+        
+        <!-- Bloc 3 : Nom et fonction -->
+        <div class="recto-person-block">
           <div class="recto-name">Karim KATI</div>
-          <div class="recto-function">Directeur</div>
+          <div class="recto-function">Directeur du centre de formation</div>
         </div>
+        
+        <!-- Bloc 4 : Spécialités -->
+        <div class="recto-specialties">Formation TAXI • VTC • VMDTR</div>
       </div>
-      <div class="card-verso-qr">
-        <div class="verso-qr-left">
-          <div class="verso-item highlight">
-            <span class="verso-icon">📞</span>
-            <span>01 88 75 05 55</span>
+      
+      <!-- VERSO - ACTION UNIQUE -->
+      <div class="card-verso">
+        <!-- Message principal (dominant) -->
+        <div class="verso-headline">Un message WhatsApp suffit</div>
+        
+        <!-- Numéro WhatsApp (très visible) -->
+        <div class="verso-whatsapp-number">
+          <div class="verso-whatsapp-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
           </div>
-          <div class="verso-item highlight">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">✉️</span>
-            <span>montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">📍</span>
-            <span>3 rue Corneille, 92120 Montrouge</span>
-          </div>
+          <span class="verso-whatsapp-text">07 83 78 76 63</span>
         </div>
-        <div class="verso-qr-right">
-          <div class="qr-placeholder">
-            QR Code<br>à générer
+        
+        <!-- QR Code unique vers WhatsApp -->
+        <div class="verso-qr-block">
+          <div class="verso-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/33783787663?text=Bonjour,%20je%20viens%20de%20la%20carte%20de%20visite%20%C3%89cole%20T3P." alt="QR WhatsApp">
           </div>
-          <div class="qr-label">Demandez<br>votre devis</div>
+          <div class="verso-qr-label">Scannez pour nous écrire</div>
+        </div>
+        
+        <!-- Infos secondaires (petites, en bas) -->
+        <div class="verso-secondary">
+          <span>🌐 www.ecolet3p.fr</span>
+          <span>📍 Montrouge (92)</span>
         </div>
       </div>
     </div>
     
-    <!-- Paire vierge avec QR -->
+    <h3 class="section-title">📋 Version Générique (Collaborateur)</h3>
+    
+    <!-- Carte Générique -->
     <div class="cards-pair">
+      <!-- RECTO - IDENTITÉ -->
       <div class="card-recto">
-        <span class="recto-badge">Centre de formation T3P agréé</span>
-        <div class="recto-header">
-          <div class="recto-logo">T3P</div>
-          <div class="recto-brand">
-            <div class="recto-company">ECOLE T3P</div>
-            <div class="recto-tagline">Formation VTC • Taxi • VMDTR</div>
+        <div>
+          <div class="recto-brand-block">
+            <div class="recto-logo-circle">
+              <span>T3P</span>
+            </div>
+            <div class="recto-brand-name">ÉCOLE T3P</div>
           </div>
+          <div class="recto-status">Centre de formation T3P agréé Préfecture</div>
         </div>
-        <div class="recto-person">
-          <div class="recto-name">[Nom du collaborateur]</div>
+        
+        <div class="recto-person-block">
+          <div class="recto-name">[Prénom NOM]</div>
           <div class="recto-function">[Fonction]</div>
         </div>
+        
+        <div class="recto-specialties">Formation TAXI • VTC • VMDTR</div>
       </div>
-      <div class="card-verso-qr">
-        <div class="verso-qr-left">
-          <div class="verso-item highlight">
-            <span class="verso-icon">📞</span>
-            <span>01 88 75 05 55</span>
+      
+      <!-- VERSO - ACTION UNIQUE -->
+      <div class="card-verso">
+        <div class="verso-headline">Un message WhatsApp suffit</div>
+        
+        <div class="verso-whatsapp-number">
+          <div class="verso-whatsapp-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
           </div>
-          <div class="verso-item highlight">
-            <span class="verso-icon">🌐</span>
-            <span>www.ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">✉️</span>
-            <span>montrouge@ecolet3p.fr</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">📍</span>
-            <span>3 rue Corneille, 92120 Montrouge</span>
-          </div>
+          <span class="verso-whatsapp-text">07 83 78 76 63</span>
         </div>
-        <div class="verso-qr-right">
-          <div class="qr-placeholder">
-            QR Code<br>à générer
+        
+        <div class="verso-qr-block">
+          <div class="verso-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/33783787663?text=Bonjour,%20je%20viens%20de%20la%20carte%20de%20visite%20%C3%89cole%20T3P." alt="QR WhatsApp">
           </div>
-          <div class="qr-label">Demandez<br>votre devis</div>
+          <div class="verso-qr-label">Scannez pour nous écrire</div>
+        </div>
+        
+        <div class="verso-secondary">
+          <span>🌐 www.ecolet3p.fr</span>
+          <span>📍 Montrouge (92)</span>
         </div>
       </div>
     </div>
     
-    <div class="print-notes">
-      <strong>🔗 URL pour le QR Code :</strong> https://www.ecolet3p.fr/contact (formulaire de devis)<br>
-      Générez le QR via <a href="https://www.qr-code-generator.com/" target="_blank">qr-code-generator.com</a> et remplacez le placeholder.
-    </div>
-    
+    <!-- Instructions -->
     <div class="instructions">
-      <h3>📋 Instructions d'impression V2</h3>
+      <h3>📝 Instructions d'impression</h3>
       <ul>
-        <li><strong>Format :</strong> A4 (pour découpe) ou directement 85 × 55 mm</li>
-        <li><strong>Papier recommandé :</strong> Couché mat 350g/m² (optimal pour les couleurs)</li>
-        <li><strong>Finition :</strong> Pelliculage mat + vernis sélectif sur le logo (optionnel)</li>
-        <li><strong>Zones de sécurité :</strong> 3mm de marge intérieure respectées</li>
-        <li><strong>Fond perdu :</strong> Prévoir 2mm si impression professionnelle</li>
-        <li>Utilisez Ctrl+P (ou Cmd+P) pour imprimer ou enregistrer en PDF</li>
+        <li><strong>Format :</strong> 85 × 55 mm (standard européen)</li>
+        <li><strong>Papier :</strong> 350g/m² couché mat ou satiné</li>
+        <li><strong>Impression :</strong> Recto/verso, couleurs CMJN</li>
+        <li><strong>Finition recommandée :</strong> Pelliculage mat soft-touch</li>
+        <li><strong>Quantité minimum :</strong> 250 exemplaires</li>
       </ul>
       
-      <div class="specs">
-        <h4>Spécifications techniques (Charte V3.0)</h4>
-        <div class="specs-grid">
-          <div class="spec-item">
-            <span class="spec-label">Dimensions :</span>
-            <span class="spec-value">85 × 55 mm</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Recto fond :</span>
-            <span class="spec-value">#1B4D3E (Forest)</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Verso fond :</span>
-            <span class="spec-value">#F5EBD7 (Cream)</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Filet décoratif :</span>
-            <span class="spec-value">#D4A853 (Gold)</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Typo nom :</span>
-            <span class="spec-value">Plus Jakarta Sans Bold</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Typo contact :</span>
-            <span class="spec-value">Inter Semi-Bold 10pt</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">Corps min :</span>
-            <span class="spec-value">7pt (lisible impression)</span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">QR Code :</span>
-            <span class="spec-value">20×20mm (scannable)</span>
-          </div>
-        </div>
+      <div class="print-notes">
+        <strong>💡 Astuce :</strong> Activez "Graphiques d'arrière-plan" dans les paramètres d'impression (Ctrl+P) pour conserver les couleurs du fond.
       </div>
+    </div>
+    
+    <div class="philosophy-box">
+      <h4>🎯 Philosophie de design V3</h4>
+      <p>
+        <strong>Une carte = Une action.</strong> Cette version épurée supprime toute friction cognitive. 
+        Le recto présente l'identité professionnelle sans distraction. Le verso guide vers un seul objectif : 
+        envoyer un message WhatsApp. Le QR code pré-remplit le message pour maximiser le taux de conversion.
+      </p>
     </div>
   </div>
 </body>
