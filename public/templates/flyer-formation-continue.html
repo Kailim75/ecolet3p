@@ -51,167 +51,137 @@
     
     /* ==================== RECTO ==================== */
     
-    .recto .header {
+    /* ZONE 1 - Header immédiatement compréhensible */
+    .zone-1 {
       background: #1B4D3E;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .logo {
-      width: 40px;
-      height: 40px;
-      background: #F5EBD7;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 900;
-      font-size: 11px;
-      color: #1B4D3E;
-    }
-    
-    .brand {
-      color: #F5EBD7;
-    }
-    
-    .brand-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    
-    .brand-tagline {
-      font-size: 8px;
-      opacity: 0.8;
-      font-weight: 500;
-      margin-top: 1px;
-    }
-    
-    .header-badge {
-      background: rgba(212, 168, 83, 0.2);
-      color: #D4A853;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 8px;
-      font-weight: 700;
-      border: 1px solid rgba(212, 168, 83, 0.4);
+      padding: 20px 24px;
       text-align: center;
+    }
+    
+    .zone-1-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: #F5EBD7;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
     }
     
-    /* Hero Section - Optimisé psychologiquement */
-    .recto .hero {
-      background: #1B4D3E;
-      padding: 24px 28px 28px;
-      text-align: center;
-    }
-    
-    .hero h1 {
+    .zone-1-subtitle {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 28px;
-      font-weight: 900;
-      color: #F5EBD7;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #D4A853;
+      margin-bottom: 8px;
     }
     
-    .hero-benefit {
-      display: inline-block;
-      background: rgba(212, 168, 83, 0.15);
-      border: 1px solid rgba(212, 168, 83, 0.3);
-      border-radius: 20px;
-      padding: 8px 20px;
+    .zone-1-targets {
+      font-size: 12px;
+      color: rgba(245, 235, 215, 0.9);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+    
+    /* ZONE 2 - Accroche émotionnelle */
+    .zone-2 {
+      background: #F5EBD7;
+      padding: 18px 24px;
+      text-align: center;
+      border-bottom: 1px solid rgba(27, 77, 62, 0.1);
+    }
+    
+    .zone-2-hook {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #1B4D3E;
       margin-bottom: 12px;
     }
     
-    .hero-benefit span {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
+    .zone-2-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+    
+    .zone-2-check {
+      font-size: 11px;
+      color: #4B463C;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .zone-2-check .check-icon {
+      color: #1B4D3E;
       font-weight: 700;
-      color: #D4A853;
     }
     
-    .hero-subtitle {
-      font-size: 12px;
-      color: rgba(245, 235, 215, 0.85);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-    
-    /* Bloc Simplicité - 3 avantages clés */
-    .simplicity-section {
-      padding: 16px 24px;
+    /* ZONE 3 - Simplicité anti-friction */
+    .zone-3 {
       background: #F5EBD7;
+      padding: 14px 24px;
     }
     
-    .simplicity-grid {
+    .zone-3-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
     }
     
-    .simplicity-item {
+    .zone-3-item {
       background: white;
-      padding: 14px 10px;
-      border-radius: 10px;
+      padding: 10px 6px;
+      border-radius: 8px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.06);
+      box-shadow: 0 2px 6px rgba(27, 77, 62, 0.06);
     }
     
-    .simplicity-icon {
-      font-size: 24px;
-      margin-bottom: 6px;
+    .zone-3-icon {
+      font-size: 18px;
+      margin-bottom: 4px;
     }
     
-    .simplicity-value {
+    .zone-3-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
+      font-size: 10px;
       font-weight: 800;
       color: #1B4D3E;
       line-height: 1.2;
     }
     
-    .simplicity-label {
+    .zone-3-note {
       font-size: 9px;
       color: #6B6560;
-      font-weight: 600;
-      margin-top: 3px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      text-align: center;
+      line-height: 1.4;
+      font-style: italic;
     }
     
-    /* Tarifs - Simplifié */
-    .pricing-section {
+    /* ZONE 4 - Tarifs encadrés */
+    .zone-4 {
       padding: 0 24px 14px;
       background: #F5EBD7;
     }
     
-    .pricing-box {
+    .zone-4-box {
       background: white;
+      border: 2px solid #1B4D3E;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(27, 77, 62, 0.08);
+      box-shadow: 0 4px 12px rgba(27, 77, 62, 0.1);
     }
     
-    .pricing-header {
+    .zone-4-header {
       background: #1B4D3E;
       padding: 10px 16px;
       text-align: center;
     }
     
-    .pricing-header-text {
+    .zone-4-header-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 11px;
       font-weight: 700;
@@ -220,120 +190,50 @@
       letter-spacing: 0.05em;
     }
     
-    .pricing-content {
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .pricing-main {
-      text-align: left;
-    }
-    
-    .pricing-from {
-      font-size: 10px;
-      color: #898172;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-    
-    .pricing-amount {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 32px;
-      font-weight: 900;
-      color: #1B4D3E;
-      line-height: 1;
-    }
-    
-    .pricing-amount span {
-      font-size: 16px;
-      font-weight: 700;
-    }
-    
-    .pricing-list {
-      text-align: right;
-    }
-    
-    .pricing-item {
-      font-size: 10px;
-      color: #4B463C;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 6px;
-    }
-    
-    .pricing-item:last-child {
-      margin-bottom: 0;
-    }
-    
-    .pricing-item-label {
-      font-weight: 600;
-      color: #1B4D3E;
-    }
-    
-    .pricing-item-price {
-      background: rgba(27, 77, 62, 0.1);
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-weight: 700;
-      color: #1B4D3E;
-    }
-    
-    /* Réassurance - Badge conformité */
-    .reassurance-section {
-      padding: 0 24px 14px;
-      background: #F5EBD7;
-    }
-    
-    .reassurance-box {
-      background: linear-gradient(135deg, #1B4D3E 0%, #2A6B52 100%);
-      border-radius: 10px;
+    .zone-4-content {
       padding: 12px 16px;
+    }
+    
+    .zone-4-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(27, 77, 62, 0.1);
     }
     
-    .reassurance-icon {
-      width: 36px;
-      height: 36px;
-      background: rgba(245, 235, 215, 0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
+    .zone-4-row:last-child {
+      border-bottom: none;
     }
     
-    .reassurance-text {
-      color: #F5EBD7;
-      flex: 1;
-    }
-    
-    .reassurance-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+    .zone-4-label {
       font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 2px;
+      color: #4B463C;
+      font-weight: 600;
     }
     
-    .reassurance-desc {
-      font-size: 10px;
-      opacity: 0.85;
-      line-height: 1.4;
+    .zone-4-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #1B4D3E;
     }
     
-    /* CTA Section */
-    .cta-section {
-      padding: 0 24px 80px;
+    .zone-4-note {
+      text-align: center;
+      font-size: 9px;
+      color: #898172;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    
+    /* ZONE 7 - CTA Recto */
+    .zone-7-recto {
+      padding: 0 24px 70px;
       background: #F5EBD7;
     }
     
-    .cta-box {
+    .zone-7-box {
       background: #1B4D3E;
       color: #F5EBD7;
       padding: 14px 16px;
@@ -345,36 +245,35 @@
       box-shadow: 0 4px 16px rgba(27, 77, 62, 0.3);
     }
     
-    .cta-left {
+    .zone-7-left {
       flex: 1;
     }
     
-    .cta-title {
-      font-size: 9px;
+    .zone-7-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
       font-weight: 600;
       margin-bottom: 4px;
-      opacity: 0.8;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      opacity: 0.9;
     }
     
-    .cta-phone {
+    .zone-7-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 900;
       color: #D4A853;
       margin-bottom: 2px;
     }
     
-    .cta-response {
-      font-size: 10px;
+    .zone-7-response {
+      font-size: 9px;
       opacity: 0.85;
       display: flex;
       align-items: center;
       gap: 4px;
     }
     
-    .cta-response-badge {
+    .zone-7-badge {
       background: #25D366;
       color: white;
       padding: 2px 6px;
@@ -383,44 +282,41 @@
       font-weight: 700;
     }
     
-    .cta-qr {
+    .zone-7-qr {
       background: #F5EBD7;
-      padding: 8px;
+      padding: 6px;
       border-radius: 8px;
       text-align: center;
       text-decoration: none;
-      color: inherit;
       flex-shrink: 0;
     }
     
-    .cta-qr img {
-      width: 48px;
-      height: 48px;
+    .zone-7-qr img {
+      width: 38px;
+      height: 38px;
       border-radius: 4px;
     }
     
-    .cta-qr-label {
+    .zone-7-qr-label {
       font-size: 7px;
       font-weight: 700;
-      margin-top: 3px;
+      margin-top: 2px;
       color: #1B4D3E;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
     }
     
-    /* Footer */
+    /* Footer Recto */
     .recto .footer {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 10px 24px;
+      padding: 8px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #F5EBD7;
-      font-size: 8px;
+      font-size: 7px;
     }
     
     .footer-left {
@@ -433,9 +329,9 @@
       font-weight: 600;
     }
     
-    .footer-metro {
+    .footer-siret {
       opacity: 0.7;
-      font-size: 7px;
+      font-size: 6px;
     }
     
     .footer-right {
@@ -467,13 +363,28 @@
       opacity: 0.8;
     }
     
+    .logo-small {
+      width: 32px;
+      height: 32px;
+      background: #F5EBD7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: 9px;
+      color: #1B4D3E;
+    }
+    
     .verso .content {
-      padding: 18px 24px;
-      padding-bottom: 70px;
+      padding: 16px 24px;
+      padding-bottom: 65px;
       background: #F5EBD7;
     }
     
-    .section-block {
+    /* ZONE 5 - Contenu formation */
+    .zone-5 {
       margin-bottom: 14px;
     }
     
@@ -486,18 +397,15 @@
       padding-bottom: 4px;
       border-bottom: 2px solid #D4A853;
       display: inline-block;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
     
-    /* Programme Grid - Plus concret */
-    .programme-grid {
+    .zone-5-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
     
-    .programme-item {
+    .zone-5-item {
       background: white;
       padding: 12px 14px;
       border-radius: 8px;
@@ -506,7 +414,7 @@
       gap: 10px;
     }
     
-    .programme-icon {
+    .zone-5-icon {
       width: 28px;
       height: 28px;
       background: rgba(27, 77, 62, 0.1);
@@ -518,81 +426,63 @@
       flex-shrink: 0;
     }
     
-    .programme-text {
+    .zone-5-text {
       font-size: 10px;
       color: #4B463C;
       line-height: 1.4;
     }
     
-    .programme-text strong {
+    .zone-5-text strong {
       color: #1B4D3E;
       font-weight: 700;
       display: block;
       margin-bottom: 2px;
     }
     
-    /* Bloc "Vous repartez avec" */
-    .outcome-section {
-      background: linear-gradient(135deg, #D4A853 0%, #C49A48 100%);
-      padding: 14px 16px;
-      border-radius: 10px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-    
-    .outcome-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 4px;
-    }
-    
-    .outcome-desc {
-      font-size: 10px;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.4;
-    }
-    
-    /* Practical Info */
-    .practical-section {
+    /* ZONE 6 - Infos pratiques */
+    .zone-6 {
       background: white;
       padding: 12px 16px;
       border-radius: 10px;
       margin-bottom: 14px;
     }
     
-    .practical-grid {
+    .zone-6-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
     
-    .practical-item {
+    .zone-6-item {
       text-align: center;
     }
     
-    .practical-label {
+    .zone-6-icon {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    
+    .zone-6-label {
       font-size: 8px;
       color: #898172;
       text-transform: uppercase;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
     }
     
-    .practical-value {
+    .zone-6-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: #1B4D3E;
-      margin-top: 3px;
+      margin-top: 2px;
     }
     
-    /* CTA Verso */
-    .cta-verso {
+    /* ZONE 7 - CTA Verso */
+    .zone-7-verso {
       background: #1B4D3E;
       color: #F5EBD7;
-      padding: 14px 18px;
+      padding: 14px 16px;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -600,49 +490,49 @@
       gap: 14px;
     }
     
-    .cta-verso-left {
+    .zone-7-verso-left {
       flex: 1;
     }
     
-    .cta-verso-title {
+    .zone-7-verso-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       margin-bottom: 4px;
     }
     
-    .cta-verso-phone {
+    .zone-7-verso-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900;
       color: #D4A853;
       margin-bottom: 2px;
     }
     
-    .cta-verso-email {
+    .zone-7-verso-info {
       font-size: 9px;
       opacity: 0.85;
     }
     
     .qr-box {
       background: white;
-      padding: 8px;
+      padding: 6px;
       border-radius: 8px;
       text-align: center;
     }
     
     .qr-code {
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       border-radius: 4px;
-      margin-bottom: 3px;
     }
     
     .qr-label {
       font-size: 7px;
       color: #1B4D3E;
       font-weight: 600;
-      line-height: 1.3;
+      margin-top: 2px;
+      line-height: 1.2;
     }
     
     /* Footer Verso */
@@ -652,22 +542,22 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 10px 24px;
+      padding: 8px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #F5EBD7;
-      font-size: 8px;
+      font-size: 7px;
     }
     
     .footer-legal {
-      opacity: 0.7;
+      opacity: 0.8;
     }
     
     .footer-website {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 10px;
+      font-size: 9px;
       color: #D4A853;
     }
     
@@ -693,110 +583,94 @@
     <div>
       <div class="page-label">▼ RECTO (Face avant)</div>
       <div class="flyer-page recto">
-        <!-- Header -->
-        <div class="header">
-          <div class="logo-section">
-            <div class="logo">T3P</div>
-            <div class="brand">
-              <div class="brand-name">ECOLE T3P</div>
-              <div class="brand-tagline">Centre agréé Préfecture</div>
-            </div>
-          </div>
-          <div class="header-badge">
-            ✓ Agréé Préfecture
-          </div>
+        
+        <!-- ZONE 1 - Immédiatement compréhensible -->
+        <div class="zone-1">
+          <div class="zone-1-title">Formation Continue Obligatoire</div>
+          <div class="zone-1-subtitle">14h – 2 jours</div>
+          <div class="zone-1-targets">Taxi • VTC • VMDTR</div>
         </div>
         
-        <!-- Hero - Accroche psychologique -->
-        <div class="hero">
-          <h1>Gardez votre carte pro<br>en règle</h1>
-          <div class="hero-benefit">
-            <span>2 jours → 5 ans de tranquillité</span>
-          </div>
-          <p class="hero-subtitle">Formation continue obligatoire pour Taxi, VTC et VMDTR</p>
-        </div>
-        
-        <!-- Bloc Simplicité - 3 avantages -->
-        <div class="simplicity-section">
-          <div class="simplicity-grid">
-            <div class="simplicity-item">
-              <div class="simplicity-icon">📅</div>
-              <div class="simplicity-value">2 jours</div>
-              <div class="simplicity-label">C'est tout</div>
+        <!-- ZONE 2 - Accroche émotionnelle -->
+        <div class="zone-2">
+          <div class="zone-2-hook">2 jours → 5 ans de tranquillité</div>
+          <div class="zone-2-checks">
+            <div class="zone-2-check">
+              <span class="check-icon">✔</span>
+              <span>Renouvellement de la carte professionnelle</span>
             </div>
-            <div class="simplicity-item">
-              <div class="simplicity-icon">📜</div>
-              <div class="simplicity-value">Attestation</div>
-              <div class="simplicity-label">Immédiate</div>
+            <div class="zone-2-check">
+              <span class="check-icon">✔</span>
+              <span>Centre agréé Préfecture</span>
             </div>
-            <div class="simplicity-item">
-              <div class="simplicity-icon">🚇</div>
-              <div class="simplicity-value">Métro L4</div>
-              <div class="simplicity-label">Montrouge</div>
+            <div class="zone-2-check">
+              <span class="check-icon">✔</span>
+              <span>Attestation officielle délivrée à l'issue de la formation</span>
             </div>
           </div>
         </div>
         
-        <!-- Tarifs simplifiés -->
-        <div class="pricing-section">
-          <div class="pricing-box">
-            <div class="pricing-header">
-              <span class="pricing-header-text">Tarifs tout compris</span>
+        <!-- ZONE 3 - Simplicité anti-friction -->
+        <div class="zone-3">
+          <div class="zone-3-grid">
+            <div class="zone-3-item">
+              <div class="zone-3-icon">🗓</div>
+              <div class="zone-3-value">2 jours<br>seulement</div>
             </div>
-            <div class="pricing-content">
-              <div class="pricing-main">
-                <div class="pricing-from">À partir de</div>
-                <div class="pricing-amount">170€ <span>TTC</span></div>
+            <div class="zone-3-item">
+              <div class="zone-3-icon">📜</div>
+              <div class="zone-3-value">Attestation<br>conforme</div>
+            </div>
+            <div class="zone-3-item">
+              <div class="zone-3-icon">⏱</div>
+              <div class="zone-3-value">Valable<br>5 ans</div>
+            </div>
+            <div class="zone-3-item">
+              <div class="zone-3-icon">🚫</div>
+              <div class="zone-3-value">Aucun<br>examen</div>
+            </div>
+          </div>
+          <div class="zone-3-note">Formation conforme aux exigences réglementaires pour continuer à exercer sans interruption.</div>
+        </div>
+        
+        <!-- ZONE 4 - Tarifs encadrés -->
+        <div class="zone-4">
+          <div class="zone-4-box">
+            <div class="zone-4-header">
+              <span class="zone-4-header-text">Tarifs – Formation Continue Obligatoire</span>
+            </div>
+            <div class="zone-4-content">
+              <div class="zone-4-row">
+                <span class="zone-4-label">Formation Continue VTC (14h)</span>
+                <span class="zone-4-price">170 € TTC</span>
               </div>
-              <div class="pricing-list">
-                <div class="pricing-item">
-                  <span class="pricing-item-label">VTC</span>
-                  <span class="pricing-item-price">170€</span>
-                </div>
-                <div class="pricing-item">
-                  <span class="pricing-item-label">Taxi</span>
-                  <span class="pricing-item-price">239€</span>
-                </div>
-                <div class="pricing-item">
-                  <span class="pricing-item-label">VMDTR</span>
-                  <span class="pricing-item-price">239€</span>
-                </div>
+              <div class="zone-4-row">
+                <span class="zone-4-label">Formation Continue Taxi (14h)</span>
+                <span class="zone-4-price">239 € TTC</span>
               </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Réassurance -->
-        <div class="reassurance-section">
-          <div class="reassurance-box">
-            <div class="reassurance-icon">✓</div>
-            <div class="reassurance-text">
-              <div class="reassurance-title">Attestation conforme délivrée le jour même</div>
-              <div class="reassurance-desc">Acceptée par toutes les préfectures pour le renouvellement de votre carte</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- CTA -->
-        <div class="cta-section">
-          <div class="cta-box">
-            <div class="cta-left">
-              <div class="cta-title">Réservez en 30 secondes</div>
-              <div class="cta-phone">07 83 78 76 63</div>
-              <div class="cta-response">
-                <span class="cta-response-badge">WhatsApp</span>
-                <span>Réponse en moins de 2h</span>
+              <div class="zone-4-row">
+                <span class="zone-4-label">Formation Continue VMDTR (14h)</span>
+                <span class="zone-4-price">239 € TTC</span>
               </div>
             </div>
-            <a
-              class="cta-qr"
-              href="https://wa.me/33783787663"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ouvrir WhatsApp"
-            >
+            <div class="zone-4-note">Prix tout compris – attestation incluse</div>
+          </div>
+        </div>
+        
+        <!-- ZONE 7 - CTA Recto -->
+        <div class="zone-7-recto">
+          <div class="zone-7-box">
+            <div class="zone-7-left">
+              <div class="zone-7-title">Réservez votre formation en 30 secondes</div>
+              <div class="zone-7-phone">07 83 78 76 63</div>
+              <div class="zone-7-response">
+                <span class="zone-7-badge">WhatsApp</span>
+                <span>Réponse rapide</span>
+              </div>
+            </div>
+            <a class="zone-7-qr" href="https://wa.me/33783787663" target="_blank" rel="noopener noreferrer">
               <img src="qr-whatsapp.png" alt="QR WhatsApp">
-              <div class="cta-qr-label">Scannez-moi</div>
+              <div class="zone-7-qr-label">Scannez</div>
             </a>
           </div>
         </div>
@@ -804,8 +678,8 @@
         <!-- Footer -->
         <div class="footer">
           <div class="footer-left">
-            <span class="footer-address">3 rue Corneille, 92120 Montrouge</span>
-            <span class="footer-metro">Métro Ligne 4 – Mairie de Montrouge</span>
+            <span class="footer-address">ÉCOLE T3P – Centre agréé Préfecture</span>
+            <span class="footer-siret">SIRET : 948 564 802 00023</span>
           </div>
           <div class="footer-right">
             www.ecolet3p.fr
@@ -821,80 +695,79 @@
         <!-- Header -->
         <div class="header">
           <div>
-            <div class="header-title">Ce que vous maîtriserez</div>
-            <div class="header-subtitle">Programme de la formation continue</div>
+            <div class="header-title">En 2 jours, vous actualisez</div>
+            <div class="header-subtitle">Contenu de la formation continue</div>
           </div>
-          <div class="logo">T3P</div>
+          <div class="logo-small">T3P</div>
         </div>
         
         <!-- Content -->
         <div class="content">
           
-          <!-- Programme - Plus concret -->
-          <div class="section-block">
-            <h3 class="section-title">En 2 jours, vous actualisez</h3>
-            <div class="programme-grid">
-              <div class="programme-item">
-                <div class="programme-icon">📋</div>
-                <div class="programme-text">
-                  <strong>Nouvelles règles 2025</strong>
-                  Les dernières évolutions réglementaires
+          <!-- ZONE 5 - Contenu formation -->
+          <div class="zone-5">
+            <div class="zone-5-grid">
+              <div class="zone-5-item">
+                <div class="zone-5-icon">📋</div>
+                <div class="zone-5-text">
+                  <strong>Réglementation T3P</strong>
+                  Mise à jour officielle des textes en vigueur
                 </div>
               </div>
-              <div class="programme-item">
-                <div class="programme-icon">🛡️</div>
-                <div class="programme-text">
-                  <strong>Conduite sereine</strong>
-                  Techniques de prévention routière
+              <div class="zone-5-item">
+                <div class="zone-5-icon">🚗</div>
+                <div class="zone-5-text">
+                  <strong>Sécurité routière</strong>
+                  Prévention et bonnes pratiques
                 </div>
               </div>
-              <div class="programme-item">
-                <div class="programme-icon">👥</div>
-                <div class="programme-text">
+              <div class="zone-5-item">
+                <div class="zone-5-icon">👥</div>
+                <div class="zone-5-text">
                   <strong>Relation client</strong>
                   Qualité de service professionnelle
                 </div>
               </div>
-              <div class="programme-item">
-                <div class="programme-icon">📱</div>
-                <div class="programme-text">
+              <div class="zone-5-item">
+                <div class="zone-5-icon">📱</div>
+                <div class="zone-5-text">
                   <strong>Outils digitaux</strong>
-                  Apps et technologies du secteur
+                  Évolutions du secteur T3P
                 </div>
               </div>
             </div>
           </div>
           
-          <!-- Outcome - Ce que vous obtenez -->
-          <div class="outcome-section">
-            <div class="outcome-title">✓ Vous repartez avec votre attestation</div>
-            <div class="outcome-desc">Document officiel pour renouveler votre carte professionnelle</div>
-          </div>
-          
-          <!-- Practical Info -->
-          <div class="practical-section">
-            <div class="practical-grid">
-              <div class="practical-item">
-                <div class="practical-label">Durée totale</div>
-                <div class="practical-value">14 heures</div>
+          <!-- ZONE 6 - Infos pratiques -->
+          <div class="zone-6">
+            <div class="zone-6-grid">
+              <div class="zone-6-item">
+                <div class="zone-6-icon">📍</div>
+                <div class="zone-6-label">Lieu</div>
+                <div class="zone-6-value">Montrouge (92)</div>
               </div>
-              <div class="practical-item">
-                <div class="practical-label">Format</div>
-                <div class="practical-value">2 journées</div>
+              <div class="zone-6-item">
+                <div class="zone-6-icon">🚇</div>
+                <div class="zone-6-label">Métro</div>
+                <div class="zone-6-value">Ligne 4 – Mairie</div>
               </div>
-              <div class="practical-item">
-                <div class="practical-label">Validité</div>
-                <div class="practical-value">5 ans</div>
+              <div class="zone-6-item">
+                <div class="zone-6-icon">🏛</div>
+                <div class="zone-6-label">Agrément</div>
+                <div class="zone-6-value">Centre Préfecture</div>
               </div>
             </div>
           </div>
           
-          <!-- CTA Verso -->
-          <div class="cta-verso">
-            <div class="cta-verso-left">
-              <div class="cta-verso-title">Une question ? On vous répond vite</div>
-              <div class="cta-verso-phone">07 83 78 76 63</div>
-              <div class="cta-verso-email">montrouge@ecolet3p.fr</div>
+          <!-- ZONE 7 - CTA Verso -->
+          <div class="zone-7-verso">
+            <div class="zone-7-verso-left">
+              <div class="zone-7-verso-title">Réservez votre formation continue</div>
+              <div class="zone-7-verso-phone">07 83 78 76 63</div>
+              <div class="zone-7-verso-info">
+                📍 3 rue Corneille – 92120 Montrouge<br>
+                ✉️ montrouge@ecolet3p.fr
+              </div>
             </div>
             <div class="qr-box">
               <img src="qr-whatsapp.png" alt="QR WhatsApp" class="qr-code">
@@ -906,7 +779,7 @@
         
         <!-- Footer -->
         <div class="footer">
-          <div class="footer-legal">ECOLE T3P • Centre agréé Préfecture</div>
+          <div class="footer-legal">ÉCOLE T3P – Centre de formation agréé Préfecture</div>
           <div class="footer-website">www.ecolet3p.fr</div>
         </div>
       </div>
