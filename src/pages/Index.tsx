@@ -2,12 +2,21 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import FormationsChoiceSection from "@/components/home/FormationsChoiceSection";
+import OffersSection from "@/components/home/OffersSection";
+
+// Import critical images for preload
+import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
+const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
+const AdvantagesSection = lazy(() => import("@/components/home/AdvantagesSection"));
+const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
 const LocalsSection = lazy(() => import("@/components/home/LocalsSection"));
+const GoogleReviewsSection = lazy(() => import("@/components/home/GoogleReviewsSection"));
+const TestimonialsSection = lazy(() => import("@/components/home/TestimonialsSection"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const AppointmentSection = lazy(() => import("@/components/home/AppointmentSection"));
+const CTASection = lazy(() => import("@/components/home/CTASection"));
 
 // Simple skeleton for lazy sections
 const SectionSkeleton = () => (
@@ -34,7 +43,7 @@ const organizationSchema = {
   "url": "https://ecolet3p.fr",
   "logo": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg",
   "image": "https://ecolet3p.fr/og-image.jpg",
-  "description": "Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR. Formation continue obligatoire pour le renouvellement de la carte professionnelle.",
+  "description": "École de formation professionnelle pour chauffeurs Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, formateurs experts du métier.",
   "telephone": "+33188750555",
   "email": "montrouge@ecolet3p.fr",
   "address": {
@@ -57,6 +66,13 @@ const organizationSchema = {
       "closes": "18:00"
     }
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "359",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "sameAs": [
     "https://www.google.com/maps/place/ECOLE+T3P"
   ],
@@ -66,20 +82,20 @@ const organizationSchema = {
     "itemListElement": [
       {
         "@type": "Course",
-        "name": "Formation Continue TAXI",
-        "description": "Formation continue obligatoire pour le renouvellement de la carte professionnelle TAXI",
+        "name": "Formation Taxi Initiale",
+        "description": "Formation complète pour obtenir votre carte professionnelle Taxi",
         "provider": { "@type": "Organization", "name": "ECOLE T3P" }
       },
       {
         "@type": "Course",
-        "name": "Formation Continue VTC",
-        "description": "Formation continue obligatoire pour le renouvellement de la carte professionnelle VTC",
+        "name": "Formation VTC",
+        "description": "Formation pour devenir chauffeur VTC professionnel",
         "provider": { "@type": "Organization", "name": "ECOLE T3P" }
       },
       {
         "@type": "Course",
-        "name": "Formation Continue VMDTR",
-        "description": "Formation continue obligatoire pour le renouvellement de la carte professionnelle VMDTR",
+        "name": "Formation VMDTR",
+        "description": "Formation moto-taxi pour obtenir votre certification",
         "provider": { "@type": "Organization", "name": "ECOLE T3P" }
       }
     ]
@@ -90,7 +106,7 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://ecolet3p.fr/#localbusiness",
-  "name": "ECOLE T3P - Centre de formation agréé",
+  "name": "ECOLE T3P - Formation Taxi VTC Montrouge",
   "image": "https://ecolet3p.fr/og-image.jpg",
   "telephone": "+33188750555",
   "email": "montrouge@ecolet3p.fr",
@@ -115,20 +131,33 @@ const localBusinessSchema = {
       "closes": "18:00"
     }
   ],
-  "priceRange": "€€"
+  "priceRange": "€€",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "359"
+  }
 };
 
 const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ECOLE T3P - Formation Continue Obligatoire | Taxi, VTC, VMDTR</title>
-        <meta name="description" content="Centre de formation agréé pour chauffeurs TAXI, VTC et VMDTR. Formation continue obligatoire pour le renouvellement de la carte professionnelle. Conformément à la réglementation en vigueur." />
-        <meta name="keywords" content="formation continue taxi, formation continue VTC, formation continue VMDTR, renouvellement carte professionnelle, centre formation agréé, ECOLE T3P, Montrouge" />
+        <title>ECOLE T3P - Formation Taxi, VTC & VMDTR | 94% Réussite Montrouge Paris</title>
+        <meta name="description" content="Devenez chauffeur professionnel avec ECOLE T3P à Montrouge. Formation Taxi, VTC et VMDTR agréée. 94% de réussite, paiement 4x sans frais. Obtenez votre devis gratuit en 2 min !" />
+        <meta name="keywords" content="formation taxi Paris, formation VTC Paris, formation VMDTR, taxi moto, récupération de points permis, centre formation Montrouge, carte professionnelle taxi, carte VTC, ECOLE T3P, reconversion professionnelle chauffeur" />
         <link rel="canonical" href="https://ecolet3p.fr/" />
         
-        <meta property="og:title" content="ECOLE T3P - Formation Continue Obligatoire | Taxi, VTC, VMDTR" />
-        <meta property="og:description" content="Centre de formation agréé. Formation continue obligatoire pour le renouvellement de la carte professionnelle." />
+        {/* Preload critical hero image */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href={formationSession}
+          type="image/jpeg"
+        />
+        
+        <meta property="og:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR | 94% Réussite à Montrouge" />
+        <meta property="og:description" content="Devenez chauffeur professionnel avec une formation agréée. 94% de réussite, paiement en 4x sans frais. Devis gratuit !" />
         <meta property="og:url" content="https://ecolet3p.fr/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ECOLE T3P" />
@@ -136,8 +165,8 @@ const Index = () => {
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ECOLE T3P - Formation Continue Obligatoire" />
-        <meta name="twitter:description" content="Centre de formation agréé pour chauffeurs TAXI, VTC et VMDTR." />
+        <meta name="twitter:title" content="ECOLE T3P - Formation Taxi, VTC & VMDTR Montrouge" />
+        <meta name="twitter:description" content="Devenez Taxi, VTC ou VMDTR (taxi moto). 94% de réussite aux examens." />
         <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -149,19 +178,37 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
       
-      {/* Above-the-fold: Institutional Hero + Formation Choice */}
+      {/* Critical above-the-fold content */}
       <HeroSection />
-      <FormationsChoiceSection />
+      <OffersSection />
       
-      {/* Below-the-fold: Simplified sections */}
+      {/* Lazy loaded below-the-fold sections */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <WhyChooseUsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <AdvantagesSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <ProcessSection />
+      </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <LocalsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <GoogleReviewsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <TestimonialsSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <AppointmentSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <CTASection />
       </Suspense>
     </Layout>
   );

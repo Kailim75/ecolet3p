@@ -153,11 +153,11 @@ Refondre le site selon les principes de psychologie cognitive et UX institutionn
 ### 📦 Checklist d'Implémentation
 
 **Phase 3.1 : Page d'Accueil**
-- [x] Refonte HeroSection (institutionnel)
-- [x] Nouvelle section "Choisir sa formation" (3 cartes)
+- [ ] Refonte HeroSection (institutionnel)
+- [ ] Nouvelle section "Choisir sa formation" (3 cartes)
 - [ ] Simplification LocalsSection
 - [ ] Simplification FAQSection
-- [x] Retrait sections marketing
+- [ ] Retrait sections marketing
 
 **Phase 3.2 : Pages Formations Continues**
 - [ ] Template unifié FormationContinuePage
