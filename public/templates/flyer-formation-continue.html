@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flyer Formation Continue Générique | ECOLE T3P</title>
+  <title>Flyer Formation Continue | ECOLE T3P</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,7 +53,7 @@
     
     .recto .header {
       background: #1B4D3E;
-      padding: 16px 28px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -62,12 +62,12 @@
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     
     .logo {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       background: #F5EBD7;
       border-radius: 50%;
       display: flex;
@@ -75,7 +75,7 @@
       justify-content: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
-      font-size: 12px;
+      font-size: 11px;
       color: #1B4D3E;
     }
     
@@ -85,56 +85,61 @@
     
     .brand-name {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
     
     .brand-tagline {
-      font-size: 9px;
+      font-size: 8px;
       opacity: 0.8;
       font-weight: 500;
-      margin-top: 2px;
+      margin-top: 1px;
     }
     
     .header-badge {
-      background: rgba(245, 235, 215, 0.15);
-      color: #F5EBD7;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 9px;
-      font-weight: 600;
-      border: 1px solid rgba(245, 235, 215, 0.3);
+      background: rgba(212, 168, 83, 0.2);
+      color: #D4A853;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 8px;
+      font-weight: 700;
+      border: 1px solid rgba(212, 168, 83, 0.4);
       text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     
-    /* Hero Section */
+    /* Hero Section - Optimisé psychologiquement */
     .recto .hero {
       background: #1B4D3E;
-      padding: 22px 28px 26px;
+      padding: 24px 28px 28px;
       text-align: center;
-    }
-    
-    .hero-label {
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: rgba(245, 235, 215, 0.7);
-      margin-bottom: 10px;
     }
     
     .hero h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
       color: #F5EBD7;
-      line-height: 1.15;
+      line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     
-    .hero h1 span {
+    .hero-benefit {
+      display: inline-block;
+      background: rgba(212, 168, 83, 0.15);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: 20px;
+      padding: 8px 20px;
+      margin-bottom: 12px;
+    }
+    
+    .hero-benefit span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
       color: #D4A853;
     }
     
@@ -142,216 +147,262 @@
       font-size: 12px;
       color: rgba(245, 235, 215, 0.85);
       font-weight: 500;
-      max-width: 280px;
-      margin: 0 auto;
       line-height: 1.5;
     }
     
-    /* Obligation Section */
-    .obligation-section {
-      padding: 16px 28px;
+    /* Bloc Simplicité - 3 avantages clés */
+    .simplicity-section {
+      padding: 16px 24px;
       background: #F5EBD7;
     }
     
-    .obligation-box {
-      background: linear-gradient(135deg, #C62828 0%, #B71C1C 100%);
-      border-radius: 10px;
-      padding: 12px 16px;
-      color: white;
-      text-align: center;
-    }
-    
-    .obligation-text {
-      font-size: 11px;
-      font-weight: 600;
-      line-height: 1.45;
-    }
-    
-    .obligation-text strong {
-      font-weight: 800;
-    }
-    
-    /* Formations Table */
-    .formations-section {
-      padding: 0 28px 16px;
-      background: #F5EBD7;
-    }
-    
-    .section-title-recto {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: #1B4D3E;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .formations-table {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.08);
-    }
-    
-    .table-header {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr 1fr;
-      background: #1B4D3E;
-      padding: 10px 16px;
-      font-size: 9px;
-      font-weight: 700;
-      color: #F5EBD7;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    
-    .formation-row {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr 1fr;
-      align-items: center;
-      padding: 11px 16px;
-      border-bottom: 1px solid rgba(27, 77, 62, 0.08);
-    }
-    
-    .formation-row:last-child {
-      border-bottom: none;
-    }
-    
-    .formation-row.vtc { border-left: 4px solid #2563EB; }
-    .formation-row.taxi { border-left: 4px solid #D4A853; }
-    .formation-row.vmdtr { border-left: 4px solid #1B4D3E; }
-    
-    .formation-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: #1B4D3E;
-    }
-    
-    .formation-cell {
-      font-size: 11px;
-      color: #4B463C;
-      text-align: center;
-    }
-    
-    .formation-price {
-      background: linear-gradient(135deg, #D4A853 0%, #C49A48 100%);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 14px;
-      text-align: center;
-    }
-    
-    /* Key Facts */
-    .facts-section {
-      padding: 0 28px 14px;
-      background: #F5EBD7;
-    }
-    
-    .facts-grid {
+    .simplicity-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
     
-    .fact-item {
+    .simplicity-item {
       background: white;
-      padding: 12px 8px;
-      border-radius: 8px;
+      padding: 14px 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(27, 77, 62, 0.06);
+    }
+    
+    .simplicity-icon {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    
+    .simplicity-value {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #1B4D3E;
+      line-height: 1.2;
+    }
+    
+    .simplicity-label {
+      font-size: 9px;
+      color: #6B6560;
+      font-weight: 600;
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Tarifs - Simplifié */
+    .pricing-section {
+      padding: 0 24px 14px;
+      background: #F5EBD7;
+    }
+    
+    .pricing-box {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(27, 77, 62, 0.08);
+    }
+    
+    .pricing-header {
+      background: #1B4D3E;
+      padding: 10px 16px;
       text-align: center;
     }
     
-    .fact-value {
+    .pricing-header-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #F5EBD7;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .pricing-content {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .pricing-main {
+      text-align: left;
+    }
+    
+    .pricing-from {
+      font-size: 10px;
+      color: #898172;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    
+    .pricing-amount {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 32px;
       font-weight: 900;
       color: #1B4D3E;
       line-height: 1;
     }
     
-    .fact-label {
-      font-size: 9px;
-      color: #6B6560;
-      font-weight: 600;
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
+    .pricing-amount span {
+      font-size: 16px;
+      font-weight: 700;
     }
     
-    /* CTA Section - Compact & Elegant */
-    .cta-section {
-      padding: 0 32px 88px;
+    .pricing-list {
+      text-align: right;
+    }
+    
+    .pricing-item {
+      font-size: 10px;
+      color: #4B463C;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    
+    .pricing-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .pricing-item-label {
+      font-weight: 600;
+      color: #1B4D3E;
+    }
+    
+    .pricing-item-price {
+      background: rgba(27, 77, 62, 0.1);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #1B4D3E;
+    }
+    
+    /* Réassurance - Badge conformité */
+    .reassurance-section {
+      padding: 0 24px 14px;
       background: #F5EBD7;
-      position: relative;
-      margin-top: -8px;
+    }
+    
+    .reassurance-box {
+      background: linear-gradient(135deg, #1B4D3E 0%, #2A6B52 100%);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .reassurance-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(245, 235, 215, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    
+    .reassurance-text {
+      color: #F5EBD7;
+      flex: 1;
+    }
+    
+    .reassurance-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    
+    .reassurance-desc {
+      font-size: 10px;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 0 24px 80px;
+      background: #F5EBD7;
     }
     
     .cta-box {
       background: #1B4D3E;
       color: #F5EBD7;
-      padding: 10px 14px;
-      border-radius: 10px;
+      padding: 14px 16px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      box-shadow: 0 3px 12px rgba(27, 77, 62, 0.25);
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(27, 77, 62, 0.3);
     }
     
     .cta-left {
       flex: 1;
-      text-align: left;
     }
     
     .cta-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 8px;
+      font-size: 9px;
       font-weight: 600;
-      margin-bottom: 2px;
-      opacity: 0.75;
+      margin-bottom: 4px;
+      opacity: 0.8;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
     
     .cta-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 900;
       color: #D4A853;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
     }
     
-    .cta-website {
+    .cta-response {
       font-size: 10px;
-      font-weight: 500;
       opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .cta-response-badge {
+      background: #25D366;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 8px;
+      font-weight: 700;
     }
     
     .cta-qr {
       background: #F5EBD7;
-      padding: 5px;
-      border-radius: 6px;
+      padding: 8px;
+      border-radius: 8px;
       text-align: center;
-      display: block;
       text-decoration: none;
       color: inherit;
       flex-shrink: 0;
     }
     
     .cta-qr img {
-      width: 38px;
-      height: 38px;
-      border-radius: 3px;
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
     }
     
     .cta-qr-label {
-      font-size: 6px;
+      font-size: 7px;
       font-weight: 700;
-      margin-top: 2px;
+      margin-top: 3px;
       color: #1B4D3E;
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -364,13 +415,12 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 8px 28px;
+      padding: 10px 24px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       color: #F5EBD7;
-      font-size: 8.2px;
-      line-height: 1.12;
+      font-size: 8px;
     }
     
     .footer-left {
@@ -380,29 +430,26 @@
     }
     
     .footer-address {
-      font-weight: 500;
+      font-weight: 600;
     }
     
     .footer-metro {
       opacity: 0.7;
-      font-size: 7.2px;
-      line-height: 1.12;
+      font-size: 7px;
     }
     
     .footer-right {
       text-align: right;
-    }
-    
-    .footer-cert {
-      font-size: 7.2px;
-      opacity: 0.8;
+      font-size: 9px;
+      font-weight: 600;
+      color: #D4A853;
     }
     
     /* ==================== VERSO ==================== */
     
     .verso .header {
       background: #1B4D3E;
-      padding: 14px 28px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -421,13 +468,13 @@
     }
     
     .verso .content {
-      padding: 20px 28px;
+      padding: 18px 24px;
       padding-bottom: 70px;
       background: #F5EBD7;
     }
     
     .section-block {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     
     .section-title {
@@ -443,7 +490,7 @@
       letter-spacing: 0.05em;
     }
     
-    /* Programme Grid */
+    /* Programme Grid - Plus concret */
     .programme-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -484,12 +531,35 @@
       margin-bottom: 2px;
     }
     
+    /* Bloc "Vous repartez avec" */
+    .outcome-section {
+      background: linear-gradient(135deg, #D4A853 0%, #C49A48 100%);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    
+    .outcome-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 4px;
+    }
+    
+    .outcome-desc {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.4;
+    }
+    
     /* Practical Info */
     .practical-section {
       background: white;
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-radius: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     
     .practical-grid {
@@ -515,40 +585,19 @@
       font-size: 11px;
       font-weight: 700;
       color: #1B4D3E;
-      margin-top: 4px;
-    }
-    
-    /* Legal Notice */
-    .legal-notice {
-      background: rgba(27, 77, 62, 0.06);
-      border-left: 3px solid #1B4D3E;
-      border-radius: 8px;
-      padding: 12px 14px;
-      margin-bottom: 16px;
-    }
-    
-    .legal-text {
-      font-size: 9px;
-      color: #4B463C;
-      line-height: 1.6;
-    }
-    
-    .legal-text strong {
-      color: #1B4D3E;
-      font-weight: 700;
+      margin-top: 3px;
     }
     
     /* CTA Verso */
     .cta-verso {
       background: #1B4D3E;
       color: #F5EBD7;
-      padding: 16px 20px;
+      padding: 14px 18px;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
+      gap: 14px;
     }
     
     .cta-verso-left {
@@ -564,29 +613,29 @@
     
     .cta-verso-phone {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 900;
       color: #D4A853;
       margin-bottom: 2px;
     }
     
     .cta-verso-email {
-      font-size: 10px;
+      font-size: 9px;
       opacity: 0.85;
     }
     
     .qr-box {
       background: white;
-      padding: 10px;
+      padding: 8px;
       border-radius: 8px;
       text-align: center;
     }
     
     .qr-code {
-      width: 56px;
-      height: 56px;
-      border-radius: 6px;
-      margin-bottom: 4px;
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      margin-bottom: 3px;
     }
     
     .qr-label {
@@ -603,7 +652,7 @@
       left: 0;
       right: 0;
       background: #1B4D3E;
-      padding: 12px 28px;
+      padding: 10px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -650,71 +699,80 @@
             <div class="logo">T3P</div>
             <div class="brand">
               <div class="brand-name">ECOLE T3P</div>
-              <div class="brand-tagline">Centre de formation agréé</div>
+              <div class="brand-tagline">Centre agréé Préfecture</div>
             </div>
           </div>
           <div class="header-badge">
-            Obligatoire<br>tous les 5 ans
+            ✓ Agréé Préfecture
           </div>
         </div>
         
-        <!-- Hero -->
+        <!-- Hero - Accroche psychologique -->
         <div class="hero">
-          <div class="hero-label">Formation réglementaire</div>
-          <h1>Formation Continue<br><span>Taxi • VTC • VMDTR</span></h1>
-          <p class="hero-subtitle">Renouvelez votre carte professionnelle conformément à la réglementation</p>
-        </div>
-        
-        <!-- Obligation Banner -->
-        <div class="obligation-section">
-          <div class="obligation-box">
-            <p class="obligation-text">
-              <strong>Obligation légale :</strong> Formation à renouveler tous les 5 ans pour maintenir votre autorisation d'exercer.
-            </p>
+          <h1>Gardez votre carte pro<br>en règle</h1>
+          <div class="hero-benefit">
+            <span>2 jours → 5 ans de tranquillité</span>
           </div>
+          <p class="hero-subtitle">Formation continue obligatoire pour Taxi, VTC et VMDTR</p>
         </div>
         
-        <!-- Formations Table -->
-        <div class="formations-section">
-          <h2 class="section-title-recto">Nos formations continues</h2>
-          <div class="formations-table">
-            <div class="table-header">
-              <span>Formation</span>
-              <span>Durée</span>
-              <span>Tarif TTC</span>
+        <!-- Bloc Simplicité - 3 avantages -->
+        <div class="simplicity-section">
+          <div class="simplicity-grid">
+            <div class="simplicity-item">
+              <div class="simplicity-icon">📅</div>
+              <div class="simplicity-value">2 jours</div>
+              <div class="simplicity-label">C'est tout</div>
             </div>
-            <div class="formation-row vtc">
-              <span class="formation-title">Continue VTC</span>
-              <span class="formation-cell">14h (2 jours)</span>
-              <div class="formation-price">170 €</div>
+            <div class="simplicity-item">
+              <div class="simplicity-icon">📜</div>
+              <div class="simplicity-value">Attestation</div>
+              <div class="simplicity-label">Immédiate</div>
             </div>
-            <div class="formation-row taxi">
-              <span class="formation-title">Continue Taxi</span>
-              <span class="formation-cell">14h (2 jours)</span>
-              <div class="formation-price">239 €</div>
-            </div>
-            <div class="formation-row vmdtr">
-              <span class="formation-title">Continue VMDTR</span>
-              <span class="formation-cell">14h (2 jours)</span>
-              <div class="formation-price">239 €</div>
+            <div class="simplicity-item">
+              <div class="simplicity-icon">🚇</div>
+              <div class="simplicity-value">Métro L4</div>
+              <div class="simplicity-label">Montrouge</div>
             </div>
           </div>
         </div>
         
-        <!-- Key Facts -->
-        <div class="facts-section">
-          <div class="facts-grid">
-            <div class="fact-item">
-              <div class="fact-value">14h</div>
-              <div class="fact-label">Durée légale</div>
+        <!-- Tarifs simplifiés -->
+        <div class="pricing-section">
+          <div class="pricing-box">
+            <div class="pricing-header">
+              <span class="pricing-header-text">Tarifs tout compris</span>
             </div>
-            <div class="fact-item">
-              <div class="fact-value">5 ans</div>
-              <div class="fact-label">Validité</div>
+            <div class="pricing-content">
+              <div class="pricing-main">
+                <div class="pricing-from">À partir de</div>
+                <div class="pricing-amount">170€ <span>TTC</span></div>
+              </div>
+              <div class="pricing-list">
+                <div class="pricing-item">
+                  <span class="pricing-item-label">VTC</span>
+                  <span class="pricing-item-price">170€</span>
+                </div>
+                <div class="pricing-item">
+                  <span class="pricing-item-label">Taxi</span>
+                  <span class="pricing-item-price">239€</span>
+                </div>
+                <div class="pricing-item">
+                  <span class="pricing-item-label">VMDTR</span>
+                  <span class="pricing-item-price">239€</span>
+                </div>
+              </div>
             </div>
-            <div class="fact-item">
-              <div class="fact-value">Agréé</div>
-              <div class="fact-label">Préfecture</div>
+          </div>
+        </div>
+        
+        <!-- Réassurance -->
+        <div class="reassurance-section">
+          <div class="reassurance-box">
+            <div class="reassurance-icon">✓</div>
+            <div class="reassurance-text">
+              <div class="reassurance-title">Attestation conforme délivrée le jour même</div>
+              <div class="reassurance-desc">Acceptée par toutes les préfectures pour le renouvellement de votre carte</div>
             </div>
           </div>
         </div>
@@ -723,19 +781,22 @@
         <div class="cta-section">
           <div class="cta-box">
             <div class="cta-left">
-              <div class="cta-title">Réservez votre place</div>
+              <div class="cta-title">Réservez en 30 secondes</div>
               <div class="cta-phone">07 83 78 76 63</div>
-              <div class="cta-website">www.ecolet3p.fr</div>
+              <div class="cta-response">
+                <span class="cta-response-badge">WhatsApp</span>
+                <span>Réponse en moins de 2h</span>
+              </div>
             </div>
             <a
               class="cta-qr"
               href="https://wa.me/33783787663"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Ouvrir WhatsApp (07 83 78 76 63)"
+              aria-label="Ouvrir WhatsApp"
             >
-              <img src="qr-whatsapp.png" alt="QR code WhatsApp (07 83 78 76 63)">
-              <div class="cta-qr-label">WhatsApp</div>
+              <img src="qr-whatsapp.png" alt="QR WhatsApp">
+              <div class="cta-qr-label">Scannez-moi</div>
             </a>
           </div>
         </div>
@@ -747,7 +808,7 @@
             <span class="footer-metro">Métro Ligne 4 – Mairie de Montrouge</span>
           </div>
           <div class="footer-right">
-            <span class="footer-cert">Centre agréé Préfecture</span>
+            www.ecolet3p.fr
           </div>
         </div>
       </div>
@@ -760,8 +821,8 @@
         <!-- Header -->
         <div class="header">
           <div>
-            <div class="header-title">Formation Continue</div>
-            <div class="header-subtitle">Programme & informations pratiques</div>
+            <div class="header-title">Ce que vous maîtriserez</div>
+            <div class="header-subtitle">Programme de la formation continue</div>
           </div>
           <div class="logo">T3P</div>
         </div>
@@ -769,22 +830,22 @@
         <!-- Content -->
         <div class="content">
           
-          <!-- Programme -->
+          <!-- Programme - Plus concret -->
           <div class="section-block">
-            <h3 class="section-title">Contenu de la formation</h3>
+            <h3 class="section-title">En 2 jours, vous actualisez</h3>
             <div class="programme-grid">
               <div class="programme-item">
                 <div class="programme-icon">📋</div>
                 <div class="programme-text">
-                  <strong>Réglementation</strong>
-                  Actualisation des connaissances juridiques
+                  <strong>Nouvelles règles 2025</strong>
+                  Les dernières évolutions réglementaires
                 </div>
               </div>
               <div class="programme-item">
                 <div class="programme-icon">🛡️</div>
                 <div class="programme-text">
-                  <strong>Sécurité routière</strong>
-                  Prévention et conduite responsable
+                  <strong>Conduite sereine</strong>
+                  Techniques de prévention routière
                 </div>
               </div>
               <div class="programme-item">
@@ -797,44 +858,43 @@
               <div class="programme-item">
                 <div class="programme-icon">📱</div>
                 <div class="programme-text">
-                  <strong>Évolutions</strong>
-                  Nouvelles technologies du secteur
+                  <strong>Outils digitaux</strong>
+                  Apps et technologies du secteur
                 </div>
               </div>
             </div>
+          </div>
+          
+          <!-- Outcome - Ce que vous obtenez -->
+          <div class="outcome-section">
+            <div class="outcome-title">✓ Vous repartez avec votre attestation</div>
+            <div class="outcome-desc">Document officiel pour renouveler votre carte professionnelle</div>
           </div>
           
           <!-- Practical Info -->
           <div class="practical-section">
             <div class="practical-grid">
               <div class="practical-item">
-                <div class="practical-label">Durée</div>
+                <div class="practical-label">Durée totale</div>
                 <div class="practical-value">14 heures</div>
               </div>
               <div class="practical-item">
                 <div class="practical-label">Format</div>
-                <div class="practical-value">2 jours</div>
+                <div class="practical-value">2 journées</div>
               </div>
               <div class="practical-item">
-                <div class="practical-label">Lieu</div>
-                <div class="practical-value">Montrouge (92)</div>
+                <div class="practical-label">Validité</div>
+                <div class="practical-value">5 ans</div>
               </div>
             </div>
           </div>
           
-          <!-- Legal Notice -->
-          <div class="legal-notice">
-            <p class="legal-text">
-              <strong>À l'issue de la formation</strong>, une attestation conforme aux exigences réglementaires vous sera délivrée pour le renouvellement de votre carte professionnelle auprès de la Préfecture.
-            </p>
-          </div>
-          
-          <!-- CTA Verso with QR -->
+          <!-- CTA Verso -->
           <div class="cta-verso">
             <div class="cta-verso-left">
-              <div class="cta-verso-title">Réservez votre place</div>
+              <div class="cta-verso-title">Une question ? On vous répond vite</div>
               <div class="cta-verso-phone">07 83 78 76 63</div>
-              <div class="cta-verso-email">montrouge@ecolet3p.fr • www.ecolet3p.fr</div>
+              <div class="cta-verso-email">montrouge@ecolet3p.fr</div>
             </div>
             <div class="qr-box">
               <img src="qr-whatsapp.png" alt="QR WhatsApp" class="qr-code">
@@ -846,7 +906,7 @@
         
         <!-- Footer -->
         <div class="footer">
-          <div class="footer-legal">ECOLE T3P • SIRET 948 564 802 00023 • Centre agréé Préfecture</div>
+          <div class="footer-legal">ECOLE T3P • Centre agréé Préfecture</div>
           <div class="footer-website">www.ecolet3p.fr</div>
         </div>
       </div>
