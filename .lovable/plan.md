@@ -259,7 +259,7 @@ Informations obligatoires :
 2. ✅ Phase 1.1 — Hero Section (accueil) — Titre institutionnel, CTA exploratoires
 3. ✅ Phase 1.2 — Section Formations (accueil) — 4 blocs sans marketing
 4. ✅ Phase 1.3 — Section Services (accueil) — Location véhicule examen
-5. ⬜ Phase 2 — Header/Navigation (menu restructuré)
+5. ✅ Phase 2 — Header/Navigation (menu restructuré) — Formations (3 catégories) + Services
 6. ⬜ Phase 3 — Pages formations continues (créer)
 7. ⬜ Phase 4 — Page services location véhicule
 8. ⬜ Phase 5 — Page "Pourquoi ECOLE T3P"
