@@ -187,6 +187,13 @@
       color: #1B4D3E;
     }
     
+    .verso-item.whatsapp {
+      background: linear-gradient(90deg, rgba(37, 211, 102, 0.1), transparent);
+      padding: 1.5mm 2mm;
+      border-radius: 2mm;
+      margin-left: -2mm;
+    }
+    
     .verso-item.highlight .verso-icon {
       color: #D4A853;
     }
@@ -391,7 +398,7 @@
     
     <h3 class="section-title">📇 Version Standard (Recto / Verso)</h3>
     
-    <!-- Paire 1 : Karim KATI -->
+    <!-- Paire 1 : Karim KATI - Version avec QR vCard -->
     <div class="cards-pair">
       <div class="card-recto">
         <span class="recto-badge">Centre de formation T3P agréé</span>
@@ -403,15 +410,15 @@
           </div>
         </div>
         <div class="recto-person">
-          <div class="recto-name">Karim KATI</div>
-          <div class="recto-function">Directeur</div>
+          <div class="recto-name">KATI Karim</div>
+          <div class="recto-function">Directeur du Centre de Formation</div>
         </div>
       </div>
-      <div class="card-verso">
-        <div class="verso-contact">
-          <div class="verso-item highlight">
-            <span class="verso-icon">📞</span>
-            <span>01 88 75 05 55</span>
+      <div class="card-verso-qr">
+        <div class="verso-qr-left">
+          <div class="verso-item highlight whatsapp">
+            <span class="verso-icon">📱</span>
+            <span>07 83 78 76 63</span>
           </div>
           <div class="verso-item highlight">
             <span class="verso-icon">🌐</span>
@@ -423,16 +430,14 @@
           </div>
           <div class="verso-item">
             <span class="verso-icon">📍</span>
-            <span>3 rue Corneille, 92120 Montrouge</span>
-          </div>
-          <div class="verso-item">
-            <span class="verso-icon">🚇</span>
-            <span>M° Mairie de Montrouge (Ligne 4)</span>
+            <span>3 rue Corneille<br>92120 Montrouge</span>
           </div>
         </div>
-        <div class="verso-certif">
-          <div class="verso-certif-text">Formations certifiées</div>
-          <div class="verso-certif-badge">RS5635 & RS5637</div>
+        <div class="verso-qr-right">
+          <div class="qr-placeholder">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BEGIN:VCARD%0AVERSION:3.0%0AN:KATI;Karim%0AFN:Karim KATI%0AORG:ECOLE T3P%0ATITLE:Directeur du Centre de Formation%0ATEL;TYPE=CELL:+33783787663%0AEMAIL:montrouge@ecolet3p.fr%0AADR;TYPE=WORK:;;3 rue Corneille;Montrouge;;92120;France%0AURL:https://www.ecolet3p.fr%0AEND:VCARD" alt="QR vCard" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <div class="qr-label">Scannez pour<br>enregistrer le contact</div>
         </div>
       </div>
     </div>
