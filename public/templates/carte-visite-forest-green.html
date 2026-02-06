@@ -6,7 +6,7 @@
   <title>Carte de Visite Forest Green - ÉCOLE T3P</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,7 +16,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f5f5f4;
+      background: #2a2a2a;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -36,7 +36,7 @@
       align-items: center;
       justify-content: space-between;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
     .nav-bar a {
@@ -81,29 +81,29 @@
 
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .header h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 28px;
       font-weight: 600;
-      color: #1B4D3E;
+      color: #F5EBD7;
       margin-bottom: 8px;
     }
 
     .header p {
-      color: #6B6B6B;
+      color: #999;
       font-size: 14px;
     }
 
     /* Cards Container */
     .cards-container {
       display: flex;
-      gap: 40px;
+      gap: 50px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     .card-wrapper {
@@ -113,123 +113,160 @@
     .card-label {
       font-size: 11px;
       font-weight: 600;
-      color: #1B4D3E;
-      margin-bottom: 12px;
+      color: #D4A853;
+      margin-bottom: 16px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
 
     /* ========================================
-       CARTE RECTO - Layout refonte V2
-       Hiérarchie : Directeur → Institution → Métiers
+       CARTE RECTO - Style Premium Bicolore
+       Inspiré référence : Vert + Bande Or + Crème
        ======================================== */
     .card {
       width: 85mm;
       height: 55mm;
-      background: #1B4D3E;
+      background: #F5EBD7;
       position: relative;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Zone gauche verte */
+    .card-left {
+      width: 28%;
+      background: #1B4D3E;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.25);
+      padding: 5mm 3mm;
+      position: relative;
     }
 
-    /* Filet doré discret en haut */
-    .card::before {
+    /* Bande dorée verticale */
+    .card-left::after {
       content: '';
       position: absolute;
       top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20mm;
-      height: 0.4mm;
+      right: 0;
+      width: 2.5mm;
+      height: 100%;
       background: #D4A853;
     }
 
-    /* Filet doré discret en bas */
-    .card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20mm;
-      height: 0.4mm;
-      background: #D4A853;
-    }
-
-    .card-content {
-      padding: 0 8mm;
-    }
-
-    /* BLOC 1 : Institution (discret, en haut) */
-    .institution-block {
-      margin-bottom: 5mm;
-    }
-
-    .school-name {
+    .institution-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 5mm;
+      font-size: 3.2mm;
       font-weight: 600;
       color: #F5EBD7;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1.5mm;
-    }
-
-    .accreditation {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.8mm;
-      font-weight: 400;
-      color: rgba(245, 235, 215, 0.6);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
-    /* Séparateur fin */
-    .separator {
-      width: 12mm;
-      height: 0.3mm;
-      background: #D4A853;
-      margin: 0 auto 4mm;
+    /* Zone droite crème */
+    .card-right {
+      flex: 1;
+      padding: 6mm 6mm 5mm 7mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    /* BLOC 2 : Identité directeur (dominant) */
+    /* Bloc identité dominant */
     .identity-block {
-      margin-bottom: 4mm;
+      margin-bottom: 3mm;
     }
 
     .director-name {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 5.5mm;
+      font-size: 6.5mm;
+      line-height: 1.1;
+      color: #1B4D3E;
+      margin-bottom: 1.5mm;
+    }
+
+    .director-name .first {
       font-weight: 700;
-      color: #F5EBD7;
+      text-transform: uppercase;
       letter-spacing: 0.02em;
-      margin-bottom: 1mm;
+    }
+
+    .director-name .last {
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .director-function {
       font-family: 'Inter', sans-serif;
       font-size: 2.2mm;
       font-weight: 500;
-      color: rgba(245, 235, 215, 0.75);
-      letter-spacing: 0.06em;
+      color: #1B4D3E;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
     }
 
-    /* BLOC 3 : Spécialités (footer discret) */
-    .specialties {
+    /* Coordonnées avec icônes */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2mm;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+    }
+
+    .contact-icon {
+      width: 4mm;
+      height: 4mm;
+      background: #D4A853;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 2.2mm;
+      height: 2.2mm;
+      stroke: #1B4D3E;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
       font-family: 'Inter', sans-serif;
-      font-size: 1.8mm;
-      font-weight: 400;
+      font-size: 1.6mm;
+      font-weight: 600;
       color: #D4A853;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.2mm;
+      font-weight: 500;
+      color: #1B4D3E;
     }
 
     /* ========================================
-       CARTE VERSO - Coordonnées épurées
+       CARTE VERSO - Institution + QR Code
        ======================================== */
     .card-verso {
       width: 85mm;
@@ -237,109 +274,144 @@
       background: #1B4D3E;
       position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 7mm 10mm;
-      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.25);
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
     }
 
-    .card-verso::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20mm;
-      height: 0.4mm;
-      background: #D4A853;
-    }
-
-    .card-verso::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20mm;
-      height: 0.4mm;
+    /* Bande dorée verticale gauche */
+    .verso-accent {
+      width: 2.5mm;
       background: #D4A853;
     }
 
     .verso-content {
+      flex: 1;
+      padding: 6mm;
       display: flex;
       flex-direction: column;
-      gap: 3mm;
-      text-align: center;
+      justify-content: space-between;
     }
 
-    .verso-phone {
-      font-family: 'Inter', sans-serif;
-      font-size: 4mm;
+    /* Logo/Institution en haut */
+    .verso-header {
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+    }
+
+    .verso-monogram {
+      width: 12mm;
+      height: 12mm;
+      border: 0.4mm solid #D4A853;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verso-monogram span {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5mm;
+      font-weight: 700;
+      color: #D4A853;
+      letter-spacing: 0.02em;
+    }
+
+    .verso-institution {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .verso-school-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 4.5mm;
       font-weight: 600;
       color: #F5EBD7;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .verso-address {
+    .verso-baseline {
       font-family: 'Inter', sans-serif;
-      font-size: 2.4mm;
+      font-size: 1.8mm;
       font-weight: 400;
-      color: rgba(245, 235, 215, 0.85);
-      line-height: 1.5;
+      color: rgba(245, 235, 215, 0.6);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 1mm;
     }
 
-    .verso-email {
+    /* Spécialités au centre */
+    .verso-specialties {
+      display: flex;
+      flex-direction: column;
+      gap: 2mm;
+      padding-left: 16mm;
+    }
+
+    .specialty-item {
       font-family: 'Inter', sans-serif;
-      font-size: 2.4mm;
+      font-size: 2.2mm;
+      font-weight: 500;
+      color: rgba(245, 235, 215, 0.8);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding-left: 3mm;
+      border-left: 0.3mm solid #D4A853;
+    }
+
+    /* Footer avec QR et site */
+    .verso-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .verso-website {
+      font-family: 'Inter', sans-serif;
+      font-size: 2mm;
       font-weight: 500;
       color: #D4A853;
       letter-spacing: 0.02em;
     }
 
-    .verso-website {
-      font-family: 'Inter', sans-serif;
-      font-size: 2.2mm;
-      font-weight: 400;
-      color: rgba(245, 235, 215, 0.6);
-      letter-spacing: 0.02em;
+    .qr-placeholder {
+      width: 12mm;
+      height: 12mm;
+      background: #F5EBD7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
 
-    .verso-footer {
-      margin-top: 3mm;
-      padding-top: 2.5mm;
-      border-top: 0.2mm solid rgba(212, 168, 83, 0.3);
-    }
-
-    .verso-accreditation {
+    .qr-placeholder::before {
+      content: 'QR';
       font-family: 'Inter', sans-serif;
-      font-size: 1.8mm;
-      font-weight: 600;
-      color: #D4A853;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-size: 2.5mm;
+      font-weight: 700;
+      color: #1B4D3E;
     }
 
     /* Print Instructions */
     .print-info {
-      background: white;
+      background: #333;
       border-radius: 12px;
       padding: 24px;
       max-width: 600px;
       margin: 0 auto;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
 
     .print-info h3 {
       font-size: 14px;
       font-weight: 700;
-      color: #1B4D3E;
+      color: #D4A853;
       margin-bottom: 12px;
     }
 
     .print-info ul {
       list-style: none;
       font-size: 13px;
-      color: #6B6B6B;
+      color: #aaa;
     }
 
     .print-info li {
@@ -415,15 +487,15 @@
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
-      Télécharger en PDF
+      Télécharger PDF
     </button>
   </nav>
 
   <div class="content">
     <!-- Header -->
     <div class="header">
-      <h1>Carte de Visite Forest Green</h1>
-      <p>Version institutionnelle avec hiérarchie rééquilibrée</p>
+      <h1>Carte de Visite Premium</h1>
+      <p>Design bicolore institutionnel — ÉCOLE T3P</p>
     </div>
 
     <!-- Cards -->
@@ -432,23 +504,53 @@
       <div class="card-wrapper">
         <div class="card-label">Recto</div>
         <div class="card">
-          <div class="card-content">
-            <!-- Institution (discret, en haut) -->
-            <div class="institution-block">
-              <div class="school-name">ÉCOLE T3P</div>
-              <div class="accreditation">Centre de formation agréé Préfecture</div>
-            </div>
-            
-            <div class="separator"></div>
-            
-            <!-- Identité directeur (dominant) -->
+          <!-- Zone gauche verte avec institution verticale -->
+          <div class="card-left">
+            <span class="institution-vertical">École T3P</span>
+          </div>
+          
+          <!-- Zone droite crème -->
+          <div class="card-right">
+            <!-- Identité dominante -->
             <div class="identity-block">
-              <div class="director-name">Karim KATI</div>
-              <div class="director-function">Directeur du centre</div>
+              <div class="director-name">
+                <span class="first">Karim</span> <span class="last">KATI</span>
+              </div>
+              <div class="director-function">Directeur du centre de formation</div>
             </div>
             
-            <!-- Spécialités -->
-            <div class="specialties">Taxi • VTC • VMDTR</div>
+            <!-- Coordonnées -->
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="contact-label">Téléphone</span>
+                  <span class="contact-value">07 83 78 76 63</span>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">montrouge@ecolet3p.fr</span>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="contact-label">Adresse</span>
+                  <span class="contact-value">3 rue Corneille, 92120 Montrouge</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -457,16 +559,32 @@
       <div class="card-wrapper">
         <div class="card-label">Verso</div>
         <div class="card-verso">
+          <!-- Bande dorée -->
+          <div class="verso-accent"></div>
+          
           <div class="verso-content">
-            <div class="verso-phone">07 83 78 76 63</div>
-            <div class="verso-address">
-              3 rue Corneille<br>
-              92120 Montrouge
+            <!-- Header avec monogramme -->
+            <div class="verso-header">
+              <div class="verso-monogram">
+                <span>T3P</span>
+              </div>
+              <div class="verso-institution">
+                <div class="verso-school-name">École T3P</div>
+                <div class="verso-baseline">Centre agréé Préfecture</div>
+              </div>
             </div>
-            <div class="verso-email">montrouge@ecolet3p.fr</div>
-            <div class="verso-website">www.ecolet3p.fr</div>
+            
+            <!-- Spécialités -->
+            <div class="verso-specialties">
+              <div class="specialty-item">Formation Taxi</div>
+              <div class="specialty-item">Formation VTC</div>
+              <div class="specialty-item">Formation VMDTR</div>
+            </div>
+            
+            <!-- Footer -->
             <div class="verso-footer">
-              <div class="verso-accreditation">Centre agréé Préfecture</div>
+              <div class="verso-website">www.ecolet3p.fr</div>
+              <div class="qr-placeholder"></div>
             </div>
           </div>
         </div>
@@ -478,8 +596,8 @@
       <h3>Spécifications d'impression</h3>
       <ul>
         <li>Format : 85 × 55 mm (standard européen)</li>
-        <li>Papier : 350-400 g/m² couché mat ou coton</li>
-        <li>Finition : Pelliculage mat soft-touch + vernis sélectif doré</li>
+        <li>Papier : 400 g/m² couché mat ou soft-touch</li>
+        <li>Finition : Pelliculage soft-touch + dorure à chaud sur bande</li>
         <li>Couleurs : Forest Green #1B4D3E • Gold #D4A853 • Cream #F5EBD7</li>
         <li>Activer "Graphiques d'arrière-plan" à l'impression</li>
       </ul>
