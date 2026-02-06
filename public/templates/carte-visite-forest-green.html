@@ -6,7 +6,7 @@
   <title>Carte de Visite Forest Green - ÉCOLE T3P</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,8 +15,8 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f4;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -24,7 +24,7 @@
       padding: 40px 20px;
     }
 
-    /* Navigation - Hidden when printing */
+    /* Navigation */
     .nav-bar {
       position: fixed;
       top: 0;
@@ -75,7 +75,7 @@
     /* Content */
     .content {
       margin-top: 100px;
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
     }
 
@@ -85,8 +85,9 @@
     }
 
     .header h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 600;
       color: #1B4D3E;
       margin-bottom: 8px;
     }
@@ -110,161 +111,212 @@
     }
 
     .card-label {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: #1B4D3E;
       margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
 
-    /* Business Card - Forest Green */
+    /* ========================================
+       CARTE RECTO - Layout refonte V2
+       Hiérarchie : Directeur → Institution → Métiers
+       ======================================== */
     .card {
       width: 85mm;
       height: 55mm;
       background: #1B4D3E;
-      border-radius: 2mm;
-      padding: 6mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.3);
-    }
-
-    /* Accent line top */
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #D4A853 20%, #D4A853 80%, transparent 100%);
-    }
-
-    .card-header {
-      text-align: center;
-    }
-
-    .school-name {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 8mm;
-      font-weight: 700;
-      color: #F5EBD7;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 3mm;
-    }
-
-    .separator {
-      width: 15mm;
-      height: 1px;
-      background: #D4A853;
-      margin: 0 auto 3mm;
-    }
-
-    .status {
-      font-size: 2.2mm;
-      font-weight: 500;
-      color: rgba(245, 235, 215, 0.7);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .card-identity {
-      text-align: center;
-    }
-
-    .identity-line {
-      width: 8mm;
-      height: 1px;
-      background: #D4A853;
-      margin: 0 auto 2mm;
-    }
-
-    .director-name {
-      font-size: 4mm;
-      font-weight: 700;
-      color: #F5EBD7;
-      margin-bottom: 1mm;
-    }
-
-    .director-title {
-      font-size: 2.5mm;
-      font-weight: 400;
-      color: rgba(245, 235, 215, 0.7);
-      letter-spacing: 0.1em;
-    }
-
-    .card-footer {
-      text-align: center;
-    }
-
-    .footer-tag {
-      display: inline-block;
-      font-size: 2mm;
-      font-weight: 600;
-      color: #D4A853;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      border: 0.3mm solid rgba(212, 168, 83, 0.4);
-      padding: 1mm 3mm;
-      border-radius: 0.5mm;
-    }
-
-    /* Verso */
-    .card-verso {
-      width: 85mm;
-      height: 55mm;
-      background: #1B4D3E;
-      border-radius: 2mm;
-      padding: 6mm;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.25);
+    }
+
+    /* Filet doré discret en haut */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20mm;
+      height: 0.4mm;
+      background: #D4A853;
+    }
+
+    /* Filet doré discret en bas */
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20mm;
+      height: 0.4mm;
+      background: #D4A853;
+    }
+
+    .card-content {
+      padding: 0 8mm;
+    }
+
+    /* BLOC 1 : Institution (discret, en haut) */
+    .institution-block {
+      margin-bottom: 5mm;
+    }
+
+    .school-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5mm;
+      font-weight: 600;
+      color: #F5EBD7;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.5mm;
+    }
+
+    .accreditation {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.8mm;
+      font-weight: 400;
+      color: rgba(245, 235, 215, 0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Séparateur fin */
+    .separator {
+      width: 12mm;
+      height: 0.3mm;
+      background: #D4A853;
+      margin: 0 auto 4mm;
+    }
+
+    /* BLOC 2 : Identité directeur (dominant) */
+    .identity-block {
+      margin-bottom: 4mm;
+    }
+
+    .director-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5.5mm;
+      font-weight: 700;
+      color: #F5EBD7;
+      letter-spacing: 0.02em;
+      margin-bottom: 1mm;
+    }
+
+    .director-function {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.2mm;
+      font-weight: 500;
+      color: rgba(245, 235, 215, 0.75);
+      letter-spacing: 0.06em;
+    }
+
+    /* BLOC 3 : Spécialités (footer discret) */
+    .specialties {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.8mm;
+      font-weight: 400;
+      color: #D4A853;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ========================================
+       CARTE VERSO - Coordonnées épurées
+       ======================================== */
+    .card-verso {
+      width: 85mm;
+      height: 55mm;
+      background: #1B4D3E;
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 7mm 10mm;
+      box-shadow: 0 8px 32px rgba(27, 77, 62, 0.25);
+    }
+
+    .card-verso::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20mm;
+      height: 0.4mm;
+      background: #D4A853;
     }
 
     .card-verso::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #D4A853 20%, #D4A853 80%, transparent 100%);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20mm;
+      height: 0.4mm;
+      background: #D4A853;
     }
 
     .verso-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
       text-align: center;
     }
 
     .verso-phone {
-      font-size: 4.5mm;
-      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      font-size: 4mm;
+      font-weight: 600;
       color: #F5EBD7;
-      margin-bottom: 4mm;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
     }
 
     .verso-address {
-      font-size: 2.5mm;
+      font-family: 'Inter', sans-serif;
+      font-size: 2.4mm;
       font-weight: 400;
-      color: rgba(245, 235, 215, 0.8);
-      line-height: 1.6;
-      margin-bottom: 4mm;
+      color: rgba(245, 235, 215, 0.85);
+      line-height: 1.5;
     }
 
     .verso-email {
-      font-size: 2.5mm;
+      font-family: 'Inter', sans-serif;
+      font-size: 2.4mm;
       font-weight: 500;
       color: #D4A853;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
+    }
+
+    .verso-website {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.2mm;
+      font-weight: 400;
+      color: rgba(245, 235, 215, 0.6);
+      letter-spacing: 0.02em;
+    }
+
+    .verso-footer {
+      margin-top: 3mm;
+      padding-top: 2.5mm;
+      border-top: 0.2mm solid rgba(212, 168, 83, 0.3);
+    }
+
+    .verso-accreditation {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.8mm;
+      font-weight: 600;
+      color: #D4A853;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     /* Print Instructions */
@@ -342,7 +394,6 @@
       .card,
       .card-verso {
         box-shadow: none;
-        border-radius: 0;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -372,7 +423,7 @@
     <!-- Header -->
     <div class="header">
       <h1>Carte de Visite Forest Green</h1>
-      <p>Version institutionnelle premium aux couleurs officielles ÉCOLE T3P</p>
+      <p>Version institutionnelle avec hiérarchie rééquilibrée</p>
     </div>
 
     <!-- Cards -->
@@ -381,20 +432,23 @@
       <div class="card-wrapper">
         <div class="card-label">Recto</div>
         <div class="card">
-          <div class="card-header">
-            <div class="school-name">ÉCOLE T3P</div>
+          <div class="card-content">
+            <!-- Institution (discret, en haut) -->
+            <div class="institution-block">
+              <div class="school-name">ÉCOLE T3P</div>
+              <div class="accreditation">Centre de formation agréé Préfecture</div>
+            </div>
+            
             <div class="separator"></div>
-            <div class="status">Centre de formation agréé Préfecture</div>
-          </div>
-          
-          <div class="card-identity">
-            <div class="identity-line"></div>
-            <div class="director-name">Karim KATI</div>
-            <div class="director-title">Directeur</div>
-          </div>
-          
-          <div class="card-footer">
-            <span class="footer-tag">Taxi • VTC • VMDTR</span>
+            
+            <!-- Identité directeur (dominant) -->
+            <div class="identity-block">
+              <div class="director-name">Karim KATI</div>
+              <div class="director-function">Directeur du centre</div>
+            </div>
+            
+            <!-- Spécialités -->
+            <div class="specialties">Taxi • VTC • VMDTR</div>
           </div>
         </div>
       </div>
@@ -410,6 +464,10 @@
               92120 Montrouge
             </div>
             <div class="verso-email">montrouge@ecolet3p.fr</div>
+            <div class="verso-website">www.ecolet3p.fr</div>
+            <div class="verso-footer">
+              <div class="verso-accreditation">Centre agréé Préfecture</div>
+            </div>
           </div>
         </div>
       </div>
@@ -417,14 +475,13 @@
 
     <!-- Print Instructions -->
     <div class="print-info">
-      <h3>Instructions d'impression professionnelle</h3>
+      <h3>Spécifications d'impression</h3>
       <ul>
-        <li>Format : 85 × 55 mm (standard carte de visite)</li>
-        <li>Papier : 400g/m² couché mat ou soft-touch</li>
-        <li>Couleur Pantone : Forest Green proche de Pantone 3308 C</li>
-        <li>CMJN : C85 M40 J65 N45</li>
-        <li>Finition recommandée : pelliculage soft-touch + dorure à chaud sur accents</li>
-        <li>Activer "Graphiques d'arrière-plan" dans les options d'impression</li>
+        <li>Format : 85 × 55 mm (standard européen)</li>
+        <li>Papier : 350-400 g/m² couché mat ou coton</li>
+        <li>Finition : Pelliculage mat soft-touch + vernis sélectif doré</li>
+        <li>Couleurs : Forest Green #1B4D3E • Gold #D4A853 • Cream #F5EBD7</li>
+        <li>Activer "Graphiques d'arrière-plan" à l'impression</li>
       </ul>
     </div>
   </div>
