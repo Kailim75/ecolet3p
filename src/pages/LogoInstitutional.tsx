@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Check, X } from "lucide-react";
-import { EcoleT3PInstitutional, EcoleT3PMonogram, EcoleT3PSeal } from "@/components/logo/EcoleT3PInstitutional";
+import { EcoleT3PInstitutional, EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
 
 const LogoInstitutional = () => {
   return (
@@ -17,21 +17,21 @@ const LogoInstitutional = () => {
         </Link>
 
         <h1 className="text-3xl font-serif font-bold text-[#1B4D3E] mb-2">Logo Institutionnel ÉCOLE T3P</h1>
-        <p className="text-[#4A4A4A] mb-4">Version V2 — Statutaire et sobre</p>
+        <p className="text-[#4A4A4A] mb-4">Version FINALE — Statutaire et sobre</p>
         
         {/* Validation checklist */}
         <div className="bg-white rounded-lg p-4 mb-12 border border-[#1B4D3E]/10">
           <h3 className="font-semibold text-[#1B4D3E] mb-3 text-sm uppercase tracking-wide">Critères respectés</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
             {[
+              "Sans sceau",
+              "Sans badge",
               "Sans dégradés",
-              "Sans ombres",
               "Sans effets",
               "Monochrome OK",
               "Typographie serif",
               "Baseline institutionnelle",
-              "Pas de 'Campus'",
-              "Sceau officiel"
+              "Pas de 'Campus'"
             ].map((item) => (
               <div key={item} className="flex items-center gap-2 text-[#1B4D3E]">
                 <Check className="w-4 h-4" />
@@ -47,7 +47,7 @@ const LogoInstitutional = () => {
             1. Logo principal — Fond clair
           </h2>
           <div className="bg-white rounded-lg p-8 border border-[#1B4D3E]/10">
-            <EcoleT3PInstitutional className="h-16" theme="light" showBaseline={true} />
+            <EcoleT3PInstitutional className="h-14" theme="light" showBaseline={true} />
           </div>
           <p className="text-xs text-[#4A4A4A] mt-2">Usage : Documents officiels, site web, supports de communication</p>
         </section>
@@ -58,7 +58,7 @@ const LogoInstitutional = () => {
             2. Logo principal — Fond sombre
           </h2>
           <div className="bg-[#1B4D3E] rounded-lg p-8">
-            <EcoleT3PInstitutional className="h-16" theme="dark" showBaseline={true} />
+            <EcoleT3PInstitutional className="h-14" theme="dark" showBaseline={true} />
           </div>
           <p className="text-xs text-[#4A4A4A] mt-2">Usage : Signalétique, supports foncés, événementiel</p>
         </section>
@@ -69,7 +69,7 @@ const LogoInstitutional = () => {
             3. Logo monochrome
           </h2>
           <div className="bg-[#F8F6F3] rounded-lg p-8 border-2 border-[#1B4D3E]/20">
-            <EcoleT3PInstitutional className="h-16" theme="mono" showBaseline={true} />
+            <EcoleT3PInstitutional className="h-14" theme="mono" showBaseline={true} />
           </div>
           <p className="text-xs text-[#4A4A4A] mt-2">Usage : Impression N&B, fax, tampons, documents administratifs</p>
         </section>
@@ -77,7 +77,7 @@ const LogoInstitutional = () => {
         {/* 4. Monogramme T3P seul */}
         <section className="mb-12">
           <h2 className="text-lg font-serif font-semibold text-[#1B4D3E] mb-4 pb-2 border-b border-[#1B4D3E]/20">
-            4. Monogramme T3P seul
+            4. Monogramme T3P (séparé)
           </h2>
           <div className="grid grid-cols-3 gap-6">
             <div className="bg-white rounded-lg p-6 border border-[#1B4D3E]/10 flex flex-col items-center">
@@ -96,49 +96,28 @@ const LogoInstitutional = () => {
           <p className="text-xs text-[#4A4A4A] mt-2">Usage : Favicon, icônes, réseaux sociaux, petits formats</p>
         </section>
 
-        {/* 5. Sceau officiel */}
-        <section className="mb-12">
-          <h2 className="text-lg font-serif font-semibold text-[#1B4D3E] mb-4 pb-2 border-b border-[#1B4D3E]/20">
-            5. Sceau officiel (optionnel)
-          </h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg p-8 border border-[#1B4D3E]/10 flex flex-col items-center">
-              <EcoleT3PSeal className="w-28 h-28" theme="light" />
-              <p className="text-xs text-[#4A4A4A] mt-3">Attestations, certificats</p>
-            </div>
-            <div className="bg-[#1B4D3E] rounded-lg p-8 flex flex-col items-center">
-              <EcoleT3PSeal className="w-28 h-28" theme="dark" />
-              <p className="text-xs text-white/70 mt-3">Documents officiels</p>
-            </div>
-          </div>
-        </section>
-
         {/* Test de lisibilité */}
         <section className="mb-12">
           <h2 className="text-lg font-serif font-semibold text-[#1B4D3E] mb-4 pb-2 border-b border-[#1B4D3E]/20">
             Tests de lisibilité
           </h2>
           <div className="bg-white rounded-lg p-6 border border-[#1B4D3E]/10">
-            <div className="flex items-end gap-6 flex-wrap">
+            <div className="flex items-end gap-8 flex-wrap">
               <div className="text-center">
-                <EcoleT3PMonogram className="w-6 h-6 mb-2 mx-auto" theme="light" />
+                <EcoleT3PInstitutional className="h-6 mb-2" theme="light" showBaseline={false} />
                 <p className="text-xs text-[#4A4A4A]">24px</p>
               </div>
               <div className="text-center">
-                <EcoleT3PMonogram className="w-8 h-8 mb-2 mx-auto" theme="light" />
+                <EcoleT3PInstitutional className="h-8 mb-2" theme="light" showBaseline={false} />
                 <p className="text-xs text-[#4A4A4A]">32px</p>
               </div>
               <div className="text-center">
-                <EcoleT3PMonogram className="w-10 h-10 mb-2 mx-auto" theme="light" />
+                <EcoleT3PInstitutional className="h-10 mb-2" theme="light" showBaseline={false} />
                 <p className="text-xs text-[#4A4A4A]">40px</p>
               </div>
               <div className="text-center">
-                <EcoleT3PMonogram className="w-12 h-12 mb-2 mx-auto" theme="light" />
-                <p className="text-xs text-[#4A4A4A]">48px</p>
-              </div>
-              <div className="text-center">
-                <EcoleT3PMonogram className="w-16 h-16 mb-2 mx-auto" theme="light" />
-                <p className="text-xs text-[#4A4A4A]">64px</p>
+                <EcoleT3PInstitutional className="h-14 mb-2" theme="light" showBaseline={true} />
+                <p className="text-xs text-[#4A4A4A]">56px (baseline)</p>
               </div>
             </div>
           </div>
@@ -150,8 +129,8 @@ const LogoInstitutional = () => {
             Simulation — Attestation officielle
           </h2>
           <div className="bg-white rounded-lg p-8 border border-[#1B4D3E]/10 max-w-md mx-auto">
-            <div className="text-center mb-6">
-              <EcoleT3PInstitutional className="h-10 mx-auto" theme="light" showBaseline={false} />
+            <div className="mb-6">
+              <EcoleT3PInstitutional className="h-10" theme="light" showBaseline={true} />
             </div>
             <div className="border-t border-b border-[#1B4D3E]/20 py-4 mb-4">
               <h3 className="text-center font-serif font-semibold text-[#1B4D3E] text-lg">ATTESTATION DE FORMATION</h3>
@@ -166,7 +145,7 @@ const LogoInstitutional = () => {
                 <p>Le [DATE]</p>
               </div>
               <div className="text-center">
-                <EcoleT3PSeal className="w-16 h-16 mx-auto opacity-80" theme="light" />
+                <EcoleT3PMonogram className="w-12 h-12 mx-auto opacity-60" theme="light" />
                 <p className="text-xs text-[#4A4A4A] mt-1">Le Directeur</p>
               </div>
             </div>
@@ -181,11 +160,11 @@ const LogoInstitutional = () => {
           <div className="bg-red-50 rounded-lg p-4 border border-red-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-red-700">
               {[
+                "Sceau / badge",
                 "Dégradés de couleur",
                 "Effets de relief",
                 "Ombres portées",
-                "Pictogrammes ajoutés",
-                "Slogans marketing",
+                "Pictogrammes",
                 "Mention 'Campus'",
                 "Rotation du logo",
                 "Déformation"
