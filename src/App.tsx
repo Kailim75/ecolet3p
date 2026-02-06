@@ -40,6 +40,7 @@ const CharteGraphique = lazy(() => import("./pages/CharteGraphique"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const LogoPreview = lazy(() => import("./pages/LogoPreview"));
 const LogoExport = lazy(() => import("./pages/LogoExport"));
+const LogoInstitutional = lazy(() => import("./pages/LogoInstitutional"));
 const RecuperationPoints = lazy(() => import("./pages/RecuperationPoints"));
 const Templates = lazy(() => import("./pages/Templates"));
 
@@ -109,6 +110,7 @@ const App = () => {
                       <Route path="/charte-graphique" element={<CharteGraphique />} />
                       <Route path="/logo-preview" element={<LogoPreview />} />
                       <Route path="/logo-export" element={<LogoExport />} />
+                      <Route path="/logo-institutionnel" element={<LogoInstitutional />} />
                       <Route path="/templates" element={<Templates />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>

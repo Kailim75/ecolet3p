@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- ÉCOLE T3P - Sceau officiel pour documents et attestations -->
+  
+  <!-- Double cercle institutionnel -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#1B4D3E" stroke-width="2"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#1B4D3E" stroke-width="1"/>
+  
+  <!-- Texte circulaire haut - ÉCOLE -->
+  <path id="topArc" d="M 15 50 A 35 35 0 0 1 85 50" fill="none"/>
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="9" font-weight="600" fill="#1B4D3E" letter-spacing="0.2em">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">ÉCOLE</textPath>
+  </text>
+  
+  <!-- T3P central -->
+  <text x="50" y="56" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#1B4D3E" letter-spacing="0.02em">T3P</text>
+  
+  <!-- Texte circulaire bas - CENTRE DE FORMATION -->
+  <path id="bottomArc" d="M 15 50 A 35 35 0 0 0 85 50" fill="none"/>
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="6" font-weight="500" fill="#1B4D3E" letter-spacing="0.1em">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">CENTRE DE FORMATION</textPath>
+  </text>
+  
+  <!-- Séparateurs -->
+  <circle cx="18" cy="50" r="1.5" fill="#1B4D3E"/>
+  <circle cx="82" cy="50" r="1.5" fill="#1B4D3E"/>
+</svg>

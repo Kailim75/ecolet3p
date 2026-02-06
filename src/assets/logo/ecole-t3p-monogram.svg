@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <!-- ÉCOLE T3P - Monogramme seul - Style sceau institutionnel -->
+  
+  <!-- Cercle institutionnel -->
+  <circle cx="30" cy="30" r="28" fill="#1B4D3E"/>
+  <circle cx="30" cy="30" r="24" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.3"/>
+  
+  <!-- T3P centré -->
+  <text x="30" y="35" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">T3P</text>
+</svg>
