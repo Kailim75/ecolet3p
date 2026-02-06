@@ -4,7 +4,7 @@ import { Menu, X, Phone, ChevronDown, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
-import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
+import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
 
 // Formations sub-menu structure
 const formationsSubMenu = {
@@ -89,9 +89,12 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <EcoleT3PIcon className="w-10 h-10" theme="color" />
-            <span className="text-xl font-black text-forest tracking-tight uppercase">ECOLE T3P</span>
+          <Link to="/" className="flex items-center gap-3">
+            <EcoleT3PMonogram className="w-9 h-9" theme="light" />
+            <div className="flex flex-col">
+              <span className="text-xl font-serif font-bold text-forest tracking-wide">ÉCOLE T3P</span>
+              <span className="text-[9px] text-muted-foreground tracking-wider hidden sm:block">Centre de formation agréé Préfecture</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

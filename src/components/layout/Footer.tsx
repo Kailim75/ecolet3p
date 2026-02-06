@@ -1,7 +1,7 @@
 import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
-import { EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
+import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
 
 const Footer = () => {
   return (
@@ -11,9 +11,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-5">
-              <EcoleT3PIcon className="w-10 h-10" theme="white" />
-              <span className="text-xl font-black text-cream tracking-tight uppercase">ECOLE T3P</span>
+            <div className="flex items-center gap-3 mb-5">
+              <EcoleT3PMonogram className="w-9 h-9" theme="dark" />
+              <div className="flex flex-col">
+                <span className="text-xl font-serif font-bold text-cream tracking-wide">ÉCOLE T3P</span>
+                <span className="text-[9px] text-cream/60 tracking-wider">Centre de formation agréé Préfecture</span>
+              </div>
             </div>
             <p className="text-cream/70 text-sm leading-relaxed mb-4">
               Centre de formation agréé pour chauffeurs professionnels TAXI, VTC et VMDTR.
