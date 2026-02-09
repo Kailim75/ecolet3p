@@ -2684,9 +2684,9 @@ La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs d
   },
   {
     slug: "formation-continue-renouvellement-carte-professionnelle",
-    title: "Formation Continue : Renouveler sa carte professionnelle VTC/Taxi",
-    metaDescription: "Tout savoir sur la formation continue obligatoire pour renouveler votre carte professionnelle VTC ou Taxi. Durée, programme et modalités.",
-    excerpt: "Votre carte professionnelle arrive à expiration ? Découvrez la formation continue obligatoire pour la renouveler et maintenir vos compétences à jour.",
+    title: "Formation Continue : Renouveler sa carte professionnelle VTC/Taxi/VMDTR",
+    metaDescription: "Tout savoir sur la formation continue obligatoire pour renouveler votre carte professionnelle VTC, Taxi ou VMDTR. Durée, programme et modalités.",
+    excerpt: "Votre carte professionnelle VTC, Taxi ou VMDTR arrive à expiration ? Découvrez la formation continue obligatoire pour la renouveler et maintenir vos compétences à jour.",
     category: "Formation Continue",
     readTime: "6 min",
     publishDate: "2025-01-16",
@@ -2695,7 +2695,7 @@ La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs d
     content: `
 ## La formation continue : une obligation légale
 
-Depuis 2017, tous les chauffeurs VTC et Taxi doivent suivre une **formation continue obligatoire** pour renouveler leur carte professionnelle. Cette formation doit être effectuée tous les 5 ans.
+Depuis 2017, tous les chauffeurs VTC, Taxi et VMDTR doivent suivre une **formation continue obligatoire** pour renouveler leur carte professionnelle. Cette formation doit être effectuée tous les 5 ans.
 
 ## Pourquoi cette obligation ?
 
@@ -2704,31 +2704,39 @@ La formation continue vise à :
 - **Actualiser vos connaissances** sur la réglementation
 - **Renforcer la sécurité** routière
 - **Améliorer la qualité** du service client
-- **S'adapter aux évolutions** du métier
+- **S'adapter aux évolutions** du métier (nouvelles technologies, IA, ZFE…)
 
 ## Qui est concerné ?
 
 Tous les titulaires d'une carte VTC, Taxi ou VMDTR arrivant à échéance dans les 12 prochains mois.
 
-**Attention** : Sans attestation de formation continue, vous ne pourrez pas renouveler votre carte professionnelle.
+| Métier | Carte professionnelle | Durée de validité | Formation continue |
+|--------|----------------------|-------------------|-------------------|
+| VTC | Carte VTC | 5 ans | 14h obligatoires |
+| Taxi | Carte professionnelle Taxi | 5 ans | 14h obligatoires |
+| VMDTR | Carte VMDTR | 5 ans | 14h obligatoires |
+
+**Attention** : Sans attestation de formation continue, vous ne pourrez pas renouveler votre carte professionnelle, quel que soit votre métier (VTC, Taxi ou VMDTR).
 
 ## Le programme de formation continue
 
-Notre formation continue dure **14 heures** réparties sur 2 jours.
+Notre formation continue dure **14 heures** réparties sur 2 jours, adaptée aux spécificités de chaque métier.
 
 ### Jour 1 : Réglementation et sécurité (7h)
 
 **Matin : Actualités réglementaires**
 - Évolutions de la loi Grandguillaume
-- Nouvelles obligations des plateformes
-- Réglementation environnementale (ZFE)
-- Droits et devoirs actualisés
+- Nouvelles obligations des plateformes (VTC, Taxi et VMDTR)
+- Réglementation environnementale (ZFE, véhicules électriques)
+- Droits et devoirs actualisés selon votre métier
+- Spécificités VMDTR : réglementation des deux-roues motorisés
 
 **Après-midi : Sécurité routière**
 - Rappel des fondamentaux
 - Nouvelles règles du code de la route
 - Éco-conduite et conduite défensive
 - Gestion des situations d'urgence
+- Sécurité spécifique VMDTR : conduite de moto-taxi, équipements passagers
 
 ### Jour 2 : Relation client et gestion (7h)
 
@@ -2737,12 +2745,13 @@ Notre formation continue dure **14 heures** réparties sur 2 jours.
 - Gestion des conflits
 - Communication interculturelle
 - Satisfaction et fidélisation client
+- Spécificités d'accueil VMDTR : confort passager, équipement de sécurité
 
 **Après-midi : Gestion d'activité**
 - Évolutions fiscales et sociales
-- Outils numériques de gestion
-- Développement commercial
-- Bien-être au travail
+- Outils numériques de gestion et applications métier
+- Développement commercial (plateformes VTC, Taxi et VMDTR)
+- Bien-être au travail et prévention des risques
 
 ## Les modalités pratiques chez ECOLE T3P
 
@@ -2751,14 +2760,15 @@ Notre formation continue dure **14 heures** réparties sur 2 jours.
 - **Horaires** : 9h00 - 17h00
 - **Effectif** : 10-15 personnes max
 - **Paiement** : 4x sans frais possible
+- **Formations disponibles** : VTC, Taxi et VMDTR
 
 ## L'attestation de formation continue
 
-À l'issue de la formation, vous recevez une **attestation officielle** qui vous permettra de déposer votre demande de renouvellement en préfecture.
+À l'issue de la formation, vous recevez une **attestation officielle** qui vous permettra de déposer votre demande de renouvellement en préfecture, que vous soyez chauffeur VTC, Taxi ou VMDTR.
 
 ## Que se passe-t-il sans formation continue ?
 
-- Refus de renouvellement de votre carte professionnelle
+- Refus de renouvellement de votre carte professionnelle (VTC, Taxi ou VMDTR)
 - Interdiction d'exercer à l'expiration de la carte
 - Sanctions en cas d'exercice illégal (amendes, suspension)
 
@@ -2766,16 +2776,16 @@ Notre formation continue dure **14 heures** réparties sur 2 jours.
 
 Au-delà de l'obligation légale, la formation continue vous apporte :
 
-- Mise à jour des connaissances réglementaires
-- Échanges avec d'autres professionnels
+- Mise à jour des connaissances réglementaires propres à votre métier
+- Échanges avec d'autres professionnels du transport (VTC, Taxi, VMDTR)
 - Nouvelles techniques de relation client
-- Réseau professionnel élargi
+- Réseau professionnel élargi et opportunités de développement
 
 ## Conclusion
 
-La formation continue n'est pas qu'une contrainte administrative : c'est l'occasion de faire le point sur votre pratique et de vous perfectionner.
+La formation continue n'est pas qu'une contrainte administrative : c'est l'occasion de faire le point sur votre pratique et de vous perfectionner, que vous soyez chauffeur VTC, Taxi ou VMDTR.
 
-Chez ECOLE T3P, nous rendons cette formation agréable et enrichissante. Réservez votre place dès maintenant !
+Chez ECOLE T3P, nous rendons cette formation agréable et enrichissante pour les trois métiers du transport de personnes. Réservez votre place dès maintenant !
     `
   }
 ];
