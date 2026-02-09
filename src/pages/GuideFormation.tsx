@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  BookOpen, Target, Layers, GraduationCap, ShieldCheck,
+  BookOpen, Target, Layers, GraduationCap, ShieldCheck, FileDown,
   Car, Users, FileCheck, Briefcase, TrendingUp,
   Phone, ArrowRight, CheckCircle, Home, Star,
   Scale, Globe, MessageCircle, Route, HeartHandshake,
@@ -141,10 +141,14 @@ const GuideFormation = () => {
                 Vous débutez votre formation ?<br />
                 <span className="text-gold">Cette page vous guide pas à pas.</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                 La formation est accessible, structurée et accompagnée. Quel que soit votre parcours,
                 notre équipe pédagogique est là pour vous mener jusqu'à l'obtention de votre carte professionnelle.
               </p>
+              <Link to="/guide-formation/pdf" className="inline-flex items-center gap-2 bg-forest text-white px-6 py-3 rounded-lg hover:bg-forest/90 transition-colors font-medium">
+                <FileDown className="h-5 w-5" />
+                Télécharger le guide en PDF
+              </Link>
             </motion.div>
           </div>
         </div>
