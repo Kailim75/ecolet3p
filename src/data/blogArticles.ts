@@ -1,12 +1,12 @@
 import vtcDriver2025 from "@/assets/blog/vtc-driver-2025.jpg";
 import vtcDriver2026 from "@/assets/blog/vtc-driver-2026.jpg";
+import taxiDriver2026 from "@/assets/blog/taxi-driver-2026.jpg";
 import taxiDriverFormation from "@/assets/blog/taxi-driver-formation.jpg";
 import vtcVsTaxiComparison from "@/assets/blog/vtc-vs-taxi-comparison.jpg";
 import carteProfessionnelleVtc from "@/assets/blog/carte-professionnelle-vtc.jpg";
 import financementFormation from "@/assets/blog/financement-formation.jpg";
 import motoTaxiVmdtr from "@/assets/blog/moto-taxi-vmdtr.jpg";
 import formationContinue from "@/assets/blog/formation-continue.jpg";
-
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -21,6 +21,361 @@ export interface BlogArticle {
 }
 
 export const blogArticles: BlogArticle[] = [
+  {
+    slug: "comment-devenir-chauffeur-taxi-2026",
+    title: "Comment devenir chauffeur Taxi en 2026 : Le guide complet",
+    metaDescription: "Guide ultime 2026 pour devenir chauffeur Taxi : licence ADS, formation, examen, réglementation ZFE et revenus. Toutes les étapes pour réussir.",
+    excerpt: "Découvrez comment devenir chauffeur Taxi en 2026 : acquisition de licence, formation certifiante, nouvelles règles ZFE et stratégies pour maximiser vos revenus.",
+    category: "TAXI",
+    readTime: "14 min",
+    publishDate: "2026-02-09",
+    author: "ECOLE T3P",
+    image: taxiDriver2026,
+    content: `
+## Introduction : Le métier de Taxi en 2026
+
+Le métier de chauffeur de taxi reste en 2026 une profession noble et recherchée. Malgré la concurrence des VTC, les taxis conservent des avantages exclusifs : maraude, voies de bus, stations dédiées et une clientèle fidèle. Les évolutions réglementaires de 2026, notamment les Zones à Faibles Émissions (ZFE), transforment également ce secteur.
+
+Chez **ECOLE T3P à Montrouge**, nous formons les futurs chauffeurs taxi avec un taux de réussite de **94%**. Ce guide vous présente toutes les étapes pour réussir votre reconversion en 2026.
+
+## Les nouveautés 2026 pour les chauffeurs Taxi
+
+### Les Zones à Faibles Émissions (ZFE)
+
+En 2026, les ZFE concernent **43 agglomérations françaises**. Pour exercer à Paris et en petite couronne, votre véhicule doit être :
+
+- **Crit'Air 1** minimum (essence récent ou hybride)
+- **Crit'Air 0** (électrique ou hydrogène) recommandé pour anticiper 2030
+- Conforme aux nouvelles normes Euro 7
+
+**Avantage Taxi** : Les taxis Crit'Air 0 bénéficient d'un accès prioritaire aux stations de recharge et aux files d'attente aéroports.
+
+### Les aides spécifiques aux taxis 2026
+
+Les chauffeurs de taxi bénéficient d'aides renforcées pour la transition écologique :
+
+| Aide | Montant | Conditions |
+|------|---------|------------|
+| Bonus écologique | Jusqu'à 5 000€ | Véhicule électrique neuf |
+| Prime taxi électrique | 10 000€ | Taxi parisien électrique |
+| Aide régionale IDF | 6 000€ | Véhicule pro électrique |
+| Aide à la licence | Variable | Jeunes artisans -35 ans |
+| **Total cumulable** | **Jusqu'à 21 000€** | Sous conditions |
+
+### Évolutions réglementaires 2026
+
+Depuis janvier 2026, de nouvelles obligations s'appliquent :
+
+- **Formation continue renforcée** : 14h tous les 5 ans (alignement VTC/Taxi)
+- **Terminal de paiement** : Obligation d'accepter le paiement par carte
+- **Application de réservation** : Intégration obligatoire à au moins une plateforme
+- **Registre T3P dématérialisé** : Mise à jour annuelle obligatoire
+
+## Les prérequis pour devenir chauffeur Taxi
+
+Avant de vous lancer, vérifiez que vous remplissez ces conditions :
+
+### Conditions administratives
+
+✅ **Âge minimum** : 21 ans
+✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans
+✅ **Casier judiciaire** : Bulletin n°2 compatible (absence de certaines infractions)
+✅ **Aptitude médicale** : Visite médicale préfectorale obligatoire
+✅ **Formation aux premiers secours** : PSC1 recommandé
+
+### Compétences requises
+
+- Excellente connaissance de la géographie locale
+- Maîtrise parfaite du français
+- Notions d'anglais (recommandé pour Paris)
+- Sens de l'orientation développé
+- Résistance au stress
+
+**Bon à savoir** : Chez ECOLE T3P, nous vérifions gratuitement votre éligibilité lors d'un entretien préalable.
+
+## La formation Taxi : clé de votre réussite
+
+### Pourquoi suivre une formation ?
+
+La formation n'est pas légalement obligatoire pour passer l'examen, mais elle est **indispensable** pour réussir :
+
+| | Avec formation | Candidat libre |
+|---|---|---|
+| Taux de réussite | **94%** | 20-25% |
+| Durée de préparation | 2 semaines | 4-8 mois |
+| Accompagnement | Personnalisé | Aucun |
+| Connaissance locale | Enseignée | À acquérir seul |
+| Examens blancs | Inclus | À organiser seul |
+
+### Le programme de formation ECOLE T3P
+
+Notre formation Taxi de **63 heures** (ou 33h en format soir) couvre tous les modules de l'examen :
+
+#### Module 1 : Réglementation T3P (14h)
+- Loi sur les taxis et VTC
+- Statut du chauffeur de taxi
+- Droits et obligations
+- Réglementation ZFE 2026
+- Licence ADS et réglementation locale
+
+#### Module 2 : Gestion d'entreprise (10h)
+- Choix du statut (artisan, salarié, locataire-gérant)
+- Comptabilité taxi
+- Fiscalité et TVA
+- Charges sociales URSSAF
+- Business plan taxi
+
+#### Module 3 : Sécurité routière (10h)
+- Code de la route approfondi
+- Conduite préventive en milieu urbain
+- Gestion des situations d'urgence
+- Spécificités véhicules électriques
+- Premiers secours (PSC1)
+
+#### Module 4 : Relation client (8h)
+- Accueil des passagers
+- Gestion des conflits
+- Communication interculturelle
+- Accueil des personnes à mobilité réduite
+- Protocole clientèle premium
+
+#### Module 5 : Connaissance du territoire (15h)
+- **Spécifique à votre zone d'exercice**
+- Paris intra-muros : monuments, hôpitaux, gares
+- Aéroports : Roissy CDG, Orly, Le Bourget
+- Petite couronne : communes, axes principaux
+- Itinéraires optimisés selon le trafic
+
+#### Module 6 : Français et anglais (6h)
+- Expression orale professionnelle
+- Vocabulaire transport en anglais
+- Phrases types accueil clientèle internationale
+
+### Les formats de formation
+
+| Format | Durée | Horaires | Idéal pour |
+|--------|-------|----------|------------|
+| Intensif journée | 2 semaines | 9h-17h | Reconversion rapide |
+| Soir | 3 semaines | 18h-21h | Salariés en poste |
+| Week-end | 5 week-ends | Sam-Dim | Contraintes familiales |
+
+## L'examen Taxi en 2026
+
+### Les épreuves de l'examen
+
+L'examen se déroule dans un centre agréé par la Chambre des Métiers et comprend :
+
+**Épreuves théoriques (admissibilité) :**
+
+1. **Réglementation T3P** (1h30) - Coefficient 3
+2. **Gestion d'entreprise** (1h) - Coefficient 2
+3. **Sécurité routière** (45min) - Coefficient 2
+4. **Français** (30min) - Coefficient 1
+5. **Connaissance du territoire** (45min) - Coefficient 3
+
+**Épreuve pratique (admission) :**
+
+6. **Conduite et mise en situation** (30min) - Coefficient 3
+
+### Le QCM connaissance du territoire
+
+C'est l'épreuve spécifique au taxi, redoutée des candidats :
+
+- **40 questions** sur votre zone d'exercice
+- Monuments, hôpitaux, gares, mairies
+- Itinéraires entre deux points
+- Axes principaux et sens de circulation
+
+**Conseil ECOLE T3P** : Nous fournissons des fiches mémo complètes et des QCM d'entraînement actualisés 2026.
+
+### Nos conseils pour réussir
+
+1. **Révisez la géographie quotidiennement** (c'est le piège principal)
+2. **Faites tous les examens blancs** proposés
+3. **Pratiquez sur le terrain** : circulez dans votre future zone
+4. **Mémorisez les tarifs** et la réglementation
+5. **Dormez bien** la veille de l'examen
+
+**Taux de réussite ECOLE T3P : 94%** dès la première présentation.
+
+## Après l'examen : obtenir sa carte Taxi
+
+### Constitution du dossier préfecture
+
+Une fois l'examen réussi, déposez votre dossier :
+
+📄 Formulaire CERFA n°14880*02
+📄 Attestation de réussite à l'examen
+📄 Justificatif d'identité en cours de validité
+📄 Justificatif de domicile de moins de 3 mois
+📄 2 photos d'identité conformes
+📄 Certificat médical préfectoral
+📄 Extrait de casier judiciaire (bulletin n°2)
+📄 Copie du permis de conduire recto-verso
+
+### Délai d'obtention
+
+Le délai moyen de délivrance de la carte professionnelle taxi est de **2 à 4 mois** selon les préfectures. La carte est valable **5 ans** et renouvelable après formation continue.
+
+## L'Autorisation de Stationnement (ADS) : la fameuse licence
+
+### Qu'est-ce que l'ADS ?
+
+L'ADS (anciennement "licence taxi") est l'autorisation administrative permettant de stationner sur la voie publique pour prendre des clients. C'est un élément **obligatoire** pour exercer en tant que taxi.
+
+### Comment obtenir une ADS en 2026 ?
+
+**Option 1 : ADS gratuite en mairie**
+
+Depuis la loi Grandguillaume, les communes délivrent des ADS gratuites et incessibles :
+
+- Inscription sur liste d'attente
+- Délai variable (quelques mois à plusieurs années selon la commune)
+- ADS personnelle, non transmissible
+- Gratuite
+
+**Option 2 : Rachat d'une ADS ancienne**
+
+Les licences délivrées avant 2014 sont cessibles :
+
+| Zone | Prix moyen ADS | Évolution 2026 |
+|------|----------------|----------------|
+| Paris | 120 000 - 180 000€ | Stable |
+| Petite couronne | 60 000 - 100 000€ | Légère baisse |
+| Grande couronne | 30 000 - 60 000€ | Stable |
+| Province | 10 000 - 50 000€ | Variable |
+
+**Option 3 : Location-gérance**
+
+Vous louez l'ADS à un artisan taxi :
+
+- Loyer mensuel : 1 500 - 2 500€ selon zone
+- Pas d'investissement initial lourd
+- Idéal pour démarrer et tester le métier
+
+**Option 4 : Salariat**
+
+Vous travaillez pour une société de taxis :
+
+- Pas besoin d'ADS personnelle
+- Salaire fixe + pourboires
+- Protection sociale complète
+
+### Notre recommandation 2026
+
+Pour démarrer, nous conseillons :
+
+1. **Inscription immédiate** sur la liste d'attente de votre commune
+2. **Location-gérance** en attendant l'ADS gratuite
+3. **Rachat** uniquement si vous avez le budget et visez une commune à forte demande
+
+## Créer son entreprise Taxi en 2026
+
+### Quel statut juridique choisir ?
+
+| Statut | Avantages | Inconvénients | Recommandé si |
+|--------|-----------|---------------|---------------|
+| **Artisan taxi** | Statut traditionnel, reconnaissance | Cotisations élevées | Activité pérenne |
+| **Auto-entrepreneur** | Simple, charges réduites | CA plafonné 77 700€ | Démarrage, complément |
+| **SASU** | Protection sociale | Comptabilité complexe | Développement |
+
+### Inscription au registre T3P
+
+L'inscription au registre des transports est **obligatoire** :
+
+- Inscription en préfecture ou en ligne
+- Coût : 170€
+- Renouvellement annuel
+
+### Équipement obligatoire du véhicule
+
+Votre taxi doit être équipé de :
+
+- ✅ Lumineux "TAXI" sur le toit
+- ✅ Compteur horokilométrique homologué
+- ✅ Terminal de paiement électronique
+- ✅ Plaque d'immatriculation spécifique
+- ✅ Affichage des tarifs préfectoraux
+
+Coût équipement : **1 500 - 3 000€**
+
+## Combien gagne un chauffeur Taxi en 2026 ?
+
+### Revenus moyens
+
+| Situation | CA mensuel brut | Revenu net estimé |
+|-----------|-----------------|-------------------|
+| Salarié | - | 1 800 - 2 500€ |
+| Locataire-gérant | 5 000 - 7 000€ | 2 000 - 3 000€ |
+| Artisan propriétaire ADS | 5 500 - 8 000€ | 2 500 - 4 500€ |
+| Taxi aéroport intensif | 7 000 - 10 000€ | 3 500 - 5 500€ |
+
+### Les tarifs taxi 2026 (Paris)
+
+| Tarif | Horaire | Prix/km |
+|-------|---------|---------|
+| A (jour) | 10h-17h | 1,21€ |
+| B (nuit/dim) | 17h-10h, dim | 1,57€ |
+| C (banlieue jour) | 10h-17h | 1,57€ |
+| D (banlieue nuit) | 17h-10h | 1,96€ |
+
+**Prise en charge** : 4,18€
+**Heure d'attente** : 42,48€
+
+### Optimiser ses revenus
+
+**Stratégies gagnantes en 2026 :**
+
+1. **Spécialisation aéroports** : Marges élevées, courses longues
+2. **Clientèle médicale** : Conventions avec hôpitaux, revenus stables
+3. **Applications taxi** : G7, Taxis Bleus, Uber Taxi pour compléter
+4. **Créneaux premium** : Matinées affaires, soirées événements
+5. **Véhicule électrique** : Économies de 500-700€/mois de carburant
+
+## Timeline : de la décision à la première course
+
+| Étape | Durée | Cumul |
+|-------|-------|-------|
+| Vérification éligibilité | 1 jour | 1 jour |
+| Formation ECOLE T3P | 2 semaines | 2,5 sem |
+| Attente examen | 2-4 semaines | 6,5 sem |
+| Passage examen | 2 jours | 7 sem |
+| Dossier préfecture | 2-4 mois | 5 mois |
+| Recherche ADS (location) | 1-4 semaines | 5,5 mois |
+| Équipement véhicule | 1 semaine | 6 mois |
+| Première course ! | - | **6 mois** |
+
+## Taxi vs VTC : le comparatif 2026
+
+| Critère | Taxi | VTC |
+|---------|------|-----|
+| Maraude (rue) | ✅ Oui | ❌ Non |
+| Voies de bus | ✅ Oui | ❌ Non |
+| Stations | ✅ Oui | ❌ Non |
+| Tarifs | Réglementés | Libres |
+| Licence (ADS) | Obligatoire | Non |
+| Clientèle | Spontanée + fidèle | Applications |
+| Revenus moyens | Plus élevés | Variables |
+| Investissement | Plus élevé | Modéré |
+
+## Conclusion : lancez-vous en 2026 !
+
+Le métier de chauffeur taxi reste une excellente opportunité en 2026. Les exclusivités (maraude, stations, voies de bus) et la transition vers les véhicules électriques offrent de belles perspectives.
+
+**Chez ECOLE T3P**, nous vous accompagnons de A à Z :
+- ✅ Vérification gratuite de votre éligibilité
+- ✅ Formation complète avec 94% de réussite
+- ✅ Accompagnement administratif post-formation
+- ✅ Conseils pour l'obtention de l'ADS
+- ✅ Paiement en 4x sans frais
+
+**Prêt à démarrer ?** Prenez rendez-vous dès maintenant pour un entretien gratuit et personnalisé.
+
+---
+
+*Article mis à jour en février 2026 par ECOLE T3P - Centre de formation agréé à Montrouge (92)*
+    `
+  },
   {
     slug: "comment-devenir-chauffeur-vtc-2026",
     title: "Comment devenir chauffeur VTC en 2026 : Le guide ultime",
