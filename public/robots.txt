@@ -1,3 +1,4 @@
+# Moteurs de recherche traditionnels
 User-agent: Googlebot
 Allow: /
 
@@ -10,7 +11,74 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# Crawlers IA - OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Crawlers IA - Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Crawlers IA - Perplexity
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Crawlers IA - Google AI (Bard, Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# Crawlers IA - Microsoft (Copilot)
+User-agent: Applebot-Extended
+Allow: /
+
+# Crawlers IA - Apple
+User-agent: Applebot
+Allow: /
+
+# Crawlers IA - Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Crawlers IA - Common Crawl (utilisé par beaucoup de LLMs)
+User-agent: CCBot
+Allow: /
+
+# Crawlers IA - Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Crawlers IA - Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Crawlers IA - ByteDance (TikTok)
+User-agent: Bytespider
+Allow: /
+
+# Autres bots
 User-agent: *
 Allow: /
+
+# Fichiers spéciaux pour les IA
+# llms.txt - Guide concis pour les LLMs
+# llms-full.txt - Documentation complète en Markdown
 
 Sitemap: https://ecolet3p.fr/sitemap.xml

@@ -15,7 +15,7 @@ const organizationSchema = {
   "@type": "LocalBusiness",
   "@id": "https://ecolet3p.fr/#organization",
   "name": "ECOLE T3P",
-  "alternateName": ["ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92"],
+  "alternateName": ["ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92", "École de formation T3P"],
   "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et les arrondissements sud de Paris (13e, 14e, 15e). Taux de réussite 94%.",
   "url": "https://ecolet3p.fr",
   "logo": {
@@ -132,7 +132,81 @@ const organizationSchema = {
   "foundingDate": "2014",
   "publicAccess": true,
   "isAccessibleForFree": false,
-  "keywords": "formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, centre formation 92, sud Paris"
+  "keywords": "formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, centre formation 92, sud Paris",
+  "knowsAbout": [
+    "Formation professionnelle Taxi",
+    "Formation VTC",
+    "Formation VMDTR moto-taxi",
+    "Carte professionnelle T3P",
+    "Examen Taxi VTC",
+    "Récupération de points permis",
+    "Formation continue obligatoire"
+  ],
+  "slogan": "94% de réussite aux examens Taxi et VTC",
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Agrément Préfectoral",
+    "name": "Centre agréé par la Préfecture des Hauts-de-Seine"
+  }
+};
+
+// WebSite schema for AI search engines (Speakable, SearchAction)
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://ecolet3p.fr/#website",
+  "name": "ECOLE T3P - Formation Taxi VTC VMDTR",
+  "alternateName": "ECOLE T3P",
+  "url": "https://ecolet3p.fr",
+  "description": "Centre de formation professionnelle agréé pour les métiers du Transport Public Particulier de Personnes (T3P) : Taxi, VTC et VMDTR à Montrouge (92).",
+  "inLanguage": "fr-FR",
+  "publisher": {
+    "@id": "https://ecolet3p.fr/#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://ecolet3p.fr/formations/{search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2", ".section-title", ".hero-description"]
+  }
+};
+
+// AI-optimized WebPage schema with mainEntity
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://ecolet3p.fr/#webpage",
+  "name": "Formation Taxi VTC Montrouge - ECOLE T3P",
+  "url": "https://ecolet3p.fr",
+  "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, paiement en 4x sans frais.",
+  "inLanguage": "fr-FR",
+  "isPartOf": {
+    "@id": "https://ecolet3p.fr/#website"
+  },
+  "about": {
+    "@id": "https://ecolet3p.fr/#organization"
+  },
+  "mainEntity": {
+    "@type": "EducationalOrganization",
+    "@id": "https://ecolet3p.fr/#organization"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".hero-description", ".section-title"]
+  },
+  "specialty": [
+    "Formation Taxi professionnelle",
+    "Formation VTC avec plateforme Uber Bolt",
+    "Formation VMDTR moto-taxi",
+    "Formation Mobilité passerelle Taxi VTC",
+    "Récupération de points de permis"
+  ]
 };
 
 const Layout = ({ children }: LayoutProps) => {
@@ -141,6 +215,12 @@ const Layout = ({ children }: LayoutProps) => {
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(webPageSchema)}
         </script>
       </Helmet>
       <Header />
