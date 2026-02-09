@@ -601,6 +601,67 @@ const FormationTaxi = () => {
         </div>
       </section>
 
+      {/* Articles utiles */}
+      <section className="py-16 lg:py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <Badge className="mb-4">Ressources</Badge>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+              Articles utiles pour votre projet
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Préparez votre reconversion avec nos guides pratiques
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link 
+              to="/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026"
+              className="group p-6 bg-background rounded-xl border hover:border-primary transition-colors"
+            >
+              <FileText className="h-8 w-8 text-primary mb-4" />
+              <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                Quel statut juridique choisir ?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Auto-entrepreneur, SASU, EURL... Comparez les options fiscales.
+              </p>
+            </Link>
+            
+            <Link 
+              to="/blog/maitrise-numerique-ia-chauffeur-vtc-taxi"
+              className="group p-6 bg-background rounded-xl border hover:border-primary transition-colors"
+            >
+              <BookOpen className="h-8 w-8 text-primary mb-4" />
+              <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                Maîtriser le numérique et l'IA
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Applications, GPS, outils IA pour optimiser votre activité.
+              </p>
+            </Link>
+            
+            <Link 
+              to="/blog/anglais-chauffeur-vtc-taxi-clientele-internationale"
+              className="group p-6 bg-background rounded-xl border hover:border-primary transition-colors"
+            >
+              <Target className="h-8 w-8 text-primary mb-4" />
+              <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                L'anglais pour les chauffeurs
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Développez votre clientèle internationale et vos revenus.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
