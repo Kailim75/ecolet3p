@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
@@ -16,58 +17,6 @@ const BlogArticle = () => {
   const article = slug ? getArticleBySlug(slug) : undefined;
   const relatedArticles = slug ? getRelatedArticles(slug, 3) : [];
 
-  useEffect(() => {
-    // Scroll to top on article change
-    window.scrollTo(0, 0);
-
-    // Update meta tags for SEO
-    if (article) {
-      document.title = `${article.title} | ECOLE T3P`;
-      
-      // Update meta description
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', article.metaDescription);
-      }
-
-      // Add article schema
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.id = 'article-schema';
-      script.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": article.title,
-        "description": article.metaDescription,
-        "author": {
-          "@type": "Organization",
-          "name": "ECOLE T3P"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "ECOLE T3P",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg"
-          }
-        },
-        "datePublished": article.publishDate,
-        "dateModified": article.publishDate
-      });
-
-      // Remove existing and add new
-      const existing = document.getElementById('article-schema');
-      if (existing) existing.remove();
-      document.head.appendChild(script);
-
-      return () => {
-        const scriptToRemove = document.getElementById('article-schema');
-        if (scriptToRemove) scriptToRemove.remove();
-        document.title = 'ECOLE T3P - Centre de Formation Professionnelle';
-      };
-    }
-  }, [article]);
-
   if (!article) {
     return <Navigate to="/blog" replace />;
   }
@@ -78,6 +27,96 @@ const BlogArticle = () => {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  const formatDateISO = (dateString: string) => {
+    return new Date(dateString).toISOString();
+  };
+
+  // Calculate word count for schema
+  const wordCount = article.content.split(/\s+/).filter(word => word.length > 0).length;
+
+  // Generate article URL
+  const articleUrl = `https://ecolet3p.fr/blog/${article.slug}`;
+
+  // Rich Article Schema for SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${articleUrl}#article`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": articleUrl
+    },
+    "headline": article.title,
+    "description": article.metaDescription,
+    "image": {
+      "@type": "ImageObject",
+      "url": typeof article.image === 'string' && article.image.startsWith('http') 
+        ? article.image 
+        : `https://ecolet3p.fr${article.image}`,
+      "width": 1200,
+      "height": 630
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "ECOLE T3P",
+      "url": "https://ecolet3p.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ECOLE T3P",
+      "url": "https://ecolet3p.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg",
+        "width": 512,
+        "height": 512
+      }
+    },
+    "datePublished": formatDateISO(article.publishDate),
+    "dateModified": formatDateISO(article.publishDate),
+    "articleSection": article.category,
+    "wordCount": wordCount,
+    "inLanguage": "fr-FR",
+    "keywords": article.category === "VTC" 
+      ? "formation VTC, chauffeur VTC, carte professionnelle VTC"
+      : article.category === "TAXI"
+      ? "formation taxi, chauffeur taxi, carte professionnelle T3P"
+      : article.category === "VMDTR"
+      ? "formation VMDTR, moto-taxi, transport deux-roues"
+      : "formation transport, chauffeur professionnel",
+    "isAccessibleForFree": true
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://ecolet3p.fr/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://ecolet3p.fr/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": article.title,
+        "item": articleUrl
+      }
+    ]
   };
 
   const handleShare = async () => {
@@ -95,9 +134,37 @@ const BlogArticle = () => {
       navigator.clipboard.writeText(window.location.href);
     }
   };
-
   return (
     <Layout>
+      <Helmet>
+        <title>{article.title} | Blog ECOLE T3P</title>
+        <meta name="description" content={article.metaDescription} />
+        <meta name="keywords" content={`${article.category}, formation ${article.category.toLowerCase()}, ECOLE T3P, transport de personnes`} />
+        <link rel="canonical" href={articleUrl} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.metaDescription} />
+        <meta property="og:url" content={articleUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://ecolet3p.fr${article.image}`} />
+        <meta property="og:site_name" content="ECOLE T3P" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="article:published_time" content={formatDateISO(article.publishDate)} />
+        <meta property="article:modified_time" content={formatDateISO(article.publishDate)} />
+        <meta property="article:section" content={article.category} />
+        <meta property="article:author" content="ECOLE T3P" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.metaDescription} />
+        <meta name="twitter:image" content={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://ecolet3p.fr${article.image}`} />
+        
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      </Helmet>
       {/* Hero */}
       <section className="bg-cream py-12 md:py-20">
         <div className="container-custom">
