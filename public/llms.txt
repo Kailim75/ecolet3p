@@ -94,6 +94,19 @@ Pour toute question ou inscription :
 - **Rendez-vous** : https://ecolet3p.fr/contact
 - **WhatsApp** : Disponible sur le site
 
+## Blog et Ressources
+
+Articles et guides pour accompagner votre projet professionnel dans le transport de personnes :
+
+- **Guides métiers 2026** : Devenir VTC, Taxi ou VMDTR — réglementations, formation, revenus
+- **Comparatif VTC vs Taxi vs VMDTR** : Quel métier choisir en 2026 ?
+- **Statuts juridiques** : Auto-entrepreneur, SASU, EURL — avantages et fiscalité
+- **Numérique et IA** : Maîtriser les outils digitaux et l'intelligence artificielle dans le transport
+- **Anglais professionnel** : Vocabulaire et phrases clés pour la clientèle internationale
+- **Guides pratiques** : Carte professionnelle, financement, formation continue
+
+Tous les articles : https://ecolet3p.fr/blog
+
 ## Optional
 
 - llms-full.txt: /llms-full.txt
