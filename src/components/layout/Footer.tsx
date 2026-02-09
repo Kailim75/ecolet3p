@@ -38,7 +38,8 @@ const Footer = () => {
                 { name: "Formation VMDTR", path: "/formations/vmdtr" },
                 { name: "Formations Continues", path: "/formations/continue-taxi" },
                 { name: "Mobilité Taxi", path: "/formations/mobilite" },
-                { name: "Récupération de points", path: "/formations/recuperation-points" }
+                { name: "Récupération de points", path: "/formations/recuperation-points" },
+                { name: "Villes desservies", path: "/formations/villes" }
               ].map((item) => (
                 <li key={item.name}>
                   <PrefetchLink to={item.path} className="text-cream/70 hover:text-gold transition-colors text-sm">

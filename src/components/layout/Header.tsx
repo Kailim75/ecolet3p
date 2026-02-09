@@ -31,6 +31,12 @@ const formationsSubMenu = {
       { name: "Récupération de points", path: "/formations/recuperation-points" },
     ],
   },
+  local: {
+    label: "Proche de chez vous",
+    items: [
+      { name: "Toutes les villes desservies", path: "/formations/villes" },
+    ],
+  },
 };
 
 // Services sub-menu
