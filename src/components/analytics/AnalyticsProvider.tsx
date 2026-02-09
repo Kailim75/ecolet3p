@@ -18,15 +18,24 @@ export const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
   // Track page views on route changes
   useEffect(() => {
     const pageTitles: Record<string, string> = {
-      '/': 'Accueil - T3P Campus',
-      '/formations': 'Nos Formations - T3P Campus',
-      '/formations/taxi': 'Formation Taxi - T3P Campus',
-      '/formations/vtc': 'Formation VTC - T3P Campus',
-      '/formations/vmdtr': 'Formation VMDTR - T3P Campus',
-      '/formations/mobilite': 'Formation Mobilité - T3P Campus',
-      '/a-propos': 'À Propos - T3P Campus',
-      '/contact': 'Contact - T3P Campus',
-      '/blog': 'Blog - T3P Campus',
+      '/': 'Accueil - ECOLE T3P',
+      '/formations': 'Nos Formations - ECOLE T3P',
+      '/formations/taxi': 'Formation TAXI - ECOLE T3P',
+      '/formations/vtc': 'Formation VTC - ECOLE T3P',
+      '/formations/vmdtr': 'Formation VMDTR - ECOLE T3P',
+      '/formations/mobilite': 'Formation Mobilité - ECOLE T3P',
+      '/formations/bagneux': 'Formation Taxi VTC Bagneux - ECOLE T3P',
+      '/formations/vanves': 'Formation Taxi VTC Vanves - ECOLE T3P',
+      '/formations/malakoff': 'Formation Taxi VTC Malakoff - ECOLE T3P',
+      '/formations/chatillon': 'Formation Taxi VTC Châtillon - ECOLE T3P',
+      '/formations/clamart': 'Formation Taxi VTC Clamart - ECOLE T3P',
+      '/formations/issy-les-moulineaux': 'Formation Taxi VTC Issy - ECOLE T3P',
+      '/formations/paris-13': 'Formation Taxi VTC Paris 13e - ECOLE T3P',
+      '/formations/paris-14': 'Formation Taxi VTC Paris 14e - ECOLE T3P',
+      '/formations/paris-15': 'Formation Taxi VTC Paris 15e - ECOLE T3P',
+      '/a-propos': 'À Propos - ECOLE T3P',
+      '/contact': 'Contact - ECOLE T3P',
+      '/blog': 'Blog - ECOLE T3P',
     };
 
     const title = pageTitles[location.pathname] || document.title;
