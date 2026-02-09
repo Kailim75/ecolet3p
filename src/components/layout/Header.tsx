@@ -48,6 +48,7 @@ const navLinks = [
   { name: "Accueil", path: "/" },
   { name: "Formations", path: "/formations", hasSubmenu: "formations" },
   { name: "Services", path: "/services/location-vehicule-examen", hasSubmenu: "services" },
+  { name: "Blog", path: "/blog" },
   { name: "Pourquoi ECOLE T3P", path: "/a-propos" },
   { name: "Contact", path: "/contact" },
 ];
