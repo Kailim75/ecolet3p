@@ -429,6 +429,14 @@ En 2026, chaque métier du transport de personnes répond à des profils différ
 
 Chez **ECOLE T3P**, nous vous accompagnons quel que soit votre choix. Prenez rendez-vous pour un entretien gratuit et personnalisé !
 
+## 📚 Guides détaillés par métier
+
+Consultez nos guides complets pour chaque profession :
+
+- **[Devenir chauffeur VTC en 2026](/blog/comment-devenir-chauffeur-vtc-2026)** : Formation, examen, véhicules et revenus
+- **[Devenir chauffeur Taxi en 2026](/blog/comment-devenir-chauffeur-taxi-2026)** : Licence ADS, formation et stratégies
+- **[Devenir conducteur VMDTR en 2026](/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi)** : Formation moto-taxi et équipement
+
 ---
 
 *Article mis à jour en février 2026 par ECOLE T3P - Centre de formation agréé à Montrouge (92)*
@@ -772,6 +780,14 @@ Le métier de conducteur moto-taxi représente une opportunité intéressante po
 - ✅ Formation continue obligatoire (239€)
 
 **Intéressé ?** Prenez rendez-vous pour un entretien gratuit et personnalisé.
+
+## 📚 Articles connexes 2026
+
+Découvrez nos autres guides sur les métiers du transport :
+
+- **[Comparatif VTC vs Taxi vs VMDTR 2026](/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir)** : Quel métier choisir selon votre profil ?
+- **[Devenir chauffeur VTC en 2026](/blog/comment-devenir-chauffeur-vtc-2026)** : Formation, examen et création d'activité
+- **[Devenir chauffeur Taxi en 2026](/blog/comment-devenir-chauffeur-taxi-2026)** : Licence ADS, formation et revenus
 
 ---
 
@@ -1128,6 +1144,14 @@ Le métier de chauffeur taxi reste une excellente opportunité en 2026. Les excl
 
 **Prêt à démarrer ?** Prenez rendez-vous dès maintenant pour un entretien gratuit et personnalisé.
 
+## 📚 Articles connexes 2026
+
+Découvrez nos autres guides sur les métiers du transport :
+
+- **[Comparatif VTC vs Taxi vs VMDTR 2026](/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir)** : Quel métier choisir selon votre profil ?
+- **[Devenir chauffeur VTC en 2026](/blog/comment-devenir-chauffeur-vtc-2026)** : Formation, examen et véhicules électriques
+- **[Devenir conducteur VMDTR en 2026](/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi)** : Formation moto-taxi rapide
+
 ---
 
 *Article mis à jour en février 2026 par ECOLE T3P - Centre de formation agréé à Montrouge (92)*
@@ -1367,6 +1391,14 @@ Le métier de chauffeur VTC reste une excellente opportunité de reconversion en
 - ✅ Paiement en 4x sans frais
 
 **Prêt à démarrer ?** Prenez rendez-vous dès maintenant pour un entretien gratuit et personnalisé.
+
+## 📚 Articles connexes 2026
+
+Découvrez nos autres guides sur les métiers du transport :
+
+- **[Comparatif VTC vs Taxi vs VMDTR 2026](/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir)** : Quel métier choisir selon votre profil ?
+- **[Devenir chauffeur Taxi en 2026](/blog/comment-devenir-chauffeur-taxi-2026)** : Licence ADS, formation et revenus
+- **[Devenir conducteur VMDTR en 2026](/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi)** : Formation moto-taxi rapide
 
 ---
 
