@@ -641,7 +641,20 @@ const FormationVMDTR = () => {
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <Link 
+              to="/blog/vtc-taxi-vmdtr-comparatif-2026"
+              className="group p-6 bg-background rounded-xl border hover:border-orange-600 transition-colors"
+            >
+              <Bike className="h-8 w-8 text-orange-600 mb-4" />
+              <h3 className="font-semibold mb-2 group-hover:text-orange-600 transition-colors">
+                VTC vs Taxi vs VMDTR
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Comparatif complet des 3 métiers du transport en 2026.
+              </p>
+            </Link>
+            
             <Link 
               to="/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026"
               className="group p-6 bg-background rounded-xl border hover:border-orange-600 transition-colors"
@@ -651,7 +664,7 @@ const FormationVMDTR = () => {
                 Quel statut juridique choisir ?
               </h3>
               <p className="text-sm text-muted-foreground">
-                Auto-entrepreneur, SASU, EURL... Comparez les options fiscales.
+                Auto-entrepreneur, SASU, EURL... Comparez les options.
               </p>
             </Link>
             
@@ -664,7 +677,7 @@ const FormationVMDTR = () => {
                 Maîtriser le numérique et l'IA
               </h3>
               <p className="text-sm text-muted-foreground">
-                Applications, GPS, outils IA pour optimiser votre activité.
+                Applications, GPS et outils IA pour votre activité.
               </p>
             </Link>
             
@@ -677,7 +690,7 @@ const FormationVMDTR = () => {
                 L'anglais pour les chauffeurs
               </h3>
               <p className="text-sm text-muted-foreground">
-                Développez votre clientèle internationale et vos revenus.
+                Développez votre clientèle internationale.
               </p>
             </Link>
           </div>
