@@ -25,7 +25,7 @@ const getCitiesByDepartment = () => {
   return grouped;
 };
 
-const departmentOrder = ["75 - Paris", "92 - Hauts-de-Seine", "93 - Seine-Saint-Denis", "94 - Val-de-Marne"];
+const departmentOrder = ["75 - Paris", "92 - Hauts-de-Seine", "93 - Seine-Saint-Denis", "94 - Val-de-Marne", "91 - Essonne", "78 - Yvelines"];
 
 const FormationsVilles = () => {
   const citiesByDepartment = getCitiesByDepartment();
@@ -177,7 +177,7 @@ const FormationsVilles = () => {
               transition={{ delay: 0.1 }}
               className="p-4"
             >
-              <div className="text-3xl md:text-4xl font-black text-forest mb-2">3</div>
+              <div className="text-3xl md:text-4xl font-black text-forest mb-2">6</div>
               <div className="text-sm text-muted-foreground">Départements</div>
             </motion.div>
             <motion.div
