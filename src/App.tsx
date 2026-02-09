@@ -45,6 +45,7 @@ const RecuperationPoints = lazy(() => import("./pages/RecuperationPoints"));
 const Templates = lazy(() => import("./pages/Templates"));
 const FormationVille = lazy(() => import("./pages/FormationVille"));
 const FormationsVilles = lazy(() => import("./pages/FormationsVilles"));
+const GuideFormation = lazy(() => import("./pages/GuideFormation"));
 
 const queryClient = new QueryClient();
 
@@ -100,6 +101,7 @@ const App = () => {
                       <Route path="/formations/recuperation-points" element={<RecuperationPoints />} />
                       <Route path="/formations/villes" element={<FormationsVilles />} />
                       <Route path="/formations/:ville" element={<FormationVille />} />
+                      <Route path="/guide-formation" element={<GuideFormation />} />
                       <Route path="/services/location-vehicule-examen" element={<LocationVehiculeExamen />} />
                       <Route path="/a-propos" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
