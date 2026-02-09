@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://t3pcampus.fr/sitemap.xml
+Sitemap: https://ecolet3p.fr/sitemap.xml
