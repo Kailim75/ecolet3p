@@ -41,6 +41,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Page index des villes -->
+  <url>
+    <loc>https://ecolet3p.fr/formations/villes</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Pages locales SEO - Villes du 92 Sud -->
   <url>
     <loc>https://ecolet3p.fr/formations/bagneux</loc>
