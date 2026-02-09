@@ -246,20 +246,20 @@ const Formations = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi VTC VMDTR Paris Montrouge | ECOLE T3P - 94% Réussite</title>
-        <meta name="description" content="Obtenez votre carte professionnelle Taxi ou VTC avec ECOLE T3P. Formation agréée à Montrouge, 94% de réussite, paiement en 4x sans frais. Demandez votre devis gratuit !" />
-        <meta name="keywords" content="formation taxi Paris, formation VTC Paris, formation VMDTR, carte professionnelle taxi, carte VTC, centre formation agréé Montrouge, reconversion chauffeur professionnel, ECOLE T3P" />
+        <title>Formation Taxi VTC VMDTR Montrouge Bagneux Vanves | ECOLE T3P - 92 Sud Paris</title>
+        <meta name="description" content="Formations Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et Paris 13e, 14e, 15e. Centre agréé Préfecture, 94% de réussite." />
+        <meta name="keywords" content="formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, formation VTC Clamart, formation taxi Issy, formation VMDTR 92, carte professionnelle taxi Hauts-de-Seine, centre formation sud Paris, ECOLE T3P" />
         <link rel="canonical" href="https://ecolet3p.fr/formations" />
         
-        <meta property="og:title" content="Formation Taxi VTC VMDTR Paris - ECOLE T3P | 94% Réussite" />
-        <meta property="og:description" content="Devenez chauffeur professionnel avec une formation agréée. Taxi, VTC, VMDTR. 94% de réussite, paiement 4x sans frais." />
+        <meta property="og:title" content="Formation Taxi VTC VMDTR Montrouge Bagneux | 92 Sud Paris" />
+        <meta property="og:description" content="Formations certifiantes Taxi VTC VMDTR à Montrouge. Accessible depuis Bagneux, Vanves, Malakoff et tout le 92. 94% de réussite." />
         <meta property="og:url" content="https://ecolet3p.fr/formations" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Formations Taxi VTC VMDTR - ECOLE T3P" />
-        <meta name="twitter:description" content="Formations certifiantes avec 94% de réussite. Inscrivez-vous maintenant !" />
+        <meta name="twitter:title" content="Formation Taxi VTC Montrouge Bagneux | Sud Paris 92" />
+        <meta name="twitter:description" content="Formations certifiantes avec 94% de réussite. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e." />
         <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>

@@ -13,31 +13,56 @@ interface LayoutProps {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://t3pcampus.fr/#organization",
-  "name": "T3P Campus",
-  "alternateName": "T3P Campus - Centre de Formation Taxi VTC",
-  "description": "Centre de formation spécialisé dans les formations de chauffeurs professionnels (TAXI, VTC, VMDTR). Taux de réussite 94%, 10 ans d'expertise.",
-  "url": "https://t3pcampus.fr",
+  "@id": "https://ecolet3p.fr/#organization",
+  "name": "ECOLE T3P",
+  "alternateName": ["ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92"],
+  "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et les arrondissements sud de Paris (13e, 14e, 15e). Taux de réussite 94%.",
+  "url": "https://ecolet3p.fr",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://t3pcampus.fr/logo.png"
+    "url": "https://ecolet3p.fr/logo.png"
   },
-  "image": "https://t3pcampus.fr/og-image.jpg",
+  "image": "https://ecolet3p.fr/og-image.jpg",
   "telephone": "+33 1 88 75 05 55",
-  "email": "montrouge@t3pcampus.fr",
+  "email": "montrouge@ecolet3p.fr",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "3 rue Corneille",
     "addressLocality": "Montrouge",
     "postalCode": "92120",
-    "addressRegion": "Île-de-France",
+    "addressRegion": "Hauts-de-Seine",
     "addressCountry": "FR"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "48.8186",
-    "longitude": "2.3196"
+    "latitude": "48.8155",
+    "longitude": "2.3137"
   },
+  "areaServed": [
+    { "@type": "City", "name": "Montrouge" },
+    { "@type": "City", "name": "Bagneux" },
+    { "@type": "City", "name": "Vanves" },
+    { "@type": "City", "name": "Malakoff" },
+    { "@type": "City", "name": "Châtillon" },
+    { "@type": "City", "name": "Clamart" },
+    { "@type": "City", "name": "Issy-les-Moulineaux" },
+    { "@type": "City", "name": "Fontenay-aux-Roses" },
+    { "@type": "City", "name": "Le Plessis-Robinson" },
+    { "@type": "City", "name": "Sceaux" },
+    { "@type": "City", "name": "Bourg-la-Reine" },
+    { "@type": "City", "name": "Antony" },
+    { "@type": "City", "name": "Meudon" },
+    { "@type": "City", "name": "Boulogne-Billancourt" },
+    { "@type": "City", "name": "Neuilly-sur-Seine" },
+    { "@type": "City", "name": "Levallois-Perret" },
+    { "@type": "City", "name": "Clichy" },
+    { "@type": "City", "name": "Asnières-sur-Seine" },
+    { "@type": "City", "name": "Courbevoie" },
+    { "@type": "City", "name": "La Défense" },
+    { "@type": "City", "name": "Paris 13e arrondissement" },
+    { "@type": "City", "name": "Paris 14e arrondissement" },
+    { "@type": "City", "name": "Paris 15e arrondissement" }
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -54,46 +79,37 @@ const organizationSchema = {
   ],
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
-  "paymentAccepted": "Cash, Credit Card, Bank Transfer, 4x Payment",
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": "48.8566",
-      "longitude": "2.3522"
-    },
-    "geoRadius": "50000"
-  },
+  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
   "sameAs": [
     "https://www.facebook.com/dropacademymontrouge",
-    "https://www.instagram.com/t3pcampus"
+    "https://www.instagram.com/ecolet3p"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Formations professionnelles",
+    "name": "Formations professionnelles Taxi VTC Montrouge Hauts-de-Seine",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
-          "name": "Formation Taxi",
-          "description": "Formation complète de 63h pour obtenir la carte professionnelle Taxi"
+          "name": "Formation Taxi Montrouge",
+          "description": "Formation complète de 63h pour obtenir la carte professionnelle Taxi. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
-          "name": "Formation VTC",
-          "description": "Formation complète pour obtenir la carte professionnelle VTC"
+          "name": "Formation VTC Sud Paris",
+          "description": "Formation complète pour obtenir la carte professionnelle VTC. Proche métro Mairie de Montrouge."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Course",
-          "name": "Formation VMDTR",
-          "description": "Formation moto-taxi pour obtenir la carte professionnelle VMDTR"
+          "name": "Formation VMDTR Hauts-de-Seine",
+          "description": "Formation moto-taxi pour obtenir la carte professionnelle VMDTR. Centre à Montrouge (92)."
         }
       },
       {
@@ -115,7 +131,8 @@ const organizationSchema = {
   },
   "foundingDate": "2014",
   "publicAccess": true,
-  "isAccessibleForFree": false
+  "isAccessibleForFree": false,
+  "keywords": "formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, centre formation 92, sud Paris"
 };
 
 const Layout = ({ children }: LayoutProps) => {
