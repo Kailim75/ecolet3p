@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, Car } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, Car, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
@@ -29,6 +29,7 @@ const formationsSubMenu = {
     items: [
       { name: "Mobilité Taxi", path: "/formations/mobilite" },
       { name: "Récupération de points", path: "/formations/recuperation-points" },
+      { name: "Guide de formation", path: "/guide-formation", icon: "book" },
     ],
   },
   local: {
