@@ -299,6 +299,41 @@ const FormationContinueVMDTR = () => {
           </div>
         </div>
       </section>
+
+      {/* Liens internes */}
+      <section className="py-16 bg-forest/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-forest mb-8 text-center">Formations et ressources associées</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link to="/formations/vmdtr" className="group p-6 bg-background rounded-xl border hover:border-forest transition-colors">
+                <h3 className="font-bold text-forest group-hover:text-gold transition-colors">Formation initiale VMDTR</h3>
+                <p className="text-sm text-muted-foreground mt-2">Formation VMDTR moto-taxi 14h à Montrouge.</p>
+              </Link>
+              <Link to="/formations/vtc" className="group p-6 bg-background rounded-xl border hover:border-forest transition-colors">
+                <h3 className="font-bold text-forest group-hover:text-gold transition-colors">Formation initiale VTC</h3>
+                <p className="text-sm text-muted-foreground mt-2">Formation initiale VTC 63h pour obtenir votre carte pro.</p>
+              </Link>
+              <Link to="/formations/taxi" className="group p-6 bg-background rounded-xl border hover:border-forest transition-colors">
+                <h3 className="font-bold text-forest group-hover:text-gold transition-colors">Formation initiale Taxi</h3>
+                <p className="text-sm text-muted-foreground mt-2">Formation initiale Taxi 63h à Montrouge.</p>
+              </Link>
+              <Link to="/formations/continue-taxi" className="group p-6 bg-background rounded-xl border hover:border-forest transition-colors">
+                <h3 className="font-bold text-forest group-hover:text-gold transition-colors">Formation continue Taxi</h3>
+                <p className="text-sm text-muted-foreground mt-2">Renouvellement carte professionnelle Taxi tous les 5 ans.</p>
+              </Link>
+              <Link to="/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi" className="group p-6 bg-background rounded-xl border hover:border-forest transition-colors">
+                <h3 className="font-bold text-forest group-hover:text-gold transition-colors">Guide : Devenir moto-taxi</h3>
+                <p className="text-sm text-muted-foreground mt-2">Tout savoir sur le métier de conducteur VMDTR en 2026.</p>
+              </Link>
+              <Link to="/contact" className="group p-6 bg-background rounded-xl border hover:border-forest transition-colors">
+                <h3 className="font-bold text-forest group-hover:text-gold transition-colors">Nous contacter</h3>
+                <p className="text-sm text-muted-foreground mt-2">Questions ? Inscrivez-vous ou demandez un renseignement.</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 };
