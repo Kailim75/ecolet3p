@@ -39,19 +39,19 @@ const FormationsVilles = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://ecolet3p.fr/"
+        "item": "https://www.ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Formations",
-        "item": "https://ecolet3p.fr/formations"
+        "item": "https://www.ecolet3p.fr/formations"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Villes desservies",
-        "item": "https://ecolet3p.fr/formations/villes"
+        "item": "https://www.ecolet3p.fr/formations/villes"
       }
     ]
   };
@@ -59,12 +59,12 @@ const FormationsVilles = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://ecolet3p.fr/formations/villes#localbusiness",
+    "@id": "https://www.ecolet3p.fr/formations/villes#localbusiness",
     "name": "ECOLE T3P - Formation Taxi VTC Île-de-France",
-    "image": "https://ecolet3p.fr/og-image.jpg",
+    "image": "https://www.ecolet3p.fr/og-image.jpg",
     "telephone": "+33188750555",
     "email": "montrouge@ecolet3p.fr",
-    "url": "https://ecolet3p.fr/formations/villes",
+    "url": "https://www.ecolet3p.fr/formations/villes",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
@@ -105,13 +105,13 @@ const FormationsVilles = () => {
           name="keywords" 
           content="formation taxi Paris, formation VTC Hauts-de-Seine, formation taxi 92, formation VTC 94, centre formation Île-de-France, ECOLE T3P villes" 
         />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/villes" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/villes" />
         
         <meta property="og:title" content="Formation Taxi VTC par ville | Paris, 92, 94 | ECOLE T3P" />
         <meta property="og:description" content={`Formations accessibles depuis ${totalCities} villes d'Île-de-France. Trouvez le trajet depuis votre ville.`} />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/villes" />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations/villes" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>

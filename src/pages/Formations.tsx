@@ -147,10 +147,10 @@ const Formations = () => {
 
   // Image mapping for formations
   const formationImages: Record<string, string> = {
-    taxi: "https://ecolet3p.fr/og-image.jpg",
-    vtc: "https://ecolet3p.fr/og-image.jpg",
-    vmdtr: "https://ecolet3p.fr/og-image.jpg",
-    mobilite: "https://ecolet3p.fr/og-image.jpg"
+    taxi: "https://www.ecolet3p.fr/og-image.jpg",
+    vtc: "https://www.ecolet3p.fr/og-image.jpg",
+    vmdtr: "https://www.ecolet3p.fr/og-image.jpg",
+    mobilite: "https://www.ecolet3p.fr/og-image.jpg"
   };
 
   // Generate ItemList schema for SEO (simplified to avoid Carousel validation issues)
@@ -159,15 +159,15 @@ const Formations = () => {
     "@type": "ItemList",
     "name": "Formations ECOLE T3P - Taxi, VTC, VMDTR",
     "description": "Catalogue des formations professionnelles pour chauffeurs à Montrouge",
-    "url": "https://ecolet3p.fr/formations",
+    "url": "https://www.ecolet3p.fr/formations",
     "numberOfItems": formations.length,
     "itemListElement": formations.map((formation, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "name": formation.title,
       "url": getFormationDetailRoute(formation.category) 
-        ? `https://ecolet3p.fr${getFormationDetailRoute(formation.category)}`
-        : "https://ecolet3p.fr/formations"
+        ? `https://www.ecolet3p.fr${getFormationDetailRoute(formation.category)}`
+        : "https://www.ecolet3p.fr/formations"
     }))
   };
 
@@ -177,11 +177,11 @@ const Formations = () => {
     "@type": "Course",
     "name": formation.title,
     "description": formation.description || `Formation ${formation.title} certifiante`,
-    "image": formationImages[formation.category] || "https://ecolet3p.fr/og-image.jpg",
+    "image": formationImages[formation.category] || "https://www.ecolet3p.fr/og-image.jpg",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr",
+      "sameAs": "https://www.ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
@@ -196,16 +196,16 @@ const Formations = () => {
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "url": getFormationDetailRoute(formation.category) 
-        ? `https://ecolet3p.fr${getFormationDetailRoute(formation.category)}`
-        : "https://ecolet3p.fr/formations"
+        ? `https://www.ecolet3p.fr${getFormationDetailRoute(formation.category)}`
+        : "https://www.ecolet3p.fr/formations"
     } : undefined,
     "timeRequired": `PT${formation.duration.replace(/[^0-9]/g, '')}H`,
     "educationalCredentialAwarded": formation.category === "taxi" ? "Carte Professionnelle Taxi" :
       formation.category === "vtc" ? "Carte Professionnelle VTC" :
       formation.category === "vmdtr" ? "Certification VMDTR" : "Attestation de formation",
     "url": getFormationDetailRoute(formation.category) 
-      ? `https://ecolet3p.fr${getFormationDetailRoute(formation.category)}`
-      : "https://ecolet3p.fr/formations",
+      ? `https://www.ecolet3p.fr${getFormationDetailRoute(formation.category)}`
+      : "https://www.ecolet3p.fr/formations",
     "inLanguage": "fr-FR",
     "hasCourseInstance": {
       "@type": "CourseInstance",
@@ -232,13 +232,13 @@ const Formations = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://ecolet3p.fr/"
+        "item": "https://www.ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Formations",
-        "item": "https://ecolet3p.fr/formations"
+        "item": "https://www.ecolet3p.fr/formations"
       }
     ]
   };
@@ -249,18 +249,18 @@ const Formations = () => {
         <title>Formation Taxi VTC VMDTR Montrouge Bagneux Vanves | ECOLE T3P - 92 Sud Paris</title>
         <meta name="description" content="Formations Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et Paris 13e, 14e, 15e. Centre agréé Préfecture, 94% de réussite." />
         <meta name="keywords" content="formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, formation VTC Clamart, formation taxi Issy, formation VMDTR 92, carte professionnelle taxi Hauts-de-Seine, centre formation sud Paris, ECOLE T3P" />
-        <link rel="canonical" href="https://ecolet3p.fr/formations" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations" />
         
         <meta property="og:title" content="Formation Taxi VTC VMDTR Montrouge Bagneux | 92 Sud Paris" />
         <meta property="og:description" content="Formations certifiantes Taxi VTC VMDTR à Montrouge. Accessible depuis Bagneux, Vanves, Malakoff et tout le 92. 94% de réussite." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations" />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Formation Taxi VTC Montrouge Bagneux | Sud Paris 92" />
         <meta name="twitter:description" content="Formations certifiantes avec 94% de réussite. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e." />
-        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
+        <meta name="twitter:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

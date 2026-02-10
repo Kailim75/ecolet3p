@@ -39,11 +39,11 @@ const Blog = () => {
     "@type": "Blog",
     "name": "Blog ECOLE T3P - Formation Taxi VTC",
     "description": "Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR",
-    "url": "https://ecolet3p.fr/blog",
+    "url": "https://www.ecolet3p.fr/blog",
     "publisher": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
+      "logo": { "@type": "ImageObject", "url": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
     },
     "blogPost": blogArticles.map(article => ({
       "@type": "BlogPosting",
@@ -51,7 +51,7 @@ const Blog = () => {
       "description": article.excerpt,
       "datePublished": article.publishDate,
       "author": { "@type": "Organization", "name": "ECOLE T3P" },
-      "url": `https://ecolet3p.fr/blog/${article.slug}`
+      "url": `https://www.ecolet3p.fr/blog/${article.slug}`
     }))
   };
 
@@ -59,8 +59,8 @@ const Blog = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ecolet3p.fr/blog" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ecolet3p.fr/blog" }
     ]
   };
 
@@ -69,12 +69,12 @@ const Blog = () => {
       <Helmet>
         <title>Blog Formation Taxi VTC - Conseils et Actualités | ECOLE T3P</title>
         <meta name="description" content="Découvrez nos articles sur les formations Taxi, VTC et VMDTR. Conseils pour réussir votre examen, actualités du secteur, témoignages et guides pratiques." />
-        <link rel="canonical" href="https://ecolet3p.fr/blog" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/blog" />
         <meta property="og:title" content="Blog ECOLE T3P - Formation Taxi VTC Montrouge" />
         <meta property="og:description" content="Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR." />
-        <meta property="og:url" content="https://ecolet3p.fr/blog" />
+        <meta property="og:url" content="https://www.ecolet3p.fr/blog" />
         <meta property="og:type" content="blog" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

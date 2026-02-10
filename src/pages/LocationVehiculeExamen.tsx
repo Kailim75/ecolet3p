@@ -68,7 +68,7 @@ const LocationVehiculeExamen = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr"
+      "sameAs": "https://www.ecolet3p.fr"
     },
     "areaServed": {
       "@type": "City",
@@ -91,7 +91,7 @@ const LocationVehiculeExamen = () => {
       <Helmet>
         <title>Location Véhicule Examen VTC Taxi VMDTR | ECOLE T3P</title>
         <meta name="description" content="Location de véhicule double commande pour examen pratique VTC, Taxi ou VMDTR. Véhicule conforme, 2h de conduite incluses, accompagnement le jour J." />
-        <link rel="canonical" href="https://ecolet3p.fr/services/location-vehicule-examen" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/services/location-vehicule-examen" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>
 
