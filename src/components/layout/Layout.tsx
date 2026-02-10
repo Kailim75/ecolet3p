@@ -13,16 +13,16 @@ interface LayoutProps {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://ecolet3p.fr/#organization",
+  "@id": "https://www.ecolet3p.fr/#organization",
   "name": "ECOLE T3P",
   "alternateName": ["ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92", "École de formation T3P"],
   "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et les arrondissements sud de Paris (13e, 14e, 15e). Taux de réussite 94%.",
-  "url": "https://ecolet3p.fr",
+  "url": "https://www.ecolet3p.fr",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://ecolet3p.fr/logo.png"
+    "url": "https://www.ecolet3p.fr/logo.png"
   },
-  "image": "https://ecolet3p.fr/og-image.jpg",
+  "image": "https://www.ecolet3p.fr/og-image.jpg",
   "telephone": "+33 1 88 75 05 55",
   "email": "montrouge@ecolet3p.fr",
   "address": {
@@ -154,20 +154,20 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://ecolet3p.fr/#website",
+  "@id": "https://www.ecolet3p.fr/#website",
   "name": "ECOLE T3P - Formation Taxi VTC VMDTR",
   "alternateName": "ECOLE T3P",
-  "url": "https://ecolet3p.fr",
+  "url": "https://www.ecolet3p.fr",
   "description": "Centre de formation professionnelle agréé pour les métiers du Transport Public Particulier de Personnes (T3P) : Taxi, VTC et VMDTR à Montrouge (92).",
   "inLanguage": "fr-FR",
   "publisher": {
-    "@id": "https://ecolet3p.fr/#organization"
+    "@id": "https://www.ecolet3p.fr/#organization"
   },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://ecolet3p.fr/formations/{search_term_string}"
+      "urlTemplate": "https://www.ecolet3p.fr/formations/{search_term_string}"
     },
     "query-input": "required name=search_term_string"
   },
@@ -181,20 +181,20 @@ const websiteSchema = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://ecolet3p.fr/#webpage",
+  "@id": "https://www.ecolet3p.fr/#webpage",
   "name": "Formation Taxi VTC Montrouge - ECOLE T3P",
-  "url": "https://ecolet3p.fr",
-  "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge. Taux de réussite 94%, paiement en 4x sans frais.",
+  "url": "https://www.ecolet3p.fr",
+  "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge. Centre agréé Préfecture des Hauts-de-Seine.",
   "inLanguage": "fr-FR",
   "isPartOf": {
-    "@id": "https://ecolet3p.fr/#website"
+    "@id": "https://www.ecolet3p.fr/#website"
   },
   "about": {
-    "@id": "https://ecolet3p.fr/#organization"
+    "@id": "https://www.ecolet3p.fr/#organization"
   },
   "mainEntity": {
     "@type": "EducationalOrganization",
-    "@id": "https://ecolet3p.fr/#organization"
+    "@id": "https://www.ecolet3p.fr/#organization"
   },
   "speakable": {
     "@type": "SpeakableSpecification",

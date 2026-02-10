@@ -47,12 +47,12 @@ const FormationVille = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `https://ecolet3p.fr/formations/${city.slug}#localbusiness`,
+    "@id": `https://www.ecolet3p.fr/formations/${city.slug}#localbusiness`,
     "name": `ECOLE T3P - Formation Taxi VTC ${city.name}`,
-    "image": "https://ecolet3p.fr/og-image.jpg",
+    "image": "https://www.ecolet3p.fr/og-image.jpg",
     "telephone": "+33188750555",
     "email": "montrouge@ecolet3p.fr",
-    "url": `https://ecolet3p.fr/formations/${city.slug}`,
+    "url": `https://www.ecolet3p.fr/formations/${city.slug}`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
@@ -90,19 +90,19 @@ const FormationVille = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://ecolet3p.fr/"
+        "item": "https://www.ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Formations",
-        "item": "https://ecolet3p.fr/formations"
+        "item": "https://www.ecolet3p.fr/formations"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": `Formation ${city.name}`,
-        "item": `https://ecolet3p.fr/formations/${city.slug}`
+        "item": `https://www.ecolet3p.fr/formations/${city.slug}`
       }
     ]
   };
@@ -118,13 +118,13 @@ const FormationVille = () => {
         <title>{city.seoTitle}</title>
         <meta name="description" content={city.seoDescription} />
         <meta name="keywords" content={city.seoKeywords.join(", ")} />
-        <link rel="canonical" href={`https://ecolet3p.fr/formations/${city.slug}`} />
+        <link rel="canonical" href={`https://www.ecolet3p.fr/formations/${city.slug}`} />
         
         <meta property="og:title" content={city.seoTitle} />
         <meta property="og:description" content={city.seoDescription} />
-        <meta property="og:url" content={`https://ecolet3p.fr/formations/${city.slug}`} />
+        <meta property="og:url" content={`https://www.ecolet3p.fr/formations/${city.slug}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={city.seoTitle} />

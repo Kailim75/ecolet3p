@@ -4,596 +4,623 @@
   <!-- LLMs.txt for AI crawlers -->
   <!-- AI-optimized content available at /llms.txt and /llms-full.txt -->
   <url>
-    <loc>https://ecolet3p.fr/</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://ecolet3p.fr/og-image.jpg</image:loc>
+      <image:loc>https://www.ecolet3p.fr/og-image.jpg</image:loc>
       <image:title>ECOLE T3P - Formation Taxi VTC VMDTR Paris Montrouge</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/formations</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/taxi</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/taxi</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/vtc</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/vtc</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/vmdtr</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/vmdtr</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/mobilite</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/mobilite</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/continue-taxi</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/continue-vtc</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/continue-vmdtr</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Page index des villes -->
   <url>
-    <loc>https://ecolet3p.fr/formations/villes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/villes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Pages locales SEO - Villes du 92 Sud -->
   <url>
-    <loc>https://ecolet3p.fr/formations/bagneux</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/vanves</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/malakoff</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/chatillon</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/clamart</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/issy-les-moulineaux</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/fontenay-aux-roses</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/sceaux</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/antony</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/boulogne-billancourt</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/meudon</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/formations/bourg-la-reine</loc>
+    <loc>https://www.ecolet3p.fr/formations/bagneux</loc>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/le-plessis-robinson</loc>
+    <loc>https://www.ecolet3p.fr/formations/vanves</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/malakoff</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/chatillon</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/clamart</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/issy-les-moulineaux</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/fontenay-aux-roses</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/sceaux</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/antony</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/boulogne-billancourt</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/meudon</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/bourg-la-reine</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/le-plessis-robinson</loc>
     <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Pages locales SEO - Paris Sud -->
   <url>
-    <loc>https://ecolet3p.fr/formations/paris-13</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/paris-13</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/paris-14</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/paris-14</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/paris-15</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/paris-15</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Pages locales SEO - Villes Ouest/Nord du 92 -->
   <url>
-    <loc>https://ecolet3p.fr/formations/nanterre</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/nanterre</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/colombes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/colombes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/rueil-malmaison</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/rueil-malmaison</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/puteaux</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/puteaux</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/suresnes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/suresnes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/la-garenne-colombes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/la-garenne-colombes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/bois-colombes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/bois-colombes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/asnieres-sur-seine</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/asnieres-sur-seine</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/levallois-perret</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/levallois-perret</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/neuilly-sur-seine</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/neuilly-sur-seine</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/courbevoie</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/courbevoie</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/clichy</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/clichy</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Pages locales SEO - Val-de-Marne (94) -->
   <url>
-    <loc>https://ecolet3p.fr/formations/ivry-sur-seine</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/ivry-sur-seine</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/vitry-sur-seine</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/vitry-sur-seine</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/le-kremlin-bicetre</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/le-kremlin-bicetre</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/gentilly</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/gentilly</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/arcueil</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/arcueil</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/cachan</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/cachan</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/villejuif</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/villejuif</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/charenton-le-pont</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/charenton-le-pont</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/saint-mande</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/saint-mande</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/vincennes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/vincennes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/fontenay-sous-bois</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/fontenay-sous-bois</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/maisons-alfort</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/maisons-alfort</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/alfortville</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/alfortville</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Pages locales SEO - Seine-Saint-Denis (93) -->
   <url>
-    <loc>https://ecolet3p.fr/formations/saint-denis</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/saint-denis</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/saint-ouen</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/saint-ouen</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/aubervilliers</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/aubervilliers</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/pantin</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/pantin</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/le-pre-saint-gervais</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/le-pre-saint-gervais</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/les-lilas</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/les-lilas</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/bagnolet</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/bagnolet</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/montreuil</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/montreuil</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/bobigny</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/bobigny</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/la-courneuve</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/la-courneuve</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/romainville</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/romainville</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Pages locales SEO - Essonne (91) -->
   <url>
-    <loc>https://ecolet3p.fr/formations/massy</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/massy</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/palaiseau</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/palaiseau</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/savigny-sur-orge</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/savigny-sur-orge</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/evry-courcouronnes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/evry-courcouronnes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/corbeil-essonnes</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/corbeil-essonnes</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/viry-chatillon</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/viry-chatillon</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/athis-mons</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/athis-mons</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/juvisy-sur-orge</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/juvisy-sur-orge</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/longjumeau</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/longjumeau</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/chilly-mazarin</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/chilly-mazarin</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Pages locales SEO - Yvelines (78) -->
   <url>
-    <loc>https://ecolet3p.fr/formations/versailles</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/versailles</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/saint-germain-en-laye</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/saint-germain-en-laye</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/poissy</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/poissy</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/sartrouville</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/sartrouville</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/le-chesnay-rocquencourt</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/le-chesnay-rocquencourt</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/velizy-villacoublay</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/velizy-villacoublay</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/chatou</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/chatou</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/le-vesinet</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/le-vesinet</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/conflans-sainte-honorine</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/conflans-sainte-honorine</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/formations/houilles</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/houilles</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Pages de services -->
   <url>
-    <loc>https://ecolet3p.fr/formations/recuperation-points</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/formations/recuperation-points</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Blog -->
   <url>
-    <loc>https://ecolet3p.fr/blog</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/maitrise-numerique-ia-chauffeur-vtc-taxi</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/maitrise-numerique-ia-chauffeur-vtc-taxi</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/anglais-chauffeur-vtc-taxi-clientele-internationale</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/anglais-chauffeur-vtc-taxi-clientele-internationale</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/comment-devenir-chauffeur-taxi-2026</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/comment-devenir-chauffeur-taxi-2026</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/comment-devenir-chauffeur-vtc-2026</loc>
-    <lastmod>2026-02-09</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/comment-devenir-chauffeur-vtc-2026</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/devenir-chauffeur-vtc-2025</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/devenir-chauffeur-vtc-2025</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/financement-formation-taxi-vtc</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/financement-formation-taxi-vtc</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/carte-professionnelle-vtc</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/carte-professionnelle-vtc</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/formation-continue-taxi-vtc</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/formation-continue-taxi-vtc</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/moto-taxi-vmdtr</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/blog/moto-taxi-vmdtr</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Pages institutionnelles -->
+  <url>
+    <loc>https://www.ecolet3p.fr/a-propos</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/a-propos</loc>
-    <lastmod>2026-01-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ecolet3p.fr/contact</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/contact</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/mentions-legales</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/guide-formation</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/mentions-legales</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/politique-de-confidentialite</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://www.ecolet3p.fr/politique-de-confidentialite</loc>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

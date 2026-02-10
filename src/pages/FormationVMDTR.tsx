@@ -154,7 +154,7 @@ const FormationVMDTR = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr"
+      "sameAs": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -204,7 +204,7 @@ const FormationVMDTR = () => {
         <title>Formation T3P Parcours VMDTR Moto-Taxi | ECOLE T3P Montrouge</title>
         <meta name="description" content="Parcours VMDTR de la formation T3P à Montrouge. Formation moto-taxi complète, équipements de sécurité, paiement en 4x sans frais. Obtenez votre carte professionnelle." />
         <meta name="keywords" content="formation T3P VMDTR, formation moto-taxi, parcours VMDTR, carte professionnelle moto-taxi, ECOLE T3P" />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/vmdtr" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/vmdtr" />
         
         {/* Preload critical hero image */}
         <link 
@@ -214,9 +214,9 @@ const FormationVMDTR = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation T3P Parcours VMDTR Moto-Taxi | ECOLE T3P" />
-        <meta property="og:description" content="Parcours VMDTR de la formation T3P. Formation moto-taxi professionnelle complète." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/vmdtr" />
+        <meta property="og:title" content="Formation VMDTR Moto-Taxi à Montrouge | ECOLE T3P" />
+        <meta property="og:description" content="Formation VMDTR (moto-taxi) à Montrouge. Obtenez votre carte professionnelle. Centre agréé Préfecture." />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations/vmdtr" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -229,19 +229,19 @@ const FormationVMDTR = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://ecolet3p.fr/"
+              "item": "https://www.ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://ecolet3p.fr/formations"
+              "item": "https://www.ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Formation VMDTR",
-              "item": "https://ecolet3p.fr/formations/vmdtr"
+              "item": "https://www.ecolet3p.fr/formations/vmdtr"
             }
           ]
         })}</script>

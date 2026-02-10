@@ -157,7 +157,7 @@ const FormationTaxi = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr"
+      "sameAs": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -213,7 +213,7 @@ const FormationTaxi = () => {
         <title>Formation Taxi Paris Montrouge | ECOLE T3P - Carte Professionnelle 94% Réussite</title>
         <meta name="description" content="Obtenez votre carte professionnelle Taxi avec ECOLE T3P. 63h de formation agréée à Montrouge, 94% de réussite, paiement 4x sans frais. Démarrez votre reconversion !" />
         <meta name="keywords" content="formation taxi Paris, carte professionnelle taxi, devenir chauffeur taxi, formation taxi agréée, centre formation taxi Montrouge, reconversion taxi, ECOLE T3P" />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/taxi" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/taxi" />
         
         {/* Preload critical hero image */}
         <link 
@@ -223,9 +223,9 @@ const FormationTaxi = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation Taxi Paris | ECOLE T3P - 94% Réussite" />
-        <meta property="og:description" content="Devenez chauffeur de taxi professionnel. 63h de formation agréée, 94% de réussite. Paiement en 4x sans frais." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/taxi" />
+        <meta property="og:title" content="Formation Taxi Initiale à Montrouge — 63h | ECOLE T3P" />
+        <meta property="og:description" content="Formation initiale Taxi 63h à Montrouge. Préparation complète à l'examen CMA. Centre agréé Préfecture des Hauts-de-Seine." />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations/taxi" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -238,19 +238,19 @@ const FormationTaxi = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://ecolet3p.fr/"
+              "item": "https://www.ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://ecolet3p.fr/formations"
+              "item": "https://www.ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Parcours Taxi",
-              "item": "https://ecolet3p.fr/formations/taxi"
+              "item": "https://www.ecolet3p.fr/formations/taxi"
             }
           ]
         })}</script>

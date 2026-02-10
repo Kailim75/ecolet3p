@@ -154,7 +154,7 @@ const FormationVTC = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr",
+      "sameAs": "https://www.ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
@@ -220,7 +220,7 @@ const FormationVTC = () => {
         <title>Formation VTC Paris Montrouge | ECOLE T3P - Uber, Bolt - 94% Réussite</title>
         <meta name="description" content="Devenez chauffeur VTC professionnel avec ECOLE T3P à Montrouge. Travaillez avec Uber, Bolt, Heetch. 94% de réussite, paiement 4x sans frais. Demandez votre devis !" />
         <meta name="keywords" content="formation VTC Paris, carte professionnelle VTC, devenir chauffeur VTC, formation Uber, formation Bolt, centre formation VTC Montrouge, reconversion VTC, ECOLE T3P" />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/vtc" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/vtc" />
         
         {/* Preload critical hero image */}
         <link 
@@ -230,11 +230,11 @@ const FormationVTC = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation VTC Paris | ECOLE T3P - Uber, Bolt - 94% Réussite" />
-        <meta property="og:description" content="Devenez chauffeur VTC et travaillez avec Uber, Bolt, Heetch. 94% de réussite, paiement 4x sans frais." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/vtc" />
+        <meta property="og:title" content="Formation VTC Initiale à Montrouge — 63h | ECOLE T3P" />
+        <meta property="og:description" content="Formation initiale VTC 63h à Montrouge. Préparation à l'examen CMA pour devenir chauffeur VTC. Financement possible." />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations/vtc" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -246,19 +246,19 @@ const FormationVTC = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://ecolet3p.fr/"
+              "item": "https://www.ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://ecolet3p.fr/formations"
+              "item": "https://www.ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Parcours VTC",
-              "item": "https://ecolet3p.fr/formations/vtc"
+              "item": "https://www.ecolet3p.fr/formations/vtc"
             }
           ]
         })}</script>
