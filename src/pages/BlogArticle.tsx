@@ -4,7 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
-import { Clock, Calendar, ArrowLeft, ArrowRight, Share2, User, Tag } from "lucide-react";
+import { Clock, Calendar, ArrowLeft, ArrowRight, Share2, User, Tag, Home } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 
@@ -148,6 +156,34 @@ const BlogArticle = () => {
           style={{ width: `${readProgress}%` }}
           transition={{ duration: 0.1 }}
         />
+      </div>
+
+      {/* Breadcrumb */}
+      <div className="bg-muted/30 py-3 border-b">
+        <div className="container mx-auto px-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center gap-1">
+                    <Home className="h-4 w-4" />
+                    Accueil
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/blog">Blog</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="line-clamp-1 max-w-[200px]">{article.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
       </div>
 
       {/* Hero with image */}

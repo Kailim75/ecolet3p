@@ -4,9 +4,17 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { blogArticles } from "@/data/blogArticles";
-import { Clock, Calendar, ArrowRight, BookOpen, Tag } from "lucide-react";
+import { Clock, Calendar, ArrowRight, BookOpen, Tag, Home } from "lucide-react";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const staggerContainerVariants = {
   hidden: { opacity: 0 },
@@ -79,6 +87,28 @@ const Blog = () => {
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
+
+      {/* Breadcrumb */}
+      <div className="bg-muted/30 py-3 border-b">
+        <div className="container mx-auto px-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center gap-1">
+                    <Home className="h-4 w-4" />
+                    Accueil
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Blog</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
 
       {/* Hero */}
       <section className="relative bg-forest overflow-hidden">

@@ -2,6 +2,15 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
+import { Home } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -16,6 +25,29 @@ const LegalMentions = () => {
         <meta name="description" content="Mentions légales du site ecolet3p.fr. ECOLE T3P, centre de formation professionnelle Taxi VTC VMDTR. 3 rue Corneille, 92120 Montrouge. Informations légales." />
         <link rel="canonical" href="https://www.ecolet3p.fr/mentions-legales" />
       </Helmet>
+
+      {/* Breadcrumb */}
+      <div className="bg-muted/30 py-3 border-b">
+        <div className="container mx-auto px-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center gap-1">
+                    <Home className="h-4 w-4" />
+                    Accueil
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Mentions légales</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="bg-cream py-16 md:py-20">
         <div className="container-custom text-center">
