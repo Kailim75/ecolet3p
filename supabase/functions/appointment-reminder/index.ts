@@ -62,7 +62,7 @@ const handler = async (req: Request): Promise<Response> => {
           year: 'numeric'
         });
 
-        const emailSubject = "⏰ Rappel : Votre rendez-vous demain au Campus T3P";
+        const emailSubject = "⏰ Rappel : Votre rendez-vous demain à l'ECOLE T3P";
 
         const emailHtml = `
           <!DOCTYPE html>
@@ -75,8 +75,8 @@ const handler = async (req: Request): Promise<Response> => {
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
               <!-- Header -->
               <div style="background: linear-gradient(135deg, #1B4332 0%, #2D5A45 100%); padding: 40px 30px; text-align: center;">
-                <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: bold;">Campus T3P</h1>
-                <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">Formation VTC & TAXI</p>
+                <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: bold;">ECOLE T3P</h1>
+                <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">Formation Taxi, VTC & VMDTR</p>
               </div>
               
               <!-- Content -->
@@ -93,7 +93,7 @@ const handler = async (req: Request): Promise<Response> => {
                 </p>
                 
                 <p style="color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 25px;">
-                  Nous vous rappelons que vous avez rendez-vous <strong>demain</strong> au Campus T3P pour découvrir nos formations.
+                  Nous vous rappelons que vous avez rendez-vous <strong>demain</strong> à l'ECOLE T3P pour découvrir nos formations.
                 </p>
                 
                 <!-- Appointment Details Card -->
@@ -120,8 +120,8 @@ const handler = async (req: Request): Promise<Response> => {
                 <div style="background-color: #E8F5E9; border-radius: 12px; padding: 20px; margin-bottom: 30px;">
                   <h4 style="color: #1B4332; margin: 0 0 15px 0; font-size: 16px;">📍 Lieu du rendez-vous</h4>
                   <p style="color: #333; font-size: 14px; line-height: 1.6; margin: 0 0 10px 0;">
-                    <strong>Campus T3P Montrouge</strong><br>
-                    21 Rue Hoche, 92120 Montrouge
+                    <strong>ECOLE T3P Montrouge</strong><br>
+                    3 rue Corneille, 92120 Montrouge
                   </p>
                   <p style="color: #666; font-size: 13px; margin: 0;">
                     🚇 Métro : Mairie de Montrouge (Ligne 4)
@@ -133,8 +133,8 @@ const handler = async (req: Request): Promise<Response> => {
                 </p>
                 
                 <div style="text-align: center; margin-bottom: 30px;">
-                  <a href="tel:0975180535" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 15px;">
-                    📞 09 75 18 05 35
+                  <a href="tel:0188750555" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 15px;">
+                    📞 01 88 75 05 55
                   </a>
                 </div>
                 
@@ -145,8 +145,8 @@ const handler = async (req: Request): Promise<Response> => {
               
               <!-- Footer -->
               <div style="background-color: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #eee;">
-                <p style="color: #1B4332; font-weight: bold; margin: 0 0 5px 0; font-size: 16px;">Campus T3P Montrouge</p>
-                <p style="color: #666; margin: 0 0 15px 0; font-size: 13px;">21 Rue Hoche, 92120 Montrouge</p>
+                <p style="color: #1B4332; font-weight: bold; margin: 0 0 5px 0; font-size: 16px;">ECOLE T3P Montrouge</p>
+                <p style="color: #666; margin: 0 0 15px 0; font-size: 13px;">3 rue Corneille, 92120 Montrouge</p>
                 <p style="color: #888; margin: 0; font-size: 12px;">
                   Formations certifiées RS5635 & RS5637
                 </p>
@@ -163,7 +163,7 @@ const handler = async (req: Request): Promise<Response> => {
             Authorization: `Bearer ${RESEND_API_KEY}`,
           },
           body: JSON.stringify({
-            from: "Campus T3P <montrouge@t3pcampus.fr>",
+            from: "ECOLE T3P <montrouge@ecolet3p.fr>",
             to: [apt.email],
             subject: emailSubject,
             html: emailHtml,
