@@ -1,53 +1,29 @@
-// Google Analytics 4 Configuration
-// Replace GA_MEASUREMENT_ID with your actual GA4 measurement ID (format: G-XXXXXXXXXX)
+// Google Tag Manager + GA4 Configuration
+// GTM (GTM-KRJWD5VH) is loaded via index.html and handles GA4 (G-132135YEV7) internally
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-132135YEV7';
-
-// Check if GA is enabled
+// Check if GTM dataLayer is available
 export const isGAEnabled = (): boolean => {
-  return !!GA_MEASUREMENT_ID && typeof window !== 'undefined' && 'gtag' in window;
+  return typeof window !== 'undefined' && Array.isArray(window.dataLayer);
 };
 
-// Initialize Google Analytics
+// Initialize dataLayer (GTM script is already in index.html)
 export const initGA = (): void => {
-  if (!GA_MEASUREMENT_ID) {
-    console.log('Google Analytics: No measurement ID configured');
-    return;
-  }
-
-  // Add gtag script
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(script);
-
-  // Initialize gtag
   window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer.push(args);
-  }
-  (window as any).gtag = gtag;
-  
-  gtag('js', new Date());
-  gtag('config', GA_MEASUREMENT_ID, {
-    page_path: window.location.pathname,
-    anonymize_ip: true, // GDPR compliance
-  });
-
-  console.log('Google Analytics initialized');
+  console.log('Google Tag Manager initialized (GTM-KRJWD5VH)');
 };
 
-// Track page views
+// Track page views via dataLayer
 export const trackPageView = (path: string, title?: string): void => {
   if (!isGAEnabled()) return;
 
-  (window as any).gtag('config', GA_MEASUREMENT_ID, {
+  window.dataLayer.push({
+    event: 'page_view',
     page_path: path,
     page_title: title,
   });
 };
 
-// Track custom events
+// Track custom events via dataLayer
 export const trackEvent = (
   action: string,
   category: string,
@@ -56,7 +32,8 @@ export const trackEvent = (
 ): void => {
   if (!isGAEnabled()) return;
 
-  (window as any).gtag('event', action, {
+  window.dataLayer.push({
+    event: action,
     event_category: category,
     event_label: label,
     value: value,
