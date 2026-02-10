@@ -44,11 +44,11 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const unsubscribeToken = subscriber?.unsubscribe_token || "";
-    const unsubscribeUrl = `https://campust3ptest.lovable.app/unsubscribe?token=${unsubscribeToken}`;
+    const unsubscribeUrl = `https://ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
     const emailSubject = "Bienvenue dans notre newsletter !";
 
     const emailResponse = await resend.emails.send({
-      from: "Campus T3P <montrouge@t3pcampus.fr>",
+      from: "ECOLE T3P <montrouge@ecolet3p.fr>",
       to: [email],
       subject: emailSubject,
       html: `
@@ -66,8 +66,8 @@ const handler = async (req: Request): Promise<Response> => {
                   <!-- Header -->
                   <tr>
                     <td style="background: linear-gradient(135deg, #1a3a32 0%, #2d5a4a 100%); padding: 40px 30px; text-align: center;">
-                      <h1 style="color: #d4af37; margin: 0; font-size: 28px; font-weight: bold;">Campus T3P</h1>
-                      <p style="color: #f5f5f0; margin: 10px 0 0; font-size: 14px; opacity: 0.9;">Centre de formation VTC & Taxi</p>
+                      <h1 style="color: #d4af37; margin: 0; font-size: 28px; font-weight: bold;">ECOLE T3P</h1>
+                      <p style="color: #f5f5f0; margin: 10px 0 0; font-size: 14px; opacity: 0.9;">Centre de formation Taxi, VTC & VMDTR</p>
                     </td>
                   </tr>
                   
@@ -95,7 +95,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" style="width: 100%;">
                         <tr>
                           <td style="text-align: center;">
-                            <a href="https://campust3ptest.lovable.app/formations" style="display: inline-block; background-color: #d4af37; color: #1a3a32; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                            <a href="https://ecolet3p.fr/formations" style="display: inline-block; background-color: #d4af37; color: #1a3a32; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 16px;">
                               Découvrir nos formations
                             </a>
                           </td>
@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
                   <tr>
                     <td style="background-color: #f7fafc; padding: 25px 30px; text-align: center; border-top: 1px solid #e2e8f0;">
                       <p style="color: #718096; font-size: 14px; margin: 0 0 10px;">
-                        Campus T3P - Centre de formation professionnelle
+                        ECOLE T3P - Centre de formation professionnelle
                       </p>
                       <p style="color: #a0aec0; font-size: 12px; margin: 0 0 15px;">
                         Vous recevez cet email car vous vous êtes inscrit(e) à notre newsletter.

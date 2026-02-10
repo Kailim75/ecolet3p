@@ -47,7 +47,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const { record } = payload;
-    const adminEmail = "montrouge@t3pcampus.fr";
+    const adminEmail = "montrouge@ecolet3p.fr";
 
     // Format date
     const createdDate = new Date(record.created_at).toLocaleDateString("fr-FR", {
@@ -68,7 +68,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Campus T3P <montrouge@t3pcampus.fr>",
+        from: "ECOLE T3P <montrouge@ecolet3p.fr>",
         to: [adminEmail],
         subject: emailSubject,
         html: `
@@ -119,7 +119,7 @@ const handler = async (req: Request): Promise<Response> => {
                   ${createdDate}
                 </div>
                 
-                <a href="https://campust3ptest.lovable.app/admin" class="cta">
+                <a href="https://ecolet3p.fr/admin" class="cta">
                   Voir dans l'admin →
                 </a>
               </div>

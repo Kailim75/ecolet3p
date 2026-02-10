@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Appointment notification data:", data);
 
     const { firstName, lastName, email, formationChoice, appointmentDate, appointmentTime } = data;
-    const adminEmail = "montrouge@t3pcampus.fr";
+    const adminEmail = "montrouge@ecolet3p.fr";
 
     // Format the date for display
     const dateObj = new Date(appointmentDate);
@@ -56,7 +56,7 @@ const handler = async (req: Request): Promise<Response> => {
           <!-- Header -->
           <div style="background: linear-gradient(135deg, #1B4332 0%, #2D5A45 100%); padding: 30px; text-align: center;">
             <h1 style="color: #ffffff; margin: 0; font-size: 24px;">📅 Nouvelle demande de RDV</h1>
-            <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">Campus T3P - Dashboard Admin</p>
+            <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">ECOLE T3P - Dashboard Admin</p>
           </div>
           
           <!-- Content -->
@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
             
             <!-- CTA -->
             <div style="text-align: center; margin: 30px 0;">
-              <a href="https://campust3ptest.lovable.app/admin" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 15px;">
+              <a href="https://ecolet3p.fr/admin" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 15px;">
                 Voir dans le Dashboard
               </a>
             </div>
@@ -117,7 +117,7 @@ const handler = async (req: Request): Promise<Response> => {
           <!-- Footer -->
           <div style="background-color: #f0f0f0; padding: 20px; text-align: center; border-top: 1px solid #ddd;">
             <p style="color: #888; margin: 0; font-size: 12px;">
-              Email automatique - Campus T3P Montrouge
+              Email automatique - ECOLE T3P Montrouge
             </p>
           </div>
         </div>
@@ -134,7 +134,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Campus T3P <montrouge@t3pcampus.fr>",
+        from: "ECOLE T3P <montrouge@ecolet3p.fr>",
         to: [adminEmail],
         subject: emailSubject,
         html: emailHtml,
