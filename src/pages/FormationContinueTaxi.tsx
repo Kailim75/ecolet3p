@@ -93,6 +93,15 @@ const FormationContinueTaxi = () => {
         <meta name="description" content="Formation continue obligatoire Taxi 14h à Montrouge. Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture des Hauts-de-Seine." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-taxi" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
+            { "@type": "ListItem", "position": 3, "name": "Formation Continue Taxi", "item": "https://www.ecolet3p.fr/formations/continue-taxi" }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Breadcrumb */}

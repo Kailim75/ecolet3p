@@ -136,6 +136,14 @@ const About = () => {
         <meta name="description" content="Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport." />
         <link rel="canonical" href="https://www.ecolet3p.fr/a-propos" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "À propos", "item": "https://www.ecolet3p.fr/a-propos" }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Breadcrumb */}

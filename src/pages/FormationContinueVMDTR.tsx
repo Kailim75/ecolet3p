@@ -93,6 +93,15 @@ const FormationContinueVMDTR = () => {
         <meta name="description" content="Formation continue obligatoire VMDTR 14h pour renouveler votre carte professionnelle moto-taxi. Centre agréé Préfecture à Montrouge. Attestation délivrée." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-vmdtr" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
+            { "@type": "ListItem", "position": 3, "name": "Formation Continue VMDTR", "item": "https://www.ecolet3p.fr/formations/continue-vmdtr" }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Breadcrumb */}

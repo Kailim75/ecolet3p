@@ -93,6 +93,15 @@ const FormationContinueVTC = () => {
         <meta name="description" content="Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge. Attestation de stage délivrée." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-vtc" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
+            { "@type": "ListItem", "position": 3, "name": "Formation Continue VTC", "item": "https://www.ecolet3p.fr/formations/continue-vtc" }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Breadcrumb */}

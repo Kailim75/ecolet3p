@@ -143,6 +143,15 @@ const RecuperationPoints = () => {
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
+            { "@type": "ListItem", "position": 3, "name": "Récupération de Points", "item": "https://www.ecolet3p.fr/formations/recuperation-points" }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
