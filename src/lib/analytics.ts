@@ -1,7 +1,7 @@
 // Google Analytics 4 Configuration
 // Replace GA_MEASUREMENT_ID with your actual GA4 measurement ID (format: G-XXXXXXXXXX)
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-J7HS87HJ9K';
 
 // Check if GA is enabled
 export const isGAEnabled = (): boolean => {
