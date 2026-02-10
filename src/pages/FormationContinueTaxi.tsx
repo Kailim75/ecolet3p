@@ -76,7 +76,7 @@ const FormationContinueTaxi = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr"
+      "sameAs": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -91,7 +91,7 @@ const FormationContinueTaxi = () => {
       <Helmet>
         <title>Formation Continue Taxi 14h | Renouvellement Carte Pro | ECOLE T3P</title>
         <meta name="description" content="Formation continue obligatoire de 14h pour le renouvellement de votre carte professionnelle Taxi. Centre agréé à Montrouge. Attestation délivrée." />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/continue-taxi" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-taxi" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
       </Helmet>
 

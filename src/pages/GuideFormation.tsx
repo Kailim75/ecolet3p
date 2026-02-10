@@ -97,7 +97,7 @@ const GuideFormation = () => {
     "@type": "WebPage",
     name: "Guide de formation Taxi, VTC, VMDTR — ECOLE T3P",
     description: "Guide pédagogique complet pour comprendre la formation initiale T3P : programme, examen, carte professionnelle et débouchés.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", sameAs: "https://ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", sameAs: "https://www.ecolet3p.fr" },
   };
 
   return (
@@ -105,7 +105,7 @@ const GuideFormation = () => {
       <Helmet>
         <title>Guide de Formation Taxi VTC VMDTR | ECOLE T3P</title>
         <meta name="description" content="Guide pédagogique pas à pas : programme de formation, modules, examen, carte professionnelle et opportunités pour devenir chauffeur Taxi, VTC ou VMDTR." />
-        <link rel="canonical" href="https://ecolet3p.fr/guide-formation" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/guide-formation" />
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
       </Helmet>
 
