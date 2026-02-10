@@ -116,11 +116,33 @@ const LegalMentions = () => {
               </p>
             </div>
 
-            <div className="card-livementor">
+            <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">8. Droit applicable</h2>
               <p className="text-muted-foreground">
                 Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.
               </p>
+            </div>
+
+            {/* Liens internes */}
+            <div className="mt-12 p-6 bg-muted/30 rounded-xl">
+              <h2 className="text-lg font-bold text-forest mb-4">Pages connexes</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <Link to="/politique-de-confidentialite" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Politique de confidentialité
+                </Link>
+                <Link to="/contact" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Nous contacter
+                </Link>
+                <Link to="/" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Accueil ECOLE T3P
+                </Link>
+                <Link to="/formations" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Nos formations
+                </Link>
+                <Link to="/blog" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Blog et actualités
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
