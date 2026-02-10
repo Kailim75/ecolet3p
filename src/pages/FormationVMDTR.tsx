@@ -201,8 +201,8 @@ const FormationVMDTR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation T3P Parcours VMDTR Moto-Taxi | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Parcours VMDTR de la formation T3P à Montrouge. Formation moto-taxi complète, équipements de sécurité, paiement en 4x sans frais. Obtenez votre carte professionnelle." />
+        <title>Formation VMDTR Moto-Taxi 14h Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Formation VMDTR moto-taxi 14h à Montrouge. Obtenez votre carte professionnelle conducteur deux-roues motorisé. Centre agréé Préfecture. Taux de réussite 94%." />
         <meta name="keywords" content="formation T3P VMDTR, formation moto-taxi, parcours VMDTR, carte professionnelle moto-taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vmdtr" />
         
@@ -295,8 +295,7 @@ const FormationVMDTR = () => {
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Parcours <span className="text-orange-600">VMDTR</span>
-                <br />Moto-Taxi Professionnel
+                Formation VMDTR Moto-Taxi à Montrouge — <span className="text-orange-600">14h</span>
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
@@ -693,6 +692,73 @@ const FormationVMDTR = () => {
                 Développez votre clientèle internationale.
               </p>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contenu unique VMDTR */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-2xl font-bold mb-6">Qu'est-ce que le VMDTR ?</h2>
+            <p className="text-muted-foreground mb-4">
+              Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) désigne l'activité professionnelle de transport de personnes 
+              à titre onéreux sur un deux-roues ou trois-roues motorisé, communément appelée « moto-taxi ». Ce métier, encadré 
+              par le code des transports, nécessite l'obtention d'une carte professionnelle délivrée par la préfecture après 
+              validation d'une formation agréée. ECOLE T3P, centre de formation situé à Montrouge (92120), propose un parcours 
+              complet couvrant réglementation, sécurité spécifique deux-roues, relation passager et gestion d'activité.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-6 mt-12">Carte professionnelle VMDTR : comment l'obtenir</h2>
+            <p className="text-muted-foreground mb-4">
+              Pour obtenir votre carte professionnelle VMDTR, vous devez suivre la formation agréée de 14 heures puis réussir 
+              l'examen organisé par la Chambre des Métiers et de l'Artisanat. L'attestation de formation délivrée par ECOLE T3P 
+              est indispensable pour constituer votre dossier de demande auprès de la préfecture. Notre équipe vous accompagne 
+              dans chaque étape administrative.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-6 mt-12">Pourquoi choisir ECOLE T3P pour votre formation VMDTR</h2>
+            <p className="text-muted-foreground mb-4">
+              Avec un taux de réussite de 94 % et plus de 359 avis 5 étoiles, ECOLE T3P est reconnu comme l'un des centres 
+              de référence en Île-de-France pour les formations T3P. Notre centre à Montrouge est facilement accessible en 
+              métro ligne 4 (station Mairie de Montrouge). Nous proposons le paiement en 4 fois sans frais pour faciliter 
+              votre accès à la formation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Liens internes VMDTR */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold mb-8 text-center">Explorez nos autres formations</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link to="/formations/taxi" className="p-4 bg-background rounded-lg border hover:border-orange-600 transition-colors">
+                <h3 className="font-semibold mb-1">Formation Taxi</h3>
+                <p className="text-sm text-muted-foreground">Formation initiale Taxi pour carte professionnelle</p>
+              </Link>
+              <Link to="/formations/vtc" className="p-4 bg-background rounded-lg border hover:border-orange-600 transition-colors">
+                <h3 className="font-semibold mb-1">Formation VTC</h3>
+                <p className="text-sm text-muted-foreground">Devenez chauffeur VTC professionnel</p>
+              </Link>
+              <Link to="/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi" className="p-4 bg-background rounded-lg border hover:border-orange-600 transition-colors">
+                <h3 className="font-semibold mb-1">Guide VMDTR 2026</h3>
+                <p className="text-sm text-muted-foreground">Tout savoir pour devenir conducteur moto-taxi</p>
+              </Link>
+              <Link to="/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir" className="p-4 bg-background rounded-lg border hover:border-orange-600 transition-colors">
+                <h3 className="font-semibold mb-1">Comparatif métiers</h3>
+                <p className="text-sm text-muted-foreground">VTC, Taxi ou VMDTR : quel métier choisir ?</p>
+              </Link>
+              <Link to="/blog/formation-vmdtr-moto-taxi-scooter" className="p-4 bg-background rounded-lg border hover:border-orange-600 transition-colors">
+                <h3 className="font-semibold mb-1">VMDTR moto & scooter</h3>
+                <p className="text-sm text-muted-foreground">Moto ou scooter : quel véhicule choisir</p>
+              </Link>
+              <Link to="/contact" className="p-4 bg-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity">
+                <h3 className="font-semibold mb-1">Inscrivez-vous</h3>
+                <p className="text-sm text-white/80">Contactez-nous pour réserver votre place</p>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

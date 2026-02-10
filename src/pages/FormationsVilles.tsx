@@ -96,10 +96,10 @@ const FormationsVilles = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi VTC par ville | Paris, 92, 94 | ECOLE T3P</title>
+        <title>Formations Taxi VTC près de chez vous | ECOLE T3P</title>
         <meta 
           name="description" 
-          content={`Centre de formation Taxi VTC accessible depuis ${totalCities} villes d'Île-de-France : Paris, Hauts-de-Seine (92), Val-de-Marne (94). Trouvez votre formation près de chez vous.`} 
+          content="ECOLE T3P à Montrouge forme des chauffeurs Taxi, VTC et VMDTR de toute l'Île-de-France. Trouvez votre ville : 92, 94, 93, 91, 78 et Paris." 
         />
         <meta 
           name="keywords" 
@@ -145,8 +145,8 @@ const FormationsVilles = () => {
             </span>
             
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-cream uppercase tracking-tight mb-6">
-              Formation <span className="text-gold">TAXI & VTC</span><br />
-              près de chez vous
+              Formations Taxi VTC VMDTR <span className="text-gold">près de chez vous</span><br />
+              en Île-de-France
             </h1>
             
             <p className="text-lg md:text-xl text-cream/80 max-w-3xl mx-auto mb-8">
@@ -334,20 +334,63 @@ const FormationsVilles = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto prose prose-forest">
             <h2 className="text-xl font-bold text-forest mb-4">
-              Formation Taxi VTC accessible depuis toute l'Île-de-France
+              Un centre de formation accessible depuis toute l'Île-de-France
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              ECOLE T3P est un centre de formation agréé par la Préfecture, situé à Montrouge (92120), 
-              au cœur de l'Île-de-France. Notre emplacement stratégique, à quelques minutes du métro 
-              Mairie de Montrouge (ligne 4), nous permet d'accueillir des stagiaires de Paris, 
-              des Hauts-de-Seine (92) et du Val-de-Marne (94).
+              ECOLE T3P est un centre de formation agréé par la Préfecture des Hauts-de-Seine, situé au 3 rue Corneille, 
+              92120 Montrouge, en plein cœur de l'Île-de-France. Notre emplacement stratégique, à seulement deux minutes 
+              à pied de la station de métro Mairie de Montrouge (ligne 4), nous permet d'accueillir des stagiaires venus 
+              de l'ensemble de la région parisienne : Paris intra-muros, Hauts-de-Seine (92), Val-de-Marne (94), 
+              Seine-Saint-Denis (93), Essonne (91) et Yvelines (78).
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Que vous habitiez à Boulogne-Billancourt, Villejuif, Nanterre, ou dans les arrondissements 
-              sud de Paris (13e, 14e, 15e), vous trouverez sur cette page toutes les informations 
-              pour rejoindre facilement notre centre et débuter votre formation de chauffeur 
-              professionnel TAXI, VTC ou VMDTR.
+              Situé au sud de Paris, notre centre est particulièrement rapide d'accès depuis les arrondissements du sud 
+              parisien (13e, 14e, 15e) ainsi que depuis les communes limitrophes comme Boulogne-Billancourt, Issy-les-Moulineaux, 
+              Malakoff, Châtillon ou Villejuif. Que vous envisagiez une formation Taxi, une formation VTC ou un parcours VMDTR 
+              moto-taxi, vous trouverez ci-dessus toutes les villes desservies avec le temps de trajet estimé et les transports 
+              en commun à emprunter pour rejoindre notre centre.
             </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Avec un taux de réussite de 94 % et plus de 359 avis 5 étoiles sur Google, ECOLE T3P forme chaque année 
+              des dizaines de chauffeurs professionnels. Nos sessions de formation sont proposées en journée et en soirée, 
+              pour s'adapter à toutes les contraintes. Consultez la page de votre ville pour connaître les détails d'accès 
+              et inscrivez-vous à notre prochaine session.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Liens internes */}
+      <section className="py-12 bg-background">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold text-forest mb-6 text-center">Nos formations disponibles</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link to="/formations/taxi" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation Taxi</h3>
+                <p className="text-sm text-muted-foreground">Formation initiale pour carte professionnelle Taxi</p>
+              </Link>
+              <Link to="/formations/vtc" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation VTC</h3>
+                <p className="text-sm text-muted-foreground">Devenez chauffeur VTC professionnel</p>
+              </Link>
+              <Link to="/formations/vmdtr" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation VMDTR</h3>
+                <p className="text-sm text-muted-foreground">Formation moto-taxi professionnelle</p>
+              </Link>
+              <Link to="/formations" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Toutes nos formations</h3>
+                <p className="text-sm text-muted-foreground">Découvrez l'ensemble de notre catalogue</p>
+              </Link>
+              <Link to="/contact" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Contact</h3>
+                <p className="text-sm text-muted-foreground">Prenez rendez-vous avec notre équipe</p>
+              </Link>
+              <Link to="/" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Accueil ECOLE T3P</h3>
+                <p className="text-sm text-muted-foreground">Retour à la page d'accueil</p>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

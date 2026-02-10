@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { 
@@ -125,10 +126,10 @@ const RecuperationPoints = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Stage Récupération de Points | ECOLE T3P Montrouge</title>
+        <title>Stage Récupération de Points 2 jours | ECOLE T3P</title>
         <meta 
           name="description" 
-          content="Stage de récupération de points à Montrouge. Récupérez jusqu'à 4 points en 2 jours. Formation agréée, attestation immédiate. Inscrivez-vous maintenant !" 
+          content="Stage de récupération de points en 2 jours (14h) à Montrouge. Récupérez jusqu'à 4 points sur votre permis. Sessions régulières. Inscription rapide." 
         />
         <meta 
           name="keywords" 
@@ -176,8 +177,8 @@ const RecuperationPoints = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-black text-forest leading-tight mb-6"
             >
-              Stage de Récupération<br />
-              <span className="text-gold">de Points</span>
+              Stage de Récupération de Points<br />
+              <span className="text-gold">de Permis à Montrouge</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -387,6 +388,75 @@ const RecuperationPoints = () => {
                 <p className="text-muted-foreground text-sm">{faq.answer}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contenu unique */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="section-title mb-6">Comment fonctionne le stage de récupération de points</h2>
+            <p className="text-muted-foreground mb-4">
+              Le stage de sensibilisation à la sécurité routière, communément appelé « stage de récupération de points », 
+              est une formation de 14 heures réparties sur 2 jours consécutifs. Il permet de récupérer jusqu'à 4 points 
+              sur votre permis de conduire, dans la limite du plafond de 12 points (ou 6 pour les permis probatoires). 
+              Les points sont crédités dès le lendemain du dernier jour de stage, après transmission de l'attestation 
+              à la préfecture par notre centre.
+            </p>
+
+            <h2 className="section-title mb-6 mt-12">Déroulement du stage</h2>
+            <p className="text-muted-foreground mb-4">
+              Le premier jour est consacré à l'analyse des comportements à risque, à la compréhension des facteurs 
+              d'accidents et à l'impact de la vitesse, de l'alcool et des distractions sur la conduite. Le second jour 
+              aborde les aspects psychologiques de la conduite, la perception des risques et les stratégies pour adopter 
+              une conduite plus sûre. Les intervenants sont des formateurs agréés, spécialistes de la sécurité routière 
+              et de la psychologie du conducteur.
+            </p>
+
+            <h2 className="section-title mb-6 mt-12">Qui peut participer au stage</h2>
+            <p className="text-muted-foreground mb-4">
+              Pour participer à un stage volontaire de récupération de points, vous devez remplir trois conditions : 
+              disposer d'au moins 1 point restant sur votre permis, ne pas avoir effectué de stage dans les 12 derniers 
+              mois, et ne pas avoir reçu de courrier 48SI (invalidation du permis). Si votre solde est à zéro ou si 
+              vous avez reçu une lettre d'invalidation, le stage volontaire n'est plus possible et d'autres démarches 
+              s'appliquent.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Liens internes */}
+      <section className="py-12 bg-muted/30">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold text-forest mb-6 text-center">Découvrez aussi</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link to="/formations" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Nos formations</h3>
+                <p className="text-sm text-muted-foreground">Taxi, VTC, VMDTR et formation continue</p>
+              </Link>
+              <Link to="/formations/taxi" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation Taxi</h3>
+                <p className="text-sm text-muted-foreground">Obtenez votre carte professionnelle Taxi</p>
+              </Link>
+              <Link to="/formations/vtc" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation VTC</h3>
+                <p className="text-sm text-muted-foreground">Devenez chauffeur VTC professionnel</p>
+              </Link>
+              <Link to="/contact" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Contact</h3>
+                <p className="text-sm text-muted-foreground">Réservez votre place au prochain stage</p>
+              </Link>
+              <Link to="/blog" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Blog</h3>
+                <p className="text-sm text-muted-foreground">Guides et actualités du transport</p>
+              </Link>
+              <Link to="/" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Accueil</h3>
+                <p className="text-sm text-muted-foreground">Retour à la page d'accueil ECOLE T3P</p>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

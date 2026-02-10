@@ -217,8 +217,8 @@ const FormationVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VTC Paris Montrouge | ECOLE T3P - Uber, Bolt - 94% Réussite</title>
-        <meta name="description" content="Devenez chauffeur VTC professionnel avec ECOLE T3P à Montrouge. Travaillez avec Uber, Bolt, Heetch. 94% de réussite, paiement 4x sans frais. Demandez votre devis !" />
+        <title>Formation VTC Initiale 63h à Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Formation initiale VTC 63h (journée) ou 33h (soir) à Montrouge. Préparation examen carte professionnelle VTC. Taux de réussite 94%. Centre agréé Préfecture 92." />
         <meta name="keywords" content="formation VTC Paris, carte professionnelle VTC, devenir chauffeur VTC, formation Uber, formation Bolt, centre formation VTC Montrouge, reconversion VTC, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vtc" />
         
@@ -312,8 +312,7 @@ const FormationVTC = () => {
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Parcours <span className="text-secondary">VTC</span>
-                <br />Carte Professionnelle
+                Formation VTC Initiale à Montrouge — <span className="text-secondary">63h</span>
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8">
@@ -679,6 +678,76 @@ const FormationVTC = () => {
                 Développez votre clientèle internationale.
               </p>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Présentation détaillée */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-2xl font-bold mb-6">Présentation de la formation VTC</h2>
+            <p className="text-muted-foreground mb-4">
+              La formation VTC initiale dispensée par ECOLE T3P à Montrouge est un parcours complet de 63 heures en journée 
+              (ou 33 heures en formule soir) destiné aux candidats souhaitant obtenir leur carte professionnelle de conducteur 
+              de voiture de transport avec chauffeur. Notre centre, agréé par la Préfecture des Hauts-de-Seine, affiche un taux 
+              de réussite de 94 % sur l'ensemble de ses promotions, avec plus de 359 avis 5 étoiles sur Google.
+            </p>
+            <p className="text-muted-foreground mb-4">
+              Le programme couvre l'intégralité des compétences exigées à l'examen CMA : réglementation T3P, gestion d'entreprise, 
+              sécurité routière, relation client premium, développement commercial et langues (français et anglais professionnel). 
+              Chaque module est animé par des formateurs expérimentés, eux-mêmes issus du secteur du transport de personnes.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-6 mt-12">Débouchés après la formation VTC</h2>
+            <p className="text-muted-foreground mb-4">
+              Une fois votre carte professionnelle VTC en poche, plusieurs options s'offrent à vous : exercer en tant que chauffeur 
+              VTC indépendant sous le statut de micro-entrepreneur ou SASU, devenir salarié d'une société de VTC, ou travailler 
+              via les plateformes de réservation telles qu'Uber, Bolt ou Heetch. Notre équipe vous accompagne dans le choix du 
+              statut juridique le plus adapté à votre projet.
+            </p>
+
+            <h2 className="text-2xl font-bold mb-6 mt-12">Financement de la formation</h2>
+            <p className="text-muted-foreground mb-4">
+              ECOLE T3P facilite l'accès à la formation avec le paiement en 4 fois sans frais et un échelonnement personnalisé. 
+              Notre équipe administrative vous accompagne dans toutes vos démarches pour trouver la solution de financement la 
+              plus adaptée à votre situation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Liens internes */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold mb-8 text-center">Découvrez aussi nos autres formations</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link to="/formations/taxi" className="p-4 bg-background rounded-lg border hover:border-secondary transition-colors">
+                <h3 className="font-semibold mb-1">Formation Taxi</h3>
+                <p className="text-sm text-muted-foreground">Découvrez aussi notre formation Taxi initiale</p>
+              </Link>
+              <Link to="/formations/vmdtr" className="p-4 bg-background rounded-lg border hover:border-secondary transition-colors">
+                <h3 className="font-semibold mb-1">Formation VMDTR</h3>
+                <p className="text-sm text-muted-foreground">Formation VMDTR moto-taxi professionnelle</p>
+              </Link>
+              <Link to="/formations/mobilite" className="p-4 bg-background rounded-lg border hover:border-secondary transition-colors">
+                <h3 className="font-semibold mb-1">Passerelle Mobilité</h3>
+                <p className="text-sm text-muted-foreground">Passerelle VTC vers Taxi ou Taxi vers VTC</p>
+              </Link>
+              <Link to="/blog/comment-devenir-chauffeur-vtc-2026" className="p-4 bg-background rounded-lg border hover:border-secondary transition-colors">
+                <h3 className="font-semibold mb-1">Guide VTC 2026</h3>
+                <p className="text-sm text-muted-foreground">Comment devenir chauffeur VTC en 2026</p>
+              </Link>
+              <Link to="/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026" className="p-4 bg-background rounded-lg border hover:border-secondary transition-colors">
+                <h3 className="font-semibold mb-1">Statut juridique</h3>
+                <p className="text-sm text-muted-foreground">Quel statut juridique choisir ?</p>
+              </Link>
+              <Link to="/contact" className="p-4 bg-secondary text-secondary-foreground rounded-lg hover:opacity-90 transition-opacity">
+                <h3 className="font-semibold mb-1">Inscrivez-vous</h3>
+                <p className="text-sm text-secondary-foreground/80">Contactez-nous pour vous inscrire maintenant</p>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

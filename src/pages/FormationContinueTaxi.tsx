@@ -89,8 +89,8 @@ const FormationContinueTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Continue Taxi 14h | Renouvellement Carte Pro | ECOLE T3P</title>
-        <meta name="description" content="Formation continue obligatoire de 14h pour le renouvellement de votre carte professionnelle Taxi. Centre agréé à Montrouge. Attestation délivrée." />
+        <title>Formation Continue Taxi 14h | ECOLE T3P Montrouge</title>
+        <meta name="description" content="Formation continue obligatoire Taxi 14h à Montrouge. Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture des Hauts-de-Seine." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-taxi" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
       </Helmet>
@@ -138,7 +138,7 @@ const FormationContinueTaxi = () => {
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-forest mb-6">
-                Formation Continue TAXI
+                Formation Continue Taxi — Renouvellement Carte Professionnelle
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
@@ -296,6 +296,73 @@ const FormationContinueTaxi = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Contenu unique */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-2xl font-bold text-forest mb-6">Pourquoi la formation continue Taxi est obligatoire</h2>
+            <p className="text-muted-foreground mb-4">
+              La formation continue est une obligation légale pour tous les conducteurs de taxi, imposée par le décret 
+              n°2017-483 du 6 avril 2017. Elle doit être suivie tous les 5 ans pour pouvoir renouveler votre carte 
+              professionnelle auprès de la préfecture. Sans cette formation validée, vous ne serez plus autorisé à 
+              exercer votre activité de conducteur de taxi. ECOLE T3P, centre agréé par la Préfecture des Hauts-de-Seine, 
+              dispense cette formation dans ses locaux de Montrouge, accessibles en métro ligne 4.
+            </p>
+
+            <h2 className="text-2xl font-bold text-forest mb-6 mt-12">Documents nécessaires pour la formation continue</h2>
+            <p className="text-muted-foreground mb-4">
+              Pour vous inscrire à la formation continue Taxi, vous devez fournir : une copie de votre carte professionnelle 
+              en cours de validité, une pièce d'identité valide, et une photo d'identité récente. L'attestation de stage 
+              délivrée à l'issue de la formation sera indispensable pour constituer votre dossier de renouvellement 
+              de carte professionnelle auprès de la préfecture.
+            </p>
+
+            <h2 className="text-2xl font-bold text-forest mb-6 mt-12">Prochaines sessions de formation continue</h2>
+            <p className="text-muted-foreground mb-4">
+              Nos sessions de formation continue Taxi sont organisées régulièrement tout au long de l'année, 
+              avec des créneaux en semaine pour s'adapter à votre planning d'activité. Contactez notre équipe 
+              au 01 88 75 05 55 ou par email à montrouge@ecolet3p.fr pour connaître les prochaines dates disponibles 
+              et réserver votre place.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Liens internes */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-forest mb-8 text-center">À découvrir également</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link to="/formations/taxi" className="p-4 bg-card rounded-lg border hover:border-forest transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation Taxi Initiale</h3>
+                <p className="text-sm text-muted-foreground">Obtenez votre carte professionnelle Taxi</p>
+              </Link>
+              <Link to="/formations/vtc" className="p-4 bg-card rounded-lg border hover:border-forest transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation VTC</h3>
+                <p className="text-sm text-muted-foreground">Devenez chauffeur VTC professionnel</p>
+              </Link>
+              <Link to="/formations/mobilite" className="p-4 bg-card rounded-lg border hover:border-forest transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Passerelle Mobilité</h3>
+                <p className="text-sm text-muted-foreground">Changez de métier avec la passerelle T3P</p>
+              </Link>
+              <Link to="/blog/formation-continue-taxi-vtc" className="p-4 bg-card rounded-lg border hover:border-forest transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Guide formation continue</h3>
+                <p className="text-sm text-muted-foreground">Tout savoir sur la formation continue</p>
+              </Link>
+              <Link to="/contact" className="p-4 bg-card rounded-lg border hover:border-forest transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Contact</h3>
+                <p className="text-sm text-muted-foreground">Réservez votre session maintenant</p>
+              </Link>
+              <Link to="/" className="p-4 bg-card rounded-lg border hover:border-forest transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Accueil</h3>
+                <p className="text-sm text-muted-foreground">Retour à la page d'accueil ECOLE T3P</p>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
