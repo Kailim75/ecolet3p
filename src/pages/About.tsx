@@ -114,10 +114,10 @@ const About = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "@id": "https://ecolet3p.fr/#organization",
+    "@id": "https://www.ecolet3p.fr/#organization",
     "name": "ECOLE T3P",
     "description": "Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge.",
-    "url": "https://ecolet3p.fr",
+    "url": "https://www.ecolet3p.fr",
     "telephone": "+33 1 88 75 05 55",
     "email": "montrouge@ecolet3p.fr",
     "address": {
@@ -134,7 +134,7 @@ const About = () => {
       <Helmet>
         <title>Pourquoi ECOLE T3P | Centre de Formation Agréé | Montrouge</title>
         <meta name="description" content="Découvrez ECOLE T3P, centre de formation agréé à Montrouge. Formateurs expérimentés, conformité réglementaire, sessions régulières. Plus de 2 000 apprenants formés." />
-        <link rel="canonical" href="https://ecolet3p.fr/a-propos" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/a-propos" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 

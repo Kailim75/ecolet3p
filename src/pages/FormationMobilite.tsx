@@ -144,7 +144,7 @@ const FormationMobilite = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr"
+      "sameAs": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -194,7 +194,7 @@ const FormationMobilite = () => {
         <title>Formation Mobilité - Passerelle Taxi VTC | ECOLE T3P Montrouge</title>
         <meta name="description" content="Formation Mobilité 14h pour passer de Taxi à VTC ou inversement. Obtenez votre double carte professionnelle en 2 jours. Formation rapide et efficace." />
         <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation ECOLE T3P montrouge" />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/mobilite" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/mobilite" />
         
         {/* Preload critical hero image */}
         <link 
@@ -204,9 +204,9 @@ const FormationMobilite = () => {
           type="image/jpeg"
         />
         
-        <meta property="og:title" content="Formation Mobilité - Passerelle Taxi VTC | ECOLE T3P" />
-        <meta property="og:description" content="Passez de Taxi à VTC ou inversement en seulement 2 jours avec notre formation Mobilité." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/mobilite" />
+        <meta property="og:title" content="Formation Mobilité Passerelle Taxi ↔ VTC | ECOLE T3P Montrouge" />
+        <meta property="og:description" content="Formation mobilité passerelle Taxi vers VTC ou VTC vers Taxi à Montrouge. Ajoutez une mention complémentaire à votre carte professionnelle." />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations/mobilite" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -219,19 +219,19 @@ const FormationMobilite = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Accueil",
-              "item": "https://ecolet3p.fr/"
+              "item": "https://www.ecolet3p.fr/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Formations",
-              "item": "https://ecolet3p.fr/formations"
+              "item": "https://www.ecolet3p.fr/formations"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Formation Mobilité",
-              "item": "https://ecolet3p.fr/formations/mobilite"
+              "item": "https://www.ecolet3p.fr/formations/mobilite"
             }
           ]
         })}</script>

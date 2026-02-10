@@ -95,7 +95,7 @@ const RecuperationPoints = () => {
     "provider": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "sameAs": "https://ecolet3p.fr"
+      "sameAs": "https://www.ecolet3p.fr"
     },
     "coursePrerequisites": "Permis de conduire en cours de validité",
     "hasCourseInstance": {
@@ -134,11 +134,11 @@ const RecuperationPoints = () => {
           name="keywords" 
           content="stage récupération points, récupérer points permis, stage sensibilisation sécurité routière, stage permis Montrouge, stage points 92" 
         />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/recuperation-points" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/formations/recuperation-points" />
         
-        <meta property="og:title" content="Stage Récupération de Points | ECOLE T3P" />
-        <meta property="og:description" content="Récupérez jusqu'à 4 points en 2 jours. Stage agréé à Montrouge." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/recuperation-points" />
+        <meta property="og:title" content="Stage Récupération de Points — 2 jours | ECOLE T3P Montrouge" />
+        <meta property="og:description" content="Stage de récupération de points en 2 jours à Montrouge. Récupérez jusqu'à 4 points. Sessions régulières, inscription rapide." />
+        <meta property="og:url" content="https://www.ecolet3p.fr/formations/recuperation-points" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>

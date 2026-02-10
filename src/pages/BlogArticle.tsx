@@ -46,7 +46,7 @@ const BlogArticle = () => {
   };
 
   const wordCount = article.content.split(/\s+/).filter(word => word.length > 0).length;
-  const articleUrl = `https://ecolet3p.fr/blog/${article.slug}`;
+  const articleUrl = `https://www.ecolet3p.fr/blog/${article.slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -59,16 +59,16 @@ const BlogArticle = () => {
       "@type": "ImageObject",
       "url": typeof article.image === 'string' && article.image.startsWith('http') 
         ? article.image 
-        : `https://ecolet3p.fr${article.image}`,
+        : `https://www.ecolet3p.fr${article.image}`,
       "width": 1200,
       "height": 630
     },
-    "author": { "@type": "Organization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
+    "author": { "@type": "Organization", "name": "ECOLE T3P", "url": "https://www.ecolet3p.fr" },
     "publisher": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "url": "https://ecolet3p.fr",
-      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg", "width": 512, "height": 512 }
+      "url": "https://www.ecolet3p.fr",
+      "logo": { "@type": "ImageObject", "url": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg", "width": 512, "height": 512 }
     },
     "datePublished": formatDateISO(article.publishDate),
     "dateModified": formatDateISO(article.publishDate),
@@ -82,8 +82,8 @@ const BlogArticle = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ecolet3p.fr/blog" },
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ecolet3p.fr/blog" },
       { "@type": "ListItem", "position": 3, "name": article.title, "item": articleUrl }
     ]
   };
@@ -109,7 +109,7 @@ const BlogArticle = () => {
         <meta property="og:description" content={article.metaDescription} />
         <meta property="og:url" content={articleUrl} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://ecolet3p.fr${article.image}`} />
+        <meta property="og:image" content={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://www.ecolet3p.fr${article.image}`} />
         <meta property="og:site_name" content="ECOLE T3P" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="article:published_time" content={formatDateISO(article.publishDate)} />
