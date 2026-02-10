@@ -89,8 +89,8 @@ const FormationContinueVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Continue VTC 14h | Renouvellement Carte Pro | ECOLE T3P</title>
-        <meta name="description" content="Formation continue obligatoire de 14h pour le renouvellement de votre carte professionnelle VTC. Centre agréé à Montrouge. Attestation délivrée." />
+        <title>Formation Continue VTC 14h Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge. Attestation de stage délivrée." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-vtc" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
       </Helmet>

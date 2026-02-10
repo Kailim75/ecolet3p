@@ -98,10 +98,30 @@ const BlogArticle = () => {
     }
   };
 
+  // SEO title overrides to keep under 60 characters
+  const seoTitleMap: Record<string, string> = {
+    "formation-continue-renouvellement-carte-professionnelle": "Renouvellement Carte Pro Taxi VTC | ECOLE T3P",
+    "facilites-paiement-formation-taxi-vtc": "Facilités de Paiement Formation Taxi VTC | T3P",
+    "formation-taxi-carte-professionnelle-t3p": "Obtenir la Carte Pro Taxi — Guide | ECOLE T3P",
+    "etapes-obtenir-carte-professionnelle-vtc": "Étapes Carte Professionnelle VTC | ECOLE T3P",
+    "vtc-ou-taxi-quelle-formation-choisir": "VTC ou Taxi : Quelle Formation Choisir ? | T3P",
+    "devenir-chauffeur-vtc-guide-complet-2025": "Devenir Chauffeur VTC — Guide Complet | T3P",
+    "comment-devenir-chauffeur-vtc-2026": "Comment Devenir Chauffeur VTC en 2026 | T3P",
+    "comment-devenir-chauffeur-taxi-2026": "Comment Devenir Chauffeur Taxi en 2026 | T3P",
+    "vtc-taxi-vmdtr-2026-quel-metier-choisir": "VTC, Taxi ou VMDTR : Quel Métier Choisir ?",
+    "formation-vmdtr-2026-devenir-conducteur-moto-taxi": "Formation VMDTR 2026 — Devenir Moto-Taxi",
+    "maitrise-numerique-ia-chauffeur-vtc-taxi": "Numérique et IA pour Chauffeurs VTC Taxi",
+    "anglais-chauffeur-vtc-taxi-clientele-internationale": "Anglais pour Chauffeurs VTC Taxi | ECOLE T3P",
+    "quel-statut-juridique-chauffeur-vtc-taxi-2026": "Statut Juridique Chauffeur VTC Taxi 2026",
+    "formation-vmdtr-moto-taxi-scooter": "Formation VMDTR Moto-Taxi Scooter | T3P",
+  };
+
+  const seoTitle = slug && seoTitleMap[slug] ? seoTitleMap[slug] : `${article.title} | ECOLE T3P`;
+
   return (
     <Layout>
       <Helmet>
-        <title>{article.title} | Blog ECOLE T3P</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={article.metaDescription} />
         <meta name="keywords" content={`${article.category}, formation ${article.category.toLowerCase()}, ECOLE T3P, transport de personnes`} />
         <link rel="canonical" href={articleUrl} />

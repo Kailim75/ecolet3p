@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
@@ -10,6 +11,11 @@ const fadeUpVariants = {
 const LegalMentions = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Mentions Légales | ECOLE T3P Montrouge</title>
+        <meta name="description" content="Mentions légales du site ecolet3p.fr. ECOLE T3P, centre de formation professionnelle Taxi VTC VMDTR. 3 rue Corneille, 92120 Montrouge. Informations légales." />
+        <link rel="canonical" href="https://www.ecolet3p.fr/mentions-legales" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-cream py-16 md:py-20">
         <div className="container-custom text-center">

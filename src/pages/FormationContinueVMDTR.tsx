@@ -89,8 +89,8 @@ const FormationContinueVMDTR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Continue VMDTR 14h | Renouvellement Carte Pro | ECOLE T3P</title>
-        <meta name="description" content="Formation continue obligatoire de 14h pour le renouvellement de votre carte professionnelle VMDTR (taxi moto). Centre agréé à Montrouge. Attestation délivrée." />
+        <title>Formation Continue VMDTR 14h Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Formation continue obligatoire VMDTR 14h pour renouveler votre carte professionnelle moto-taxi. Centre agréé Préfecture à Montrouge. Attestation délivrée." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-vmdtr" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
       </Helmet>

@@ -89,8 +89,8 @@ const LocationVehiculeExamen = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Location Véhicule Examen VTC Taxi VMDTR | ECOLE T3P</title>
-        <meta name="description" content="Location de véhicule double commande pour examen pratique VTC, Taxi ou VMDTR. Véhicule conforme, 2h de conduite incluses, accompagnement le jour J." />
+        <title>Location Véhicule Examen Taxi VTC | ECOLE T3P</title>
+        <meta name="description" content="Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge." />
         <link rel="canonical" href="https://www.ecolet3p.fr/services/location-vehicule-examen" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>

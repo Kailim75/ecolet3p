@@ -246,8 +246,8 @@ const Formations = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi VTC VMDTR Montrouge Bagneux Vanves | ECOLE T3P - 92 Sud Paris</title>
-        <meta name="description" content="Formations Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et Paris 13e, 14e, 15e. Centre agréé Préfecture, 94% de réussite." />
+        <title>Nos Formations Taxi VTC VMDTR | ECOLE T3P</title>
+        <meta name="description" content="Découvrez nos formations : initiale Taxi (63h), initiale VTC (63h), VMDTR moto-taxi (14h), mobilité, formation continue et récupération de points à Montrouge." />
         <meta name="keywords" content="formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, formation VTC Clamart, formation taxi Issy, formation VMDTR 92, carte professionnelle taxi Hauts-de-Seine, centre formation sud Paris, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations" />
         
