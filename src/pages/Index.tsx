@@ -98,6 +98,8 @@ const organizationSchema = {
   "sameAs": [
     "https://www.google.com/maps/place/ECOLE+T3P"
   ],
+  "priceRange": "€€",
+  "keywords": "formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, centre formation 92, sud Paris",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Formations ECOLE T3P - Taxi VTC Montrouge Hauts-de-Seine",
@@ -124,53 +126,7 @@ const organizationSchema = {
   }
 };
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.ecolet3p.fr/#localbusiness",
-  "name": "ECOLE T3P - Formation Taxi VTC Montrouge Bagneux Vanves",
-  "image": "https://www.ecolet3p.fr/og-image.jpg",
-  "telephone": "+33188750555",
-  "email": "montrouge@ecolet3p.fr",
-  "url": "https://www.ecolet3p.fr",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "3 rue Corneille",
-    "addressLocality": "Montrouge",
-    "postalCode": "92120",
-    "addressRegion": "Hauts-de-Seine",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 48.8155,
-    "longitude": 2.3137
-  },
-  "areaServed": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.8155,
-      "longitude": 2.3137
-    },
-    "geoRadius": "15000"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:30",
-      "closes": "18:00"
-    }
-  ],
-  "priceRange": "€€",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "359"
-  },
-  "keywords": "formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, centre formation 92, sud Paris"
-};
+// LocalBusiness merged into organizationSchema above — removed duplicate
 
 const Index = () => {
   return (
@@ -210,7 +166,6 @@ const Index = () => {
         <meta name="ICBM" content="48.8155, 2.3137" />
         
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
       
       {/* Critical above-the-fold content */}
