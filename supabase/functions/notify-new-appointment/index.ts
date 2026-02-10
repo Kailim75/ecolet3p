@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
             
             <!-- CTA -->
             <div style="text-align: center; margin: 30px 0;">
-              <a href="https://ecolet3p.fr/admin" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 15px;">
+              <a href="https://www.ecolet3p.fr/admin" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 15px;">
                 Voir dans le Dashboard
               </a>
             </div>
