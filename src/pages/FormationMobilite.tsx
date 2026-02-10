@@ -191,8 +191,8 @@ const FormationMobilite = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Mobilité - Passerelle Taxi VTC | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Formation Mobilité 14h pour passer de Taxi à VTC ou inversement. Obtenez votre double carte professionnelle en 2 jours. Formation rapide et efficace." />
+        <title>Formation Mobilité Passerelle Taxi ↔ VTC | T3P</title>
+        <meta name="description" content="Formation mobilité passerelle Taxi vers VTC ou VTC vers Taxi à Montrouge. De 14h à 35h selon votre situation. Ajoutez une mention à votre carte pro." />
         <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation ECOLE T3P montrouge" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/mobilite" />
         

@@ -132,8 +132,8 @@ const About = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Pourquoi ECOLE T3P | Centre de Formation Agréé | Montrouge</title>
-        <meta name="description" content="Découvrez ECOLE T3P, centre de formation agréé à Montrouge. Formateurs expérimentés, conformité réglementaire, sessions régulières. Plus de 2 000 apprenants formés." />
+        <title>À Propos d'ECOLE T3P — Formation Taxi VTC</title>
+        <meta name="description" content="Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport." />
         <link rel="canonical" href="https://www.ecolet3p.fr/a-propos" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>

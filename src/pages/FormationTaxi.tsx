@@ -210,8 +210,8 @@ const FormationTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi Paris Montrouge | ECOLE T3P - Carte Professionnelle 94% Réussite</title>
-        <meta name="description" content="Obtenez votre carte professionnelle Taxi avec ECOLE T3P. 63h de formation agréée à Montrouge, 94% de réussite, paiement 4x sans frais. Démarrez votre reconversion !" />
+        <title>Formation Taxi Initiale 63h Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Formation initiale Taxi 63h (journée) ou 33h (soir) à Montrouge. Préparation complète examen CMA. Taux de réussite 94%. Centre agréé Préfecture 92." />
         <meta name="keywords" content="formation taxi Paris, carte professionnelle taxi, devenir chauffeur taxi, formation taxi agréée, centre formation taxi Montrouge, reconversion taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/taxi" />
         

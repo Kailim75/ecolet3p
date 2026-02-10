@@ -67,8 +67,8 @@ const Blog = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Blog Formation Taxi VTC - Conseils et Actualités | ECOLE T3P</title>
-        <meta name="description" content="Découvrez nos articles sur les formations Taxi, VTC et VMDTR. Conseils pour réussir votre examen, actualités du secteur, témoignages et guides pratiques." />
+        <title>Blog Formation Taxi VTC — Guides | ECOLE T3P</title>
+        <meta name="description" content="Articles, guides et actualités sur les métiers de chauffeur Taxi, VTC et VMDTR. Conseils pour réussir votre examen et lancer votre activité professionnelle." />
         <link rel="canonical" href="https://www.ecolet3p.fr/blog" />
         <meta property="og:title" content="Blog ECOLE T3P - Formation Taxi VTC Montrouge" />
         <meta property="og:description" content="Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR." />

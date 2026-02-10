@@ -176,8 +176,8 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ECOLE T3P — Formation Taxi VTC VMDTR à Montrouge | Sud Paris 92</title>
-        <meta name="description" content="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). Taux de réussite 94%. Formations initiales, continues et récupération de points. Proche métro Mairie de Montrouge ligne 4." />
+        <title>ECOLE T3P — Formation Taxi VTC VMDTR Montrouge 92</title>
+        <meta name="description" content="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). Taux de réussite 94%. Formations initiales, continues et récupération de points. Métro ligne 4." />
         <meta name="keywords" content="formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, formation VTC Clamart, formation taxi Issy-les-Moulineaux, formation taxi Paris 14, formation VTC Paris 15, formation taxi Paris 13, centre formation 92, carte professionnelle taxi Hauts-de-Seine, formation VTC sud Paris, ECOLE T3P, récupération points 92" />
         <link rel="canonical" href="https://www.ecolet3p.fr/" />
         
