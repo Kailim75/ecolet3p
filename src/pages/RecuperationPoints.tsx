@@ -19,6 +19,7 @@ import {
   Award
 } from "lucide-react";
 import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
+import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
@@ -348,25 +349,15 @@ const RecuperationPoints = () => {
               </ul>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-forest rounded-2xl p-8 text-cream"
-            >
-              <h3 className="text-2xl font-bold mb-4">Prochaines sessions</h3>
-              <p className="text-cream/80 mb-6">
-                Sessions organisées régulièrement à Montrouge. 
-                Contactez-nous pour connaître les prochaines dates disponibles.
-              </p>
-              <Button 
-                onClick={() => openQuoteModal("recup-points")}
-                className="btn-accent w-full"
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Réserver ma place
-              </Button>
-            </motion.div>
+            <UpcomingSessionsCard
+              sessions={[]}
+              onRegister={() => openQuoteModal("recup-points")}
+              fallbackSessions={[
+                { id: "rp1", label: "14 mars 2026", time: "9h00 – 17h00", spots: 15 },
+                { id: "rp2", label: "11 avril 2026", time: "9h00 – 17h00", spots: 10 },
+                { id: "rp3", label: "9 mai 2026", time: "9h00 – 17h00", spots: 0 },
+              ]}
+            />
           </div>
         </div>
       </section>
