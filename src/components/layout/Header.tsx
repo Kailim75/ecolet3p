@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
+import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
 // Formations sub-menu structure — flat list for compact nav
 const formationsSubMenu = {
@@ -47,6 +48,7 @@ const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileFormationsOpen, setMobileFormationsOpen] = useState(false);
   const location = useLocation();
+  const { openQuoteModal } = useQuoteModal();
 
   const isActive = (path: string) => location.pathname === path;
   const isFormationActive = location.pathname.startsWith("/formations");
@@ -173,14 +175,24 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-forest hover:text-forest-light transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile CTA + Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <Button
+              onClick={() => openQuoteModal()}
+              className="btn-cta-orange h-9 px-3 text-xs font-bold rounded-full"
+              size="sm"
+            >
+              <FileText className="w-3.5 h-3.5 mr-1" />
+              Devis
+            </Button>
+            <button
+              className="p-2 text-forest hover:text-forest-light transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -273,7 +285,11 @@ const Header = () => {
                   <Phone className="w-5 h-5" />
                   <span>01 88 75 05 55</span>
                 </a>
-                <Button asChild className="btn-cta-orange w-full">
+                <Button onClick={() => { openQuoteModal(); setIsMenuOpen(false); }} className="btn-cta-orange w-full">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Demander un devis gratuit
+                </Button>
+                <Button asChild variant="outline" className="w-full">
                   <Link to="/contact">S'inscrire</Link>
                 </Button>
               </div>
