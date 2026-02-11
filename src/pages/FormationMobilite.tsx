@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
+import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageMobilite from "@/assets/formations/hero-mobilite.jpg";
@@ -347,44 +348,15 @@ const FormationMobilite = () => {
                 </div>
               </div>
 
-              <Card className="bg-background/80 backdrop-blur border-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-amber-600" />
-                    Prochaines sessions
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {sessions.length > 0 ? (
-                    sessions.map((session) => (
-                      <div key={session.id} className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-                        <div>
-                          <p className="font-medium">{formatDate(session.start_date)}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {session.start_time} - {session.end_time}
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          {isSessionFull({ ...session, max_participants: session.max_participants, current_participants: session.current_participants }) ? (
-                            <Badge variant="secondary">Complet</Badge>
-                          ) : (
-                            <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
-                              {getAvailableSpots({ ...session, max_participants: session.max_participants, current_participants: session.current_participants })} places
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-muted-foreground text-center py-4">
-                      Contactez-nous pour connaître les prochaines dates
-                    </p>
-                  )}
-                  <Button className="w-full bg-amber-600 hover:bg-amber-700" onClick={() => setShowPreRegistration(true)}>
-                    Réserver ma place
-                  </Button>
-                </CardContent>
-              </Card>
+              <UpcomingSessionsCard
+                sessions={sessions}
+                onRegister={() => setShowPreRegistration(true)}
+                fallbackSessions={[
+                  { id: "mob1", label: "19 mars 2026", time: "9h30 – 16h30", spots: 10 },
+                  { id: "mob2", label: "16 avril 2026", time: "9h30 – 16h30", spots: 6 },
+                  { id: "mob3", label: "14 mai 2026", time: "9h30 – 16h30", spots: 0 },
+                ]}
+              />
             </motion.div>
           </div>
         </div>

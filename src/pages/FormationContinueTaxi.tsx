@@ -7,6 +7,7 @@ import {
   CarTaxiFront, Clock, Euro, CheckCircle, Calendar, 
   MapPin, Phone, FileCheck, Home, RefreshCw
 } from "lucide-react";
+import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -353,13 +354,17 @@ const FormationContinueTaxi = () => {
               de carte professionnelle auprès de la préfecture.
             </p>
 
-            <h2 className="text-2xl font-bold text-forest mb-6 mt-12">Prochaines sessions de formation continue</h2>
-            <p className="text-muted-foreground mb-4">
-              Nos sessions de formation continue Taxi sont organisées régulièrement tout au long de l'année, 
-              avec des créneaux en semaine pour s'adapter à votre planning d'activité. Contactez notre équipe 
-              au 01 88 75 05 55 ou par email à montrouge@ecolet3p.fr pour connaître les prochaines dates disponibles 
-              et réserver votre place.
-            </p>
+            <div className="max-w-lg mx-auto mt-12">
+              <UpcomingSessionsCard
+                sessions={[]}
+                onRegister={() => window.location.href = "/contact"}
+                fallbackSessions={[
+                  { id: "ct1", label: "18 mars 2026", time: "9h00 – 17h00", spots: 10 },
+                  { id: "ct2", label: "15 avril 2026", time: "9h00 – 17h00", spots: 7 },
+                  { id: "ct3", label: "13 mai 2026", time: "9h00 – 17h00", spots: 0 },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>
