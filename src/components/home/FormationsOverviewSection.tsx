@@ -12,6 +12,7 @@ const formations = [
     title: "Formation Taxi",
     description: "Formation complète pour obtenir votre carte professionnelle de chauffeur de taxi.",
     price: "À partir de 990€",
+    installment: "248€",
     cpf: false,
     accentColor: "#F97316",
     bgLight: "rgba(249,115,22,0.06)",
@@ -23,6 +24,7 @@ const formations = [
     title: "Formation VTC",
     description: "Devenez chauffeur VTC professionnel avec notre formation agréée.",
     price: "À partir de 990€",
+    installment: "248€",
     cpf: false,
     accentColor: "#059669",
     bgLight: "rgba(5,150,105,0.06)",
@@ -34,6 +36,7 @@ const formations = [
     title: "Formation VMDTR",
     description: "Formation moto-taxi pour le transport de passagers sur deux roues.",
     price: "À partir de 990€",
+    installment: "248€",
     cpf: false,
     accentColor: "#2563EB",
     bgLight: "rgba(37,99,235,0.06)",
@@ -45,6 +48,7 @@ const formations = [
     title: "Formation Continue",
     description: "Renouvellement obligatoire de 14h pour maintenir votre carte professionnelle.",
     price: "À partir de 250€",
+    installment: null as string | null,
     cpf: false,
     accentColor: "#374151",
     bgLight: "rgba(55,65,81,0.06)",
@@ -98,11 +102,11 @@ const FormationsOverviewSection = () => {
                 className="bg-white rounded-2xl overflow-hidden border border-border/30 transition-all duration-300 relative group"
                 style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}
               >
-                {/* Color top band - thicker */}
+                {/* Color top band */}
                 <div className="h-1.5 w-full" style={{ backgroundColor: f.accentColor }} />
 
                 <div className="p-8">
-                  {/* Icon - bigger, colored */}
+                  {/* Icon */}
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: f.bgLight }}>
                     <Icon className="w-7 h-7" style={{ color: f.accentColor }} />
                   </div>
@@ -114,14 +118,19 @@ const FormationsOverviewSection = () => {
                   <p className="text-sm leading-relaxed mb-4" style={{ color: "#777" }}>{f.description}</p>
 
                   {/* Price - colored per category */}
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="font-bold" style={{ color: f.accentColor }}>{f.price}</span>
-                    {f.cpf && (
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-forest/10 text-forest">CPF</span>
+                  <div className="mb-5">
+                    <div className="flex items-center gap-3">
+                      <span className="font-bold" style={{ color: f.accentColor }}>{f.price}</span>
+                      {f.cpf && (
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-forest/10 text-forest">CPF</span>
+                      )}
+                    </div>
+                    {f.installment && (
+                      <p className="text-xs mt-1" style={{ color: "#999" }}>soit 4× {f.installment} sans frais</p>
                     )}
                   </div>
 
-                  {/* Link with arrow animation */}
+                  {/* Link */}
                   <PrefetchLink
                     to={f.link}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline transition-colors"

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "94%", label: "Taux de réussite" },
-  { value: "+1200", label: "Élèves formés" },
+  { value: "+2000", label: "Chauffeurs formés" },
   { value: "5.0/5", label: "Note Google (359 avis)" },
   { value: "4x", label: "Paiement sans frais" },
 ];
