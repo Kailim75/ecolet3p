@@ -117,36 +117,41 @@ const faqs = [
 
 const FormationVTC = () => {
   const [showPreRegistration, setShowPreRegistration] = useState(false);
-  const [vtcFormation, setVtcFormation] = useState<any>(null);
+  const [vtcFormations, setVtcFormations] = useState<any[]>([]);
   const [sessions, setSessions] = useState<any[]>([]);
 
+  const vtcFormation = vtcFormations.find(f => f.title?.toLowerCase().includes('initial')) || vtcFormations[0];
+  const soireeFormation = vtcFormations.find(f => f.title?.toLowerCase().includes('soirée'));
+
   useEffect(() => {
-    const fetchFormation = async () => {
+    const fetchFormations = async () => {
       const { data } = await supabase
         .from("formations")
         .select("*")
         .eq("category", "vtc")
         .eq("is_active", true)
-        .order("display_order")
-        .limit(1)
-        .single();
+        .order("display_order");
       
-      if (data) {
-        setVtcFormation(data);
+      if (data && data.length > 0) {
+        setVtcFormations(data);
         
+        const formationIds = data.map(f => f.id);
         const { data: sessionsData } = await supabase
           .from("formation_sessions")
-          .select("*")
-          .eq("formation_id", data.id)
+          .select("*, formations(title)")
+          .in("formation_id", formationIds)
           .in("status", ["upcoming", "ongoing"])
           .order("start_date")
-          .limit(3);
+          .limit(6);
         
-        setSessions(sessionsData || []);
+        setSessions((sessionsData || []).map(s => ({
+          ...s,
+          formation_title: (s as any).formations?.title
+        })));
       }
     };
     
-    fetchFormation();
+    fetchFormations();
   }, []);
 
   const courseSchema = {
@@ -441,33 +446,30 @@ const FormationVTC = () => {
             ))}
           </div>
 
-          {/* Pricing Card */}
-          <div className="mt-12 max-w-md mx-auto">
+          {/* Pricing Cards */}
+          <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <PricingCard
-              title="Formation VTC Initiale"
-              price={vtcFormation?.price || 990}
-              duration="63h (jour) / 33h (soir)"
+              title="Formation VTC Journée"
+              price={vtcFormation?.price || 1190}
+              duration="63h"
               features={[
                 "Préparation examen CMA complète",
                 "Module applications (Uber, Bolt…)",
+                "Du lundi au vendredi 9h30-16h30",
                 "Anglais professionnel inclus",
-                "Accompagnement création entreprise",
                 "Paiement en 4× sans frais",
               ]}
               onRegister={() => setShowPreRegistration(true)}
             />
-          </div>
-          {/* Pricing Card */}
-          <div className="mt-12 max-w-md mx-auto">
             <PricingCard
-              title="Formation VTC Initiale"
-              price={vtcFormation?.price || 990}
-              duration="63h (jour) / 33h (soir)"
+              title="Formation VTC Soirée"
+              price={soireeFormation?.price || 990}
+              duration="33h"
               features={[
                 "Préparation examen CMA complète",
                 "Module applications (Uber, Bolt…)",
-                "Anglais professionnel inclus",
-                "Accompagnement création entreprise",
+                "Du lundi au vendredi 18h-21h30",
+                "Compatible avec un emploi",
                 "Paiement en 4× sans frais",
               ]}
               onRegister={() => setShowPreRegistration(true)}
