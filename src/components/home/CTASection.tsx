@@ -71,7 +71,7 @@ const CTASection = () => {
             </Button>
 
             <p className="text-center text-xs" style={{ color: "#999" }}>
-              ✓ Sans engagement &nbsp; ✓ Réponse sous 24h &nbsp; ✓ CPF accepté
+              ✓ Sans engagement &nbsp; ✓ Réponse sous 24h &nbsp; ✓ Paiement 4x sans frais
             </p>
           </motion.div>
         </div>

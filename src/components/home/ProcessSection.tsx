@@ -9,7 +9,7 @@ const smoothEase = [0.22, 1, 0.36, 1] as const;
 const steps = [
   { number: 1, icon: "📞", title: "Contactez-nous", description: "Appelez ou remplissez le formulaire" },
   { number: 2, icon: "📋", title: "Choisissez votre formation", description: "Taxi, VTC, VMDTR ou Continue" },
-  { number: 3, icon: "💰", title: "Financement", description: "CPF, France Travail ou personnel" },
+  { number: 3, icon: "💰", title: "Financement", description: "Paiement en 4x sans frais" },
   { number: 4, icon: "🎓", title: "Démarrez votre formation", description: "Prochaine session : mars 2026" },
 ];
 
