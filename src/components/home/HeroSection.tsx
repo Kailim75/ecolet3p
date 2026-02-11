@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
+import { Star } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
@@ -93,15 +94,25 @@ const HeroSection = () => {
               Formations initiales et continues • Mobilité taxi • Récupération de points • Examens
             </motion.p>
 
-            {/* Micro-texte réglementaire */}
-            <motion.p
+            {/* Google Reviews Badge */}
+            <motion.a
+              href="https://www.google.com/maps/place/ECOLE+T3P"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4, ease: smoothEase }}
-              className="text-sm text-muted-foreground mb-8"
+              whileHover={{ scale: 1.03 }}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-forest/10 backdrop-blur-sm rounded-xl border border-forest/15 mb-8 hover:bg-forest/15 transition-colors"
             >
-              Conformément à la réglementation en vigueur
-            </motion.p>
+              <div className="flex">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+                ))}
+              </div>
+              <span className="font-bold text-forest text-sm">5.0/5</span>
+              <span className="text-muted-foreground text-sm">sur Google (359 avis)</span>
+            </motion.a>
 
             {/* CTA Buttons - Exploratoires */}
             <motion.div

@@ -161,6 +161,23 @@ const FormationVille = () => {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
+      {/* Breadcrumb visuel */}
+      <nav className="bg-cream border-b border-border" aria-label="Breadcrumb">
+        <div className="container-custom py-3">
+          <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+            <li>
+              <Link to="/" className="hover:text-forest transition-colors">Accueil</Link>
+            </li>
+            <li className="text-muted-foreground/50">/</li>
+            <li>
+              <Link to="/formations" className="hover:text-forest transition-colors">Formations</Link>
+            </li>
+            <li className="text-muted-foreground/50">/</li>
+            <li className="font-semibold text-forest">{city.name}</li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="gradient-hero py-20 md:py-28 relative overflow-hidden">
         <motion.div 
