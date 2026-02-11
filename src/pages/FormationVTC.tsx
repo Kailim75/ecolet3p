@@ -306,8 +306,6 @@ const FormationVTC = () => {
         </div>
       </div>
 
-      <TrustBar />
-
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-secondary/10 via-background to-primary/5 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -396,6 +394,8 @@ const FormationVTC = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Programme */}
       <section className="py-16 lg:py-24">

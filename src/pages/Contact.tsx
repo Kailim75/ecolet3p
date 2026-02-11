@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import TrustBar from "@/components/home/TrustBar";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
@@ -358,6 +359,8 @@ const Contact = () => {
           </motion.div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Contact Section with Parallax */}
       <section ref={contactRef} className="section-padding bg-background relative overflow-hidden">

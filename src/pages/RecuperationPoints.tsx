@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import TrustBar from "@/components/home/TrustBar";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -244,6 +245,8 @@ const RecuperationPoints = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Benefits Section */}
       <section className="section-padding bg-card">

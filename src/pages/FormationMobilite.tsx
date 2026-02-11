@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import TrustBar from "@/components/home/TrustBar";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -388,6 +389,8 @@ const FormationMobilite = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Deux parcours */}
       <section className="py-16 lg:py-24">

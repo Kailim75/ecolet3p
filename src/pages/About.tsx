@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TrustBar from "@/components/home/TrustBar";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
@@ -187,6 +188,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Key Points */}
       <section className="py-16 bg-forest/5">

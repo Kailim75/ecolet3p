@@ -289,8 +289,6 @@ const FormationVMDTR = () => {
         </div>
       </div>
 
-      <TrustBar />
-
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-orange-500/10 via-background to-red-500/5 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -379,6 +377,8 @@ const FormationVMDTR = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Avantages VMDTR */}
       <section className="py-16 lg:py-24 bg-muted/30">
