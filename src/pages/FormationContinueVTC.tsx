@@ -1,4 +1,5 @@
 import React from "react";
+import TrustBar from "@/components/home/TrustBar";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -210,6 +211,8 @@ const FormationContinueVTC = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Cadre réglementaire */}
       <section className="py-12 bg-forest/5">

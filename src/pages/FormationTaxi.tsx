@@ -296,8 +296,6 @@ const FormationTaxi = () => {
         </div>
       </div>
 
-      <TrustBar />
-
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -387,6 +385,8 @@ const FormationTaxi = () => {
           </div>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* Programme */}
       <section className="py-16 lg:py-24">
