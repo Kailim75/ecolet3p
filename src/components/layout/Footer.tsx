@@ -104,8 +104,8 @@ const Footer = () => {
                 href="https://www.facebook.com/dropacademymontrouge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-gold/20 flex items-center justify-center transition-colors"
-                aria-label="Facebook"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-gold/20 flex items-center justify-center transition-colors"
+                aria-label="Suivre ECOLE T3P sur Facebook"
               >
                 <Facebook className="w-5 h-5 text-white" />
               </a>
@@ -113,8 +113,8 @@ const Footer = () => {
                 href="https://www.instagram.com/ecolet3p"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-gold/20 flex items-center justify-center transition-colors"
-                aria-label="Instagram"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-gold/20 flex items-center justify-center transition-colors"
+                aria-label="Suivre ECOLE T3P sur Instagram"
               >
                 <Instagram className="w-5 h-5 text-white" />
               </a>
@@ -130,7 +130,7 @@ const Footer = () => {
                 </div>
                 <span className="text-white font-bold text-sm">5.0/5</span>
               </div>
-              <p className="text-white/60 text-xs">
+              <p className="text-white/70 text-xs">
                 359 avis vérifiés Google
               </p>
               <a
@@ -149,7 +149,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/60">
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
               <p>© 2026 ECOLE T3P - Tous droits réservés</p>
               <span className="hidden md:inline">|</span>
@@ -158,8 +158,8 @@ const Footer = () => {
               <p>Centre de formation agréé</p>
             </div>
             <div className="flex gap-6">
-              <PrefetchLink to="/mentions-legales" className="hover:text-gold transition-colors">Mentions légales</PrefetchLink>
-              <PrefetchLink to="/politique-de-confidentialite" className="hover:text-gold transition-colors">Confidentialité</PrefetchLink>
+              <PrefetchLink to="/mentions-legales" className="hover:text-gold transition-colors py-2">Mentions légales</PrefetchLink>
+              <PrefetchLink to="/politique-de-confidentialite" className="hover:text-gold transition-colors py-2">Confidentialité</PrefetchLink>
             </div>
           </div>
         </div>

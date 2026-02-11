@@ -102,7 +102,7 @@ const TestimonialsCarousel = () => {
           <h2 className="font-serif text-[28px] md:text-[36px] font-extrabold mb-3" style={{ color: "#1A1A1A" }}>
             Ils nous ont fait confiance
           </h2>
-          <p className="text-base" style={{ color: "#777" }}>
+          <p className="text-base" style={{ color: "#666" }}>
             5.0/5 sur Google — 359 avis vérifiés
           </p>
         </motion.div>
@@ -117,7 +117,8 @@ const TestimonialsCarousel = () => {
             variant="ghost"
             size="icon"
             onClick={prev}
-            className="absolute -left-2 lg:-left-12 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-md hover:bg-muted border border-border/30"
+            aria-label="Avis précédent"
+            className="absolute -left-2 lg:-left-12 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-md hover:bg-muted border border-border/30 min-w-[48px] min-h-[48px]"
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
@@ -125,7 +126,8 @@ const TestimonialsCarousel = () => {
             variant="ghost"
             size="icon"
             onClick={next}
-            className="absolute -right-2 lg:-right-12 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-md hover:bg-muted border border-border/30"
+            aria-label="Avis suivant"
+            className="absolute -right-2 lg:-right-12 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white shadow-md hover:bg-muted border border-border/30 min-w-[48px] min-h-[48px]"
           >
             <ChevronRight className="h-5 w-5" />
           </Button>
@@ -156,7 +158,7 @@ const TestimonialsCarousel = () => {
                     </div>
 
                     {/* Quote */}
-                    <p className="text-sm leading-relaxed mb-5 italic" style={{ color: "#555" }}>
+                    <p className="text-sm leading-relaxed mb-5 italic" style={{ color: "#4B5563" }}>
                       "{t.content}"
                     </p>
 
@@ -167,7 +169,7 @@ const TestimonialsCarousel = () => {
                       </div>
                       <div>
                         <p className="font-bold text-sm" style={{ color: "#1A1A1A" }}>{t.name}</p>
-                        <p className="text-xs" style={{ color: "#999" }}>{t.formation} · {t.date}</p>
+                        <p className="text-xs" style={{ color: "#6B7280" }}>{t.formation} · {t.date}</p>
                       </div>
                     </div>
                   </div>
@@ -185,10 +187,13 @@ const TestimonialsCarousel = () => {
                   setDirection(i > current ? 1 : -1);
                   setCurrent(i);
                 }}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                aria-label={`Aller à l'avis ${i + 1}`}
+                className={`rounded-full transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center`}
+              >
+                <span className={`block h-2.5 rounded-full transition-all duration-300 ${
                   i === current ? "bg-forest w-6" : "bg-border w-2.5"
-                }`}
-              />
+                }`} />
+              </button>
             ))}
           </div>
 
@@ -199,7 +204,7 @@ const TestimonialsCarousel = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline transition-colors"
-              style={{ color: "#777" }}
+              style={{ color: "#4B5563" }}
             >
               Voir les 359 avis sur Google <ExternalLink className="w-3.5 h-3.5" />
             </a>
