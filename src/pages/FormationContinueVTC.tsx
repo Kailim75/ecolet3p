@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
   Car, Clock, Euro, CheckCircle, Calendar, 
-  MapPin, Phone, FileCheck, Home, RefreshCw
+  MapPin, Phone, FileCheck, Home, RefreshCw, Star, Quote, Smartphone
 } from "lucide-react";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import Layout from "@/components/layout/Layout";
@@ -286,6 +286,99 @@ const FormationContinueVTC = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Évolutions 2026 pour les VTC */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-forest mb-6">Évolutions 2026 : ce qui change pour les chauffeurs VTC</h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+              <p>
+                Le secteur VTC connaît une transformation accélérée en 2026. Les <strong>plateformes de mise en relation</strong> comme 
+                Uber, Bolt et Heetch font face à de nouvelles obligations réglementaires européennes. Le Digital Markets Act (DMA) 
+                impose plus de transparence sur les algorithmes de tarification et d'attribution des courses, offrant aux chauffeurs 
+                une meilleure visibilité sur leurs revenus potentiels par course.
+              </p>
+              <p>
+                La <strong>réglementation des Zones à Faibles Émissions (ZFE)</strong> impacte directement les VTC : à partir de 2026, 
+                seuls les véhicules Crit'Air 1 et électriques sont autorisés dans le périmètre de la Métropole du Grand Paris pour 
+                l'exercice professionnel. Cette transition vers l'électrique s'accompagne d'aides financières spécifiques pour les 
+                chauffeurs VTC — prime à la conversion majorée, bonus écologique professionnel et accès prioritaire aux bornes de 
+                recharge rapide.
+              </p>
+              <p>
+                Les <strong>nouvelles applications de gestion</strong> permettent désormais d'optimiser vos courses grâce à 
+                l'intelligence artificielle : estimation précise de la demande par zone horaire, calcul automatique de la 
+                rentabilité nette par course après déduction des charges, et gestion comptable intégrée pour les auto-entrepreneurs. 
+                Notre formation continue intègre une prise en main concrète de ces outils pour maximiser vos revenus.
+              </p>
+              <p>
+                Enfin, la <strong>qualité de service premium</strong> reste le principal facteur de différenciation face à la 
+                concurrence des taxis et du covoiturage. Les attentes clients évoluent vers plus de confort, une hygiène 
+                irréprochable et une maîtrise des langues étrangères — des compétences que notre formation renforce 
+                systématiquement pour fidéliser votre clientèle haut de gamme.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Encart Uber/Bolt */}
+      <section className="py-16 bg-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <Card className="border-2 border-gold/30 bg-[#FFFBF0]">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <Smartphone className="h-10 w-10 text-gold flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-bold text-forest mb-2">
+                      Déjà sur Uber, Bolt ou Heetch ?
+                    </h3>
+                    <p className="text-muted-foreground mb-3">
+                      Profitez de la formation continue pour optimiser votre activité. Nos formateurs, 
+                      anciens chauffeurs VTC expérimentés, partagent leurs stratégies concrètes pour 
+                      augmenter votre chiffre d'affaires : choix des créneaux horaires rentables, 
+                      multi-plateforme, gestion fiscale optimisée et fidélisation de clients directs.
+                    </p>
+                    <p className="text-sm font-semibold text-gold">
+                      + de 200 chauffeurs VTC formés en 2025 ont augmenté leur CA de 15% en moyenne
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage VTC */}
+      <section className="py-16 bg-forest/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-card rounded-xl border p-8">
+              <Quote className="h-8 w-8 text-gold mb-4" />
+              <blockquote className="text-lg text-foreground italic mb-4">
+                « Je suis chauffeur VTC sur Uber et Bolt depuis 3 ans. La formation continue chez ECOLE T3P 
+                m'a permis de comprendre les nouvelles obligations ZFE et surtout d'optimiser ma gestion 
+                fiscale. Grâce aux conseils des formateurs, j'ai changé de statut juridique et j'économise 
+                maintenant plus de 200€ par mois sur mes charges. Formation indispensable ! »
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div>
+                  <p className="font-semibold text-forest">Mamadou D.</p>
+                  <p className="text-sm text-muted-foreground">Chauffeur VTC depuis 2023 — Paris 15e</p>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

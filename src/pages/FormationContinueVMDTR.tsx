@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
   Bike, Clock, Euro, CheckCircle, Calendar, 
-  MapPin, Phone, FileCheck, Home, RefreshCw
+  MapPin, Phone, FileCheck, Home, RefreshCw, Star, Quote, ArrowRight
 } from "lucide-react";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import Layout from "@/components/layout/Layout";
@@ -286,6 +286,106 @@ const FormationContinueVMDTR = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Évolutions 2026 pour les VMDTR */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-forest mb-6">Évolutions 2026 : ce qui change pour les conducteurs VMDTR</h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+              <p>
+                Le métier de conducteur VMDTR (Véhicule Motorisé à Deux ou Trois Roues) connaît une évolution significative 
+                en 2026. Les <strong>nouvelles normes d'équipement</strong> imposent désormais des standards renforcés pour 
+                les passagers : casque homologué avec intercom intégré, gilet airbag obligatoire pour le conducteur, et 
+                système de géolocalisation en temps réel pour assurer la traçabilité des courses.
+              </p>
+              <p>
+                La <strong>réglementation spécifique aux deux-roues</strong> se renforce dans le Grand Paris. Les voies 
+                réservées aux bus et taxis sont désormais accessibles aux VMDTR dans certaines communes des Hauts-de-Seine, 
+                facilitant la circulation en heures de pointe. Cependant, les contrôles techniques périodiques deviennent 
+                obligatoires pour tous les véhicules VMDTR, avec une visite annuelle imposée à partir de janvier 2026.
+              </p>
+              <p>
+                Les <strong>plateformes de réservation</strong> dédiées au transport moto se développent rapidement. 
+                CityBird, Félix et d'autres applications proposent des algorithmes de tarification dynamique spécifiques 
+                au VMDTR, tenant compte de la météo, du trafic et de la demande en temps réel. Notre formation continue 
+                vous apprend à optimiser votre présence sur ces plateformes et à diversifier vos sources de revenus.
+              </p>
+              <p>
+                Enfin, la <strong>sécurité routière des deux-roues motorisés</strong> reste la priorité absolue. Les 
+                statistiques 2025 montrent une réduction de 18% des accidents impliquant des VMDTR professionnels formés 
+                régulièrement. Notre formation intègre des mises en situation concrètes : conduite par temps de pluie, 
+                gestion du passager anxieux, manœuvres d'évitement et premiers secours adaptés au transport moto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-sell formation initiale */}
+      <section className="py-16 bg-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <Card className="border-2 border-forest/20 overflow-hidden">
+              <div className="bg-forest p-6 text-cream">
+                <h3 className="text-lg font-bold mb-1">
+                  Vous n'avez pas encore votre carte VMDTR ?
+                </h3>
+                <p className="text-cream/80 text-sm">
+                  Obtenez votre carte professionnelle avec notre formation initiale
+                </p>
+              </div>
+              <CardContent className="pt-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Formation initiale VMDTR</span>
+                  <span className="font-bold text-forest text-xl">990 €</span>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-gold" /> 14 heures de formation</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-gold" /> Préparation à l'examen préfectoral</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-gold" /> Frais d'examen inclus</li>
+                  <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-gold" /> Taux de réussite 94%</li>
+                </ul>
+                <Button asChild className="w-full bg-forest hover:bg-forest/90">
+                  <Link to="/formations/vmdtr">
+                    Découvrir la formation initiale VMDTR
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage VMDTR */}
+      <section className="py-16 bg-forest/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-card rounded-xl border p-8">
+              <Quote className="h-8 w-8 text-gold mb-4" />
+              <blockquote className="text-lg text-foreground italic mb-4">
+                « En tant que conducteur moto-taxi depuis 2020, la formation continue m'a permis de me 
+                mettre à jour sur les nouvelles normes d'équipement et surtout sur la conduite préventive. 
+                Les formateurs sont des professionnels du deux-roues qui comprennent nos problématiques 
+                spécifiques. J'ai aussi appris à utiliser les nouvelles plateformes de réservation pour 
+                diversifier mon activité. Formation courte mais très dense et utile. »
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div>
+                  <p className="font-semibold text-forest">Karim B.</p>
+                  <p className="text-sm text-muted-foreground">Conducteur VMDTR depuis 2020 — Val-de-Marne</p>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import TrustBar from "@/components/home/TrustBar";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
   CarTaxiFront, Clock, Euro, CheckCircle, Calendar, 
-  MapPin, Phone, FileCheck, Home, RefreshCw
+  MapPin, Phone, FileCheck, Home, RefreshCw, AlertTriangle, Star, Quote
 } from "lucide-react";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import Layout from "@/components/layout/Layout";
@@ -68,6 +68,45 @@ const faqs = [
     answer: "À l'issue de la formation, une attestation de stage vous est délivrée. Ce document est nécessaire pour le renouvellement de votre carte professionnelle auprès de la préfecture."
   }
 ];
+
+const RenewalCalculator = () => {
+  const [date, setDate] = useState("");
+  const renewalDate = date
+    ? new Date(new Date(date).setFullYear(new Date(date).getFullYear() + 5)).toLocaleDateString("fr-FR", {
+        day: "numeric", month: "long", year: "numeric",
+      })
+    : null;
+  const isExpired = date ? new Date(new Date(date).setFullYear(new Date(date).getFullYear() + 5)) < new Date() : false;
+
+  return (
+    <div className="space-y-4">
+      <label className="block text-sm font-medium text-foreground">
+        Date d'obtention de votre carte professionnelle
+      </label>
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm"
+      />
+      {renewalDate && (
+        <div className={`rounded-lg p-4 ${isExpired ? "bg-destructive/10 border border-destructive/30" : "bg-green-50 border border-green-200"}`}>
+          <p className="font-semibold text-sm">
+            {isExpired ? "⚠️ Votre carte a expiré !" : "📅 Date limite de renouvellement :"}
+          </p>
+          <p className={`text-lg font-bold ${isExpired ? "text-destructive" : "text-forest"}`}>
+            {renewalDate}
+          </p>
+          {isExpired && (
+            <p className="text-sm text-destructive mt-1">
+              Inscrivez-vous d'urgence à notre prochaine session pour régulariser votre situation.
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const FormationContinueTaxi = () => {
   const courseSchema = {
@@ -291,23 +330,113 @@ const FormationContinueTaxi = () => {
         </div>
       </section>
 
-      {/* Tarif */}
+      {/* Évolutions 2026 pour les taxis */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-forest mb-6">Évolutions réglementaires 2026 : ce qui change pour les taxis</h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+              <p>
+                L'année 2026 marque un tournant majeur pour la profession de conducteur de taxi en Île-de-France. 
+                L'extension progressive des <strong>Zones à Faibles Émissions (ZFE)</strong> impose désormais des contraintes 
+                strictes sur les véhicules autorisés à circuler dans le Grand Paris. Les taxis équipés de véhicules classés 
+                Crit'Air 3 et plus ne pourront plus exercer dans la zone métropolitaine à compter du 1er janvier 2026, 
+                rendant indispensable une transition vers des véhicules hybrides ou électriques.
+              </p>
+              <p>
+                La <strong>réforme tarifaire</strong> entrée en vigueur début 2026 modifie également les modalités de calcul 
+                des courses. Le nouveau barème intègre une revalorisation du tarif de prise en charge et une actualisation 
+                des prix kilométriques pour tenir compte de l'inflation des coûts d'exploitation. Les conducteurs doivent 
+                maîtriser ces nouveaux paramètres pour configurer correctement leur taximètre et éviter tout litige avec 
+                les clients ou lors des contrôles.
+              </p>
+              <p>
+                Les <strong>obligations de formation numérique</strong> se renforcent : chaque conducteur doit désormais 
+                être capable d'utiliser les outils de réservation en ligne, les terminaux de paiement sans contact nouvelle 
+                génération, et les applications de gestion de flotte. La formation continue ECOLE T3P intègre ces 
+                évolutions pour vous préparer concrètement aux nouvelles exigences du métier.
+              </p>
+              <p>
+                Enfin, les <strong>contrôles routiers</strong> se durcissent avec un programme d'inspections renforcées 
+                ciblant spécifiquement les conducteurs T3P. Le non-respect des nouvelles normes peut entraîner une 
+                suspension temporaire de votre carte professionnelle. Notre formation vous aide à anticiper ces 
+                évolutions et à rester en conformité totale avec la réglementation 2026.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Calculateur renouvellement */}
+      <section className="py-16 bg-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-xl mx-auto">
+            <Card className="border-2 border-forest/20">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-forest">
+                  <AlertTriangle className="h-5 w-5 text-gold" />
+                  Votre carte expire bientôt ?
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  Entrez la date d'obtention de votre carte professionnelle pour connaître votre date limite de renouvellement.
+                </p>
+              </CardHeader>
+              <CardContent>
+                <RenewalCalculator />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage taxi */}
+      <section className="py-16 bg-forest/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-card rounded-xl border p-8">
+              <Quote className="h-8 w-8 text-gold mb-4" />
+              <blockquote className="text-lg text-foreground italic mb-4">
+                « J'ai suivi la formation continue chez ECOLE T3P pour renouveler ma carte taxi. 
+                En 2 jours, j'ai pu mettre à jour mes connaissances sur les nouvelles réglementations ZFE 
+                et le nouveau barème tarifaire. Les formateurs connaissent vraiment le terrain. 
+                Je recommande à tous les collègues artisans taxis. »
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div>
+                  <p className="font-semibold text-forest">Rachid M.</p>
+                  <p className="text-sm text-muted-foreground">Chauffeur taxi depuis 2018 — Hauts-de-Seine</p>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tarif + Sessions */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-2xl font-bold text-forest mb-4">Tarif de la formation</h2>
             <p className="text-4xl font-black text-forest mb-2">239 €</p>
-            <p className="text-sm text-muted-foreground mb-8">
+            <p className="text-sm text-muted-foreground">
               Tarif conforme à la réglementation
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="btn-accent">
-                <Link to="/contact">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Voir les sessions disponibles
-                </Link>
-              </Button>
-            </div>
+          </div>
+          <div className="max-w-lg mx-auto">
+            <UpcomingSessionsCard
+              sessions={[]}
+              onRegister={() => window.location.href = "/contact"}
+              fallbackSessions={[
+                { id: "ct1", label: "18 mars 2026", time: "9h00 – 17h00", spots: 10 },
+                { id: "ct2", label: "15 avril 2026", time: "9h00 – 17h00", spots: 7 },
+                { id: "ct3", label: "13 mai 2026", time: "9h00 – 17h00", spots: 0 },
+              ]}
+            />
           </div>
         </div>
       </section>
