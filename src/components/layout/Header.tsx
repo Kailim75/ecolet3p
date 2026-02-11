@@ -35,7 +35,6 @@ const formationsSubMenu = {
 };
 
 const navLinks = [
-  { name: "Accueil", path: "/" },
   { name: "Formations", path: "/formations", hasSubmenu: true },
   { name: "Blog", path: "/blog" },
   { name: "À propos", path: "/a-propos" },
@@ -172,6 +171,14 @@ const Header = () => {
             </a>
             <Button asChild className="btn-cta-orange">
               <Link to="/contact">S'inscrire</Link>
+            </Button>
+            <Button
+              onClick={() => openQuoteModal()}
+              variant="outline"
+              className="border-forest text-forest hover:bg-forest/5"
+            >
+              <FileText className="w-4 h-4 mr-1" />
+              Devis
             </Button>
           </div>
 
