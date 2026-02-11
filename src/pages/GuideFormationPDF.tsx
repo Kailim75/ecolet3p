@@ -303,7 +303,7 @@ const GuideFormationPDF = () => {
 
           {/* Footer */}
           <footer className="text-center pt-6 border-t border-[#1B4D3E]/20">
-            <p className="text-xs text-[#6B6B6B]">© 2025 ECOLE T3P — Centre de Formation Taxi VTC VMDTR</p>
+            <p className="text-xs text-[#6B6B6B]"><p className="text-xs text-[#6B6B6B]">© 2026 ECOLE T3P — Centre de Formation Taxi VTC VMDTR</p> — Centre de Formation Taxi VTC VMDTR</p>
             <p className="text-[10px] text-[#6B6B6B]/60 mt-1">3 rue Corneille, 92120 Montrouge</p>
           </footer>
         </div>
