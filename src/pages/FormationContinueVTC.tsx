@@ -83,7 +83,26 @@ const FormationContinueVTC = () => {
       "price": "170",
       "priceCurrency": "EUR"
     },
-    "timeRequired": "PT14H"
+    "timeRequired": "PT14H",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
   };
 
   return (
@@ -93,6 +112,7 @@ const FormationContinueVTC = () => {
         <meta name="description" content="Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge. Attestation de stage délivrée." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-vtc" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

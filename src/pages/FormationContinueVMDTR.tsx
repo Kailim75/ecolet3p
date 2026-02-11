@@ -83,7 +83,26 @@ const FormationContinueVMDTR = () => {
       "price": "239",
       "priceCurrency": "EUR"
     },
-    "timeRequired": "PT14H"
+    "timeRequired": "PT14H",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
   };
 
   return (
@@ -93,6 +112,7 @@ const FormationContinueVMDTR = () => {
         <meta name="description" content="Formation continue obligatoire VMDTR 14h pour renouveler votre carte professionnelle moto-taxi. Centre agréé Préfecture à Montrouge. Attestation délivrée." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-vmdtr" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

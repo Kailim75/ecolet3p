@@ -1,5 +1,10 @@
 // Local SEO data for city-specific landing pages
 
+export interface LocalFaq {
+  question: string;
+  answer: string;
+}
+
 export interface CityData {
   slug: string;
   name: string;
@@ -20,6 +25,35 @@ export interface CityData {
   latitude: number;
   longitude: number;
 }
+
+/**
+ * Generate 3 unique local FAQ questions for a given city.
+ * Each city gets contextual questions based on its transport access and distance.
+ */
+export const getLocalFaqs = (city: CityData): LocalFaq[] => {
+  const transport = city.metroAccess 
+    ? `en métro (${city.metroAccess.split(' - ')[0]})`
+    : city.trainAccess
+    ? `en RER/train (${city.trainAccess.split(' - ')[0]})`
+    : city.tramAccess
+    ? `en tramway (${city.tramAccess.split(' - ')[0]})`
+    : `en bus (${city.busAccess?.split(',')[0]?.trim() || 'lignes locales'})`;
+
+  return [
+    {
+      question: `Comment se rendre au centre ECOLE T3P depuis ${city.name} ?`,
+      answer: `Depuis ${city.name} (${city.postalCodes[0]}), rejoignez notre centre au 3 rue Corneille à Montrouge en ${city.travelTime} ${transport}. ${city.busAccess ? `Les lignes de bus ${city.busAccess} desservent également le trajet.` : ''} Notre centre se situe à ${city.distanceFromCenter} de ${city.name}.`
+    },
+    {
+      question: `Quelles formations sont accessibles aux habitants de ${city.name} ?`,
+      answer: `Les habitants de ${city.name} ont accès à l'ensemble de nos formations : Formation Taxi initiale (63h), Formation VTC (63h), Formation VMDTR moto-taxi (14h), Formation Mobilité passerelle Taxi↔VTC (14h), ainsi que les formations continues obligatoires (14h). Toutes sont dispensées dans notre centre agréé Préfecture à Montrouge.`
+    },
+    {
+      question: `Y a-t-il des horaires adaptés pour les stagiaires venant de ${city.name} ?`,
+      answer: `Oui, nous proposons des sessions en journée (9h-17h) et en soirée (18h-22h) pour s'adapter aux contraintes des stagiaires de ${city.name} et des communes voisines. Le trajet de ${city.travelTime} depuis ${city.name} permet de suivre la formation sans difficulté, quel que soit le format choisi.`
+    }
+  ];
+};
 
 export const cities: CityData[] = [
   {
