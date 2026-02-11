@@ -103,7 +103,7 @@ const HeroSection = () => {
               className="text-sm flex flex-wrap gap-4"
               style={{ color: "#777" }}
             >
-              <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Financement CPF accepté</span>
+              <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Paiement en 4x sans frais</span>
               <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Prochaine session : mars 2026</span>
             </motion.p>
           </div>
