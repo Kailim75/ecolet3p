@@ -79,7 +79,7 @@ const HeroSection = () => {
                 ))}
               </div>
               <span className="font-bold text-sm" style={{ color: "#1A1A1A" }}>5.0/5</span>
-              <span className="text-sm" style={{ color: "#555" }}>— 359 avis Google</span>
+              <span className="text-sm" style={{ color: "#4B5563" }}>— 359 avis Google</span>
             </motion.a>
 
             {/* CTA Buttons */}
@@ -117,7 +117,7 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="text-sm flex flex-wrap gap-4"
-              style={{ color: "#777" }}
+              style={{ color: "#4B5563" }}
             >
               <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Paiement en 4x sans frais</span>
               <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Prochaine session : mars 2026</span>
@@ -159,13 +159,13 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="font-bold text-forest text-sm">+2000 chauffeurs formés</p>
-                  <p className="text-xs" style={{ color: "#777" }}>depuis 2014</p>
+                  <p className="text-xs" style={{ color: "#6B7280" }}>depuis 2014</p>
                 </div>
               </div>
               {/* Mini progress bar with label */}
               <div className="mt-3">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs" style={{ color: "#999" }}>Taux de réussite</span>
+                  <span className="text-xs" style={{ color: "#6B7280" }}>Taux de réussite</span>
                   <span className="text-xs font-bold" style={{ color: "#1B4D3E" }}>94%</span>
                 </div>
                 <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
