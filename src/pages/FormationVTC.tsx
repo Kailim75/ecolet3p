@@ -27,7 +27,9 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
+import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
+import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
+import PricingCard from "@/components/formations/PricingCard";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
@@ -375,44 +377,10 @@ const FormationVTC = () => {
                 </div>
               </div>
 
-              <Card className="bg-background/80 backdrop-blur border-2">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-secondary" />
-                    Prochaines sessions
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {sessions.length > 0 ? (
-                    sessions.map((session) => (
-                      <div key={session.id} className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-                        <div>
-                          <p className="font-medium">{formatDate(session.start_date)}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {session.start_time} - {session.end_time}
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          {isSessionFull({ ...session, max_participants: session.max_participants, current_participants: session.current_participants }) ? (
-                            <Badge variant="secondary">Complet</Badge>
-                          ) : (
-                            <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
-                              {getAvailableSpots({ ...session, max_participants: session.max_participants, current_participants: session.current_participants })} places
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-muted-foreground text-center py-4">
-                      Contactez-nous pour connaître les prochaines dates
-                    </p>
-                  )}
-                  <Button className="w-full" onClick={() => setShowPreRegistration(true)}>
-                    Réserver ma place
-                  </Button>
-                </CardContent>
-              </Card>
+              <UpcomingSessionsCard 
+                sessions={sessions} 
+                onRegister={() => setShowPreRegistration(true)} 
+              />
             </motion.div>
           </div>
         </div>
@@ -465,6 +433,39 @@ const FormationVTC = () => {
                 </Card>
               </motion.div>
             ))}
+          </div>
+
+          {/* Pricing Card */}
+          <div className="mt-12 max-w-md mx-auto">
+            <PricingCard
+              title="Formation VTC Initiale"
+              price={vtcFormation?.price || 990}
+              duration="63h (jour) / 33h (soir)"
+              features={[
+                "Préparation examen CMA complète",
+                "Module applications (Uber, Bolt…)",
+                "Anglais professionnel inclus",
+                "Accompagnement création entreprise",
+                "Paiement en 4× sans frais",
+              ]}
+              onRegister={() => setShowPreRegistration(true)}
+            />
+          </div>
+          {/* Pricing Card */}
+          <div className="mt-12 max-w-md mx-auto">
+            <PricingCard
+              title="Formation VTC Initiale"
+              price={vtcFormation?.price || 990}
+              duration="63h (jour) / 33h (soir)"
+              features={[
+                "Préparation examen CMA complète",
+                "Module applications (Uber, Bolt…)",
+                "Anglais professionnel inclus",
+                "Accompagnement création entreprise",
+                "Paiement en 4× sans frais",
+              ]}
+              onRegister={() => setShowPreRegistration(true)}
+            />
           </div>
         </div>
       </section>
@@ -790,20 +791,11 @@ const FormationVTC = () => {
         </div>
       </section>
 
-      {/* Pre-registration Modal */}
-      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Pré-inscription Formation VTC</DialogTitle>
-          </DialogHeader>
-          <PreRegistrationForm
-            isOpen={showPreRegistration}
-            onClose={() => setShowPreRegistration(false)}
-            formationTitle="Formation VTC"
-            formationDuration={vtcFormation?.duration || "63h"}
-          />
-        </DialogContent>
-      </Dialog>
+      <StepPreRegistrationForm
+        isOpen={showPreRegistration}
+        onClose={() => setShowPreRegistration(false)}
+        defaultFormation="vtc"
+      />
     </Layout>
   );
 };
