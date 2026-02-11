@@ -49,15 +49,16 @@ const PrefetchLink = ({
   }, [to, prefetched, prefetchOnHover]);
 
   const handleMouseEnter = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = e.currentTarget;
     // Delay prefetch slightly to avoid loading on accidental hovers
     const timer = setTimeout(prefetch, prefetchDelay);
     
     // Clean up if mouse leaves before delay
     const cleanup = () => {
       clearTimeout(timer);
-      e.currentTarget.removeEventListener("mouseleave", cleanup);
+      target.removeEventListener("mouseleave", cleanup);
     };
-    e.currentTarget.addEventListener("mouseleave", cleanup);
+    target.addEventListener("mouseleave", cleanup);
     
     onMouseEnter?.(e);
   }, [prefetch, prefetchDelay, onMouseEnter]);
