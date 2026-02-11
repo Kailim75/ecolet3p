@@ -36,8 +36,9 @@ const HeroSection = () => {
               style={{ color: "#1A1A1A" }}
             >
               Devenez chauffeur{" "}
-              <span className="text-forest">Taxi</span> ou{" "}
-              <span className="text-forest">VTC</span>
+              <span className="text-forest">Taxi</span>,{" "}
+              <span className="text-forest">VTC</span> ou{" "}
+              <span className="text-forest">VMDTR</span>
             </motion.h1>
 
             {/* Subtitle */}
