@@ -1,12 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
     name: "Mohamed K.",
     formation: "Formation VTC",
+    date: "Décembre 2025",
     content: "Excellente formation ! Les formateurs sont très compétents et connaissent le terrain. J'ai obtenu ma carte VTC en 2 mois. Je recommande à 100%.",
     rating: 5,
     initials: "MK",
@@ -14,6 +15,7 @@ const testimonials = [
   {
     name: "Sophie L.",
     formation: "Formation Taxi",
+    date: "Novembre 2025",
     content: "Je recommande ECOLE T3P à 100%. L'accompagnement est top du début à la fin. Réussite au premier passage grâce à une préparation solide !",
     rating: 5,
     initials: "SL",
@@ -21,6 +23,7 @@ const testimonials = [
   {
     name: "Alexandre D.",
     formation: "Formation VTC",
+    date: "Octobre 2025",
     content: "Le paiement en 4 fois m'a permis de suivre la formation sereinement. Les cours sont clairs, les formateurs patients. Merci à toute l'équipe !",
     rating: 5,
     initials: "AD",
@@ -28,6 +31,7 @@ const testimonials = [
   {
     name: "Fatima R.",
     formation: "Formation VTC",
+    date: "Septembre 2025",
     content: "L'accompagnement pour créer mon entreprise a été précieux. Les formateurs m'ont guidée pas à pas. Je suis aujourd'hui à mon compte.",
     rating: 5,
     initials: "FR",
@@ -35,6 +39,7 @@ const testimonials = [
   {
     name: "Marc D.",
     formation: "Formation Taxi",
+    date: "Août 2025",
     content: "Formation très complète. Les formateurs connaissent parfaitement le métier et transmettent leur passion. Carte professionnelle du premier coup !",
     rating: 5,
     initials: "MD",
@@ -42,22 +47,17 @@ const testimonials = [
   {
     name: "Julien M.",
     formation: "Formation VMDTR",
+    date: "Juillet 2025",
     content: "J'étais motard depuis 10 ans mais la formation m'a appris toutes les spécificités du transport de passagers. Les formateurs sont passionnés. Top !",
     rating: 5,
     initials: "JM",
   },
 ];
 
-// Show 3 at a time on desktop
-const getVisibleCount = () => (typeof window !== "undefined" && window.innerWidth >= 768 ? 3 : 1);
-
 const TestimonialsCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const visibleCount = 3; // We'll handle responsiveness with CSS
-
-  const maxIndex = testimonials.length - 1;
 
   const next = useCallback(() => {
     setDirection(1);
@@ -86,8 +86,12 @@ const TestimonialsCarousel = () => {
   const visible = getVisibleTestimonials();
 
   return (
-    <section className="py-20 md:py-24 bg-white">
-      <div className="container-custom">
+    <section className="py-16 md:py-20 bg-white relative overflow-hidden">
+      {/* Giant quotation marks background */}
+      <div className="absolute top-8 left-8 text-[300px] leading-none font-serif pointer-events-none select-none" style={{ color: "rgba(0,0,0,0.03)" }}>"</div>
+      <div className="absolute bottom-0 right-8 text-[300px] leading-none font-serif pointer-events-none select-none" style={{ color: "rgba(0,0,0,0.03)" }}>"</div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +99,7 @@ const TestimonialsCarousel = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="font-serif text-[28px] md:text-[36px] mb-3" style={{ color: "#1A1A1A" }}>
+          <h2 className="font-serif text-[28px] md:text-[36px] font-extrabold mb-3" style={{ color: "#1A1A1A" }}>
             Ils nous ont fait confiance
           </h2>
           <p className="text-base" style={{ color: "#777" }}>
@@ -163,7 +167,7 @@ const TestimonialsCarousel = () => {
                       </div>
                       <div>
                         <p className="font-bold text-sm" style={{ color: "#1A1A1A" }}>{t.name}</p>
-                        <p className="text-xs" style={{ color: "#999" }}>{t.formation}</p>
+                        <p className="text-xs" style={{ color: "#999" }}>{t.formation} · {t.date}</p>
                       </div>
                     </div>
                   </div>
@@ -186,6 +190,19 @@ const TestimonialsCarousel = () => {
                 }`}
               />
             ))}
+          </div>
+
+          {/* Google link */}
+          <div className="text-center mt-6">
+            <a
+              href="https://www.google.com/maps/place/ECOLE+T3P"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline transition-colors"
+              style={{ color: "#777" }}
+            >
+              Voir les 359 avis sur Google <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </div>
