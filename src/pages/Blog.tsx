@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { blogArticles } from "@/data/blogArticles";
-import { Clock, Calendar, ArrowRight, BookOpen, Tag, Home } from "lucide-react";
+import { blogArticles, BlogArticle } from "@/data/blogArticles";
+import { Clock, Calendar, ArrowRight, BookOpen, Tag, Home, Car, Bike, FileText, Scale, Smartphone } from "lucide-react";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 import {
@@ -30,6 +30,51 @@ const staggerItemVariants = {
 };
 
 const Blog = () => {
+  const categoryStyles: Record<string, { gradient: string; Icon: typeof Car }> = {
+    "TAXI": { gradient: "from-orange-500 to-amber-500", Icon: Car },
+    "VTC": { gradient: "from-emerald-600 to-emerald-400", Icon: Car },
+    "VMDTR": { gradient: "from-blue-600 to-indigo-600", Icon: Bike },
+    "COMPÉTENCES": { gradient: "from-violet-600 to-purple-600", Icon: Smartphone },
+    "COMPARATIF": { gradient: "from-slate-600 to-slate-500", Icon: Scale },
+    "CRÉATION": { gradient: "from-teal-600 to-cyan-500", Icon: FileText },
+  };
+
+  const BlogImageFallback = ({ category, className }: { category: string; className?: string }) => {
+    const style = categoryStyles[category] || categoryStyles["COMPÉTENCES"];
+    const FallbackIcon = style.Icon;
+    return (
+      <div className={`bg-gradient-to-br ${style.gradient} flex items-center justify-center w-full h-full ${className || ""}`}>
+        <FallbackIcon className="w-12 h-12 text-white/60" />
+      </div>
+    );
+  };
+
+  const BlogImage = ({ article, className, priority }: { article: BlogArticle; className?: string; priority?: boolean }) => {
+    const [hasError, setHasError] = useState(false);
+    
+    if (hasError || !article.image) {
+      return <BlogImageFallback category={article.category} className={className} />;
+    }
+    
+    return (
+      <div className="w-full h-full relative">
+        <OptimizedImage
+          src={article.image}
+          alt={article.title}
+          className={className}
+          priority={priority}
+        />
+        {/* Hidden img to detect load errors */}
+        <img
+          src={article.image}
+          alt=""
+          className="hidden"
+          onError={() => setHasError(true)}
+        />
+      </div>
+    );
+  };
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('fr-FR', {
       year: 'numeric',
@@ -156,9 +201,8 @@ const Blog = () => {
               className="group grid md:grid-cols-2 gap-0 bg-card rounded-2xl overflow-hidden border border-border hover:shadow-warm-lg transition-all duration-300"
             >
               <div className="h-64 md:h-full overflow-hidden">
-                <OptimizedImage 
-                  src={featuredArticle.image}
-                  alt={featuredArticle.title}
+                <BlogImage 
+                  article={featuredArticle}
                   className="group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
@@ -218,9 +262,8 @@ const Blog = () => {
                 >
                   {/* Image */}
                   <div className="w-full h-48 overflow-hidden">
-                    <OptimizedImage 
-                      src={article.image}
-                      alt={article.title}
+                    <BlogImage 
+                      article={article}
                       className="group-hover:scale-105 transition-transform duration-500"
                       priority={index < 3}
                     />

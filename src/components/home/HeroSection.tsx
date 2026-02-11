@@ -158,7 +158,7 @@ const HeroSection = () => {
                   <Users className="w-5 h-5 text-forest" />
                 </div>
                 <div>
-                  <p className="font-bold text-forest text-sm">+1200 élèves formés</p>
+                  <p className="font-bold text-forest text-sm">+2000 chauffeurs formés</p>
                   <p className="text-xs" style={{ color: "#777" }}>depuis 2014</p>
                 </div>
               </div>
