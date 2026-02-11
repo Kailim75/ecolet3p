@@ -3,29 +3,28 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
 import TrustBar from "@/components/home/TrustBar";
-import FormationsOverviewSection from "@/components/home/FormationsOverviewSection";
-import ServicesSection from "@/components/home/ServicesSection";
 
 // Import critical images for preload
 import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
+const FormationsOverviewSection = lazy(() => import("@/components/home/FormationsOverviewSection"));
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
-const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const TestimonialsCarousel = lazy(() => import("@/components/home/TestimonialsCarousel"));
-const AppointmentSection = lazy(() => import("@/components/home/AppointmentSection"));
+const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
+const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const CTASection = lazy(() => import("@/components/home/CTASection"));
 
 // Simple skeleton for lazy sections
 const SectionSkeleton = () => (
-  <div className="py-20 bg-cream">
+  <div className="py-20">
     <div className="container-custom">
       <div className="animate-pulse space-y-6">
-        <div className="h-8 bg-forest/10 rounded w-1/3 mx-auto" />
-        <div className="h-4 bg-forest/5 rounded w-2/3 mx-auto" />
+        <div className="h-8 bg-muted rounded w-1/3 mx-auto" />
+        <div className="h-4 bg-muted/60 rounded w-2/3 mx-auto" />
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-48 bg-forest/5 rounded-xl" />
+            <div key={i} className="h-48 bg-muted/40 rounded-xl" />
           ))}
         </div>
       </div>
@@ -128,8 +127,6 @@ const organizationSchema = {
   }
 };
 
-// LocalBusiness merged into organizationSchema above — removed duplicate
-
 const Index = () => {
   return (
     <Layout>
@@ -139,7 +136,6 @@ const Index = () => {
         <meta name="keywords" content="formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, formation VTC Clamart, formation taxi Issy-les-Moulineaux, formation taxi Paris 14, formation VTC Paris 15, formation taxi Paris 13, centre formation 92, carte professionnelle taxi Hauts-de-Seine, formation VTC sud Paris, ECOLE T3P, récupération points 92" />
         <link rel="canonical" href="https://www.ecolet3p.fr/" />
         
-        {/* Preload critical hero image */}
         <link 
           rel="preload" 
           as="image" 
@@ -170,13 +166,14 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
       
-      {/* Critical above-the-fold content */}
+      {/* Hero + Trust Bar - Critical above-the-fold */}
       <HeroSection />
       <TrustBar />
-      <FormationsOverviewSection />
-      <ServicesSection />
       
-      {/* Lazy loaded below-the-fold sections */}
+      {/* Lazy loaded sections */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <FormationsOverviewSection />
+      </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <WhyChooseUsSection />
       </Suspense>
@@ -184,10 +181,10 @@ const Index = () => {
         <TestimonialsCarousel />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
-        <FAQSection />
+        <ProcessSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
-        <AppointmentSection />
+        <FAQSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <CTASection />
