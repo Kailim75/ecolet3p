@@ -30,6 +30,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import PricingCard from "@/components/formations/PricingCard";
+import ExamProgramSection from "@/components/formations/ExamProgramSection";
 import { useFormations } from "@/hooks/useFormations";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
@@ -468,6 +469,8 @@ const FormationTaxi = () => {
           </div>
         </div>
       </section>
+
+      <ExamProgramSection profession="taxi" />
 
       {/* Prérequis */}
       <section className="py-16 lg:py-24 bg-muted/30">
