@@ -77,7 +77,7 @@ const FormationsOverviewSection = () => {
           transition={{ duration: 0.6, ease: smoothEase }}
           className="text-center mb-14"
         >
-          <h2 className="font-serif text-[28px] md:text-[36px] font-extrabold mb-4" style={{ color: "#1A1A1A" }}>
+          <h2 className="font-serif text-[28px] md:text-[36px] xl:text-[42px] font-extrabold mb-4" style={{ color: "#1A1A1A" }}>
             Nos Formations
           </h2>
           <p className="text-base max-w-lg mx-auto" style={{ color: "#777" }}>
@@ -90,7 +90,7 @@ const FormationsOverviewSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8"
         >
           {formations.map((f) => {
             const Icon = f.icon;
@@ -105,7 +105,7 @@ const FormationsOverviewSection = () => {
                 {/* Color top band */}
                 <div className="h-1.5 w-full" style={{ backgroundColor: f.accentColor }} />
 
-                <div className="p-8">
+                <div className="p-8 xl:p-10">
                   {/* Icon */}
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: f.bgLight }}>
                     <Icon className="w-7 h-7" style={{ color: f.accentColor }} />

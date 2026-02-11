@@ -23,8 +23,8 @@ const TrustBar = () => (
             {i > 0 && (
               <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-10" style={{ backgroundColor: "rgba(255,255,255,0.2)" }} />
             )}
-            <span className="text-3xl font-extrabold text-white mb-1">{stat.value}</span>
-            <span className="text-sm text-white/80">{stat.label}</span>
+            <span className="text-3xl xl:text-4xl 2xl:text-5xl font-extrabold text-white mb-1">{stat.value}</span>
+            <span className="text-sm xl:text-base text-white/80">{stat.label}</span>
           </div>
         ))}
       </div>

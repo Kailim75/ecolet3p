@@ -105,7 +105,12 @@
 @layer components {
   /* Container */
   .container-custom {
-    @apply mx-auto max-w-7xl px-5 md:px-8 lg:px-12;
+    @apply mx-auto max-w-7xl px-5 md:px-8 lg:px-12 2xl:max-w-[1400px];
+  }
+  @media (min-width: 1920px) {
+    .container-custom {
+      max-width: 1600px;
+    }
   }
 
   /* Section padding — 96px desktop / 64px mobile */

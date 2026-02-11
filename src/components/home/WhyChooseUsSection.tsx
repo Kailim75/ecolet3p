@@ -52,7 +52,7 @@ const WhyChooseUsSection = () => {
           transition={{ duration: 0.6, ease: smoothEase }}
           className="text-center mb-14"
         >
-          <h2 className="font-serif text-[28px] md:text-[36px] font-extrabold mb-4 text-white">
+          <h2 className="font-serif text-[28px] md:text-[36px] xl:text-[42px] font-extrabold mb-4 text-white">
             Pourquoi choisir ECOLE T3P ?
           </h2>
         </motion.div>
@@ -73,7 +73,7 @@ const WhyChooseUsSection = () => {
                 className="flex flex-col items-center text-center"
               >
                 {/* Stat number */}
-                <span className="text-3xl font-extrabold mb-3" style={{ color: "#D4A853" }}>{reason.stat}</span>
+                <span className="text-3xl xl:text-4xl font-extrabold mb-3" style={{ color: "#D4A853" }}>{reason.stat}</span>
 
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "rgba(212,168,83,0.15)" }}>
