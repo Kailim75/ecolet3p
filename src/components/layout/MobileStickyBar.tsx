@@ -32,7 +32,8 @@ const MobileStickyBar = () => {
     return () => observer.disconnect();
   }, []);
 
-  if (!isMobile || isFooterVisible) return null;
+  // Hide on /formations (has its own custom sticky bar)
+  if (!isMobile || isFooterVisible || location.pathname === "/formations") return null;
 
   const { label, price } = getCtaConfig(location.pathname);
   const displayText = price ? `${label} — ${price}` : label;
