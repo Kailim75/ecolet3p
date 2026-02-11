@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import FloatingAppointmentButton from "./FloatingAppointmentButton";
 import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
+import FloatingPhoneButton from "./FloatingPhoneButton";
 import MobileStickyBar from "./MobileStickyBar";
 
 
@@ -229,6 +230,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <FloatingAppointmentButton />
       <FloatingWhatsAppButton />
+      <FloatingPhoneButton />
       <MobileStickyBar />
     </div>
   );

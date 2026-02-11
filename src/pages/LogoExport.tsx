@@ -171,7 +171,7 @@ const LogoExport = () => {
           {/* Footer */}
           <footer className="text-center pt-8 border-t border-forest/20">
             <p className="text-sm text-warm-gray-500">
-              © 2025 ECOLE T3P - Tous droits réservés
+              © 2026 ECOLE T3P - Tous droits réservés - Tous droits réservés
             </p>
             <p className="text-xs text-warm-gray-400 mt-2">
               3 rue Corneille, 92120 Montrouge | montrouge@ecolet3p.fr | 01 88 75 05 55
