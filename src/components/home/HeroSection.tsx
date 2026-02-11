@@ -2,14 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Star, Check, ArrowRight, Users } from "lucide-react";
+import { Star, Check, ArrowRight, Users, Flame } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 50%, #F5F5F5 100%)" }}>
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FDF8F0 100%)" }}>
+      {/* Decorative circle */}
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(212,168,83,0.05) 0%, transparent 70%)" }} />
+
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Left column - 60% */}
@@ -27,7 +30,7 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* H1 */}
+            {/* H1 - Color coded */}
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -36,23 +39,23 @@ const HeroSection = () => {
               style={{ color: "#1A1A1A" }}
             >
               Devenez chauffeur{" "}
-              <span className="text-forest">Taxi</span>,{" "}
-              <span className="text-forest">VTC</span> ou{" "}
-              <span className="text-forest">VMDTR</span>
+              <span style={{ color: "#F97316" }}>Taxi</span>,{" "}
+              <span style={{ color: "#059669" }}>VTC</span> ou{" "}
+              <span style={{ color: "#2563EB" }}>VMDTR</span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle - bigger & darker */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
               className="text-lg leading-relaxed mb-6 max-w-[500px]"
-              style={{ color: "#555555" }}
+              style={{ color: "#4B5563" }}
             >
               Formation professionnelle agréée à Montrouge. Accompagnement complet de l'inscription à l'obtention de votre carte professionnelle.
             </motion.p>
 
-            {/* Google Reviews Badge */}
+            {/* Google Reviews Badge - enhanced */}
             <motion.a
               href="https://www.google.com/maps/place/ECOLE+T3P"
               target="_blank"
@@ -60,8 +63,8 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
-              className="inline-flex items-center gap-3 px-4 py-3 bg-white rounded-xl border border-border/60 mb-6 hover:shadow-md transition-shadow"
-              style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
+              className="inline-flex items-center gap-3 px-5 py-3 bg-white rounded-full mb-6 hover:shadow-lg transition-shadow"
+              style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.08)", border: "2px solid #FCD34D" }}
             >
               {/* Google G icon */}
               <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -84,7 +87,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
-              className="flex flex-wrap gap-4 mb-4"
+              className="flex flex-wrap gap-4 mb-3"
             >
               <Button asChild className="btn-cta-orange px-8 py-4 text-base rounded-lg" style={{ boxShadow: "0 4px 14px rgba(230,126,34,0.35)" }}>
                 <Link to="/contact">
@@ -95,6 +98,18 @@ const HeroSection = () => {
                 <Link to="/formations">Voir les tarifs</Link>
               </Button>
             </motion.div>
+
+            {/* Urgency micro-text */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-sm font-medium flex items-center gap-1 mb-4"
+              style={{ color: "#EA580C" }}
+            >
+              <Flame className="w-4 h-4" />
+              Plus que 4 places pour la session de mars 2026
+            </motion.p>
 
             {/* Micro-text */}
             <motion.p
@@ -147,17 +162,22 @@ const HeroSection = () => {
                   <p className="text-xs" style={{ color: "#777" }}>depuis 2014</p>
                 </div>
               </div>
-              {/* Mini progress bar */}
-              <div className="mt-3 w-full h-1.5 bg-muted rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "94%" }}
-                  transition={{ duration: 1.5, delay: 1.2, ease: smoothEase }}
-                  className="h-full rounded-full"
-                  style={{ background: "linear-gradient(90deg, #1B4D3E, #D4A853)" }}
-                />
+              {/* Mini progress bar with label */}
+              <div className="mt-3">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs" style={{ color: "#999" }}>Taux de réussite</span>
+                  <span className="text-xs font-bold" style={{ color: "#1B4D3E" }}>94%</span>
+                </div>
+                <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "94%" }}
+                    transition={{ duration: 1.5, delay: 1.2, ease: smoothEase }}
+                    className="h-full rounded-full"
+                    style={{ background: "linear-gradient(90deg, #1B4D3E, #D4A853)" }}
+                  />
+                </div>
               </div>
-              <p className="text-xs mt-1" style={{ color: "#999" }}>94% de taux de réussite</p>
             </motion.div>
           </motion.div>
         </div>
