@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Progress } from "@/components/ui/progress";
 import {
   Dialog,
   DialogContent,
@@ -25,12 +24,12 @@ import { cn } from "@/lib/utils";
 
 // ── Data ──────────────────────────────────────────────
 const formations = [
-  { value: "taxi", label: "TAXI Initiale", desc: "182h – Carte pro taxi", icon: CarTaxiFront },
-  { value: "vtc", label: "VTC Initiale", desc: "182h – Carte pro VTC", icon: Car },
-  { value: "vmdtr", label: "VMDTR / Moto-Taxi", desc: "Carte pro moto-taxi", icon: Bike },
-  { value: "mobilite", label: "Mobilité", desc: "35h – Perfectionnement", icon: BookOpen },
-  { value: "continue", label: "Formation Continue", desc: "14h – Renouvellement carte", icon: RefreshCw },
-  { value: "recup-points", label: "Récupération de Points", desc: "Stage agréé préfecture", icon: Shield },
+  { value: "taxi", label: "TAXI", desc: "Initiale · 182h", icon: CarTaxiFront, color: "from-amber-500/15 to-amber-600/5" },
+  { value: "vtc", label: "VTC", desc: "Initiale · 182h", icon: Car, color: "from-emerald-500/15 to-emerald-600/5" },
+  { value: "vmdtr", label: "VMDTR", desc: "Moto-Taxi", icon: Bike, color: "from-blue-500/15 to-blue-600/5" },
+  { value: "mobilite", label: "Mobilité", desc: "35h", icon: BookOpen, color: "from-violet-500/15 to-violet-600/5" },
+  { value: "continue", label: "Continue", desc: "14h · Renouvellement", icon: RefreshCw, color: "from-cyan-500/15 to-cyan-600/5" },
+  { value: "recup-points", label: "Points", desc: "Stage agréé", icon: Shield, color: "from-rose-500/15 to-rose-600/5" },
 ];
 
 const contactSchema = z.object({
@@ -73,106 +72,6 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// ── Sub-components ────────────────────────────────────
-const StepIndicator = ({ step, totalSteps }: { step: number; totalSteps: number }) => {
-  const labels = ["Formation", "Coordonnées", "Finaliser"];
-  return (
-    <div className="flex items-center gap-1 sm:gap-2">
-      {labels.map((label, i) => {
-        const num = i + 1;
-        const isActive = step >= num;
-        const isDone = step > num;
-        return (
-          <React.Fragment key={num}>
-            <div className="flex items-center gap-1.5">
-              <motion.div
-                animate={{ scale: step === num ? 1.1 : 1 }}
-                className={cn(
-                  "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold shrink-0 transition-colors duration-300",
-                  isActive ? "bg-[hsl(var(--cta))] text-white shadow-md" : "bg-muted text-muted-foreground"
-                )}
-              >
-                {isDone ? <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> : num}
-              </motion.div>
-              <span className={cn(
-                "text-[10px] sm:text-xs font-medium hidden sm:block transition-colors",
-                isActive ? "text-foreground" : "text-muted-foreground"
-              )}>
-                {label}
-              </span>
-            </div>
-            {i < totalSteps - 1 && (
-              <div className={cn("flex-1 h-0.5 rounded-full transition-colors duration-300", isDone ? "bg-[hsl(var(--cta))]" : "bg-muted")} />
-            )}
-          </React.Fragment>
-        );
-      })}
-    </div>
-  );
-};
-
-const FormationCard = ({ f, selected, onSelect }: { f: typeof formations[0]; selected: boolean; onSelect: () => void }) => (
-  <motion.button
-    type="button"
-    onClick={onSelect}
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    className={cn(
-      "flex items-center gap-3 p-3 sm:p-3.5 rounded-xl border-2 cursor-pointer transition-all text-left w-full",
-      selected
-        ? "border-primary bg-primary/5 shadow-sm"
-        : "border-border hover:border-primary/40 hover:bg-muted/30"
-    )}
-  >
-    <div className={cn(
-      "w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors",
-      selected ? "bg-primary/15" : "bg-muted"
-    )}>
-      <f.icon className={cn("h-5 w-5 transition-colors", selected ? "text-primary" : "text-muted-foreground")} />
-    </div>
-    <div className="min-w-0 flex-1">
-      <p className={cn("font-semibold text-sm", selected && "text-primary")}>{f.label}</p>
-      <p className="text-xs text-muted-foreground">{f.desc}</p>
-    </div>
-    <div className={cn(
-      "w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center transition-all",
-      selected ? "border-primary bg-primary" : "border-muted-foreground/30"
-    )}>
-      {selected && <CheckCircle2 className="h-3 w-3 text-white" />}
-    </div>
-  </motion.button>
-);
-
-const ContactField = ({ field, contact, errors, isSubmitting, onChange }: {
-  field: { key: "firstName" | "lastName" | "email" | "phone"; label: string; icon: any; placeholder: string; type?: string };
-  contact: Record<string, string>;
-  errors: Record<string, string>;
-  isSubmitting: boolean;
-  onChange: (key: string, val: string) => void;
-}) => (
-  <div className="space-y-1">
-    <Label className="text-xs sm:text-sm font-medium">{field.label} *</Label>
-    <div className="relative">
-      <field.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-      <Input
-        type={field.type || "text"}
-        placeholder={field.placeholder}
-        value={contact[field.key]}
-        onChange={(e) => onChange(field.key, e.target.value)}
-        className={cn("pl-10 h-10", errors[field.key] && "border-destructive focus-visible:ring-destructive")}
-        disabled={isSubmitting}
-      />
-    </div>
-    <AnimatePresence>
-      {errors[field.key] && (
-        <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-xs text-destructive">
-          {errors[field.key]}
-        </motion.p>
-      )}
-    </AnimatePresence>
-  </div>
-);
-
 // ── Main modal ────────────────────────────────────────
 const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isOpen: boolean; onClose: () => void; preselectedFormation?: string }) => {
   const { toast } = useToast();
@@ -187,7 +86,6 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const totalSteps = 3;
-  const progress = (step / totalSteps) * 100;
 
   useEffect(() => {
     if (preselectedFormation) setFormation(preselectedFormation);
@@ -198,8 +96,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
   const handleFormationSelect = (value: string) => {
     setFormation(value);
-    // Auto-advance after short delay for better UX
-    setTimeout(() => { setDirection(1); setStep(2); }, 350);
+    setTimeout(() => { setDirection(1); setStep(2); }, 400);
   };
 
   const handleContactChange = (key: string, val: string) => {
@@ -267,9 +164,9 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
   };
 
   const slideVariants = {
-    enter: (d: number) => ({ opacity: 0, x: d > 0 ? 50 : -50 }),
+    enter: (d: number) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
     center: { opacity: 1, x: 0 },
-    exit: (d: number) => ({ opacity: 0, x: d > 0 ? -50 : 50 }),
+    exit: (d: number) => ({ opacity: 0, x: d > 0 ? -40 : 40 }),
   };
 
   const selectedFormation = formations.find((f) => f.value === formation);
@@ -283,10 +180,10 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
   return (
     <Dialog open={isOpen} onOpenChange={() => !isSubmitting && resetAndClose()}>
-      <DialogContent className="max-w-[440px] bg-card p-4 sm:p-6 gap-3">
+      <DialogContent className="max-w-[460px] bg-card p-0 gap-0 overflow-hidden">
         <AnimatePresence mode="wait">
           {isSuccess ? (
-            <motion.div key="success" className="py-10 text-center" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+            <motion.div key="success" className="py-12 text-center px-6" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -300,122 +197,201 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
             </motion.div>
           ) : (
             <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <DialogHeader className="pb-1">
-                <DialogTitle className="flex items-center gap-2 text-lg sm:text-xl font-black text-primary">
-                  <FileText className="w-5 h-5 text-[hsl(var(--cta))]" />
-                  Devis gratuit
-                </DialogTitle>
-                <DialogDescription className="text-xs sm:text-sm">Rapide, gratuit et sans engagement</DialogDescription>
-              </DialogHeader>
-
-              {/* Reassurance */}
-              <div className="flex items-center gap-2 bg-[hsl(var(--cta))]/10 border border-[hsl(var(--cta))]/20 rounded-lg px-3 py-2 text-xs sm:text-sm">
-                <Clock className="w-4 h-4 text-[hsl(var(--cta))] shrink-0" />
-                <span><strong>Réponse sous 24h</strong> – Sans engagement</span>
+              {/* Header with gradient accent */}
+              <div className="bg-gradient-to-r from-primary/5 via-[hsl(var(--cta))]/5 to-transparent px-5 pt-5 pb-3">
+                <DialogHeader className="pb-0">
+                  <DialogTitle className="flex items-center gap-2 text-lg font-black text-primary">
+                    <div className="w-8 h-8 rounded-lg bg-[hsl(var(--cta))]/15 flex items-center justify-center">
+                      <FileText className="w-4 h-4 text-[hsl(var(--cta))]" />
+                    </div>
+                    Devis gratuit
+                  </DialogTitle>
+                  <DialogDescription className="text-xs">Rapide et sans engagement</DialogDescription>
+                </DialogHeader>
               </div>
 
-              {/* Steps */}
-              <StepIndicator step={step} totalSteps={totalSteps} />
-              <Progress value={progress} className="h-1 mb-1" />
+              <div className="px-5 pb-5 space-y-3">
+                {/* Step dots */}
+                <div className="flex items-center justify-center gap-3 py-1">
+                  {[1, 2, 3].map((s) => (
+                    <div key={s} className="flex items-center gap-2">
+                      <motion.div
+                        animate={{ 
+                          width: step === s ? 24 : 8,
+                          backgroundColor: step >= s ? "hsl(var(--cta))" : "hsl(var(--muted))"
+                        }}
+                        transition={{ duration: 0.3 }}
+                        className="h-2 rounded-full"
+                      />
+                    </div>
+                  ))}
+                </div>
 
-              {/* Step content */}
-              <div className="min-h-[260px] sm:min-h-[280px] flex flex-col">
+                {/* Step content */}
                 <AnimatePresence mode="wait" custom={direction}>
+                  {/* STEP 1 — Formation grid */}
                   {step === 1 && (
-                    <motion.div key="s1" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }} className="flex-1">
-                      <p className="font-semibold text-sm mb-2">Quelle formation vous intéresse ?</p>
-                      <div className="space-y-2 max-h-[240px] overflow-y-auto pr-1">
-                        {formations.map((f) => (
-                          <FormationCard key={f.value} f={f} selected={formation === f.value} onSelect={() => handleFormationSelect(f.value)} />
+                    <motion.div key="s1" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }}>
+                      <p className="font-semibold text-sm mb-3 text-center">Quelle formation vous intéresse ?</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        {formations.map((f, i) => (
+                          <motion.button
+                            key={f.value}
+                            type="button"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            onClick={() => handleFormationSelect(f.value)}
+                            className={cn(
+                              "relative flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 cursor-pointer transition-all text-center group",
+                              formation === f.value
+                                ? "border-primary bg-primary/5 shadow-md shadow-primary/10"
+                                : "border-border hover:border-primary/30 hover:shadow-sm"
+                            )}
+                          >
+                            <div className={cn(
+                              "w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center transition-transform group-hover:scale-110",
+                              f.color
+                            )}>
+                              <f.icon className={cn("h-5 w-5", formation === f.value ? "text-primary" : "text-foreground/70")} />
+                            </div>
+                            <span className={cn("font-bold text-xs leading-tight", formation === f.value && "text-primary")}>{f.label}</span>
+                            <span className="text-[10px] text-muted-foreground leading-tight">{f.desc}</span>
+                            {formation === f.value && (
+                              <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary flex items-center justify-center"
+                              >
+                                <CheckCircle2 className="h-3 w-3 text-white" />
+                              </motion.div>
+                            )}
+                          </motion.button>
                         ))}
                       </div>
                     </motion.div>
                   )}
 
+                  {/* STEP 2 — Contact */}
                   {step === 2 && (
-                    <motion.div key="s2" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }} className="flex-1">
-                      <p className="font-semibold text-sm mb-2">Vos coordonnées</p>
+                    <motion.div key="s2" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }}>
+                      {selectedFormation && (
+                        <div className="flex items-center gap-2 mb-3 p-2 rounded-lg bg-primary/5 border border-primary/10">
+                          <selectedFormation.icon className="w-4 h-4 text-primary shrink-0" />
+                          <span className="text-xs font-medium text-primary">{selectedFormation.label}</span>
+                          <span className="text-xs text-muted-foreground">· {selectedFormation.desc}</span>
+                        </div>
+                      )}
                       <div className="grid grid-cols-2 gap-3">
                         {contactFields.slice(0, 2).map((field) => (
-                          <ContactField key={field.key} field={field} contact={contact} errors={errors} isSubmitting={isSubmitting} onChange={handleContactChange} />
+                          <div key={field.key} className="space-y-1">
+                            <Label className="text-xs font-medium">{field.label} *</Label>
+                            <div className="relative">
+                              <field.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
+                              <Input
+                                placeholder={field.placeholder}
+                                value={contact[field.key]}
+                                onChange={(e) => handleContactChange(field.key, e.target.value)}
+                                className={cn("pl-9 h-9 text-sm", errors[field.key] && "border-destructive")}
+                                disabled={isSubmitting}
+                              />
+                            </div>
+                            {errors[field.key] && <p className="text-[10px] text-destructive">{errors[field.key]}</p>}
+                          </div>
                         ))}
                       </div>
                       <div className="space-y-3 mt-3">
                         {contactFields.slice(2).map((field) => (
-                          <ContactField key={field.key} field={field} contact={contact} errors={errors} isSubmitting={isSubmitting} onChange={handleContactChange} />
+                          <div key={field.key} className="space-y-1">
+                            <Label className="text-xs font-medium">{field.label} *</Label>
+                            <div className="relative">
+                              <field.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
+                              <Input
+                                type={field.type}
+                                placeholder={field.placeholder}
+                                value={contact[field.key]}
+                                onChange={(e) => handleContactChange(field.key, e.target.value)}
+                                className={cn("pl-9 h-9 text-sm", errors[field.key] && "border-destructive")}
+                                disabled={isSubmitting}
+                              />
+                            </div>
+                            {errors[field.key] && <p className="text-[10px] text-destructive">{errors[field.key]}</p>}
+                          </div>
                         ))}
                       </div>
                     </motion.div>
                   )}
 
+                  {/* STEP 3 — Message + Recap */}
                   {step === 3 && (
-                    <motion.div key="s3" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }} className="flex-1">
-                      <p className="font-semibold text-sm mb-2">Précisez votre demande (optionnel)</p>
+                    <motion.div key="s3" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }}>
                       <Textarea
-                        placeholder="Questions, disponibilités, besoins particuliers..."
+                        placeholder="Questions, disponibilités, besoins particuliers... (optionnel)"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="resize-none h-24"
+                        className="resize-none h-20 text-sm"
                         disabled={isSubmitting}
                         maxLength={1000}
                       />
-                      {/* Recap */}
                       <motion.div
-                        initial={{ opacity: 0, y: 8 }}
+                        initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.15 }}
-                        className="mt-3 p-3 bg-primary/5 border border-primary/10 rounded-xl text-sm space-y-1.5"
+                        transition={{ delay: 0.1 }}
+                        className="mt-3 p-3 rounded-xl bg-gradient-to-br from-primary/5 to-[hsl(var(--cta))]/5 border border-primary/10 text-sm space-y-2"
                       >
-                        <p className="font-semibold text-foreground flex items-center gap-1.5">
+                        <p className="font-bold text-foreground flex items-center gap-1.5 text-xs">
                           <Sparkles className="w-3.5 h-3.5 text-[hsl(var(--cta))]" />
-                          Récapitulatif
+                          Récapitulatif de votre demande
                         </p>
                         {selectedFormation && (
                           <div className="flex items-center gap-2">
-                            <selectedFormation.icon className="w-4 h-4 text-primary shrink-0" />
-                            <span className="text-muted-foreground">
-                              <strong className="text-foreground">{selectedFormation.label}</strong> – {selectedFormation.desc}
-                            </span>
+                            <div className={cn("w-7 h-7 rounded-lg bg-gradient-to-br flex items-center justify-center", selectedFormation.color)}>
+                              <selectedFormation.icon className="w-3.5 h-3.5 text-primary" />
+                            </div>
+                            <div>
+                              <p className="font-semibold text-xs text-foreground">{selectedFormation.label}</p>
+                              <p className="text-[10px] text-muted-foreground">{selectedFormation.desc}</p>
+                            </div>
                           </div>
                         )}
-                        <p className="text-muted-foreground">
-                          👤 <strong className="text-foreground">{contact.firstName} {contact.lastName}</strong>
-                        </p>
-                        <p className="text-muted-foreground text-xs">
-                          📧 {contact.email} · 📱 {contact.phone}
-                        </p>
+                        <div className="flex items-center gap-4 text-xs text-muted-foreground pt-1 border-t border-border/50">
+                          <span>👤 {contact.firstName} {contact.lastName}</span>
+                          <span>📧 {contact.email}</span>
+                        </div>
                       </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
 
-              {/* Navigation */}
-              <div className="flex gap-3 pt-2 border-t border-border/50">
-                {step > 1 ? (
-                  <Button variant="ghost" size="sm" onClick={goBack} disabled={isSubmitting} className="text-muted-foreground">
-                    <ArrowLeft className="h-4 w-4 mr-1" /> Retour
-                  </Button>
-                ) : <div />}
-                <div className="flex-1" />
-                {step < totalSteps ? (
-                  <Button onClick={goNext} disabled={step === 1 && !formation} className="btn-cta-orange" size="sm">
-                    Suivant <ArrowRight className="h-4 w-4 ml-1" />
-                  </Button>
-                ) : (
-                  <Button onClick={handleSubmit} disabled={isSubmitting} className="btn-cta-orange" size="sm">
-                    {isSubmitting ? (
-                      <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Envoi...</>
-                    ) : (
-                      <><Send className="h-4 w-4 mr-2" />Envoyer ma demande</>
-                    )}
-                  </Button>
-                )}
-              </div>
+                {/* Navigation */}
+                <div className="flex items-center gap-3 pt-2">
+                  {step > 1 ? (
+                    <Button variant="ghost" size="sm" onClick={goBack} disabled={isSubmitting} className="text-muted-foreground hover:text-foreground">
+                      <ArrowLeft className="h-4 w-4 mr-1" /> Retour
+                    </Button>
+                  ) : <div />}
+                  <div className="flex-1" />
+                  {step < totalSteps ? (
+                    <Button onClick={goNext} disabled={step === 1 && !formation} className="btn-cta-orange rounded-full px-6" size="sm">
+                      Suivant <ArrowRight className="h-4 w-4 ml-1" />
+                    </Button>
+                  ) : (
+                    <Button onClick={handleSubmit} disabled={isSubmitting} className="btn-cta-orange rounded-full px-6" size="sm">
+                      {isSubmitting ? (
+                        <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Envoi...</>
+                      ) : (
+                        <><Send className="h-4 w-4 mr-2" />Envoyer</>
+                      )}
+                    </Button>
+                  )}
+                </div>
 
-              <p className="text-[10px] sm:text-xs text-muted-foreground text-center">
-                Vos données sont traitées conformément au RGPD · Sans engagement
-              </p>
+                {/* Trust line */}
+                <div className="flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground">
+                  <Clock className="w-3 h-3" />
+                  <span>Réponse sous 24h · Sans engagement · RGPD</span>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
