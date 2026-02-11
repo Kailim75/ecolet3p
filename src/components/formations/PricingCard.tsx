@@ -29,6 +29,9 @@ const PricingCard = ({ title, price, duration, features, onRegister }: PricingCa
         <p className="text-sm text-muted-foreground mt-1">
           Soit <span className="font-semibold text-foreground">{monthly.toFixed(2)}€/mois</span> en 4× sans frais
         </p>
+        <p className="text-xs font-semibold text-primary mt-2">
+          ✓ Frais d'examen de 241€ inclus
+        </p>
       </div>
 
       {features && features.length > 0 && (
