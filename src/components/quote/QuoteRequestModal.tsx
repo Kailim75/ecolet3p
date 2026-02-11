@@ -5,70 +5,39 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Progress } from "@/components/ui/progress";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  User, 
-  Mail, 
-  Phone,
-  CheckCircle2, 
-  Loader2,
-  GraduationCap,
-  FileText,
-  X,
-  Sparkles
+import {
+  User, Mail, Phone, CheckCircle2, Loader2,
+  FileText, Sparkles, ArrowLeft, ArrowRight, Send,
+  CarTaxiFront, Car, Bike, BookOpen, RefreshCw, Shield,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
-// Validation schema
-const quoteSchema = z.object({
-  firstName: z.string()
-    .trim()
-    .min(2, "Le prénom doit contenir au moins 2 caractères")
-    .max(50, "Le prénom ne peut pas dépasser 50 caractères"),
-  lastName: z.string()
-    .trim()
-    .min(2, "Le nom doit contenir au moins 2 caractères")
-    .max(50, "Le nom ne peut pas dépasser 50 caractères"),
-  email: z.string()
-    .trim()
-    .email("Veuillez entrer une adresse email valide")
-    .max(100, "L'email ne peut pas dépasser 100 caractères"),
-  phone: z.string()
-    .trim()
-    .min(10, "Le numéro de téléphone doit contenir au moins 10 chiffres")
-    .max(15, "Le numéro de téléphone ne peut pas dépasser 15 caractères"),
-  formationChoice: z.string()
-    .min(1, "Veuillez sélectionner une formation"),
-  message: z.string().optional(),
-});
-
-type QuoteData = z.infer<typeof quoteSchema>;
-
 const formations = [
-  { value: "taxi", label: "Formation TAXI Initiale (182h)" },
-  { value: "vtc", label: "Formation VTC Initiale (182h)" },
-  { value: "vmdtr", label: "Formation VMDTR - Moto Taxi" },
-  { value: "passerelle-taxi-vtc", label: "Passerelle TAXI → VTC (14h)" },
-  { value: "passerelle-vtc-taxi", label: "Passerelle VTC → TAXI (14h)" },
-  { value: "mobilite", label: "Formation Mobilité (35h)" },
-  { value: "continue-vtc", label: "Formation Continue VTC (14h)" },
-  { value: "continue-taxi", label: "Formation Continue TAXI (14h)" },
-  { value: "recup-points", label: "Stage Récupération de Points" },
+  { value: "taxi", label: "Formation TAXI Initiale (182h)", icon: CarTaxiFront },
+  { value: "vtc", label: "Formation VTC Initiale (182h)", icon: Car },
+  { value: "vmdtr", label: "Formation VMDTR – Moto Taxi", icon: Bike },
+  { value: "mobilite", label: "Formation Mobilité (35h)", icon: BookOpen },
+  { value: "continue", label: "Formation Continue (14h)", icon: RefreshCw },
+  { value: "recup-points", label: "Stage Récupération de Points", icon: Shield },
 ];
+
+const contactSchema = z.object({
+  firstName: z.string().trim().min(2, "Prénom requis (min 2 caractères)"),
+  lastName: z.string().trim().min(2, "Nom requis (min 2 caractères)"),
+  email: z.string().trim().email("Email invalide"),
+  phone: z.string().trim().min(10, "Numéro invalide (min 10 chiffres)"),
+});
 
 // Context for global modal access
 interface QuoteModalContextType {
@@ -108,8 +77,8 @@ export const QuoteModalProvider = ({ children }: QuoteModalProviderProps) => {
   return (
     <QuoteModalContext.Provider value={{ openQuoteModal, closeQuoteModal, isOpen }}>
       {children}
-      <QuoteRequestModal 
-        isOpen={isOpen} 
+      <QuoteRequestModal
+        isOpen={isOpen}
         onClose={closeQuoteModal}
         preselectedFormation={preselectedFormation}
       />
@@ -125,352 +94,268 @@ interface QuoteRequestModalProps {
 
 const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: QuoteRequestModalProps) => {
   const { toast } = useToast();
+  const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [errors, setErrors] = useState<Partial<Record<keyof QuoteData, string>>>({});
-  const [formData, setFormData] = useState<Partial<QuoteData>>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    formationChoice: preselectedFormation,
-    message: "",
-  });
 
-  // Update formation when preselected changes
+  const [formation, setFormation] = useState(preselectedFormation);
+  const [contact, setContact] = useState({ firstName: "", lastName: "", email: "", phone: "" });
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const totalSteps = 3;
+  const progress = (step / totalSteps) * 100;
+
   useEffect(() => {
     if (preselectedFormation) {
-      setFormData(prev => ({ ...prev, formationChoice: preselectedFormation }));
+      setFormation(preselectedFormation);
     }
   }, [preselectedFormation]);
 
-  const handleInputChange = (field: keyof QuoteData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }));
-    }
+  const canNext = () => {
+    if (step === 1) return !!formation;
+    return true;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrors({});
-
-    const result = quoteSchema.safeParse(formData);
-    
+  const handleSubmit = async () => {
+    const result = contactSchema.safeParse(contact);
     if (!result.success) {
-      const fieldErrors: Partial<Record<keyof QuoteData, string>> = {};
-      result.error.errors.forEach((error) => {
-        const field = error.path[0] as keyof QuoteData;
-        fieldErrors[field] = error.message;
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((e) => {
+        fieldErrors[e.path[0] as string] = e.message;
       });
       setErrors(fieldErrors);
       return;
     }
-
+    setErrors({});
     setIsSubmitting(true);
 
     try {
-      // Insert into pre_registrations table
-      const { error: dbError } = await supabase
-        .from('pre_registrations')
+      const formationLabel = formations.find((f) => f.value === formation)?.label || formation;
+
+      const { data: insertedData, error: dbError } = await supabase
+        .from("pre_registrations")
         .insert({
           first_name: result.data.firstName,
           last_name: result.data.lastName,
           email: result.data.email,
           phone: result.data.phone,
-          formation_title: formations.find(f => f.value === result.data.formationChoice)?.label || result.data.formationChoice,
-          formation_duration: "À déterminer",
-        });
+          formation_title: formationLabel,
+          formation_duration: "Devis demandé",
+        })
+        .select()
+        .single();
 
-      if (dbError) {
-        console.error('Database error:', dbError);
-        toast({
-          title: "Erreur",
-          description: "Une erreur est survenue. Veuillez réessayer.",
-          variant: "destructive",
-        });
-        setIsSubmitting(false);
-        return;
-      }
+      if (dbError) throw dbError;
 
-      // Send notification email
       try {
-        await supabase.functions.invoke('notify-new-registration', {
+        await supabase.functions.invoke("notify-new-registration", {
           body: {
             firstName: result.data.firstName,
             lastName: result.data.lastName,
             email: result.data.email,
             phone: result.data.phone,
-            formationTitle: formations.find(f => f.value === result.data.formationChoice)?.label || result.data.formationChoice,
-            message: result.data.message,
-          }
+            formationTitle: formationLabel,
+            message,
+          },
         });
-      } catch (emailError) {
-        console.error('Failed to send notification:', emailError);
+      } catch {
+        // Non-blocking
       }
 
-      setIsSubmitting(false);
       setIsSuccess(true);
+      toast({ title: "Demande envoyée !", description: "Nous vous recontacterons sous 24h." });
 
-      toast({
-        title: "Demande envoyée !",
-        description: "Nous vous recontacterons sous 24h.",
-      });
-
-      // Reset and close after showing success
       setTimeout(() => {
-        setIsSuccess(false);
-        setFormData({ firstName: "", lastName: "", email: "", phone: "", formationChoice: "", message: "" });
-        onClose();
+        resetAndClose();
       }, 2500);
-    } catch (error) {
-      console.error('Submission error:', error);
-      toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
-        variant: "destructive",
-      });
+    } catch {
+      toast({ title: "Erreur", description: "Veuillez réessayer.", variant: "destructive" });
+    } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Calculate form completion for progress indicator
-  const getFormProgress = () => {
-    let filled = 0;
-    if (formData.firstName && formData.firstName.length >= 2) filled++;
-    if (formData.lastName && formData.lastName.length >= 2) filled++;
-    if (formData.email && formData.email.includes("@")) filled++;
-    if (formData.phone && formData.phone.length >= 10) filled++;
-    if (formData.formationChoice) filled++;
-    return Math.round((filled / 5) * 100);
+  const resetAndClose = () => {
+    setStep(1);
+    setFormation(preselectedFormation || "");
+    setContact({ firstName: "", lastName: "", email: "", phone: "" });
+    setMessage("");
+    setErrors({});
+    setIsSuccess(false);
+    onClose();
   };
 
-  const progress = getFormProgress();
+  const slideVariant = {
+    enter: { opacity: 0, x: 40 },
+    center: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -40 },
+  };
+
+  const stepLabels = [
+    { num: 1, label: "Formation" },
+    { num: 2, label: "Coordonnées" },
+    { num: 3, label: "Message" },
+  ];
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-xl md:text-2xl font-bold text-forest">
-            <FileText className="w-5 h-5 md:w-6 md:h-6 text-gold" />
-            Demander un devis gratuit
-          </DialogTitle>
-        </DialogHeader>
-
-        <AnimatePresence mode="wait">
-          {isSuccess ? (
-            <motion.div 
-              key="success"
-              className="py-8 text-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+    <Dialog open={isOpen} onOpenChange={() => !isSubmitting && resetAndClose()}>
+      <DialogContent className="max-w-md bg-card">
+        {isSuccess ? (
+          <motion.div className="py-8 text-center" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+              className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
-                className="w-20 h-20 rounded-full bg-forest/10 flex items-center justify-center mx-auto mb-4"
-              >
-                <CheckCircle2 className="w-10 h-10 text-forest" />
-              </motion.div>
-              <h3 className="text-xl font-bold text-forest mb-2">Demande envoyée !</h3>
-              <p className="text-muted-foreground">
-                Nous vous recontacterons sous 24h.
-              </p>
+              <CheckCircle2 className="w-10 h-10 text-primary" />
             </motion.div>
-          ) : (
-            <motion.form 
-              key="form"
-              onSubmit={handleSubmit} 
-              className="space-y-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* Progress bar */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>Progression</span>
-                  <span className="font-medium text-forest">{progress}%</span>
-                </div>
-                <div className="h-2 bg-muted rounded-full overflow-hidden">
-                  <motion.div 
-                    className="h-full bg-gradient-to-r from-forest to-gold rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              </div>
+            <h3 className="text-xl font-bold text-primary mb-2">Demande envoyée !</h3>
+            <p className="text-muted-foreground">Notre équipe vous contactera sous 24h.</p>
+          </motion.div>
+        ) : (
+          <>
+            <DialogHeader>
+              <DialogTitle className="flex items-center gap-2 text-xl font-black text-primary">
+                <FileText className="w-5 h-5 text-[hsl(var(--cta))]" />
+                Devis gratuit en 3 étapes
+              </DialogTitle>
+              <DialogDescription>Rapide et sans engagement</DialogDescription>
+            </DialogHeader>
 
-              {/* Reassurance banner */}
-              <div className="flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-lg p-3 text-sm">
-                <Sparkles className="w-4 h-4 text-gold shrink-0" />
-                <span className="text-forest">
-                  <strong>Réponse sous 24h</strong> – Devis gratuit et sans engagement
-                </span>
-              </div>
+            {/* Reassurance banner */}
+            <div className="flex items-center gap-2 bg-[hsl(var(--cta))]/10 border border-[hsl(var(--cta))]/20 rounded-lg p-2.5 text-sm">
+              <Sparkles className="w-4 h-4 text-[hsl(var(--cta))] shrink-0" />
+              <span><strong>Réponse sous 24h</strong> – Sans engagement</span>
+            </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {/* First Name */}
-                <div className="space-y-1.5">
-                  <Label htmlFor="quote-firstName" className="text-sm font-medium text-forest">
-                    Prénom *
-                  </Label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      id="quote-firstName"
-                      placeholder="Jean"
-                      value={formData.firstName}
-                      onChange={(e) => handleInputChange("firstName", e.target.value)}
-                      className={cn("pl-9 h-10", errors.firstName && "border-destructive")}
-                      disabled={isSubmitting}
-                    />
+            {/* Step indicator */}
+            <div className="flex items-center gap-2 mb-1">
+              {stepLabels.map((s, i) => (
+                <div key={s.num} className="flex items-center gap-2 flex-1">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-colors ${
+                    step >= s.num
+                      ? "bg-[hsl(var(--cta))] text-white"
+                      : "bg-muted text-muted-foreground"
+                  }`}>
+                    {step > s.num ? <CheckCircle2 className="h-4 w-4" /> : s.num}
                   </div>
-                  {errors.firstName && (
-                    <p className="text-xs text-destructive">{errors.firstName}</p>
-                  )}
+                  <span className={`text-xs font-medium hidden sm:block ${step >= s.num ? "text-foreground" : "text-muted-foreground"}`}>
+                    {s.label}
+                  </span>
+                  {i < 2 && <div className={`flex-1 h-0.5 ${step > s.num ? "bg-[hsl(var(--cta))]" : "bg-muted"}`} />}
                 </div>
+              ))}
+            </div>
+            <Progress value={progress} className="h-1.5 mb-2" />
 
-                {/* Last Name */}
-                <div className="space-y-1.5">
-                  <Label htmlFor="quote-lastName" className="text-sm font-medium text-forest">
-                    Nom *
-                  </Label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      id="quote-lastName"
-                      placeholder="Dupont"
-                      value={formData.lastName}
-                      onChange={(e) => handleInputChange("lastName", e.target.value)}
-                      className={cn("pl-9 h-10", errors.lastName && "border-destructive")}
-                      disabled={isSubmitting}
-                    />
+            <AnimatePresence mode="wait">
+              {/* Step 1: Formation choice */}
+              {step === 1 && (
+                <motion.div key="s1" variants={slideVariant} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+                  <p className="font-semibold mb-3">Quelle formation vous intéresse ?</p>
+                  <RadioGroup value={formation} onValueChange={setFormation} className="space-y-2">
+                    {formations.map((f) => (
+                      <label
+                        key={f.value}
+                        className={`flex items-center gap-3 p-3 rounded-xl border-2 cursor-pointer transition-all ${
+                          formation === f.value
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/40"
+                        }`}
+                      >
+                        <RadioGroupItem value={f.value} />
+                        <f.icon className="h-5 w-5 text-primary shrink-0" />
+                        <span className="font-medium text-sm">{f.label}</span>
+                      </label>
+                    ))}
+                  </RadioGroup>
+                </motion.div>
+              )}
+
+              {/* Step 2: Contact info */}
+              {step === 2 && (
+                <motion.div key="s2" variants={slideVariant} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+                  <p className="font-semibold mb-3">Vos coordonnées</p>
+                  <div className="space-y-3">
+                    {([
+                      { key: "firstName", label: "Prénom", icon: User, placeholder: "Jean" },
+                      { key: "lastName", label: "Nom", icon: User, placeholder: "Dupont" },
+                      { key: "email", label: "Email", icon: Mail, placeholder: "jean@email.com", type: "email" },
+                      { key: "phone", label: "Téléphone", icon: Phone, placeholder: "06 12 34 56 78", type: "tel" },
+                    ] as const).map((field) => (
+                      <div key={field.key} className="space-y-1">
+                        <Label className="text-sm">{field.label} *</Label>
+                        <div className="relative">
+                          <field.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                          <Input
+                            type={(field as any).type || "text"}
+                            placeholder={field.placeholder}
+                            value={contact[field.key]}
+                            onChange={(e) => {
+                              setContact((p) => ({ ...p, [field.key]: e.target.value }));
+                              if (errors[field.key]) setErrors((p) => ({ ...p, [field.key]: "" }));
+                            }}
+                            className={`pl-10 ${errors[field.key] ? "border-destructive" : ""}`}
+                            disabled={isSubmitting}
+                          />
+                        </div>
+                        {errors[field.key] && <p className="text-xs text-destructive">{errors[field.key]}</p>}
+                      </div>
+                    ))}
                   </div>
-                  {errors.lastName && (
-                    <p className="text-xs text-destructive">{errors.lastName}</p>
+                </motion.div>
+              )}
+
+              {/* Step 3: Optional message */}
+              {step === 3 && (
+                <motion.div key="s3" variants={slideVariant} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
+                  <p className="font-semibold mb-3">Un message ? (optionnel)</p>
+                  <Textarea
+                    placeholder="Précisez vos besoins, questions ou disponibilités..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="resize-none h-28"
+                    disabled={isSubmitting}
+                  />
+                  <div className="mt-4 p-3 bg-primary/5 border border-primary/10 rounded-lg text-sm text-muted-foreground">
+                    <p className="font-medium text-foreground mb-1">📋 Récapitulatif</p>
+                    <p>Formation : <strong>{formations.find(f => f.value === formation)?.label}</strong></p>
+                    <p>Contact : <strong>{contact.firstName} {contact.lastName}</strong></p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Navigation buttons */}
+            <div className="flex gap-3 mt-4">
+              {step > 1 && (
+                <Button variant="outline" onClick={() => setStep((s) => s - 1)} disabled={isSubmitting}>
+                  <ArrowLeft className="h-4 w-4 mr-1" /> Retour
+                </Button>
+              )}
+              <div className="flex-1" />
+              {step < totalSteps ? (
+                <Button onClick={() => setStep((s) => s + 1)} disabled={!canNext()} className="btn-cta-orange">
+                  Suivant <ArrowRight className="h-4 w-4 ml-1" />
+                </Button>
+              ) : (
+                <Button onClick={handleSubmit} disabled={isSubmitting} className="btn-cta-orange">
+                  {isSubmitting ? (
+                    <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Envoi...</>
+                  ) : (
+                    <><Send className="h-4 w-4 mr-2" />Envoyer</>
                   )}
-                </div>
-              </div>
+                </Button>
+              )}
+            </div>
 
-              {/* Email */}
-              <div className="space-y-1.5">
-                <Label htmlFor="quote-email" className="text-sm font-medium text-forest">
-                  Email *
-                </Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    id="quote-email"
-                    type="email"
-                    placeholder="jean.dupont@email.com"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    className={cn("pl-9 h-10", errors.email && "border-destructive")}
-                    disabled={isSubmitting}
-                  />
-                </div>
-                {errors.email && (
-                  <p className="text-xs text-destructive">{errors.email}</p>
-                )}
-              </div>
-
-              {/* Phone */}
-              <div className="space-y-1.5">
-                <Label htmlFor="quote-phone" className="text-sm font-medium text-forest">
-                  Téléphone *
-                </Label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    id="quote-phone"
-                    type="tel"
-                    placeholder="06 12 34 56 78"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className={cn("pl-9 h-10", errors.phone && "border-destructive")}
-                    disabled={isSubmitting}
-                  />
-                </div>
-                {errors.phone && (
-                  <p className="text-xs text-destructive">{errors.phone}</p>
-                )}
-              </div>
-
-              {/* Formation Choice */}
-              <div className="space-y-1.5">
-                <Label className="text-sm font-medium text-forest">
-                  Formation souhaitée *
-                </Label>
-                <div className="relative">
-                  <GraduationCap className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground z-10" />
-                  <Select 
-                    value={formData.formationChoice} 
-                    onValueChange={(value) => handleInputChange("formationChoice", value)}
-                    disabled={isSubmitting}
-                  >
-                    <SelectTrigger className={cn("pl-9 h-10", errors.formationChoice && "border-destructive")}>
-                      <SelectValue placeholder="Sélectionnez une formation" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {formations.map((formation) => (
-                        <SelectItem key={formation.value} value={formation.value}>
-                          {formation.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                {errors.formationChoice && (
-                  <p className="text-xs text-destructive">{errors.formationChoice}</p>
-                )}
-              </div>
-
-              {/* Message (optional) */}
-              <div className="space-y-1.5">
-                <Label htmlFor="quote-message" className="text-sm font-medium text-forest">
-                  Message (optionnel)
-                </Label>
-                <Textarea
-                  id="quote-message"
-                  placeholder="Précisez vos besoins ou questions..."
-                  value={formData.message}
-                  onChange={(e) => handleInputChange("message", e.target.value)}
-                  className="resize-none h-20"
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              {/* Submit button */}
-              <Button 
-                type="submit" 
-                className="w-full btn-accent text-base py-5"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                    Envoi en cours...
-                  </>
-                ) : (
-                  <>
-                    <FileText className="w-5 h-5 mr-2" />
-                    Recevoir mon devis gratuit
-                  </>
-                )}
-              </Button>
-
-              {/* Legal notice */}
-              <p className="text-xs text-muted-foreground text-center">
-                Vos données sont traitées conformément au RGPD. 
-                Pas de spam, nous vous recontactons uniquement pour votre projet.
-              </p>
-            </motion.form>
-          )}
-        </AnimatePresence>
+            <p className="text-xs text-muted-foreground text-center mt-2">
+              Sans engagement. Vos données sont traitées conformément au RGPD.
+            </p>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   );
