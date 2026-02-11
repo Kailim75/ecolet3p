@@ -30,6 +30,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import PricingCard from "@/components/formations/PricingCard";
+import ExamProgramSection from "@/components/formations/ExamProgramSection";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
@@ -477,6 +478,8 @@ const FormationVTC = () => {
           </div>
         </div>
       </section>
+
+      <ExamProgramSection profession="vtc" />
 
       {/* Prérequis */}
       <section className="py-16 lg:py-24 bg-muted/30">

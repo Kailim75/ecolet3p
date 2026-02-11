@@ -30,6 +30,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
 import PricingCard from "@/components/formations/PricingCard";
+import ExamProgramSection from "@/components/formations/ExamProgramSection";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageVMDTR from "@/assets/formations/hero-vmdtr.jpg";
@@ -500,6 +501,8 @@ const FormationVMDTR = () => {
           </div>
         </div>
       </section>
+
+      <ExamProgramSection profession="vmdtr" />
 
       {/* Prérequis */}
       <section className="py-16 lg:py-24 bg-orange-500/5">
