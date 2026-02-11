@@ -12,6 +12,7 @@ import formationSession from "@/assets/center/formation-session.jpg";
 // Lazy load below-the-fold sections
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
+const TestimonialsCarousel = lazy(() => import("@/components/home/TestimonialsCarousel"));
 const AppointmentSection = lazy(() => import("@/components/home/AppointmentSection"));
 const CTASection = lazy(() => import("@/components/home/CTASection"));
 
@@ -178,6 +179,9 @@ const Index = () => {
       {/* Lazy loaded below-the-fold sections */}
       <Suspense fallback={<SectionSkeleton />}>
         <WhyChooseUsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <TestimonialsCarousel />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />
