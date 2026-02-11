@@ -9,6 +9,7 @@ interface Session {
   end_time: string;
   max_participants: number;
   current_participants: number;
+  formation_title?: string;
 }
 
 const fallbackSessions = [
@@ -51,6 +52,9 @@ const UpcomingSessionsCard = ({ sessions, onRegister }: UpcomingSessionsCardProp
                   className="border-l-4 border-[#D4A017] bg-white rounded-r-lg p-4 flex items-center justify-between"
                 >
                   <div>
+                    {session.formation_title && (
+                      <p className="text-xs font-semibold text-[#D4A017] mb-0.5">{session.formation_title}</p>
+                    )}
                     <p className="font-semibold capitalize">{formatDate(session.start_date)}</p>
                     <p className="text-sm text-muted-foreground">
                       {session.start_time} – {session.end_time}

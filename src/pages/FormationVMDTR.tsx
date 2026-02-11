@@ -117,36 +117,41 @@ const faqs = [
 
 const FormationVMDTR = () => {
   const [showPreRegistration, setShowPreRegistration] = useState(false);
-  const [vmdtrFormation, setVmdtrFormation] = useState<any>(null);
+  const [vmdtrFormations, setVmdtrFormations] = useState<any[]>([]);
   const [sessions, setSessions] = useState<any[]>([]);
 
+  const vmdtrFormation = vmdtrFormations.find(f => f.title?.toLowerCase().includes('initial')) || vmdtrFormations[0];
+  const soireeFormation = vmdtrFormations.find(f => f.title?.toLowerCase().includes('soirée'));
+
   useEffect(() => {
-    const fetchFormation = async () => {
+    const fetchFormations = async () => {
       const { data } = await supabase
         .from("formations")
         .select("*")
         .eq("category", "vmdtr")
         .eq("is_active", true)
-        .order("display_order")
-        .limit(1)
-        .maybeSingle();
+        .order("display_order");
       
-      if (data) {
-        setVmdtrFormation(data);
+      if (data && data.length > 0) {
+        setVmdtrFormations(data);
         
+        const formationIds = data.map(f => f.id);
         const { data: sessionsData } = await supabase
           .from("formation_sessions")
-          .select("*")
-          .eq("formation_id", data.id)
+          .select("*, formations(title)")
+          .in("formation_id", formationIds)
           .in("status", ["upcoming", "ongoing"])
           .order("start_date")
-          .limit(3);
+          .limit(6);
         
-        setSessions(sessionsData || []);
+        setSessions((sessionsData || []).map(s => ({
+          ...s,
+          formation_title: (s as any).formations?.title
+        })));
       }
     };
     
-    fetchFormation();
+    fetchFormations();
   }, []);
 
   const courseSchema = {
@@ -464,17 +469,30 @@ const FormationVMDTR = () => {
             ))}
           </div>
 
-          {/* Pricing Card */}
-          <div className="mt-12 max-w-md mx-auto">
+          {/* Pricing Cards */}
+          <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <PricingCard
-              title="Formation VMDTR Moto-Taxi"
-              price={vmdtrFormation?.price || 990}
-              duration="48h"
+              title="Formation VMDTR Journée"
+              price={vmdtrFormation?.price || 1190}
+              duration="63h"
               features={[
                 "Sécurité deux-roues renforcée",
                 "Réglementation VMDTR complète",
+                "Du lundi au vendredi 9h30-16h30",
                 "Mises en situation pratiques",
-                "Accompagnement post-formation",
+                "Paiement en 4× sans frais",
+              ]}
+              onRegister={() => setShowPreRegistration(true)}
+            />
+            <PricingCard
+              title="Formation VMDTR Soirée"
+              price={soireeFormation?.price || 990}
+              duration="33h"
+              features={[
+                "Sécurité deux-roues renforcée",
+                "Réglementation VMDTR complète",
+                "Du lundi au vendredi 18h-21h30",
+                "Compatible avec un emploi",
                 "Paiement en 4× sans frais",
               ]}
               onRegister={() => setShowPreRegistration(true)}
