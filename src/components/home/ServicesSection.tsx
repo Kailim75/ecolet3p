@@ -75,7 +75,8 @@ const ServicesSection = () => {
                 key={service.id}
                 variants={staggerItemVariants}
                 whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(27, 77, 62, 0.12)" }}
-                className="bg-card rounded-2xl p-6 border border-border/50 hover:border-gold/30 transition-all duration-300 text-center"
+                className="bg-card rounded-[16px] p-8 border border-border/50 hover:border-gold/30 transition-all duration-300 text-center"
+                style={{ boxShadow: "0 8px 32px rgba(27, 77, 62, 0.08)" }}
               >
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
