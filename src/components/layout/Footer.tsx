@@ -151,7 +151,7 @@ const Footer = () => {
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
             <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-              <p>© 2025 ECOLE T3P - Tous droits réservés</p>
+              <p>© 2026 ECOLE T3P - Tous droits réservés</p>
               <span className="hidden md:inline">|</span>
               <p>SIRET : 94856480200023</p>
               <span className="hidden md:inline">|</span>
