@@ -1,97 +1,54 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform, type Easing } from "framer-motion";
-import { Star } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star, Check, ArrowRight, Users } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
 
-const smoothEase: Easing = [0.22, 1, 0.36, 1];
+const smoothEase = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 10]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
-
   return (
-    <section ref={containerRef} className="relative min-h-[85vh] flex items-center hero-bg overflow-hidden pt-20">
-      {/* Parallax Background Elements */}
-      <motion.div 
-        style={{ y: y2, rotate, scale }}
-        className="absolute -top-32 -right-32 w-96 h-96 bg-forest/5 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y, rotate }}
-        className="absolute top-1/3 -left-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y2 }}
-        className="absolute bottom-20 right-1/4 w-48 h-48 bg-forest/5 rounded-full blur-2xl pointer-events-none"
-      />
-
-      {/* Vertical text */}
-      <motion.div 
-        className="hidden xl:block absolute left-8 top-1/2 -translate-y-1/2 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
-      >
-        <span 
-          className="text-forest/20 font-black text-sm uppercase tracking-[0.3em] block"
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-        >
-          ECOLE T3P
-        </span>
-      </motion.div>
-
-      <motion.div style={{ y, opacity }} className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="max-w-xl">
-            {/* Badge institutionnel */}
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 50%, #F5F5F5 100%)" }}>
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          {/* Left column - 60% */}
+          <div className="lg:col-span-3 max-w-xl">
+            {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: smoothEase }}
               className="mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-forest/10 rounded-full text-sm font-medium text-forest border border-forest/20">
-                Centre de formation agréé
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border" style={{ backgroundColor: "rgba(27,77,62,0.06)", borderColor: "rgba(27,77,62,0.15)", color: "#1B4D3E" }}>
+                <Check className="w-4 h-4" />
+                Centre agréé Préfecture 92
               </span>
             </motion.div>
 
-            {/* Titre institutionnel */}
+            {/* H1 */}
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-forest leading-[1.05] tracking-tight mb-6"
+              className="font-serif text-[32px] md:text-[40px] lg:text-[48px] leading-[1.15] tracking-tight mb-6"
+              style={{ color: "#1A1A1A" }}
             >
-              ECOLE T3P —{" "}
-              <motion.span 
-                className="text-gold inline-block"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
-              >
-                Formations & Services Transport
-              </motion.span>
+              Devenez chauffeur{" "}
+              <span className="text-forest">Taxi</span> ou{" "}
+              <span className="text-forest">VTC</span>
             </motion.h1>
 
-            {/* Sous-titre factuel */}
+            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: smoothEase }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6"
+              transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
+              className="text-lg leading-relaxed mb-6 max-w-[500px]"
+              style={{ color: "#555555" }}
             >
-              Formations initiales et continues • Mobilité taxi • Récupération de points • Examens
+              Formation professionnelle agréée à Montrouge. Accompagnement complet de l'inscription à l'obtention de votre carte professionnelle.
             </motion.p>
 
             {/* Google Reviews Badge */}
@@ -101,95 +58,109 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: smoothEase }}
-              whileHover={{ scale: 1.03 }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-forest/10 backdrop-blur-sm rounded-xl border border-forest/15 mb-8 hover:bg-forest/15 transition-colors"
+              transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
+              className="inline-flex items-center gap-3 px-4 py-3 bg-white rounded-xl border border-border/60 mb-6 hover:shadow-md transition-shadow"
+              style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}
             >
+              {/* Google G icon */}
+              <svg viewBox="0 0 24 24" className="w-5 h-5">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+                  <Star key={i} className="w-4 h-4 text-[#FBBC05] fill-[#FBBC05]" />
                 ))}
               </div>
-              <span className="font-bold text-forest text-sm">5.0/5</span>
-              <span className="text-muted-foreground text-sm">sur Google (359 avis)</span>
+              <span className="font-bold text-sm" style={{ color: "#1A1A1A" }}>5.0/5</span>
+              <span className="text-sm" style={{ color: "#555" }}>— 359 avis Google</span>
             </motion.a>
 
-            {/* CTA Buttons - Exploratoires */}
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: smoothEase }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 0.6, delay: 0.4, ease: smoothEase }}
+              className="flex flex-wrap gap-4 mb-4"
             >
-              <motion.div
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="inline-block"
-              >
-                <Button asChild className="btn-accent">
-                  <Link to="/formations">Voir toutes les formations</Link>
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="inline-block"
-              >
-                <Button asChild variant="outline" className="btn-secondary">
-                  <Link to="/services/location-vehicule-examen">Accéder aux services d'examen</Link>
-                </Button>
-              </motion.div>
+              <Button asChild className="btn-cta-orange px-8 py-4 text-base rounded-lg" style={{ boxShadow: "0 4px 14px rgba(230,126,34,0.35)" }}>
+                <Link to="/contact">
+                  S'inscrire à la formation <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="px-8 py-4 text-base rounded-lg border-2 font-bold" style={{ borderColor: "#1B4D3E", color: "#1B4D3E" }}>
+                <Link to="/formations">Voir les tarifs</Link>
+              </Button>
             </motion.div>
+
+            {/* Micro-text */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-sm flex flex-wrap gap-4"
+              style={{ color: "#777" }}
+            >
+              <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Financement CPF accepté</span>
+              <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Prochaine session : mars 2026</span>
+            </motion.p>
           </div>
 
-          {/* Right Side - Image */}
+          {/* Right column - 40% */}
           <motion.div
-            initial={{ opacity: 0, x: 80 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: smoothEase }}
-            className="relative hidden lg:block"
+            transition={{ duration: 0.8, delay: 0.3, ease: smoothEase }}
+            className="lg:col-span-2 relative hidden lg:block"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: '4/3' }}>
+            <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.1)" }}>
               <img
                 src={formationSession}
-                alt="Session de formation ECOLE T3P - Chauffeurs professionnels en cours"
+                alt="Session de formation ECOLE T3P — Chauffeurs professionnels en cours de formation à Montrouge"
                 width={800}
                 height={600}
-                className="w-full h-[500px] object-cover transition-transform duration-600 hover:scale-105"
+                className="w-full h-[480px] object-cover"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
 
-            {/* Bloc réassurance institutionnel */}
+            {/* Floating card */}
             <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.8 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1, type: "spring", stiffness: 200 }}
-              whileHover={{ y: -5 }}
-              className="absolute -left-8 top-1/4 bg-card rounded-xl shadow-xl p-5 border border-border"
+              transition={{ duration: 0.6, delay: 0.8, type: "spring", stiffness: 200 }}
+              className="absolute -bottom-6 -left-8 bg-white rounded-xl p-4 border border-border/40"
+              style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.1)" }}
             >
-              <div className="space-y-2 text-sm text-forest">
-                <p className="flex items-center gap-2">
-                  <span className="text-gold">✔</span> Formation conforme à la réglementation
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="text-gold">✔</span> Accompagnement jusqu'à la carte pro
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="text-gold">✔</span> Formateurs expérimentés et agréés
-                </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-forest/10 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-forest" />
+                </div>
+                <div>
+                  <p className="font-bold text-forest text-sm">+1200 élèves formés</p>
+                  <p className="text-xs" style={{ color: "#777" }}>depuis 2014</p>
+                </div>
               </div>
+              {/* Mini progress bar */}
+              <div className="mt-3 w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: "94%" }}
+                  transition={{ duration: 1.5, delay: 1.2, ease: smoothEase }}
+                  className="h-full rounded-full"
+                  style={{ background: "linear-gradient(90deg, #1B4D3E, #D4A853)" }}
+                />
+              </div>
+              <p className="text-xs mt-1" style={{ color: "#999" }}>94% de taux de réussite</p>
             </motion.div>
           </motion.div>
         </div>
-      </motion.div>
-
-      <div className="absolute top-20 right-0 w-1/3 h-full bg-forest/5 -skew-x-12 transform origin-top-right" />
+      </div>
     </section>
   );
 };

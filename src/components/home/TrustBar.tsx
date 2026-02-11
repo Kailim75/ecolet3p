@@ -1,28 +1,36 @@
-import { Star, TrendingUp, ShieldCheck, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const stats = [
-  { icon: Star, label: "5.0/5", sublabel: "(359 avis)", color: "text-gold" },
-  { icon: TrendingUp, label: "94%", sublabel: "de réussite", color: "text-forest" },
-  { icon: ShieldCheck, label: "Agréé", sublabel: "Préfecture 92", color: "text-forest" },
-  { icon: Users, label: "+500", sublabel: "élèves formés", color: "text-forest" },
+  { icon: "🏛️", label: "Agréé Préfecture 92" },
+  { icon: "📋", label: "N° agrément 23/007" },
+  { icon: "⭐", label: "5.0/5 Google (359 avis)" },
+  { icon: "👨‍🎓", label: "+1200 élèves formés" },
 ];
 
 const TrustBar = () => (
-  <div className="bg-[#F0F5F3] border-y border-forest/10">
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="bg-white border-y border-border/40"
+  >
     <div className="container-custom py-4">
-      <div className="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-16">
-        {stats.map((stat) => (
-          <div key={stat.label} className="flex items-center gap-2.5">
-            <stat.icon className={`w-5 h-5 ${stat.color} flex-shrink-0`} />
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-bold text-forest text-sm md:text-base">{stat.label}</span>
-              <span className="text-muted-foreground text-xs md:text-sm">{stat.sublabel}</span>
+      <div className="flex flex-wrap justify-center gap-x-0 gap-y-3">
+        {stats.map((stat, i) => (
+          <div key={stat.label} className="flex items-center">
+            <div className="flex items-center gap-2 px-4 md:px-6">
+              <span className="text-base">{stat.icon}</span>
+              <span className="text-[13px] font-medium" style={{ color: "#666" }}>{stat.label}</span>
             </div>
+            {i < stats.length - 1 && (
+              <div className="hidden md:block w-px h-4 bg-border" />
+            )}
           </div>
         ))}
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default TrustBar;
