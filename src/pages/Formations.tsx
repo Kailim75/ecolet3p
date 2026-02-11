@@ -297,7 +297,7 @@ const Formations = () => {
           >
             <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-gold/20 text-cream">
               <GraduationCap className="w-4 h-4" />
-              {formations.length} formations certifiantes
+              {formations.length} formations professionnelles
             </span>
           </motion.div>
           
@@ -329,9 +329,10 @@ const Formations = () => {
             className="flex flex-wrap justify-center gap-6 md:gap-10"
           >
             {[
-              { value: "96%", label: "Taux de réussite" },
+              { value: "94%", label: "Taux de réussite" },
               { value: "10+", label: "Ans d'expérience" },
-              { value: "4x", label: "Sans frais" }
+              { value: "4x", label: "Sans frais" },
+              { value: "5.0/5", label: "359 avis Google", icon: "star" }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -490,6 +491,23 @@ const Formations = () => {
                       </div>
                     </div>
 
+                    {/* VMDTR subtitle */}
+                    {formation.category === "vmdtr" && !formation.title.toLowerCase().includes("continue") && (
+                      <p className="text-xs text-muted-foreground mt-1 text-center italic">
+                        Inclut le tronc commun VTC + module spécifique VMDTR
+                      </p>
+                    )}
+
+                    {/* Mobilité Géographique badge */}
+                    {formation.category === "mobilite" && (
+                      <div className="mt-2 flex justify-center">
+                        <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-200">
+                          <MapPin className="w-3 h-3" />
+                          Géographique
+                        </span>
+                      </div>
+                    )}
+
                     {/* Features preview */}
                     {formation.features && formation.features.length > 0 && (
                       <div className="mb-4 space-y-1">
@@ -540,6 +558,18 @@ const Formations = () => {
                         >
                           <Link to={getFormationDetailRoute(formation.category)!}>
                             En savoir plus sur la formation {getCategoryLabel(formation.category)}
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      )}
+                      {formation.category === "tpmr" && (
+                        <Button 
+                          variant="ghost" 
+                          className="w-full text-forest hover:text-gold hover:bg-gold/10"
+                          asChild
+                        >
+                          <Link to="/contact?subject=Je+souhaite+des+informations+sur+la+formation+TPMR">
+                            En savoir plus
                             <ArrowRight className="w-4 h-4 ml-2" />
                           </Link>
                         </Button>
