@@ -177,7 +177,13 @@ const FormationVMDTR = () => {
     })),
     "educationalCredentialAwarded": "Carte Professionnelle VMDTR",
     "timeRequired": "PT48H",
-    "occupationalCategory": "Moto-Taxi VMDTR"
+    "occupationalCategory": "Moto-Taxi VMDTR",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5"
+    }
   };
 
   const faqSchema = {

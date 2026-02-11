@@ -7,7 +7,13 @@ import {
   MapPin, Clock, Train, Bus, CheckCircle2, ArrowRight, 
   GraduationCap, Phone, Calendar, Star
 } from "lucide-react";
-import { getCityBySlug, cities } from "@/data/localSeoData";
+import { getCityBySlug, cities, getLocalFaqs } from "@/data/localSeoData";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const FormationVille = () => {
   const { ville } = useParams<{ ville: string }>();
@@ -107,6 +113,21 @@ const FormationVille = () => {
     ]
   };
 
+  const localFaqs = getLocalFaqs(city);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": localFaqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   // Get nearby cities for internal linking
   const nearbyCities = cities
     .filter(c => c.slug !== city.slug)
@@ -137,6 +158,7 @@ const FormationVille = () => {
         
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -414,6 +436,37 @@ const FormationVille = () => {
               </Button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ locale */}
+      <section className="section-padding bg-cream">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl md:text-4xl font-black text-forest uppercase tracking-tight mb-4">
+              Questions fréquentes — <span className="text-gold">{city.name}</span>
+            </h2>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {localFaqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`} className="bg-background rounded-lg border px-6">
+                  <AccordionTrigger className="text-left font-medium">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </section>
 

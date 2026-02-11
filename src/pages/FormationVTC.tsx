@@ -193,7 +193,13 @@ const FormationVTC = () => {
     "timeRequired": "PT63H",
     "occupationalCategory": "Chauffeur VTC",
     "coursePrerequisites": "Permis B de plus de 3 ans",
-    "inLanguage": "fr"
+    "inLanguage": "fr",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5"
+    }
   };
 
   const faqSchema = {

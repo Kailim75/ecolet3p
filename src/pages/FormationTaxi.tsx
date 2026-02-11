@@ -186,7 +186,13 @@ const FormationTaxi = () => {
     })),
     "educationalCredentialAwarded": "Carte Professionnelle Taxi",
     "timeRequired": "PT63H",
-    "occupationalCategory": "Chauffeur de Taxi"
+    "occupationalCategory": "Chauffeur de Taxi",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5"
+    }
   };
 
   const faqSchema = {

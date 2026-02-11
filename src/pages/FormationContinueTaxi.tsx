@@ -83,7 +83,26 @@ const FormationContinueTaxi = () => {
       "price": "239",
       "priceCurrency": "EUR"
     },
-    "timeRequired": "PT14H"
+    "timeRequired": "PT14H",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "359",
+      "bestRating": "5"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
   };
 
   return (
@@ -93,6 +112,7 @@ const FormationContinueTaxi = () => {
         <meta name="description" content="Formation continue obligatoire Taxi 14h à Montrouge. Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture des Hauts-de-Seine." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/continue-taxi" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
