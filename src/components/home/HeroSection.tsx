@@ -9,14 +9,14 @@ const smoothEase = [0.22, 1, 0.36, 1] as const;
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FDF8F0 100%)" }}>
+    <section className="relative min-h-screen flex items-center pt-20 xl:pt-12 overflow-hidden" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FDF8F0 100%)" }}>
       {/* Decorative circle */}
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(212,168,83,0.05) 0%, transparent 70%)" }} />
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Left column - 60% */}
-          <div className="lg:col-span-3 max-w-xl">
+          <div className="lg:col-span-3 max-w-xl xl:max-w-2xl">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
-              className="font-serif text-[32px] md:text-[40px] lg:text-[48px] leading-[1.15] tracking-tight mb-6"
+              className="font-serif text-[32px] md:text-[40px] lg:text-[48px] xl:text-[56px] leading-[1.15] tracking-tight mb-6"
               style={{ color: "#1A1A1A" }}
             >
               Devenez chauffeur{" "}
@@ -49,7 +49,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: smoothEase }}
-              className="text-lg leading-relaxed mb-6 max-w-[500px]"
+              className="text-lg xl:text-xl leading-relaxed mb-6 max-w-[500px] xl:max-w-[560px]"
               style={{ color: "#4B5563" }}
             >
               Formation professionnelle agréée à Montrouge. Accompagnement complet de l'inscription à l'obtention de votre carte professionnelle.
@@ -137,7 +137,7 @@ const HeroSection = () => {
                 alt="Session de formation ECOLE T3P — Chauffeurs professionnels en cours de formation à Montrouge"
                 width={800}
                 height={600}
-                className="w-full h-[480px] object-cover"
+                className="w-full h-[480px] xl:h-[560px] object-cover"
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
