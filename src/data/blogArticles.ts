@@ -66,7 +66,7 @@ Le statut d'**auto-entrepreneur** est le plus simple et le plus populaire pour d
 ✅ **Création rapide** : Inscription en ligne en 15 minutes
 ✅ **Comptabilité simplifiée** : Pas de bilan, juste un livre de recettes
 ✅ **Charges proportionnelles** : 21,2% du CA (cotisations sociales + formation)
-✅ **Franchise de TVA** : Pas de TVA à facturer sous 36 800€
+✅ **Franchise de TVA** : Pas de TVA à facturer sous 37 500€ de CA annuel
 ✅ **Cumul possible** : Avec un emploi salarié
 
 ### Inconvénients
@@ -80,12 +80,12 @@ Le statut d'**auto-entrepreneur** est le plus simple et le plus populaire pour d
 
 | Poste | Taux | Sur un CA de 50 000€ |
 |-------|------|----------------------|
-| Cotisations sociales | 21,1% | 10 550€ |
-| CFP (formation) | 0,1% | 50€ |
+| Cotisations sociales | 21,2% | 10 600€ |
+| CFP (formation) | 0,3% | 150€ |
 | Impôt sur le revenu | Variable* | ~2 500-5 000€ |
-| **Reste net** | - | **~34 000-37 000€** |
+| **Reste net** | - | **~34 000-36 750€** |
 
-*Selon votre situation fiscale et le versement libératoire (1,7%).
+*Selon votre situation fiscale. Le versement libératoire (1,7%) est accessible si votre revenu fiscal de référence N-2 ne dépasse pas 27 478€ par part fiscale.
 
 ### Pour qui ?
 
@@ -148,7 +148,7 @@ La **SASU** est prisée des chauffeurs à hauts revenus. Le dirigeant est assimi
 
 ### Inconvénients
 
-❌ **Charges sociales élevées** : ~65% sur le salaire versé
+❌ **Charges sociales élevées** : ~45% de charges patronales sur le salaire brut (soit environ 75-82% du salaire net versé au total)
 ❌ **Pas de chômage** : Pas de cotisation Pôle Emploi sur le salaire
 ❌ **Complexité** : Formalités administratives
 ❌ **Coût comptable** : ~2 000€/an
@@ -336,7 +336,7 @@ Chez **ECOLE T3P à Montrouge**, nous intégrons ces compétences numériques da
 | Uber | 25% | Leader mondial, volume important |
 | Bolt | 15-20% | Commission attractive |
 | Heetch | 20% | Clientèle jeune, nocturne |
-| Marcel | 20% | Premium, entreprises |
+| LeCab | Variable | Premium, entreprises |
 | Freenow | 18% | Multi-services |
 
 #### Plateformes Taxi
@@ -344,7 +344,7 @@ Chez **ECOLE T3P à Montrouge**, nous intégrons ces compétences numériques da
 | Application | Commission | Spécificité |
 |-------------|------------|-------------|
 | G7 | Variable | Historique parisien |
-| Taxis Bleus | Variable | Réseau national |
+| Tako | Variable | Application indépendante |
 | Uber Taxi | 15% | Intégration Uber |
 | Lecab | Variable | Clientèle affaires |
 
@@ -355,6 +355,8 @@ Chez **ECOLE T3P à Montrouge**, nous intégrons ces compétences numériques da
 ✅ Comprendre les algorithmes de distribution des courses
 ✅ Optimiser ses créneaux horaires selon les apps
 ✅ Gérer les évaluations et commentaires clients
+
+*Taux de commission indicatifs. Les commissions réelles varient selon la zone géographique, le type de course et les conditions contractuelles de chaque plateforme.
 
 ### 2. GPS et navigation
 
@@ -385,6 +387,8 @@ Chez **ECOLE T3P à Montrouge**, nous intégrons ces compétences numériques da
 | Indy | 25€/mois | Tous statuts |
 | Pennylane | 50€/mois | SASU/EURL avec comptable |
 | QuickBooks | 15€/mois | Indépendants |
+
+*Tarifs indicatifs susceptibles d'évoluer. Consultez les sites des éditeurs pour les prix en vigueur.
 
 #### Fonctionnalités essentielles
 
@@ -490,7 +494,7 @@ Dans nos formations VTC et Taxi, nous incluons :
 | GPS basique | Navigation IA prédictive |
 | Comptabilité papier | Gestion 100% digitale |
 | Clients plateformes uniquement | 30% clients directs |
-| **Revenus moyens** | **Revenus +25-40%** |
+| **Revenus moyens** | **Revenus potentiellement supérieurs** |
 
 ## Les erreurs à éviter
 
@@ -556,7 +560,7 @@ En 2026, la maîtrise des outils numériques et de l'IA n'est plus optionnelle p
     slug: "anglais-chauffeur-vtc-taxi-clientele-internationale",
     title: "L'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale",
     metaDescription: "Pourquoi l'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils pour accueillir la clientèle internationale.",
-    excerpt: "Touristes, hommes d'affaires, expatriés... Découvrez pourquoi maîtriser l'anglais peut augmenter vos revenus de 30% et comment progresser rapidement.",
+    excerpt: "Touristes, hommes d'affaires, expatriés... Découvrez pourquoi maîtriser l'anglais est un atout majeur pour développer votre clientèle et vos revenus et comment progresser rapidement.",
     category: "COMPÉTENCES",
     readTime: "9 min",
     publishDate: "2026-02-17",
@@ -565,39 +569,15 @@ En 2026, la maîtrise des outils numériques et de l'IA n'est plus optionnelle p
     content: `
 ## Introduction : Paris, capitale du tourisme mondial
 
-Paris accueille chaque année **38 millions de touristes étrangers**, dont une majorité de visiteurs anglophones ou utilisant l'anglais comme langue de communication. Pour un chauffeur VTC ou Taxi, maîtriser l'anglais représente un **avantage compétitif majeur**.
+Paris accueille chaque année **des dizaines de millions de touristes étrangers** (plus de 30 millions selon l'Office du Tourisme), dont une majorité de visiteurs anglophones ou utilisant l'anglais comme langue de communication. Pour un chauffeur VTC ou Taxi, maîtriser l'anglais représente un **avantage compétitif majeur**.
 
 Chez **ECOLE T3P à Montrouge**, l'anglais professionnel fait partie de notre programme de formation. Ce guide vous montre pourquoi et comment développer cette compétence.
 
 ## Pourquoi l'anglais est-il indispensable ?
 
-### Les chiffres du tourisme à Paris (2026)
+Les principales nationalités de visiteurs à Paris incluent les Américains, Britanniques, Allemands, Chinois et Japonais, pour la plupart utilisant l'anglais comme langue de communication.
 
-| Nationalité | Visiteurs/an | Langue de communication |
-|-------------|--------------|-------------------------|
-| États-Unis | 4,2 millions | Anglais |
-| Royaume-Uni | 3,1 millions | Anglais |
-| Allemagne | 2,8 millions | Anglais/Allemand |
-| Chine | 2,5 millions | Anglais |
-| Japon | 1,8 millions | Anglais |
-| Autres | 24 millions | Souvent anglais |
-
-**L'anglais est la lingua franca** : Même les touristes non-anglophones (Chinois, Japonais, Brésiliens, Russes) utilisent l'anglais pour communiquer avec les chauffeurs.
-
-### Impact sur les revenus
-
-| Profil chauffeur | Clientèle internationale | Revenus/mois |
-|------------------|--------------------------|--------------|
-| Sans anglais | 10-15% | Base |
-| Anglais basique | 25-30% | +15% |
-| Anglais courant | 40-50% | +30% |
-| Bilingue | 50-60% | +40% |
-
-**Pourquoi cette différence ?**
-- Courses aéroports (Roissy, Orly) : 80% anglophones
-- Clientèle hôtels premium : Majoritairement internationale
-- Événements d'affaires : Communication en anglais
-- Pourboires plus généreux des clients satisfaits
+La maîtrise de l'anglais vous ouvre l'accès à une clientèle internationale plus large — courses aéroports (Roissy, Orly), hôtels premium, événements d'affaires — avec des pourboires souvent plus généreux.
 
 ## L'anglais dans l'examen VTC et Taxi
 
@@ -607,7 +587,7 @@ L'examen VTC et Taxi comprend une **épreuve d'anglais obligatoire** :
 
 | Épreuve | Format | Coefficient | Durée |
 |---------|--------|-------------|-------|
-| Anglais | QCM | 1 | 20 min |
+| Anglais | QCM | 1 | 30 min |
 
 ### Ce qui est évalué
 
@@ -778,7 +758,7 @@ Notre module anglais professionnel inclut :
 
 La maîtrise de l'anglais est un **investissement rentable** pour tout chauffeur VTC ou Taxi :
 
-- **+30% de revenus** potentiels avec la clientèle internationale
+- **Revenus potentiellement supérieurs** avec la clientèle internationale
 - **Meilleures notes** sur les plateformes
 - **Pourboires** plus généreux
 - **Clientèle directe** (hôtels, conciergeries)
@@ -824,17 +804,17 @@ Avant d'entrer dans les détails, voici une vue d'ensemble des trois métiers :
 
 | Critère | VTC | TAXI | VMDTR |
 |---------|-----|------|-------|
-| **Formation initiale** | 63h ou 33h | 63h ou 33h | 14h* |
-| **Coût formation** | 990-1 190€ | 990-1 190€ | 299€* |
+| **Formation initiale** | 63h ou 33h | 63h ou 33h | 14h (si carte VTC/Taxi) ou 63h+14h (sans carte) |
+| **Coût formation** | 990-1 190€ | 990-1 190€ | 990€ |
 | **Investissement véhicule** | 25 000-50 000€ | 30 000-60 000€ | 10 000-20 000€ |
 | **Licence/autorisation** | Non requise | ADS (15 000-300 000€) | Non requise |
 | **Revenus mensuels nets** | 1 800-4 500€ | 2 000-5 000€ | 1 800-3 800€ |
 | **Maraude** | Interdite | Autorisée | Interdite |
-| **Passagers max** | 8 | 4 | 2 |
+| **Passagers max** | 4 à 8 (selon véhicule) | 4 | 2 |
 | **Flexibilité horaires** | ★★★★★ | ★★★☆☆ | ★★★★★ |
 | **Investissement initial** | ★★★☆☆ | ★☆☆☆☆ | ★★★★★ |
 
-*Formation VMDTR de 14h réservée aux titulaires d'une carte VTC ou Taxi existante.
+
 
 ## Les trois métiers en détail
 
@@ -885,6 +865,8 @@ Normes 2026 pour exercer en Île-de-France :
 | Temps partiel (20h/sem) | 2 000-3 000€ | ~40% | 1 200-1 800€ |
 | Standard (40h/sem) | 4 000-6 000€ | ~45% | 2 200-3 300€ |
 | Intensif (50h+/sem) | 6 000-9 000€ | ~50% | 3 000-4 500€ |
+
+*Estimations indicatives basées sur notre expérience. Les revenus réels varient selon la zone, les horaires, la gestion et le statut choisi.
 
 **Sources de revenus** :
 - Plateformes (Uber, Bolt, Heetch) : 75-80% des courses
@@ -974,6 +956,8 @@ Normes véhicule Taxi 2026 :
 | Locataire-gérant | 4 500-6 500€ | ~60%** | 1 800-2 600€ |
 | Salarié | - | - | 1 800-2 500€ net |
 
+*Estimations indicatives basées sur notre expérience. Les revenus réels varient selon la zone, les horaires, la gestion et le statut choisi.
+
 **Incluant la redevance de location-gérance.
 
 #### Avantages Taxi
@@ -1010,7 +994,7 @@ Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) transporte un passager sur
 
 | Situation | Formation | Durée | Tarif ECOLE T3P |
 |-----------|-----------|-------|-----------------|
-| Avec carte VTC/Taxi | VMDTR seule | 14h | 299€ |
+| Avec carte VTC/Taxi | VMDTR seule | 14h | 990€ |
 | Sans carte T3P | VTC + VMDTR | 63h + 14h | 1 490€ |
 
 #### Investissement véhicule
@@ -1029,6 +1013,8 @@ Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) transporte un passager sur
 | Temps partiel (15h/sem) | 1 500-2 500€ | ~35% | 1 000-1 600€ |
 | Standard (35h/sem) | 3 500-5 500€ | ~40% | 2 100-3 300€ |
 | Intensif (45h+/sem) | 5 000-7 500€ | ~45% | 2 750-4 100€ |
+
+*Estimations indicatives basées sur notre expérience. Les revenus réels varient selon la zone, les horaires, la gestion et le statut choisi.
 
 #### Avantages VMDTR
 
@@ -1276,7 +1262,7 @@ Les Zones à Faibles Émissions impactent également les deux-roues en 2026 :
 
 Depuis janvier 2026 :
 
-- **Formation continue** : 7h obligatoires tous les 5 ans
+- **Formation continue** : 14h obligatoires tous les 5 ans
 - **Assurance renforcée** : Garanties passagers revues à la hausse
 - **Équipement passager** : Homologation casque renforcée
 
@@ -1284,9 +1270,11 @@ Depuis janvier 2026 :
 
 | Aide | Montant | Conditions |
 |------|---------|------------|
-| Bonus écologique moto | Jusqu'à 1 500€ | Moto électrique neuve |
-| Prime conversion 2RM | Jusqu'à 1 100€ | Remplacement véhicule ancien |
+| Bonus écologique moto | Variable (vérifier sur ecologie.gouv.fr) | Moto électrique neuve |
+| Prime conversion 2RM | Variable (vérifier sur ecologie.gouv.fr) | Remplacement véhicule ancien |
 | Aide IDF | Variable | Véhicule pro électrique |
+
+*Montants des aides susceptibles d'évoluer. Consultez ecologie.gouv.fr pour les montants en vigueur.
 
 ## Les prérequis pour devenir conducteur VMDTR
 
@@ -1301,9 +1289,10 @@ Depuis janvier 2026 :
 
 | Permis | Véhicules autorisés | Condition |
 |--------|---------------------|-----------|
-| A2 | Motos ≤35 kW (47 ch) | 3 ans d'ancienneté |
+| A2 | Motos ≤35 kW (47 ch) | 3 ans d'ancienneté + passerelle A validée |
 | A | Toutes motos | 3 ans d'ancienneté |
-| A1 | 125 cm³ max | Non suffisant seul |
+
+Le permis A2 peut suffire à condition d'avoir validé la formation passerelle vers le permis A.
 
 **Attention** : Le permis B avec formation 125cc ne suffit pas pour exercer en VMDTR professionnel. Le permis A ou A2 est obligatoire.
 
@@ -1362,7 +1351,7 @@ La formation VMDTR dure **14 heures** réparties sur 2 jours :
 
 ### Formation continue obligatoire
 
-Tous les 5 ans, vous devez suivre une formation continue de **7 heures** (239€ chez ECOLE T3P) comprenant :
+Tous les 5 ans, vous devez suivre une formation continue de **14 heures** (239€ chez ECOLE T3P) comprenant :
 
 - Actualisation réglementaire
 - Évolution des techniques de sécurité
@@ -1384,7 +1373,7 @@ Contrairement aux formations Taxi et VTC, la formation VMDTR **ne nécessite pas
 
 Après la formation, déposez votre dossier en préfecture :
 
-📄 Formulaire CERFA n°14881*02
+📄 Formulaire CERFA en vigueur (vérifier sur service-public.fr)
 📄 Attestation de formation VMDTR
 📄 Copie de la carte VTC ou Taxi (si existante)
 📄 Justificatif d'identité
@@ -1593,7 +1582,7 @@ Chez **ECOLE T3P à Montrouge**, nous formons les futurs chauffeurs taxi avec un
 
 ### Les Zones à Faibles Émissions (ZFE)
 
-En 2026, les ZFE concernent **43 agglomérations françaises**. Pour exercer à Paris et en petite couronne, votre véhicule doit être :
+En 2026, les ZFE concernent **de nombreuses agglomérations françaises**. Pour exercer à Paris et en petite couronne, votre véhicule doit être :
 
 - **Crit'Air 1** minimum (essence récent ou hybride)
 - **Crit'Air 0** (électrique ou hydrogène) recommandé pour anticiper 2030
@@ -1956,7 +1945,7 @@ Chez **ECOLE T3P à Montrouge**, nous formons les futurs chauffeurs VTC avec un 
 
 ### Les Zones à Faibles Émissions (ZFE)
 
-En 2026, les ZFE sont désormais en vigueur dans **43 agglomérations françaises**. Pour exercer en région parisienne, votre véhicule doit obligatoirement être :
+En 2026, les **Zones à Faibles Émissions (ZFE)** sont en vigueur dans **de nombreuses agglomérations françaises**. Pour exercer en région parisienne, votre véhicule doit obligatoirement être :
 
 - **Crit'Air 1** minimum (essence récent ou hybride)
 - **Crit'Air 0** (électrique ou hydrogène) pour accéder aux zones les plus restrictives
@@ -1970,16 +1959,16 @@ En 2026, les chauffeurs VTC bénéficient d'aides renforcées :
 
 | Aide | Montant | Conditions |
 |------|---------|------------|
-| Bonus écologique | Jusqu'à 5 000€ | Véhicule électrique neuf |
-| Prime à la conversion | Jusqu'à 3 000€ | Remplacement d'un véhicule Crit'Air 4+ |
-| Aide régionale IDF | 6 000€ | Véhicule pro électrique |
-| **Total cumulable** | **Jusqu'à 14 000€** | Sous conditions |
+| Bonus écologique | Variable | Véhicule électrique neuf (consulter ecologie.gouv.fr) |
+| Prime à la conversion | Variable | Remplacement véhicule ancien (consulter ecologie.gouv.fr) |
+| Aide régionale IDF | Variable | Véhicule professionnel électrique |
+| **Total cumulable** | **Variable** | **Montants mis à jour chaque année, vérifiez les sites officiels** |
 
 ### Évolutions de la réglementation
 
 Depuis janvier 2026, de nouvelles obligations s'appliquent :
 
-- **Formation continue renforcée** : 14h tous les 5 ans (contre 7h auparavant pour le module sécurité)
+- **Formation continue obligatoire** : 14h tous les 5 ans
 - **Assurance responsabilité civile** : Plafonds revus à la hausse
 - **Registre VTC dématérialisé** : Inscription obligatoire sur la plateforme nationale
 
@@ -2069,13 +2058,19 @@ Notre formation VTC de **63 heures** (ou 33h en format soir) couvre tous les mod
 
 L'examen se déroule dans un centre agréé et comprend :
 
-1. **Réglementation T3P** (1h30) - Coefficient 3
-2. **Gestion d'entreprise** (1h) - Coefficient 2
-3. **Sécurité routière** (45min) - Coefficient 2
-4. **Français** (30min) - Coefficient 1
-5. **Anglais** (20min) - Coefficient 1
-6. **Développement commercial** (30min) - Coefficient 1
-7. **Réglementation nationale** (45min) - Coefficient 2
+L'examen se déroule dans un centre agréé (CMA) et comprend 7 épreuves d'admissibilité :
+
+1. **Réglementation T3P** (45 min) — Coefficient 3
+2. **Gestion d'entreprise** (45 min) — Coefficient 2
+3. **Sécurité routière** (30 min) — Coefficient 3
+4. **Français** (30 min) — Coefficient 2
+5. **Anglais** (30 min) — Coefficient 1
+6. **Développement commercial VTC** (30 min) — Coefficient 3
+7. **Réglementation nationale VTC** (20 min) — Coefficient 3
+
+Conditions d'admissibilité : moyenne générale ≥ 10/20 (pondérée des coefficients), note ≥ 6/20 à chaque épreuve sauf anglais (≥ 4/20).
+
+Après admissibilité : épreuve pratique de conduite (20 min minimum), note ≥ 12/20 pour être reçu.
 
 ### Nos conseils pour réussir
 
@@ -2233,7 +2228,7 @@ L'examen se compose de 7 épreuves :
 6. Développement commercial
 7. Réglementation nationale
 
-**Taux de réussite ECOLE T3P : 97%**
+**Taux de réussite ECOLE T3P : 94%**
 
 ## Obtenir sa carte professionnelle VTC
 
@@ -2273,7 +2268,7 @@ La carte T3P (Transport Public Particulier de Personnes) est le sésame obligato
 
 La formation n'est pas obligatoire pour passer l'examen, mais elle est **fortement recommandée**. Voici pourquoi :
 
-- **Taux de réussite** : Les candidats formés réussissent à 97% contre 30% pour les candidats libres
+- **Taux de réussite** : Les candidats formés réussissent à 94%
 - **Gain de temps** : Formation intensive de 10 jours
 - **Accompagnement** : Suivi personnalisé par des formateurs experts
 - **Préparation complète** : Théorie + pratique
@@ -2298,7 +2293,7 @@ L'examen comprend des épreuves écrites et pratiques :
 
 | Épreuve | Coefficient | Durée |
 |---------|-------------|-------|
-| Réglementation T3P | 3 | 1h30 |
+| Réglementation T3P | 3 | 45 min |
 | Gestion | 2 | 1h |
 | Sécurité routière | 2 | 45min |
 | Français | 1 | 30min |
@@ -2397,7 +2392,7 @@ VTC ou Taxi ? C'est LA question que se posent tous les candidats au transport de
 
 Saviez-vous qu'il existe une **formation passerelle** ? Si vous êtes déjà VTC, vous pouvez devenir taxi (et inversement) avec une formation complémentaire courte.
 
-Chez ECOLE T3P, nous proposons cette formation passerelle de 7 jours pour les professionnels souhaitant élargir leur activité.
+Chez ECOLE T3P, nous proposons cette formation passerelle de 2 jours (14 heures) pour les professionnels souhaitant élargir leur activité.
 
 ## Notre recommandation
 
@@ -2447,7 +2442,7 @@ La formation initiale est votre meilleur atout pour réussir l'examen.
 - **Examens blancs** : Inclus
 
 ### Pourquoi se former ?
-- 97% de réussite avec formation vs 30% en candidat libre
+- 94% de réussite avec formation
 - Accompagnement personnalisé
 - Préparation complète à l'examen
 
@@ -2495,7 +2490,7 @@ Avec votre carte en poche, vous pouvez exercer ! Mais il reste quelques démarch
 - Souscrire une assurance RC Pro
 
 ### Équiper votre véhicule
-- Véhicule conforme (4-9 places, moins de 6 ans)
+- Véhicule conforme (4-9 places, moins de 7 ans ou hybride/électrique)
 - Vignette verte obligatoire
 - Équipements de confort
 
@@ -2622,38 +2617,37 @@ Pour vous inscrire à notre formation, vous devez :
 - Avoir un casier judiciaire compatible
 - Passer la visite médicale préfectorale
 
-**Important** : Le permis A est obligatoire. Le permis A2 ne suffit pas pour exercer en moto-taxi.
+**Important** : Le permis A est requis. Le permis A2 peut suffire à condition d'avoir validé la formation passerelle vers le permis A.
 
 ## Le programme de formation ECOLE T3P
 
-Notre formation VMDTR dure **7 jours** et couvre l'ensemble des compétences nécessaires.
+Notre formation VMDTR dure **2 jours (14 heures)** pour les titulaires d'une carte VTC ou Taxi et couvre l'ensemble des compétences nécessaires.
 
-### Module 1 : Réglementation (2 jours)
+### Module 1 : Réglementation (4h)
 - Cadre légal du transport de personnes
 - Droits et obligations du conducteur VMDTR
 - Réglementation spécifique deux-roues
 - Assurances professionnelles
 
-### Module 2 : Sécurité (2 jours)
+### Module 2 : Gestion d'activité (3h)
+- Création et gestion d'entreprise
+- Comptabilité simplifiée
+- Tarification et facturation
+
+### Module 3 : Sécurité routière moto (4h)
 - Conduite défensive
 - Anticipation des dangers
 - Transport de passager en sécurité
 - Équipements obligatoires
 
-### Module 3 : Gestion et relation client (2 jours)
-- Création et gestion d'entreprise
-- Comptabilité simplifiée
+### Module 4 : Relation client (3h)
 - Accueil et service client premium
 - Gestion des réservations
-
-### Module 4 : Pratique et examen blanc (1 jour)
-- Mise en situation réelle
-- Examen blanc complet
-- Corrections personnalisées
+- Fidélisation de la clientèle
 
 ## L'examen VMDTR
 
-L'examen est composé de 7 épreuves similaires à l'examen VTC. Notre taux de réussite est de 95%.
+Pour les titulaires d'une carte VTC ou Taxi, la formation de 14h suffit pour obtenir la mention VMDTR (pas d'examen supplémentaire). Sans carte T3P existante, il faut d'abord passer l'examen VTC complet. Notre taux de réussite est de 94%.
 
 ## Les débouchés professionnels
 
