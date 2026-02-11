@@ -379,8 +379,12 @@ const Formations = () => {
           <img 
             src={salleFormation} 
             alt="Centre de formation ECOLE T3P" 
+            width={1200}
+            height={560}
             className="w-full h-full object-cover"
             loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
         </motion.div>
         {/* Overlay */}

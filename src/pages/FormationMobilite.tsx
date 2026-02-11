@@ -336,6 +336,8 @@ const FormationMobilite = () => {
                 <img 
                   src={heroImageMobilite} 
                   alt="Promotion formation Mobilité - T3P Campus" 
+                  width={600}
+                  height={256}
                   className="w-full h-64 object-cover"
                   loading="eager"
                   decoding="async"

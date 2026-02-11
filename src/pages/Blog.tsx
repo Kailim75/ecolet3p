@@ -63,6 +63,8 @@ const Blog = () => {
           alt={article.title}
           className={className}
           priority={priority}
+          width={600}
+          height={340}
         />
         {/* Hidden img to detect load errors */}
         <img

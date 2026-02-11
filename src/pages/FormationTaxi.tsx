@@ -366,6 +366,8 @@ const FormationTaxi = () => {
                 <img 
                   src={heroImageTaxi} 
                   alt="Formation Taxi en session - ECOLE T3P" 
+                  width={600}
+                  height={256}
                   className="w-full h-64 object-cover"
                   loading="eager"
                   decoding="async"

@@ -262,6 +262,10 @@ const About = () => {
                 <img
                   src={formationSession}
                   alt="Session de formation ECOLE T3P"
+                  width={600}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                   className="rounded-xl shadow-lg w-full"
                 />
               </motion.div>
@@ -422,6 +426,10 @@ const About = () => {
                     <img
                       src={image.src}
                       alt={image.alt}
+                      width={400}
+                      height={192}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -449,6 +457,10 @@ const About = () => {
                 <img
                   src={galleryImages[selectedImage].src}
                   alt={galleryImages[selectedImage].alt}
+                  width={800}
+                  height={600}
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-auto max-h-[70vh] object-contain"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
