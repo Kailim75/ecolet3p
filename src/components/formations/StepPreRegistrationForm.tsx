@@ -164,8 +164,29 @@ const StepPreRegistrationForm = ({
               <DialogDescription>Rapide et sans engagement</DialogDescription>
             </DialogHeader>
 
-            <Progress value={progress} className="h-2 mb-4" />
-            <p className="text-xs text-muted-foreground mb-4">Étape {step} sur {totalSteps}</p>
+            {/* Visual step indicator */}
+            <div className="flex items-center gap-2 mb-2">
+              {[
+                { num: 1, label: "Formation" },
+                { num: 2, label: "Horaires" },
+                { num: 3, label: "Coordonnées" },
+              ].map((s, i) => (
+                <div key={s.num} className="flex items-center gap-2 flex-1">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-colors ${
+                    step >= s.num 
+                      ? "bg-[hsl(var(--cta))] text-white" 
+                      : "bg-muted text-muted-foreground"
+                  }`}>
+                    {step > s.num ? <CheckCircle2 className="h-4 w-4" /> : s.num}
+                  </div>
+                  <span className={`text-xs font-medium hidden sm:block ${step >= s.num ? "text-foreground" : "text-muted-foreground"}`}>
+                    {s.label}
+                  </span>
+                  {i < 2 && <div className={`flex-1 h-0.5 ${step > s.num ? "bg-[hsl(var(--cta))]" : "bg-muted"}`} />}
+                </div>
+              ))}
+            </div>
+            <Progress value={progress} className="h-1.5 mb-4" />
 
             <AnimatePresence mode="wait">
               {step === 1 && (
