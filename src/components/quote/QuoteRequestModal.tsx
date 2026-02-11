@@ -233,7 +233,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
                   {step === 1 && (
                     <motion.div key="s1" custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.2 }}>
                       <p className="font-semibold text-sm mb-3 text-center">Quelle formation vous intéresse ?</p>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                         {formations.map((f, i) => (
                           <motion.button
                             key={f.value}
