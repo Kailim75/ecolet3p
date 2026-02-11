@@ -5,7 +5,7 @@ import {
   Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
   GraduationCap, Star, CreditCard, Car, Bike, Accessibility, 
   RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon, Calendar,
-  Laptop, Brain, RotateCcw
+  Laptop, Brain, RotateCcw, Phone, Shield, Award, FileText
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -22,24 +22,18 @@ import SessionCard from "@/components/formations/SessionCard";
 import { useFormations, Formation, getCategoryFilter, getCategoryLabel } from "@/hooks/useFormations";
 import { useFormationSessions, FormationSession } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
-
-const categories = ["Toutes", "TAXI", "VTC", "VMDTR", "Autres"];
+import { useIsMobile } from "@/hooks/use-mobile";
+import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
 
 // Icon mapping from string to component
 const ICON_MAP: Record<string, LucideIcon> = {
-  Car: Car,
-  Bike: Bike,
-  Accessibility: Accessibility,
-  RefreshCw: RefreshCw,
-  MapPin: MapPin,
-  BookOpen: BookOpen,
+  Car, Bike, Accessibility, RefreshCw, MapPin, BookOpen,
 };
 
 const getIconComponent = (iconName: string | null): LucideIcon => {
   return iconName && ICON_MAP[iconName] ? ICON_MAP[iconName] : Car;
 };
 
-// Get detail page route for formation category
 const getFormationDetailRoute = (category: string): string | null => {
   const routes: Record<string, string> = {
     taxi: "/formations/taxi",
@@ -50,57 +44,60 @@ const getFormationDetailRoute = (category: string): string | null => {
   return routes[category] || null;
 };
 
-// Get icon for feature based on keywords
 const getFeatureIcon = (feature: string): LucideIcon => {
-  const lowerFeature = feature.toLowerCase();
-  if (lowerFeature.includes('e-learning') || lowerFeature.includes('elearning')) return Laptop;
-  if (lowerFeature.includes('quiz') || lowerFeature.includes('application')) return Brain;
-  if (lowerFeature.includes('illimité') || lowerFeature.includes('entraînement')) return RotateCcw;
+  const lf = feature.toLowerCase();
+  if (lf.includes('e-learning') || lf.includes('elearning')) return Laptop;
+  if (lf.includes('quiz') || lf.includes('application')) return Brain;
+  if (lf.includes('illimité') || lf.includes('entraînement')) return RotateCcw;
   return CheckCircle2;
 };
 
-// Check if feature is a digital/e-learning feature
 const isDigitalFeature = (feature: string): boolean => {
-  const lowerFeature = feature.toLowerCase();
-  return lowerFeature.includes('e-learning') || 
-         lowerFeature.includes('quiz') || 
-         lowerFeature.includes('application quiz') ||
-         lowerFeature.includes('illimité') ||
-         lowerFeature.includes('entraînement illimité');
+  const lf = feature.toLowerCase();
+  return lf.includes('e-learning') || lf.includes('quiz') || lf.includes('application quiz') || lf.includes('illimité') || lf.includes('entraînement illimité');
 };
 
-// Check if formation has any digital features
-const hasDigitalFeatures = (features: string[] | null): boolean => {
-  if (!features) return false;
-  return features.some(feature => isDigitalFeature(feature));
+const hasDigitalFeatures = (features: string[] | null): boolean => features?.some(isDigitalFeature) || false;
+
+// Category color config
+const categoryColors: Record<string, { bg: string; text: string; border: string; emoji: string }> = {
+  taxi: { bg: "bg-amber-400", text: "text-amber-900", border: "border-amber-400", emoji: "🚕" },
+  vtc: { bg: "bg-[#1B3A5C]", text: "text-white", border: "border-[#1B3A5C]", emoji: "🚘" },
+  vmdtr: { bg: "bg-emerald-600", text: "text-white", border: "border-emerald-600", emoji: "🏍️" },
+  continue: { bg: "bg-forest", text: "text-white", border: "border-forest", emoji: "🔄" },
+  mobilite: { bg: "bg-blue-500", text: "text-white", border: "border-blue-500", emoji: "📍" },
+  tpmr: { bg: "bg-purple-500", text: "text-white", border: "border-purple-500", emoji: "♿" },
+  general: { bg: "bg-forest", text: "text-white", border: "border-forest", emoji: "🛡️" },
 };
 
-const staggerContainerVariants: Variants = {
+const getCategoryColor = (cat: string) => categoryColors[cat] || categoryColors.general;
+
+// Section anchors
+const sections = [
+  { id: "devenir-chauffeur", label: "Devenir chauffeur" },
+  { id: "formation-continue", label: "Formation continue" },
+  { id: "specialisations", label: "Spécialisations" },
+  { id: "recuperation-points", label: "Récupération de points" },
+];
+
+const staggerContainer: Variants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-  }
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } }
 };
 
-const staggerItemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.5, 
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
 };
 
 const Formations = () => {
-  const [activeCategory, setActiveCategory] = useState("Toutes");
   const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
   const [preRegistrationFormation, setPreRegistrationFormation] = useState<Formation | null>(null);
   const [formationSessions, setFormationSessions] = useState<FormationSession[]>([]);
   const [loadingSessions, setLoadingSessions] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
+  const [activeAnchor, setActiveAnchor] = useState("devenir-chauffeur");
+  const isMobile = useIsMobile();
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   const { formations, isLoading, error } = useFormations(true);
 
@@ -123,37 +120,47 @@ const Formations = () => {
     }
   }, [selectedFormation]);
 
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
+  // Footer observer for mobile sticky bar
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsFooterVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
+  // Intersection observer for active anchor
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveAnchor(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-100px 0px -60% 0px", threshold: 0 }
+    );
+    sections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [formations]);
 
-  // Filter formations by category
-  const filteredFormations = formations.filter((f) => {
-    if (activeCategory === "Toutes") return true;
-    return getCategoryFilter(f.category) === activeCategory;
-  });
+  // Categorize formations
+  const initiales = formations.filter(f => ["taxi", "vtc", "vmdtr"].includes(f.category) && !f.title.toLowerCase().includes("continue"));
+  const continues = formations.filter(f => f.title.toLowerCase().includes("continue") || f.category === "continue");
+  const specialisations = formations.filter(f => ["mobilite", "tpmr"].includes(f.category));
+  const recuperation = formations.filter(f => f.category === "general" || f.title.toLowerCase().includes("récup") || f.title.toLowerCase().includes("points"));
 
-  // Check if any formation is "popular" (first 2 of taxi/vtc)
-  const isPopular = (formation: Formation) => {
-    const popularCategories = ["taxi", "vtc"];
-    if (!popularCategories.includes(formation.category)) return false;
-    const sameCategory = formations.filter(f => f.category === formation.category);
-    return sameCategory.indexOf(formation) < 1;
-  };
+  // Determine if a formation is "soirée"
+  const isSoiree = (f: Formation) => f.title.toLowerCase().includes("soirée") || f.title.toLowerCase().includes("soiree");
 
-  // Image mapping for formations
-  const formationImages: Record<string, string> = {
-    taxi: "https://www.ecolet3p.fr/og-image.jpg",
-    vtc: "https://www.ecolet3p.fr/og-image.jpg",
-    vmdtr: "https://www.ecolet3p.fr/og-image.jpg",
-    mobilite: "https://www.ecolet3p.fr/og-image.jpg"
-  };
-
-  // Generate ItemList schema for SEO (simplified to avoid Carousel validation issues)
+  // SEO schemas
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -171,76 +178,159 @@ const Formations = () => {
     }))
   };
 
-  // Separate Course schemas for each formation (not nested in ItemList)
   const courseSchemas = formations.map((formation) => ({
     "@context": "https://schema.org",
     "@type": "Course",
     "name": formation.title,
-    "description": formation.description || `Formation ${formation.title} certifiante`,
-    "image": formationImages[formation.category] || "https://www.ecolet3p.fr/og-image.jpg",
+    "description": formation.description || `Formation ${formation.title} professionnelle`,
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
       "sameAs": "https://www.ecolet3p.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3 rue Corneille",
-        "addressLocality": "Montrouge",
-        "postalCode": "92120",
-        "addressCountry": "FR"
-      }
     },
     "offers": formation.price ? {
       "@type": "Offer",
       "price": formation.price,
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
-      "url": getFormationDetailRoute(formation.category) 
-        ? `https://www.ecolet3p.fr${getFormationDetailRoute(formation.category)}`
-        : "https://www.ecolet3p.fr/formations"
     } : undefined,
     "timeRequired": `PT${formation.duration.replace(/[^0-9]/g, '')}H`,
-    "educationalCredentialAwarded": formation.category === "taxi" ? "Carte Professionnelle Taxi" :
-      formation.category === "vtc" ? "Carte Professionnelle VTC" :
-      formation.category === "vmdtr" ? "Certification VMDTR" : "Attestation de formation",
     "url": getFormationDetailRoute(formation.category) 
       ? `https://www.ecolet3p.fr${getFormationDetailRoute(formation.category)}`
       : "https://www.ecolet3p.fr/formations",
     "inLanguage": "fr-FR",
-    "hasCourseInstance": {
-      "@type": "CourseInstance",
-      "courseMode": "Onsite",
-      "location": {
-        "@type": "Place",
-        "name": "ECOLE T3P Montrouge",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "3 rue Corneille",
-          "addressLocality": "Montrouge",
-          "postalCode": "92120",
-          "addressCountry": "FR"
-        }
-      }
-    }
   }));
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Accueil",
-        "item": "https://www.ecolet3p.fr/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Formations",
-        "item": "https://www.ecolet3p.fr/formations"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" }
     ]
+  };
+
+  // Render a formation card
+  const renderCard = (formation: Formation, variant: "initial" | "continue" | "special" = "initial") => {
+    const IconComponent = getIconComponent(formation.icon);
+    const colors = getCategoryColor(formation.category);
+    const isVmdtrInitial = formation.category === "vmdtr" && !formation.title.toLowerCase().includes("continue");
+    const isMobilite = formation.category === "mobilite";
+    const isTpmr = formation.category === "tpmr";
+    const soiree = isSoiree(formation);
+    const popular = !soiree && ["taxi", "vtc"].includes(formation.category) && variant === "initial";
+    const isCompact = variant === "continue";
+
+    return (
+      <motion.div
+        key={formation.id}
+        variants={staggerItem}
+        className={`group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-transparent transition-all duration-300 hover:shadow-[0_20px_50px_rgba(27,77,62,0.12)] ${isCompact ? '' : ''}`}
+      >
+        {/* Colored top banner */}
+        <div className={`h-10 ${colors.bg} flex items-center justify-between px-4`}>
+          <span className={`text-sm font-bold ${colors.text} flex items-center gap-2`}>
+            <span>{colors.emoji}</span>
+            {getCategoryLabel(formation.category)}
+          </span>
+          {soiree && (
+            <span className="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full flex items-center gap-1" style={{ color: 'white' }}>
+              <Moon className="w-3 h-3" /> Soirée
+            </span>
+          )}
+          {popular && (
+            <span className="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full flex items-center gap-1" style={{ color: 'white' }}>
+              <Star className="w-3 h-3 fill-current" /> Populaire
+            </span>
+          )}
+        </div>
+
+        <div className={`${isCompact ? 'p-5' : 'p-6'}`}>
+          {/* Title */}
+          <h3 className="font-bold text-lg text-forest mb-1 group-hover:text-gold transition-colors duration-300 leading-tight">
+            {formation.title}
+          </h3>
+
+          {/* Duration + VMDTR subtitle */}
+          <p className="text-sm text-muted-foreground mb-3">
+            {formation.duration}
+            {isVmdtrInitial && <span className="block text-xs italic mt-0.5">Inclut le tronc commun VTC + module spécifique VMDTR</span>}
+          </p>
+
+          {/* Mobilité badge */}
+          {isMobilite && (
+            <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-200 mb-3">
+              <MapPin className="w-3 h-3" /> Géographique
+            </span>
+          )}
+
+          {/* Price */}
+          <div className="mb-4">
+            <span className="text-2xl font-black" style={{ color: '#FF6B2B' }}>
+              {formation.price ? `${formation.price.toFixed(0)}€` : "Nous consulter"}
+            </span>
+            {formation.price && formation.price > 500 && (
+              <span className="text-xs text-muted-foreground ml-2">
+                soit 4× {Math.ceil(formation.price / 4)}€
+              </span>
+            )}
+          </div>
+
+          {/* Tags */}
+          {variant === "initial" && (
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {["✓ Examen CMA inclus", "✓ Support digital", "✓ Finançable OPCO"].map(tag => (
+                <span key={tag} className="text-[10px] font-medium bg-forest/5 text-forest px-2 py-0.5 rounded-full">{tag}</span>
+              ))}
+            </div>
+          )}
+
+          {variant === "continue" && (
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              <span className="text-[10px] font-bold bg-red-50 text-red-600 px-2 py-0.5 rounded-full border border-red-100">Obligatoire</span>
+              <span className="text-[10px] font-medium bg-forest/5 text-forest px-2 py-0.5 rounded-full">✓ Attestation officielle</span>
+            </div>
+          )}
+
+          {/* CTA */}
+          <div className="flex flex-col gap-2 pt-3 border-t border-border/50">
+            {variant === "continue" ? (
+              <Button
+                className="w-full font-bold text-sm"
+                style={{ background: 'linear-gradient(135deg, #FF6B2B, #FF8F5E)', color: 'white' }}
+                onClick={() => setPreRegistrationFormation(formation)}
+              >
+                S'inscrire <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+            ) : isTpmr ? (
+              <Button variant="outline" className="w-full border-forest/30 text-forest hover:bg-forest hover:text-white" asChild>
+                <Link to="/contact?subject=Je+souhaite+des+informations+sur+la+formation+TPMR">
+                  En savoir plus <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="outline"
+                  className="w-full text-sm font-semibold"
+                  style={{ borderColor: '#FF6B2B', color: '#FF6B2B' }}
+                  onClick={() => setSelectedFormation(formation)}
+                >
+                  Voir le programme <ArrowRight className="w-4 h-4 ml-1" />
+                </Button>
+                {getFormationDetailRoute(formation.category) && (
+                  <Button variant="ghost" className="w-full text-xs text-muted-foreground hover:text-forest" asChild>
+                    <Link to={getFormationDetailRoute(formation.category)!}>
+                      Page détaillée
+                    </Link>
+                  </Button>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      </motion.div>
+    );
   };
 
   return (
@@ -248,20 +338,12 @@ const Formations = () => {
       <Helmet>
         <title>Nos Formations Taxi VTC VMDTR | ECOLE T3P</title>
         <meta name="description" content="Découvrez nos formations : initiale Taxi (63h), initiale VTC (63h), VMDTR moto-taxi (14h), mobilité, formation continue et récupération de points à Montrouge." />
-        <meta name="keywords" content="formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, formation VTC Clamart, formation taxi Issy, formation VMDTR 92, carte professionnelle taxi Hauts-de-Seine, centre formation sud Paris, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations" />
-        
         <meta property="og:title" content="Formation Taxi VTC VMDTR Montrouge Bagneux | 92 Sud Paris" />
-        <meta property="og:description" content="Formations certifiantes Taxi VTC VMDTR à Montrouge. Accessible depuis Bagneux, Vanves, Malakoff et tout le 92. 94% de réussite." />
+        <meta property="og:description" content="Formations professionnelles Taxi VTC VMDTR à Montrouge. 94% de réussite." />
         <meta property="og:url" content="https://www.ecolet3p.fr/formations" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Formation Taxi VTC Montrouge Bagneux | Sud Paris 92" />
-        <meta name="twitter:description" content="Formations certifiantes avec 94% de réussite. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e." />
-        <meta name="twitter:image" content="https://www.ecolet3p.fr/og-image.jpg" />
-        
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {courseSchemas.map((schema, index) => (
@@ -269,380 +351,367 @@ const Formations = () => {
         ))}
       </Helmet>
 
-      {/* Hero - Immersive with parallax */}
-      <section ref={heroRef} className="gradient-hero py-24 md:py-32 relative overflow-hidden">
-        {/* Animated background elements */}
-        <motion.div 
-          className="absolute top-20 left-10 w-40 h-40 rounded-full opacity-10"
-          style={{ backgroundColor: "#D4A853", y: heroY }}
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        />
-        <motion.div 
-          className="absolute bottom-10 right-20 w-60 h-60 rounded-full opacity-10"
-          style={{ backgroundColor: "#F5EBD7", y: heroY }}
-          animate={{ scale: [1.2, 1, 1.2] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
-        <motion.div 
-          className="container-custom text-center relative z-10"
-          style={{ opacity: heroOpacity }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-6"
-          >
-            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-gold/20 text-cream">
-              <GraduationCap className="w-4 h-4" />
-              {formations.length} formations professionnelles
-            </span>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black text-cream uppercase tracking-tight mb-6"
-          >
-            Nos Formations{" "}
-            <span className="text-gold">TAXI • VTC • VMDTR</span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-8"
-          >
-            Découvrez nos formations professionnelles pour devenir chauffeur 
-            ou maintenir vos compétences à jour.
-          </motion.p>
+      {/* ============ SECTION 1: HERO ============ */}
+      <section className="relative min-h-[520px] md:min-h-[560px] flex items-center overflow-hidden">
+        {/* Background image + overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src={salleFormation} 
+            alt="Centre de formation ECOLE T3P" 
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.92) 0%, rgba(27,58,92,0.85) 100%)' }} />
+          {/* Geometric pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        </div>
 
-          {/* Stats in hero */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-6 md:gap-10"
-          >
-            {[
-              { value: "94%", label: "Taux de réussite" },
-              { value: "10+", label: "Ans d'expérience" },
-              { value: "4x", label: "Sans frais" },
-              { value: "5.0/5", label: "359 avis Google", icon: "star" }
-            ].map((stat, index) => (
-              <motion.div 
-                key={index}
-                className="text-center"
-                whileHover={{ scale: 1.1 }}
+        <div className="container-custom relative z-10 py-16 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+            {/* Left 60% */}
+            <div className="lg:col-span-3">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-sm font-semibold text-white/70 mb-3 tracking-wide uppercase"
               >
-                <p className="text-3xl md:text-4xl font-black text-gold">{stat.value}</p>
-                <p className="text-sm text-cream/70">{stat.label}</p>
+                Centre de formation agréé Préfecture • Montrouge (92)
+              </motion.p>
+              
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4"
+                style={{ lineHeight: 1.1 }}
+              >
+                Formations{" "}
+                <span className="text-gold">TAXI · VTC · VMDTR</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-base md:text-lg text-white/80 mb-8 max-w-xl"
+              >
+                Rejoignez les 2000+ chauffeurs formés depuis 2014. Programme complet, paiement en 4× sans frais.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-3"
+              >
+                <Button asChild size="lg" className="font-bold text-base px-8" style={{ background: 'linear-gradient(135deg, #FF6B2B, #FF8F5E)', color: 'white', border: 'none' }}>
+                  <Link to="/contact">
+                    Demander un devis gratuit <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="font-bold text-base border-white/30 text-white hover:bg-white/10">
+                  <a href="tel:0188750555">
+                    <Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55
+                  </a>
+                </Button>
               </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
+            </div>
 
-      {/* Filters & Grid */}
-      <section className="section-padding bg-background relative">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-forest/5 to-transparent" />
-        
-        <div className="container-custom">
-          {/* Filters */}
-          <motion.div 
-            className="mb-12 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {/* Category Filters */}
-            <div className="flex flex-wrap gap-3 justify-center">
-              {categories.map((category) => (
-                <motion.button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-wide transition-all duration-300 ${
-                    activeCategory === category
-                      ? "bg-forest text-cream shadow-lg"
-                      : "bg-card text-forest border-2 border-border hover:border-forest"
-                  }`}
-                >
-                  {category}
-                </motion.button>
+            {/* Right 40% — 2×2 Badge Grid */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="lg:col-span-2 grid grid-cols-2 gap-3"
+            >
+              {[
+                { icon: <Award className="w-5 h-5 text-gold" />, value: "94%", label: "Taux de réussite" },
+                { icon: <Star className="w-5 h-5 text-gold fill-gold" />, value: "5.0/5", label: "359 avis Google" },
+                { icon: <Shield className="w-5 h-5 text-gold" />, value: "Qualiopi", label: "Certifié qualité" },
+                { icon: <CreditCard className="w-5 h-5 text-gold" />, value: "4×", label: "Paiement sans frais" },
+              ].map((badge, i) => (
+                <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
+                  <div className="flex justify-center mb-2">{badge.icon}</div>
+                  <p className="text-xl font-black text-white">{badge.value}</p>
+                  <p className="text-xs text-white/60">{badge.label}</p>
+                </div>
               ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ SECTION 2: STICKY NAV ============ */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-border shadow-sm">
+        <div className="container-custom">
+          <div className="flex gap-1 overflow-x-auto scrollbar-hide py-0 -mx-2 px-2">
+            {sections.map(s => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className={`whitespace-nowrap px-4 py-3 text-sm font-semibold border-b-2 transition-colors ${
+                  activeAnchor === s.id
+                    ? 'border-[#FF6B2B] text-forest'
+                    : 'border-transparent text-muted-foreground hover:text-forest hover:border-[#FF6B2B]/40'
+                }`}
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Loading */}
+      {isLoading && (
+        <div className="flex flex-col items-center justify-center py-24">
+          <Loader2 className="w-8 h-8 text-forest animate-spin mb-4" />
+          <p className="text-muted-foreground">Chargement des formations...</p>
+        </div>
+      )}
+
+      {error && (
+        <div className="text-center py-24">
+          <p className="text-destructive mb-4">{error}</p>
+          <Button variant="outline" onClick={() => window.location.reload()}>Réessayer</Button>
+        </div>
+      )}
+
+      {!isLoading && !error && (
+        <>
+          {/* ============ SECTION 3: DEVENIR CHAUFFEUR ============ */}
+          <section id="devenir-chauffeur" className="py-16 md:py-20 bg-white scroll-mt-14">
+            <div className="container-custom">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-10"
+              >
+                <h2 className="text-2xl md:text-3xl font-black text-forest mb-2">
+                  🚀 Devenir chauffeur professionnel
+                </h2>
+                <p className="text-muted-foreground text-base max-w-2xl">
+                  Nos formations initiales pour obtenir votre carte professionnelle T3P
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+              >
+                {initiales.map(f => renderCard(f, "initial"))}
+              </motion.div>
             </div>
+          </section>
 
-            {/* Results count */}
-            <p className="text-center text-muted-foreground text-sm">
-              {filteredFormations.length} formation{filteredFormations.length > 1 ? "s" : ""} trouvée{filteredFormations.length > 1 ? "s" : ""}
-            </p>
-          </motion.div>
-
-          {/* Loading State */}
-          {isLoading && (
-            <div className="flex flex-col items-center justify-center py-16">
-              <Loader2 className="w-8 h-8 text-forest animate-spin mb-4" />
-              <p className="text-muted-foreground">Chargement des formations...</p>
+          {/* ============ SECTION 4: TESTIMONIAL BANDEAU ============ */}
+          <section className="py-12 md:py-14" style={{ backgroundColor: '#F0F1F3' }}>
+            <div className="container-custom">
+              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 max-w-4xl mx-auto">
+                {/* Avatar */}
+                <div className="shrink-0 w-20 h-20 rounded-full bg-forest flex items-center justify-center text-2xl font-black text-white">
+                  MK
+                </div>
+                <div>
+                  <div className="flex gap-0.5 mb-2">
+                    {[1,2,3,4,5].map(i => (
+                      <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+                    ))}
+                  </div>
+                  <blockquote className="text-base md:text-lg text-forest italic leading-relaxed mb-3">
+                    "Grâce à ECOLE T3P, j'ai obtenu ma carte VTC du premier coup. La formation en soirée m'a permis de continuer à travailler. Aujourd'hui je suis chauffeur indépendant depuis 2 ans."
+                  </blockquote>
+                  <p className="text-sm text-muted-foreground font-semibold">
+                    — Mohamed K., Chauffeur VTC depuis 2023
+                  </p>
+                </div>
+              </div>
             </div>
-          )}
+          </section>
 
-          {/* Error State */}
-          {error && (
-            <div className="text-center py-16">
-              <p className="text-destructive mb-4">{error}</p>
-              <Button variant="outline" onClick={() => window.location.reload()}>
-                Réessayer
-              </Button>
+          {/* ============ SECTION 5: FORMATION CONTINUE ============ */}
+          <section id="formation-continue" className="py-16 md:py-20 bg-white scroll-mt-14">
+            <div className="container-custom">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-10"
+              >
+                <h2 className="text-2xl md:text-3xl font-black text-forest mb-2">
+                  🔄 Formation continue obligatoire
+                </h2>
+                <p className="text-muted-foreground text-base max-w-2xl">
+                  Renouvelez votre carte professionnelle — 14h tous les 5 ans
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl"
+              >
+                {continues.map(f => renderCard(f, "continue"))}
+              </motion.div>
             </div>
-          )}
+          </section>
 
-          {/* Grid */}
-          {!isLoading && !error && (
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              variants={staggerContainerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {filteredFormations.map((formation) => {
-                const IconComponent = getIconComponent(formation.icon);
-                const popular = isPopular(formation);
-                const hasDigital = hasDigitalFeatures(formation.features);
-                
-                return (
-                  <motion.div
-                    key={formation.id}
-                    variants={staggerItemVariants}
-                    whileHover={{ 
-                      y: -8, 
-                      boxShadow: "0 20px 40px rgba(27, 77, 62, 0.15)",
-                      borderColor: "rgba(212, 168, 83, 0.5)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group card-livementor relative"
+          {/* ============ SECTION 6: SPÉCIALISATIONS ============ */}
+          <section id="specialisations" className="py-16 md:py-20 scroll-mt-14" style={{ backgroundColor: '#F8F9FA' }}>
+            <div className="container-custom">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-10"
+              >
+                <h2 className="text-2xl md:text-3xl font-black text-forest mb-2">
+                  📍 Développez votre activité
+                </h2>
+                <p className="text-muted-foreground text-base max-w-2xl">
+                  Mobilité géographique, TPMR et diversification
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl"
+              >
+                {specialisations.map(f => renderCard(f, "special"))}
+              </motion.div>
+
+              <p className="text-xs text-muted-foreground mt-6 max-w-2xl">
+                La mobilité permet aux taxis de changer de département d'exercice. 14h pour la plupart des départements, 35h pour Paris.
+              </p>
+            </div>
+          </section>
+
+          {/* ============ SECTION 7: RÉCUPÉRATION DE POINTS ============ */}
+          <section id="recuperation-points" className="py-16 md:py-20 bg-white scroll-mt-14">
+            <div className="container-custom">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-10"
+              >
+                <h2 className="text-2xl md:text-3xl font-black text-forest mb-2">
+                  🛡️ Stage de récupération de points
+                </h2>
+              </motion.div>
+
+              {recuperation.length > 0 ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 max-w-4xl"
+                >
+                  <div className="shrink-0 w-16 h-16 rounded-2xl bg-forest/10 flex items-center justify-center">
+                    <Shield className="w-8 h-8 text-forest" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-forest mb-1">Récupérez jusqu'à 4 points en 2 jours</h3>
+                    <p className="text-sm text-muted-foreground mb-2">Attestation immédiate. Stage agréé par la Préfecture.</p>
+                    <span className="text-2xl font-black" style={{ color: '#FF6B2B' }}>
+                      {recuperation[0]?.price ? `${recuperation[0].price.toFixed(0)}€` : "250€"}
+                    </span>
+                  </div>
+                  <Button
+                    size="lg"
+                    className="font-bold shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #FF6B2B, #FF8F5E)', color: 'white' }}
+                    onClick={() => setPreRegistrationFormation(recuperation[0])}
                   >
-                    {/* Popular badge */}
-                    {popular && (
-                      <motion.div 
-                        className="absolute -top-3 -right-3 z-10"
-                        initial={{ rotate: -12, scale: 0 }}
-                        animate={{ rotate: -12, scale: 1 }}
-                        transition={{ delay: 0.3, type: "spring" }}
-                      >
-                        <span className="flex items-center gap-1 bg-gold text-forest text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                          <Star className="w-3 h-3 fill-current" />
-                          Populaire
-                        </span>
-                      </motion.div>
-                    )}
-
-                    {/* Header */}
-                    <div className="mb-4">
-                      <div className="flex items-start justify-between mb-4">
-                        <motion.div 
-                          className="w-12 h-12 rounded-xl flex items-center justify-center bg-forest/10"
-                          whileHover={{ scale: 1.15, rotate: 5 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                        >
-                          <IconComponent className="w-6 h-6 text-forest" />
-                        </motion.div>
-                        <div className="flex flex-col items-end gap-2">
-                          <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
-                            {getCategoryLabel(formation.category)}
-                          </span>
-                          {hasDigital && (
-                            <span className="flex items-center gap-1 bg-gradient-to-r from-gold/20 to-orange/20 text-gold text-xs font-bold px-2.5 py-1 rounded-full border border-gold/30">
-                              <Laptop className="w-3 h-3" />
-                              Digital inclus
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                      
-                      <motion.h3 
-                        className="font-bold text-xl text-forest mb-2 group-hover:text-gold transition-colors duration-300"
-                        whileHover={{ x: 5 }}
-                      >
-                        {formation.title}
-                      </motion.h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
-                        {formation.description || "Formation professionnelle certifiante."}
-                      </p>
-                    </div>
-
-                    {/* Meta */}
-                    <div className="grid grid-cols-2 gap-3 text-xs mb-5">
-                      <div className="flex flex-col items-center p-2 rounded-lg bg-muted/50">
-                        <Clock className="w-4 h-4 text-forest mb-1" />
-                        <span className="font-semibold text-forest">{formation.duration}</span>
-                      </div>
-                      <div className="flex flex-col items-center p-2 rounded-lg bg-gold/10">
-                        <Euro className="w-4 h-4 text-gold mb-1" />
-                        <span className="font-semibold text-forest text-center">
-                          {formation.price ? `${formation.price.toFixed(0)} €` : "Nous consulter"}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* VMDTR subtitle */}
-                    {formation.category === "vmdtr" && !formation.title.toLowerCase().includes("continue") && (
-                      <p className="text-xs text-muted-foreground mt-1 text-center italic">
-                        Inclut le tronc commun VTC + module spécifique VMDTR
-                      </p>
-                    )}
-
-                    {/* Mobilité Géographique badge */}
-                    {formation.category === "mobilite" && (
-                      <div className="mt-2 flex justify-center">
-                        <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-200">
-                          <MapPin className="w-3 h-3" />
-                          Géographique
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Features preview */}
-                    {formation.features && formation.features.length > 0 && (
-                      <div className="mb-4 space-y-1">
-                        {formation.features.slice(0, 3).map((feature, i) => {
-                          const FeatureIcon = getFeatureIcon(feature);
-                          const isDigital = isDigitalFeature(feature);
-                          return (
-                            <div 
-                              key={i} 
-                              className={`flex items-center gap-2 text-xs ${isDigital ? 'text-gold font-medium' : 'text-muted-foreground'}`}
-                            >
-                              <FeatureIcon className={`w-3 h-3 shrink-0 ${isDigital ? 'text-gold' : 'text-forest'}`} />
-                              <span className="line-clamp-1">{feature}</span>
-                            </div>
-                          );
-                        })}
-                        {formation.features.length > 3 && (
-                          <p className="text-xs text-muted-foreground pl-5">
-                            +{formation.features.length - 3} autres
-                          </p>
-                        )}
-                      </div>
-                    )}
-
-                    <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                      <div className="flex gap-2">
-                        <Button 
-                          variant="outline" 
-                          className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream transition-all duration-300"
-                          onClick={() => setSelectedFormation(formation)}
-                        >
-                          <Info className="w-4 h-4 mr-2" />
-                          Détails
-                        </Button>
-                        <Button 
-                          className="flex-1 btn-primary"
-                          onClick={() => setPreRegistrationFormation(formation)}
-                        >
-                          <UserPlus className="w-4 h-4 mr-2" />
-                          S'inscrire
-                        </Button>
-                      </div>
-                      {getFormationDetailRoute(formation.category) && (
-                        <Button 
-                          variant="ghost" 
-                          className="w-full text-forest hover:text-gold hover:bg-gold/10"
-                          asChild
-                        >
-                          <Link to={getFormationDetailRoute(formation.category)!}>
-                            En savoir plus sur la formation {getCategoryLabel(formation.category)}
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
-                      )}
-                      {formation.category === "tpmr" && (
-                        <Button 
-                          variant="ghost" 
-                          className="w-full text-forest hover:text-gold hover:bg-gold/10"
-                          asChild
-                        >
-                          <Link to="/contact?subject=Je+souhaite+des+informations+sur+la+formation+TPMR">
-                            En savoir plus
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
-                      )}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          )}
-
-          {!isLoading && !error && filteredFormations.length === 0 && (
-            <motion.div 
-              className="text-center py-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <p className="text-muted-foreground text-lg">Aucune formation ne correspond à vos critères.</p>
-              <Button 
-                variant="outline" 
-                className="mt-4"
-                onClick={() => setActiveCategory("Toutes")}
-              >
-                Réinitialiser les filtres
-              </Button>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-forest relative overflow-hidden">
-        <motion.div 
-          className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
-          style={{ backgroundColor: "#D4A853" }}
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        
-        <div className="container-custom relative z-10">
-          <motion.div 
-            className="text-center max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl md:text-3xl font-black text-cream uppercase mb-4">
-              Besoin d'aide pour choisir votre formation ?
-            </h2>
-            <p className="text-cream/80 mb-8">
-              Nos conseillers sont disponibles pour vous orienter vers la formation 
-              la plus adaptée à votre projet professionnel.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="tel:0188750555"
-                className="btn-secondary bg-transparent border-cream text-cream hover:bg-cream hover:text-forest"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>📞 01 88 75 05 55</span>
-              </motion.a>
-              <Button asChild>
-                <Link to="/contact" className="btn-primary bg-gold text-forest hover:bg-gold/90">
-                  <span>Prendre rendez-vous</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+                    Réserver mon stage <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </motion.div>
+              ) : (
+                <p className="text-muted-foreground">Aucun stage disponible pour le moment.</p>
+              )}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </section>
 
+          {/* ============ SECTION 8: CTA FINAL ============ */}
+          <section className="py-16 md:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1B3A5C 0%, #0D2137 100%)' }}>
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+            <div className="container-custom relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center max-w-2xl mx-auto"
+              >
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
+                  Pas sûr de quelle formation choisir ?
+                </h2>
+                <p className="text-white/70 mb-8 text-base">
+                  Nos conseillers vous orientent gratuitement en 5 minutes.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+                  <Button asChild size="lg" variant="outline" className="font-bold border-white/30 text-white hover:bg-white/10">
+                    <a href="tel:0188750555">
+                      <Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" className="font-bold" style={{ background: 'linear-gradient(135deg, #FF6B2B, #FF8F5E)', color: 'white' }}>
+                    <Link to="/contact">
+                      Être rappelé <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+                {/* Trust badges */}
+                <div className="flex flex-wrap justify-center gap-4 text-xs text-white/50">
+                  <span className="flex items-center gap-1"><Star className="w-3 h-3 text-gold fill-gold" /> 5.0/5 sur Google</span>
+                  <span>•</span>
+                  <span>Agréé Préfecture</span>
+                  <span>•</span>
+                  <span>Certifié Qualiopi</span>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ============ SECTION 9: MOBILE STICKY BAR ============ */}
+      {isMobile && !isFooterVisible && (
+        <div
+          className="fixed bottom-0 left-0 right-0 lg:hidden flex items-center bg-white border-t border-border"
+          style={{ zIndex: 1000, height: 56, boxShadow: '0 -4px 12px rgba(0,0,0,0.08)' }}
+        >
+          <a
+            href="tel:0188750555"
+            className="flex-1 flex items-center justify-center gap-2 text-forest font-bold text-sm border-r border-border"
+            style={{ height: '100%' }}
+          >
+            <Phone className="w-4 h-4" /> Appeler
+          </a>
+          <Link
+            to="/contact"
+            className="flex-1 flex items-center justify-center gap-2 font-bold text-sm text-white"
+            style={{ height: '100%', background: '#FF6B2B' }}
+          >
+            <FileText className="w-4 h-4" /> Devis gratuit
+          </Link>
+        </div>
+      )}
+
+      {/* ============ MODALS ============ */}
       {/* Details Modal */}
       <Dialog open={!!selectedFormation} onOpenChange={() => setSelectedFormation(null)}>
         <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-card">
@@ -659,23 +728,20 @@ const Formations = () => {
                     );
                   })()}
                   <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
-                        {getCategoryLabel(selectedFormation.category)}
-                      </span>
-                    </div>
-                    <DialogTitle className="text-xl md:text-2xl font-black text-forest">
+                    <span className="bg-forest/10 text-forest text-xs font-bold uppercase px-3 py-1 rounded-full">
+                      {getCategoryLabel(selectedFormation.category)}
+                    </span>
+                    <DialogTitle className="text-xl md:text-2xl font-black text-forest mt-1">
                       {selectedFormation.title}
                     </DialogTitle>
                   </div>
                 </div>
                 <DialogDescription className="text-muted-foreground">
-                  {selectedFormation.description || "Formation professionnelle certifiante."}
+                  {selectedFormation.description || "Formation professionnelle."}
                 </DialogDescription>
               </DialogHeader>
 
               <div className="space-y-6 mt-6">
-                {/* Info grid */}
                 <div className="grid grid-cols-2 gap-4 p-4 bg-muted/50 rounded-xl">
                   <div className="text-center">
                     <Clock className="w-6 h-6 text-forest mx-auto mb-2" />
@@ -691,7 +757,6 @@ const Formations = () => {
                   </div>
                 </div>
 
-                {/* Features */}
                 {selectedFormation.features && selectedFormation.features.length > 0 && (
                   <div>
                     <h4 className="font-bold text-forest mb-4 uppercase text-sm flex items-center gap-2">
@@ -701,16 +766,16 @@ const Formations = () => {
                     <ul className="space-y-3">
                       {selectedFormation.features.map((feature, i) => {
                         const FeatureIcon = getFeatureIcon(feature);
-                        const isDigital = isDigitalFeature(feature);
+                        const digital = isDigitalFeature(feature);
                         return (
                           <motion.li 
                             key={i} 
-                            className={`flex items-start gap-3 text-sm ${isDigital ? 'text-gold font-medium' : 'text-muted-foreground'}`}
+                            className={`flex items-start gap-3 text-sm ${digital ? 'text-gold font-medium' : 'text-muted-foreground'}`}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.1 }}
                           >
-                            <FeatureIcon className={`w-5 h-5 shrink-0 mt-0.5 ${isDigital ? 'text-gold' : 'text-forest'}`} />
+                            <FeatureIcon className={`w-5 h-5 shrink-0 mt-0.5 ${digital ? 'text-gold' : 'text-forest'}`} />
                             {feature}
                           </motion.li>
                         );
@@ -719,7 +784,7 @@ const Formations = () => {
                   </div>
                 )}
 
-                {/* Sessions à venir */}
+                {/* Sessions */}
                 <div>
                   <h4 className="font-bold text-forest mb-4 uppercase text-sm flex items-center gap-2">
                     <span className="w-1 h-4 bg-gold rounded-full" />
@@ -743,11 +808,6 @@ const Formations = () => {
                           }}
                         />
                       ))}
-                      {formationSessions.length > 3 && (
-                        <p className="text-xs text-muted-foreground text-center">
-                          +{formationSessions.length - 3} autres sessions disponibles
-                        </p>
-                      )}
                     </div>
                   ) : (
                     <p className="text-sm text-muted-foreground bg-muted/50 p-4 rounded-lg text-center">
@@ -756,32 +816,31 @@ const Formations = () => {
                   )}
                 </div>
 
-                {/* Payment info */}
                 <div className="p-4 bg-forest/5 rounded-xl border border-forest/10">
                   <div className="flex items-center gap-3">
                     <CreditCard className="w-6 h-6 text-gold" />
                     <div>
-                      <p className="font-bold text-forest">Paiement en 4x sans frais</p>
+                      <p className="font-bold text-forest">Paiement en 4× sans frais</p>
                       <p className="text-sm text-muted-foreground">Facilités de paiement disponibles</p>
                     </div>
                   </div>
                 </div>
 
-                {/* CTAs */}
                 <div className="flex gap-3 pt-4">
                   <Button 
-                    className="flex-1 btn-primary"
+                    className="flex-1 font-bold"
+                    style={{ background: 'linear-gradient(135deg, #FF6B2B, #FF8F5E)', color: 'white' }}
                     onClick={() => {
                       setSelectedFormation(null);
                       setPreRegistrationFormation(selectedFormation);
                     }}
                   >
                     <UserPlus className="w-4 h-4 mr-2" />
-                    <span>Pré-inscription</span>
+                    Pré-inscription
                   </Button>
-                  <Button asChild variant="outline" className="flex-1 border-forest text-forest hover:bg-forest hover:text-cream">
+                  <Button asChild variant="outline" className="flex-1 border-forest text-forest hover:bg-forest hover:text-white">
                     <a href="tel:0188750555">
-                      📞 Appeler
+                      <Phone className="w-4 h-4 mr-2" /> Appeler
                     </a>
                   </Button>
                 </div>
@@ -791,7 +850,6 @@ const Formations = () => {
         </DialogContent>
       </Dialog>
 
-      {/* Pre-registration Form Modal */}
       <PreRegistrationForm
         isOpen={!!preRegistrationFormation}
         onClose={() => setPreRegistrationFormation(null)}
