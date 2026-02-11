@@ -267,15 +267,18 @@ const Formations = () => {
           </h3>
 
           {/* Duration + VMDTR subtitle */}
-          <p className="text-sm text-muted-foreground mb-3">
+          <p className="text-sm text-muted-foreground mb-1">
             {formation.duration}
-            {isVmdtrInitial && <span className="block text-xs italic mt-0.5">Inclut le tronc commun VTC + module spécifique VMDTR</span>}
           </p>
+          {isVmdtrInitial && (
+            <p className="text-sm text-muted-foreground/70 mb-3">Inclut les 5 modules tronc commun + 2 modules spécifique VMDTR</p>
+          )}
+          {!isVmdtrInitial && <div className="mb-3" />}
 
           {/* Mobilité badge */}
           {isMobilite && (
             <span className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-200 mb-3">
-              <MapPin className="w-3 h-3" /> Géographique
+              <MapPin className="w-3 h-3" /> Mobilité Géographique
             </span>
           )}
 
@@ -318,11 +321,14 @@ const Formations = () => {
                 S'inscrire <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             ) : isTpmr ? (
-              <Button variant="outline" className="w-full border-forest/30 text-forest hover:bg-forest hover:text-white" asChild>
-                <Link to="/contact?subject=Je+souhaite+des+informations+sur+la+formation+TPMR">
-                  En savoir plus <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
-              </Button>
+              <>
+                <span className="inline-block text-xs font-bold text-orange-500 mb-2">Sur demande</span>
+                <Button variant="outline" className="w-full border-forest/30 text-forest hover:bg-forest hover:text-white" asChild>
+                  <Link to="/contact?formation=tpmr">
+                    En savoir plus <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </>
             ) : (
               <>
                 <Button
