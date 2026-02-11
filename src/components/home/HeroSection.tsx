@@ -111,11 +111,41 @@ const HeroSection = () => {
               Plus que 4 places pour la session de mars 2026
             </motion.p>
 
+            {/* 3 Mini-cartes formations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.55, ease: smoothEase }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5"
+            >
+              <Link to="/formations/taxi" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#F97316]/50 hover:shadow-md transition-all duration-200">
+                <div className="w-11 h-11 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(249,115,22,0.08)" }}>🚕</div>
+                <div>
+                  <p className="font-semibold text-sm group-hover:text-[#F97316] transition-colors" style={{ color: "#1A1A1A" }}>Formation Taxi</p>
+                  <p className="text-xs" style={{ color: "#6B7280" }}>63h · dès 990€</p>
+                </div>
+              </Link>
+              <Link to="/formations/vtc" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#059669]/50 hover:shadow-md transition-all duration-200">
+                <div className="w-11 h-11 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(5,150,105,0.08)" }}>🚗</div>
+                <div>
+                  <p className="font-semibold text-sm group-hover:text-[#059669] transition-colors" style={{ color: "#1A1A1A" }}>Formation VTC</p>
+                  <p className="text-xs" style={{ color: "#6B7280" }}>63h · dès 990€</p>
+                </div>
+              </Link>
+              <Link to="/formations/vmdtr" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#2563EB]/50 hover:shadow-md transition-all duration-200">
+                <div className="w-11 h-11 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(37,99,235,0.08)" }}>🏍️</div>
+                <div>
+                  <p className="font-semibold text-sm group-hover:text-[#2563EB] transition-colors" style={{ color: "#1A1A1A" }}>Formation VMDTR</p>
+                  <p className="text-xs" style={{ color: "#6B7280" }}>33h · dès 990€</p>
+                </div>
+              </Link>
+            </motion.div>
+
             {/* Micro-text */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
               className="text-sm flex flex-wrap gap-4"
               style={{ color: "#4B5563" }}
             >
