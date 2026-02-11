@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import TrustBar from "@/components/home/TrustBar";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -274,6 +275,8 @@ const FormationVMDTR = () => {
           </Breadcrumb>
         </div>
       </div>
+
+      <TrustBar />
 
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-orange-500/10 via-background to-red-500/5 overflow-hidden">
