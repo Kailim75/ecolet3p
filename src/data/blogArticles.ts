@@ -33,7 +33,7 @@ export const blogArticles: BlogArticle[] = [
     excerpt: "Auto-entrepreneur, SASU, EURL ou SARL ? Découvrez le meilleur statut juridique pour lancer votre activité de chauffeur VTC ou Taxi en 2026.",
     category: "CRÉATION",
     readTime: "12 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-02-03",
     author: "ECOLE T3P",
     image: statutsJuridiquesT3p,
     content: `
@@ -315,7 +315,7 @@ Chez **ECOLE T3P**, nous vous aidons à choisir et créer votre statut :
     excerpt: "Applications, GPS, comptabilité en ligne, intelligence artificielle... Découvrez pourquoi la maîtrise du numérique est devenue essentielle pour réussir comme chauffeur.",
     category: "COMPÉTENCES",
     readTime: "10 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-02-10",
     author: "ECOLE T3P",
     image: technologieIaTransport,
     content: `
@@ -559,7 +559,7 @@ En 2026, la maîtrise des outils numériques et de l'IA n'est plus optionnelle p
     excerpt: "Touristes, hommes d'affaires, expatriés... Découvrez pourquoi maîtriser l'anglais peut augmenter vos revenus de 30% et comment progresser rapidement.",
     category: "COMPÉTENCES",
     readTime: "9 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-02-17",
     author: "ECOLE T3P",
     image: anglaisChauffeurT3p,
     content: `
@@ -808,7 +808,7 @@ La maîtrise de l'anglais est un **investissement rentable** pour tout chauffeur
     excerpt: "VTC, Taxi ou Moto-taxi ? Découvrez notre comparatif détaillé des 3 métiers du transport de personnes en 2026 : formations, revenus, investissement et perspectives.",
     category: "COMPARATIF",
     readTime: "15 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-01-27",
     author: "ECOLE T3P",
     image: vtcTaxiVmdtrComparison2026,
     content: `
@@ -1227,7 +1227,7 @@ Consultez nos guides complets pour chaque profession :
     excerpt: "Découvrez comment devenir conducteur moto-taxi en 2026 : formation VMDTR de 14h, prérequis, examen et création d'activité. Le guide pratique pour se lancer.",
     category: "VMDTR",
     readTime: "11 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-01-20",
     author: "ECOLE T3P",
     image: vmdtrDriver2026,
     content: `
@@ -1579,7 +1579,7 @@ Découvrez nos autres guides sur les métiers du transport :
     excerpt: "Découvrez comment devenir chauffeur Taxi en 2026 : acquisition de licence, formation certifiante, nouvelles règles ZFE et stratégies pour maximiser vos revenus.",
     category: "TAXI",
     readTime: "14 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-01-13",
     author: "ECOLE T3P",
     image: taxiDriver2026,
     content: `
@@ -1942,7 +1942,7 @@ Découvrez nos autres guides sur les métiers du transport :
     excerpt: "Découvrez les étapes clés pour devenir chauffeur VTC en 2026 : nouvelles règles ZFE, véhicules électriques obligatoires, et stratégies pour maximiser vos revenus.",
     category: "VTC",
     readTime: "12 min",
-    publishDate: "2026-02-09",
+    publishDate: "2026-01-06",
     author: "ECOLE T3P",
     image: vtcDriver2026,
     content: `
