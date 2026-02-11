@@ -5,7 +5,8 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { 
   Award, Users, FileCheck, MapPin, Phone, 
-  ChevronLeft, ChevronRight, Star, Home, CheckCircle
+  ChevronLeft, ChevronRight, Star, Home, CheckCircle,
+  Target, Handshake, Lightbulb, User, Building
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -32,15 +33,17 @@ import salleModerne from "@/assets/center/salle-moderne.jpg";
 import salleProjecteur from "@/assets/center/salle-projecteur.jpg";
 
 const galleryImages = [
-  { src: entreeCentre, alt: "Entrée du centre ECOLE T3P", caption: "Entrée du centre" },
-  { src: accueilReception, alt: "Accueil et réception", caption: "Accueil et réception" },
-  { src: salleModerne, alt: "Salle de formation moderne", caption: "Salle moderne" },
-  { src: salleFormationEquipee, alt: "Salle de formation équipée", caption: "Salle équipée" },
-  { src: salleProjecteur, alt: "Salle avec projecteur", caption: "Espace projection" },
-  { src: formationSession, alt: "Session de formation en cours", caption: "Session en cours" },
-  { src: formationWhiteboard, alt: "Formation au tableau", caption: "Cours théorique" },
-  { src: groupePromotion1, alt: "Groupe de promotion", caption: "Nos promotions" },
-  { src: groupePromotion2, alt: "Groupe de stagiaires", caption: "Nos stagiaires" },
+  // People first
+  { src: groupePromotion1, alt: "Promotion de stagiaires ECOLE T3P", caption: "Une de nos promotions — futurs chauffeurs professionnels" },
+  { src: groupePromotion2, alt: "Groupe de stagiaires en formation", caption: "Nos stagiaires lors de la remise des attestations" },
+  { src: formationSession, alt: "Session de formation en cours", caption: "Cours en petit groupe — maximum 15 participants" },
+  { src: formationWhiteboard, alt: "Formateur au tableau blanc", caption: "Formation théorique avec nos formateurs experts" },
+  // Then facilities
+  { src: entreeCentre, alt: "Entrée du centre ECOLE T3P à Montrouge", caption: "Notre centre au 3 rue Corneille, Montrouge" },
+  { src: accueilReception, alt: "Accueil et réception ECOLE T3P", caption: "Accueil chaleureux dès votre arrivée" },
+  { src: salleModerne, alt: "Salle de formation moderne", caption: "Salle de formation moderne et climatisée" },
+  { src: salleFormationEquipee, alt: "Salle de formation équipée", caption: "Équipement pédagogique complet" },
+  { src: salleProjecteur, alt: "Salle avec vidéoprojecteur", caption: "Vidéoprojecteur et supports numériques" },
 ];
 
 const keyPoints = [
@@ -267,6 +270,112 @@ const About = () => {
         </div>
       </section>
 
+      {/* Notre fondateur */}
+      <section className="py-16 bg-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-[240px_1fr] gap-10 items-start">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-[200px] h-[200px] rounded-full bg-muted flex items-center justify-center border-4 border-forest/10">
+                  <User className="w-20 h-20 text-muted-foreground/40" />
+                </div>
+                <p className="text-xs text-muted-foreground mt-3 italic text-center">
+                  Photo à venir
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <h2 className="text-2xl font-bold text-forest mb-4">L'histoire d'ECOLE T3P</h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Fondé en 2014 par <strong className="text-forest">[Nom du fondateur]</strong>, ECOLE T3P 
+                    est né d'une conviction : la formation des chauffeurs professionnels mérite l'excellence. 
+                    Après plusieurs années dans le secteur du transport de personnes, il a créé un centre 
+                    qui combine rigueur pédagogique et accompagnement humain.
+                  </p>
+                  <p>
+                    Avec plus de 2 000 élèves formés en 10 ans, ECOLE T3P s'est imposé comme une référence 
+                    en Île-de-France pour les formations Taxi, VTC et VMDTR. Notre taux de réussite de 94% 
+                    témoigne de la qualité de notre enseignement et de l'engagement de notre équipe.
+                  </p>
+                  <p>
+                    Aujourd'hui, ECOLE T3P continue d'innover pour préparer les chauffeurs aux défis de demain : 
+                    nouvelles réglementations, transition écologique, outils numériques et intelligence artificielle.
+                  </p>
+                </div>
+                <div className="mt-4 p-3 bg-gold/10 rounded-lg border border-gold/20">
+                  <p className="text-xs text-muted-foreground italic">
+                    💡 Ce texte peut être personnalisé avec le nom et la photo du fondateur.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nos valeurs */}
+      <section className="py-16 bg-forest/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-forest mb-10 text-center">Nos valeurs</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Target,
+                  title: "Excellence",
+                  description: "Taux de réussite de 94% à l'examen préfectoral. Nos programmes sont actualisés chaque année pour intégrer les dernières évolutions réglementaires et les meilleures pratiques du secteur.",
+                  highlight: "94% de réussite",
+                },
+                {
+                  icon: Handshake,
+                  title: "Accompagnement",
+                  description: "Suivi personnalisé de chaque apprenant, de l'inscription jusqu'à l'obtention de la carte professionnelle. Nous vous aidons dans vos démarches administratives, le choix du statut juridique et la recherche de financement.",
+                  highlight: "De A à Z",
+                },
+                {
+                  icon: Lightbulb,
+                  title: "Innovation",
+                  description: "Intégration des outils numériques, préparation aux nouvelles réglementations ZFE et formation aux applications de réservation. Nos stagiaires sont prêts pour le métier de demain.",
+                  highlight: "Tourné vers 2026",
+                },
+              ].map((value, index) => {
+                const IconComp = value.icon;
+                return (
+                  <motion.div
+                    key={value.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.15 }}
+                  >
+                    <Card className="h-full text-center border-2 hover:border-forest/20 transition-colors">
+                      <CardContent className="pt-8 pb-8">
+                        <div className="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5">
+                          <IconComp className="w-8 h-8 text-gold" />
+                        </div>
+                        <h3 className="text-xl font-bold text-forest mb-2">{value.title}</h3>
+                        <p className="text-xs font-semibold text-gold mb-3">{value.highlight}</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
       <section className="py-16 bg-cream">
         <div className="container mx-auto px-4">
@@ -295,9 +404,10 @@ const About = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold text-forest mb-8 text-center">Nos locaux</h2>
+            <h2 className="text-2xl font-bold text-forest mb-2 text-center">Notre centre en images</h2>
+            <p className="text-sm text-muted-foreground text-center mb-8">Cliquez sur une photo pour l'agrandir</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {galleryImages.slice(0, 6).map((image, index) => (
+              {galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -305,15 +415,18 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   whileHover={{ scale: 1.02 }}
-                  className="relative group cursor-pointer overflow-hidden rounded-xl"
+                  className="cursor-pointer overflow-hidden rounded-xl"
                   onClick={() => openLightbox(index)}
                 >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative group">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2 px-1 leading-snug">{image.caption}</p>
                 </motion.div>
               ))}
             </div>
@@ -397,6 +510,31 @@ const About = () => {
             <p className="text-center text-sm text-muted-foreground mt-6">
               Note moyenne : 5.0/5 sur 359 avis Google
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Partenaires */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-xl font-bold text-forest mb-6">Nos partenaires institutionnels</h2>
+            <div className="flex flex-wrap justify-center gap-8 items-center">
+              <div className="flex items-center gap-3 px-6 py-4 bg-card rounded-xl border">
+                <Building className="w-8 h-8 text-forest" />
+                <div className="text-left">
+                  <p className="font-semibold text-forest text-sm">Préfecture des Hauts-de-Seine</p>
+                  <p className="text-xs text-muted-foreground">Agrément centre de formation T3P</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 px-6 py-4 bg-card rounded-xl border">
+                <FileCheck className="w-8 h-8 text-forest" />
+                <div className="text-left">
+                  <p className="font-semibold text-forest text-sm">Qualiopi</p>
+                  <p className="text-xs text-muted-foreground">Certification qualité en cours</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
