@@ -530,8 +530,8 @@ const About = () => {
               <div className="flex items-center gap-3 px-6 py-4 bg-card rounded-xl border">
                 <FileCheck className="w-8 h-8 text-forest" />
                 <div className="text-left">
-                  <p className="font-semibold text-forest text-sm">Qualiopi</p>
-                  <p className="text-xs text-muted-foreground">Certification qualité en cours</p>
+                  <p className="font-semibold text-forest text-sm">Agréé Préfecture</p>
+                  <p className="text-xs text-muted-foreground">Agrément n° 23/007 — Hauts-de-Seine</p>
                 </div>
               </div>
             </div>

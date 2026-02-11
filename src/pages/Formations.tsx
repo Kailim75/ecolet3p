@@ -450,7 +450,7 @@ const Formations = () => {
               {[
                 { icon: <Award className="w-5 h-5 text-gold" />, value: "94%", label: "Taux de réussite" },
                 { icon: <Star className="w-5 h-5 text-gold fill-gold" />, value: "5.0/5", label: "359 avis Google" },
-                { icon: <Shield className="w-5 h-5 text-gold" />, value: "Qualiopi", label: "Certifié qualité" },
+                { icon: <Shield className="w-5 h-5 text-gold" />, value: "Agréé", label: "Préfecture 92" },
                 { icon: <CreditCard className="w-5 h-5 text-gold" />, value: "4×", label: "Paiement sans frais" },
               ].map((badge, i) => (
                 <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
@@ -702,7 +702,7 @@ const Formations = () => {
                   <span>•</span>
                   <span>Agréé Préfecture</span>
                   <span>•</span>
-                  <span>Certifié Qualiopi</span>
+                  <span>Agréé Préfecture 92</span>
                 </div>
               </motion.div>
             </div>
