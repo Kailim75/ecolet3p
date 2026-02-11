@@ -88,7 +88,8 @@ const FormationsOverviewSection = () => {
                 key={block.id}
                 variants={staggerItemVariants}
                 whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(27, 77, 62, 0.12)" }}
-                className="bg-card rounded-2xl p-8 border border-border/50 hover:border-gold/30 transition-all duration-300"
+                className="bg-card rounded-[16px] p-8 border border-border/50 hover:border-gold/30 transition-all duration-300"
+                style={{ boxShadow: "0 8px 32px rgba(27, 77, 62, 0.08)" }}
               >
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-xl bg-forest/10 flex items-center justify-center mb-5">

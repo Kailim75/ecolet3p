@@ -33,6 +33,11 @@
     --success-foreground: 0 0% 100%;
     --warning: 38 90% 55%;
     --warning-foreground: 158 54% 12%;
+    
+    /* CTA Orange */
+    --cta: 28 82% 52%;
+    --cta-hover: 20 100% 41%;
+    --cta-foreground: 0 0% 100%;
   }
 
   .dark {
@@ -55,6 +60,9 @@
     --border: 158 40% 18%;
     --input: 158 40% 18%;
     --ring: 38 90% 58%;
+    --cta: 28 82% 52%;
+    --cta-hover: 20 100% 41%;
+    --cta-foreground: 0 0% 100%;
   }
 }
 
@@ -70,12 +78,27 @@
   body {
     @apply bg-background font-sans text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-size: 16px;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight text-forest;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 800;
+    line-height: 1.1;
+  }
+
+  h1 {
+    @apply text-[32px] md:text-[40px] lg:text-[48px];
+  }
+
+  h2 {
+    @apply text-[24px] md:text-[28px] lg:text-[32px];
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
   }
 }
 
@@ -85,9 +108,9 @@
     @apply mx-auto max-w-7xl px-5 md:px-8 lg:px-12;
   }
 
-  /* Section padding */
+  /* Section padding — 96px desktop / 64px mobile */
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-16 md:py-20 lg:py-24;
   }
 
   /* T3P Campus Hero Background - Enhanced Gradient */
@@ -181,11 +204,13 @@
     z-index: 1;
   }
 
-  /* T3P Campus Card - Modern with Subtle Depth */
+  /* T3P Campus Card - Modern with design-specified depth */
   .card-livementor {
-    @apply bg-card rounded-2xl p-6 md:p-8 border border-border/50
+    @apply bg-card border border-border/50
            transition-all duration-300 relative overflow-hidden;
-    box-shadow: 0 2px 8px rgba(27, 77, 62, 0.04);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(27, 77, 62, 0.08);
   }
 
   .card-livementor::before {
@@ -216,7 +241,7 @@
 
   /* T3P Campus Section Title - Modern Bold */
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight;
+    @apply tracking-tight leading-tight;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 800;
     color: #1B4D3E;
@@ -275,20 +300,20 @@
     transform: scale(1.05);
   }
 
-  /* CTA Accent Button - Gold variant for urgency */
+  /* CTA Accent Button - Gold variant */
   .btn-accent {
     @apply inline-flex items-center justify-center font-bold
            px-8 py-4 rounded-xl transition-all duration-300
            text-sm tracking-wider uppercase relative overflow-hidden;
-    background: linear-gradient(135deg, #D4A853 0%, #E4BE73 100%);
-    color: #1B4D3E;
-    box-shadow: 0 4px 15px rgba(212, 168, 83, 0.35);
+    background: linear-gradient(135deg, #E67E22 0%, #F39C12 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.35);
   }
 
   .btn-accent:hover {
-    background: linear-gradient(135deg, #C49843 0%, #D4A853 100%);
+    background: linear-gradient(135deg, #D35400 0%, #E67E22 100%);
     transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(212, 168, 83, 0.45);
+    box-shadow: 0 12px 35px rgba(230, 126, 34, 0.45);
   }
 
   /* CTA Orange Button - High-visibility conversion button */
@@ -439,6 +464,18 @@
     to {
       background-position: 200% center;
     }
+  }
+
+  /* Scroll animation utility classes */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* ===== Blog Article Content Styles ===== */
