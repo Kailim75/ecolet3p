@@ -50,10 +50,11 @@ const AdminLogin = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (!isLoading && user && isAdmin && !showNewPasswordForm) {
+    const mode = searchParams.get("mode");
+    if (!isLoading && user && isAdmin && !showNewPasswordForm && mode !== "recovery") {
       navigate("/admin");
     }
-  }, [user, isAdmin, isLoading, navigate, showNewPasswordForm]);
+  }, [user, isAdmin, isLoading, navigate, showNewPasswordForm, searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
