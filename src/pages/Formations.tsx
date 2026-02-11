@@ -98,6 +98,16 @@ const Formations = () => {
   const [activeAnchor, setActiveAnchor] = useState("devenir-chauffeur");
   const isMobile = useIsMobile();
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress: heroScrollProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const heroImageY = useTransform(heroScrollProgress, [0, 1], ["0%", "25%"]);
+  const heroImageScale = useTransform(heroScrollProgress, [0, 1], [1, 1.1]);
+  const heroContentY = useTransform(heroScrollProgress, [0, 1], [0, 60]);
+  const heroOpacity = useTransform(heroScrollProgress, [0, 0.7], [1, 0.3]);
 
   const { formations, isLoading, error } = useFormations(true);
 
@@ -225,7 +235,12 @@ const Formations = () => {
       <motion.div
         key={formation.id}
         variants={staggerItem}
-        className={`group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-transparent transition-all duration-300 hover:shadow-[0_20px_50px_rgba(27,77,62,0.12)] ${isCompact ? '' : ''}`}
+        whileHover={{ 
+          y: -6, 
+          boxShadow: "0 24px 48px rgba(27, 77, 62, 0.14), 0 8px 16px rgba(27, 77, 62, 0.06)",
+          transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
+        }}
+        className={`group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-transparent transition-colors duration-300`}
       >
         {/* Colored top banner */}
         <div className={`h-10 ${colors.bg} flex items-center justify-between px-4`}>
@@ -352,21 +367,22 @@ const Formations = () => {
       </Helmet>
 
       {/* ============ SECTION 1: HERO ============ */}
-      <section className="relative min-h-[520px] md:min-h-[560px] flex items-center overflow-hidden">
-        {/* Background image + overlay */}
-        <div className="absolute inset-0">
+      <section ref={heroRef} className="relative min-h-[520px] md:min-h-[560px] flex items-center overflow-hidden">
+        {/* Background image + parallax */}
+        <motion.div className="absolute inset-0" style={{ y: heroImageY, scale: heroImageScale }}>
           <img 
             src={salleFormation} 
             alt="Centre de formation ECOLE T3P" 
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.92) 0%, rgba(27,58,92,0.85) 100%)' }} />
-          {/* Geometric pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        </div>
+        </motion.div>
+        {/* Overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.92) 0%, rgba(27,58,92,0.85) 100%)' }} />
+        {/* Geometric pattern */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-        <div className="container-custom relative z-10 py-16 md:py-20">
+        <motion.div className="container-custom relative z-10 py-16 md:py-20" style={{ y: heroContentY, opacity: heroOpacity }}>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
             {/* Left 60% */}
             <div className="lg:col-span-3">
@@ -439,7 +455,7 @@ const Formations = () => {
               ))}
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ============ SECTION 2: STICKY NAV ============ */}
