@@ -11,7 +11,7 @@ const formations = [
     icon: Car,
     title: "Formation Taxi",
     description: "Formation complète pour obtenir votre carte professionnelle de chauffeur de taxi.",
-    price: "À partir de 1 490€",
+    price: "À partir de 990€",
     cpf: true,
     gradient: "linear-gradient(135deg, #1A237E, #283593)",
     link: "/formations/taxi",
