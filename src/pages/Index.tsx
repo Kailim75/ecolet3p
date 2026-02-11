@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
+import TrustBar from "@/components/home/TrustBar";
 import FormationsOverviewSection from "@/components/home/FormationsOverviewSection";
 import ServicesSection from "@/components/home/ServicesSection";
 
@@ -170,6 +171,7 @@ const Index = () => {
       
       {/* Critical above-the-fold content */}
       <HeroSection />
+      <TrustBar />
       <FormationsOverviewSection />
       <ServicesSection />
       

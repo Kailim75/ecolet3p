@@ -291,6 +291,27 @@
     box-shadow: 0 12px 35px rgba(212, 168, 83, 0.45);
   }
 
+  /* CTA Orange Button - High-visibility conversion button */
+  .btn-cta-orange {
+    @apply inline-flex items-center justify-center font-bold
+           px-6 py-3 rounded-xl transition-all duration-300
+           text-sm tracking-wider uppercase;
+    background: linear-gradient(135deg, #E67E22 0%, #F39C12 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.35);
+  }
+
+  .btn-cta-orange:hover {
+    background: linear-gradient(135deg, #D35400 0%, #E67E22 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(230, 126, 34, 0.45);
+  }
+
+  /* Safe area for mobile sticky bar */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
   /* Text Colors */
   .text-forest {
     color: #1B4D3E;

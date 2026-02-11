@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import FloatingAppointmentButton from "./FloatingAppointmentButton";
 import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
+import MobileStickyBar from "./MobileStickyBar";
 
 
 interface LayoutProps {
@@ -224,11 +225,11 @@ const Layout = ({ children }: LayoutProps) => {
         </script>
       </Helmet>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pb-[60px] lg:pb-0">{children}</main>
       <Footer />
       <FloatingAppointmentButton />
       <FloatingWhatsAppButton />
-      
+      <MobileStickyBar />
     </div>
   );
 };
