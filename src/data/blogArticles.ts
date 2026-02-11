@@ -838,9 +838,7 @@ Le VTC est un **chauffeur privé** qui transporte des clients sur réservation p
 | Journée | 63h (2 semaines) | 1 190€ |
 | Soir | 33h (3 semaines) | 990€ |
 
-L'examen VTC comprend :
-- **7 épreuves théoriques** (QCM)
-- Réglementation, gestion, sécurité, anglais, français, développement commercial, connaissance du territoire
+L'examen VTC comprend **7 épreuves écrites** (tronc commun A-E + spécifiques F(V) Développement commercial et G(V) Réglementation VTC), composées de QCM et QRC. Admissibilité ≥ 10/20, puis épreuve pratique (45 min, admission ≥ 12/20).
 
 #### Investissement véhicule
 
@@ -909,9 +907,7 @@ Le taxi est le **seul professionnel autorisé à prendre des clients dans la rue
 | Journée | 63h (2 semaines) | 1 190€ |
 | Soir | 33h (3 semaines) | 990€ |
 
-L'examen Taxi comprend :
-- **7 épreuves théoriques** similaires au VTC
-- **Épreuve locale** sur le département d'exercice
+L'examen Taxi comprend **7 épreuves écrites** (tronc commun A-E + spécifiques F(T) Connaissance du territoire et G(T) Réglementation nationale Taxi), composées de QCM et QRC. Admissibilité ≥ 10/20, puis épreuve pratique (45 min, admission ≥ 12/20).
 
 #### La licence ADS : l'investissement clé
 
@@ -1361,13 +1357,41 @@ Tous les 5 ans, vous devez suivre une formation continue de **14 heures** (239�
 
 ### Modalités de l'examen
 
-Contrairement aux formations Taxi et VTC, la formation VMDTR **ne nécessite pas d'examen** si vous êtes déjà titulaire d'une carte VTC ou Taxi.
-
 **Cas 1 : Vous avez déjà une carte VTC ou Taxi**
-→ La formation de 14h suffit pour obtenir la mention VMDTR
+→ La formation de 14h suffit pour obtenir la mention VMDTR (pas d'examen supplémentaire).
 
 **Cas 2 : Vous n'avez aucune carte T3P**
-→ Vous devez passer l'examen VTC complet + formation VMDTR
+→ Vous devez passer l'examen T3P complet avec les épreuves spécifiques VMDTR :
+
+**Tronc commun (5 épreuves, identiques à Taxi/VTC) :**
+
+| Épreuve | Composition | Durée | Éliminatoire | Coef. |
+|---------|-------------|-------|--------------|-------|
+| A — Réglementation T3P | 10 QCM + 5 QRC | 0h45 | < 6/20 | 3 |
+| B — Gestion | 16 QCM + 2 QRC | 0h45 | < 6/20 | 2 |
+| C — Sécurité routière | 20 QCM | 0h30 | < 6/20 | 3 |
+| D — Français | 7 QCM + 3 QRC | 0h30 | < 6/20 | 2 |
+| E — Anglais | 20 QCM | 0h30 | < 4/20 | 1 |
+
+**Épreuves spécifiques VMDTR :**
+
+| Épreuve | Composition | Durée | Éliminatoire | Coef. |
+|---------|-------------|-------|--------------|-------|
+| F(M) — Sécurité routière spécifique motocyclettes | 12 QCM + 4 QRC | 0h30 | < 6/20 | 3 |
+| G(M) — Prise en charge du passager | 6 QCM + 2 QRC | 0h20 | < 6/20 | 3 |
+
+Admissibilité : moyenne ≥ 10/20 sans note éliminatoire.
+
+**Épreuve pratique VMDTR** (45 min max, 20 min de conduite minimum) :
+
+| Critère | Points |
+|---------|--------|
+| Préparation et réalisation du parcours | 3 pts |
+| Sécurité et souplesse de la conduite | 10 pts |
+| Qualité de la prise en charge et relation client | 5 pts |
+| Facturation | 2 pts |
+
+Admission : note ≥ 12/20. En cas d'échec, 2 tentatives supplémentaires dans un délai d'un an.
 
 ### Obtention de la carte professionnelle
 
@@ -1701,36 +1725,45 @@ Notre formation Taxi de **63 heures** (ou 33h en format soir) couvre tous les mo
 
 ## L'examen Taxi en 2026
 
-### Les épreuves de l'examen
+### Épreuves théoriques d'admissibilité (7 épreuves)
 
-L'examen se déroule dans un centre agréé par la Chambre des Métiers et comprend :
+L'examen se déroule dans un centre agréé par la Chambre des Métiers et de l'Artisanat (CMA). Il comprend un **tronc commun** de 5 épreuves et **2 épreuves spécifiques Taxi** :
 
-**Épreuves théoriques (admissibilité) :**
+**Tronc commun :**
 
-1. **Réglementation T3P** (1h30) - Coefficient 3
-2. **Gestion d'entreprise** (1h) - Coefficient 2
-3. **Sécurité routière** (45min) - Coefficient 2
-4. **Français** (30min) - Coefficient 1
-5. **Connaissance du territoire** (45min) - Coefficient 3
+| Épreuve | Composition | Durée | Note éliminatoire | Coef. |
+|---------|-------------|-------|--------------------|-------|
+| A — Réglementation T3P et prévention des discriminations | 10 QCM + 5 QRC | 0h45 | < 6/20 | 3 |
+| B — Gestion | 16 QCM + 2 QRC | 0h45 | < 6/20 | 2 |
+| C — Sécurité routière | 20 QCM | 0h30 | < 6/20 | 3 |
+| D — Français | 7 QCM + 3 QRC | 0h30 | < 6/20 | 2 |
+| E — Anglais | 20 QCM | 0h30 | < 4/20 | 1 |
 
-**Épreuve pratique (admission) :**
+**Épreuves spécifiques Taxi :**
 
-6. **Conduite et mise en situation** (30min) - Coefficient 3
+| Épreuve | Composition | Durée | Note éliminatoire | Coef. |
+|---------|-------------|-------|--------------------|-------|
+| F(T) — Connaissance du territoire et réglementation locale | 6 QCM + 2 QRC | 0h20 | < 6/20 | 3 |
+| G(T) — Réglementation nationale spécifique aux taxis | 12 QCM + 4 QRC | 0h30 | < 6/20 | 3 |
 
-### Le QCM connaissance du territoire
+**Conditions d'admissibilité** : Moyenne générale **≥ 10/20** sur les 7 épreuves pondérées, **sans note éliminatoire**.
 
-C'est l'épreuve spécifique au taxi, redoutée des candidats :
+### Épreuve pratique d'admission
 
-- **40 questions** sur votre zone d'exercice
-- Monuments, hôpitaux, gares, mairies
-- Itinéraires entre deux points
-- Axes principaux et sens de circulation
+Mise en situation professionnelle de **45 minutes maximum** (dont 20 min de conduite minimum). Le candidat est évalué sur **20 points** :
 
-**Conseil ECOLE T3P** : Nous fournissons des fiches mémo complètes et des QCM d'entraînement actualisés 2026.
+| Critère | Points |
+|---------|--------|
+| Préparation et réalisation du parcours | 2 pts |
+| Sécurité et souplesse de la conduite, respect du code de la route | 10 pts |
+| Qualité de la prise en charge et relation client ; informations touristiques | 5 pts |
+| Facturation et utilisation des équipements spéciaux | 3 pts |
+
+**Admission** : Note **≥ 12/20**. En cas d'échec, le candidat peut se représenter encore 2 fois dans un délai d'un an.
 
 ### Nos conseils pour réussir
 
-1. **Révisez la géographie quotidiennement** (c'est le piège principal)
+1. **Révisez la géographie quotidiennement** (épreuve F(T) spécifique Taxi)
 2. **Faites tous les examens blancs** proposés
 3. **Pratiquez sur le terrain** : circulez dans votre future zone
 4. **Mémorisez les tarifs** et la réglementation
@@ -2054,23 +2087,41 @@ Notre formation VTC de **63 heures** (ou 33h en format soir) couvre tous les mod
 
 ## L'examen VTC en 2026
 
-### Les 7 épreuves de l'examen
+### Épreuves théoriques d'admissibilité (7 épreuves)
 
-L'examen se déroule dans un centre agréé et comprend :
+L'examen se déroule dans un centre agréé par la CMA. Il comprend un **tronc commun** de 5 épreuves et **2 épreuves spécifiques VTC** :
 
-L'examen se déroule dans un centre agréé (CMA) et comprend 7 épreuves d'admissibilité :
+**Tronc commun :**
 
-1. **Réglementation T3P** (45 min) — Coefficient 3
-2. **Gestion d'entreprise** (45 min) — Coefficient 2
-3. **Sécurité routière** (30 min) — Coefficient 3
-4. **Français** (30 min) — Coefficient 2
-5. **Anglais** (30 min) — Coefficient 1
-6. **Développement commercial VTC** (30 min) — Coefficient 3
-7. **Réglementation nationale VTC** (20 min) — Coefficient 3
+| Épreuve | Composition | Durée | Note éliminatoire | Coef. |
+|---------|-------------|-------|--------------------|-------|
+| A — Réglementation T3P et prévention des discriminations | 10 QCM + 5 QRC | 0h45 | < 6/20 | 3 |
+| B — Gestion | 16 QCM + 2 QRC | 0h45 | < 6/20 | 2 |
+| C — Sécurité routière | 20 QCM | 0h30 | < 6/20 | 3 |
+| D — Français | 7 QCM + 3 QRC | 0h30 | < 6/20 | 2 |
+| E — Anglais | 20 QCM | 0h30 | < 4/20 | 1 |
 
-Conditions d'admissibilité : moyenne générale ≥ 10/20 (pondérée des coefficients), note ≥ 6/20 à chaque épreuve sauf anglais (≥ 4/20).
+**Épreuves spécifiques VTC :**
 
-Après admissibilité : épreuve pratique de conduite (20 min minimum), note ≥ 12/20 pour être reçu.
+| Épreuve | Composition | Durée | Note éliminatoire | Coef. |
+|---------|-------------|-------|--------------------|-------|
+| F(V) — Développement commercial | 12 QCM + 4 QRC | 0h30 | < 6/20 | 3 |
+| G(V) — Réglementation nationale spécifique VTC | 6 QCM + 2 QRC | 0h20 | < 6/20 | 3 |
+
+**Conditions d'admissibilité** : Moyenne générale **≥ 10/20** sur les 7 épreuves pondérées, **sans note éliminatoire**.
+
+### Épreuve pratique d'admission
+
+Mise en situation professionnelle de **45 minutes maximum** (dont 20 min de conduite minimum). Évaluation sur **20 points** :
+
+| Critère | Points |
+|---------|--------|
+| Préparation et réalisation du parcours | 3 pts |
+| Sécurité et souplesse de la conduite, respect du code de la route | 10 pts |
+| Qualité de la prise en charge et relation client ; informations touristiques | 5 pts |
+| Facturation | 2 pts |
+
+**Admission** : Note **≥ 12/20**. En cas d'échec, 2 tentatives supplémentaires dans un délai d'un an.
 
 ### Nos conseils pour réussir
 
@@ -2219,14 +2270,19 @@ La formation initiale VTC est **obligatoire** pour passer l'examen. Chez ECOLE T
 
 ## L'examen VTC
 
-L'examen se compose de 7 épreuves :
-1. Réglementation T3P
-2. Gestion d'entreprise
-3. Sécurité routière
-4. Français
-5. Anglais
-6. Développement commercial
-7. Réglementation nationale
+L'examen comprend **7 épreuves écrites** (tronc commun + spécifiques VTC) :
+
+| Épreuve | Durée | Coef. |
+|---------|-------|-------|
+| A — Réglementation T3P | 0h45 | 3 |
+| B — Gestion | 0h45 | 2 |
+| C — Sécurité routière | 0h30 | 3 |
+| D — Français | 0h30 | 2 |
+| E — Anglais | 0h30 | 1 |
+| F(V) — Développement commercial | 0h30 | 3 |
+| G(V) — Réglementation nationale VTC | 0h20 | 3 |
+
+Admissibilité : moyenne ≥ 10/20 sans note éliminatoire (< 6/20, sauf anglais < 4/20). Puis épreuve pratique (45 min), admission ≥ 12/20.
 
 **Taux de réussite ECOLE T3P : 94%**
 
@@ -2289,15 +2345,26 @@ La formation n'est pas obligatoire pour passer l'examen, mais elle est **forteme
 
 ## L'examen taxi
 
-L'examen comprend des épreuves écrites et pratiques :
+L'examen comprend **7 épreuves écrites d'admissibilité** puis une **épreuve pratique** :
 
-| Épreuve | Coefficient | Durée |
-|---------|-------------|-------|
-| Réglementation T3P | 3 | 45 min |
-| Gestion | 2 | 1h |
-| Sécurité routière | 2 | 45min |
-| Français | 1 | 30min |
-| Anglais | 1 | 20min |
+**Tronc commun (5 épreuves) :**
+
+| Épreuve | Composition | Durée | Éliminatoire | Coef. |
+|---------|-------------|-------|--------------|-------|
+| A — Réglementation T3P | 10 QCM + 5 QRC | 0h45 | < 6/20 | 3 |
+| B — Gestion | 16 QCM + 2 QRC | 0h45 | < 6/20 | 2 |
+| C — Sécurité routière | 20 QCM | 0h30 | < 6/20 | 3 |
+| D — Français | 7 QCM + 3 QRC | 0h30 | < 6/20 | 2 |
+| E — Anglais | 20 QCM | 0h30 | < 4/20 | 1 |
+
+**Épreuves spécifiques Taxi :**
+
+| Épreuve | Composition | Durée | Éliminatoire | Coef. |
+|---------|-------------|-------|--------------|-------|
+| F(T) — Connaissance du territoire | 6 QCM + 2 QRC | 0h20 | < 6/20 | 3 |
+| G(T) — Réglementation nationale Taxi | 12 QCM + 4 QRC | 0h30 | < 6/20 | 3 |
+
+Admissibilité : moyenne ≥ 10/20 sans note éliminatoire. Épreuve pratique : 45 min, admission ≥ 12/20.
 
 ## Après l'examen : les démarches
 
@@ -2448,16 +2515,26 @@ La formation initiale est votre meilleur atout pour réussir l'examen.
 
 ## Étape 3 : Passer l'examen VTC
 
-L'examen se déroule dans un centre agréé et comprend 7 épreuves.
+L'examen se déroule dans un centre agréé (CMA) et comprend **7 épreuves d'admissibilité** :
 
-### Les épreuves :
-1. **Réglementation T3P** - La plus importante
-2. **Gestion d'entreprise** - Comptabilité, fiscalité
-3. **Sécurité routière** - Code approfondi
-4. **Français** - Compréhension écrite
-5. **Anglais** - Niveau basique
-6. **Développement commercial** - Marketing
-7. **Réglementation nationale** - Droit des transports
+**Tronc commun :**
+
+| Épreuve | Composition | Durée | Éliminatoire | Coef. |
+|---------|-------------|-------|--------------|-------|
+| A — Réglementation T3P | 10 QCM + 5 QRC | 0h45 | < 6/20 | 3 |
+| B — Gestion | 16 QCM + 2 QRC | 0h45 | < 6/20 | 2 |
+| C — Sécurité routière | 20 QCM | 0h30 | < 6/20 | 3 |
+| D — Français | 7 QCM + 3 QRC | 0h30 | < 6/20 | 2 |
+| E — Anglais | 20 QCM | 0h30 | < 4/20 | 1 |
+
+**Épreuves spécifiques VTC :**
+
+| Épreuve | Composition | Durée | Éliminatoire | Coef. |
+|---------|-------------|-------|--------------|-------|
+| F(V) — Développement commercial | 12 QCM + 4 QRC | 0h30 | < 6/20 | 3 |
+| G(V) — Réglementation nationale VTC | 6 QCM + 2 QRC | 0h20 | < 6/20 | 3 |
+
+Admissibilité : moyenne ≥ 10/20 sans note éliminatoire. Puis **épreuve pratique** : 45 min, admission ≥ 12/20.
 
 ### Nos conseils pour réussir :
 - Révisez chaque jour après la formation
@@ -2647,7 +2724,16 @@ Notre formation VMDTR dure **2 jours (14 heures)** pour les titulaires d'une car
 
 ## L'examen VMDTR
 
-Pour les titulaires d'une carte VTC ou Taxi, la formation de 14h suffit pour obtenir la mention VMDTR (pas d'examen supplémentaire). Sans carte T3P existante, il faut d'abord passer l'examen VTC complet. Notre taux de réussite est de 94%.
+Pour les titulaires d'une carte VTC ou Taxi, la formation de 14h suffit pour obtenir la mention VMDTR (pas d'examen supplémentaire).
+
+Sans carte T3P existante, vous devez passer l'examen T3P complet avec les **épreuves spécifiques VMDTR** :
+
+- **F(M) — Sécurité routière spécifique motocyclettes** : 12 QCM + 4 QRC, 0h30, coef. 3
+- **G(M) — Prise en charge du passager** : 6 QCM + 2 QRC, 0h20, coef. 3
+
+Plus le tronc commun (A à E) identique à Taxi et VTC. Admissibilité : moyenne ≥ 10/20. Épreuve pratique : 45 min, admission ≥ 12/20.
+
+Notre taux de réussite est de **94%**.
 
 ## Les débouchés professionnels
 
