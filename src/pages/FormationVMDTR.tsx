@@ -291,7 +291,7 @@ const FormationVMDTR = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 bg-gradient-to-br from-orange-500/10 via-background to-red-500/5 overflow-hidden">
+      <section className="relative py-10 lg:py-24 bg-gradient-to-br from-orange-500/10 via-background to-red-500/5 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 right-10 w-72 h-72 bg-orange-500 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-10 w-96 h-96 bg-red-500 rounded-full blur-3xl" />
@@ -309,36 +309,36 @@ const FormationVMDTR = () => {
                 Formation T3P – Parcours VMDTR
               </Badge>
               
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h1 className="text-[28px] lg:text-5xl font-bold mb-4 lg:mb-6 leading-tight">
                 Formation VMDTR Moto-Taxi à Montrouge — <span className="text-orange-600">14h</span>
               </h1>
               
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-base lg:text-lg text-muted-foreground mb-6 lg:mb-8">
                 Le parcours VMDTR fait partie de la formation T3P. Devenez moto-taxi professionnel 
                 avec notre formation complète. Maîtrisez la sécurité, la réglementation et lancez votre activité.
               </p>
               
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-4 py-2 rounded-lg border">
-                  <Clock className="h-5 w-5 text-orange-600" />
+              <div className="flex flex-wrap gap-2 lg:gap-4 mb-6 lg:mb-8">
+                <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
+                  <Clock className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
                   <span className="font-medium">48 heures</span>
                 </div>
-                <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-4 py-2 rounded-lg border">
-                  <Euro className="h-5 w-5 text-orange-600" />
+                <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
+                  <Euro className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
                   <span className="font-medium">{vmdtrFormation?.price || 1490}€</span>
                 </div>
-                <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-4 py-2 rounded-lg border">
-                  <Shield className="h-5 w-5 text-orange-600" />
+                <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
+                  <Shield className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
                   <span className="font-medium">Sécurité renforcée</span>
                 </div>
               </div>
               
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700" onClick={() => setShowPreRegistration(true)}>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button size="lg" className="bg-orange-600 hover:bg-orange-700 w-full sm:w-auto" onClick={() => setShowPreRegistration(true)}>
                   <GraduationCap className="mr-2 h-5 w-5" />
                   S'inscrire à la formation
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
                   <Link to="/contact">
                     <Phone className="mr-2 h-5 w-5" />
                     Nous contacter
@@ -384,21 +384,21 @@ const FormationVMDTR = () => {
       <TrustBar />
 
       {/* Avantages VMDTR */}
-      <section className="py-16 lg:py-24 bg-muted/30">
+      <section className="py-10 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 lg:mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">Pourquoi devenir Moto-Taxi ?</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">Pourquoi devenir Moto-Taxi ?</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Le métier de moto-taxi offre de nombreux avantages pour les passionnés de deux-roues
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {[
               { icon: Zap, title: "Rapidité", desc: "Traversez Paris en un temps record" },
               { icon: Euro, title: "Revenus attractifs", desc: "Tarifs premium pour un service exclusif" },
@@ -425,15 +425,15 @@ const FormationVMDTR = () => {
       </section>
 
       {/* Programme */}
-      <section className="py-16 lg:py-24">
+      <section className="py-10 lg:py-24">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 lg:mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">Programme de la Formation</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">Programme de la Formation</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               48 heures de formation complète pour maîtriser tous les aspects du métier de moto-taxi
             </p>
@@ -507,15 +507,15 @@ const FormationVMDTR = () => {
       <ExamProgramSection profession="vmdtr" />
 
       {/* Prérequis */}
-      <section className="py-16 lg:py-24 bg-orange-500/5">
+      <section className="py-10 lg:py-24 bg-orange-500/5">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6">Prérequis pour la Formation</h2>
+              <h2 className="text-2xl lg:text-3xl font-bold mb-6">Prérequis pour la Formation</h2>
               <ul className="space-y-4">
                 {[
                   "Avoir au minimum 21 ans",
@@ -568,15 +568,15 @@ const FormationVMDTR = () => {
       </section>
 
       {/* Témoignages */}
-      <section className="py-16 lg:py-24">
+      <section className="py-10 lg:py-24">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 lg:mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">Ils sont devenus Moto-Taxi</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">Ils sont devenus Moto-Taxi</h2>
             <p className="text-muted-foreground">Découvrez les témoignages de nos anciens stagiaires</p>
           </motion.div>
 
@@ -610,15 +610,15 @@ const FormationVMDTR = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 lg:py-24 bg-muted/30">
+      <section className="py-10 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 lg:mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">Questions Fréquentes</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">Questions Fréquentes</h2>
             <p className="text-muted-foreground">Tout ce que vous devez savoir sur la formation VMDTR</p>
           </motion.div>
 
@@ -781,17 +781,17 @@ const FormationVMDTR = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-10 lg:py-24 bg-gradient-to-r from-orange-600 to-red-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-2xl lg:text-4xl font-bold mb-4">
               Prêt à devenir Moto-Taxi ?
             </h2>
-            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-base lg:text-lg text-white/80 mb-6 lg:mb-8 max-w-2xl mx-auto">
               Inscrivez-vous dès maintenant et transformez votre passion pour la moto en carrière professionnelle.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

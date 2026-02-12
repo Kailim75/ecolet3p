@@ -194,7 +194,7 @@ const FormationContinueTaxi = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 lg:py-20 bg-cream">
+      <section className="py-10 lg:py-20 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -207,43 +207,43 @@ const FormationContinueTaxi = () => {
                 Formation continue obligatoire
               </Badge>
               
-              <h1 className="text-4xl lg:text-5xl font-bold text-forest mb-6">
+              <h1 className="text-[28px] lg:text-5xl font-bold text-forest mb-4 lg:mb-6 leading-tight">
                 Formation Continue Taxi — Renouvellement Carte Professionnelle
               </h1>
               
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
+              <p className="text-base lg:text-lg text-muted-foreground mb-6 lg:mb-8 max-w-2xl">
                 Formation obligatoire de 14 heures pour le renouvellement de votre carte professionnelle 
                 de conducteur de taxi, conformément à la réglementation en vigueur.
               </p>
 
               {/* Key Info Cards */}
-              <div className="grid sm:grid-cols-4 gap-4 mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 lg:gap-4 mb-6 lg:mb-8">
                 <Card className="text-center">
-                  <CardContent className="pt-6">
-                    <Clock className="h-8 w-8 text-forest mx-auto mb-2" />
-                    <p className="font-bold text-lg">14 heures</p>
-                    <p className="text-sm text-muted-foreground">Durée</p>
+                  <CardContent className="pt-4 lg:pt-6 pb-4">
+                    <Clock className="h-6 w-6 lg:h-8 lg:w-8 text-forest mx-auto mb-1 lg:mb-2" />
+                    <p className="font-bold text-base lg:text-lg">14 heures</p>
+                    <p className="text-xs lg:text-sm text-muted-foreground">Durée</p>
                   </CardContent>
                 </Card>
                 <Card className="text-center">
-                  <CardContent className="pt-6">
-                    <Calendar className="h-8 w-8 text-forest mx-auto mb-2" />
-                    <p className="font-bold text-lg">2 jours</p>
-                    <p className="text-sm text-muted-foreground">Format</p>
+                  <CardContent className="pt-4 lg:pt-6 pb-4">
+                    <Calendar className="h-6 w-6 lg:h-8 lg:w-8 text-forest mx-auto mb-1 lg:mb-2" />
+                    <p className="font-bold text-base lg:text-lg">2 jours</p>
+                    <p className="text-xs lg:text-sm text-muted-foreground">Format</p>
                   </CardContent>
                 </Card>
                 <Card className="text-center">
-                  <CardContent className="pt-6">
-                    <MapPin className="h-8 w-8 text-forest mx-auto mb-2" />
-                    <p className="font-bold text-lg">Montrouge</p>
-                    <p className="text-sm text-muted-foreground">Lieu</p>
+                  <CardContent className="pt-4 lg:pt-6 pb-4">
+                    <MapPin className="h-6 w-6 lg:h-8 lg:w-8 text-forest mx-auto mb-1 lg:mb-2" />
+                    <p className="font-bold text-base lg:text-lg">Montrouge</p>
+                    <p className="text-xs lg:text-sm text-muted-foreground">Lieu</p>
                   </CardContent>
                 </Card>
                 <Card className="text-center">
-                  <CardContent className="pt-6">
-                    <Euro className="h-8 w-8 text-gold mx-auto mb-2" />
-                    <p className="font-bold text-lg">239 €</p>
-                    <p className="text-sm text-muted-foreground">Tarif</p>
+                  <CardContent className="pt-4 lg:pt-6 pb-4">
+                    <Euro className="h-6 w-6 lg:h-8 lg:w-8 text-gold mx-auto mb-1 lg:mb-2" />
+                    <p className="font-bold text-base lg:text-lg">239 €</p>
+                    <p className="text-xs lg:text-sm text-muted-foreground">Tarif</p>
                   </CardContent>
                 </Card>
               </div>
@@ -278,7 +278,7 @@ const FormationContinueTaxi = () => {
       </section>
 
       {/* Objectifs */}
-      <section className="py-16">
+      <section className="py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-forest mb-8 text-center">Objectifs de la formation</h2>
@@ -300,7 +300,7 @@ const FormationContinueTaxi = () => {
       </section>
 
       {/* Programme */}
-      <section className="py-16 bg-cream">
+      <section className="py-10 lg:py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-forest mb-8 text-center">Programme de formation</h2>
@@ -331,7 +331,7 @@ const FormationContinueTaxi = () => {
       </section>
 
       {/* Évolutions 2026 pour les taxis */}
-      <section className="py-16">
+      <section className="py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-forest mb-6">Évolutions réglementaires 2026 : ce qui change pour les taxis</h2>
@@ -368,7 +368,7 @@ const FormationContinueTaxi = () => {
       </section>
 
       {/* Calculateur renouvellement */}
-      <section className="py-16 bg-cream">
+      <section className="py-10 lg:py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-xl mx-auto">
             <Card className="border-2 border-forest/20">
