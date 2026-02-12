@@ -146,17 +146,17 @@ const Contact = () => {
 
   // Progress bar component
   const ProgressBar = () => (
-    <div className="flex items-center justify-center gap-3 mb-8">
+    <div className="flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-8">
       {[1, 2, 3].map((s) => (
-        <div key={s} className="flex items-center gap-3">
+        <div key={s} className="flex items-center gap-2 md:gap-3">
           <div
-            className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+            className={`w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
               s < step ? "bg-forest text-white" : s === step ? "bg-forest text-white scale-110" : "bg-muted text-muted-foreground"
             }`}
           >
-            {s < step ? <CheckCircle className="w-5 h-5" /> : s}
+            {s < step ? <CheckCircle className="w-4 h-4 md:w-5 md:h-5" /> : s}
           </div>
-          {s < 3 && <div className={`w-10 h-0.5 transition-colors ${s < step ? "bg-forest" : "bg-muted"}`} />}
+          {s < 3 && <div className={`w-8 md:w-10 h-0.5 transition-colors ${s < step ? "bg-forest" : "bg-muted"}`} />}
         </div>
       ))}
     </div>
@@ -183,7 +183,7 @@ const Contact = () => {
           {step === 1 && (
             <motion.div key="step1" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}>
               <h2 className="text-xl font-bold text-forest mb-6 text-center">Quelle formation vous intéresse ?</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {formationChoices.map((f) => {
                   const Icon = f.icon;
                   const isSelected = formData.formation === f.id;
@@ -194,15 +194,15 @@ const Contact = () => {
                       onClick={() => selectFormation(f.id)}
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className={`flex flex-col items-center gap-3 p-6 rounded-xl border-2 transition-all cursor-pointer text-center ${
+                      className={`flex flex-col items-center gap-2 p-4 md:p-6 rounded-xl border-2 transition-all cursor-pointer text-center ${
                         isSelected ? "border-forest bg-forest/5 shadow-md" : "border-border hover:border-forest/40 hover:bg-forest/5"
                       }`}
                     >
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${isSelected ? "bg-forest text-white" : "bg-forest/10 text-forest"}`}>
-                        <Icon className="w-6 h-6" />
+                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center ${isSelected ? "bg-forest text-white" : "bg-forest/10 text-forest"}`}>
+                        <Icon className="w-5 h-5 md:w-6 md:h-6" />
                       </div>
-                      <span className="font-bold text-forest">{f.label}</span>
-                      <span className="text-sm font-semibold text-gold">{f.price}</span>
+                      <span className="font-bold text-forest text-sm md:text-base">{f.label}</span>
+                      <span className="text-xs md:text-sm font-semibold text-gold">{f.price}</span>
                     </motion.button>
                   );
                 })}
@@ -322,16 +322,16 @@ const Contact = () => {
       </div>
 
       {/* Hero */}
-      <section ref={heroRef} className="bg-cream py-20 md:py-28 relative overflow-hidden">
+      <section ref={heroRef} className="bg-cream py-12 md:py-28 relative overflow-hidden">
         <motion.div style={{ y: heroY, scale: heroScale }} className="absolute -top-20 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none" />
         <motion.div style={{ y: heroY }} className="absolute top-1/2 -right-32 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
-        <motion.div className="absolute bottom-10 left-1/4 w-40 h-40 bg-forest/5 rounded-full blur-2xl pointer-events-none" animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 4, repeat: Infinity }} />
-        <motion.div className="absolute top-20 right-1/4 w-32 h-32 bg-gold/15 rounded-full blur-2xl pointer-events-none" animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 5, repeat: Infinity }} />
+        <motion.div className="absolute bottom-10 left-1/4 w-40 h-40 bg-forest/5 rounded-full blur-2xl pointer-events-none hidden md:block" animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 4, repeat: Infinity }} />
+        <motion.div className="absolute top-20 right-1/4 w-32 h-32 bg-gold/15 rounded-full blur-2xl pointer-events-none hidden md:block" animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 5, repeat: Infinity }} />
         <div className="container-custom text-center relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainerVariants}>
-            <motion.span variants={fadeUpVariants} className="badge-livementor mb-6 inline-block">📬 Contactez-nous</motion.span>
-            <motion.h1 variants={fadeUpVariants} className="section-title mb-6">PARLONS DE VOTRE<br /><span className="text-gold">PROJET</span></motion.h1>
-            <motion.p variants={fadeUpVariants} className="section-subtitle mx-auto">Une question sur nos formations ? Prenez rendez-vous ou envoyez-nous un message. Notre équipe vous répond sous 24h.</motion.p>
+            <motion.span variants={fadeUpVariants} className="badge-livementor mb-4 md:mb-6 inline-block text-sm">📬 Contactez-nous</motion.span>
+            <motion.h1 variants={fadeUpVariants} className="text-[28px] md:text-4xl lg:text-5xl font-black text-forest uppercase tracking-tight mb-3 md:mb-6 leading-tight">PARLONS DE VOTRE<br /><span className="text-gold">PROJET</span></motion.h1>
+            <motion.p variants={fadeUpVariants} className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">Une question sur nos formations ? Envoyez-nous un message. Notre équipe vous répond sous 24h.</motion.p>
           </motion.div>
         </div>
       </section>
@@ -339,29 +339,29 @@ const Contact = () => {
       <TrustBar />
 
       {/* Contact Section */}
-      <section ref={contactRef} className="section-padding bg-background relative overflow-hidden">
-        <motion.div style={{ y: contactY1, rotate: contactRotate }} className="absolute -top-32 left-10 w-72 h-72 bg-forest/5 rounded-full blur-3xl pointer-events-none" />
-        <motion.div style={{ y: contactY2 }} className="absolute top-1/3 -right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
-        <motion.div style={{ y: contactY1 }} className="absolute -bottom-20 left-1/3 w-56 h-56 bg-forest/5 rounded-full blur-2xl pointer-events-none" />
+      <section ref={contactRef} className="py-10 lg:py-20 bg-background relative overflow-hidden">
+        <motion.div style={{ y: contactY1, rotate: contactRotate }} className="absolute -top-32 left-10 w-72 h-72 bg-forest/5 rounded-full blur-3xl pointer-events-none hidden md:block" />
+        <motion.div style={{ y: contactY2 }} className="absolute top-1/3 -right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none hidden md:block" />
+        <motion.div style={{ y: contactY1 }} className="absolute -bottom-20 left-1/3 w-56 h-56 bg-forest/5 rounded-full blur-2xl pointer-events-none hidden md:block" />
 
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Info */}
-            <motion.div className="lg:col-span-2 space-y-8" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainerVariants}>
+            <motion.div className="lg:col-span-2 space-y-6 lg:space-y-8" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainerVariants}>
               <motion.div variants={fadeUpVariants}>
-                <h2 className="text-2xl font-black text-forest uppercase tracking-tight mb-6">Nos coordonnées</h2>
-                <div className="space-y-5">
+                <h2 className="text-xl md:text-2xl font-black text-forest uppercase tracking-tight mb-4 md:mb-6">Nos coordonnées</h2>
+                <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:gap-5">
                   {contactInfo.map((info, index) => (
-                    <motion.div key={info.title} className="flex gap-4" variants={staggerItemVariants} custom={index}>
-                      <motion.div className="icon-container shrink-0" whileHover={{ scale: 1.1, rotate: 5 }} transition={{ type: "spring", stiffness: 400 }}>
-                        <info.icon className="w-6 h-6" />
+                    <motion.div key={info.title} className="flex gap-3 lg:gap-4" variants={staggerItemVariants} custom={index}>
+                      <motion.div className="icon-container shrink-0 w-10 h-10 lg:w-12 lg:h-12" whileHover={{ scale: 1.1, rotate: 5 }} transition={{ type: "spring", stiffness: 400 }}>
+                        <info.icon className="w-5 h-5 lg:w-6 lg:h-6" />
                       </motion.div>
-                      <div>
-                        <h3 className="font-bold text-forest mb-1">{info.title}</h3>
+                      <div className="min-w-0">
+                        <h3 className="font-bold text-forest text-sm lg:text-base mb-0.5">{info.title}</h3>
                         {info.href ? (
-                          <a href={info.href} className="text-muted-foreground hover:text-forest transition-colors whitespace-pre-line">{info.content}</a>
+                          <a href={info.href} className="text-muted-foreground hover:text-forest transition-colors whitespace-pre-line text-xs lg:text-sm">{info.content}</a>
                         ) : (
-                          <p className="text-muted-foreground whitespace-pre-line">{info.content}</p>
+                          <p className="text-muted-foreground whitespace-pre-line text-xs lg:text-sm">{info.content}</p>
                         )}
                       </div>
                     </motion.div>
@@ -370,10 +370,10 @@ const Contact = () => {
               </motion.div>
 
               {/* Quick Contact CTA */}
-              <motion.div variants={fadeUpVariants} className="card-livementor bg-forest text-cream">
-                <h3 className="font-bold text-lg mb-2">📞 Besoin d'un conseil rapide ?</h3>
-                <p className="text-cream/80 text-sm mb-4">Appelez-nous directement, notre équipe est disponible du lundi au vendredi.</p>
-                <a href="tel:0188750555" className="inline-flex items-center gap-2 bg-gold text-forest font-bold py-3 px-6 rounded-md hover:bg-gold/90 transition-colors">
+              <motion.div variants={fadeUpVariants} className="card-livementor bg-forest text-cream p-4 lg:p-6">
+                <h3 className="font-bold text-base lg:text-lg mb-1.5">📞 Besoin d'un conseil rapide ?</h3>
+                <p className="text-cream/80 text-xs lg:text-sm mb-3">Appelez-nous, notre équipe est disponible du lundi au vendredi.</p>
+                <a href="tel:0188750555" className="inline-flex items-center gap-2 bg-gold text-forest font-bold py-2.5 px-5 rounded-md hover:bg-gold/90 transition-colors text-sm">
                   <Phone className="w-4 h-4" /> 01 88 75 05 55
                 </a>
               </motion.div>
@@ -391,25 +391,25 @@ const Contact = () => {
 
       {/* Trust Band + Map */}
       <section className="bg-card border-t border-border">
-        <div className="container-custom py-8">
+        <div className="container-custom py-6 md:py-8">
           {/* Trust band */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-8">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-10 mb-6 md:mb-8">
             <div className="flex items-center gap-2">
               <div className="flex">
-                {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 text-gold fill-gold" />)}
+                {[1,2,3,4,5].map(i => <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-gold fill-gold" />)}
               </div>
-              <span className="text-sm font-semibold" style={{ color: "#555" }}>5.0/5 — 359 avis</span>
+              <span className="text-xs md:text-sm font-semibold" style={{ color: "#555" }}>5.0/5 — 359 avis</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold" style={{ color: "#555" }}>🎓 94% de réussite</span>
+              <span className="text-xs md:text-sm font-semibold" style={{ color: "#555" }}>🎓 94% de réussite</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold" style={{ color: "#555" }}>💳 Paiement en 4x sans frais</span>
+              <span className="text-xs md:text-sm font-semibold" style={{ color: "#555" }}>💳 Paiement 4x sans frais</span>
             </div>
           </div>
 
           {/* Google Maps */}
-          <div className="rounded-xl overflow-hidden border border-border shadow-sm" style={{ height: 300 }}>
+          <div className="rounded-xl overflow-hidden border border-border shadow-sm" style={{ height: 220 }}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.0833183533!2d2.3137!3d48.8155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDQ4JzU1LjgiTiAywrAxOCc0OS4zIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
               width="100%" height="100%" style={{ border: 0 }}
