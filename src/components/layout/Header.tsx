@@ -1,44 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, FileText } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, FileText, CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, BookOpen, Info, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
 import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
 
-// Formations sub-menu structure — flat list for compact nav
+// Formations sub-menu structure
 const formationsSubMenu = {
   initiales: {
     label: "Formations Initiales",
     items: [
-      { name: "Formation TAXI", path: "/formations/taxi" },
-      { name: "Formation VTC", path: "/formations/vtc" },
-      { name: "Formation VMDTR", path: "/formations/vmdtr" },
+      { name: "Formation TAXI", path: "/formations/taxi", icon: CarTaxiFront, color: "text-amber-600" },
+      { name: "Formation VTC", path: "/formations/vtc", icon: Car, color: "text-forest" },
+      { name: "Formation VMDTR", path: "/formations/vmdtr", icon: Bike, color: "text-orange-600" },
     ],
   },
   continues: {
     label: "Formations Continues",
     items: [
-      { name: "Continue TAXI (14h)", path: "/formations/continue-taxi" },
-      { name: "Continue VTC (14h)", path: "/formations/continue-vtc" },
-      { name: "Continue VMDTR (14h)", path: "/formations/continue-vmdtr" },
+      { name: "Continue TAXI (14h)", path: "/formations/continue-taxi", icon: RefreshCw, color: "text-amber-600" },
+      { name: "Continue VTC (14h)", path: "/formations/continue-vtc", icon: RefreshCw, color: "text-forest" },
+      { name: "Continue VMDTR (14h)", path: "/formations/continue-vmdtr", icon: RefreshCw, color: "text-orange-600" },
     ],
   },
   autres: {
     label: "Autres formations",
     items: [
-      { name: "Mobilité Taxi", path: "/formations/mobilite" },
-      { name: "Récupération de points", path: "/formations/recuperation-points" },
+      { name: "Mobilité Taxi", path: "/formations/mobilite", icon: ArrowRight, color: "text-forest" },
+      { name: "Récupération de points", path: "/formations/recuperation-points", icon: MapPin, color: "text-forest" },
     ],
   },
 };
 
 const navLinks = [
-  { name: "Formations", path: "/formations", hasSubmenu: true },
-  { name: "Blog", path: "/blog" },
-  { name: "À propos", path: "/a-propos" },
-  { name: "Contact", path: "/contact" },
+  { name: "Formations", path: "/formations", hasSubmenu: true, icon: BookOpen },
+  { name: "Blog", path: "/blog", icon: FileText },
+  { name: "À propos", path: "/a-propos", icon: Info },
+  { name: "Contact", path: "/contact", icon: Mail },
 ];
 
 const Header = () => {
@@ -63,7 +63,18 @@ const Header = () => {
     setMobileFormationsOpen(false);
   }, [location]);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isMenuOpen]);
+
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
@@ -72,14 +83,11 @@ const Header = () => {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-[72px]">
+        <div className="flex items-center justify-between h-16 lg:h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <EcoleT3PMonogram className="w-9 h-9" theme="light" />
-            <div className="flex flex-col">
-              <span className="text-xl font-serif font-bold text-forest tracking-wide">ÉCOLE T3P</span>
-              <span className="text-[9px] text-muted-foreground tracking-wider hidden sm:block">Centre de formation agréé Préfecture</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2.5">
+            <EcoleT3PMonogram className="w-8 h-8 lg:w-9 lg:h-9" theme="light" />
+            <span className="text-lg lg:text-xl font-serif font-bold text-forest tracking-wide">ÉCOLE T3P</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -126,12 +134,13 @@ const Header = () => {
                                   key={subLink.path}
                                   to={subLink.path}
                                   prefetchOnHover
-                                  className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
+                                  className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors ${
                                     isActive(subLink.path)
                                       ? "bg-forest/10 text-forest"
                                       : "text-warm-gray-700 hover:bg-forest/5 hover:text-forest"
                                   }`}
                                 >
+                                  <subLink.icon className={`w-4 h-4 ${subLink.color}`} />
                                   {subLink.name}
                                 </PrefetchLink>
                               ))}
@@ -182,18 +191,17 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile CTA + Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <Button
-              onClick={() => openQuoteModal()}
-              className="btn-cta-orange h-9 px-3 text-xs font-bold rounded-full"
-              size="sm"
+          {/* Mobile: Phone + Menu Button */}
+          <div className="flex items-center gap-1 lg:hidden">
+            <a
+              href="tel:0188750555"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-forest/10 text-forest"
+              aria-label="Appeler"
             >
-              <FileText className="w-3.5 h-3.5 mr-1" />
-              Devis
-            </Button>
+              <Phone className="w-4 h-4" />
+            </a>
             <button
-              className="p-2 text-forest hover:text-forest-light transition-colors"
+              className="flex items-center justify-center w-10 h-10 text-forest hover:bg-forest/5 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
@@ -202,38 +210,41 @@ const Header = () => {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Full-Screen Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="lg:hidden bg-cream-light border-t border-cream-dark max-h-[80vh] overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 top-16 lg:hidden bg-cream-light z-[60] overflow-y-auto"
           >
-            <div className="container-custom py-4">
-              <nav className="flex flex-col gap-1">
+            <div className="container-custom py-6 pb-32 flex flex-col min-h-full">
+              {/* Navigation */}
+              <nav className="flex flex-col gap-0.5">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.04 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
                   >
                     {link.hasSubmenu ? (
                       <>
                         <button
                           onClick={() => setMobileFormationsOpen(!mobileFormationsOpen)}
-                          className={`w-full flex items-center justify-between text-base font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors ${
+                          className={`w-full flex items-center gap-3 py-3.5 px-4 rounded-xl text-left transition-colors ${
                             isFormationActive
                               ? "text-forest bg-forest/10"
-                              : "text-warm-gray-700 hover:text-forest hover:bg-forest/5"
+                              : "text-foreground hover:bg-forest/5"
                           }`}
                         >
-                          {link.name}
-                          <ChevronDown className={`w-5 h-5 transition-transform ${mobileFormationsOpen ? "rotate-180" : ""}`} />
+                          <link.icon className="w-5 h-5 text-forest" />
+                          <span className="text-[15px] font-semibold flex-1">{link.name}</span>
+                          <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${mobileFormationsOpen ? "rotate-180" : ""}`} />
                         </button>
 
                         <AnimatePresence>
@@ -242,28 +253,41 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="ml-4 overflow-hidden"
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden"
                             >
-                              {Object.entries(formationsSubMenu).map(([key, section]) => (
-                                <div key={key} className="py-1">
-                                  <p className="px-4 py-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                    {section.label}
-                                  </p>
-                                  {section.items.map((subLink) => (
-                                    <Link
-                                      key={subLink.path}
-                                      to={subLink.path}
-                                      className={`block text-sm font-medium py-2 px-4 rounded-lg transition-colors ${
-                                        isActive(subLink.path)
-                                          ? "text-forest bg-forest/10"
-                                          : "text-warm-gray-600 hover:text-forest hover:bg-forest/5"
-                                      }`}
-                                    >
-                                      {subLink.name}
-                                    </Link>
-                                  ))}
-                                </div>
-                              ))}
+                              <div className="ml-3 pl-5 border-l-2 border-forest/10 py-1">
+                                {Object.entries(formationsSubMenu).map(([key, section]) => (
+                                  <div key={key} className="mb-2">
+                                    <p className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
+                                      {section.label}
+                                    </p>
+                                    {section.items.map((subLink) => (
+                                      <Link
+                                        key={subLink.path}
+                                        to={subLink.path}
+                                        className={`flex items-center gap-3 py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
+                                          isActive(subLink.path)
+                                            ? "text-forest bg-forest/10"
+                                            : "text-warm-gray-700 hover:bg-forest/5"
+                                        }`}
+                                      >
+                                        <subLink.icon className={`w-4 h-4 flex-shrink-0 ${subLink.color}`} />
+                                        {subLink.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                ))}
+
+                                {/* Link to all formations */}
+                                <Link
+                                  to="/formations"
+                                  className="flex items-center gap-2 py-2.5 px-3 text-sm font-semibold text-forest hover:bg-forest/5 rounded-lg"
+                                >
+                                  <ArrowRight className="w-4 h-4" />
+                                  Voir toutes les formations
+                                </Link>
+                              </div>
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -271,12 +295,13 @@ const Header = () => {
                     ) : (
                       <Link
                         to={link.path}
-                        className={`block text-base font-semibold uppercase tracking-wide py-3 px-4 rounded-lg transition-colors ${
+                        className={`flex items-center gap-3 py-3.5 px-4 rounded-xl text-[15px] font-semibold transition-colors ${
                           isActive(link.path)
                             ? "text-forest bg-forest/10"
-                            : "text-warm-gray-700 hover:text-forest hover:bg-forest/5"
+                            : "text-foreground hover:bg-forest/5"
                         }`}
                       >
+                        <link.icon className="w-5 h-5 text-forest" />
                         {link.name}
                       </Link>
                     )}
@@ -284,27 +309,46 @@ const Header = () => {
                 ))}
               </nav>
 
-              <div className="mt-4 pt-4 border-t border-cream-dark space-y-3">
+              {/* Separator + CTAs */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.25 }}
+                className="mt-6 pt-6 border-t border-cream-dark space-y-3"
+              >
+                {/* Phone */}
                 <a
                   href="tel:0188750555"
-                  className="flex items-center gap-3 font-semibold text-forest py-2"
+                  className="flex items-center gap-3 py-3 px-4 rounded-xl bg-forest/5 font-semibold text-forest"
                 >
                   <Phone className="w-5 h-5" />
                   <span>01 88 75 05 55</span>
+                  <span className="ml-auto text-xs text-muted-foreground">Appeler</span>
                 </a>
-                <Button onClick={() => { openQuoteModal(); setIsMenuOpen(false); }} className="btn-cta-orange w-full">
+
+                {/* Primary CTA */}
+                <Button asChild className="btn-cta-orange w-full h-12 text-base font-bold">
+                  <Link to="/contact">
+                    S'inscrire à une formation
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+
+                {/* Secondary CTA */}
+                <Button
+                  onClick={() => { openQuoteModal(); setIsMenuOpen(false); }}
+                  variant="outline"
+                  className="w-full h-11 border-forest/20 text-forest"
+                >
                   <FileText className="w-4 h-4 mr-2" />
                   Demander un devis gratuit
                 </Button>
-                <Button asChild variant="outline" className="w-full">
-                  <Link to="/contact">S'inscrire</Link>
-                </Button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
