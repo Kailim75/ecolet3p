@@ -208,6 +208,21 @@ const FormationContinueVTC = () => {
                   </CardContent>
                 </Card>
               </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button size="lg" className="bg-forest hover:bg-forest/90 w-full sm:w-auto" asChild>
+                  <Link to="/contact">
+                    <Phone className="mr-2 h-5 w-5" />
+                    S'inscrire à la formation
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
+                  <Link to="/contact">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Nous contacter
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -357,12 +372,12 @@ const FormationContinueVTC = () => {
       </section>
 
       {/* Témoignage VTC */}
-      <section className="py-16 bg-forest/5">
+      <section className="py-10 lg:py-16 bg-forest/5">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-card rounded-xl border p-8">
+            <div className="bg-card rounded-xl border p-5 lg:p-8">
               <Quote className="h-8 w-8 text-gold mb-4" />
-              <blockquote className="text-lg text-foreground italic mb-4">
+              <blockquote className="text-base lg:text-lg text-foreground italic mb-4">
                 « Je suis chauffeur VTC sur Uber et Bolt depuis 3 ans. La formation continue chez ECOLE T3P 
                 m'a permis de comprendre les nouvelles obligations ZFE et surtout d'optimiser ma gestion 
                 fiscale. Grâce aux conseils des formateurs, j'ai changé de statut juridique et j'économise 
@@ -385,9 +400,9 @@ const FormationContinueVTC = () => {
       </section>
 
       {/* Tarif + Sessions */}
-      <section className="py-16">
+      <section className="py-10 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="max-w-2xl mx-auto text-center mb-8 lg:mb-12">
             <h2 className="text-2xl font-bold text-forest mb-4">Tarif de la formation</h2>
             <p className="text-4xl font-black text-forest mb-2">170 €</p>
             <p className="text-sm text-muted-foreground">
@@ -409,7 +424,7 @@ const FormationContinueVTC = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-cream">
+      <section className="py-10 lg:py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-forest mb-8 text-center">Questions fréquentes</h2>
@@ -430,7 +445,7 @@ const FormationContinueVTC = () => {
       </section>
 
       {/* Liens internes */}
-      <section className="py-16 bg-forest/5">
+      <section className="py-10 lg:py-16 bg-forest/5">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold text-forest mb-8 text-center">Formations et ressources associées</h2>
