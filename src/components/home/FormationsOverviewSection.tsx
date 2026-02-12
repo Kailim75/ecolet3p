@@ -68,19 +68,19 @@ const staggerItem = {
 
 const FormationsOverviewSection = () => {
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: "#F9FAFB" }}>
+    <section className="py-10 md:py-20" style={{ backgroundColor: "#F9FAFB" }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: smoothEase }}
-          className="text-center mb-14"
+          className="text-center mb-8 md:mb-14"
         >
-          <h2 className="font-serif text-[28px] md:text-[36px] xl:text-[42px] font-extrabold mb-4" style={{ color: "#1A1A1A" }}>
+          <h2 className="font-serif text-[24px] md:text-[36px] xl:text-[42px] font-extrabold mb-2 md:mb-4" style={{ color: "#1A1A1A" }}>
             Nos Formations
           </h2>
-          <p className="text-base max-w-lg mx-auto" style={{ color: "#777" }}>
+          <p className="text-sm md:text-base max-w-lg mx-auto" style={{ color: "#777" }}>
             Choisissez votre parcours professionnel
           </p>
         </motion.div>
@@ -105,7 +105,7 @@ const FormationsOverviewSection = () => {
                 {/* Color top band */}
                 <div className="h-1.5 w-full" style={{ backgroundColor: f.accentColor }} />
 
-                <div className="p-8 xl:p-10">
+                <div className="p-5 md:p-8 xl:p-10">
                   {/* Icon */}
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: f.bgLight }}>
                     <Icon className="w-7 h-7" style={{ color: f.accentColor }} />
