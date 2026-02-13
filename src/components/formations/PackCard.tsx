@@ -3,6 +3,7 @@ import { motion, type Easing } from "framer-motion";
 import { ArrowRight, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 import type { PackOffer } from "@/data/offreCatalogueData";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
@@ -85,12 +86,18 @@ const PackCard = ({ pack, onRegister }: PackCardProps) => {
         </div>
 
         {/* CTA */}
-        <Button
-          className="w-full font-bold text-sm btn-cta-orange"
-          onClick={() => onRegister?.(pack.title, format === "soiree" ? "Soirée" : "Journée")}
-        >
-          Choisir ce pack <ArrowRight className="w-4 h-4 ml-1" />
-        </Button>
+        <div className="flex flex-col gap-2">
+          <Button
+            className="w-full font-bold text-sm btn-cta-orange"
+            onClick={() => onRegister?.(pack.title, format === "soiree" ? "Soirée" : "Journée")}
+          >
+            Choisir ce pack <ArrowRight className="w-4 h-4 ml-1" />
+          </Button>
+          <AlmaPaymentButton
+            formationTitle={`${pack.title} (${format === "soiree" ? "Soirée" : "Journée"})`}
+            price={variant.prixPack}
+          />
+        </div>
       </div>
     </motion.div>
   );
