@@ -49,6 +49,10 @@ const GuideFormation = lazy(() => import("./pages/GuideFormation"));
 const GuideFormationPDF = lazy(() => import("./pages/GuideFormationPDF"));
 const Paiement = lazy(() => import("./pages/Paiement"));
 const CalendrierExamens = lazy(() => import("./pages/CalendrierExamens"));
+const FormationPMR = lazy(() => import("./pages/FormationPMR"));
+const FormationGestionEntreprise = lazy(() => import("./pages/FormationGestionEntreprise"));
+const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
+const FormationAccompagnementAdmin = lazy(() => import("./pages/FormationAccompagnementAdmin"));
 
 const queryClient = new QueryClient();
 
@@ -109,6 +113,10 @@ const App = () => {
                       <Route path="/paiement" element={<Paiement />} />
                       <Route path="/calendrier-examens" element={<CalendrierExamens />} />
                       <Route path="/services/location-vehicule-examen" element={<LocationVehiculeExamen />} />
+                      <Route path="/formations/accessibilite-pmr" element={<FormationPMR />} />
+                      <Route path="/formations/gestion-entreprise" element={<FormationGestionEntreprise />} />
+                      <Route path="/formations/anglais-professionnel" element={<FormationAnglais />} />
+                      <Route path="/formations/accompagnement-administratif" element={<FormationAccompagnementAdmin />} />
                       <Route path="/a-propos" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />
