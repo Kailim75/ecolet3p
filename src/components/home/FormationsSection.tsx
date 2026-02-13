@@ -111,9 +111,13 @@ const FormationsSection = () => {
           className="text-center mb-8 md:mb-16"
         >
           <h2 className="section-title mb-4">NOS FORMATIONS</h2>
-          <p className="section-subtitle mx-auto">
+          <p className="section-subtitle mx-auto mb-4">
             {isLoading ? "Chargement..." : `${formations.length} formations pour démarrer votre carrière`}
           </p>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+            <CreditCard className="w-4 h-4" />
+            Paiement en 2×, 3× ou 4× sans frais avec Alma
+          </div>
         </motion.div>
 
         {isLoading ? (
