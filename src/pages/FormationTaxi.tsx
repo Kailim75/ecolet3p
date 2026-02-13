@@ -180,7 +180,7 @@ const FormationTaxi = () => {
     },
     "offers": {
       "@type": "Offer",
-      "price": taxiFormation?.price || "1890",
+      "price": soireeFormation?.price || 990,
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "validFrom": "2025-01-01"
@@ -342,7 +342,7 @@ const FormationTaxi = () => {
               <div className="flex flex-wrap gap-2 lg:gap-4 mb-6 lg:mb-8">
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
                   <Clock className="h-4 w-4 lg:h-5 lg:w-5 text-primary" />
-                  <span className="font-medium">63 heures</span>
+                  <span className="font-medium">33h à 63h</span>
                 </div>
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
                   <Euro className="h-4 w-4 lg:h-5 lg:w-5 text-primary" />
@@ -422,7 +422,7 @@ const FormationTaxi = () => {
               Le programme de formation
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              63 heures de formation intensive pour maîtriser tous les aspects du métier de chauffeur de taxi
+              63 heures en journée ou 33 heures en soirée pour maîtriser tous les aspects du métier de chauffeur de taxi
             </p>
           </motion.div>
           
@@ -487,7 +487,7 @@ const FormationTaxi = () => {
                 tierLabel="ESSENTIEL"
                 subtitle="Formation seule"
                 features={[
-                  "Formation complète 63h",
+                  "Formation complète 33h",
                   "Préparation intensive examen CMA",
                   "Support pédagogique",
                   "Accès aux quiz en ligne",
