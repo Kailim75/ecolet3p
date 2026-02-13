@@ -86,19 +86,21 @@ const FormationsSection = () => {
 
   return (
     <section ref={containerRef} className="section-padding gradient-warm overflow-hidden relative">
-      {/* Parallax Background Elements */}
-      <motion.div 
-        style={{ y: y1, scale }}
-        className="absolute -top-32 left-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y2 }}
-        className="absolute top-1/3 -right-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y3 }}
-        className="absolute -bottom-20 left-10 w-48 h-48 bg-gold/15 rounded-full blur-2xl pointer-events-none"
-      />
+      {/* Parallax Background Elements - hidden on mobile for perf */}
+      <div className="hidden md:block">
+        <motion.div 
+          style={{ y: y1, scale }}
+          className="absolute -top-32 left-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: y2 }}
+          className="absolute top-1/3 -right-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: y3 }}
+          className="absolute -bottom-20 left-10 w-48 h-48 bg-gold/15 rounded-full blur-2xl pointer-events-none"
+        />
+      </div>
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -106,7 +108,7 @@ const FormationsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: smoothEase }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <h2 className="section-title mb-4">NOS FORMATIONS</h2>
           <p className="section-subtitle mx-auto">

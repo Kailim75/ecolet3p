@@ -68,24 +68,23 @@ const CookieConsent = () => {
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
         >
-          <div className="container-custom">
-            <div className="bg-card border-2 border-border rounded-2xl shadow-2xl p-6 md:p-8 relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
-              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-forest/10 rounded-full blur-xl" />
+          <div className="container-custom max-md:px-0">
+            <div className="bg-card border-2 border-border rounded-2xl md:rounded-2xl max-md:rounded-t-2xl max-md:rounded-b-none shadow-2xl p-4 md:p-8 relative overflow-hidden">
+              {/* Decorative elements - hidden on mobile for perf */}
+              <div className="hidden md:block absolute -top-10 -right-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
+              <div className="hidden md:block absolute -bottom-10 -left-10 w-24 h-24 bg-forest/10 rounded-full blur-xl" />
 
               <div className="relative z-10">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="icon-container shrink-0">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="icon-container shrink-0 max-md:hidden">
                     <Cookie className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-forest mb-2">
+                    <h3 className="text-base md:text-lg font-bold text-forest mb-1">
                       🍪 Nous respectons votre vie privée
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
-                      Vous pouvez personnaliser vos préférences ou accepter tous les cookies.{" "}
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                      Cookies pour améliorer votre expérience.{" "}
                       <Link to="/politique-de-confidentialite" className="text-forest hover:text-gold font-semibold underline">
                         En savoir plus
                       </Link>
@@ -162,32 +161,31 @@ const CookieConsent = () => {
                 </AnimatePresence>
 
                 {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
-                  <button
-                    onClick={() => setShowDetails(!showDetails)}
-                    className="text-sm font-semibold text-forest hover:text-gold transition-colors underline"
-                  >
-                    {showDetails ? "Masquer les détails" : "Personnaliser mes choix"}
-                  </button>
-
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
+                <div className="flex flex-col gap-3">
+                  <div className="flex gap-2 w-full">
                     {showDetails ? (
-                      <Button onClick={saveCustom} className="btn-secondary text-xs px-4 py-2">
-                        Enregistrer mes préférences
+                      <Button onClick={saveCustom} className="btn-secondary text-xs px-4 py-2.5 flex-1 min-h-[44px]">
+                        Enregistrer
                       </Button>
                     ) : (
                       <Button 
                         onClick={acceptEssential} 
                         variant="outline" 
-                        className="border-2 border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground text-xs px-4 py-2 font-semibold"
+                        className="border-2 border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground text-xs px-4 py-2.5 font-semibold flex-1 min-h-[44px]"
                       >
                         ✕ Refuser
                       </Button>
                     )}
-                    <Button onClick={acceptAll} className="btn-primary text-xs px-6 py-2">
+                    <Button onClick={acceptAll} className="btn-primary text-xs px-6 py-2.5 flex-1 min-h-[44px]">
                       ✓ Tout accepter
                     </Button>
                   </div>
+                  <button
+                    onClick={() => setShowDetails(!showDetails)}
+                    className="text-xs font-semibold text-forest hover:text-gold transition-colors underline text-center"
+                  >
+                    {showDetails ? "Masquer" : "Personnaliser"}
+                  </button>
                 </div>
               </div>
             </div>

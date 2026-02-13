@@ -37,19 +37,21 @@ const TestimonialsSection = () => {
 
   return (
     <section ref={containerRef} className="section-padding gradient-warm overflow-hidden relative">
-      {/* Parallax Background Elements */}
-      <motion.div 
-        style={{ y: y1, scale }}
-        className="absolute -top-20 right-1/4 w-72 h-72 bg-gold/15 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y2 }}
-        className="absolute top-1/2 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y3 }}
-        className="absolute -bottom-32 right-10 w-56 h-56 bg-gold/10 rounded-full blur-2xl pointer-events-none"
-      />
+      {/* Parallax Background Elements - hidden on mobile for perf */}
+      <div className="hidden md:block">
+        <motion.div 
+          style={{ y: y1, scale }}
+          className="absolute -top-20 right-1/4 w-72 h-72 bg-gold/15 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: y2 }}
+          className="absolute top-1/2 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: y3 }}
+          className="absolute -bottom-32 right-10 w-56 h-56 bg-gold/10 rounded-full blur-2xl pointer-events-none"
+        />
+      </div>
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -57,7 +59,7 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: smoothEase }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <h2 className="section-title mb-4">ILS ONT RÉUSSI AVEC <span className="text-gold">ECOLE T3P</span></h2>
           <p className="section-subtitle mx-auto">Rejoignez les 2 000+ professionnels formés depuis 2014</p>
