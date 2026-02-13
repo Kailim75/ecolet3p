@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface PlacesProgressBarProps {
   /** Filter by formation category (taxi, vtc, vmdtr). If omitted, shows the nearest session across all. */
@@ -20,12 +21,14 @@ const formatMonth = (dateString: string) =>
 
 const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps) => {
   const [data, setData] = useState<SessionData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [width, setWidth] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchNextSession = async () => {
+      setIsLoading(true);
       let query = supabase
         .from("formation_sessions")
         .select("start_date, max_participants, current_participants, formation_id, formations(category)")
@@ -34,16 +37,14 @@ const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps)
         .limit(20);
 
       const { data: sessions } = await query;
-      if (!sessions || sessions.length === 0) return;
+      if (!sessions || sessions.length === 0) { setIsLoading(false); return; }
 
-      // Filter by category if provided
       const filtered = category
         ? sessions.filter((s: any) => s.formations?.category === category)
         : sessions;
 
-      if (filtered.length === 0) return;
+      if (filtered.length === 0) { setIsLoading(false); return; }
 
-      // Aggregate all sessions for the nearest start_date
       const nearestDate = filtered[0].start_date;
       const sameDateSessions = filtered.filter((s: any) => s.start_date === nearestDate);
 
@@ -55,6 +56,7 @@ const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps)
         totalPlaces,
         placesLeft: totalPlaces - currentParticipants,
       });
+      setIsLoading(false);
     };
 
     fetchNextSession();
@@ -75,6 +77,21 @@ const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps)
     const timer = setTimeout(() => setWidth(filled), 300);
     return () => clearTimeout(timer);
   }, [started, data]);
+
+  if (isLoading) {
+    return (
+      <div className={`bg-gradient-to-br from-orange/10 to-orange/5 border border-orange/20 rounded-xl p-4 ${className}`}>
+        <div className="flex justify-between items-center mb-2">
+          <Skeleton className="h-4 w-32" />
+          <Skeleton className="h-4 w-24" />
+        </div>
+        <Skeleton className="h-2.5 w-full rounded-full" />
+        <div className="flex justify-end mt-1.5">
+          <Skeleton className="h-3 w-28" />
+        </div>
+      </div>
+    );
+  }
 
   if (!data) return null;
 
