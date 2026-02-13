@@ -34,6 +34,7 @@ import ExamProgramSection from "@/components/formations/ExamProgramSection";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
+import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 
 const programModules = [
   {
@@ -362,6 +363,8 @@ const FormationVTC = () => {
                   </Link>
                 </Button>
               </div>
+
+              <PlacesProgressBar className="max-w-md" />
             </motion.div>
             
             <motion.div

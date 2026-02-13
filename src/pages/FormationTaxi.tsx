@@ -35,6 +35,7 @@ import { useFormations } from "@/hooks/useFormations";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
 import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
+import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 
 const programModules = [
   {
@@ -353,6 +354,8 @@ const FormationTaxi = () => {
                   </Link>
                 </Button>
               </div>
+
+              <PlacesProgressBar className="max-w-md" />
             </motion.div>
             
             <motion.div
