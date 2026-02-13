@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* iOS safe-area + touch optimizations */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .fixed.bottom-0 {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Prevent iOS auto-zoom on focus for all form elements */
+@media screen and (max-width: 767px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
 @layer base {
   :root {
     /* T3P Campus: Forest Green + Warm Cream - Enhanced Contrast */
