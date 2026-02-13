@@ -44,19 +44,21 @@ const AdvantagesSection = () => {
 
   return (
     <section ref={containerRef} className="section-padding bg-card overflow-hidden relative">
-      {/* Parallax Background Elements */}
-      <motion.div 
-        style={{ y: y1, rotate: rotate1 }}
-        className="absolute -top-20 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y2, rotate: rotate2 }}
-        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: y1 }}
-        className="absolute top-1/2 right-0 w-32 h-32 bg-forest/5 rounded-full blur-2xl pointer-events-none"
-      />
+      {/* Parallax Background Elements - hidden on mobile for perf */}
+      <div className="hidden md:block">
+        <motion.div 
+          style={{ y: y1, rotate: rotate1 }}
+          className="absolute -top-20 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: y2, rotate: rotate2 }}
+          className="absolute -bottom-32 -right-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"
+        />
+        <motion.div 
+          style={{ y: y1 }}
+          className="absolute top-1/2 right-0 w-32 h-32 bg-forest/5 rounded-full blur-2xl pointer-events-none"
+        />
+      </div>
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -65,7 +67,7 @@ const AdvantagesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: smoothEase }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
           <motion.h2 
             className="section-title mb-4"
@@ -102,7 +104,7 @@ const AdvantagesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6"
         >
           {advantages.map((adv, i) => (
             <motion.div

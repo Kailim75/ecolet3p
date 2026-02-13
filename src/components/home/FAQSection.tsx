@@ -66,41 +66,31 @@ const FAQSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="section-padding relative overflow-hidden"
+      className="py-10 md:py-20 px-4 md:px-8 relative overflow-hidden"
       style={{ backgroundColor: "#FBF7EF" }}
     >
       {/* Schema.org JSON-LD for SEO */}
       <FAQSchemaOrg faqs={faqs} />
-      {/* Background decorations */}
-      <motion.div 
-        className="absolute top-20 left-10 w-32 h-32 rounded-full opacity-20"
-        style={{ 
-          backgroundColor: "#D4A853",
-          y: backgroundY,
-          filter: "blur(40px)"
-        }}
-      />
-      <motion.div 
-        className="absolute bottom-20 right-10 w-48 h-48 rounded-full opacity-15"
-        style={{ 
-          backgroundColor: "#1B4D3E",
-          y: decorY,
-          filter: "blur(60px)"
-        }}
-      />
-      <motion.div 
-        className="absolute top-1/2 right-1/4 w-24 h-24 rounded-full opacity-10"
-        style={{ 
-          backgroundColor: "#D4A853",
-          y: backgroundY,
-          filter: "blur(30px)"
-        }}
-      />
+      {/* Background decorations - hidden on mobile for perf */}
+      <div className="hidden md:block">
+        <motion.div 
+          className="absolute top-20 left-10 w-32 h-32 rounded-full opacity-20"
+          style={{ backgroundColor: "#D4A853", y: backgroundY, filter: "blur(40px)" }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-48 h-48 rounded-full opacity-15"
+          style={{ backgroundColor: "#1B4D3E", y: decorY, filter: "blur(60px)" }}
+        />
+        <motion.div 
+          className="absolute top-1/2 right-1/4 w-24 h-24 rounded-full opacity-10"
+          style={{ backgroundColor: "#D4A853", y: backgroundY, filter: "blur(30px)" }}
+        />
+      </div>
 
       <div className="container-custom relative z-10">
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -142,14 +132,14 @@ const FAQSection = () => {
                 key={index}
                 variants={staggerItemVariants}
               >
-                <AccordionItem 
+                  <AccordionItem 
                   value={`item-${index}`}
-                  className="bg-card rounded-xl border border-border px-6 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="bg-card rounded-xl border border-border px-4 md:px-6 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
-                  <AccordionTrigger className="text-left py-5 hover:no-underline group">
-                    <span className="flex items-center gap-4 text-forest font-semibold text-base md:text-lg">
+                  <AccordionTrigger className="text-left py-4 md:py-5 hover:no-underline group">
+                    <span className="flex items-center gap-3 md:gap-4 text-forest font-semibold text-sm md:text-lg">
                       <span 
-                        className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold shrink-0"
+                        className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full text-xs md:text-sm font-bold shrink-0"
                         style={{ backgroundColor: "rgba(27, 77, 62, 0.1)", color: "#1B4D3E" }}
                       >
                         {index + 1}
@@ -157,9 +147,9 @@ const FAQSection = () => {
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-5 pt-0">
+                  <AccordionContent className="pb-4 md:pb-5 pt-0">
                     <motion.p 
-                      className="text-muted-foreground leading-relaxed pl-12"
+                      className="text-muted-foreground leading-relaxed pl-10 md:pl-12 text-sm md:text-base"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
