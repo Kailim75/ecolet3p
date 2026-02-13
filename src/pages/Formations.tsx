@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { 
-  Clock, Users, Euro, ArrowRight, Monitor, Moon, MapPin, Info, CheckCircle2, 
+  Clock, Users, Euro, ArrowRight, Monitor, Moon, Sun, MapPin, Info, CheckCircle2, 
   GraduationCap, Star, CreditCard, Car, Bike, Accessibility, 
   RefreshCw, BookOpen, UserPlus, Loader2, LucideIcon, Calendar,
   Laptop, Brain, RotateCcw, Phone, Shield, Award, FileText
@@ -253,14 +253,13 @@ const Formations = () => {
             <span>{colors.emoji}</span>
             {getCategoryLabel(formation.category)}
           </span>
-          {soiree && (
-            <span className="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full flex items-center gap-1" style={{ color: 'white' }}>
-              <Moon className="w-3 h-3" /> Soirée
+          {soiree ? (
+            <span className="text-[11px] font-bold bg-indigo-900/40 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/20" style={{ color: 'white' }}>
+              <Moon className="w-3.5 h-3.5" /> Soirée
             </span>
-          )}
-          {popular && (
-            <span className="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full flex items-center gap-1" style={{ color: 'white' }}>
-              <Star className="w-3 h-3 fill-current" /> Populaire
+          ) : variant === "initial" && (
+            <span className="text-[11px] font-bold bg-amber-500/30 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/20" style={{ color: 'white' }}>
+              <Sun className="w-3.5 h-3.5" /> Journée
             </span>
           )}
         </div>
