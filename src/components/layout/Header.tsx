@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, FileText, CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, BookOpen, Info, Mail, MapPin, CalendarDays } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, FileText, CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, BookOpen, Info, Mail, MapPin, CalendarDays, Accessibility, Briefcase, Languages, ClipboardList, Gift, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
@@ -25,11 +25,22 @@ const formationsSubMenu = {
       { name: "Continue VMDTR (14h)", path: "/formations/continue-vmdtr", icon: RefreshCw, color: "text-orange-600" },
     ],
   },
+  complementaires: {
+    label: "Complémentaires & Packs",
+    items: [
+      { name: "Accessibilité PMR", path: "/formations/accessibilite-pmr", icon: Accessibility, color: "text-purple-600" },
+      { name: "Gestion d'entreprise", path: "/formations/gestion-entreprise", icon: Briefcase, color: "text-forest" },
+      { name: "Anglais professionnel", path: "/formations/anglais-professionnel", icon: Languages, color: "text-blue-600" },
+      { name: "Accompagnement admin", path: "/formations/accompagnement-administratif", icon: ClipboardList, color: "text-gray-600" },
+    ],
+  },
   autres: {
-    label: "Autres formations",
+    label: "Autres",
     items: [
       { name: "Mobilité Taxi", path: "/formations/mobilite", icon: ArrowRight, color: "text-forest" },
       { name: "Récupération de points", path: "/formations/recuperation-points", icon: MapPin, color: "text-forest" },
+      { name: "Nos Packs", path: "/formations#packs", icon: Package, color: "text-primary" },
+      { name: "Programme Parrainage", path: "/formations#parrainage", icon: Gift, color: "text-primary" },
       { name: "Calendrier examens CMA", path: "/calendrier-examens", icon: CalendarDays, color: "text-[#1A5276]" },
     ],
   },
