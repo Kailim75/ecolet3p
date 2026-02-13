@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Car, Shield, Bike, RefreshCw } from "lucide-react";
+import { ArrowRight, Car, Shield, Bike, RefreshCw, CreditCard } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
@@ -80,9 +80,13 @@ const FormationsOverviewSection = () => {
           <h2 className="font-serif text-[24px] md:text-[36px] xl:text-[42px] font-extrabold mb-2 md:mb-4" style={{ color: "#1A1A1A" }}>
             Nos Formations
           </h2>
-          <p className="text-sm md:text-base max-w-lg mx-auto" style={{ color: "#777" }}>
+          <p className="text-sm md:text-base max-w-lg mx-auto mb-4" style={{ color: "#777" }}>
             Choisissez votre parcours professionnel
           </p>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+            <CreditCard className="w-4 h-4" />
+            Paiement en 2×, 3× ou 4× sans frais avec Alma
+          </div>
         </motion.div>
 
         <motion.div
