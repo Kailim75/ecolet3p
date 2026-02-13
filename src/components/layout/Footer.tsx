@@ -14,6 +14,7 @@ const formationsLinks = [
 ];
 
 const usefulLinks = [
+  { name: "Paiement en plusieurs fois", path: "/paiement" },
   { name: "Blog", path: "/blog" },
   { name: "FAQ", path: "/#faq" },
   { name: "Pourquoi ECOLE T3P", path: "/a-propos" },
