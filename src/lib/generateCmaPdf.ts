@@ -1,5 +1,5 @@
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import {
   admissibiliteSessions,
   admissionSessions,
@@ -118,7 +118,7 @@ export function generateAdmissibilitePdf() {
   y += 26;
 
   // Table
-  doc.autoTable({
+  autoTable(doc, {
     startY: y,
     margin: { left: 20, right: 20 },
     head: [["Session", "Date limite d'inscription", "Convocations", "Places"]],
@@ -148,7 +148,7 @@ export function generateAdmissibilitePdf() {
   });
 
   // CTA block
-  const finalY = doc.lastAutoTable.finalY + 12;
+  const finalY = (doc as any).lastAutoTable.finalY + 12;
   const pageWidth = doc.internal.pageSize.getWidth();
   const boxW = pageWidth - 40;
 
@@ -199,7 +199,7 @@ export function generateAdmissionPdf() {
 
   const headers = ["Session", ...admissionDepartements.map((d) => `Dept ${d}`), "Clôture inscription"];
 
-  doc.autoTable({
+  autoTable(doc, {
     startY: y,
     margin: { left: 20, right: 20 },
     head: [headers],
@@ -230,7 +230,7 @@ export function generateAdmissionPdf() {
   });
 
   // CTA block
-  const finalY = doc.lastAutoTable.finalY + 12;
+  const finalY = (doc as any).lastAutoTable.finalY + 12;
   const pageWidth = doc.internal.pageSize.getWidth();
   const boxW = pageWidth - 40;
 
