@@ -37,27 +37,33 @@ const SectionSkeleton = () => (
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
+  "@type": ["LocalBusiness", "EducationalOrganization"],
+  "@id": "https://www.ecolet3p.fr/#organization",
   "name": "ECOLE T3P",
-  "alternateName": ["ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92"],
+  "alternateName": ["T3P Campus", "ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92"],
+  "description": "Centre de formation agréé Préfecture pour chauffeurs Taxi, VTC et VMDTR à Montrouge (92). 94% de taux de réussite, +2000 chauffeurs formés depuis 2014.",
   "url": "https://www.ecolet3p.fr",
-  "logo": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg",
-  "image": "https://www.ecolet3p.fr/og-image.jpg",
-  "description": "Centre de formation Taxi, VTC et VMDTR à Montrouge (92). Accessible depuis Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux et les arrondissements sud de Paris (13e, 14e, 15e). Taux de réussite 94%.",
   "telephone": "+33188750555",
   "email": "montrouge@ecolet3p.fr",
+  "image": "https://www.ecolet3p.fr/og-image.jpg",
+  "logo": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg",
+  "foundingDate": "2014",
+  "slogan": "Devenez chauffeur Taxi, VTC ou VMDTR",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+  "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "3 rue Corneille",
     "addressLocality": "Montrouge",
     "postalCode": "92120",
-    "addressRegion": "Hauts-de-Seine",
+    "addressRegion": "Île-de-France",
     "addressCountry": "FR"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 48.8155,
-    "longitude": 2.3137
+    "latitude": 48.8184,
+    "longitude": 2.3196
   },
   "areaServed": [
     { "@type": "City", "name": "Montrouge", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
@@ -74,12 +80,6 @@ const organizationSchema = {
     { "@type": "City", "name": "Antony", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
     { "@type": "City", "name": "Meudon", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
     { "@type": "City", "name": "Boulogne-Billancourt", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
-    { "@type": "City", "name": "Neuilly-sur-Seine", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
-    { "@type": "City", "name": "Levallois-Perret", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
-    { "@type": "City", "name": "Clichy", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
-    { "@type": "City", "name": "Asnières-sur-Seine", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
-    { "@type": "City", "name": "Courbevoie", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
-    { "@type": "City", "name": "La Défense", "containedInPlace": { "@type": "AdministrativeArea", "name": "Hauts-de-Seine" } },
     { "@type": "City", "name": "Paris 13e arrondissement" },
     { "@type": "City", "name": "Paris 14e arrondissement" },
     { "@type": "City", "name": "Paris 15e arrondissement" }
@@ -89,45 +89,178 @@ const organizationSchema = {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "09:30",
+      "closes": "12:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "13:30",
       "closes": "18:00"
     }
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "359",
     "bestRating": "5",
-    "worstRating": "1"
+    "worstRating": "1",
+    "ratingCount": "359",
+    "reviewCount": "359"
   },
   "sameAs": [
     "https://www.google.com/maps/place/ECOLE+T3P"
   ],
-  "priceRange": "€€",
   "keywords": "formation taxi Montrouge, formation VTC Bagneux, formation taxi Vanves, formation VTC Malakoff, formation taxi Châtillon, centre formation 92, sud Paris",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Formations ECOLE T3P - Taxi VTC Montrouge Hauts-de-Seine",
+    "name": "Formations T3P",
     "itemListElement": [
       {
-        "@type": "Course",
-        "name": "Formation Taxi Initiale Montrouge",
-        "description": "Formation complète pour obtenir votre carte professionnelle Taxi. Accessible depuis Bagneux, Vanves, Malakoff et le sud de Paris.",
-        "provider": { "@type": "Organization", "name": "ECOLE T3P" }
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "@id": "https://www.ecolet3p.fr/formations/taxi#course",
+          "name": "Formation Taxi",
+          "description": "Formation complète de 63 heures pour obtenir votre carte professionnelle de chauffeur de taxi. Préparation à l'examen CMA théorique et pratique.",
+          "url": "https://www.ecolet3p.fr/formations/taxi",
+          "provider": { "@id": "https://www.ecolet3p.fr/#organization" },
+          "timeRequired": "PT63H",
+          "educationalLevel": "Débutant",
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "990",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability",
+            "validFrom": "2026-01-01"
+          }
+        }
       },
       {
-        "@type": "Course",
-        "name": "Formation VTC Sud Paris",
-        "description": "Formation pour devenir chauffeur VTC professionnel. Centre à Montrouge, proche Paris 14e et 15e.",
-        "provider": { "@type": "Organization", "name": "ECOLE T3P" }
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "@id": "https://www.ecolet3p.fr/formations/vtc#course",
+          "name": "Formation VTC",
+          "description": "Formation de 63 heures pour devenir chauffeur VTC professionnel. Préparation complète à l'examen et accompagnement jusqu'à la carte professionnelle.",
+          "url": "https://www.ecolet3p.fr/formations/vtc",
+          "provider": { "@id": "https://www.ecolet3p.fr/#organization" },
+          "timeRequired": "PT63H",
+          "educationalLevel": "Débutant",
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "990",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability",
+            "validFrom": "2026-01-01"
+          }
+        }
       },
       {
-        "@type": "Course",
-        "name": "Formation VMDTR Hauts-de-Seine",
-        "description": "Formation moto-taxi pour obtenir votre certification. À 5 min du métro Mairie de Montrouge.",
-        "provider": { "@type": "Organization", "name": "ECOLE T3P" }
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "@id": "https://www.ecolet3p.fr/formations/vmdtr#course",
+          "name": "Formation VMDTR",
+          "description": "Formation moto-taxi de 33 heures pour le transport de passagers sur deux roues. Préparation à l'examen VMDTR de la CMA.",
+          "url": "https://www.ecolet3p.fr/formations/vmdtr",
+          "provider": { "@id": "https://www.ecolet3p.fr/#organization" },
+          "timeRequired": "PT33H",
+          "educationalLevel": "Débutant",
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "990",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability",
+            "validFrom": "2026-01-01"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "@id": "https://www.ecolet3p.fr/formations/continue-taxi#course",
+          "name": "Formation Continue Taxi",
+          "description": "Renouvellement obligatoire de 14 heures pour maintenir votre carte professionnelle de chauffeur de taxi.",
+          "url": "https://www.ecolet3p.fr/formations/continue-taxi",
+          "provider": { "@id": "https://www.ecolet3p.fr/#organization" },
+          "timeRequired": "PT14H",
+          "inLanguage": "fr",
+          "offers": {
+            "@type": "Offer",
+            "price": "250",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
       }
     ]
   }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que la carte professionnelle T3P ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La carte professionnelle T3P (Transport Public Particulier de Personnes) est un document obligatoire délivré par la préfecture pour exercer en tant que chauffeur de taxi, VTC ou VMDTR (moto-taxi). Elle s'obtient après réussite de l'examen organisé par la Chambre des Métiers et de l'Artisanat (CMA)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps dure la formation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La formation initiale Taxi et VTC dure 63 heures, réparties sur environ 2 semaines. La formation VMDTR (moto-taxi) dure 33 heures. La formation continue de renouvellement dure 14 heures. ECOLE T3P propose des formats en journée et en soirée pour s'adapter à votre emploi du temps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles sont les options de financement disponibles ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ECOLE T3P propose un paiement en 4 fois sans frais (par exemple 248€/mois pour la formation à 990€). D'autres solutions de financement existent selon votre situation : autofinancement, aide de Pôle Emploi, ou prise en charge par votre employeur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le taux de réussite de vos formations ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Notre taux de réussite est de 94%, bien supérieur à la moyenne nationale. Ce résultat s'explique par notre méthode pédagogique éprouvée, nos formateurs expérimentés, et notre préparation intensive aux examens de la CMA. Plus de 2000 chauffeurs ont été formés chez ECOLE T3P depuis 2014."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment se déroule l'inscription ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'inscription se fait en 3 étapes simples : 1) Contactez-nous par téléphone au 01 88 75 05 55 ou via le formulaire en ligne. 2) Choisissez votre formation (Taxi, VTC ou VMDTR) et votre format (journée ou soirée). 3) Validez votre inscription avec un premier versement ou en 4x sans frais. Nous vous répondons sous 24 heures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Proposez-vous un accompagnement après la formation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, ECOLE T3P assure un suivi complet après la formation : aide aux démarches administratives pour l'examen CMA, accompagnement pour la demande de carte professionnelle en préfecture, et conseils pour la création de votre entreprise de transport. Notre objectif est votre réussite professionnelle complète."
+      }
+    }
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ECOLE T3P",
+  "alternateName": "T3P Campus",
+  "url": "https://www.ecolet3p.fr"
 };
 
 const Index = () => {
@@ -167,6 +300,8 @@ const Index = () => {
         <meta name="ICBM" content="48.8155, 2.3137" />
         
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
       </Helmet>
       
       {/* Hero + Trust Bar - Critical above-the-fold */}
