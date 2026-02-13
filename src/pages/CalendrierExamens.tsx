@@ -4,7 +4,7 @@ import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, Clock, AlertTriangle, Info, ArrowRight, FileText } from "lucide-react";
+import { CalendarDays, Clock, AlertTriangle, Info, ArrowRight, FileText, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,7 @@ import {
   getNextSession,
 } from "@/data/cmaCalendarData";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { generateAdmissibilitePdf, generateAdmissionPdf } from "@/lib/generateCmaPdf";
 
 const CalendrierExamens = () => {
   const nextSession = getNextSession(admissibiliteSessions);
@@ -224,6 +225,28 @@ const CalendrierExamens = () => {
                   <Link to="/formations">Voir nos formations</Link>
                 </Button>
               </div>
+            </div>
+          </AnimatedSection>
+
+          {/* PDF Downloads */}
+          <AnimatedSection className="mt-8">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button
+                variant="outline"
+                className="gap-2 rounded-xl px-6 py-3"
+                onClick={generateAdmissibilitePdf}
+              >
+                <Download className="w-4 h-4" />
+                Télécharger le calendrier Admissibilité (PDF)
+              </Button>
+              <Button
+                variant="outline"
+                className="gap-2 rounded-xl px-6 py-3"
+                onClick={generateAdmissionPdf}
+              >
+                <Download className="w-4 h-4" />
+                Télécharger le calendrier Admission (PDF)
+              </Button>
             </div>
           </AnimatedSection>
 
