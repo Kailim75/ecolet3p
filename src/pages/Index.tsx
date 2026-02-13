@@ -13,7 +13,7 @@ const JourneyStepsSection = lazy(() => import("@/components/home/JourneyStepsSec
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
 const FinancingSection = lazy(() => import("@/components/home/FinancingSection"));
 const TestimonialsCarousel = lazy(() => import("@/components/home/TestimonialsCarousel"));
-const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
+// ProcessSection removed — redundant with JourneyStepsSection
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
 const BeforeAfterSection = lazy(() => import("@/components/home/BeforeAfterSection"));
 const CTASection = lazy(() => import("@/components/home/CTASection"));
@@ -326,9 +326,6 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <BeforeAfterSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <ProcessSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />
