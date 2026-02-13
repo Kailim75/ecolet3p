@@ -20,3 +20,6 @@ verify_jwt = false
 
 [functions.notify-new-appointment]
 verify_jwt = false
+
+[functions.create-alma-payment]
+verify_jwt = false
