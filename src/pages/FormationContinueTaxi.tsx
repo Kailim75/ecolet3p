@@ -26,6 +26,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 
 const programModules = [
   {
@@ -262,6 +263,8 @@ const FormationContinueTaxi = () => {
                   </Link>
                 </Button>
               </div>
+
+              <PlacesProgressBar category="continue" className="max-w-md" />
             </motion.div>
           </div>
         </div>
