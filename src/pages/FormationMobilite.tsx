@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useIsDesktop } from "@/hooks/useIsDesktop";
 import TrustBar from "@/components/home/TrustBar";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
@@ -106,6 +107,7 @@ const faqs = [
 
 const FormationMobilite = () => {
   const [showPreRegistration, setShowPreRegistration] = useState(false);
+  const isDesktop = useIsDesktop();
   const [mobiliteFormation, setMobiliteFormation] = useState<any>(null);
   const [sessions, setSessions] = useState<any[]>([]);
 
@@ -326,11 +328,12 @@ const FormationMobilite = () => {
               </div>
             </motion.div>
             
+            {isDesktop && (
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="hidden lg:block space-y-6"
+              className="space-y-6"
             >
               {/* Hero Image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -361,6 +364,7 @@ const FormationMobilite = () => {
                 ]}
               />
             </motion.div>
+            )}
           </div>
         </div>
       </section>
