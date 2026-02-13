@@ -229,12 +229,13 @@ const FormationVMDTR = () => {
         <meta name="keywords" content="formation T3P VMDTR, formation moto-taxi, parcours VMDTR, carte professionnelle moto-taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vmdtr" />
         
-        {/* Preload critical hero image */}
+        {/* Preload hero image only on desktop (hidden on mobile) */}
         <link 
           rel="preload" 
           as="image" 
           href={heroImageVMDTR}
           type="image/jpeg"
+          media="(min-width: 1024px)"
         />
         
         <meta property="og:title" content="Formation VMDTR Moto-Taxi à Montrouge | ECOLE T3P" />

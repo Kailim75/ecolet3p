@@ -237,12 +237,13 @@ const FormationTaxi = () => {
         <meta name="keywords" content="formation taxi Paris, carte professionnelle taxi, devenir chauffeur taxi, formation taxi agréée, centre formation taxi Montrouge, reconversion taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/taxi" />
         
-        {/* Preload critical hero image */}
+        {/* Preload hero image only on desktop (hidden on mobile) */}
         <link 
           rel="preload" 
           as="image" 
           href={heroImageTaxi}
           type="image/jpeg"
+          media="(min-width: 1024px)"
         />
         
         <meta property="og:title" content="Formation Taxi Initiale à Montrouge — 63h | ECOLE T3P" />
