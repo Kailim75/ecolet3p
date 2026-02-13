@@ -478,19 +478,6 @@ const FormationVMDTR = () => {
           {/* Pricing Cards */}
           <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <PricingCard
-              title="Formation VMDTR Journée"
-              price={vmdtrFormation?.price || 1190}
-              duration="63h"
-              features={[
-                "Sécurité deux-roues renforcée",
-                "Réglementation VMDTR complète",
-                "Du lundi au vendredi 9h30-16h30",
-                "Mises en situation pratiques",
-                "Paiement en 4× sans frais",
-              ]}
-              onRegister={() => setShowPreRegistration(true)}
-            />
-            <PricingCard
               title="Formation VMDTR Soirée"
               price={soireeFormation?.price || 990}
               duration="33h"
@@ -499,6 +486,19 @@ const FormationVMDTR = () => {
                 "Réglementation VMDTR complète",
                 "Du lundi au vendredi 18h-21h30",
                 "Compatible avec un emploi",
+                "Paiement en 4× sans frais",
+              ]}
+              onRegister={() => setShowPreRegistration(true)}
+            />
+            <PricingCard
+              title="Formation VMDTR Journée"
+              price={vmdtrFormation?.price || 1190}
+              duration="63h"
+              features={[
+                "Sécurité deux-roues renforcée",
+                "Réglementation VMDTR complète",
+                "Du lundi au vendredi 9h30-16h30",
+                "Mises en situation pratiques",
                 "Paiement en 4× sans frais",
               ]}
               onRegister={() => setShowPreRegistration(true)}

@@ -446,19 +446,6 @@ const FormationTaxi = () => {
           {/* Pricing Cards */}
           <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <PricingCard
-              title="Formation Taxi Journée"
-              price={taxiFormation?.price || 1190}
-              duration="63h"
-              features={[
-                "Préparation complète examen CMA",
-                "Supports pédagogiques inclus",
-                "Du lundi au vendredi 9h30-16h30",
-                "Taux de réussite 94%",
-                "Paiement en 4× sans frais",
-              ]}
-              onRegister={() => setShowPreRegistration(true)}
-            />
-            <PricingCard
               title="Formation Taxi Soirée"
               price={soireeFormation?.price || 990}
               duration="33h"
@@ -467,6 +454,19 @@ const FormationTaxi = () => {
                 "Supports pédagogiques inclus",
                 "Du lundi au vendredi 18h-21h30",
                 "Compatible avec un emploi",
+                "Paiement en 4× sans frais",
+              ]}
+              onRegister={() => setShowPreRegistration(true)}
+            />
+            <PricingCard
+              title="Formation Taxi Journée"
+              price={taxiFormation?.price || 1190}
+              duration="63h"
+              features={[
+                "Préparation complète examen CMA",
+                "Supports pédagogiques inclus",
+                "Du lundi au vendredi 9h30-16h30",
+                "Taux de réussite 94%",
                 "Paiement en 4× sans frais",
               ]}
               onRegister={() => setShowPreRegistration(true)}
