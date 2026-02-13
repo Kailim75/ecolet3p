@@ -15,6 +15,7 @@ const FinancingSection = lazy(() => import("@/components/home/FinancingSection")
 const TestimonialsCarousel = lazy(() => import("@/components/home/TestimonialsCarousel"));
 const ProcessSection = lazy(() => import("@/components/home/ProcessSection"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
+const BeforeAfterSection = lazy(() => import("@/components/home/BeforeAfterSection"));
 const CTASection = lazy(() => import("@/components/home/CTASection"));
 
 // Simple skeleton for lazy sections
@@ -187,6 +188,9 @@ const Index = () => {
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <TestimonialsCarousel />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <BeforeAfterSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <ProcessSection />
