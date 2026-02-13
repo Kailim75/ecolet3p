@@ -5,7 +5,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface PlacesProgressBarProps {
-  /** Filter by formation category (taxi, vtc, vmdtr). If omitted, shows the nearest session across all. */
   category?: string;
   className?: string;
 }
@@ -102,18 +101,17 @@ const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps)
     >
       <div className="flex justify-between items-center mb-2">
         <span className="text-xs font-semibold text-orange flex items-center gap-1">
-          <Flame className="w-3.5 h-3.5" />
-          Session de {data.month}
+          🔥 Session de {data.month}
         </span>
-        <span className="text-xs font-bold text-destructive">
+        <span className="text-xs font-bold" style={{ color: "#E74C3C", fontWeight: 700 }}>
           Plus que {data.placesLeft} places !
         </span>
       </div>
-      <div className="w-full h-2.5 bg-orange/15 rounded-full overflow-hidden">
+      <div className="w-full h-2.5 bg-orange/15 rounded-full overflow-hidden places-bar-pulse">
         <motion.div
           className="h-full rounded-full"
           style={{
-            background: "linear-gradient(90deg, hsl(var(--orange)), hsl(0 84% 60%))",
+            background: "linear-gradient(90deg, #F39C12, #E74C3C)",
             width: `${width}%`,
             transition: "width 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
