@@ -230,14 +230,14 @@ const CalendrierExamens = () => {
 
           {/* PDF Downloads */}
           <AnimatedSection className="mt-8">
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
               <Button
                 variant="outline"
                 className="gap-2 rounded-xl px-6 py-3"
                 onClick={generateAdmissibilitePdf}
               >
                 <Download className="w-4 h-4" />
-                Télécharger le calendrier Admissibilité (PDF)
+                Calendrier Admissibilité (PDF)
               </Button>
               <Button
                 variant="outline"
@@ -245,7 +245,17 @@ const CalendrierExamens = () => {
                 onClick={generateAdmissionPdf}
               >
                 <Download className="w-4 h-4" />
-                Télécharger le calendrier Admission (PDF)
+                Calendrier Admission (PDF)
+              </Button>
+              <Button
+                variant="outline"
+                className="gap-2 rounded-xl px-6 py-3"
+                asChild
+              >
+                <a href="/documents/cma-conditions-acces.pdf" download>
+                  <FileText className="w-4 h-4" />
+                  Conditions d'accès CMA (PDF)
+                </a>
               </Button>
             </div>
           </AnimatedSection>
