@@ -179,7 +179,7 @@ const Formations = () => {
       </section>
 
       {/* ============ STICKY NAV ============ */}
-      <nav className="sticky top-0 z-40 bg-white border-b border-border shadow-sm">
+      <nav className="sticky top-16 z-40 bg-white border-b border-border shadow-sm">
         <div className="container-custom">
           <div className="flex gap-1 overflow-x-auto scrollbar-hide py-0 -mx-2 px-2">
             {sections.map(s => (
