@@ -180,7 +180,7 @@ const Header = () => {
         style={{ pointerEvents: "none" }}
       >
         <div
-          className="container-custom relative"
+          className="flex justify-center relative"
           style={{ pointerEvents: showMegaMenu ? "auto" : "none", paddingTop: "72px" }}
           onMouseEnter={handleMegaEnter}
           onMouseLeave={handleMegaLeave}

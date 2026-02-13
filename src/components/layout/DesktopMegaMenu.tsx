@@ -18,7 +18,7 @@ const DesktopMegaMenu: React.FC<Props> = ({ open }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[calc(100vw-4rem)] max-w-6xl bg-white border border-border rounded-2xl shadow-2xl z-50 overflow-hidden"
+          className="mt-2 w-[calc(100vw-2rem)] max-w-[1200px] mx-auto bg-white border border-border rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] z-50 overflow-hidden"
         >
           {/* 4-column grid */}
           <div className="grid grid-cols-4 divide-x divide-border">
@@ -41,18 +41,18 @@ const DesktopMegaMenu: React.FC<Props> = ({ open }) => {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="group flex items-center gap-2 py-2 px-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-forest/5"
+                      className="group flex items-start gap-2 py-1.5 px-2 rounded-lg text-[13px] font-medium transition-colors hover:bg-forest/5"
                     >
-                      <item.icon className={`w-4 h-4 flex-shrink-0 ${item.color}`} />
-                      <span className="flex-1 text-foreground group-hover:text-forest transition-colors truncate">
+                      <item.icon className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5 ${item.color}`} />
+                      <span className="flex-1 text-foreground group-hover:text-forest transition-colors leading-tight">
                         {item.name}
                       </span>
                       {item.badge && (
-                        <Badge className="bg-orange-500 text-white text-[9px] px-1.5 py-0 h-4 font-bold border-0">
+                        <Badge className="bg-orange-500 text-white text-[8px] px-1 py-0 h-3.5 font-bold border-0 flex-shrink-0">
                           {item.badge}
                         </Badge>
                       )}
-                      <span className="text-[11px] text-muted-foreground group-hover:text-forest whitespace-nowrap transition-colors">
+                      <span className="text-[10px] text-forest/60 font-semibold whitespace-nowrap flex-shrink-0">
                         {item.detail}
                       </span>
                     </Link>
@@ -66,13 +66,13 @@ const DesktopMegaMenu: React.FC<Props> = ({ open }) => {
                       <Link
                         key={item.name}
                         to={item.path}
-                        className="group flex items-center gap-2 py-2 px-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-forest/5"
+                        className="group flex items-start gap-2 py-1.5 px-2 rounded-lg text-[13px] font-medium transition-colors hover:bg-forest/5"
                       >
-                        <item.icon className={`w-4 h-4 flex-shrink-0 ${item.color}`} />
-                        <span className="flex-1 text-foreground group-hover:text-forest transition-colors">
+                        <item.icon className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5 ${item.color}`} />
+                        <span className="flex-1 text-foreground group-hover:text-forest transition-colors leading-tight">
                           {item.name}
                         </span>
-                        <span className="text-[11px] text-muted-foreground group-hover:text-forest whitespace-nowrap transition-colors">
+                        <span className="text-[10px] text-forest/60 font-semibold whitespace-nowrap flex-shrink-0">
                           {item.detail}
                         </span>
                       </Link>
