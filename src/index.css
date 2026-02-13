@@ -596,13 +596,31 @@
 
 /* Hero shimmer effect on CTA button */
 @keyframes shimmer {
-  0% { transform: translateX(-200%); }
-  100% { transform: translateX(200%); }
+  0% { left: -100%; }
+  100% { left: 200%; }
 }
 
-.shimmer-effect {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
-  animation: shimmer 2.5s ease-in-out 0.5s 1;
+.cta-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  animation: shimmer 1.5s ease-in-out 1s 1;
+  pointer-events: none;
+}
+
+/* CTA hover enhancement */
+.cta-shimmer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(243, 156, 18, 0.5) !important;
 }
 
 /* Hero floating card animation */
@@ -628,7 +646,7 @@
 
 /* Accessibility: disable animations for reduced-motion users */
 @media (prefers-reduced-motion: reduce) {
-  .shimmer-effect,
+  .cta-shimmer::after,
   .hero-float,
   .places-bar-pulse {
     animation: none !important;
