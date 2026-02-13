@@ -488,17 +488,42 @@ const FormationVMDTR = () => {
           </div>
 
           {/* Pricing Blocks */}
-          <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <PricingPaymentBlock
-              formationTitle="Formation VMDTR Soirée"
-              price={soireeFormation?.price || 990}
-              onRegister={() => setShowPreRegistration(true)}
-            />
-            <PricingPaymentBlock
-              formationTitle="Formation VMDTR Journée"
-              price={vmdtrFormation?.price || 1190}
-              onRegister={() => setShowPreRegistration(true)}
-            />
+          <h3 className="text-2xl md:text-[28px] font-bold text-center mt-12 mb-8" style={{ color: "#1A1A1A" }}>
+            Choisissez votre formule
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+            <div className="md:order-2">
+              <PricingPaymentBlock
+                formationTitle="Formation VMDTR Journée"
+                price={vmdtrFormation?.price || 1190}
+                onRegister={() => setShowPreRegistration(true)}
+                tier="premium"
+                tierLabel="PREMIUM"
+                subtitle="Formation + Accompagnement"
+                features={[
+                  "Tout le pack Essentiel",
+                  "Aide à la création d'entreprise",
+                  "Coaching individuel personnalisé",
+                  "Suivi post-formation 3 mois",
+                ]}
+              />
+            </div>
+            <div className="md:order-1">
+              <PricingPaymentBlock
+                formationTitle="Formation VMDTR Soirée"
+                price={soireeFormation?.price || 990}
+                onRegister={() => setShowPreRegistration(true)}
+                tier="essentiel"
+                tierLabel="ESSENTIEL"
+                subtitle="Formation seule"
+                features={[
+                  "Formation complète 63h",
+                  "Préparation intensive examen CMA",
+                  "Support pédagogique",
+                  "Accès aux quiz en ligne",
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>
