@@ -3,6 +3,7 @@ import { Moon, Sun, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 import type { FormationOffer } from "@/data/offreCatalogueData";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
@@ -115,6 +116,9 @@ const CatalogueCard = ({ formation, onRegister, compact = false }: CatalogueCard
           >
             Je m'inscris <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
+          {hasAlma && (
+            <AlmaPaymentButton formationTitle={formation.title} price={formation.price} />
+          )}
           <Button variant="ghost" className="w-full text-xs text-muted-foreground hover:text-primary" asChild>
             <PrefetchLink to={formation.link}>
               En savoir plus
