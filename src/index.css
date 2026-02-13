@@ -87,7 +87,9 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 56px;
+    scroll-padding-top: 72px;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -96,6 +98,7 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
+    max-width: 100vw;
   }
 
   h1, h2, h3, h4, h5, h6 {

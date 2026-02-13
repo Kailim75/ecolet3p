@@ -34,9 +34,9 @@ const formations = [
 const HeroSection = () => {
   return (
     <section
-      className="relative flex items-center overflow-hidden"
+      className="relative flex items-center overflow-hidden max-w-[100vw]"
       style={{
-        paddingTop: 12,
+        paddingTop: 16,
         paddingBottom: 0,
         minHeight: "calc(100svh - 60px)",
         background: "linear-gradient(135deg, #FFFAF5 0%, #FFF5EB 30%, #F5F7FF 100%)",
@@ -162,14 +162,14 @@ const HeroSection = () => {
             {/* 7. Mini-cartes formations — delay 480ms — C6 refinements */}
             <motion.div
               {...heroAnim(480)}
-              className="flex sm:grid sm:grid-cols-3 gap-3 mb-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-2 sm:pb-0 -mx-1 px-1"
+              className="flex flex-col min-[480px]:flex-row min-[480px]:overflow-x-auto sm:grid sm:grid-cols-3 gap-3 mb-5 sm:overflow-visible snap-x snap-mandatory pb-2 sm:pb-0 -mx-1 px-1"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {formations.map((f) => (
                 <Link
                   key={f.title}
                   to={f.link}
-                  className="group flex items-center gap-3 bg-white border border-border/60 rounded-xl transition-all duration-200 min-w-[200px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink cursor-pointer"
+                  className="group flex items-center gap-3 bg-white border border-border/60 rounded-xl transition-all duration-200 min-w-0 min-[480px]:min-w-[200px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink cursor-pointer"
                   style={{ padding: "14px 16px" }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget;
