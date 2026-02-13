@@ -9,9 +9,12 @@ export interface ExamSession {
 
 export interface AdmissionSession {
   session: string;
-  admissionDates: string;
+  dates: string; // shared date range for practical exams
   inscriptionDeadline: string;
 }
+
+// Départements affichés pour l'admission (pratique)
+export const admissionDepartements = ["75", "92", "93", "94"] as const;
 
 // Calendrier Régional T3P — Épreuves d'admissibilité (théorique)
 export const admissibiliteSessions: ExamSession[] = [
@@ -26,17 +29,17 @@ export const admissibiliteSessions: ExamSession[] = [
   { session: "Novembre", inscriptionDeadline: "16 octobre 2026 à 12h", convocations: "3–10 novembre 2026", places: "3 000 à 5 000" },
 ];
 
-// Calendrier Admission — Épreuves pratiques par département IDF
+// Calendrier Admission — Épreuves pratiques (depts 75, 92, 93, 94)
 export const admissionSessions: AdmissionSession[] = [
-  { session: "Janvier", admissionDates: "30 mars – 17 avril 2026", inscriptionDeadline: "19 décembre 2025 à 12h" },
-  { session: "Février", admissionDates: "27 avril – 22 mai 2026", inscriptionDeadline: "23 janvier 2026 à 12h" },
-  { session: "Mars", admissionDates: "26 mai – 12 juin 2026", inscriptionDeadline: "27 février 2026 à 12h" },
-  { session: "Avril", admissionDates: "29 juin – 17 juillet 2026", inscriptionDeadline: "27 mars 2026 à 12h" },
-  { session: "Mai", admissionDates: "27 juillet – 14 août 2026", inscriptionDeadline: "24 avril 2026 à 12h" },
-  { session: "Juin", admissionDates: "7 – 25 septembre 2026", inscriptionDeadline: "29 mai 2026 à 12h" },
-  { session: "Septembre", admissionDates: "30 nov. – 18 déc. 2026", inscriptionDeadline: "28 août 2026 à 12h" },
-  { session: "Octobre", admissionDates: "4 – 22 janvier 2027", inscriptionDeadline: "25 septembre 2026 à 12h" },
-  { session: "Novembre", admissionDates: "25 janv. – 12 fév. 2027", inscriptionDeadline: "16 octobre 2026 à 12h" },
+  { session: "Janvier", dates: "30/03 – 17/04/2026", inscriptionDeadline: "19 décembre 2025 à 12h" },
+  { session: "Février", dates: "27/04 – 22/05/2026", inscriptionDeadline: "23 janvier 2026 à 12h" },
+  { session: "Mars", dates: "26/05 – 12/06/2026", inscriptionDeadline: "27 février 2026 à 12h" },
+  { session: "Avril", dates: "29/06 – 17/07/2026", inscriptionDeadline: "27 mars 2026 à 12h" },
+  { session: "Mai", dates: "27/07 – 14/08/2026", inscriptionDeadline: "24 avril 2026 à 12h" },
+  { session: "Juin", dates: "07/09 – 25/09/2026", inscriptionDeadline: "29 mai 2026 à 12h" },
+  { session: "Septembre", dates: "30/11 – 18/12/2026", inscriptionDeadline: "28 août 2026 à 12h" },
+  { session: "Octobre", dates: "04/01 – 22/01/2027", inscriptionDeadline: "25 septembre 2026 à 12h" },
+  { session: "Novembre", dates: "25/01 – 12/02/2027", inscriptionDeadline: "16 octobre 2026 à 12h" },
 ];
 
 // Helper to determine if a session deadline has passed

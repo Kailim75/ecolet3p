@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, AlertTriangle, Info, ArrowRight, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -9,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import {
   admissibiliteSessions,
   admissionSessions,
+  admissionDepartements,
   isDeadlinePassed,
   getNextSession,
 } from "@/data/cmaCalendarData";
@@ -138,18 +140,25 @@ const CalendrierExamens = () => {
               </AnimatedSection>
             </TabsContent>
 
-            {/* Admission table */}
+            {/* Admission table — per department */}
             <TabsContent value="admission">
               <AnimatedSection>
+                <p className="text-sm mb-4" style={{ color: "#555" }}>
+                  Épreuves pratiques pour les départements <strong>75 (Paris)</strong>, <strong>92 (Hauts-de-Seine)</strong>, <strong>93 (Seine-Saint-Denis)</strong> et <strong>94 (Val-de-Marne)</strong>.
+                </p>
                 <div className="rounded-xl border overflow-hidden shadow-sm">
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
                         <tr style={{ background: "hsl(var(--foreground))" }}>
                           <th className="px-4 py-3 text-left font-bold text-xs uppercase tracking-wider" style={{ color: "hsl(var(--primary-foreground))" }}>Session</th>
-                          <th className="px-4 py-3 text-left font-bold text-xs uppercase tracking-wider" style={{ color: "hsl(var(--primary-foreground))" }}>Épreuves pratiques</th>
-                          <th className="px-4 py-3 text-left font-bold text-xs uppercase tracking-wider" style={{ color: "hsl(var(--primary-foreground))" }}>Date limite d'inscription</th>
-                          <th className="px-4 py-3 text-center font-bold text-xs uppercase tracking-wider" style={{ color: "hsl(var(--primary-foreground))" }}>Statut</th>
+                          {admissionDepartements.map((dept) => (
+                            <th key={dept} className="px-3 py-3 text-center font-bold text-xs uppercase tracking-wider" style={{ color: "hsl(var(--primary-foreground))" }}>
+                              Dept {dept}
+                            </th>
+                          ))}
+                          <th className="px-4 py-3 text-left font-bold text-xs uppercase tracking-wider hidden md:table-cell" style={{ color: "hsl(var(--primary-foreground))" }}>Clôture inscription</th>
+                          <th className="px-3 py-3 text-center font-bold text-xs uppercase tracking-wider" style={{ color: "hsl(var(--primary-foreground))" }}>Statut</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -165,9 +174,13 @@ const CalendrierExamens = () => {
                               }}
                             >
                               <td className="px-4 py-3 font-semibold" style={{ color: "#1A1A1A" }}>{s.session}</td>
-                              <td className="px-4 py-3" style={{ color: "#1A5276", fontWeight: 500 }}>{s.admissionDates}</td>
-                              <td className="px-4 py-3" style={{ color: passed ? "#999" : "#D35400" }}>{s.inscriptionDeadline}</td>
-                              <td className="px-4 py-3 text-center">
+                              {admissionDepartements.map((dept) => (
+                                <td key={dept} className="px-3 py-3 text-center text-xs" style={{ color: "#1A5276", fontWeight: 500 }}>
+                                  {s.dates}
+                                </td>
+                              ))}
+                              <td className="px-4 py-3 hidden md:table-cell" style={{ color: passed ? "#999" : "#D35400" }}>{s.inscriptionDeadline}</td>
+                              <td className="px-3 py-3 text-center">
                                 {passed ? (
                                   <Badge variant="secondary" className="text-[10px]">Clôturée</Badge>
                                 ) : (
@@ -183,7 +196,7 @@ const CalendrierExamens = () => {
                 </div>
                 <p className="text-xs mt-4 flex items-start gap-2" style={{ color: "#888" }}>
                   <Info className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
-                  Les épreuves pratiques sont réparties par département (75, 77, 78, 91, 92, 93, 94, 95). Seuls les dossiers complets et validés avant la clôture sont pris en compte.
+                  Les épreuves pratiques se déroulent sur 2 à 5 jours selon le flux d'inscriptions. Le lieu et la date exacts sont précisés sur les convocations transmises aux candidats.
                 </p>
               </AnimatedSection>
             </TabsContent>
