@@ -245,12 +245,13 @@ const FormationVTC = () => {
         <meta name="keywords" content="formation VTC Paris, carte professionnelle VTC, devenir chauffeur VTC, formation Uber, formation Bolt, centre formation VTC Montrouge, reconversion VTC, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vtc" />
         
-        {/* Preload critical hero image */}
+        {/* Preload hero image only on desktop (hidden on mobile) */}
         <link 
           rel="preload" 
           as="image" 
           href={heroImageVTC}
           type="image/jpeg"
+          media="(min-width: 1024px)"
         />
         
         <meta property="og:title" content="Formation VTC Initiale à Montrouge — 63h | ECOLE T3P" />

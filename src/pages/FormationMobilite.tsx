@@ -198,12 +198,13 @@ const FormationMobilite = () => {
         <meta name="keywords" content="formation mobilité, passerelle taxi vtc, double carte professionnelle, formation ECOLE T3P montrouge" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/mobilite" />
         
-        {/* Preload critical hero image */}
+        {/* Preload hero image only on desktop (hidden on mobile) */}
         <link 
           rel="preload" 
           as="image" 
           href={heroImageMobilite}
           type="image/jpeg"
+          media="(min-width: 1024px)"
         />
         
         <meta property="og:title" content="Formation Mobilité Passerelle Taxi ↔ VTC | ECOLE T3P Montrouge" />
