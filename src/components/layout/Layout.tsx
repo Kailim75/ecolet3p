@@ -6,6 +6,7 @@ import FloatingAppointmentButton from "./FloatingAppointmentButton";
 import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
 import FloatingPhoneButton from "./FloatingPhoneButton";
 import MobileStickyBar from "./MobileStickyBar";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 
 interface LayoutProps {
@@ -232,6 +233,7 @@ const Layout = ({ children }: LayoutProps) => {
       <FloatingWhatsAppButton />
       <FloatingPhoneButton />
       <MobileStickyBar />
+      <ScrollToTopButton />
     </div>
   );
 };

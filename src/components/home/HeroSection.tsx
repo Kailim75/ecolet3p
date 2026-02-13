@@ -109,28 +109,29 @@ const HeroSection = () => {
               <PlacesProgressBar />
             </motion.div>
 
-            {/* Mini-cartes formations — hidden on mobile, shown on sm+ */}
+            {/* Mini-cartes formations — horizontal scroll on mobile, grid on sm+ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: smoothEase }}
-              className="hidden sm:grid grid-cols-3 gap-3 mb-5"
+              className="flex sm:grid sm:grid-cols-3 gap-3 mb-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-2 sm:pb-0 -mx-1 px-1"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <Link to="/formations/taxi" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#F97316]/50 hover:shadow-md transition-all duration-200">
+              <Link to="/formations/taxi" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#F97316]/50 hover:shadow-md transition-all duration-200 min-w-[160px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink">
                 <div className="w-11 h-11 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(249,115,22,0.08)" }}>🚕</div>
                 <div>
                   <p className="font-semibold text-sm group-hover:text-[#F97316] transition-colors" style={{ color: "#1A1A1A" }}>Formation Taxi</p>
                   <p className="text-xs" style={{ color: "#6B7280" }}>63h · dès 990€</p>
                 </div>
               </Link>
-              <Link to="/formations/vtc" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#059669]/50 hover:shadow-md transition-all duration-200">
+              <Link to="/formations/vtc" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#059669]/50 hover:shadow-md transition-all duration-200 min-w-[160px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink">
                 <div className="w-11 h-11 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(5,150,105,0.08)" }}>🚗</div>
                 <div>
                   <p className="font-semibold text-sm group-hover:text-[#059669] transition-colors" style={{ color: "#1A1A1A" }}>Formation VTC</p>
                   <p className="text-xs" style={{ color: "#6B7280" }}>63h · dès 990€</p>
                 </div>
               </Link>
-              <Link to="/formations/vmdtr" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#2563EB]/50 hover:shadow-md transition-all duration-200">
+              <Link to="/formations/vmdtr" className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl hover:border-[#2563EB]/50 hover:shadow-md transition-all duration-200 min-w-[160px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink">
                 <div className="w-11 h-11 rounded-lg flex items-center justify-center text-xl flex-shrink-0" style={{ backgroundColor: "rgba(37,99,235,0.08)" }}>🏍️</div>
                 <div>
                   <p className="font-semibold text-sm group-hover:text-[#2563EB] transition-colors" style={{ color: "#1A1A1A" }}>Formation VMDTR</p>
@@ -139,11 +140,11 @@ const HeroSection = () => {
               </Link>
             </motion.div>
 
-            {/* Quick info pills — mobile only */}
+            {/* Quick info pills — below mini-cards on mobile */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.55 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
               className="flex flex-wrap gap-2 sm:hidden mb-4"
             >
               <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-border/60" style={{ color: "#4B5563" }}>
