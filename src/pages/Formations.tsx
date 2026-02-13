@@ -254,7 +254,7 @@ const Formations = () => {
             {getCategoryLabel(formation.category)}
           </span>
           {soiree ? (
-            <span className="text-[11px] font-bold bg-indigo-900/40 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/20" style={{ color: 'white' }}>
+            <span className="text-[11px] font-bold bg-indigo-900/40 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/20 animate-[pulse_3s_ease-in-out_infinite]" style={{ color: 'white' }}>
               <Moon className="w-3.5 h-3.5" /> Soirée
             </span>
           ) : variant === "initial" && (
