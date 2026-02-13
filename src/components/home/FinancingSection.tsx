@@ -75,11 +75,11 @@ const FinancingSection = () => {
             <span className="font-bold" style={{ color: "#1A1A1A" }}>4× 247,50€/mois</span>
           </p>
           <PrefetchLink
-            to="/formations"
+            to="/paiement"
             className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:underline"
             style={{ color: "#FA5022" }}
           >
-            Découvrir nos formations <ArrowRight className="w-4 h-4" />
+            En savoir plus sur le paiement <ArrowRight className="w-4 h-4" />
           </PrefetchLink>
         </motion.div>
       </div>

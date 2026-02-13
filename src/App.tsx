@@ -47,6 +47,7 @@ const FormationVille = lazy(() => import("./pages/FormationVille"));
 const FormationsVilles = lazy(() => import("./pages/FormationsVilles"));
 const GuideFormation = lazy(() => import("./pages/GuideFormation"));
 const GuideFormationPDF = lazy(() => import("./pages/GuideFormationPDF"));
+const Paiement = lazy(() => import("./pages/Paiement"));
 
 const queryClient = new QueryClient();
 
@@ -104,6 +105,7 @@ const App = () => {
                       <Route path="/formations/:ville" element={<FormationVille />} />
                       <Route path="/guide-formation" element={<GuideFormation />} />
                       <Route path="/guide-formation/pdf" element={<GuideFormationPDF />} />
+                      <Route path="/paiement" element={<Paiement />} />
                       <Route path="/services/location-vehicule-examen" element={<LocationVehiculeExamen />} />
                       <Route path="/a-propos" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
