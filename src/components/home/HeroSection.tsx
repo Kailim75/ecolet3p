@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Star, Check, ArrowRight, Users, Flame, Phone } from "lucide-react";
+import { Star, Check, ArrowRight, Users, Phone } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
+import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
@@ -98,17 +99,15 @@ const HeroSection = () => {
               </Button>
             </motion.div>
 
-            {/* Urgency micro-text */}
-            <motion.p
+            {/* Places progress bar */}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-sm font-medium flex items-center gap-1 mb-4"
-              style={{ color: "#EA580C" }}
+              className="mb-4 max-w-md"
             >
-              <Flame className="w-4 h-4" />
-              Plus que 4 places pour la session de mars 2026
-            </motion.p>
+              <PlacesProgressBar />
+            </motion.div>
 
             {/* Mini-cartes formations — hidden on mobile, shown on sm+ */}
             <motion.div
