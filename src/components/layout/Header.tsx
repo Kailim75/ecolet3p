@@ -36,6 +36,7 @@ const formationsSubMenu = {
 
 const navLinks = [
   { name: "Formations", path: "/formations", hasSubmenu: true, icon: BookOpen },
+  { name: "Paiement", path: "/paiement", icon: FileText },
   { name: "Blog", path: "/blog", icon: FileText },
   { name: "À propos", path: "/a-propos", icon: Info },
   { name: "Contact", path: "/contact", icon: Mail },
