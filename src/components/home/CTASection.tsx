@@ -27,7 +27,38 @@ const CTASection = () => {
               Notre équipe vous répond sous 24h
             </p>
 
-            <div className="space-y-4 mb-8">
+            {/* Mobile: action buttons stacked */}
+            <div className="flex flex-col gap-3 mb-8 lg:hidden">
+              <a
+                href="tel:0188750555"
+                className="flex items-center justify-center gap-2 w-full h-[52px] rounded-xl font-bold text-base text-white"
+                style={{ backgroundColor: "#F97316", boxShadow: "0 4px 14px rgba(249,115,22,0.4)" }}
+              >
+                <Phone className="w-5 h-5" /> Appeler le 01 88 75 05 55
+              </a>
+              <a
+                href="mailto:montrouge@ecolet3p.fr"
+                className="flex items-center justify-center gap-2 w-full h-[52px] rounded-xl font-bold text-base bg-white"
+                style={{ color: "#1A1A1A" }}
+              >
+                <Mail className="w-5 h-5" /> Envoyer un email
+              </a>
+              <a
+                href="https://www.google.com/maps/place/ECOLE+T3P"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full h-[52px] rounded-xl font-bold text-base bg-white"
+                style={{ color: "#1A1A1A" }}
+              >
+                <MapPin className="w-5 h-5" /> Voir sur Google Maps
+              </a>
+              <p className="text-white/60 text-sm text-center mt-1">
+                <Clock className="w-4 h-4 inline mr-1" /> Lun–Ven : 9h30–18h00
+              </p>
+            </div>
+
+            {/* Desktop: info list */}
+            <div className="hidden lg:block space-y-4 mb-8">
               <a href="tel:0188750555" className="flex items-center gap-3 text-white/90 hover:text-white transition-colors">
                 <Phone className="w-5 h-5" />
                 <span className="font-medium">01 88 75 05 55</span>
@@ -70,8 +101,10 @@ const CTASection = () => {
               Obtenir mon devis gratuit <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
 
-            <p className="text-center text-xs" style={{ color: "#999" }}>
-              ✓ Sans engagement &nbsp; ✓ Réponse sous 24h &nbsp; ✓ Paiement 4x sans frais
+            <p className="text-center text-xs flex flex-col sm:flex-row sm:justify-center gap-1 sm:gap-0" style={{ color: "#999" }}>
+              <span>✓ Sans engagement</span> <span className="hidden sm:inline">&nbsp;</span>
+              <span>✓ Réponse sous 24h</span> <span className="hidden sm:inline">&nbsp;</span>
+              <span>✓ Paiement 4x sans frais</span>
             </p>
           </motion.div>
         </div>
