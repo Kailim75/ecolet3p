@@ -1,5 +1,6 @@
 import { Euro, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AlmaPaymentButton from "./AlmaPaymentButton";
 
 interface PricingCardProps {
   title: string;
@@ -51,6 +52,8 @@ const PricingCard = ({ title, price, duration, features, onRegister }: PricingCa
         <Euro className="h-4 w-4 mr-2" />
         S'inscrire maintenant
       </Button>
+
+      <AlmaPaymentButton formationTitle={title} price={price} />
     </div>
   );
 };
