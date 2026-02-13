@@ -148,7 +148,7 @@ const HeroSection = () => {
               className="flex flex-wrap gap-2 sm:hidden mb-4"
             >
               <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-border/60" style={{ color: "#4B5563" }}>
-                <Check className="w-3 h-3 text-forest" /> 4x sans frais
+                <Check className="w-3 h-3 text-forest" /> Paiement 1× à 4× sans frais
               </span>
               <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-border/60" style={{ color: "#4B5563" }}>
                 <Check className="w-3 h-3 text-forest" /> Dès 990€
@@ -166,7 +166,7 @@ const HeroSection = () => {
               className="hidden sm:flex text-sm flex-wrap gap-4"
               style={{ color: "#4B5563" }}
             >
-              <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Paiement en 4x sans frais</span>
+              <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Paiement en 1×, 2×, 3× ou 4× sans frais</span>
               <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-forest" /> Prochaine session : mars 2026</span>
             </motion.p>
           </div>

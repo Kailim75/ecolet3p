@@ -192,6 +192,31 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Payment logos bar */}
+      <div className="border-t border-white/10">
+        <div className="container-custom py-4">
+          <div className="flex items-center justify-center gap-3 opacity-60">
+            <span className="text-xs text-white/70">Paiement sécurisé par</span>
+            <svg viewBox="0 0 100 32" className="h-5" aria-label="Alma">
+              <path d="M10.8 25H7.2L13.6 7h4l6.4 18h-3.6l-1.4-4.2h-7L10.8 25zm5-14.4L12.6 18h6.4l-3.2-7.4zM27.2 25V7h3.2v18h-3.2zM34.8 25V7H38v7.4L44.8 7h4l-7.2 7.8L49 25h-4l-5.4-8.2L38 18.6V25h-3.2zM51.6 25V7h4.8l4.4 12.6L65.2 7H70v18h-3.2V11.4L62.2 25h-2.8l-4.6-13.6V25h-3.2z" fill="#FA5022"/>
+              <rect x="76" y="7" width="24" height="18" rx="9" fill="#FA5022"/>
+              <path d="M85.8 20.6c-.8 0-1.5-.2-2.1-.5a3.5 3.5 0 01-1.4-1.4c-.3-.6-.5-1.3-.5-2.1 0-.8.2-1.5.5-2.1.4-.6.8-1.1 1.4-1.4.6-.3 1.3-.5 2.1-.5.6 0 1.1.1 1.5.3.5.2.8.5 1.1.9v-1h2v7.6h-2v-1c-.3.4-.7.7-1.1.9-.5.2-1 .3-1.5.3zm.4-2c.6 0 1.1-.2 1.5-.6.4-.4.6-.9.6-1.6 0-.6-.2-1.2-.6-1.5-.4-.4-.9-.6-1.5-.6s-1.1.2-1.5.6c-.4.4-.6.9-.6 1.5 0 .7.2 1.2.6 1.6.4.4.9.6 1.5.6z" fill="white"/>
+            </svg>
+            <span className="text-white/30">|</span>
+            {/* Visa */}
+            <svg viewBox="0 0 48 16" className="h-5" aria-label="Visa">
+              <path d="M19.5 1.6l-3.2 12.8h-2.6l3.2-12.8h2.6zm13.1 8.3l1.4-3.8.8 3.8h-2.2zm2.9 4.5h2.4L35.8 1.6h-2.2c-.5 0-.9.3-1.1.7l-3.8 11.7h2.7l.5-1.5h3.2l.4 1.5zm-6.7-4.2c0-3.4-4.6-3.6-4.6-5.1 0-.5.4-.9 1.4-.9.8 0 1.5.1 2.1.4l.4-1.7c-.6-.2-1.4-.4-2.4-.4-2.5 0-4.3 1.3-4.3 3.3 0 1.4 1.3 2.2 2.3 2.7 1 .5 1.4.8 1.4 1.3 0 .7-.8 1-1.6 1-.9 0-1.7-.2-2.4-.5l-.4 1.8c.7.3 1.6.5 2.7.5 2.7 0 4.4-1.3 4.4-3.4zM13.5 1.6L9.4 14.4H6.6L4.7 3.9c-.1-.5-.2-.6-.6-.8C3.4 2.8 2.4 2.4 1.5 2.2l.1-.6h4.3c.6 0 1 .4 1.1 1l1.1 5.7 2.6-6.7h2.8z" fill="white"/>
+            </svg>
+            {/* Mastercard */}
+            <svg viewBox="0 0 32 20" className="h-5" aria-label="Mastercard">
+              <circle cx="11" cy="10" r="7" fill="#EB001B" opacity="0.8"/>
+              <circle cx="21" cy="10" r="7" fill="#F79E1B" opacity="0.8"/>
+              <path d="M16 4.6c1.8 1.3 3 3.3 3 5.4s-1.2 4.1-3 5.4c-1.8-1.3-3-3.3-3-5.4s1.2-4.1 3-5.4z" fill="#FF5F00" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container-custom py-6">
