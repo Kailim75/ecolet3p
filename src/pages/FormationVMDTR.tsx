@@ -146,10 +146,17 @@ const FormationVMDTR = () => {
           .order("start_date")
           .limit(6);
         
-        setSessions((sessionsData || []).map(s => ({
+        const mapped = (sessionsData || []).map(s => ({
           ...s,
           formation_title: (s as any).formations?.title
-        })));
+        }));
+        mapped.sort((a, b) => {
+          const aIsSoiree = a.formation_title?.toLowerCase().includes('soirée') ? 0 : 1;
+          const bIsSoiree = b.formation_title?.toLowerCase().includes('soirée') ? 0 : 1;
+          if (aIsSoiree !== bIsSoiree) return aIsSoiree - bIsSoiree;
+          return new Date(a.start_date).getTime() - new Date(b.start_date).getTime();
+        });
+        setSessions(mapped);
       }
     };
     
@@ -326,7 +333,7 @@ const FormationVMDTR = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
                   <Euro className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
-                  <span className="font-medium">{vmdtrFormation?.price || 1490}€</span>
+                  <span className="font-medium">{soireeFormation?.price || 990}€</span>
                 </div>
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
                   <Shield className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
