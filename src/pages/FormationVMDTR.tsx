@@ -347,7 +347,7 @@ const FormationVMDTR = () => {
                 </Button>
               </div>
 
-              <PlacesProgressBar className="max-w-md" />
+              <PlacesProgressBar category="vmdtr" className="max-w-md" />
             </motion.div>
             
             <motion.div
