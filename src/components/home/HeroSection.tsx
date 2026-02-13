@@ -2,38 +2,60 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Star, Check, ArrowRight, Users, Phone } from "lucide-react";
+import { Star, Check, ArrowRight, Users } from "lucide-react";
 import formationSession from "@/assets/center/formation-session.jpg";
 import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 import AlmaLogo from "@/components/logo/AlmaLogo";
 
 const smoothEase = [0.16, 1, 0.3, 1] as const;
-const staggerDelay = 0.08;
+
+const heroAnim = (delay: number, type: "up" | "left" | "pop" = "up") => ({
+  initial: {
+    opacity: 0,
+    ...(type === "up" && { y: 20 }),
+    ...(type === "left" && { x: 30 }),
+    ...(type === "pop" && { scale: 0.85 }),
+  },
+  animate: {
+    opacity: 1,
+    ...(type === "up" && { y: 0 }),
+    ...(type === "left" && { x: 0 }),
+    ...(type === "pop" && { scale: 1 }),
+  },
+  transition: { duration: 0.6, delay: delay / 1000, ease: smoothEase },
+});
+
+const formations = [
+  { emoji: "🚕", title: "Formation Taxi", hours: "63h", price: 990, color: "#D35400", bgColor: "rgba(211,84,0,0.06)", link: "/formations/taxi" },
+  { emoji: "🚗", title: "Formation VTC", hours: "63h", price: 990, color: "#1E8449", bgColor: "rgba(30,132,73,0.06)", link: "/formations/vtc" },
+  { emoji: "🏍️", title: "Formation VMDTR", hours: "33h", price: 990, color: "#1A5276", bgColor: "rgba(26,82,118,0.06)", link: "/formations/vmdtr" },
+];
 
 const HeroSection = () => {
   return (
     <section
-      className="relative flex items-center overflow-hidden pt-4 md:pt-6 pb-0"
+      className="relative flex items-center overflow-hidden"
       style={{
+        paddingTop: 12,
+        paddingBottom: 0,
         minHeight: "calc(100svh - 60px)",
-        background: "linear-gradient(135deg, #FFFAF5 0%, #FFF5EB 30%, #F0F4FF 100%)",
+        background: "linear-gradient(135deg, #FFFAF5 0%, #FFF5EB 30%, #F5F7FF 100%)",
       }}
     >
-      {/* Decorative warm glow circle */}
+      {/* C2 — Warm glow circle */}
       <div
         className="absolute pointer-events-none"
         style={{
-          top: "-200px",
-          right: "-100px",
-          width: 600,
-          height: 600,
+          top: -150,
+          right: -100,
+          width: 500,
+          height: 500,
           borderRadius: "50%",
-          background: "rgba(243,156,18,0.05)",
-          filter: "blur(100px)",
+          background: "radial-gradient(circle, rgba(243,156,18,0.06) 0%, transparent 70%)",
         }}
       />
 
-      {/* Subtle dot pattern overlay */}
+      {/* Dot pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -47,13 +69,8 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-16 items-center">
           {/* Left column */}
           <div className="lg:col-span-3 max-w-xl xl:max-w-2xl">
-            {/* 1. Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: smoothEase, delay: 0 }}
-              className="mb-3 md:mb-5"
-            >
+            {/* 1. Badge — delay 0ms */}
+            <motion.div {...heroAnim(0)} className="mb-2 md:mb-4">
               <span
                 className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium border"
                 style={{ backgroundColor: "rgba(27,77,62,0.06)", borderColor: "rgba(27,77,62,0.15)", color: "#1B4D3E" }}
@@ -63,11 +80,9 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* 2. H1 — bigger, bolder, saturated colors */}
+            {/* 2. H1 — delay 80ms */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: staggerDelay, ease: smoothEase }}
+              {...heroAnim(80)}
               className="font-serif leading-[1.1] tracking-tight mb-3 md:mb-5"
               style={{
                 color: "#1A1A1A",
@@ -82,13 +97,8 @@ const HeroSection = () => {
               <span style={{ color: "#1A5276" }}>VMDTR</span>
             </motion.h1>
 
-            {/* 3. Subtitle — value proposition with numbers */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: staggerDelay * 2, ease: smoothEase }}
-              className="mb-4 md:mb-5 max-w-[560px]"
-            >
+            {/* 3. Subtitle — delay 160ms */}
+            <motion.div {...heroAnim(160)} className="mb-4 md:mb-5 max-w-[560px]">
               <p className="text-base md:text-lg font-semibold mb-1" style={{ color: "#1A5276" }}>
                 94% de réussite dès le 1er passage — Rejoignez les +2000 chauffeurs formés
               </p>
@@ -97,14 +107,12 @@ const HeroSection = () => {
               </p>
             </motion.div>
 
-            {/* 4. Google Reviews Badge — bigger, pill-shaped, hover effect */}
+            {/* 4. Google Reviews — delay 240ms */}
             <motion.a
               href="https://www.google.com/maps/place/ECOLE+T3P"
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: staggerDelay * 3, ease: smoothEase }}
+              {...heroAnim(240)}
               className="inline-flex items-center gap-2 md:gap-3 px-5 py-2.5 md:px-6 md:py-3 bg-white rounded-full mb-4 md:mb-5 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group"
               style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)", border: "1px solid #E8E8E8" }}
             >
@@ -124,21 +132,14 @@ const HeroSection = () => {
               <ArrowRight className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.a>
 
-            {/* 5. CTA Buttons — shimmer on primary, refined secondary */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: staggerDelay * 4, ease: smoothEase }}
-              className="flex flex-col sm:flex-row gap-3 mb-4"
-            >
+            {/* 5. CTA Buttons — delay 320ms */}
+            <motion.div {...heroAnim(320)} className="flex flex-col sm:flex-row gap-3 mb-4">
               <Button
                 asChild
-                className="relative overflow-hidden btn-cta-orange px-9 py-4 text-base rounded-xl w-full sm:w-auto hover:-translate-y-[3px] transition-all duration-300 group/btn"
-                style={{ boxShadow: "0 6px 20px rgba(243,156,18,0.4)" }}
+                className="relative overflow-hidden btn-cta-orange px-9 py-4 text-base rounded-xl w-full sm:w-auto cta-shimmer group/btn"
+                style={{ boxShadow: "0 6px 24px rgba(243,156,18,0.4)", transition: "all 300ms ease" }}
               >
                 <Link to="/contact">
-                  {/* Shimmer effect */}
-                  <span className="absolute inset-0 pointer-events-none shimmer-effect" />
                   S'inscrire à la formation
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1" />
                 </Link>
@@ -153,43 +154,40 @@ const HeroSection = () => {
               </Button>
             </motion.div>
 
-            {/* 6. Places progress bar */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: staggerDelay * 5 }}
-              className="mb-4 max-w-md"
-            >
+            {/* 6. Places progress bar — delay 400ms */}
+            <motion.div {...heroAnim(400)} className="mb-4 max-w-md">
               <PlacesProgressBar />
             </motion.div>
 
-            {/* 7. Mini-cartes formations — enriched with monthly price + Alma */}
+            {/* 7. Mini-cartes formations — delay 480ms — C6 refinements */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: staggerDelay * 6, ease: smoothEase }}
+              {...heroAnim(480)}
               className="flex sm:grid sm:grid-cols-3 gap-3 mb-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-2 sm:pb-0 -mx-1 px-1"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              {[
-                { emoji: "🚕", title: "Formation Taxi", hours: "63h", price: 990, color: "#D35400", bgColor: "rgba(211,84,0,0.06)", link: "/formations/taxi" },
-                { emoji: "🚗", title: "Formation VTC", hours: "63h", price: 990, color: "#1E8449", bgColor: "rgba(30,132,73,0.06)", link: "/formations/vtc" },
-                { emoji: "🏍️", title: "Formation VMDTR", hours: "33h", price: 990, color: "#1A5276", bgColor: "rgba(26,82,118,0.06)", link: "/formations/vmdtr" },
-              ].map((f) => (
+              {formations.map((f) => (
                 <Link
                   key={f.title}
                   to={f.link}
-                  className="group flex items-center gap-3 p-3 bg-white border border-border/60 rounded-xl transition-all duration-300 min-w-[180px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink cursor-pointer"
-                  style={{}}
+                  className="group flex items-center gap-3 bg-white border border-border/60 rounded-xl transition-all duration-200 min-w-[200px] sm:min-w-0 snap-start flex-shrink-0 sm:flex-shrink cursor-pointer"
+                  style={{ padding: "14px 16px" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = f.color;
-                    e.currentTarget.style.boxShadow = `0 4px 16px ${f.color}20`;
-                    e.currentTarget.style.backgroundColor = f.bgColor;
+                    const el = e.currentTarget;
+                    el.style.borderColor = f.color;
+                    el.style.borderLeftWidth = "3px";
+                    el.style.borderLeftColor = f.color;
+                    el.style.boxShadow = `0 4px 12px rgba(0,0,0,0.06)`;
+                    el.style.backgroundColor = "#FAFAFA";
+                    el.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "";
-                    e.currentTarget.style.boxShadow = "";
-                    e.currentTarget.style.backgroundColor = "";
+                    const el = e.currentTarget;
+                    el.style.borderColor = "";
+                    el.style.borderLeftWidth = "";
+                    el.style.borderLeftColor = "";
+                    el.style.boxShadow = "";
+                    el.style.backgroundColor = "";
+                    el.style.transform = "";
                   }}
                 >
                   <div
@@ -199,27 +197,19 @@ const HeroSection = () => {
                     {f.emoji}
                   </div>
                   <div>
-                    <p className="font-semibold text-sm transition-colors" style={{ color: "#1A1A1A" }}>
-                      {f.title}
-                    </p>
-                    <p className="text-xs" style={{ color: "#6B7280" }}>
-                      {f.hours} · dès {f.price}€
-                    </p>
-                    <p className="text-[10px] flex items-center gap-1 mt-0.5" style={{ color: "#FA5022" }}>
-                      ou {(f.price / 4).toFixed(2)}€/mois <AlmaLogo className="h-2.5 inline" />
+                    <p className="font-semibold text-sm" style={{ color: "#1A1A1A" }}>{f.title}</p>
+                    <p className="text-xs" style={{ color: "#6B7280" }}>{f.hours} · dès {f.price}€</p>
+                    <p className="flex items-center gap-1 mt-1" style={{ fontSize: 12, fontWeight: 600, color: "#D35400" }}>
+                      ou {(f.price / 4).toFixed(2).replace(".", ",")}€/mois
+                      <AlmaLogo className="h-3 inline opacity-70" />
                     </p>
                   </div>
                 </Link>
               ))}
             </motion.div>
 
-            {/* 8. Quick info pills — mobile */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: staggerDelay * 7 }}
-              className="flex flex-wrap gap-2 sm:hidden mb-4"
-            >
+            {/* Mobile pills */}
+            <motion.div {...heroAnim(560)} className="flex flex-wrap gap-2 sm:hidden mb-4">
               <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-border/60" style={{ color: "#4B5563" }}>
                 <Check className="w-3 h-3 text-forest" /> Jusqu'à 4× sans frais <AlmaLogo className="h-3 ml-0.5" />
               </span>
@@ -228,14 +218,8 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* 9. Desktop micro-text with Alma logo */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: staggerDelay * 7 }}
-              className="hidden sm:flex text-sm flex-wrap gap-4"
-              style={{ color: "#4B5563" }}
-            >
+            {/* Desktop micro-text */}
+            <motion.p {...heroAnim(560)} className="hidden sm:flex text-sm flex-wrap gap-4" style={{ color: "#4B5563" }}>
               <span className="flex items-center gap-1">
                 <Check className="w-3.5 h-3.5 text-forest" /> Paiement en 1×, 2×, 3× ou 4× sans frais
                 <AlmaLogo className="h-3.5 ml-0.5" />
@@ -244,23 +228,22 @@ const HeroSection = () => {
             </motion.p>
           </div>
 
-          {/* Right column — photo with decorative frame */}
+          {/* Right column — photo with C3 reinforced frame */}
           <motion.div
-            initial={{ opacity: 0, x: 30, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: staggerDelay * 6, ease: smoothEase }}
+            {...heroAnim(200, "left")}
             className="lg:col-span-2 relative hidden lg:block"
           >
-            {/* Decorative frame behind */}
+            {/* C3 Option A — Reinforced decorative frame */}
             <div
-              className="absolute rounded-3xl pointer-events-none"
+              className="absolute pointer-events-none"
               style={{
-                bottom: -16,
-                right: -16,
+                bottom: -20,
+                right: -20,
                 top: 0,
                 left: 0,
-                border: "3px solid #F39C12",
+                border: "3px solid rgba(243,156,18,0.3)",
                 borderRadius: 24,
+                background: "rgba(243,156,18,0.03)",
                 zIndex: 0,
               }}
             />
@@ -285,11 +268,9 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
 
-            {/* Floating card — animated float */}
+            {/* Floating card — C5 popIn delay 600ms */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1, type: "spring", stiffness: 200, damping: 15 }}
+              {...heroAnim(600, "pop")}
               className="absolute -bottom-6 -left-8 rounded-2xl p-4 border border-border/40 z-10 hero-float"
               style={{
                 boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
@@ -327,7 +308,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* 13. Transition gradient to next section */}
+      {/* Transition gradient */}
       <div
         className="absolute bottom-0 left-0 right-0 h-[60px] pointer-events-none"
         style={{ background: "linear-gradient(180deg, transparent 0%, #FFFFFF 100%)" }}
