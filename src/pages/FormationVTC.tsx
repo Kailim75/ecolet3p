@@ -36,6 +36,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
 import PlacesProgressBar from "@/components/home/PlacesProgressBar";
+import NextCMASessionBanner from "@/components/formations/NextCMASessionBanner";
 
 const programModules = [
   {
@@ -506,6 +507,7 @@ const FormationVTC = () => {
       </section>
 
       <ExamProgramSection profession="vtc" />
+      <NextCMASessionBanner />
 
       {/* Prérequis */}
       <section className="py-10 lg:py-24 bg-muted/30">

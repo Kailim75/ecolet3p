@@ -36,6 +36,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import heroImageVMDTR from "@/assets/formations/hero-vmdtr.jpg";
 import PlacesProgressBar from "@/components/home/PlacesProgressBar";
+import NextCMASessionBanner from "@/components/formations/NextCMASessionBanner";
 
 const programModules = [
   {
@@ -529,6 +530,7 @@ const FormationVMDTR = () => {
       </section>
 
       <ExamProgramSection profession="vmdtr" />
+      <NextCMASessionBanner />
 
       {/* Prérequis */}
       <section className="py-10 lg:py-24 bg-orange-500/5">
