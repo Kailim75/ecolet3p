@@ -455,19 +455,6 @@ const FormationVTC = () => {
           {/* Pricing Cards */}
           <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <PricingCard
-              title="Formation VTC Journée"
-              price={vtcFormation?.price || 1190}
-              duration="63h"
-              features={[
-                "Préparation examen CMA complète",
-                "Module applications (Uber, Bolt…)",
-                "Du lundi au vendredi 9h30-16h30",
-                "Anglais professionnel inclus",
-                "Paiement en 4× sans frais",
-              ]}
-              onRegister={() => setShowPreRegistration(true)}
-            />
-            <PricingCard
               title="Formation VTC Soirée"
               price={soireeFormation?.price || 990}
               duration="33h"
@@ -476,6 +463,19 @@ const FormationVTC = () => {
                 "Module applications (Uber, Bolt…)",
                 "Du lundi au vendredi 18h-21h30",
                 "Compatible avec un emploi",
+                "Paiement en 4× sans frais",
+              ]}
+              onRegister={() => setShowPreRegistration(true)}
+            />
+            <PricingCard
+              title="Formation VTC Journée"
+              price={vtcFormation?.price || 1190}
+              duration="63h"
+              features={[
+                "Préparation examen CMA complète",
+                "Module applications (Uber, Bolt…)",
+                "Du lundi au vendredi 9h30-16h30",
+                "Anglais professionnel inclus",
                 "Paiement en 4× sans frais",
               ]}
               onRegister={() => setShowPreRegistration(true)}
