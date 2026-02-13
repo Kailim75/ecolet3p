@@ -16,6 +16,7 @@ import {
 } from "@/data/cmaCalendarData";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { generateAdmissibilitePdf, generateAdmissionPdf } from "@/lib/generateCmaPdf";
+import CMAConditionsSection from "@/components/formations/CMAConditionsSection";
 
 const CalendrierExamens = () => {
   const nextSession = getNextSession(admissibiliteSessions);
@@ -228,6 +229,9 @@ const CalendrierExamens = () => {
             </div>
           </AnimatedSection>
 
+          {/* Conditions d'accès CMA — tableau + article */}
+          <CMAConditionsSection />
+
           {/* PDF Downloads */}
           <AnimatedSection className="mt-8">
             <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
@@ -246,16 +250,6 @@ const CalendrierExamens = () => {
               >
                 <Download className="w-4 h-4" />
                 Calendrier Admission (PDF)
-              </Button>
-              <Button
-                variant="outline"
-                className="gap-2 rounded-xl px-6 py-3"
-                asChild
-              >
-                <a href="/documents/cma-conditions-acces.pdf" download>
-                  <FileText className="w-4 h-4" />
-                  Conditions d'accès CMA (PDF)
-                </a>
               </Button>
             </div>
           </AnimatedSection>
