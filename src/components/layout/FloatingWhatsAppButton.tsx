@@ -126,7 +126,7 @@ const FloatingWhatsAppButton: React.FC = () => {
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">T3P Campus</h3>
+                  <h3 className="font-semibold">ECOLE T3P</h3>
                   <p className="text-xs text-white/80">Répond généralement en 1h</p>
                 </div>
               </div>
@@ -143,7 +143,7 @@ const FloatingWhatsAppButton: React.FC = () => {
                   👋 Bonjour ! Une question sur nos formations Taxi, VTC ou VMDTR ? Envoyez-nous un message !
                 </p>
                 <span className="text-xs text-muted-foreground mt-1 block">
-                  T3P Campus
+                  ECOLE T3P
                 </span>
               </div>
             </div>

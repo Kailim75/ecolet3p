@@ -41,32 +41,32 @@ import NextCMASessionBanner from "@/components/formations/NextCMASessionBanner";
 const programModules = [
   {
     title: "Réglementation VMDTR",
-    duration: "10h",
+    duration: "7h",
     topics: ["Statut moto-taxi", "Code des transports", "Obligations professionnelles", "Assurances spécifiques"]
   },
   {
     title: "Sécurité deux-roues",
-    duration: "12h",
+    duration: "8h",
     topics: ["Conduite défensive", "Gestion des risques", "Équipements de sécurité", "Premiers secours"]
   },
   {
     title: "Conduite en milieu urbain",
-    duration: "8h",
+    duration: "5h",
     topics: ["Circulation inter-files", "Gestion du trafic dense", "Stationnement", "Itinéraires optimisés"]
   },
   {
     title: "Relation client",
-    duration: "6h",
+    duration: "4h",
     topics: ["Accueil passager", "Gestion du stress", "Communication", "Équipement passager"]
   },
   {
     title: "Gestion d'entreprise",
-    duration: "8h",
+    duration: "6h",
     topics: ["Création d'entreprise", "Comptabilité", "Fiscalité", "Applications de réservation"]
   },
   {
     title: "Examen et mise en situation",
-    duration: "4h",
+    duration: "3h",
     topics: ["QCM réglementaire", "Mise en situation pratique", "Correction", "Conseils finaux"]
   }
 ];
@@ -87,7 +87,7 @@ const testimonials = [
   {
     name: "Antoine R.",
     role: "Chauffeur VMDTR premium",
-    content: "Reconversion réussie grâce à T3P Campus. L'équipe est au top et le paiement en 4x m'a permis de me lancer sereinement dans cette nouvelle aventure.",
+    content: "Reconversion réussie grâce à ECOLE T3P. L'équipe est au top et le paiement en 4x m'a permis de me lancer sereinement dans cette nouvelle aventure.",
     rating: 5
   }
 ];
@@ -103,7 +103,7 @@ const faqs = [
   },
   {
     question: "Combien de temps dure la formation VMDTR ?",
-    answer: "La formation VMDTR initiale dure 48 heures, réparties sur environ 2 semaines. Elle comprend des modules théoriques et des mises en situation pratiques."
+    answer: "La formation VMDTR initiale dure 33 heures. Elle comprend des modules théoriques et des mises en situation pratiques."
   },
   {
     question: "Quel type de moto puis-je utiliser ?",
@@ -178,7 +178,7 @@ const FormationVMDTR = () => {
     },
     "offers": {
       "@type": "Offer",
-      "price": vmdtrFormation?.price || "1490",
+      "price": vmdtrFormation?.price || "990",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock"
     },
@@ -193,7 +193,7 @@ const FormationVMDTR = () => {
       }
     })),
     "educationalCredentialAwarded": "Carte Professionnelle VMDTR",
-    "timeRequired": "PT48H",
+    "timeRequired": "PT33H",
     "occupationalCategory": "Moto-Taxi VMDTR",
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -227,8 +227,8 @@ const FormationVMDTR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VMDTR Moto-Taxi 14h Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Formation VMDTR moto-taxi 14h à Montrouge. Obtenez votre carte professionnelle conducteur deux-roues motorisé. Centre agréé Préfecture. Taux de réussite 94%." />
+        <title>Formation VMDTR Moto-Taxi 33h Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Formation VMDTR moto-taxi 33h à Montrouge. Obtenez votre carte professionnelle conducteur deux-roues motorisé. Centre agréé Préfecture. Taux de réussite 94%." />
         <meta name="keywords" content="formation T3P VMDTR, formation moto-taxi, parcours VMDTR, carte professionnelle moto-taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vmdtr" />
         
@@ -322,7 +322,7 @@ const FormationVMDTR = () => {
               </Badge>
               
               <h1 className="text-[28px] lg:text-5xl font-bold mb-4 lg:mb-6 leading-tight">
-                Formation VMDTR Moto-Taxi à Montrouge — <span className="text-orange-600">14h</span>
+                Formation VMDTR Moto-Taxi à Montrouge — <span className="text-orange-600">33h</span>
               </h1>
               
               <p className="text-base lg:text-lg text-muted-foreground mb-6 lg:mb-8">
@@ -333,7 +333,7 @@ const FormationVMDTR = () => {
               <div className="flex flex-wrap gap-2 lg:gap-4 mb-6 lg:mb-8">
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
                   <Clock className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
-                  <span className="font-medium">48 heures</span>
+                  <span className="font-medium">33 heures</span>
                 </div>
                 <div className="flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 lg:px-4 lg:py-2 rounded-lg border text-sm lg:text-base">
                   <Euro className="h-4 w-4 lg:h-5 lg:w-5 text-orange-600" />
@@ -372,7 +372,7 @@ const FormationVMDTR = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImageVMDTR} 
-                  alt="Formation VMDTR moto-taxi - T3P Campus" 
+                  alt="Formation VMDTR moto-taxi - ECOLE T3P" 
                   width={600}
                   height={256}
                   className="w-full h-64 object-cover"
@@ -451,7 +451,7 @@ const FormationVMDTR = () => {
           >
             <h2 className="text-2xl lg:text-3xl font-bold mb-4">Programme de la Formation</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              48 heures de formation complète pour maîtriser tous les aspects du métier de moto-taxi
+              33 heures de formation complète pour maîtriser tous les aspects du métier de moto-taxi
             </p>
           </motion.div>
 
@@ -518,7 +518,7 @@ const FormationVMDTR = () => {
                 tierLabel="ESSENTIEL"
                 subtitle="Formation seule"
                 features={[
-                  "Formation complète 63h",
+                  "Formation complète 33h",
                   "Préparation intensive examen CMA",
                   "Support pédagogique",
                   "Accès aux quiz en ligne",
@@ -573,7 +573,7 @@ const FormationVMDTR = () => {
                 <CardContent>
                   <ul className="space-y-3">
                     {[
-                      "48 heures de formation complète",
+                      "33 heures de formation complète",
                       "Supports pédagogiques numériques",
                       "Préparation à l'examen théorique",
                       "Mises en situation pratiques",
@@ -754,7 +754,7 @@ const FormationVMDTR = () => {
 
             <h2 className="text-2xl font-bold mb-6 mt-12">Carte professionnelle VMDTR : comment l'obtenir</h2>
             <p className="text-muted-foreground mb-4">
-              Pour obtenir votre carte professionnelle VMDTR, vous devez suivre la formation agréée de 14 heures puis réussir 
+              Pour obtenir votre carte professionnelle VMDTR, vous devez suivre la formation agréée de 33 heures puis réussir 
               l'examen organisé par la Chambre des Métiers et de l'Artisanat. L'attestation de formation délivrée par ECOLE T3P 
               est indispensable pour constituer votre dossier de demande auprès de la préfecture. Notre équipe vous accompagne 
               dans chaque étape administrative.

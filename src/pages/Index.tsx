@@ -40,7 +40,7 @@ const organizationSchema = {
   "@type": ["LocalBusiness", "EducationalOrganization"],
   "@id": "https://www.ecolet3p.fr/#organization",
   "name": "ECOLE T3P",
-  "alternateName": ["T3P Campus", "ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92"],
+  "alternateName": ["ECOLE T3P Montrouge", "Formation Taxi VTC Sud Paris", "Centre Formation 92"],
   "description": "Centre de formation agréé Préfecture pour chauffeurs Taxi, VTC et VMDTR à Montrouge (92). 94% de taux de réussite, +2000 chauffeurs formés depuis 2014.",
   "url": "https://www.ecolet3p.fr",
   "telephone": "+33188750555",
@@ -225,7 +225,7 @@ const faqSchema = {
       "name": "Quelles sont les options de financement disponibles ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ECOLE T3P propose un paiement en 4 fois sans frais (par exemple 248€/mois pour la formation à 990€). D'autres solutions de financement existent selon votre situation : autofinancement, aide de Pôle Emploi, ou prise en charge par votre employeur."
+        "text": "ECOLE T3P propose un paiement en 4 fois sans frais (par exemple 248€/mois pour la formation à 990€). D'autres solutions de financement existent selon votre situation : autofinancement ou prise en charge par votre employeur."
       }
     },
     {
@@ -259,7 +259,7 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "ECOLE T3P",
-  "alternateName": "T3P Campus",
+  "alternateName": "École T3P",
   "url": "https://www.ecolet3p.fr"
 };
 

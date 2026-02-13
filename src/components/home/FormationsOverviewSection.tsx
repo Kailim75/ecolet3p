@@ -13,7 +13,6 @@ const formations = [
     title: "Formation Taxi",
     description: "Formation complète pour obtenir votre carte professionnelle de chauffeur de taxi.",
     price: 990,
-    cpf: false,
     accentColor: "#F97316",
     bgLight: "rgba(249,115,22,0.06)",
     link: "/formations/taxi",
@@ -24,7 +23,6 @@ const formations = [
     title: "Formation VTC",
     description: "Devenez chauffeur VTC professionnel avec notre formation agréée.",
     price: 990,
-    cpf: false,
     accentColor: "#059669",
     bgLight: "rgba(5,150,105,0.06)",
     link: "/formations/vtc",
@@ -35,7 +33,6 @@ const formations = [
     title: "Formation VMDTR",
     description: "Formation moto-taxi pour le transport de passagers sur deux roues.",
     price: 990,
-    cpf: false,
     accentColor: "#2563EB",
     bgLight: "rgba(37,99,235,0.06)",
     link: "/formations/vmdtr",
@@ -46,7 +43,6 @@ const formations = [
     title: "Formation Continue",
     description: "Renouvellement obligatoire de 14h pour maintenir votre carte professionnelle.",
     price: 250,
-    cpf: false,
     accentColor: "#374151",
     bgLight: "rgba(55,65,81,0.06)",
     link: "/formations",
@@ -123,9 +119,6 @@ const FormationsOverviewSection = () => {
                   <div className="mb-5">
                     <div className="flex items-center gap-3">
                       <span className="text-lg font-bold" style={{ color: f.accentColor }}>{f.price}€</span>
-                      {f.cpf && (
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-forest/10 text-forest">CPF</span>
-                      )}
                     </div>
                     {f.price >= 500 && (
                       <div className="flex items-center gap-1.5 mt-1">

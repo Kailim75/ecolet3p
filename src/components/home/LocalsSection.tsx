@@ -20,10 +20,10 @@ import entreeCentre from "@/assets/center/entree-centre.jpg";
 import groupePromotion1 from "@/assets/center/groupe-promotion-1.jpg";
 
 const images = [
-  { src: salleEquipee, alt: "Salle de formation équipée T3P Campus", label: "Salle de formation" },
+  { src: salleEquipee, alt: "Salle de formation équipée ECOLE T3P", label: "Salle de formation" },
   { src: formationSession, alt: "Session de formation en cours", label: "Cours en session" },
   { src: salleModerne, alt: "Salle moderne avec équipement digital", label: "Équipement moderne" },
-  { src: accueilReception, alt: "Espace d'accueil T3P Campus", label: "Espace accueil" },
+  { src: accueilReception, alt: "Espace d'accueil ECOLE T3P", label: "Espace accueil" },
   { src: formationWhiteboard, alt: "Formateur au tableau interactif", label: "Formation interactive" },
   { src: entreeCentre, alt: "Entrée du centre de formation", label: "Entrée du centre" },
   { src: salleProjecteur, alt: "Salle avec vidéoprojecteur", label: "Salle de projection" },

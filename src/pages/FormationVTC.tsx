@@ -106,8 +106,8 @@ const faqs = [
     answer: "Non, vous pouvez louer un véhicule VTC auprès de sociétés spécialisées (LOA, LLD) ou travailler comme salarié d'une société VTC. Nous vous conseillons sur les meilleures options selon votre situation."
   },
   {
-    question: "La formation VTC est-elle plus courte que celle du taxi ?",
-    answer: "Oui, la formation initiale VTC dure 50 heures contre 63 heures pour le taxi. Le programme est adapté aux spécificités du métier de VTC (applications, relation client premium, etc.)."
+    question: "Combien de temps dure la formation VTC ?",
+    answer: "La formation initiale VTC dure 63 heures en journée ou 33 heures en soirée. Le programme est adapté aux spécificités du métier de VTC (applications, relation client premium, etc.)."
   },
   {
     question: "Puis-je travailler pour Uber après la formation ?",
@@ -185,7 +185,7 @@ const FormationVTC = () => {
     },
     "offers": {
       "@type": "Offer",
-      "price": vtcFormation?.price || "1690",
+      "price": vtcFormation?.price || "990",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "validFrom": new Date().toISOString().split('T')[0]
@@ -495,7 +495,7 @@ const FormationVTC = () => {
                 tierLabel="ESSENTIEL"
                 subtitle="Formation seule"
                 features={[
-                  "Formation complète 63h",
+                  "Formation complète 33h",
                   "Préparation intensive examen CMA",
                   "Support pédagogique",
                   "Accès aux quiz en ligne",
