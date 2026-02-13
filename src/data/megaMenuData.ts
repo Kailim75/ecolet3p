@@ -1,0 +1,86 @@
+import {
+  CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, ArrowLeftRight,
+  Accessibility, Briefcase, Languages, ClipboardList, MapPin,
+  Package, Gift, GraduationCap, Star, Tag, RotateCcw
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+export interface MegaMenuItem {
+  name: string;
+  path: string;
+  icon: LucideIcon;
+  detail: string;
+  color: string;
+  badge?: string;
+}
+
+export interface MegaMenuColumn {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: LucideIcon;
+  items: MegaMenuItem[];
+  /** Extra block at the bottom of the column (packs separator, parrainage, etc.) */
+  footer?: MegaMenuItem[];
+}
+
+export const megaMenuColumns: MegaMenuColumn[] = [
+  {
+    id: "devenir",
+    title: "Devenir Chauffeur",
+    subtitle: "Journée ou soirée · Examen inclus",
+    icon: GraduationCap,
+    items: [
+      { name: "Formation Taxi", path: "/formations/taxi", icon: CarTaxiFront, detail: "63h · dès 990€", color: "text-amber-600" },
+      { name: "Formation VTC", path: "/formations/vtc", icon: Car, detail: "63h · dès 990€", color: "text-forest" },
+      { name: "Formation VMDTR", path: "/formations/vmdtr", icon: Bike, detail: "63h · dès 990€", color: "text-orange-600" },
+    ],
+  },
+  {
+    id: "evoluer",
+    title: "Évoluer & Renouveler",
+    subtitle: "Obligatoire tous les 5 ans",
+    icon: RefreshCw,
+    items: [
+      { name: "Continue Taxi", path: "/formations/continue-taxi", icon: RefreshCw, detail: "14h · 250€", color: "text-amber-600" },
+      { name: "Continue VTC", path: "/formations/continue-vtc", icon: RefreshCw, detail: "14h · 170€", color: "text-forest" },
+      { name: "Continue VMDTR", path: "/formations/continue-vmdtr", icon: RefreshCw, detail: "14h · 250€", color: "text-orange-600" },
+      { name: "Passerelle Taxi", path: "/formations/mobilite", icon: ArrowLeftRight, detail: "18h · 665€", color: "text-amber-600" },
+      { name: "Passerelle VTC", path: "/formations/mobilite", icon: ArrowLeftRight, detail: "7h · 665€", color: "text-forest" },
+      { name: "Passerelle VMDTR", path: "/formations/mobilite", icon: ArrowLeftRight, detail: "7h · 665€", color: "text-orange-600" },
+      { name: "Renouvellement carte pro", path: "/formations#renouvellement", icon: RotateCcw, detail: "14h · 250€", color: "text-primary" },
+    ],
+  },
+  {
+    id: "complementaires",
+    title: "Complémentaires",
+    subtitle: "Boostez votre carrière",
+    icon: Star,
+    items: [
+      { name: "Accessibilité PMR", path: "/formations/accessibilite-pmr", icon: Accessibility, detail: "14h · 290€", color: "text-purple-600", badge: "NOUVEAU" },
+      { name: "Gestion d'entreprise", path: "/formations/gestion-entreprise", icon: Briefcase, detail: "21h · 390€", color: "text-forest", badge: "NOUVEAU" },
+      { name: "Anglais professionnel", path: "/formations/anglais-professionnel", icon: Languages, detail: "20h · 350€", color: "text-blue-600", badge: "NOUVEAU" },
+      { name: "Accompagnement admin", path: "/formations/accompagnement-administratif", icon: ClipboardList, detail: "7h · dès 190€", color: "text-muted-foreground", badge: "NOUVEAU" },
+      { name: "Mobilité géo 92", path: "/formations/mobilite", icon: MapPin, detail: "14h · 440€", color: "text-forest" },
+      { name: "Mobilité géo 75", path: "/formations/mobilite", icon: MapPin, detail: "35h · 440€", color: "text-forest" },
+    ],
+  },
+  {
+    id: "offres",
+    title: "Offres Spéciales",
+    subtitle: "Économisez jusqu'à 190€",
+    icon: Tag,
+    items: [
+      { name: "Pack Double Activité", path: "/formations#packs", icon: Package, detail: "dès 1 490€", color: "text-primary" },
+      { name: "Pack Reconversion", path: "/formations#packs", icon: Package, detail: "dès 1 090€", color: "text-primary" },
+      { name: "Pack Entrepreneur", path: "/formations#packs", icon: Package, detail: "dès 1 190€", color: "text-primary" },
+      { name: "Pack Sérénité Admin", path: "/formations#packs", icon: Package, detail: "dès 1 090€", color: "text-primary" },
+      { name: "Pack International", path: "/formations#packs", icon: Package, detail: "dès 1 190€", color: "text-primary" },
+      { name: "Pack Accessibilité", path: "/formations#packs", icon: Package, detail: "dès 1 150€", color: "text-primary" },
+    ],
+    footer: [
+      { name: "Récupération de points", path: "/formations/recuperation-points", icon: MapPin, detail: "2j · 250€ · Jusqu'à 4 pts", color: "text-forest" },
+      { name: "Programme Parrainage", path: "/formations#parrainage", icon: Gift, detail: "Jusqu'à 100€ offerts", color: "text-primary" },
+    ],
+  },
+];
