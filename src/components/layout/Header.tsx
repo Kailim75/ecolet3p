@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, FileText, CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, BookOpen, Info, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, FileText, CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, BookOpen, Info, Mail, MapPin, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
@@ -30,6 +30,7 @@ const formationsSubMenu = {
     items: [
       { name: "Mobilité Taxi", path: "/formations/mobilite", icon: ArrowRight, color: "text-forest" },
       { name: "Récupération de points", path: "/formations/recuperation-points", icon: MapPin, color: "text-forest" },
+      { name: "Calendrier examens CMA", path: "/calendrier-examens", icon: CalendarDays, color: "text-[#1A5276]" },
     ],
   },
 };
