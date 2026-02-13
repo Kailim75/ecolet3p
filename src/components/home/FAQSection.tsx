@@ -147,15 +147,10 @@ const FAQSection = () => {
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-4 md:pb-5 pt-0">
-                    <motion.p 
-                      className="text-muted-foreground leading-relaxed pl-10 md:pl-12 text-sm md:text-base"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    >
+                  <AccordionContent forceMount className="pb-4 md:pb-5 pt-0 data-[state=closed]:hidden">
+                    <p className="text-muted-foreground leading-relaxed pl-10 md:pl-12 text-sm md:text-base">
                       {faq.answer}
-                    </motion.p>
+                    </p>
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>

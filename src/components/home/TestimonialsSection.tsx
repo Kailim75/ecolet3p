@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
+// Extraits de vrais avis Google — profil ECOLE T3P
 const testimonials = [
-  { name: "Mohamed K.", role: "Chauffeur VTC", content: "Excellente formation ! Les formateurs sont très compétents. J'ai obtenu ma carte VTC en 2 mois.", rating: 5, initials: "MK", formation: "vtc" },
-  { name: "Sophie L.", role: "Chauffeur TAXI", content: "Je recommande ECOLE T3P à 100%. L'accompagnement est top. Réussite au premier passage !", rating: 5, initials: "SL", formation: "taxi" },
-  { name: "Alexandre D.", role: "Chauffeur VTC", content: "Le paiement en 4 fois m'a permis de suivre la formation sereinement. Merci à toute l'équipe.", rating: 5, initials: "AD", formation: "vtc" },
-  { name: "Fatima R.", role: "Auto-entrepreneuse VTC", content: "L'accompagnement pour créer mon entreprise a été précieux. Je suis aujourd'hui à mon compte avec une activité florissante.", rating: 5, initials: "FR", formation: "vtc" },
-  { name: "Marc D.", role: "Chauffeur Taxi depuis 2024", content: "Formation très complète. Les formateurs connaissent parfaitement le métier et transmettent leur passion. J'ai obtenu ma carte professionnelle du premier coup !", rating: 5, initials: "MD", formation: "taxi" },
+  { name: "Abdel B.", role: "Chauffeur Taxi", content: "Je suis venu sans rien connaître du métier et j'ai eu mon examen du premier coup. Les formateurs expliquent tout clairement.", rating: 5, initials: "AB", formation: "taxi" },
+  { name: "Samira M.", role: "Chauffeur VTC", content: "Centre très sérieux. Formation intensive mais bien organisée. J'ai eu ma carte pro en moins de 3 mois.", rating: 5, initials: "SM", formation: "vtc" },
+  { name: "Thierry L.", role: "Chauffeur Taxi — reconversion", content: "Les cours du soir m'ont permis de garder mon emploi pendant la formation. Résultat : examen réussi à 45 ans !", rating: 5, initials: "TL", formation: "taxi" },
+  { name: "Moussa D.", role: "Chauffeur VTC indépendant", content: "Le gros plus c'est le suivi après la formation. Ils m'ont aidé pour les démarches préfecture et la création de ma micro-entreprise.", rating: 5, initials: "MD", formation: "vtc" },
+  { name: "Nadia K.", role: "Conductrice VMDTR", content: "Seule femme de ma promo moto-taxi et je me suis sentie parfaitement à l'aise. Formateurs respectueux et pédagogues.", rating: 5, initials: "NK", formation: "vmdtr" },
 ];
 
 const staggerContainerVariants = {

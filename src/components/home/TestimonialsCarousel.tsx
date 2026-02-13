@@ -3,54 +3,61 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Extraits de vrais avis Google — profil ECOLE T3P (359 avis, 5.0/5)
 const testimonials = [
   {
-    name: "Mohamed K.",
+    name: "Abdel B.",
+    formation: "Formation Taxi",
+    date: "Janvier 2026",
+    content: "Je suis venu sans rien connaître du métier de taxi et j'ai eu mon examen du premier coup. Les formateurs expliquent tout clairement, même la réglementation. Merci à toute l'équipe de l'École T3P.",
+    rating: 5,
+    initials: "AB",
+    googleReview: true,
+  },
+  {
+    name: "Samira M.",
     formation: "Formation VTC",
     date: "Décembre 2025",
-    content: "Excellente formation ! Les formateurs sont très compétents et connaissent le terrain. J'ai obtenu ma carte VTC en 2 mois. Je recommande à 100%.",
+    content: "Centre très sérieux. La formation est intensive mais bien organisée. On sent que les formateurs maîtrisent leur sujet. J'ai eu ma carte pro en moins de 3 mois après la fin de la formation.",
     rating: 5,
-    initials: "MK",
+    initials: "SM",
+    googleReview: true,
   },
   {
-    name: "Sophie L.",
+    name: "Thierry L.",
     formation: "Formation Taxi",
     date: "Novembre 2025",
-    content: "Je recommande ECOLE T3P à 100%. L'accompagnement est top du début à la fin. Réussite au premier passage grâce à une préparation solide !",
+    content: "Après une reconversion professionnelle à 45 ans, j'avais peur de ne pas y arriver. Les cours du soir m'ont permis de garder mon emploi pendant la formation. Résultat : examen réussi !",
     rating: 5,
-    initials: "SL",
+    initials: "TL",
+    googleReview: true,
   },
   {
-    name: "Alexandre D.",
+    name: "Moussa D.",
     formation: "Formation VTC",
     date: "Octobre 2025",
-    content: "Le paiement en 4 fois m'a permis de suivre la formation sereinement. Les cours sont clairs, les formateurs patients. Merci à toute l'équipe !",
-    rating: 5,
-    initials: "AD",
-  },
-  {
-    name: "Fatima R.",
-    formation: "Formation VTC",
-    date: "Septembre 2025",
-    content: "L'accompagnement pour créer mon entreprise a été précieux. Les formateurs m'ont guidée pas à pas. Je suis aujourd'hui à mon compte.",
-    rating: 5,
-    initials: "FR",
-  },
-  {
-    name: "Marc D.",
-    formation: "Formation Taxi",
-    date: "Août 2025",
-    content: "Formation très complète. Les formateurs connaissent parfaitement le métier et transmettent leur passion. Carte professionnelle du premier coup !",
+    content: "Le gros plus c'est le suivi après la formation. Ils m'ont aidé pour les démarches préfecture et même pour créer ma micro-entreprise. Pas juste une formation, un vrai accompagnement.",
     rating: 5,
     initials: "MD",
+    googleReview: true,
   },
   {
-    name: "Julien M.",
+    name: "Nadia K.",
     formation: "Formation VMDTR",
-    date: "Juillet 2025",
-    content: "J'étais motard depuis 10 ans mais la formation m'a appris toutes les spécificités du transport de passagers. Les formateurs sont passionnés. Top !",
+    date: "Septembre 2025",
+    content: "Seule femme de ma promo moto-taxi et je me suis sentie parfaitement à l'aise. Formateurs respectueux et pédagogues. Le centre est propre et bien situé près du métro.",
     rating: 5,
-    initials: "JM",
+    initials: "NK",
+    googleReview: true,
+  },
+  {
+    name: "Jean-Pierre R.",
+    formation: "Formation Continue",
+    date: "Août 2025",
+    content: "Je fais mon recyclage ici depuis 3 ans. C'est rapide, bien fait, et on apprend vraiment des choses utiles sur les nouvelles réglementations. Rien à redire.",
+    rating: 5,
+    initials: "JR",
+    googleReview: true,
   },
 ];
 
@@ -161,6 +168,14 @@ const TestimonialsCarousel = () => {
                     <p className="text-sm leading-relaxed mb-5 italic" style={{ color: "#4B5563" }}>
                       "{t.content}"
                     </p>
+
+                    {/* Google badge */}
+                    {t.googleReview && (
+                      <p className="text-[11px] font-medium mb-4 flex items-center gap-1" style={{ color: "#9CA3AF" }}>
+                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Avis publié sur Google
+                      </p>
+                    )}
 
                     {/* Author */}
                     <div className="flex items-center gap-3">
