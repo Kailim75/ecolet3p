@@ -355,7 +355,7 @@ const FormationTaxi = () => {
                 </Button>
               </div>
 
-              <PlacesProgressBar className="max-w-md" />
+              <PlacesProgressBar category="taxi" className="max-w-md" />
             </motion.div>
             
             <motion.div
