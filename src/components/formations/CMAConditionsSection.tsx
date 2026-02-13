@@ -43,12 +43,14 @@ const CMAConditionsSection = () => {
           </p>
         </div>
 
-        {/* Tableau synthétique */}
+        {/* Tableau synthétique — desktop */}
         <div className="px-6 md:px-8 py-5">
           <h3 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: "#1B4D3E" }}>
             3 conditions obligatoires
           </h3>
-          <div className="rounded-xl border overflow-hidden">
+
+          {/* Desktop: table */}
+          <div className="hidden md:block rounded-xl border overflow-hidden">
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: "hsl(var(--foreground))" }}>
@@ -70,6 +72,23 @@ const CMAConditionsSection = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile: cards */}
+          <div className="flex flex-col gap-3 md:hidden">
+            {conditions.map((c, i) => (
+              <div
+                key={i}
+                className="rounded-xl border p-4"
+                style={{ borderColor: "hsl(var(--border))", backgroundColor: "rgba(27,77,62,0.02)" }}
+              >
+                <div className="flex items-center gap-2 mb-1.5">
+                  <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: "#1B4D3E" }} />
+                  <span className="font-semibold text-sm" style={{ color: "#1A1A1A" }}>{c.label}</span>
+                </div>
+                <p className="text-sm pl-6" style={{ color: "#555" }}>{c.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
 
