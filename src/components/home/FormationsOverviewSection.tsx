@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Car, Shield, Bike, RefreshCw, CreditCard } from "lucide-react";
+import { ArrowRight, Car, Bike, RefreshCw, CreditCard } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
+import AlmaLogo from "@/components/logo/AlmaLogo";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
@@ -11,8 +12,7 @@ const formations = [
     icon: Car,
     title: "Formation Taxi",
     description: "Formation complète pour obtenir votre carte professionnelle de chauffeur de taxi.",
-    price: "À partir de 990€",
-    installment: "248€",
+    price: 990,
     cpf: false,
     accentColor: "#F97316",
     bgLight: "rgba(249,115,22,0.06)",
@@ -23,8 +23,7 @@ const formations = [
     icon: Car,
     title: "Formation VTC",
     description: "Devenez chauffeur VTC professionnel avec notre formation agréée.",
-    price: "À partir de 990€",
-    installment: "248€",
+    price: 990,
     cpf: false,
     accentColor: "#059669",
     bgLight: "rgba(5,150,105,0.06)",
@@ -35,8 +34,7 @@ const formations = [
     icon: Bike,
     title: "Formation VMDTR",
     description: "Formation moto-taxi pour le transport de passagers sur deux roues.",
-    price: "À partir de 990€",
-    installment: "248€",
+    price: 990,
     cpf: false,
     accentColor: "#2563EB",
     bgLight: "rgba(37,99,235,0.06)",
@@ -47,8 +45,7 @@ const formations = [
     icon: RefreshCw,
     title: "Formation Continue",
     description: "Renouvellement obligatoire de 14h pour maintenir votre carte professionnelle.",
-    price: "À partir de 250€",
-    installment: null as string | null,
+    price: 250,
     cpf: false,
     accentColor: "#374151",
     bgLight: "rgba(55,65,81,0.06)",
@@ -98,6 +95,7 @@ const FormationsOverviewSection = () => {
         >
           {formations.map((f) => {
             const Icon = f.icon;
+            const monthly = (f.price / 4).toFixed(2);
             return (
               <motion.div
                 key={f.id}
@@ -121,16 +119,21 @@ const FormationsOverviewSection = () => {
                   {/* Description */}
                   <p className="text-sm leading-relaxed mb-4" style={{ color: "#777" }}>{f.description}</p>
 
-                  {/* Price - colored per category */}
+                  {/* Price + Alma mini-widget */}
                   <div className="mb-5">
                     <div className="flex items-center gap-3">
-                      <span className="font-bold" style={{ color: f.accentColor }}>{f.price}</span>
+                      <span className="text-lg font-bold" style={{ color: f.accentColor }}>{f.price}€</span>
                       {f.cpf && (
                         <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-forest/10 text-forest">CPF</span>
                       )}
                     </div>
-                    {f.installment && (
-                      <p className="text-xs mt-1" style={{ color: "#999" }}>soit 4× {f.installment} sans frais</p>
+                    {f.price >= 500 && (
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className="text-sm font-semibold" style={{ color: "#FA5022" }}>
+                          ou 4× {monthly}€/mois
+                        </span>
+                        <AlmaLogo className="h-4" />
+                      </div>
                     )}
                   </div>
 

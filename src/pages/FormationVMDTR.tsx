@@ -30,7 +30,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import UpcomingSessionsCard from "@/components/formations/UpcomingSessionsCard";
-import PricingCard from "@/components/formations/PricingCard";
+import PricingPaymentBlock from "@/components/formations/PricingPaymentBlock";
 import ExamProgramSection from "@/components/formations/ExamProgramSection";
 import { supabase } from "@/integrations/supabase/client";
 import { getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
@@ -487,32 +487,16 @@ const FormationVMDTR = () => {
             ))}
           </div>
 
-          {/* Pricing Cards */}
+          {/* Pricing Blocks */}
           <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <PricingCard
-              title="Formation VMDTR Soirée"
+            <PricingPaymentBlock
+              formationTitle="Formation VMDTR Soirée"
               price={soireeFormation?.price || 990}
-              duration="33h"
-              features={[
-                "Sécurité deux-roues renforcée",
-                "Réglementation VMDTR complète",
-                "Du lundi au vendredi 18h-21h30",
-                "Compatible avec un emploi",
-                "Paiement en 4× sans frais",
-              ]}
               onRegister={() => setShowPreRegistration(true)}
             />
-            <PricingCard
-              title="Formation VMDTR Journée"
+            <PricingPaymentBlock
+              formationTitle="Formation VMDTR Journée"
               price={vmdtrFormation?.price || 1190}
-              duration="63h"
-              features={[
-                "Sécurité deux-roues renforcée",
-                "Réglementation VMDTR complète",
-                "Du lundi au vendredi 9h30-16h30",
-                "Mises en situation pratiques",
-                "Paiement en 4× sans frais",
-              ]}
               onRegister={() => setShowPreRegistration(true)}
             />
           </div>
