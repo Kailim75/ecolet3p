@@ -170,6 +170,11 @@ const Formations = () => {
   // Determine if a formation is "soirée"
   const isSoiree = (f: Formation) => f.title.toLowerCase().includes("soirée") || f.title.toLowerCase().includes("soiree");
 
+  // Group initiales by type order (taxi, vtc, vmdtr)
+  const typeOrder = ["taxi", "vtc", "vmdtr"];
+  const initialesSoiree = typeOrder.flatMap(cat => initiales.filter(f => f.category === cat && isSoiree(f)));
+  const initialesJournee = typeOrder.flatMap(cat => initiales.filter(f => f.category === cat && !isSoiree(f)));
+
   // SEO schemas
   const itemListSchema = {
     "@context": "https://schema.org",
@@ -527,15 +532,45 @@ const Formations = () => {
                 </p>
               </motion.div>
 
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-              >
-                {initiales.map(f => renderCard(f, "initial"))}
-              </motion.div>
+              {/* Formations Soirée */}
+              {initialesSoiree.length > 0 && (
+                <>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Moon className="w-5 h-5 text-gold" />
+                    <h3 className="text-lg font-bold text-forest">Formations Soirée</h3>
+                    <span className="text-xs text-muted-foreground ml-1">— Compatible avec votre activité</span>
+                  </div>
+                  <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12"
+                  >
+                    {initialesSoiree.map(f => renderCard(f, "initial"))}
+                  </motion.div>
+                </>
+              )}
+
+              {/* Formations Journée */}
+              {initialesJournee.length > 0 && (
+                <>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Calendar className="w-5 h-5 text-gold" />
+                    <h3 className="text-lg font-bold text-forest">Formations Journée</h3>
+                    <span className="text-xs text-muted-foreground ml-1">— Formation intensive en journée</span>
+                  </div>
+                  <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+                  >
+                    {initialesJournee.map(f => renderCard(f, "initial"))}
+                  </motion.div>
+                </>
+              )}
             </div>
           </section>
 
