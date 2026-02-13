@@ -29,11 +29,11 @@ const contactInfo = [
 ];
 
 const formationChoices = [
-  { id: "taxi", label: "Taxi", price: "1 190€", icon: CarTaxiFront },
-  { id: "vtc", label: "VTC", price: "1 190€", icon: Car },
+  { id: "taxi", label: "Taxi", price: "990€", icon: CarTaxiFront },
+  { id: "vtc", label: "VTC", price: "990€", icon: Car },
   { id: "vmdtr", label: "VMDTR", price: "990€", icon: Bike },
-  { id: "continue", label: "Formation Continue", price: "170-239€", icon: RefreshCw },
-  { id: "mobilite", label: "Mobilité", price: "390€", icon: ArrowLeftRight },
+  { id: "continue", label: "Formation Continue", price: "170-250€", icon: RefreshCw },
+  { id: "mobilite", label: "Mobilité", price: "440€", icon: ArrowLeftRight },
   { id: "recup-points", label: "Récupération de points", price: "250€", icon: Shield },
 ];
 

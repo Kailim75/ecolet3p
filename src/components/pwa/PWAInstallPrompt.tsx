@@ -44,7 +44,7 @@ const PWAInstallPrompt = () => {
             </div>
             
             <h3 className="text-xl font-bold text-forest mb-2">
-              Installer T3P Campus
+              Installer ECOLE T3P
             </h3>
             <p className="text-muted-foreground text-sm mb-6">
               Ajoutez l'application à votre écran d'accueil pour un accès rapide.

@@ -81,7 +81,7 @@ const PageLoader = ({ isLoading, onLoadingComplete }: PageLoaderProps) => {
               transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
             />
 
-            {/* T3P Campus Icon */}
+            {/* ECOLE T3P Icon */}
             <motion.div
               className="relative flex items-center justify-center"
               style={{ width: 140, height: 140 }}
@@ -111,11 +111,11 @@ const PageLoader = ({ isLoading, onLoadingComplete }: PageLoaderProps) => {
             initial="hidden"
             animate="visible"
           >
-            {"T3P CAMPUS".split("").map((letter, index) => (
+            {"ECOLE T3P".split("").map((letter, index) => (
               <motion.span
                 key={index}
                 className={`text-3xl md:text-4xl font-black ${
-                  letter === " " ? "w-3" : index < 3 ? "text-forest" : "text-gold"
+                  letter === " " ? "w-3" : index < 5 ? "text-forest" : "text-gold"
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
