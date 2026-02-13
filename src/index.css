@@ -593,3 +593,44 @@
     background: hsl(var(--muted) / 0.5);
   }
 }
+
+/* Hero shimmer effect on CTA button */
+@keyframes shimmer {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(200%); }
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+  animation: shimmer 2.5s ease-in-out 0.5s 1;
+}
+
+/* Hero floating card animation */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hero-float {
+  animation: hero-float 3s ease-in-out infinite;
+}
+
+/* Places bar pulse animation */
+@keyframes places-pulse {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.01); }
+}
+
+.places-bar-pulse {
+  animation: places-pulse 3s ease-in-out infinite;
+  transform-origin: left;
+}
+
+/* Accessibility: disable animations for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-effect,
+  .hero-float,
+  .places-bar-pulse {
+    animation: none !important;
+  }
+}

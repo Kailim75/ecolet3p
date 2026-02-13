@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
-
-const stats = [
-  { value: "94%", label: "Taux de réussite" },
-  { value: "+2000", label: "Chauffeurs formés" },
-  { value: "5.0/5", label: "Note Google (359 avis)" },
-  { value: "4x", label: "Paiement sans frais" },
-];
+import { GraduationCap, Star } from "lucide-react";
+import AlmaLogo from "@/components/logo/AlmaLogo";
 
 const TrustBar = () => (
   <motion.section
@@ -13,19 +8,37 @@ const TrustBar = () => (
     whileInView={{ opacity: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    style={{ background: "linear-gradient(135deg, #0F4A32 0%, #166534 100%)" }}
+    className="border-y"
+    style={{ backgroundColor: "#F8F9FA", borderColor: "#F0F0F0" }}
   >
-    <div className="container-custom py-6 md:py-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-0">
-        {stats.map((stat, i) => (
-          <div key={stat.label} className="flex flex-col items-center text-center relative">
-            {i > 0 && (
-              <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-10" style={{ backgroundColor: "rgba(255,255,255,0.2)" }} />
-            )}
-            <span className="text-[32px] md:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold text-white mb-0.5 md:mb-1">{stat.value}</span>
-            <span className="text-xs md:text-sm xl:text-base text-white/80 leading-tight">{stat.label}</span>
-          </div>
-        ))}
+    <div className="container-custom py-4 md:py-5">
+      <div className="flex items-center justify-center gap-6 md:gap-10 lg:gap-14 flex-wrap">
+        {/* Agréé Préfecture */}
+        <div className="flex items-center gap-2 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-default">
+          <span className="text-xs md:text-sm font-semibold" style={{ color: "#374151" }}>🏛️ Agréé Préfecture 92</span>
+        </div>
+
+        {/* CMA IDF */}
+        <div className="flex items-center gap-2 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-default">
+          <span className="text-xs md:text-sm font-semibold" style={{ color: "#374151" }}>📋 CMA Île-de-France</span>
+        </div>
+
+        {/* Alma */}
+        <div className="flex items-center gap-2 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-default">
+          <AlmaLogo className="h-5" />
+        </div>
+
+        {/* Google rating */}
+        <div className="flex items-center gap-1.5 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-default">
+          <Star className="w-3.5 h-3.5 text-[#FBBC05] fill-[#FBBC05]" />
+          <span className="text-xs md:text-sm font-semibold" style={{ color: "#374151" }}>5.0/5 — 359 avis</span>
+        </div>
+
+        {/* +2000 formés */}
+        <div className="flex items-center gap-1.5 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300 cursor-default">
+          <GraduationCap className="w-4 h-4" style={{ color: "#374151" }} />
+          <span className="text-xs md:text-sm font-semibold" style={{ color: "#374151" }}>+2000 formés</span>
+        </div>
       </div>
     </div>
   </motion.section>
