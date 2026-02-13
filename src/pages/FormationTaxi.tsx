@@ -37,6 +37,7 @@ import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/
 import { supabase } from "@/integrations/supabase/client";
 import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
 import PlacesProgressBar from "@/components/home/PlacesProgressBar";
+import NextCMASessionBanner from "@/components/formations/NextCMASessionBanner";
 
 const programModules = [
   {
@@ -498,6 +499,7 @@ const FormationTaxi = () => {
       </section>
 
       <ExamProgramSection profession="taxi" />
+      <NextCMASessionBanner />
 
       {/* Prérequis */}
       <section className="py-10 lg:py-24 bg-muted/30">
