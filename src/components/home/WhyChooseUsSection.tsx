@@ -39,7 +39,7 @@ const staggerItem = {
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="py-12 md:py-20" style={{ backgroundColor: "#F5F0E8" }}>
+    <section className="py-12 md:py-20" style={{ backgroundColor: "#1B4332" }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ const WhyChooseUsSection = () => {
           transition={{ duration: 0.6, ease: smoothEase }}
           className="text-center mb-10 md:mb-14"
         >
-          <h2 className="text-[22px] md:text-[36px] font-black mb-3" style={{ color: "#1B4332" }}>
+          <h2 className="text-[22px] md:text-[36px] font-black text-white mb-3">
             Un positionnement exigeant, des résultats mesurables
           </h2>
         </motion.div>
@@ -67,18 +67,18 @@ const WhyChooseUsSection = () => {
               <motion.div
                 key={reason.title}
                 variants={staggerItem}
-                whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(27,67,50,0.10)" }}
-                className="bg-white rounded-xl p-6 border text-center transition-all"
-                style={{ borderColor: "rgba(27,67,50,0.10)" }}
+                whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,0,0,0.15)" }}
+                className="rounded-xl p-6 text-center transition-all"
+                style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
               >
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
-                  style={{ backgroundColor: "rgba(27,67,50,0.08)" }}
+                  style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
                 >
-                  <Icon className="w-6 h-6" style={{ color: "#1B4332" }} />
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-base font-bold mb-2" style={{ color: "#1B4332" }}>{reason.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#666" }}>{reason.description}</p>
+                <h3 className="text-base font-bold text-white mb-2">{reason.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.70)" }}>{reason.description}</p>
               </motion.div>
             );
           })}
@@ -98,18 +98,18 @@ const WhyChooseUsSection = () => {
               <motion.div
                 key={reason.title}
                 variants={staggerItem}
-                className="flex items-start gap-4 bg-white rounded-xl p-4 border"
-                style={{ borderColor: "rgba(27,67,50,0.10)" }}
+                className="flex items-start gap-4 rounded-xl p-4"
+                style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
               >
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: "rgba(27,67,50,0.08)" }}
+                  style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
                 >
-                  <Icon className="w-5 h-5" style={{ color: "#1B4332" }} />
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-bold mb-1" style={{ color: "#1B4332" }}>{reason.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{reason.description}</p>
+                  <h3 className="text-sm font-bold text-white mb-1">{reason.title}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>{reason.description}</p>
                 </div>
               </motion.div>
             );
@@ -123,7 +123,7 @@ const WhyChooseUsSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
           className="text-center mt-8 text-xs italic"
-          style={{ color: "#999" }}
+          style={{ color: "rgba(255,255,255,0.45)" }}
         >
           *Sous réserve d'assiduité complète et d'éligibilité à l'examen.
         </motion.p>
