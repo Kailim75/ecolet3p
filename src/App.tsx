@@ -53,6 +53,7 @@ const FormationPMR = lazy(() => import("./pages/FormationPMR"));
 const FormationGestionEntreprise = lazy(() => import("./pages/FormationGestionEntreprise"));
 const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
 const FormationAccompagnementAdmin = lazy(() => import("./pages/FormationAccompagnementAdmin"));
+const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
 
 const queryClient = new QueryClient();
 
@@ -117,6 +118,7 @@ const App = () => {
                       <Route path="/formations/gestion-entreprise" element={<FormationGestionEntreprise />} />
                       <Route path="/formations/anglais-professionnel" element={<FormationAnglais />} />
                       <Route path="/formations/accompagnement-administratif" element={<FormationAccompagnementAdmin />} />
+                      <Route path="/formations/formule-soiree" element={<FormuleSoiree />} />
                       <Route path="/a-propos" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />
