@@ -11,6 +11,7 @@ const FloatingWhatsAppButton: React.FC = () => {
   const [message, setMessage] = React.useState(DEFAULT_MESSAGE);
   const [copied, setCopied] = React.useState(false);
   const { toast } = useToast();
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const isEmbeddedPreview = React.useMemo(() => {
     try {
@@ -73,6 +74,9 @@ const FloatingWhatsAppButton: React.FC = () => {
 
     setIsOpen(false);
   };
+
+  // Hide on mobile — WhatsApp is already in MobileStickyBar
+  if (isMobile) return null;
 
   return (
     <>

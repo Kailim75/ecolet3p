@@ -53,7 +53,7 @@ const AlmaBanner = () => {
             </div>
 
             {/* Animated installment badges */}
-            <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
+            <div className="flex items-center justify-center gap-1.5 md:gap-3 flex-wrap">
               {plan.amounts.map((amount, idx) => (
                 <React.Fragment key={`${plan.count}-${idx}`}>
                   <motion.div
@@ -71,7 +71,7 @@ const AlmaBanner = () => {
                     <span className="text-sm md:text-lg font-black" style={{ color: "#1B4332" }}>{amount}</span>
                   </motion.div>
                   {idx < plan.amounts.length - 1 && (
-                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground shrink-0" />
+                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground shrink-0 hidden min-[480px]:block" />
                   )}
                 </React.Fragment>
               ))}
@@ -85,9 +85,9 @@ const AlmaBanner = () => {
         </div>
 
         {/* Trust line */}
-        <div className="flex items-center justify-center gap-4 md:gap-6 mt-4 flex-wrap">
+        <div className="flex items-center justify-center gap-3 md:gap-6 mt-4 flex-wrap px-4">
           {["Aucun frais supplémentaire", "Décision immédiate", "Sans engagement"].map((text) => (
-            <span key={text} className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+            <span key={text} className="inline-flex items-center gap-1 md:gap-1.5 text-[11px] md:text-xs text-muted-foreground">
               <CheckCircle className="w-3.5 h-3.5" style={{ color: "#1B4332" }} />
               {text}
             </span>
