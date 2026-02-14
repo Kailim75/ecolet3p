@@ -14,7 +14,7 @@ const BeforeAfterSection = lazy(() => import("@/components/home/BeforeAfterSecti
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
 const GuaranteeSection = lazy(() => import("@/components/home/GuaranteeSection"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
-const ParrainageSection = lazy(() => import("@/components/formations/ParrainageSection"));
+
 
 // Simple skeleton for lazy sections
 const SectionSkeleton = () => (
@@ -328,10 +328,6 @@ const Index = () => {
         <FAQSection />
       </Suspense>
       
-      {/* 8. Parrainage */}
-      <Suspense fallback={<SectionSkeleton />}>
-        <ParrainageSection />
-      </Suspense>
     </Layout>
   );
 };
