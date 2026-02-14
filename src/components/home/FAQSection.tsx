@@ -145,7 +145,7 @@ const FAQSection = () => {
                       {faq.question}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent forceMount className="pb-4 md:pb-5 pt-0 data-[state=closed]:hidden">
+                  <AccordionContent className="pb-4 md:pb-5 pt-0">
                     <p className="leading-relaxed pl-10 md:pl-12 text-sm md:text-base" style={{ color: "#666" }}>
                       {faq.answer}
                     </p>
