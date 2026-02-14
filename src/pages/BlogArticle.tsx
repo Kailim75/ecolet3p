@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2, User, Tag, Home } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -330,17 +332,27 @@ const BlogArticle = () => {
                       </div>
                     </div>
                     <form
-                      onSubmit={(e) => {
+                      onSubmit={async (e) => {
                         e.preventDefault();
                         const form = e.target as HTMLFormElement;
-                        const email = (form.elements.namedItem("lead-email") as HTMLInputElement)?.value;
-                        if (email) {
-                          // Store lead locally for now
-                          const leads = JSON.parse(localStorage.getItem("t3p-leads") || "[]");
-                          leads.push({ email, source: "blog-lead-magnet", slug: article.slug, date: new Date().toISOString() });
-                          localStorage.setItem("t3p-leads", JSON.stringify(leads));
+                        const email = (form.elements.namedItem("lead-email") as HTMLInputElement)?.value?.trim();
+                        if (!email) return;
+                        try {
+                          const { error } = await supabase
+                            .from("newsletter_subscribers")
+                            .insert({ email, source: `blog-lead-magnet-${article.slug}` });
+                          if (error) {
+                            if (error.code === "23505") {
+                              toast.success("Vous êtes déjà inscrit(e) ! Vérifiez votre boîte mail.");
+                            } else {
+                              throw error;
+                            }
+                          } else {
+                            toast.success("✅ Guide envoyé ! Vérifiez votre boîte mail.");
+                          }
                           form.reset();
-                          alert("✅ Guide envoyé ! Vérifiez votre boîte mail.");
+                        } catch {
+                          toast.error("Une erreur est survenue. Veuillez réessayer.");
                         }
                       }}
                       className="flex flex-col sm:flex-row gap-2"
