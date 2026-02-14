@@ -1,49 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, MapPin, UserCheck, CreditCard } from "lucide-react";
+import { Target, Users, RefreshCcw, Building2 } from "lucide-react";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
 const reasons = [
   {
-    icon: TrendingUp,
-    stat: "94%",
-    title: "Taux de réussite supérieur à la moyenne",
-    description: "94% de nos élèves obtiennent leur carte professionnelle dès le premier passage grâce à notre méthode pédagogique éprouvée.",
+    icon: Target,
+    title: "Méthode structurée",
+    description: "Programme intensif axé sur la réussite au premier passage, pas sur le remplissage de sessions.",
   },
   {
-    icon: MapPin,
-    stat: "5 min",
-    title: "Centre à Montrouge, 5 min du métro",
-    description: "Facilement accessible depuis tout le sud de Paris et les Hauts-de-Seine. Métro Mairie de Montrouge, ligne 4.",
+    icon: Users,
+    title: "Groupes limités à 12 stagiaires",
+    description: "Chaque candidat bénéficie d'un suivi réel, pas d'une formation de masse.",
   },
   {
-    icon: UserCheck,
-    stat: "100%",
-    title: "Suivi post-formation jusqu'à la carte pro",
-    description: "Nous vous accompagnons après la formation : démarches administratives, création d'entreprise, obtention de votre carte professionnelle.",
+    icon: RefreshCcw,
+    title: "Accompagnement jusqu'à réussite",
+    description: "Si vous ne réussissez pas, nous vous réaccompagnons sans frais pédagogiques supplémentaires à la session suivante.*",
   },
   {
-    icon: CreditCard,
-    stat: "4x",
-    title: "Paiement en 4x sans frais",
-    description: "Facilitez votre accès à la formation avec notre solution de paiement échelonné. Aucun frais supplémentaire.",
+    icon: Building2,
+    title: "Indépendant par choix",
+    description: "Hors CPF volontairement pour préserver notre liberté pédagogique et la qualité de notre suivi.",
   },
 ];
 
 const staggerContainer = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: smoothEase } }
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: smoothEase } },
 };
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="py-12 md:py-20" style={{ backgroundColor: "#0F2A1D" }}>
+    <section className="py-12 md:py-20" style={{ backgroundColor: "#F5F0E8" }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,8 +48,8 @@ const WhyChooseUsSection = () => {
           transition={{ duration: 0.6, ease: smoothEase }}
           className="text-center mb-10 md:mb-14"
         >
-          <h2 className="font-serif text-[22px] md:text-[36px] xl:text-[42px] font-extrabold mb-4 text-white">
-            Pourquoi choisir ECOLE T3P ?
+          <h2 className="text-[22px] md:text-[36px] font-black mb-3" style={{ color: "#1B4332" }}>
+            Un positionnement exigeant, des résultats mesurables
           </h2>
         </motion.div>
 
@@ -63,7 +59,7 @@ const WhyChooseUsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {reasons.map((reason) => {
             const Icon = reason.icon;
@@ -71,53 +67,66 @@ const WhyChooseUsSection = () => {
               <motion.div
                 key={reason.title}
                 variants={staggerItem}
-                className="flex flex-col items-center text-center"
+                whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(27,67,50,0.10)" }}
+                className="bg-white rounded-xl p-6 border text-center transition-all"
+                style={{ borderColor: "rgba(27,67,50,0.10)" }}
               >
-                <span className="text-3xl xl:text-4xl font-extrabold mb-3" style={{ color: "#D4A853" }}>{reason.stat}</span>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "rgba(212,168,83,0.15)" }}>
-                  <Icon className="w-6 h-6" style={{ color: "#D4A853" }} />
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
+                  style={{ backgroundColor: "rgba(27,67,50,0.08)" }}
+                >
+                  <Icon className="w-6 h-6" style={{ color: "#1B4332" }} />
                 </div>
-                <h3 className="text-base font-bold text-white mb-2 pb-2 border-b-2" style={{ borderColor: "#D4A853" }}>
-                  {reason.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{reason.description}</p>
+                <h3 className="text-base font-bold mb-2" style={{ color: "#1B4332" }}>{reason.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#666" }}>{reason.description}</p>
               </motion.div>
             );
           })}
         </motion.div>
 
-        {/* Mobile: 1 column, horizontal layout per item */}
+        {/* Mobile: 1 column */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="md:hidden flex flex-col"
+          className="md:hidden flex flex-col gap-3"
         >
-          {reasons.map((reason, i) => {
+          {reasons.map((reason) => {
             const Icon = reason.icon;
             return (
               <motion.div
                 key={reason.title}
                 variants={staggerItem}
-                className={`flex items-start gap-4 py-5 ${i < reasons.length - 1 ? "border-b border-white/10" : ""}`}
+                className="flex items-start gap-4 bg-white rounded-xl p-4 border"
+                style={{ borderColor: "rgba(27,67,50,0.10)" }}
               >
-                {/* Left: stat + icon */}
-                <div className="flex flex-col items-center shrink-0 w-16">
-                  <span className="text-[28px] font-extrabold leading-none" style={{ color: "#D4A853" }}>{reason.stat}</span>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center mt-2" style={{ backgroundColor: "rgba(212,168,83,0.15)" }}>
-                    <Icon className="w-5 h-5" style={{ color: "#D4A853" }} />
-                  </div>
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: "rgba(27,67,50,0.08)" }}
+                >
+                  <Icon className="w-5 h-5" style={{ color: "#1B4332" }} />
                 </div>
-                {/* Right: text */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-bold text-white mb-1">{reason.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>{reason.description}</p>
+                  <h3 className="text-sm font-bold mb-1" style={{ color: "#1B4332" }}>{reason.title}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{reason.description}</p>
                 </div>
               </motion.div>
             );
           })}
         </motion.div>
+
+        {/* Footnote */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-8 text-xs italic"
+          style={{ color: "#999" }}
+        >
+          *Sous réserve d'assiduité complète et d'éligibilité à l'examen.
+        </motion.p>
       </div>
     </section>
   );
