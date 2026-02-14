@@ -1,160 +1,217 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CarTaxiFront, Car, Bike, Moon, Sun, Monitor, CreditCard, BadgeCheck } from "lucide-react";
+import { ArrowRight, Moon, Sun, Monitor, Check, CarTaxiFront, Car, Bike } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PrefetchLink from "@/components/ui/PrefetchLink";
+import { Link } from "react-router-dom";
 import AlmaLogo from "@/components/logo/AlmaLogo";
-import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
+import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
-const formations = [
-  {
-    title: "TAXI",
-    icon: CarTaxiFront,
-    color: "text-amber-600",
-    bgColor: "bg-amber-500/10",
-    borderColor: "border-amber-500/30",
-    link: "/formations/taxi",
-    quoteKey: "taxi",
-    description: "Carte professionnelle Taxi — Examen CMA",
-    formats: [
-      { label: "Soirée", icon: Moon, price: 990, duration: "Lun–Ven 18h–21h30", detailLink: "/formations/formule-soiree" },
-      { label: "Journée", icon: Sun, price: 1190, duration: "Lun–Ven 9h–17h", detailLink: "/formations/taxi" },
-      { label: "E-learning", icon: Monitor, price: 890, duration: "À votre rythme", detailLink: "/formations/taxi" },
-    ],
-  },
-  {
-    title: "VTC",
-    icon: Car,
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-500/10",
-    borderColor: "border-emerald-500/30",
-    link: "/formations/vtc",
-    quoteKey: "vtc",
-    description: "Carte professionnelle VTC — Examen CMA",
-    formats: [
-      { label: "Soirée", icon: Moon, price: 990, duration: "Lun–Ven 18h–21h30", detailLink: "/formations/formule-soiree" },
-      { label: "Journée", icon: Sun, price: 1190, duration: "Lun–Ven 9h–17h", detailLink: "/formations/vtc" },
-      { label: "E-learning", icon: Monitor, price: 890, duration: "À votre rythme", detailLink: "/formations/vtc" },
-    ],
-  },
-  {
-    title: "VMDTR",
-    icon: Bike,
-    color: "text-blue-600",
-    bgColor: "bg-blue-500/10",
-    borderColor: "border-blue-500/30",
-    link: "/formations/vmdtr",
-    quoteKey: "vmdtr",
-    description: "Transport moto-taxi — Examen CMA",
-    formats: [
-      { label: "Soirée", icon: Moon, price: 990, duration: "Lun–Ven 18h–21h30", detailLink: "/formations/formule-soiree" },
-      { label: "Journée", icon: Sun, price: 1190, duration: "Lun–Ven 9h–17h", detailLink: "/formations/vmdtr" },
-      { label: "E-learning", icon: Monitor, price: 890, duration: "À votre rythme", detailLink: "/formations/vmdtr" },
-    ],
-  },
+type FormationType = "taxi" | "vtc" | "vmdtr";
+type FormatType = "soiree" | "journee" | "elearning";
+
+const formationTabs: { key: FormationType; label: string; icon: React.ElementType; link: string }[] = [
+  { key: "taxi", label: "Taxi", icon: CarTaxiFront, link: "/formations/taxi" },
+  { key: "vtc", label: "VTC", icon: Car, link: "/formations/vtc" },
+  { key: "vmdtr", label: "VMDTR", icon: Bike, link: "/formations/vmdtr" },
+];
+
+const formatOptions: { key: FormatType; icon: React.ElementType; label: string; hours: string; schedule: string; duration: string }[] = [
+  { key: "soiree", icon: Moon, label: "Option Soirée", hours: "33h", schedule: "Lun–Ven 18h à 21h30", duration: "2 semaines" },
+  { key: "journee", icon: Sun, label: "Option Journée", hours: "40h", schedule: "9h30 à 17h00", duration: "2 semaines" },
+  { key: "elearning", icon: Monitor, label: "Option E-learning", hours: "Illimité", schedule: "Quiz interactifs", duration: "À votre rythme" },
+];
+
+const inclusions = [
+  "2h de conduite incluses",
+  "Véhicule fourni le jour de l'examen",
+  "Support pédagogique complet",
+];
+
+const complementaryFormations = [
+  { title: "Formation Continue", price: "170", link: "/formations/continue-taxi", description: "Renouvellement carte professionnelle" },
+  { title: "Passerelle", price: "665", link: "/formations/taxi", description: "Changement de spécialité T3P" },
+  { title: "Complémentaires", price: "190", link: "/formations", description: "Anglais, PMR, gestion…" },
+  { title: "Accessibilité PMR", price: "290", link: "/formations/pmr", description: "Prise en charge des personnes à mobilité réduite" },
 ];
 
 const OffersSection = () => {
-  const { openQuoteModal } = useQuoteModal();
+  const [selectedFormation, setSelectedFormation] = useState<FormationType>("taxi");
+  const [selectedFormat, setSelectedFormat] = useState<FormatType>("soiree");
+
+  const currentFormation = formationTabs.find((f) => f.key === selectedFormation)!;
 
   return (
-    <section className="section-padding overflow-hidden relative" style={{ background: '#F5F0E8' }}>
-      <div className="container-custom relative z-10">
+    <section className="py-12 md:py-20 px-4 md:px-8 overflow-hidden" style={{ backgroundColor: "#F5F0E8" }}>
+      <div className="container-custom">
+        {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: smoothEase }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-           <h2 className="section-title mb-3">Nos Formations Initiales</h2>
-           <p className="section-subtitle mx-auto mb-4">
-             Taxi, VTC ou VMDTR — Choisissez votre métier et votre rythme
-           </p>
-           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
-             <BadgeCheck className="w-4 h-4" />
-             Frais d'examen CMA de 241€ inclus dans tous nos tarifs
-           </div>
+          <h2 className="text-2xl md:text-4xl font-black mb-3" style={{ color: "#1B4332" }}>
+            Formule Complète T3P — 990€
+          </h2>
+          <p className="text-base md:text-lg" style={{ color: "#666" }}>
+            Choisissez votre rythme, nous gérons le reste
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {formations.map((f, idx) => (
-            <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: smoothEase }}
-              whileHover={{ y: -6, boxShadow: "0 20px 50px rgba(27,67,50,0.12)" }}
-              className={`bg-card rounded-2xl border ${f.borderColor} overflow-hidden`}
-            >
-              {/* Card header */}
-              <div className="p-5 pb-3">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-12 h-12 rounded-xl ${f.bgColor} flex items-center justify-center`}>
-                    <f.icon className={`w-6 h-6 ${f.color}`} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-forest">{f.title}</h3>
-                    <p className="text-xs text-muted-foreground">{f.description}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Formats */}
-              <div className="px-5 pb-2 space-y-2">
-                {f.formats.map((fmt) => (
-                  <PrefetchLink
-                    key={fmt.label}
-                    to={fmt.detailLink}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-muted/40 hover:bg-primary/5 border border-transparent hover:border-primary/20 transition-all group"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-card flex items-center justify-center border border-border/50 group-hover:border-primary/30 transition-colors">
-                      <fmt.icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{fmt.label}</span>
-                        <span className="text-xs text-muted-foreground">{fmt.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 mt-0.5">
-                         <span className="text-lg font-black text-primary">{fmt.price}€</span>
-                         <span className="text-[10px] text-muted-foreground">· soit 4× {(fmt.price / 4).toFixed(0)}€</span>
-                       </div>
-                       <span className="text-[9px] font-medium text-primary/70">dont 241€ de frais d'examen inclus</span>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                  </PrefetchLink>
-                ))}
-              </div>
-
-              {/* Alma + CTA */}
-              <div className="px-5 pb-5 pt-2 space-y-2">
-                <div className="flex items-center gap-2 px-3 py-2 bg-[#FFF5F0] rounded-lg border border-[#FA5022]/10">
-                  <CreditCard className="w-3.5 h-3.5 text-[#FA5022]" />
-                  <span className="text-[11px] font-semibold" style={{ color: "#FA5022" }}>4× sans frais avec</span>
-                  <AlmaLogo className="h-3" />
-                </div>
-                <Button onClick={() => openQuoteModal(f.quoteKey)} className="w-full btn-cta-orange" size="sm">
-                  Demander un devis <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
+        {/* === NIVEAU 1 — Formule Complète === */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="text-center"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: smoothEase }}
+          className="bg-white rounded-2xl border overflow-hidden mb-12"
+          style={{ borderColor: "rgba(27,67,50,0.15)", boxShadow: "0 8px 40px rgba(27,67,50,0.08)" }}
         >
-          <PrefetchLink to="/formations" className="inline-flex items-center gap-2 text-forest font-semibold hover:text-gold text-sm uppercase link-underline">
-            Voir le catalogue complet <ArrowRight className="w-4 h-4" />
-          </PrefetchLink>
+          {/* Formation selector tabs */}
+          <div className="flex border-b" style={{ borderColor: "rgba(27,67,50,0.1)" }}>
+            {formationTabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setSelectedFormation(tab.key)}
+                className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-bold transition-all duration-200"
+                style={{
+                  backgroundColor: selectedFormation === tab.key ? "#1B4332" : "transparent",
+                  color: selectedFormation === tab.key ? "#FFFFFF" : "#666",
+                  borderBottom: selectedFormation === tab.key ? "3px solid #E8793A" : "3px solid transparent",
+                }}
+                aria-label={`Formation ${tab.label}`}
+                aria-pressed={selectedFormation === tab.key}
+              >
+                <tab.icon className="w-4 h-4" />
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="p-5 md:p-8">
+            {/* Format tabs */}
+            <div className="grid grid-cols-3 gap-2 md:gap-3 mb-6">
+              {formatOptions.map((fmt) => (
+                <button
+                  key={fmt.key}
+                  onClick={() => setSelectedFormat(fmt.key)}
+                  className="flex flex-col items-center gap-1.5 p-3 md:p-4 rounded-xl border-2 transition-all duration-200"
+                  style={{
+                    borderColor: selectedFormat === fmt.key ? "#1B4332" : "rgba(0,0,0,0.08)",
+                    backgroundColor: selectedFormat === fmt.key ? "rgba(27,67,50,0.05)" : "transparent",
+                  }}
+                  aria-label={`${fmt.label} — ${fmt.hours}`}
+                  aria-pressed={selectedFormat === fmt.key}
+                >
+                  <fmt.icon
+                    className="w-5 h-5"
+                    style={{ color: selectedFormat === fmt.key ? "#1B4332" : "#999" }}
+                  />
+                  <span
+                    className="text-xs md:text-sm font-bold"
+                    style={{ color: selectedFormat === fmt.key ? "#1B4332" : "#666" }}
+                  >
+                    {fmt.label}
+                  </span>
+                  <span className="text-[10px] md:text-xs" style={{ color: "#999" }}>
+                    {fmt.hours} — {fmt.duration}
+                  </span>
+                  <span className="text-[10px] hidden md:block" style={{ color: "#999" }}>
+                    {fmt.schedule}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Inclusions line */}
+            <div className="flex flex-wrap gap-3 md:gap-6 mb-6 py-3 px-4 rounded-xl" style={{ backgroundColor: "rgba(27,67,50,0.04)" }}>
+              {inclusions.map((text) => (
+                <span key={text} className="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium" style={{ color: "#1B4332" }}>
+                  <Check className="w-3.5 h-3.5" style={{ color: "#E8793A" }} />
+                  {text}
+                </span>
+              ))}
+            </div>
+
+            {/* Price + Alma + CTA */}
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+              {/* Price */}
+              <div className="flex items-baseline gap-3">
+                <span className="font-black" style={{ fontSize: 48, color: "#1B4332", lineHeight: 1 }}>
+                  990€
+                </span>
+                <div className="flex flex-col">
+                  <span className="flex items-center gap-1 text-sm font-semibold" style={{ color: "#666" }}>
+                    ou 4× 247,50€ <AlmaLogo className="h-3.5" />
+                  </span>
+                  <span className="text-[11px]" style={{ color: "#999" }}>
+                    dont 241€ de frais d'examen inclus
+                  </span>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto md:ml-auto">
+                <Button
+                  asChild
+                  className="btn-cta-orange px-8 py-4 text-sm rounded-xl"
+                  style={{ backgroundColor: "#E8793A", boxShadow: "0 4px 14px rgba(232,121,58,0.3)" }}
+                >
+                  <Link to={currentFormation.link} aria-label={`Choisir la formation ${currentFormation.label}`}>
+                    Choisir cette formule <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+                <AlmaPaymentButton formationTitle={`Formation ${currentFormation.label}`} price={990} />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* === NIVEAU 2 — Formations complémentaires === */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.1, ease: smoothEase }}
+        >
+          <h3 className="text-lg md:text-xl font-bold mb-6 text-center" style={{ color: "#1B4332" }}>
+            Déjà certifié ? Nos formations complémentaires
+          </h3>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {complementaryFormations.map((f, idx) => (
+              <motion.div
+                key={f.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08, ease: smoothEase }}
+              >
+                <Link
+                  to={f.link}
+                  className="flex flex-col h-full bg-white rounded-xl border p-4 md:p-5 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group"
+                  style={{ borderColor: "rgba(27,67,50,0.12)" }}
+                  aria-label={`${f.title} — dès ${f.price}€`}
+                >
+                  <h4 className="text-sm font-bold mb-1 group-hover:text-[#E8793A] transition-colors" style={{ color: "#1B4332" }}>
+                    {f.title}
+                  </h4>
+                  <p className="text-[11px] mb-3 flex-1" style={{ color: "#999" }}>
+                    {f.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-black" style={{ color: "#1B4332" }}>
+                      dès {f.price}€
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-[#E8793A] transition-colors" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
