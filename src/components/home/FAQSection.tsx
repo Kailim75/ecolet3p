@@ -67,7 +67,7 @@ const FAQSection = () => {
     <section 
       ref={sectionRef}
       className="py-10 md:py-20 px-4 md:px-8 relative overflow-hidden"
-      style={{ backgroundColor: "#FBF7EF" }}
+      style={{ backgroundColor: "#F5F0E8" }}
     >
       {/* Schema.org JSON-LD for SEO */}
       <FAQSchemaOrg faqs={faqs} />
