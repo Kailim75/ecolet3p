@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CreditCard, Loader2 } from "lucide-react";
+import AlmaLogo from "@/components/logo/AlmaLogo";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -82,6 +83,10 @@ const AlmaPaymentButton = ({ formationTitle, price }: AlmaPaymentButtonProps) =>
         <CreditCard className="h-4 w-4 mr-2" />
         Payer en plusieurs fois avec Alma
       </Button>
+      <div className="flex items-center justify-center gap-1.5 mt-1.5">
+        <span className="text-[10px] text-muted-foreground">Propulsé par</span>
+        <AlmaLogo className="h-3" />
+      </div>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-md">

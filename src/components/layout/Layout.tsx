@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "./Header";
 import Footer from "./Footer";
-import FloatingAppointmentButton from "./FloatingAppointmentButton";
 import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
 import FloatingPhoneButton from "./FloatingPhoneButton";
 import MobileStickyBar from "./MobileStickyBar";
@@ -229,7 +228,6 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="flex-1 pb-[60px] lg:pb-0">{children}</main>
       <Footer />
-      <FloatingAppointmentButton />
       <FloatingWhatsAppButton />
       <FloatingPhoneButton />
       <MobileStickyBar />
