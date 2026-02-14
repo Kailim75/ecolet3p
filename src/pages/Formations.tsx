@@ -11,7 +11,7 @@ import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import CatalogueCard from "@/components/formations/CatalogueCard";
 import PackCard from "@/components/formations/PackCard";
-import ParrainageSection from "@/components/formations/ParrainageSection";
+
 import AlmaLogo from "@/components/logo/AlmaLogo";
 import { useIsMobile } from "@/hooks/use-mobile";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
@@ -342,8 +342,8 @@ const Formations = () => {
         </div>
       </section>
 
-      {/* ============ 8. PARRAINAGE ============ */}
-      <ParrainageSection />
+
+      {/* ============ CTA FINAL ============ */}
 
       {/* ============ CTA FINAL ============ */}
       <section className="py-16 md:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.95), rgba(27,58,92,0.9))' }}>
