@@ -8,13 +8,13 @@ import TrustBar from "@/components/home/TrustBar";
 import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
-const OffersSection = lazy(() => import("@/components/home/OffersSection"));
-const JourneyStepsSection = lazy(() => import("@/components/home/JourneyStepsSection"));
+const AlmaBanner = lazy(() => import("@/components/home/AlmaBanner"));
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
-const FinancingSection = lazy(() => import("@/components/home/FinancingSection"));
+const OffersSection = lazy(() => import("@/components/home/OffersSection"));
+const GuaranteeSection = lazy(() => import("@/components/home/GuaranteeSection"));
+const LimitedGroupsSection = lazy(() => import("@/components/home/LimitedGroupsSection"));
 const TestimonialsCarousel = lazy(() => import("@/components/home/TestimonialsCarousel"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
-const BeforeAfterSection = lazy(() => import("@/components/home/BeforeAfterSection"));
 const CTASection = lazy(() => import("@/components/home/CTASection"));
 
 // Simple skeleton for lazy sections
@@ -307,24 +307,24 @@ const Index = () => {
       <HeroSection />
       <TrustBar />
       
-      {/* Lazy loaded sections */}
+      {/* Lazy loaded sections — conversion-optimized order */}
       <Suspense fallback={<SectionSkeleton />}>
-        <OffersSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <JourneyStepsSection />
+        <AlmaBanner />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <WhyChooseUsSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
-        <FinancingSection />
+        <OffersSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <GuaranteeSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <LimitedGroupsSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <TestimonialsCarousel />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <BeforeAfterSection />
       </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />
