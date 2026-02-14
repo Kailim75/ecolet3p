@@ -273,14 +273,107 @@ const BlogArticle = () => {
               {article.excerpt}
             </motion.p>
 
-            {/* Main content */}
-            <motion.article
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="article-content"
-              dangerouslySetInnerHTML={{ __html: formatContent(article.content) }}
-            />
+            {/* Main content — split to inject lead magnet CTA */}
+            {(() => {
+              const fullHtml = formatContent(article.content);
+              // Split after 2nd </p> to insert CTA
+              const pCloseRegex = /<\/p>/g;
+              let matchCount = 0;
+              let splitIndex = -1;
+              let match: RegExpExecArray | null;
+              while ((match = pCloseRegex.exec(fullHtml)) !== null) {
+                matchCount++;
+                if (matchCount === 3) {
+                  splitIndex = match.index + match[0].length;
+                  break;
+                }
+              }
+              if (splitIndex === -1) {
+                return (
+                  <motion.article
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="article-content"
+                    dangerouslySetInnerHTML={{ __html: fullHtml }}
+                  />
+                );
+              }
+              const before = fullHtml.slice(0, splitIndex);
+              const after = fullHtml.slice(splitIndex);
+              return (
+                <>
+                  <motion.article
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="article-content"
+                    dangerouslySetInnerHTML={{ __html: before }}
+                  />
+                  {/* Lead Magnet CTA */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="my-10 p-6 rounded-xl"
+                    style={{ backgroundColor: "#1B4332" }}
+                  >
+                    <div className="flex items-start gap-3 mb-3">
+                      <span className="text-2xl">📘</span>
+                      <div>
+                        <h3 className="text-lg font-bold text-white leading-snug">
+                          Guide gratuit : Les 7 étapes pour devenir chauffeur Taxi ou VTC en 2026
+                        </h3>
+                        <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.8)" }}>
+                          Téléchargez notre guide complet — démarches, examen, financement, création d'entreprise
+                        </p>
+                      </div>
+                    </div>
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        const form = e.target as HTMLFormElement;
+                        const email = (form.elements.namedItem("lead-email") as HTMLInputElement)?.value;
+                        if (email) {
+                          // Store lead locally for now
+                          const leads = JSON.parse(localStorage.getItem("t3p-leads") || "[]");
+                          leads.push({ email, source: "blog-lead-magnet", slug: article.slug, date: new Date().toISOString() });
+                          localStorage.setItem("t3p-leads", JSON.stringify(leads));
+                          form.reset();
+                          alert("✅ Guide envoyé ! Vérifiez votre boîte mail.");
+                        }
+                      }}
+                      className="flex flex-col sm:flex-row gap-2"
+                    >
+                      <input
+                        name="lead-email"
+                        type="email"
+                        required
+                        placeholder="Votre email"
+                        className="flex-1 px-4 py-3 rounded-lg text-sm bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold"
+                      />
+                      <button
+                        type="submit"
+                        className="px-6 py-3 rounded-lg text-sm font-bold text-white shrink-0 transition-opacity hover:opacity-90"
+                        style={{ backgroundColor: "#E8793A" }}
+                      >
+                        Recevoir le guide →
+                      </button>
+                    </form>
+                    <p className="mt-3 text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
+                      ✓ Gratuit ✓ Sans engagement ✓ Envoi immédiat
+                    </p>
+                  </motion.div>
+                  <motion.article
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="article-content"
+                    dangerouslySetInnerHTML={{ __html: after }}
+                  />
+                </>
+              );
+            })()}
 
             {/* Divider */}
             <div className="my-12 flex items-center gap-4">

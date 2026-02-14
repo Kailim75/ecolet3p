@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, FileText, BookOpen, Info, Mail, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, FileText, BookOpen, Info, Mail, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
@@ -140,6 +140,16 @@ const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span>01 88 75 05 55</span>
               </a>
+              <a
+                href="https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 font-semibold text-sm transition-colors hover:opacity-80"
+                style={{ color: "#25D366" }}
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </a>
               <Button asChild className="btn-cta-orange">
                 <Link to="/contact">S'inscrire</Link>
               </Button>
@@ -153,7 +163,7 @@ const Header = () => {
               </Button>
             </div>
 
-            {/* Mobile: Phone + Menu Button */}
+            {/* Mobile: Phone + WhatsApp + Menu Button */}
             <div className="flex items-center gap-1 lg:hidden">
               <a
                 href="tel:0188750555"
@@ -161,6 +171,16 @@ const Header = () => {
                 aria-label="Appeler"
               >
                 <Phone className="w-4 h-4" />
+              </a>
+              <a
+                href="https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-9 h-9 rounded-full"
+                style={{ backgroundColor: "rgba(37,211,102,0.1)", color: "#25D366" }}
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4" />
               </a>
               <button
                 className="flex items-center justify-center w-10 h-10 text-forest hover:bg-forest/5 rounded-lg transition-colors"

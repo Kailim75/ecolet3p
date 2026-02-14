@@ -170,6 +170,20 @@ const OffersSection = () => {
           </div>
         </motion.div>
 
+        {/* Reassurance prix */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: smoothEase }}
+          className="text-center py-4 px-6 rounded-xl mb-12"
+          style={{ backgroundColor: "#F5F0E8", border: "1px solid rgba(27,67,50,0.08)" }}
+        >
+          <p className="text-sm" style={{ color: "#1B4332" }}>
+            💰 Formation la plus abordable d'Île-de-France — Rentabilisée dès votre premier mois d'activité (revenu moyen chauffeur : 2 500 à 3 500 €/mois)
+          </p>
+        </motion.div>
+
         {/* === NIVEAU 2 — Formations complémentaires === */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

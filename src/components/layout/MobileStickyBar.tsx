@@ -1,8 +1,10 @@
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+
+const WHATSAPP_URL = "https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P.";
 
 const MobileStickyBar = () => {
   const isMobile = useIsMobile();
@@ -34,14 +36,39 @@ const MobileStickyBar = () => {
       role="navigation"
       aria-label="Barre d'actions mobile"
     >
-      {/* Price */}
-      <div className="flex flex-col items-start shrink-0">
-        <span className="text-white font-black text-lg leading-none">990€</span>
-        <span className="flex items-center gap-1 mt-0.5">
-          <AlmaLogo className="h-2.5" />
-          <span className="text-white/70 text-[10px]">4× 247,50€</span>
-        </span>
-      </div>
+      {/* Phone */}
+      <a
+        href="tel:0188750555"
+        className="flex flex-col items-center justify-center rounded-xl shrink-0"
+        style={{
+          width: 52,
+          height: 44,
+          backgroundColor: "rgba(255,255,255,0.15)",
+          color: "#FFFFFF",
+        }}
+        aria-label="Appeler le 01 88 75 05 55"
+      >
+        <Phone className="w-5 h-5" />
+        <span className="text-[9px] mt-0.5 font-medium">Appeler</span>
+      </a>
+
+      {/* WhatsApp */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-col items-center justify-center rounded-xl shrink-0"
+        style={{
+          width: 52,
+          height: 44,
+          backgroundColor: "rgba(37,211,102,0.2)",
+          color: "#25D366",
+        }}
+        aria-label="Contacter via WhatsApp"
+      >
+        <MessageCircle className="w-5 h-5" />
+        <span className="text-[9px] mt-0.5 font-medium text-white">WhatsApp</span>
+      </a>
 
       {/* CTA */}
       <Link
@@ -59,21 +86,6 @@ const MobileStickyBar = () => {
       >
         S'inscrire <ArrowRight className="w-4 h-4" />
       </Link>
-
-      {/* Phone */}
-      <a
-        href="tel:0188750555"
-        className="flex items-center justify-center rounded-xl shrink-0"
-        style={{
-          width: 44,
-          height: 44,
-          backgroundColor: "rgba(255,255,255,0.15)",
-          color: "#FFFFFF",
-        }}
-        aria-label="Appeler le 01 88 75 05 55"
-      >
-        <Phone className="w-5 h-5" />
-      </a>
     </div>
   );
 };
