@@ -171,35 +171,38 @@ const FormationTaxi = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation T3P - Parcours Taxi Professionnel",
-    "description": "Parcours Taxi de la formation T3P pour obtenir votre carte professionnelle. 63h de formation, taux de réussite 94%, formateurs experts, paiement en 4x sans frais.",
+    "name": "Formation Taxi — Préparation examen T3P",
+    "description": "Formation professionnelle de 63h pour obtenir la carte professionnelle de chauffeur de taxi. 94% de taux de réussite. Paiement en 4× sans frais.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "ECOLE T3P",
-      "sameAs": "https://www.ecolet3p.fr"
+      "name": "ÉCOLE T3P",
+      "url": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
       "price": soireeFormation?.price || 990,
       "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2025-01-01"
+      "availability": "https://schema.org/InStock"
     },
-    "hasCourseInstance": sessions.map((session, index) => ({
+    "hasCourseInstance": sessions.length > 0 ? sessions.map((session) => ({
       "@type": "CourseInstance",
       "courseMode": "onsite",
       "startDate": session.start_date,
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "ECOLE T3P Montrouge",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Montrouge",
-          "addressCountry": "FR"
-        }
+        "name": "ÉCOLE T3P — Montrouge",
+        "address": "3 rue Corneille, 92120 Montrouge"
       }
-    })),
+    })) : {
+      "@type": "CourseInstance",
+      "courseMode": "onsite",
+      "location": {
+        "@type": "Place",
+        "name": "ÉCOLE T3P — Montrouge",
+        "address": "3 rue Corneille, 92120 Montrouge"
+      }
+    },
     "educationalCredentialAwarded": "Carte Professionnelle Taxi",
     "timeRequired": "PT63H",
     "occupationalCategory": "Chauffeur de Taxi",
@@ -210,7 +213,6 @@ const FormationTaxi = () => {
       "bestRating": "5"
     }
   };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -235,8 +237,8 @@ const FormationTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Taxi Initiale 63h Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Formation initiale Taxi 63h (journée) ou 33h (soir) à Montrouge. Préparation complète examen CMA. Taux de réussite 94%. Centre agréé Préfecture 92." />
+        <title>Formation Taxi Paris 92 — Examen T3P CMA | 94% Réussite | 990€ en 4× | ÉCOLE T3P</title>
+        <meta name="description" content="Devenez chauffeur de taxi avec ÉCOLE T3P à Montrouge. Formation 63h, 94% de réussite, accompagnement jusqu'à la carte pro. 990€ payable en 4× sans frais." />
         <meta name="keywords" content="formation taxi Paris, carte professionnelle taxi, devenir chauffeur taxi, formation taxi agréée, centre formation taxi Montrouge, reconversion taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/taxi" />
         

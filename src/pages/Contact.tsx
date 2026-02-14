@@ -288,8 +288,8 @@ const Contact = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Contact & Inscription | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Contactez ECOLE T3P : 01 88 75 05 55 ou montrouge@ecolet3p.fr. 3 rue Corneille, 92120 Montrouge. Métro Mairie de Montrouge ligne 4. Réponse sous 24h." />
+        <title>Contact & Inscription — ÉCOLE T3P Montrouge | Formation Taxi VTC VMDTR</title>
+        <meta name="description" content="Contactez ÉCOLE T3P pour votre inscription en formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. 01 88 75 05 55." />
         <meta name="keywords" content="contact formation taxi Montrouge, centre VTC Bagneux, formation taxi Vanves, centre formation Malakoff, formation VTC Châtillon, ECOLE T3P contact, devis formation taxi 92, centre formation sud Paris" />
         <link rel="canonical" href="https://www.ecolet3p.fr/contact" />
         <meta property="og:title" content="Contact ECOLE T3P Montrouge - Formation Taxi VTC Bagneux Vanves" />
