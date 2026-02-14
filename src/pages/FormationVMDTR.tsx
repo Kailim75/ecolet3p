@@ -169,12 +169,12 @@ const FormationVMDTR = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation T3P - Parcours VMDTR Moto-Taxi",
-    "description": "Parcours VMDTR de la formation T3P pour obtenir votre carte professionnelle moto-taxi. Apprenez la sécurité, la réglementation et la gestion d'entreprise.",
+    "name": "Formation Moto-Taxi VMDTR — Préparation examen T3P",
+    "description": "Formation moto-taxi VMDTR 33h à Montrouge. Préparation examen T3P CMA, 94% de réussite. 990€ payable en 4× sans frais.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "ECOLE T3P",
-      "sameAs": "https://www.ecolet3p.fr"
+      "name": "ÉCOLE T3P",
+      "url": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
@@ -182,16 +182,25 @@ const FormationVMDTR = () => {
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock"
     },
-    "hasCourseInstance": sessions.map((session) => ({
+    "hasCourseInstance": sessions.length > 0 ? sessions.map((session) => ({
       "@type": "CourseInstance",
       "courseMode": "onsite",
       "startDate": session.start_date,
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "ECOLE T3P Montrouge"
+        "name": "ÉCOLE T3P — Montrouge",
+        "address": "3 rue Corneille, 92120 Montrouge"
       }
-    })),
+    })) : {
+      "@type": "CourseInstance",
+      "courseMode": "onsite",
+      "location": {
+        "@type": "Place",
+        "name": "ÉCOLE T3P — Montrouge",
+        "address": "3 rue Corneille, 92120 Montrouge"
+      }
+    },
     "educationalCredentialAwarded": "Carte Professionnelle VMDTR",
     "timeRequired": "PT33H",
     "occupationalCategory": "Moto-Taxi VMDTR",
@@ -202,7 +211,6 @@ const FormationVMDTR = () => {
       "bestRating": "5"
     }
   };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -227,8 +235,8 @@ const FormationVMDTR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VMDTR Moto-Taxi 33h Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Formation VMDTR moto-taxi 33h à Montrouge. Obtenez votre carte professionnelle conducteur deux-roues motorisé. Centre agréé Préfecture. Taux de réussite 94%." />
+        <title>Formation Moto-Taxi VMDTR Paris 92 — Examen T3P | 990€ en 4× | ÉCOLE T3P</title>
+        <meta name="description" content="Formation moto-taxi VMDTR 33h à Montrouge. Préparation examen T3P CMA, 94% de réussite. 990€ payable en 4× sans frais." />
         <meta name="keywords" content="formation T3P VMDTR, formation moto-taxi, parcours VMDTR, carte professionnelle moto-taxi, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vmdtr" />
         

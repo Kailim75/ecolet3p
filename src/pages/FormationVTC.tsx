@@ -169,43 +169,38 @@ const FormationVTC = () => {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Formation T3P - Parcours VTC Professionnel",
-    "description": "Parcours VTC de la formation T3P pour obtenir votre carte professionnelle. Apprenez le métier de chauffeur privé, les applications et la gestion d'entreprise.",
+    "name": "Formation VTC — Préparation examen T3P",
+    "description": "Formation professionnelle de 63h pour obtenir la carte professionnelle de chauffeur VTC. 94% de taux de réussite. Paiement en 4× sans frais.",
     "provider": {
       "@type": "EducationalOrganization",
-      "name": "ECOLE T3P",
-      "sameAs": "https://www.ecolet3p.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3 rue Corneille",
-        "addressLocality": "Montrouge",
-        "postalCode": "92120",
-        "addressCountry": "FR"
-      }
+      "name": "ÉCOLE T3P",
+      "url": "https://www.ecolet3p.fr"
     },
     "offers": {
       "@type": "Offer",
       "price": vtcFormation?.price || "990",
       "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock",
-      "validFrom": new Date().toISOString().split('T')[0]
+      "availability": "https://schema.org/InStock"
     },
-    "hasCourseInstance": sessions.map((session) => ({
+    "hasCourseInstance": sessions.length > 0 ? sessions.map((session) => ({
       "@type": "CourseInstance",
       "courseMode": "onsite",
       "startDate": session.start_date,
       "endDate": session.end_date,
       "location": {
         "@type": "Place",
-        "name": session.location || "ECOLE T3P Montrouge",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "3 rue Corneille",
-          "addressLocality": "Montrouge",
-          "postalCode": "92120"
-        }
+        "name": "ÉCOLE T3P — Montrouge",
+        "address": "3 rue Corneille, 92120 Montrouge"
       }
-    })),
+    })) : {
+      "@type": "CourseInstance",
+      "courseMode": "onsite",
+      "location": {
+        "@type": "Place",
+        "name": "ÉCOLE T3P — Montrouge",
+        "address": "3 rue Corneille, 92120 Montrouge"
+      }
+    },
     "educationalCredentialAwarded": "Carte Professionnelle VTC",
     "timeRequired": "PT63H",
     "occupationalCategory": "Chauffeur VTC",
@@ -218,7 +213,6 @@ const FormationVTC = () => {
       "bestRating": "5"
     }
   };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -243,8 +237,8 @@ const FormationVTC = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation VTC Initiale 63h à Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Formation initiale VTC 63h (journée) ou 33h (soir) à Montrouge. Préparation examen carte professionnelle VTC. Taux de réussite 94%. Centre agréé Préfecture 92." />
+        <title>Formation VTC Paris 92 — Examen T3P CMA | 94% Réussite | 990€ en 4× | ÉCOLE T3P</title>
+        <meta name="description" content="Devenez chauffeur VTC avec ÉCOLE T3P à Montrouge. Formation 63h agréée Préfecture, 94% de réussite. 990€ payable en 4× sans frais via Alma." />
         <meta name="keywords" content="formation VTC Paris, carte professionnelle VTC, devenir chauffeur VTC, formation Uber, formation Bolt, centre formation VTC Montrouge, reconversion VTC, ECOLE T3P" />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/vtc" />
         
