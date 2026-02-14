@@ -220,12 +220,12 @@ const HeroSection = () => {
 
             {/* Schedule selector */}
             <motion.div {...heroAnim(520)} className="mb-4">
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col min-[480px]:flex-row flex-wrap gap-3">
                 {scheduleOptions.map((opt) => (
                   <button
                     key={opt.key}
                     onClick={() => setSelectedSchedule(opt.key)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200"
                     style={{
                       backgroundColor: selectedSchedule === opt.key ? "#1B4332" : "white",
                       color: selectedSchedule === opt.key ? "white" : "#4B5563",

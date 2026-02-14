@@ -126,7 +126,7 @@ const FAQSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainerVariants}
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible defaultValue="item-0" className="space-y-4">
             {faqs.map((faq, index) => (
               <motion.div key={index} variants={staggerItemVariants}>
                 <AccordionItem
