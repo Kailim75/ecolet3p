@@ -112,13 +112,13 @@ const AdminSignup = () => {
       if (signUpError) throw signUpError;
 
       if (authData.user) {
-        // Add admin role to the user
-        const { error: roleError } = await supabase
-          .from("user_roles")
-          .insert({ user_id: authData.user.id, role: "admin" as const });
+        // Assign admin role server-side via edge function (uses service_role)
+        const { data: roleData, error: roleError } = await supabase.functions.invoke("create-admin-user", {
+          body: { secret: secretKey, userId: authData.user.id },
+        });
 
-        if (roleError) {
-          console.error("Error adding admin role:", roleError);
+        if (roleError || !roleData?.success) {
+          console.error("Error adding admin role:", roleError || roleData?.error);
           toast.error("Compte créé mais erreur lors de l'attribution du rôle admin");
         } else {
           toast.success("Compte administrateur créé avec succès !");
