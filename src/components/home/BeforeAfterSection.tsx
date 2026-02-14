@@ -15,6 +15,7 @@ const transformations = [
     formation: "Formation VTC",
     duration: "3 mois entre l'inscription et la 1ère course",
     quote: "Les formateurs m'ont préparé à l'examen mais aussi à gérer mon activité. Aujourd'hui je choisis mes horaires et mes clients.",
+    rating: 10,
   },
   {
     name: "Céline V.",
@@ -24,6 +25,7 @@ const transformations = [
     formation: "Formation Taxi",
     duration: "2 mois et demi du 1er cours à la carte pro",
     quote: "J'ai réussi l'examen du premier coup grâce aux cours du soir. L'équipe reste disponible même après l'obtention de la carte pro.",
+    rating: 10,
   },
   {
     name: "Dimitri P.",
@@ -33,6 +35,7 @@ const transformations = [
     formation: "Formation VMDTR",
     duration: "2 mois du début de la formation à l'activité",
     quote: "Le paiement en 4 fois via Alma m'a permis de me former sans stress. Aujourd'hui je vis de ma passion sur deux roues.",
+    rating: 10,
   },
 ];
 
@@ -44,9 +47,12 @@ interface InfoRowProps {
 
 const InfoRow = ({ label, value, variant }: InfoRowProps) => (
   <div className="flex items-center gap-2 mb-2.5">
-    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${variant === "before" ? "bg-destructive" : "bg-forest"}`} />
-    <span className="text-xs text-muted-foreground min-w-[60px]">{label}</span>
-    <span className="text-sm font-semibold text-charcoal">{value}</span>
+    <span
+      className="w-2 h-2 rounded-full flex-shrink-0"
+      style={{ backgroundColor: variant === "before" ? "#DC2626" : "#1B4332" }}
+    />
+    <span className="text-xs min-w-[60px]" style={{ color: "#999" }}>{label}</span>
+    <span className="text-sm font-semibold" style={{ color: "#1A1A1A" }}>{value}</span>
   </div>
 );
 
@@ -64,23 +70,32 @@ const BeforeAfterCard = ({ item, index }: BeforeAfterCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: smoothEase }}
-      className="bg-white rounded-2xl overflow-hidden shadow-sm border border-border/60 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+      className="bg-white rounded-2xl overflow-hidden border hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+      style={{ borderColor: "rgba(27,67,50,0.12)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
     >
       {/* Toggle */}
-      <div className="flex border-b border-border/60">
+      <div className="flex" style={{ borderBottom: "1px solid rgba(27,67,50,0.08)" }}>
         <button
           onClick={() => setFlipped(false)}
-          className={`flex-1 py-3 text-xs font-bold tracking-wide transition-all duration-300 ${
-            !flipped ? "bg-destructive/10 text-destructive" : "bg-muted/30 text-muted-foreground"
-          }`}
+          className="flex-1 py-3 text-xs font-bold tracking-wide transition-all duration-300"
+          style={{
+            backgroundColor: !flipped ? "rgba(220,38,38,0.08)" : "transparent",
+            color: !flipped ? "#DC2626" : "#999",
+          }}
+          aria-label="Voir la situation avant"
+          aria-pressed={!flipped}
         >
           ❌ AVANT
         </button>
         <button
           onClick={() => setFlipped(true)}
-          className={`flex-1 py-3 text-xs font-bold tracking-wide transition-all duration-300 ${
-            flipped ? "bg-forest/10 text-forest" : "bg-muted/30 text-muted-foreground"
-          }`}
+          className="flex-1 py-3 text-xs font-bold tracking-wide transition-all duration-300"
+          style={{
+            backgroundColor: flipped ? "rgba(27,67,50,0.08)" : "transparent",
+            color: flipped ? "#1B4332" : "#999",
+          }}
+          aria-label="Voir la situation après"
+          aria-pressed={flipped}
         >
           ✅ APRÈS
         </button>
@@ -89,16 +104,21 @@ const BeforeAfterCard = ({ item, index }: BeforeAfterCardProps) => {
       <div className="p-5 md:p-6">
         {/* Identity */}
         <div className="flex items-center gap-3 mb-4">
-          <div className={`w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold transition-colors duration-300 ${
-            flipped ? "bg-forest/10 text-forest" : "bg-orange/10 text-orange"
-          }`}>
+          <div
+            className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold transition-colors duration-300"
+            style={{
+              backgroundColor: flipped ? "rgba(27,67,50,0.1)" : "rgba(232,121,58,0.1)",
+              color: flipped ? "#1B4332" : "#E8793A",
+            }}
+          >
             {item.initials}
           </div>
           <div>
-            <p className="font-bold text-charcoal text-sm">{item.name}</p>
-            <span className={`inline-block text-[11px] font-semibold text-white px-2 py-0.5 rounded transition-colors duration-300 ${
-              flipped ? "bg-forest" : "bg-orange"
-            }`}>
+            <p className="font-bold text-sm" style={{ color: "#1A1A1A" }}>{item.name}</p>
+            <span
+              className="inline-block text-[11px] font-semibold text-white px-2 py-0.5 rounded transition-colors duration-300"
+              style={{ backgroundColor: flipped ? "#1B4332" : "#E8793A" }}
+            >
               {item.formation}
             </span>
           </div>
@@ -116,14 +136,19 @@ const BeforeAfterCard = ({ item, index }: BeforeAfterCardProps) => {
             <InfoRow label="Métier" value={item.after.job} variant="after" />
             <InfoRow label="Revenus" value={item.after.salary} variant="after" />
             <InfoRow label="Situation" value={item.after.status} variant="after" />
-            <div className="mt-4 p-3 rounded-xl bg-forest/5 border-l-3 border-forest">
-              <p className="text-xs text-muted-foreground italic leading-relaxed">
+            <div className="mt-4 p-3 rounded-xl border-l-3" style={{ backgroundColor: "rgba(27,67,50,0.04)", borderLeftColor: "#1B4332" }}>
+              <p className="text-xs italic leading-relaxed" style={{ color: "#666" }}>
                 "{item.quote}"
               </p>
             </div>
-            <p className="mt-3 text-[11px] text-muted-foreground">
-              ⏱️ {item.duration}
-            </p>
+            <div className="flex items-center justify-between mt-3">
+              <p className="text-[11px]" style={{ color: "#999" }}>
+                ⏱️ {item.duration}
+              </p>
+              <p className="text-[11px] font-bold" style={{ color: "#1B4332" }}>
+                {item.rating}/10 recommande
+              </p>
+            </div>
           </div>
         )}
       </div>
@@ -133,7 +158,7 @@ const BeforeAfterCard = ({ item, index }: BeforeAfterCardProps) => {
 
 const BeforeAfterSection = () => {
   return (
-    <section className="py-10 lg:py-20 bg-gradient-to-b from-background to-cream/30">
+    <section className="py-10 lg:py-20" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -143,14 +168,17 @@ const BeforeAfterSection = () => {
           transition={{ duration: 0.5, ease: smoothEase }}
           className="text-center mb-8 md:mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-forest/8 text-forest rounded-full text-xs font-semibold mb-4 border border-forest/10">
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 border"
+            style={{ backgroundColor: "rgba(27,67,50,0.06)", color: "#1B4332", borderColor: "rgba(27,67,50,0.12)" }}
+          >
             Témoignages réels
           </span>
-          <h2 className="text-[24px] md:text-[32px] lg:text-[38px] font-black text-forest leading-tight mb-3">
-            Ils ont changé de vie avec ECOLE T3P
+          <h2 className="text-[24px] md:text-[32px] lg:text-[38px] font-black leading-tight mb-3" style={{ color: "#1B4332" }}>
+            Ils ont changé de vie avec ÉCOLE T3P
           </h2>
-          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
-            Découvrez le parcours de nos anciens élèves, de leur situation avant la formation à leur nouvelle carrière.
+          <p className="text-sm md:text-base max-w-xl mx-auto" style={{ color: "#666" }}>
+            Découvrez le parcours de praticiens réels, de leur situation avant la formation à leur nouvelle carrière
           </p>
         </motion.div>
 
@@ -169,9 +197,13 @@ const BeforeAfterSection = () => {
           transition={{ duration: 0.5, delay: 0.3, ease: smoothEase }}
           className="text-center"
         >
-          <Button asChild className="btn-cta-orange px-8 py-4 text-base rounded-xl" style={{ boxShadow: "0 4px 14px rgba(230,126,34,0.35)" }}>
-            <Link to="/contact">
-              Je veux changer de vie <ArrowRight className="w-4 h-4 ml-2" />
+          <Button
+            asChild
+            className="btn-cta-orange px-8 py-4 text-base rounded-xl"
+            style={{ backgroundColor: "#E8793A", boxShadow: "0 4px 14px rgba(232,121,58,0.35)" }}
+          >
+            <Link to="/contact" aria-label="Rejoindre la prochaine session de formation">
+              Rejoindre la prochaine session <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>
         </motion.div>

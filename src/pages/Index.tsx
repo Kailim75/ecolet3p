@@ -9,13 +9,11 @@ import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
 const AlmaBanner = lazy(() => import("@/components/home/AlmaBanner"));
-const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
 const OffersSection = lazy(() => import("@/components/home/OffersSection"));
+const BeforeAfterSection = lazy(() => import("@/components/home/BeforeAfterSection"));
+const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
 const GuaranteeSection = lazy(() => import("@/components/home/GuaranteeSection"));
-const LimitedGroupsSection = lazy(() => import("@/components/home/LimitedGroupsSection"));
-const TestimonialsCarousel = lazy(() => import("@/components/home/TestimonialsCarousel"));
 const FAQSection = lazy(() => import("@/components/home/FAQSection"));
-const CTASection = lazy(() => import("@/components/home/CTASection"));
 
 // Simple skeleton for lazy sections
 const SectionSkeleton = () => (
@@ -205,50 +203,42 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Qu'est-ce que la carte professionnelle T3P ?",
+      "name": "Êtes-vous éligibles au CPF ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La carte professionnelle T3P (Transport Public Particulier de Personnes) est un document obligatoire délivré par la préfecture pour exercer en tant que chauffeur de taxi, VTC ou VMDTR (moto-taxi). Elle s'obtient après réussite de l'examen organisé par la Chambre des Métiers et de l'Artisanat (CMA)."
+        "text": "Nous avons fait le choix de rester indépendants du CPF pour préserver notre liberté pédagogique et la qualité de notre accompagnement. Notre priorité est votre réussite, pas votre dossier de financement."
       }
     },
     {
       "@type": "Question",
-      "name": "Combien de temps dure la formation ?",
+      "name": "Comment fonctionne le paiement en 4× ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La formation initiale Taxi et VTC dure 63 heures, réparties sur environ 2 semaines. La formation VMDTR (moto-taxi) dure 33 heures. La formation continue de renouvellement dure 14 heures. ECOLE T3P propose des formats en journée et en soirée pour s'adapter à votre emploi du temps."
+        "text": "Grâce à notre partenaire Alma, vous réglez en 4 mensualités de 247,50€ sans aucun frais. La décision est immédiate, sans justificatif. Vous pouvez simuler votre échéancier directement sur cette page."
       }
     },
     {
       "@type": "Question",
-      "name": "Quelles sont les options de financement disponibles ?",
+      "name": "Que se passe-t-il si je rate l'examen ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ECOLE T3P propose un paiement en 4 fois sans frais (par exemple 248€/mois pour la formation à 990€). D'autres solutions de financement existent selon votre situation : autofinancement ou prise en charge par votre employeur."
+        "text": "Si vous ne réussissez pas l'examen, nous vous réaccompagnons gratuitement jusqu'à la prochaine session disponible. Aucun frais pédagogique supplémentaire."
       }
     },
     {
       "@type": "Question",
-      "name": "Quel est le taux de réussite de vos formations ?",
+      "name": "Combien de stagiaires par session ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Notre taux de réussite est de 94%, bien supérieur à la moyenne nationale. Ce résultat s'explique par notre méthode pédagogique éprouvée, nos formateurs expérimentés, et notre préparation intensive aux examens de la CMA. Plus de 2000 chauffeurs ont été formés chez ECOLE T3P depuis 2014."
+        "text": "12 maximum. C'est notre standard pédagogique pour garantir un suivi individuel."
       }
     },
     {
       "@type": "Question",
-      "name": "Comment se déroule l'inscription ?",
+      "name": "Puis-je financer via mon employeur ou un OPCO ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "L'inscription se fait en 3 étapes simples : 1) Contactez-nous par téléphone au 01 88 75 05 55 ou via le formulaire en ligne. 2) Choisissez votre formation (Taxi, VTC ou VMDTR) et votre format (journée ou soirée). 3) Validez votre inscription avec un premier versement ou en 4x sans frais. Nous vous répondons sous 24 heures."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Proposez-vous un accompagnement après la formation ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, ECOLE T3P assure un suivi complet après la formation : aide aux démarches administratives pour l'examen CMA, accompagnement pour la demande de carte professionnelle en préfecture, et conseils pour la création de votre entreprise de transport. Notre objectif est votre réussite professionnelle complète."
+        "text": "Oui, nous établissons des conventions de formation. Contactez-nous pour un devis adapté."
       }
     }
   ]
@@ -294,7 +284,7 @@ const Index = () => {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="author" content="ECOLE T3P" />
         <meta name="geo.region" content="FR-92" />
-        <meta name="geo.placename" content="Montrouge, Bagneux, Vanves, Malakoff, Châtillon" />
+        <meta name="geo.placename" content="Montrouge" />
         <meta name="geo.position" content="48.8155;2.3137" />
         <meta name="ICBM" content="48.8155, 2.3137" />
         
@@ -303,34 +293,38 @@ const Index = () => {
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
       </Helmet>
       
-      {/* Hero + Trust Bar - Critical above-the-fold */}
+      {/* 1. Hero + Trust Bar */}
       <HeroSection />
       <TrustBar />
       
-      {/* Lazy loaded sections — conversion-optimized order */}
+      {/* 2. Alma Banner */}
       <Suspense fallback={<SectionSkeleton />}>
         <AlmaBanner />
       </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <WhyChooseUsSection />
-      </Suspense>
+      
+      {/* 3. Offre (Formule Complète + complémentaires) */}
       <Suspense fallback={<SectionSkeleton />}>
         <OffersSection />
       </Suspense>
+      
+      {/* 4. Témoignages Avant/Après (preuve sociale — remonté) */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <BeforeAfterSection />
+      </Suspense>
+      
+      {/* 5. Pourquoi nous choisir (4 différenciateurs) */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <WhyChooseUsSection />
+      </Suspense>
+      
+      {/* 6. Garantie Réussite (bloc visuel vert foncé) */}
       <Suspense fallback={<SectionSkeleton />}>
         <GuaranteeSection />
       </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <LimitedGroupsSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <TestimonialsCarousel />
-      </Suspense>
+      
+      {/* 7. FAQ (5 questions stratégiques) */}
       <Suspense fallback={<SectionSkeleton />}>
         <FAQSection />
-      </Suspense>
-      <Suspense fallback={<SectionSkeleton />}>
-        <CTASection />
       </Suspense>
     </Layout>
   );
