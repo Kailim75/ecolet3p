@@ -160,7 +160,7 @@ const Blog = () => {
       {/* Hero */}
       <section className="relative bg-forest overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--accent)/0.15),_transparent_60%)]" />
-        <div className="relative container-custom py-16 md:py-24 text-center">
+        <div className="relative container-custom py-10 md:py-24 text-center">
           <motion.span 
             className="inline-flex items-center gap-2 bg-gold/20 backdrop-blur-sm text-gold text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30 mb-6"
             initial={{ opacity: 0, y: 10 }}
@@ -170,7 +170,7 @@ const Blog = () => {
             Blog & Ressources
           </motion.span>
           <motion.h1 
-            className="text-3xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4"
+            className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -191,7 +191,7 @@ const Blog = () => {
       </section>
 
       {/* Featured Article */}
-      <section className="py-12 md:py-16 bg-background">
+      <section className="py-8 md:py-16 bg-background">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -202,19 +202,19 @@ const Blog = () => {
               to={`/blog/${featuredArticle.slug}`}
               className="group grid md:grid-cols-2 gap-0 bg-card rounded-2xl overflow-hidden border border-border hover:shadow-warm-lg transition-all duration-300"
             >
-              <div className="h-64 md:h-full overflow-hidden">
+              <div className="h-48 md:h-full overflow-hidden">
                 <BlogImage 
                   article={featuredArticle}
                   className="group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
               </div>
-              <div className="p-8 md:p-10 flex flex-col justify-center">
+              <div className="p-5 md:p-10 flex flex-col justify-center">
                 <span className="inline-flex items-center gap-1.5 bg-gold/15 text-forest text-xs font-bold px-3 py-1 rounded-full mb-4 self-start">
                   <Tag className="w-3 h-3" />
                   {featuredArticle.category}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-black text-forest mb-4 group-hover:text-gold transition-colors leading-tight">
+                <h2 className="text-xl md:text-3xl font-black text-forest mb-3 group-hover:text-gold transition-colors leading-tight">
                   {featuredArticle.title}
                 </h2>
                 <p className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
@@ -241,14 +241,14 @@ const Blog = () => {
       </section>
 
       {/* Articles Grid */}
-      <section className="pb-16 bg-background">
+      <section className="pb-10 md:pb-16 bg-background">
         <div className="container-custom">
           <h2 className="text-xl font-black text-forest uppercase tracking-wide mb-8 flex items-center gap-3">
             <span className="w-8 h-1 bg-gold rounded-full" />
             Tous les articles
           </h2>
           <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
             initial="hidden"
             animate="visible"
             variants={staggerContainerVariants}
@@ -314,7 +314,7 @@ const Blog = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-cream">
+      <section className="py-10 md:py-16 bg-cream">
         <div className="container-custom">
           <div className="max-w-xl mx-auto">
             <NewsletterForm source="blog" />
@@ -323,7 +323,7 @@ const Blog = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-forest text-cream relative overflow-hidden">
+      <section className="py-10 md:py-16 bg-forest text-cream relative overflow-hidden">
         <div className="absolute top-0 right-0 w-60 h-60 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2" />
         <div className="container-custom text-center relative">

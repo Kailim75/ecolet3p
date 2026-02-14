@@ -322,7 +322,7 @@ const Contact = () => {
       </div>
 
       {/* Hero */}
-      <section ref={heroRef} className="bg-cream py-12 md:py-28 relative overflow-hidden">
+      <section ref={heroRef} className="bg-cream py-8 md:py-28 relative overflow-hidden">
         <motion.div style={{ y: heroY, scale: heroScale }} className="absolute -top-20 -left-20 w-64 h-64 bg-forest/5 rounded-full blur-3xl pointer-events-none" />
         <motion.div style={{ y: heroY }} className="absolute top-1/2 -right-32 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
         <motion.div className="absolute bottom-10 left-1/4 w-40 h-40 bg-forest/5 rounded-full blur-2xl pointer-events-none hidden md:block" animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 4, repeat: Infinity }} />
@@ -330,7 +330,7 @@ const Contact = () => {
         <div className="container-custom text-center relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainerVariants}>
             <motion.span variants={fadeUpVariants} className="badge-livementor mb-4 md:mb-6 inline-block text-sm">📬 Contactez-nous</motion.span>
-            <motion.h1 variants={fadeUpVariants} className="text-[28px] md:text-4xl lg:text-5xl font-black text-forest uppercase tracking-tight mb-3 md:mb-6 leading-tight">PARLONS DE VOTRE<br /><span className="text-gold">PROJET</span></motion.h1>
+            <motion.h1 variants={fadeUpVariants} className="text-[24px] md:text-4xl lg:text-5xl font-black text-forest uppercase tracking-tight mb-3 md:mb-6 leading-tight">PARLONS DE VOTRE<br /><span className="text-gold">PROJET</span></motion.h1>
             <motion.p variants={fadeUpVariants} className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">Une question sur nos formations ? Envoyez-nous un message. Notre équipe vous répond sous 24h.</motion.p>
           </motion.div>
         </div>
@@ -339,7 +339,7 @@ const Contact = () => {
       <TrustBar />
 
       {/* Contact Section */}
-      <section ref={contactRef} className="py-10 lg:py-20 bg-background relative overflow-hidden">
+      <section ref={contactRef} className="py-8 lg:py-20 bg-background relative overflow-hidden">
         <motion.div style={{ y: contactY1, rotate: contactRotate }} className="absolute -top-32 left-10 w-72 h-72 bg-forest/5 rounded-full blur-3xl pointer-events-none hidden md:block" />
         <motion.div style={{ y: contactY2 }} className="absolute top-1/3 -right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none hidden md:block" />
         <motion.div style={{ y: contactY1 }} className="absolute -bottom-20 left-1/3 w-56 h-56 bg-forest/5 rounded-full blur-2xl pointer-events-none hidden md:block" />
