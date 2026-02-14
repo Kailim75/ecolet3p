@@ -8,7 +8,6 @@ import TrustBar from "@/components/home/TrustBar";
 import formationSession from "@/assets/center/formation-session.jpg";
 
 // Lazy load below-the-fold sections
-const FormationsOverviewSection = lazy(() => import("@/components/home/FormationsOverviewSection"));
 const OffersSection = lazy(() => import("@/components/home/OffersSection"));
 const JourneyStepsSection = lazy(() => import("@/components/home/JourneyStepsSection"));
 const WhyChooseUsSection = lazy(() => import("@/components/home/WhyChooseUsSection"));
@@ -309,9 +308,6 @@ const Index = () => {
       <TrustBar />
       
       {/* Lazy loaded sections */}
-      <Suspense fallback={<SectionSkeleton />}>
-        <FormationsOverviewSection />
-      </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <OffersSection />
       </Suspense>
