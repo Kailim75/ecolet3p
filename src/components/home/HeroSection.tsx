@@ -253,7 +253,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right column — photo */}
+          {/* Right column — photo (desktop) */}
           <motion.div
             {...heroAnim(200, "left")}
             className="lg:col-span-2 relative hidden lg:block"
@@ -321,6 +321,43 @@ const HeroSection = () => {
                 </div>
               </div>
             </motion.div>
+          </motion.div>
+
+          {/* Mobile photo — below text */}
+          <motion.div
+            {...heroAnim(400, "up")}
+            className="lg:hidden relative mt-2"
+          >
+            <div className="relative rounded-xl overflow-hidden" style={{ maxHeight: 250 }}>
+              <img
+                src={formationSession}
+                alt="Session de formation ECOLE T3P à Montrouge"
+                className="w-full h-[250px] object-cover rounded-xl"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-xl" />
+            </div>
+            {/* Floating badge mobile */}
+            <div
+              className="absolute bottom-3 left-3 right-3 flex items-center gap-3 p-3 rounded-xl"
+              style={{
+                background: "rgba(255,255,255,0.92)",
+                backdropFilter: "blur(8px)",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
+              }}
+            >
+              <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(27,67,50,0.1)" }}>
+                <Users className="w-4 h-4" style={{ color: "#1B4332" }} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-xs" style={{ color: "#1B4332" }}>+2000 chauffeurs formés</p>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="text-[10px]" style={{ color: "#6B7280" }}>Taux de réussite</span>
+                  <span className="text-[10px] font-bold" style={{ color: "#1B4332" }}>94%</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
