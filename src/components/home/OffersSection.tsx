@@ -60,7 +60,7 @@ const OffersSection = () => {
   const { openQuoteModal } = useQuoteModal();
 
   return (
-    <section className="section-padding gradient-warm overflow-hidden relative">
+    <section className="section-padding overflow-hidden relative" style={{ background: '#F5F0E8' }}>
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

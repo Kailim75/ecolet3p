@@ -345,15 +345,15 @@
     @apply inline-flex items-center justify-center font-bold
            px-6 py-3 rounded-xl transition-all duration-300
            text-sm tracking-wider uppercase;
-    background: linear-gradient(135deg, #E67E22 0%, #F39C12 100%);
+    background: linear-gradient(135deg, #E8793A 0%, #F09052 100%);
     color: #FFFFFF;
-    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.35);
+    box-shadow: 0 4px 15px rgba(232, 121, 58, 0.35);
   }
 
   .btn-cta-orange:hover {
-    background: linear-gradient(135deg, #D35400 0%, #E67E22 100%);
+    background: linear-gradient(135deg, #D0682F 0%, #E8793A 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(230, 126, 34, 0.45);
+    box-shadow: 0 8px 25px rgba(232, 121, 58, 0.45);
   }
 
   /* Safe area for mobile sticky bar */
