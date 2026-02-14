@@ -338,9 +338,10 @@ const BlogArticle = () => {
                         const email = (form.elements.namedItem("lead-email") as HTMLInputElement)?.value?.trim();
                         if (!email) return;
                         try {
+                          const source = `blog-lead-magnet-${article.slug}`;
                           const { error } = await supabase
                             .from("newsletter_subscribers")
-                            .insert({ email, source: `blog-lead-magnet-${article.slug}` });
+                            .insert({ email, source });
                           if (error) {
                             if (error.code === "23505") {
                               toast.success("Vous êtes déjà inscrit(e) ! Vérifiez votre boîte mail.");
@@ -348,6 +349,10 @@ const BlogArticle = () => {
                               throw error;
                             }
                           } else {
+                            // Send guide email via edge function
+                            supabase.functions.invoke("send-lead-magnet-guide", {
+                              body: { email, source },
+                            });
                             toast.success("✅ Guide envoyé ! Vérifiez votre boîte mail.");
                           }
                           form.reset();
