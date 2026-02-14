@@ -2,6 +2,7 @@ import { Phone, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
+import AlmaLogo from "@/components/logo/AlmaLogo";
 
 const MobileStickyBar = () => {
   const isMobile = useIsMobile();
@@ -27,43 +28,52 @@ const MobileStickyBar = () => {
       style={{
         zIndex: 50,
         height: 64,
-        background: "linear-gradient(to top, rgba(0,0,0,0.04), transparent)",
+        backgroundColor: "#1B4332",
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
+      role="navigation"
+      aria-label="Barre d'actions mobile"
     >
-      {/* Phone button — compact */}
-      <a
-        href="tel:0188750555"
-        className="flex items-center justify-center rounded-xl"
-        style={{
-          width: 52,
-          height: 48,
-          backgroundColor: "#FFFFFF",
-          border: "1.5px solid #E5E7EB",
-          color: "#1B4D3E",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-        }}
-        aria-label="Appeler"
-      >
-        <Phone className="w-5 h-5" />
-      </a>
+      {/* Price */}
+      <div className="flex flex-col items-start shrink-0">
+        <span className="text-white font-black text-lg leading-none">990€</span>
+        <span className="flex items-center gap-1 mt-0.5">
+          <AlmaLogo className="h-2.5" />
+          <span className="text-white/70 text-[10px]">4× 247,50€</span>
+        </span>
+      </div>
 
-      {/* Main CTA — takes remaining space */}
+      {/* CTA */}
       <Link
         to="/contact"
         className="flex-1 flex items-center justify-center gap-2 rounded-xl"
         style={{
-          height: 48,
-          backgroundColor: "#F97316",
+          height: 44,
+          backgroundColor: "#E8793A",
           color: "#fff",
           fontWeight: 700,
-          fontSize: 15,
-          boxShadow: "0 4px 14px rgba(249,115,22,0.4)",
+          fontSize: 14,
+          boxShadow: "0 4px 14px rgba(232,121,58,0.4)",
         }}
+        aria-label="S'inscrire à la formation"
       >
-        S'inscrire maintenant
-        <ArrowRight className="w-4 h-4" />
+        S'inscrire <ArrowRight className="w-4 h-4" />
       </Link>
+
+      {/* Phone */}
+      <a
+        href="tel:0188750555"
+        className="flex items-center justify-center rounded-xl shrink-0"
+        style={{
+          width: 44,
+          height: 44,
+          backgroundColor: "rgba(255,255,255,0.15)",
+          color: "#FFFFFF",
+        }}
+        aria-label="Appeler le 01 88 75 05 55"
+      >
+        <Phone className="w-5 h-5" />
+      </a>
     </div>
   );
 };
