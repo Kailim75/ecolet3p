@@ -132,7 +132,7 @@ const Formations = () => {
       </Helmet>
 
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative min-h-[520px] md:min-h-[560px] flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[420px] md:min-h-[560px] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroImageY, scale: heroImageScale }}>
           <img src={salleFormation} alt="Centre de formation ECOLE T3P" width={1200} height={560} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
         </motion.div>
@@ -145,7 +145,7 @@ const Formations = () => {
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-semibold text-white/70 mb-3 tracking-wide uppercase">
                 Centre de formation agréé Préfecture • Montrouge (92)
               </motion.p>
-              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-2xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
                 Formations <span className="text-gold">TAXI · VTC · VMDTR</span>
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-8 max-w-xl">
@@ -181,13 +181,13 @@ const Formations = () => {
       {/* ============ STICKY NAV ============ */}
       <nav className="sticky top-16 z-40 bg-white border-b border-border shadow-sm">
         <div className="container-custom">
-          <div className="flex gap-1 overflow-x-auto scrollbar-hide py-0 -mx-2 px-2">
+          <div className="flex gap-0.5 md:gap-1 overflow-x-auto scrollbar-hide py-0 -mx-2 px-2">
             {sections.map(s => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
                 onClick={(e) => { e.preventDefault(); document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
-                className={`whitespace-nowrap px-3 md:px-4 py-3 text-xs md:text-sm font-semibold border-b-2 transition-colors ${
+                className={`whitespace-nowrap px-2.5 md:px-4 py-3 text-[11px] md:text-sm font-semibold border-b-2 transition-colors min-h-[44px] flex items-center ${
                   activeAnchor === s.id ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-primary hover:border-primary/40'
                 }`}
               >
@@ -199,7 +199,7 @@ const Formations = () => {
       </nav>
 
       {/* ============ 1. FORMATIONS INITIALES ============ */}
-      <section id="initiales" className="py-16 md:py-20 bg-white scroll-mt-14">
+      <section id="initiales" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🚀 Formations Initiales — Devenez Chauffeur</h2>
@@ -245,7 +245,7 @@ const Formations = () => {
       </section>
 
       {/* ============ 2. FORMATIONS CONTINUES ============ */}
-      <section id="continues" className="py-16 md:py-20 bg-white scroll-mt-14">
+      <section id="continues" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-3">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🔄 Formations Continues</h2>
@@ -261,7 +261,7 @@ const Formations = () => {
       </section>
 
       {/* ============ 3. PASSERELLES ============ */}
-      <section id="passerelles" className="py-16 md:py-20 bg-muted/30 scroll-mt-14">
+      <section id="passerelles" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🔀 Passerelles</h2>
@@ -274,7 +274,7 @@ const Formations = () => {
       </section>
 
       {/* ============ 4. RENOUVELLEMENT & MOBILITÉ ============ */}
-      <section id="mobilite" className="py-16 md:py-20 bg-white scroll-mt-14">
+      <section id="mobilite" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-3">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">📍 Renouvellement & Mobilité Géographique</h2>
@@ -287,7 +287,7 @@ const Formations = () => {
       </section>
 
       {/* ============ 5. RÉCUPÉRATION DE POINTS ============ */}
-      <section id="recup-points" className="py-16 md:py-20 bg-muted/30 scroll-mt-14">
+      <section id="recup-points" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🛡️ Stage de Récupération de Points</h2>
@@ -295,18 +295,18 @@ const Formations = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 max-w-4xl"
           >
-            <div className="shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-              <Shield className="w-8 h-8 text-primary" />
+            <div className="shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <Shield className="w-7 h-7 md:w-8 md:h-8 text-primary" />
             </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-foreground mb-1">{formationRecupPoints.accroche}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{formationRecupPoints.duration} — Attestation immédiate</p>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-base md:text-lg font-bold text-foreground mb-1">{formationRecupPoints.accroche}</h3>
+              <p className="text-xs md:text-sm text-muted-foreground mb-2">{formationRecupPoints.duration} — Attestation immédiate</p>
               <div className="flex items-baseline gap-3">
-                <span className="text-2xl font-black text-primary">{formationRecupPoints.price}€</span>
+                <span className="text-xl md:text-2xl font-black text-primary">{formationRecupPoints.price}€</span>
                 <span className="text-xs font-semibold" style={{ color: "#FA5022" }}>ou 4× {formationRecupPoints.alma4x} <AlmaLogo className="h-3 inline ml-1" /></span>
               </div>
             </div>
-            <Button size="lg" className="font-bold shrink-0 btn-cta-orange" onClick={() => openPreReg(formationRecupPoints)}>
+            <Button size="lg" className="font-bold shrink-0 btn-cta-orange w-full md:w-auto" onClick={() => openPreReg(formationRecupPoints)}>
               Réserver mon stage <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </motion.div>
@@ -314,7 +314,7 @@ const Formations = () => {
       </section>
 
       {/* ============ 6. FORMATIONS COMPLÉMENTAIRES ============ */}
-      <section id="complementaires" className="py-16 md:py-20 bg-white scroll-mt-14">
+      <section id="complementaires" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🚀 Boostez votre carrière</h2>
@@ -327,7 +327,7 @@ const Formations = () => {
       </section>
 
       {/* ============ 7. PACKS ============ */}
-      <section id="packs" className="py-16 md:py-20 bg-muted/30 scroll-mt-14">
+      <section id="packs" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-3 text-center">
             <span className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-4 py-1.5 rounded-full text-sm font-bold mb-4">
@@ -346,7 +346,7 @@ const Formations = () => {
       {/* ============ CTA FINAL ============ */}
 
       {/* ============ CTA FINAL ============ */}
-      <section className="py-16 md:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.95), rgba(27,58,92,0.9))' }}>
+      <section className="py-10 md:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.95), rgba(27,58,92,0.9))' }}>
         <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Pas sûr de quelle formation choisir ?</h2>
