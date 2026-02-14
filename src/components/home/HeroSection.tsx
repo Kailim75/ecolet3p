@@ -89,10 +89,10 @@ const HeroSection = () => {
             {/* H1 — New wording */}
             <motion.h1
               {...heroAnim(80)}
-              className="font-serif leading-[1.1] tracking-tight mb-3 md:mb-5"
+              className="font-serif leading-[1.15] tracking-tight mb-3 md:mb-5"
               style={{
                 color: "#1A1A1A",
-                fontSize: "clamp(24px, 5vw, 52px)",
+                fontSize: "clamp(1.55rem, 5vw, 52px)",
                 fontWeight: 900,
                 textShadow: "0 2px 4px rgba(0,0,0,0.04)",
               }}
@@ -109,10 +109,10 @@ const HeroSection = () => {
 
             {/* Subtitle — New wording */}
             <motion.div {...heroAnim(160)} className="mb-4 md:mb-5 max-w-[600px]">
-              <p className="text-base md:text-lg font-semibold mb-1" style={{ color: "#1B4332" }}>
+              <p className="text-[0.95rem] md:text-lg font-semibold mb-1" style={{ color: "#1B4332" }}>
                 94% de réussite au premier passage — +2000 conducteurs accompagnés depuis 2014
               </p>
-              <p className="text-sm md:text-[15px]" style={{ color: "#666" }}>
+              <p className="text-[0.8rem] md:text-[15px]" style={{ color: "#666" }}>
                 Formation agréée à Montrouge (92) · De l'inscription à votre carte professionnelle
               </p>
             </motion.div>

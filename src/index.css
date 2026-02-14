@@ -647,6 +647,19 @@
   transform-origin: left;
 }
 
+/* Mobile homepage optimizations — anti-overflow + typography */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* Accessibility: disable animations for reduced-motion users */
 @media (prefers-reduced-motion: reduce) {
   .cta-shimmer::after,

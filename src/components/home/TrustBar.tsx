@@ -16,8 +16,8 @@ const TrustBar = () => (
     className="border-y"
     style={{ backgroundColor: "#F9FAFB", borderColor: "#EEEEEE" }}
   >
-    <div className="container-custom" style={{ padding: "20px 0" }}>
-      <div className="flex items-center justify-center gap-0 flex-wrap">
+    <div className="container-custom px-4" style={{ padding: "20px 16px" }}>
+      <div className="flex items-center justify-center gap-0 flex-wrap md:flex-nowrap">
         {/* Agréé Préfecture */}
         <div className="flex items-center gap-2 opacity-75 hover:opacity-100 transition-all duration-200 cursor-default px-5 md:px-10">
           <span className="text-sm font-medium" style={{ color: "#374151" }}>
