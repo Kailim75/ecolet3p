@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CarTaxiFront, Car, Bike, Moon, Sun, Monitor, CreditCard } from "lucide-react";
+import { ArrowRight, CarTaxiFront, Car, Bike, Moon, Sun, Monitor, CreditCard, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import AlmaLogo from "@/components/logo/AlmaLogo";
@@ -69,10 +69,14 @@ const OffersSection = () => {
           transition={{ duration: 0.6, ease: smoothEase }}
           className="text-center mb-12"
         >
-          <h2 className="section-title mb-3">Nos Formations Initiales</h2>
-          <p className="section-subtitle mx-auto">
-            Taxi, VTC ou VMDTR — Choisissez votre métier et votre rythme
-          </p>
+           <h2 className="section-title mb-3">Nos Formations Initiales</h2>
+           <p className="section-subtitle mx-auto mb-4">
+             Taxi, VTC ou VMDTR — Choisissez votre métier et votre rythme
+           </p>
+           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+             <BadgeCheck className="w-4 h-4" />
+             Frais d'examen CMA de 241€ inclus dans tous nos tarifs
+           </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -116,9 +120,10 @@ const OffersSection = () => {
                         <span className="text-xs text-muted-foreground">{fmt.duration}</span>
                       </div>
                       <div className="flex items-center gap-1.5 mt-0.5">
-                        <span className="text-lg font-black text-primary">{fmt.price}€</span>
-                        <span className="text-[10px] text-muted-foreground">· soit 4× {(fmt.price / 4).toFixed(0)}€</span>
-                      </div>
+                         <span className="text-lg font-black text-primary">{fmt.price}€</span>
+                         <span className="text-[10px] text-muted-foreground">· soit 4× {(fmt.price / 4).toFixed(0)}€</span>
+                       </div>
+                       <span className="text-[9px] font-medium text-primary/70">dont 241€ de frais d'examen inclus</span>
                     </div>
                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                   </PrefetchLink>
