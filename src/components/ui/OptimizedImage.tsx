@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 
 interface OptimizedImageProps {
@@ -20,24 +20,6 @@ const aspectRatioClasses = {
   auto: "",
 };
 
-// Check if browser supports WebP
-const supportsWebP = (() => {
-  if (typeof window === 'undefined') return false;
-  const canvas = document.createElement('canvas');
-  canvas.width = 1;
-  canvas.height = 1;
-  return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-})();
-
-// Generate WebP source path from original
-const getWebPSource = (src: string): string | null => {
-  // Only convert jpg, jpeg, png images
-  const supportedExtensions = /\.(jpg|jpeg|png)$/i;
-  if (!supportedExtensions.test(src)) return null;
-  
-  return src.replace(supportedExtensions, '.webp');
-};
-
 const OptimizedImage = ({
   src,
   alt,
@@ -51,10 +33,8 @@ const OptimizedImage = ({
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const [useWebP, setUseWebP] = useState(supportsWebP);
   const imgRef = useRef<HTMLDivElement>(null);
-
-  const webPSrc = useMemo(() => getWebPSource(src), [src]);
+  const imgElRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (priority) {
@@ -69,10 +49,7 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      {
-        rootMargin: "200px",
-        threshold: 0,
-      }
+      { rootMargin: "200px", threshold: 0 }
     );
 
     if (imgRef.current) {
@@ -82,12 +59,14 @@ const OptimizedImage = ({
     return () => observer.disconnect();
   }, [priority]);
 
-  // Handle WebP loading error - fallback to original
-  const handleWebPError = () => {
-    setUseWebP(false);
-  };
+  // Check if image is already cached/complete on mount
+  useEffect(() => {
+    if (imgElRef.current?.complete && imgElRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  });
 
-  const imageSrc = useWebP && webPSrc ? webPSrc : src;
+  const handleLoad = useCallback(() => setIsLoaded(true), []);
 
   return (
     <div
@@ -111,33 +90,24 @@ const OptimizedImage = ({
         <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-muted via-muted/50 to-muted" />
       )}
 
-      {/* Picture element with WebP support */}
       {isInView && (
-        <picture>
-          {webPSrc && (
-            <source
-              srcSet={webPSrc}
-              type="image/webp"
-            />
+        <img
+          ref={imgElRef}
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          sizes={sizes}
+          fetchPriority={priority ? "high" : "auto"}
+          onLoad={handleLoad}
+          className={cn(
+            "w-full h-full object-cover transition-opacity duration-500",
+            isLoaded ? "opacity-100" : "opacity-0",
+            className
           )}
-          <img
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            loading={priority ? "eager" : "lazy"}
-            decoding="async"
-            sizes={sizes}
-            fetchPriority={priority ? "high" : "auto"}
-            onLoad={() => setIsLoaded(true)}
-            onError={handleWebPError}
-            className={cn(
-              "w-full h-full object-cover transition-opacity duration-500",
-              isLoaded ? "opacity-100" : "opacity-0",
-              className
-            )}
-          />
-        </picture>
+        />
       )}
     </div>
   );
