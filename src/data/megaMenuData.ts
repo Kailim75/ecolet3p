@@ -1,7 +1,7 @@
 import {
   CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, ArrowLeftRight,
   Accessibility, Briefcase, Languages, ClipboardList, MapPin,
-  Package, Gift, GraduationCap, Star, Tag, RotateCcw
+  Package, Gift, GraduationCap, Star, Tag, RotateCcw, KeyRound
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -35,6 +35,7 @@ export const megaMenuColumns: MegaMenuColumn[] = [
       { name: "Formation VTC", path: "/formations/vtc", icon: Car, detail: "dès 990€", color: "text-forest" },
       { name: "Formation VMDTR", path: "/formations/vmdtr", icon: Bike, detail: "dès 990€", color: "text-orange-600" },
       { name: "Passerelle T3P", path: "/passerelle-vtc-taxi", icon: ArrowLeftRight, detail: "665€ tout compris", color: "text-amber-600" },
+      { name: "Location véhicule examen", path: "/services/location-vehicule-examen", icon: KeyRound, detail: "dès 189€", color: "text-forest" },
     ],
   },
   {

@@ -29,8 +29,8 @@ const FormationVMDTR = () => (
     ]}
     ctaTitle="Prêt à devenir moto-taxi ? Je m'inscris maintenant"
     crossSellLinks={[
+      { title: "Location véhicule examen", desc: "Moto conforme + 2h de conduite dès 299€", path: "/services/location-vehicule-examen" },
       { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
-      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
       { title: "Formation VTC", desc: "Obtenez aussi votre carte VTC", path: "/formations/vtc" },
     ]}
     premiumPrice={1190}
