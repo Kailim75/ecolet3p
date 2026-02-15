@@ -4,6 +4,7 @@ const quickLinks = [
   { label: "Je veux devenir VTC", path: "/formations/vtc" },
   { label: "Je veux devenir TAXI", path: "/formations/taxi" },
   { label: "Je veux renouveler ma carte", path: "/formations/continue-vtc" },
+  { label: "Location véhicule examen", path: "/services/location-vehicule-examen" },
   { label: "Je veux récupérer mes points", path: "/stage-recuperation-points" },
 ];
 
