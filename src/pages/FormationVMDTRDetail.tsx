@@ -2,8 +2,8 @@ import FormationDetailTemplate from "@/components/formations/FormationDetailTemp
 
 const FormationVMDTRDetail = () => (
   <FormationDetailTemplate
-    title="Formation VMDTR Moto-Taxi à Montrouge (92) — 990€ tout compris | ECOLE T3P"
-    description="Obtenez votre carte professionnelle VMDTR moto-taxi avec 94% de taux de réussite. Formation 990€ tout compris, examen inclus, paiement en 4x sans frais."
+    title="Formation VMDTR Moto-Taxi Montrouge — 990€ | ECOLE T3P"
+    description="Formation VMDTR moto-taxi 990€ à Montrouge (92). 94% de réussite, examen inclus. Paiement 4x sans frais. Inscrivez-vous !"
     canonical="https://www.ecolet3p.fr/formation-vmdtr"
     profession="vmdtr"
     heroTitle="Formation VMDTR Moto-Taxi à Montrouge (92) — 990€ tout compris"
@@ -38,8 +38,8 @@ const FormationVMDTRDetail = () => (
       { question: "Comment se déroule l'examen ?", answer: "L'examen se compose d'épreuves QCM à la CMA couvrant la réglementation, la sécurité et la gestion d'entreprise." },
     ]}
     crossSellLinks={[
-      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/formations/gestion-entreprise" },
-      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/formations/accompagnement-administratif" },
+      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
+      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
       { title: "Formation VTC", desc: "Obtenez aussi votre carte VTC", path: "/formation-vtc" },
     ]}
     ctaTitle="Prêt à devenir moto-taxi ? Je m'inscris maintenant"

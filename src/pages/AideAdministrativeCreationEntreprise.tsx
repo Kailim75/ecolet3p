@@ -44,6 +44,16 @@ const AideAdministrativeCreationEntreprise = () => {
     ],
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Aide administrative", item: "https://www.ecolet3p.fr/aide-administrative-creation-entreprise" },
+    ],
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -54,6 +64,7 @@ const AideAdministrativeCreationEntreprise = () => {
         <meta property="og:description" content="On s'occupe de la paperasse — carte pro, registre T3P, préfecture, plateformes VTC." />
         <meta property="og:url" content="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}
