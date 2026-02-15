@@ -18,7 +18,7 @@ const passerelleDirections = [
   "TAXI → VMDTR",
   "VMDTR → VTC",
   "VMDTR → TAXI",
-  "VMDTR → VMDTR",
+  
 ];
 
 const advantages = [
