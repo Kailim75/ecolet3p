@@ -23,7 +23,7 @@ const NoCPFSection = () => {
     <section className="section-padding bg-secondary">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title mb-4">Pourquoi nous ne proposons pas le CPF</h2>
+          <h2 className="section-title mb-4">Inscription immédiate, sans paperasse</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
