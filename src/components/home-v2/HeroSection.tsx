@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Eye, Trophy } from "lucide-react";
+import { ArrowRight, Eye, Trophy, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import formationSession from "@/assets/center/formation-session.jpg";
 
@@ -41,27 +41,55 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Floating badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute bottom-8 right-5 lg:right-12 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2"
-        >
+        {/* Floating badges */}
+        <div className="absolute bottom-8 right-5 lg:right-12 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col gap-3">
+          {/* Badge réussite */}
           <motion.div
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
-              <Trophy className="w-6 h-6 text-accent" />
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-primary leading-none">94%</p>
-              <p className="text-xs text-muted-foreground font-medium">de réussite</p>
-            </div>
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
+            >
+              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
+                <Trophy className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-primary leading-none">94%</p>
+                <p className="text-xs text-muted-foreground font-medium">de réussite</p>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          {/* Badge Google Reviews */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.div
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
+            >
+              <div className="flex flex-col items-center gap-0.5">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                  ))}
+                </div>
+                <span className="text-lg font-bold text-primary leading-none">5.0/5</span>
+              </div>
+              <div>
+                <p className="text-sm font-bold text-primary leading-tight">359 avis</p>
+                <p className="text-xs text-muted-foreground font-medium">Google</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
