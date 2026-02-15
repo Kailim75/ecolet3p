@@ -460,7 +460,7 @@ const FormationTaxi = () => {
           </div>
 
           {/* Pricing Blocks */}
-          <h3 className="text-2xl md:text-[28px] font-bold text-center mt-12 mb-8" style={{ color: "#1A1A1A" }}>
+          <h3 className="text-xl md:text-2xl lg:text-[28px] font-bold text-center mt-8 mb-6 lg:mt-12 lg:mb-8" style={{ color: "#1A1A1A" }}>
             Choisissez votre formule
           </h3>
           <div className="grid md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
@@ -584,7 +584,7 @@ const FormationTaxi = () => {
             </h2>
           </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid gap-4 md:grid-cols-3 lg:gap-6">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -646,13 +646,13 @@ const FormationTaxi = () => {
       </section>
 
       {/* Articles utiles */}
-      <section className="py-16 lg:py-20 bg-muted/30">
+      <section className="py-10 lg:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10"
+            className="text-center mb-6 lg:mb-10"
           >
             <Badge className="mb-4">Ressources</Badge>
             <h2 className="text-2xl lg:text-3xl font-bold mb-4">
@@ -663,10 +663,10 @@ const FormationTaxi = () => {
             </p>
           </motion.div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-5xl mx-auto">
             <Link 
               to="/blog/vtc-taxi-vmdtr-comparatif-2026"
-              className="group p-6 bg-background rounded-xl border hover:border-primary transition-colors"
+              className="group p-5 lg:p-6 bg-background rounded-xl border hover:border-primary transition-colors"
             >
               <Car className="h-8 w-8 text-primary mb-4" />
               <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
