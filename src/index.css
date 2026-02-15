@@ -149,7 +149,7 @@
   .btn-cta-orange {
     @apply inline-flex items-center justify-center font-bold
            px-6 py-3 rounded-lg transition-all duration-300
-           text-sm;
+           text-sm min-h-[48px];
     background-color: hsl(var(--cta));
     color: hsl(var(--cta-foreground));
     box-shadow: 0 4px 14px hsla(var(--cta) / 0.35);
@@ -164,7 +164,7 @@
   /* Primary Button (forest) */
   .btn-primary {
     @apply inline-flex items-center justify-center font-bold
-           px-8 py-4 rounded-lg transition-all duration-300 text-sm;
+           px-8 py-4 rounded-lg transition-all duration-300 text-sm min-h-[48px];
     background-color: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: 0 4px 14px hsla(var(--primary) / 0.25);
@@ -178,7 +178,7 @@
   /* Secondary Button (outline) */
   .btn-secondary {
     @apply inline-flex items-center justify-center font-bold
-           px-8 py-4 rounded-lg border-2 transition-all duration-300 text-sm;
+           px-8 py-4 rounded-lg border-2 transition-all duration-300 text-sm min-h-[48px];
     border-color: hsl(var(--primary));
     color: hsl(var(--primary));
     background: transparent;
