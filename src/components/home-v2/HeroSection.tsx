@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Eye, Trophy, Star } from "lucide-react";
 import { motion } from "framer-motion";
-import formationSession from "@/assets/center/formation-session.jpg";
+const formationSession = "/images/hero-formation-session.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
