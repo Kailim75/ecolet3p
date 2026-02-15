@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Eye } from "lucide-react";
+import { ArrowRight, Eye, Trophy } from "lucide-react";
+import { motion } from "framer-motion";
 import formationSession from "@/assets/center/formation-session.jpg";
 
 const HeroSection = () => {
@@ -39,6 +40,28 @@ const HeroSection = () => {
             </a>
           </div>
         </div>
+
+        {/* Floating badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute bottom-8 right-5 lg:right-12 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
+          >
+            <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
+              <Trophy className="w-6 h-6 text-accent" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-primary leading-none">94%</p>
+              <p className="text-xs text-muted-foreground font-medium">de réussite</p>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
