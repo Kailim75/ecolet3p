@@ -239,11 +239,11 @@ const PasserelleVtcTaxi = () => {
               </p>
               <p className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Condition : résultats d'examen T3P de moins de 3 ans
+                Mise à disposition du véhicule le jour de l'examen
               </p>
               <p className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Mise à disposition du véhicule le jour de l'examen
+                Condition : résultats d'examen T3P de moins de 3 ans
               </p>
             </div>
 
