@@ -11,41 +11,30 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
 
-const passerelles = [
-  {
-    title: "Passerelle TAXI → VTC",
-    duration: "14h (2 jours)",
-    price: 490,
-    description: "Vous êtes chauffeur Taxi et souhaitez exercer en VTC. Formation accélérée de 14h.",
-  },
-  {
-    title: "Passerelle VTC → TAXI",
-    duration: "14h (2 jours)",
-    price: 490,
-    description: "Vous êtes chauffeur VTC et souhaitez passer Taxi. Formation accélérée de 14h.",
-  },
-  {
-    title: "Passerelle VMDTR → VTC ou TAXI",
-    duration: "35h (5 jours)",
-    price: 690,
-    description: "Vous êtes conducteur VMDTR et souhaitez obtenir la carte VTC ou Taxi.",
-  },
+const passerelleDirections = [
+  "TAXI → VTC",
+  "VTC → TAXI",
+  "VTC → VMDTR",
+  "TAXI → VMDTR",
+  "VMDTR → VTC",
+  "VMDTR → TAXI",
+  "VMDTR → VMDTR",
 ];
 
 const advantages = [
-  "Durée réduite par rapport à la formation initiale complète",
-  "Pas besoin de repasser l'examen CMA si déjà titulaire d'une carte",
+  "Condition : moins de 3 ans depuis l'obtention de vos résultats d'examen T3P",
+  "Préparation aux 2 modules spécifiques de la profession visée",
+  "Présentation à l'examen de conduite avec 2h de conduite incluses",
+  "Frais d'examen de 165€ inclus dans le tarif",
   "Attestation délivrée immédiatement en fin de formation",
-  "Accompagnement dans les démarches préfecture inclus",
   "Paiement en 4× sans frais via Alma",
-  "Sessions toutes les semaines à Montrouge (92)",
 ];
 
 const faqs = [
-  { question: "Quelle est la différence entre passerelle et formation initiale ?", answer: "La passerelle est une formation réduite réservée aux titulaires d'une carte professionnelle active. Elle dure 14h à 35h contre 63h pour une formation initiale, car vos acquis sont reconnus." },
-  { question: "Dois-je repasser l'examen CMA ?", answer: "Non, si vous êtes déjà titulaire d'une carte professionnelle valide, vous n'avez pas besoin de repasser l'examen. L'attestation de formation passerelle suffit pour obtenir votre nouvelle carte." },
-  { question: "Puis-je exercer les deux activités en même temps ?", answer: "Oui, vous pouvez détenir une carte VTC et une carte Taxi simultanément. Vous devrez cependant respecter les réglementations propres à chaque activité." },
-  { question: "Quels documents dois-je fournir ?", answer: "Votre carte professionnelle en cours de validité, une pièce d'identité, un justificatif de domicile et une photo d'identité. Nous vous accompagnons pour le reste." },
+  { question: "Quelle est la différence entre passerelle et formation initiale ?", answer: "La passerelle est une formation réservée aux titulaires d'un résultat d'examen T3P de moins de 3 ans. Elle permet de passer d'une profession à une autre (VTC, Taxi ou VMDTR) à 665€ tout compris, contre 990€ pour une formation initiale." },
+  { question: "Que comprend le tarif de 665€ ?", answer: "Le tarif inclut la préparation aux 2 modules spécifiques de la profession visée, 2 heures de conduite pour la présentation à l'examen pratique, et les frais d'examen de 165€. Paiement en 4× 167€ sans frais via Alma." },
+  { question: "Quelles passerelles sont possibles ?", answer: "Toutes les directions sont possibles : Taxi vers VTC, VTC vers Taxi, VTC vers VMDTR, Taxi vers VMDTR, VMDTR vers VTC, VMDTR vers Taxi. La condition est d'avoir obtenu vos résultats d'examen T3P depuis moins de 3 ans." },
+  { question: "Quels documents dois-je fournir ?", answer: "Vos résultats d'examen T3P datant de moins de 3 ans, une pièce d'identité, un justificatif de domicile et une photo d'identité. Nous vous accompagnons pour le reste." },
 ];
 
 const PasserelleVtcTaxi = () => {
@@ -57,7 +46,7 @@ const PasserelleVtcTaxi = () => {
     name: "Formation Passerelle VTC ↔ Taxi & VMDTR",
     description: "Formation passerelle pour chauffeurs VTC, Taxi et VMDTR. Obtenez une double carte professionnelle à Montrouge (92).",
     provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
-    offers: { "@type": "Offer", price: 490, priceCurrency: "EUR" },
+    offers: { "@type": "Offer", price: 665, priceCurrency: "EUR" },
   };
 
   const faqSchema = {
@@ -82,11 +71,11 @@ const PasserelleVtcTaxi = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Passerelle VTC Taxi VMDTR — Dès 490€ | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Formation passerelle VTC ↔ Taxi et VMDTR à Montrouge (92). Obtenez votre double carte pro dès 490€. Paiement 4× sans frais." />
+        <title>Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P Montrouge</title>
+        <meta name="description" content="Formation passerelle VTC ↔ Taxi ↔ VMDTR à Montrouge (92). 665€ tout compris incluant frais d'examen. Paiement 4× sans frais." />
         <link rel="canonical" href="https://www.ecolet3p.fr/passerelle-vtc-taxi" />
-        <meta property="og:title" content="Passerelle VTC Taxi VMDTR — Dès 490€ | ECOLE T3P" />
-        <meta property="og:description" content="Formation passerelle pour obtenir une double carte professionnelle VTC, Taxi ou VMDTR." />
+        <meta property="og:title" content="Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P" />
+        <meta property="og:description" content="Formation passerelle pour obtenir une double carte professionnelle VTC, Taxi ou VMDTR. 665€ tout compris." />
         <meta property="og:url" content="https://www.ecolet3p.fr/passerelle-vtc-taxi" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -137,7 +126,7 @@ const PasserelleVtcTaxi = () => {
               transition={{ delay: 0.2 }}
               className="text-white/80 text-base md:text-lg mb-8 max-w-2xl"
             >
-              Vous êtes déjà chauffeur ? Obtenez une seconde carte professionnelle grâce à notre formation passerelle accélérée. Dès 490€, paiement en 4× sans frais.
+              Vous êtes déjà chauffeur ? Obtenez une seconde carte professionnelle grâce à notre formation passerelle. 665€ tout compris, paiement en 4× sans frais.
             </motion.p>
 
             <motion.div
@@ -147,10 +136,10 @@ const PasserelleVtcTaxi = () => {
               className="flex flex-wrap gap-3 mb-8"
             >
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Clock className="w-4 h-4" /> Dès 14h
+                <Euro className="w-4 h-4" /> 665€ tout compris
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Euro className="w-4 h-4" /> À partir de 490€
+                <Clock className="w-4 h-4" /> Frais d'examen inclus
               </span>
             </motion.div>
 
@@ -201,39 +190,66 @@ const PasserelleVtcTaxi = () => {
         </div>
       </section>
 
-      {/* Tarifs passerelles */}
+      {/* Tarif passerelle unique */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-10">Choisissez votre passerelle</h2>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {passerelles.map((p, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="card-t3p text-center"
-              >
-                <h3 className="text-lg font-bold text-primary mb-3">{p.title}</h3>
-                <p className="text-3xl font-bold text-accent mb-1">{p.price}€</p>
-                <div className="flex items-center justify-center gap-1.5 mb-4">
-                  <span className="text-sm font-semibold text-accent">ou 4× {Math.round(p.price / 4)}€/mois</span>
-                  <AlmaLogo className="h-4" />
-                </div>
-                <div className="space-y-2 text-sm text-muted-foreground mb-5">
-                  <p className="flex items-center justify-center gap-2"><Clock className="w-4 h-4" /> {p.duration}</p>
-                </div>
-                <p className="text-xs text-muted-foreground mb-5">{p.description}</p>
-                <button
-                  onClick={() => setShowForm(true)}
-                  className="btn-cta-orange w-full px-6 py-3 font-bold rounded-lg inline-flex items-center justify-center gap-2"
-                >
-                  Choisir <ArrowRight className="w-4 h-4" />
-                </button>
-              </motion.div>
-            ))}
-          </div>
+          <h2 className="section-title text-center mb-4">La Passerelle T3P</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Une seule formation pour passer d'une profession T3P à une autre. Condition : moins de 3 ans depuis l'obtention de vos résultats d'examen.
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="card-t3p max-w-2xl mx-auto text-center"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-secondary text-primary mb-4">
+              <ArrowLeftRight className="w-3.5 h-3.5" />
+              Toutes directions
+            </div>
+
+            <h3 className="text-lg font-bold text-primary mb-2">Passerelle VTC ↔ TAXI ↔ VMDTR</h3>
+
+            <div className="flex flex-wrap justify-center gap-2 mb-5">
+              {passerelleDirections.map((d) => (
+                <span key={d} className="text-xs font-medium bg-muted px-3 py-1 rounded-full text-foreground">{d}</span>
+              ))}
+            </div>
+
+            <p className="text-4xl font-bold text-accent mb-1">665€</p>
+            <p className="text-sm font-semibold text-accent mb-1">tout compris</p>
+            <div className="flex items-center justify-center gap-1.5 mb-5">
+              <span className="text-sm font-semibold text-accent">ou 4× 167€/mois</span>
+              <AlmaLogo className="h-4" />
+            </div>
+
+            <div className="text-left max-w-md mx-auto space-y-2 mb-6">
+              <p className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                Préparation aux 2 modules spécifiques (Taxi, VTC ou VMDTR)
+              </p>
+              <p className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                Présentation à la conduite avec 2h de conduite incluses
+              </p>
+              <p className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                Frais d'examen de 165€ inclus
+              </p>
+              <p className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                Condition : résultats d'examen T3P de moins de 3 ans
+              </p>
+            </div>
+
+            <button
+              onClick={() => setShowForm(true)}
+              className="btn-cta-orange w-full px-6 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2"
+            >
+              Je m'inscris <ArrowRight className="w-5 h-5" />
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -310,7 +326,7 @@ const PasserelleVtcTaxi = () => {
             Doublez vos opportunités
           </h2>
           <p className="text-white/75 mb-8 max-w-xl mx-auto">
-            Obtenez une seconde carte professionnelle grâce à la formation passerelle. Dès 490€, paiement en 4× sans frais.
+            Obtenez une seconde carte professionnelle grâce à la formation passerelle. 665€ tout compris, paiement en 4× sans frais.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
