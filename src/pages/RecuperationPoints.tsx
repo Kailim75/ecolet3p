@@ -137,11 +137,11 @@ const RecuperationPoints = () => {
           name="keywords" 
           content="stage récupération points, récupérer points permis, stage sensibilisation sécurité routière, stage permis Montrouge, stage points 92" 
         />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations/recuperation-points" />
+        <link rel="canonical" href="https://www.ecolet3p.fr/stage-recuperation-points" />
         
         <meta property="og:title" content="Stage Récupération de Points — 2 jours | ECOLE T3P Montrouge" />
         <meta property="og:description" content="Stage de récupération de points en 2 jours à Montrouge. Récupérez jusqu'à 4 points. Sessions régulières, inscription rapide." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/formations/recuperation-points" />
+        <meta property="og:url" content="https://www.ecolet3p.fr/stage-recuperation-points" />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
@@ -151,7 +151,7 @@ const RecuperationPoints = () => {
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
             { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
-            { "@type": "ListItem", "position": 3, "name": "Récupération de Points", "item": "https://www.ecolet3p.fr/formations/recuperation-points" }
+            { "@type": "ListItem", "position": 3, "name": "Récupération de Points", "item": "https://www.ecolet3p.fr/stage-recuperation-points" }
           ]
         })}</script>
       </Helmet>
@@ -234,7 +234,7 @@ const RecuperationPoints = () => {
                 className="btn-accent"
               >
                 <FileText className="w-5 h-5 mr-2" />
-                Demander un devis gratuit
+                Je réserve mon stage
               </Button>
               <Button asChild className="btn-secondary">
                 <a href="tel:0188750555">
@@ -433,31 +433,27 @@ const RecuperationPoints = () => {
       <section className="py-12 bg-muted/30">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-forest mb-6 text-center">Découvrez aussi</h2>
+            <h2 className="text-xl font-bold text-forest mb-6 text-center">Découvrez nos formations initiales</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <Link to="/formations" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
-                <h3 className="font-semibold text-forest mb-1">Nos formations</h3>
-                <p className="text-sm text-muted-foreground">Taxi, VTC, VMDTR et formation continue</p>
-              </Link>
-              <Link to="/formations/taxi" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
-                <h3 className="font-semibold text-forest mb-1">Formation Taxi</h3>
-                <p className="text-sm text-muted-foreground">Obtenez votre carte professionnelle Taxi</p>
-              </Link>
-              <Link to="/formations/vtc" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+              <Link to="/formation-vtc" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
                 <h3 className="font-semibold text-forest mb-1">Formation VTC</h3>
-                <p className="text-sm text-muted-foreground">Devenez chauffeur VTC professionnel</p>
+                <p className="text-sm text-muted-foreground">Devenez chauffeur VTC — dès 990€ tout compris</p>
+              </Link>
+              <Link to="/formation-taxi" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation Taxi</h3>
+                <p className="text-sm text-muted-foreground">Obtenez votre carte professionnelle Taxi — dès 990€</p>
+              </Link>
+              <Link to="/formation-vmdtr" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Formation VMDTR</h3>
+                <p className="text-sm text-muted-foreground">Devenez chauffeur moto — dès 990€</p>
+              </Link>
+              <Link to="/renouvellement-carte-professionnelle" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+                <h3 className="font-semibold text-forest mb-1">Renouvellement carte pro</h3>
+                <p className="text-sm text-muted-foreground">Formation continue obligatoire — 350€</p>
               </Link>
               <Link to="/contact" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
                 <h3 className="font-semibold text-forest mb-1">Contact</h3>
                 <p className="text-sm text-muted-foreground">Réservez votre place au prochain stage</p>
-              </Link>
-              <Link to="/blog" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
-                <h3 className="font-semibold text-forest mb-1">Blog</h3>
-                <p className="text-sm text-muted-foreground">Guides et actualités du transport</p>
-              </Link>
-              <Link to="/" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
-                <h3 className="font-semibold text-forest mb-1">Accueil</h3>
-                <p className="text-sm text-muted-foreground">Retour à la page d'accueil ECOLE T3P</p>
               </Link>
             </div>
           </div>
@@ -485,7 +481,7 @@ const RecuperationPoints = () => {
                 className="btn-accent"
               >
                 <FileText className="w-5 h-5 mr-2" />
-                Demander un devis gratuit
+                Je réserve mon stage
               </Button>
               <Button asChild variant="outline" className="border-cream text-cream hover:bg-cream hover:text-forest">
                 <a href="tel:0188750555">
