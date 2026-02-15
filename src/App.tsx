@@ -84,6 +84,14 @@ const App = () => {
     setShowContent(true);
   };
 
+  // Fallback: ensure content shows even if PageLoader callback fails
+  useEffect(() => {
+    if (!isLoading && !showContent) {
+      const fallback = setTimeout(() => setShowContent(true), 800);
+      return () => clearTimeout(fallback);
+    }
+  }, [isLoading, showContent]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
