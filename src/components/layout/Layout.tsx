@@ -142,10 +142,19 @@ const organizationSchema = {
     "Formation continue obligatoire"
   ],
   "slogan": "94% de réussite aux examens Taxi et VTC",
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "value": 2000,
+    "unitText": "chauffeurs formés depuis 2014"
+  },
   "hasCredential": {
     "@type": "EducationalOccupationalCredential",
     "credentialCategory": "Agrément Préfectoral",
-    "name": "Centre agréé par la Préfecture des Hauts-de-Seine"
+    "name": "Agrément n° 23/007 — Préfecture des Hauts-de-Seine",
+    "recognizedBy": {
+      "@type": "GovernmentOrganization",
+      "name": "Préfecture des Hauts-de-Seine"
+    }
   }
 };
 
