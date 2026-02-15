@@ -44,6 +44,15 @@ const AideAdministrativeCreationEntreprise = () => {
     ],
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(f => ({
+      "@type": "Question", name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -64,6 +73,7 @@ const AideAdministrativeCreationEntreprise = () => {
         <meta property="og:description" content="On s'occupe de la paperasse — carte pro, registre T3P, préfecture, plateformes VTC." />
         <meta property="og:url" content="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 

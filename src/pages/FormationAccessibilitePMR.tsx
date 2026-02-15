@@ -41,6 +41,15 @@ const FormationAccessibilitePMR = () => {
     offers: { "@type": "Offer", price: 290, priceCurrency: "EUR" },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(f => ({
+      "@type": "Question", name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -61,6 +70,7 @@ const FormationAccessibilitePMR = () => {
         <meta property="og:description" content="Maîtrisez le transport de personnes à mobilité réduite. Formation pratique de 14h." />
         <meta property="og:url" content="https://www.ecolet3p.fr/formation-accessibilite-pmr" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
