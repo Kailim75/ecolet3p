@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { RefreshCw, ArrowLeftRight, Accessibility, Briefcase, FileText, AlertTriangle, ArrowRight } from "lucide-react";
+import { RefreshCw, ArrowLeftRight, Accessibility, Briefcase, FileText, AlertTriangle, KeyRound, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -13,6 +13,12 @@ const services = [
     title: "Passerelle VTC ↔ Taxi",
     desc: "Obtenez la double carte en seulement 14 heures de formation.",
     link: "/passerelle-vtc-taxi",
+  },
+  {
+    icon: KeyRound,
+    title: "Location véhicule examen",
+    desc: "Véhicule conforme + 2h de conduite incluses pour réussir votre examen pratique.",
+    link: "/services/location-vehicule-examen",
   },
   {
     icon: Accessibility,
