@@ -68,6 +68,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Page locale SEO - Montrouge (centre principal) -->
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/montrouge</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <!-- Pages locales SEO - Villes du 92 Sud -->
   <url>
     <loc>https://www.ecolet3p.fr/formations/bagneux</loc>
