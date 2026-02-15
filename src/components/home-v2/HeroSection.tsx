@@ -54,11 +54,47 @@ const HeroSection = () => {
               Voir les formations
             </a>
           </div>
+
+          {/* Badges — inline on mobile, floating on desktop */}
+          <div className="flex flex-row gap-3 mt-6 lg:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-card-hover flex items-center gap-2.5 flex-1"
+            >
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                <Trophy className="w-5 h-5 text-accent" />
+              </div>
+              <div>
+                <p className="text-xl font-bold text-primary leading-none">94%</p>
+                <p className="text-[10px] text-muted-foreground font-medium">de réussite</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-card-hover flex items-center gap-2.5 flex-1"
+            >
+              <div className="flex flex-col items-center gap-0.5">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                  ))}
+                </div>
+                <span className="text-base font-bold text-primary leading-none">5.0/5</span>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-primary leading-tight">359 avis</p>
+                <p className="text-[10px] text-muted-foreground font-medium">Google</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Floating badges */}
-        <div className="absolute bottom-8 right-5 lg:right-12 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col gap-3">
-          {/* Badge réussite */}
+        {/* Floating badges — desktop only */}
+        <div className="hidden lg:flex absolute right-12 top-1/2 -translate-y-1/2 flex-col gap-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +115,6 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Badge Google Reviews */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
