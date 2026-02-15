@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
-  Home, ChevronRight, GraduationCap
+  Home, ChevronRight, GraduationCap, CalendarDays, Users
 } from "lucide-react";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
 import type { LucideIcon } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import {
@@ -224,6 +226,61 @@ const FormationPageTemplate = ({
           </div>
         </div>
       </section>
+
+      {/* Prochaines sessions */}
+      {sessions.length > 0 && (
+        <section className="py-10 bg-muted border-b border-border">
+          <div className="container-custom">
+            <h2 className="section-title text-center mb-6">Prochaines sessions</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {sessions.map((session: any) => {
+                const spots = session.max_participants - session.current_participants;
+                const full = spots <= 0;
+                const urgent = spots > 0 && spots <= 3;
+                const startDate = new Date(session.start_date);
+                return (
+                  <div key={session.id} className="card-t3p flex flex-col gap-2">
+                    <h3 className="text-sm font-bold text-primary">{session.formation_title || badge}</h3>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CalendarDays className="w-4 h-4 text-primary shrink-0" />
+                      <span className="capitalize">{format(startDate, "d MMMM yyyy", { locale: fr })}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Clock className="w-4 h-4 text-primary shrink-0" />
+                      <span>{session.start_time?.slice(0, 5)} – {session.end_time?.slice(0, 5)}</span>
+                    </div>
+                    <div className="mt-auto pt-2 border-t border-border">
+                      {full ? (
+                        <span className="text-xs font-bold text-destructive bg-destructive/10 px-2.5 py-1 rounded-full">Complet</span>
+                      ) : (
+                        <div className="flex items-center gap-1.5">
+                          <Users className="w-4 h-4 text-primary" />
+                          <span className={`text-sm font-bold ${urgent ? "text-accent" : "text-primary"}`}>
+                            {spots} place{spots > 1 ? "s" : ""} restante{spots > 1 ? "s" : ""}
+                          </span>
+                          {urgent && (
+                            <span className="text-[10px] font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-full animate-pulse ml-auto">
+                              Dernières places
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="text-center mt-6">
+              <button
+                onClick={() => setShowPreRegistration(true)}
+                className="btn-cta-orange px-6 py-3 text-sm font-bold rounded-lg inline-flex items-center gap-2"
+              >
+                Réserver ma place <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Programme */}
       <section className="section-padding bg-background">
