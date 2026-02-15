@@ -42,6 +42,7 @@ const LogoPreview = lazy(() => import("./pages/LogoPreview"));
 const LogoExport = lazy(() => import("./pages/LogoExport"));
 const LogoInstitutional = lazy(() => import("./pages/LogoInstitutional"));
 const RecuperationPoints = lazy(() => import("./pages/RecuperationPoints"));
+const RenouvellementCarteProfessionnelle = lazy(() => import("./pages/RenouvellementCarteProfessionnelle"));
 const Templates = lazy(() => import("./pages/Templates"));
 const FormationVille = lazy(() => import("./pages/FormationVille"));
 const FormationsVilles = lazy(() => import("./pages/FormationsVilles"));
@@ -117,7 +118,8 @@ const App = () => {
                       <Route path="/formations/continue-taxi" element={<FormationContinueTaxi />} />
                       <Route path="/formations/continue-vtc" element={<FormationContinueVTC />} />
                       <Route path="/formations/continue-vmdtr" element={<FormationContinueVMDTR />} />
-                      <Route path="/formations/recuperation-points" element={<RecuperationPoints />} />
+                      <Route path="/stage-recuperation-points" element={<RecuperationPoints />} />
+                      <Route path="/renouvellement-carte-professionnelle" element={<RenouvellementCarteProfessionnelle />} />
                       <Route path="/formations/villes" element={<FormationsVilles />} />
                       <Route path="/formations/:ville" element={<FormationVille />} />
                       <Route path="/guide-formation" element={<GuideFormation />} />
