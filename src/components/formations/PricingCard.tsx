@@ -7,11 +7,13 @@ interface PricingCardProps {
   price: number;
   duration: string;
   features?: string[];
+  examFees?: string;
   onRegister: () => void;
 }
 
-const PricingCard = ({ title, price, duration, features, onRegister }: PricingCardProps) => {
+const PricingCard = ({ title, price, duration, features, examFees, onRegister }: PricingCardProps) => {
   const monthly = Math.ceil((price / 4) * 100) / 100;
+  const examLabel = examFees || "Frais d'examen de 241€ inclus";
 
   return (
     <div className="rounded-2xl border-2 border-primary/20 bg-card p-8 shadow-lg relative overflow-hidden">
@@ -32,7 +34,7 @@ const PricingCard = ({ title, price, duration, features, onRegister }: PricingCa
         </p>
         <div className="mt-3 px-3 py-2 bg-primary/10 border border-primary/20 rounded-lg">
           <p className="text-sm font-bold text-primary text-center">
-            ✓ Frais d'examen de 241€ inclus
+            ✓ {examLabel}
           </p>
         </div>
       </div>

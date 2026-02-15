@@ -10,6 +10,7 @@ import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import PricingCard from "@/components/formations/PricingCard";
 
 const passerelleDirections = [
   "TAXI → VTC",
@@ -198,62 +199,40 @@ const PasserelleVtcTaxi = () => {
             Une seule formation pour passer d'une profession T3P à une autre. Condition : moins de 3 ans depuis l'obtention de vos résultats d'examen.
           </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="card-t3p max-w-2xl mx-auto text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-secondary text-primary mb-4">
-              <ArrowLeftRight className="w-3.5 h-3.5" />
-              Toutes directions
-            </div>
-
-            <h3 className="text-lg font-bold text-primary mb-2">Passerelle VTC ↔ TAXI ↔ VMDTR</h3>
-
-            <div className="flex flex-wrap justify-center gap-2 mb-5">
-              {passerelleDirections.map((d) => (
-                <span key={d} className="text-xs font-medium bg-muted px-3 py-1 rounded-full text-foreground">{d}</span>
-              ))}
-            </div>
-
-            <p className="text-4xl font-bold text-accent mb-1">665€</p>
-            <p className="text-sm font-semibold text-accent mb-1">tout compris</p>
-            <div className="flex items-center justify-center gap-1.5 mb-5">
-              <span className="text-sm font-semibold text-accent">ou 4× 167€/mois</span>
-              <AlmaLogo className="h-4" />
-            </div>
-
-            <div className="text-left max-w-md mx-auto space-y-2 mb-6">
-              <p className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Préparation aux 2 modules spécifiques (Taxi, VTC ou VMDTR)
-              </p>
-              <p className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Présentation à la conduite avec 2h de conduite incluses
-              </p>
-              <p className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Frais d'examen de 165€ inclus
-              </p>
-              <p className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Mise à disposition du véhicule le jour de l'examen
-              </p>
-              <p className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                Condition : résultats d'examen T3P de moins de 3 ans
-              </p>
-            </div>
-
-            <button
-              onClick={() => setShowForm(true)}
-              className="btn-cta-orange w-full px-6 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2"
+          <div className="max-w-lg mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             >
-              Je m'inscris <ArrowRight className="w-5 h-5" />
-            </button>
-          </motion.div>
+              <div className="mb-4 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-secondary text-primary mb-3">
+                  <ArrowLeftRight className="w-3.5 h-3.5" />
+                  Toutes directions
+                </div>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {passerelleDirections.map((d) => (
+                    <span key={d} className="text-xs font-medium bg-muted px-3 py-1 rounded-full text-foreground">{d}</span>
+                  ))}
+                </div>
+              </div>
+
+              <PricingCard
+                title="Passerelle VTC ↔ TAXI ↔ VMDTR"
+                price={665}
+                duration="Formation accélérée"
+                features={[
+                  "Préparation aux 2 modules spécifiques (Taxi, VTC ou VMDTR)",
+                  "Présentation à la conduite avec 2h de conduite incluses",
+                  "Frais d'examen de 165€ inclus",
+                  "Mise à disposition du véhicule le jour de l'examen",
+                  "Condition : résultats d'examen T3P de moins de 3 ans",
+                ]}
+                examFees="Frais d'examen de 165€ inclus"
+                onRegister={() => setShowForm(true)}
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
