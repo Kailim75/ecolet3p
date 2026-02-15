@@ -13,6 +13,7 @@ const formationsLinks = [
   { name: "Accessibilité PMR", path: "/formation-accessibilite-pmr" },
   { name: "Gestion d'activité", path: "/accompagnement-gestion-activite" },
   { name: "Aide administrative", path: "/aide-administrative-creation-entreprise" },
+  { name: "Location véhicule examen", path: "/services/location-vehicule-examen" },
 ];
 
 const usefulLinks = [

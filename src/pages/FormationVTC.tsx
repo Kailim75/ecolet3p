@@ -29,8 +29,8 @@ const FormationVTC = () => (
     ]}
     ctaTitle="Prêt à devenir chauffeur VTC ? Je m'inscris maintenant"
     crossSellLinks={[
+      { title: "Location véhicule examen", desc: "Véhicule conforme + 2h de conduite dès 189€", path: "/services/location-vehicule-examen" },
       { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
-      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
       { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez votre double carte en 14h", path: "/passerelle-vtc-taxi" },
     ]}
     premiumPrice={1190}

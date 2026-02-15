@@ -29,8 +29,8 @@ const FormationTaxi = () => (
     ]}
     ctaTitle="Prêt à devenir chauffeur Taxi ? Je m'inscris maintenant"
     crossSellLinks={[
+      { title: "Location véhicule examen", desc: "Taxi équipé + 2h de conduite dès 249€", path: "/services/location-vehicule-examen" },
       { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
-      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
       { title: "Passerelle Taxi ↔ VTC", desc: "Obtenez votre double carte en 14h", path: "/passerelle-vtc-taxi" },
     ]}
     premiumPrice={1190}
