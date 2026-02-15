@@ -5,16 +5,16 @@ import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
 const FormationVTC = () => (
   <FormationPageTemplate
     title="Formation VTC Montrouge 92 — 94% Réussite | 990€"
-    description="Devenez chauffeur VTC avec ECOLE T3P à Montrouge. Formation 63h agréée, 94% de réussite. 990€ payable en 4x sans frais via Alma."
+    description="Devenez chauffeur VTC avec ECOLE T3P à Montrouge. Formation agréée, 94% de réussite. 990€ payable en 4x sans frais via Alma."
     canonical="https://www.ecolet3p.fr/formations/vtc"
     ogTitle="Formation VTC Initiale à Montrouge — ECOLE T3P"
-    ogDescription="Formation initiale VTC 63h à Montrouge. 94% de réussite, 990€ en 4x sans frais."
+    ogDescription="Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais."
     heroImage={heroImageVTC}
     badge="Formation VTC"
     badgeIcon={Car}
-    heading="Formation VTC Initiale à Montrouge — 63h"
+    heading="Formation VTC Initiale à Montrouge — 990€ tout compris"
     subheading="Devenez chauffeur VTC et travaillez avec Uber, Bolt, Heetch. Formation complète incluant gestion d'entreprise et relation client premium."
-    duration="63h"
+    duration="Journée, Soir ou E-learning"
     price={990}
     thirdTag={{ icon: Smartphone, label: "Multi-apps" }}
     category="vtc"
@@ -56,12 +56,12 @@ const FormationVTC = () => (
       { question: "Quelle est la différence entre taxi et VTC ?", answer: "Le taxi peut prendre des clients dans la rue (maraude) et a accès aux bornes taxi. Le VTC travaille uniquement sur réservation préalable via des applications ou contrats." },
       { question: "Combien peut gagner un chauffeur VTC ?", answer: "En moyenne, un chauffeur VTC à temps plein peut générer entre 3000€ et 5000€ de chiffre d'affaires mensuel avant charges." },
       { question: "Faut-il avoir son propre véhicule ?", answer: "Non, vous pouvez louer un véhicule VTC auprès de sociétés spécialisées (LOA, LLD) ou travailler comme salarié d'une société VTC." },
-      { question: "Combien de temps dure la formation VTC ?", answer: "La formation initiale VTC dure 63 heures en journée ou 33 heures en soirée." },
+      { question: "Combien de temps dure la formation VTC ?", answer: "La formation VTC est disponible en journée (1 semaine), en soirée (2 semaines) ou en e-learning (illimité jusqu'à l'examen)." },
       { question: "Puis-je travailler pour Uber après la formation ?", answer: "Oui, une fois votre carte professionnelle VTC obtenue, vous pouvez vous inscrire sur toutes les plateformes : Uber, Bolt, Heetch, etc." },
       { question: "Comment se passe l'examen VTC ?", answer: "L'examen se compose de 7 épreuves : réglementation des transports, gestion, sécurité routière, français, anglais, développement commercial et réglementation locale." },
     ]}
     seoContent={[
-      { title: "Présentation de la formation VTC", text: "La formation VTC initiale dispensée par ECOLE T3P à Montrouge est un parcours complet de 63 heures en journée (ou 33 heures en formule soir) destiné aux candidats souhaitant obtenir leur carte professionnelle de conducteur de voiture de transport avec chauffeur. Notre centre, agréé par la Préfecture des Hauts-de-Seine, affiche un taux de réussite de 94% avec plus de 359 avis 5 étoiles sur Google." },
+      { title: "Présentation de la formation VTC", text: "La formation VTC initiale dispensée par ECOLE T3P à Montrouge est un parcours complet destiné aux candidats souhaitant obtenir leur carte professionnelle de conducteur de voiture de transport avec chauffeur. Disponible en journée, soirée ou e-learning. Notre centre, agréé par la Préfecture des Hauts-de-Seine, affiche un taux de réussite de 94% avec plus de 359 avis 5 étoiles sur Google." },
       { title: "Débouchés après la formation VTC", text: "Une fois votre carte professionnelle VTC en poche, plusieurs options s'offrent à vous : exercer en tant que chauffeur VTC indépendant sous le statut de micro-entrepreneur ou SASU, devenir salarié d'une société de VTC, ou travailler via les plateformes de réservation telles qu'Uber, Bolt ou Heetch." },
       { title: "Financement de la formation", text: "ECOLE T3P facilite l'accès à la formation avec le paiement en 4 fois sans frais via Alma et un échelonnement personnalisé. Notre équipe administrative vous accompagne dans toutes vos démarches." },
     ]}

@@ -5,16 +5,16 @@ import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
 const FormationTaxi = () => (
   <FormationPageTemplate
     title="Formation Taxi Montrouge 92 — 94% Réussite | 990€"
-    description="Devenez chauffeur de taxi avec ECOLE T3P à Montrouge. Formation 63h, 94% de réussite, accompagnement jusqu'à la carte pro. 990€ en 4x sans frais."
+    description="Devenez chauffeur de taxi avec ECOLE T3P à Montrouge. 94% de réussite, accompagnement jusqu'à la carte pro. 990€ en 4x sans frais."
     canonical="https://www.ecolet3p.fr/formations/taxi"
     ogTitle="Formation Taxi Initiale à Montrouge — ECOLE T3P"
-    ogDescription="Formation initiale Taxi 63h à Montrouge. Centre agréé Préfecture, 94% de réussite."
+    ogDescription="Formation initiale Taxi à Montrouge. Centre agréé Préfecture, 94% de réussite."
     heroImage={heroImageTaxi}
     badge="Formation Taxi"
     badgeIcon={CarTaxiFront}
     heading="Formation Taxi à Montrouge — Carte Professionnelle"
     subheading="Devenez chauffeur de taxi professionnel avec notre formation complète. Taux de réussite de 94% et accompagnement personnalisé."
-    duration="33h à 63h"
+    duration="Journée, Soir ou E-learning"
     price={990}
     thirdTag={{ icon: Award, label: "94% réussite" }}
     category="taxi"
@@ -54,14 +54,14 @@ const FormationTaxi = () => (
     ]}
     faqs={[
       { question: "Quels sont les prérequis pour devenir chauffeur de taxi ?", answer: "Avoir 21 ans minimum, permis B depuis 3 ans, casier judiciaire vierge et aptitude médicale." },
-      { question: "Combien de temps dure la formation taxi ?", answer: "La formation taxi initiale dure 63 heures en journée ou 33 heures en soirée, sur 2 à 4 semaines." },
+      { question: "Combien de temps dure la formation taxi ?", answer: "La formation Taxi est disponible en journée (1 semaine), en soirée (2 semaines) ou en e-learning (illimité jusqu'à l'examen)." },
       { question: "Quel est le taux de réussite à l'examen taxi ?", answer: "Notre taux de réussite est de 94% dès la première présentation." },
       { question: "Comment financer ma formation taxi ?", answer: "Nous proposons un paiement en 4x sans frais via Alma pour faciliter l'accès à la formation." },
       { question: "L'examen taxi est-il difficile ?", answer: "Avec une bonne préparation, l'examen est tout à fait accessible. Nos formateurs vous préparent spécifiquement à chaque épreuve." },
       { question: "Puis-je travailler pendant la formation ?", answer: "Oui, nous proposons des formations en soirée (18h-22h) pour ceux qui travaillent en parallèle." },
     ]}
     seoContent={[
-      { title: "Présentation de la formation Taxi", text: "La formation Taxi initiale dispensée par ECOLE T3P à Montrouge est un parcours complet de 63 heures en journée ou 33 heures en soirée pour obtenir la carte professionnelle de chauffeur de taxi. Notre centre agréé par la Préfecture des Hauts-de-Seine affiche un taux de réussite de 94%." },
+      { title: "Présentation de la formation Taxi", text: "La formation Taxi initiale dispensée par ECOLE T3P à Montrouge est un parcours complet pour obtenir la carte professionnelle de chauffeur de taxi. Disponible en journée, soirée ou e-learning. Notre centre agréé par la Préfecture des Hauts-de-Seine affiche un taux de réussite de 94%." },
       { title: "Le métier de chauffeur de taxi", text: "Le chauffeur de taxi peut prendre des clients dans la rue, stationner aux bornes taxi et bénéficie d'un statut réglementé. C'est un métier stable avec une demande constante, particulièrement en Île-de-France." },
       { title: "Financement de la formation", text: "ECOLE T3P facilite l'accès à la formation avec le paiement en 4 fois sans frais via Alma. Notre équipe vous accompagne dans toutes vos démarches administratives." },
     ]}
