@@ -4,6 +4,7 @@ import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
 import FormatsTable from "@/components/home-v2/FormatsTable";
+import UpcomingSessionsSection from "@/components/home-v2/UpcomingSessionsSection";
 import EcosystemSection from "@/components/home-v2/EcosystemSection";
 import TestimonialsSection from "@/components/home-v2/TestimonialsSection";
 import NoCPFSection from "@/components/home-v2/NoCPFSection";
@@ -91,6 +92,7 @@ const Index = () => {
       <ReassuranceBar />
       <FormationsCards />
       <FormatsTable />
+      <UpcomingSessionsSection />
       <EcosystemSection />
       <TestimonialsSection />
       <NoCPFSection />
