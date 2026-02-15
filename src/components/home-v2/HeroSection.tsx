@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Eye } from "lucide-react";
+import formationSession from "@/assets/center/formation-session.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
-      {/* Overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-forest-dark/95" />
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${formationSession})`, filter: "blur(3px) brightness(0.4)" }}
+      />
+      {/* Green overlay */}
+      <div className="absolute inset-0 bg-primary/70" />
       
       <div className="container-custom relative z-10 py-12 lg:py-20">
         <div className="max-w-3xl">
