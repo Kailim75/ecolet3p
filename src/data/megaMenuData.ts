@@ -45,7 +45,7 @@ export const megaMenuColumns: MegaMenuColumn[] = [
       { name: "Continue Taxi", path: "/formations/continue-taxi", icon: RefreshCw, detail: "14h · 250€", color: "text-amber-600" },
       { name: "Continue VTC", path: "/formations/continue-vtc", icon: RefreshCw, detail: "14h · 170€", color: "text-forest" },
       { name: "Continue VMDTR", path: "/formations/continue-vmdtr", icon: RefreshCw, detail: "14h · 250€", color: "text-orange-600" },
-      { name: "Passerelle Taxi ↔ VTC", path: "/passerelle-vtc-taxi", icon: ArrowLeftRight, detail: "7-18h · 665€", color: "text-amber-600" },
+      { name: "Passerelle T3P", path: "/passerelle-vtc-taxi", icon: ArrowLeftRight, detail: "665€ tout compris", color: "text-amber-600" },
       { name: "Renouvellement carte pro", path: "/formations#renouvellement", icon: RotateCcw, detail: "14h · 250€", color: "text-primary" },
     ],
   },
