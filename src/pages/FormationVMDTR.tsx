@@ -19,6 +19,20 @@ const FormationVMDTR = () => (
     thirdTag={{ icon: Shield, label: "Sécurité renforcée" }}
     category="vmdtr"
     profession="vmdtr"
+    includes={[
+      "Frais d'examen T3P (241€) inclus",
+      "2 heures de conduite incluses",
+      "Accompagnement personnalisé",
+      "Accès aux ressources pédagogiques",
+      "Équipement passager fourni pour l'examen",
+      "Aide à la création d'entreprise",
+    ]}
+    ctaTitle="Prêt à devenir moto-taxi ? Je m'inscris maintenant"
+    crossSellLinks={[
+      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
+      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
+      { title: "Formation VTC", desc: "Obtenez aussi votre carte VTC", path: "/formations/vtc" },
+    ]}
     premiumPrice={1190}
     premiumLabel="PREMIUM"
     premiumFeatures={[

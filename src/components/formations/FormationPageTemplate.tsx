@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
-  Home, ChevronRight, GraduationCap, CalendarDays, Users
+  Home, ChevronRight, GraduationCap, CalendarDays, Users,
+  Calendar, Trophy
 } from "lucide-react";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -20,6 +21,8 @@ import StepPreRegistrationForm from "@/components/formations/StepPreRegistration
 import PricingPaymentBlock from "@/components/formations/PricingPaymentBlock";
 import ExamProgramSection from "@/components/formations/ExamProgramSection";
 import NextCMASessionBanner from "@/components/formations/NextCMASessionBanner";
+import AlmaLogo from "@/components/logo/AlmaLogo";
+import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 import { supabase } from "@/integrations/supabase/client";
 
 interface ProgramModule {
@@ -78,6 +81,9 @@ interface FormationPageProps {
   faqs: FAQ[];
   relatedLinks: RelatedLink[];
   seoContent: { title: string; text: string }[];
+  includes?: string[];
+  crossSellLinks?: { title: string; desc: string; path: string }[];
+  ctaTitle?: string;
 
   // Pricing
   premiumPrice?: number;
@@ -92,6 +98,7 @@ const FormationPageTemplate = ({
   duration, price, thirdTag,
   category, profession, programModules, prerequisites,
   testimonials, faqs, relatedLinks, seoContent,
+  includes, crossSellLinks, ctaTitle,
   premiumPrice, premiumLabel, premiumFeatures, essentielFeatures,
 }: FormationPageProps) => {
   const [showPreRegistration, setShowPreRegistration] = useState(false);
@@ -293,6 +300,97 @@ const FormationPageTemplate = ({
         </section>
       )}
 
+      {/* Reassurance bar */}
+      <section className="bg-muted py-6 border-b border-border">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: Calendar, value: "Depuis 2014", label: "+10 ans" },
+              { icon: Users, value: "+2 000", label: "Chauffeurs" },
+              { icon: Trophy, value: "94%", label: "Réussite" },
+              { icon: Star, value: "5.0/5", label: "359 avis" },
+            ].map((s) => (
+              <div key={s.value} className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+                  <s.icon className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <span className="stat-number text-lg leading-tight">{s.value}</span>
+                  <span className="block text-xs text-muted-foreground">{s.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ce que comprend */}
+      {includes && includes.length > 0 && (
+        <section className="section-padding bg-background">
+          <div className="container-custom">
+            <h2 className="section-title text-center mb-10">Ce que comprend votre formation</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {includes.map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-4 bg-card rounded-xl border border-border">
+                  <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+                    <Check className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Tableau 3 formats */}
+      <section className="section-padding bg-muted">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-8">3 formats, un seul tarif : {soireeFormation?.price || price}€</h2>
+          <div className="overflow-x-auto rounded-xl border border-border bg-card">
+            <table className="w-full text-sm md:text-base">
+              <thead>
+                <tr className="bg-primary text-primary-foreground">
+                  <th className="px-4 py-4 text-left font-semibold" />
+                  <th className="px-4 py-4 text-center font-semibold">Journée</th>
+                  <th className="px-4 py-4 text-center font-semibold">Soir</th>
+                  <th className="px-4 py-4 text-center font-semibold">E-learning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-border">
+                  <td className="px-4 py-4 font-semibold text-foreground">Durée</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">1 semaine</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">2 semaines</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Illimité jusqu'à l'examen</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="px-4 py-4 font-semibold text-foreground">Horaires</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">9h30 – 16h30</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">18h – 21h30</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">24h/24, 7j/7</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="px-4 py-4 font-semibold text-foreground">Idéal pour</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">En reconversion, disponible</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Salarié, temps partiel</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Autonome, flexible</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-4 font-semibold text-foreground">Prix</td>
+                  <td className="px-4 py-4 text-center font-bold text-accent">{soireeFormation?.price || price}€</td>
+                  <td className="px-4 py-4 text-center font-bold text-accent">{soireeFormation?.price || price}€</td>
+                  <td className="px-4 py-4 text-center font-bold text-accent">{soireeFormation?.price || price}€</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-center text-muted-foreground text-sm">
+            Frais d'examen T3P (241€) inclus dans tous les formats — Paiement en 4x sans frais avec Alma
+          </p>
+        </div>
+      </section>
+
       {/* Programme */}
       <section className="section-padding bg-background">
         <div className="container-custom">
@@ -412,6 +510,26 @@ const FormationPageTemplate = ({
         </div>
       </section>
 
+      {/* Financement Alma */}
+      <section className="py-14 bg-[hsl(var(--cta)/0.1)]">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="section-title mb-4">Financement accessible</h2>
+            <p className="text-3xl md:text-4xl font-bold text-accent mb-2">{soireeFormation?.price || price}€</p>
+            <p className="text-base text-muted-foreground mb-2">
+              Payez en 4× sans frais avec Alma — <span className="font-bold text-foreground">{((soireeFormation?.price || price) / 4).toFixed(2)}€/mois</span>
+            </p>
+            <div className="flex items-center justify-center gap-1.5 mb-6">
+              <span className="text-xs text-muted-foreground">Propulsé par</span>
+              <AlmaLogo className="h-4" />
+            </div>
+            <div className="max-w-xs mx-auto">
+              <AlmaPaymentButton formationTitle={badge} price={soireeFormation?.price || price} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SEO Content */}
       {seoContent.length > 0 && (
         <section className="section-padding bg-background">
@@ -426,15 +544,20 @@ const FormationPageTemplate = ({
         </section>
       )}
 
-      {/* Related Links */}
+      {/* Cross-sell / Related Links */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-8">Découvrez aussi</h2>
+          <h2 className="section-title text-center mb-8">{crossSellLinks ? "Complétez votre parcours" : "Découvrez aussi"}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {relatedLinks.map((link, i) => (
+            {(crossSellLinks || relatedLinks).map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
                 <p className="text-xs text-muted-foreground">{link.desc}</p>
+                {crossSellLinks && (
+                  <span className="text-xs font-semibold text-accent mt-2 inline-flex items-center gap-1">
+                    Découvrir <ArrowRight className="w-3 h-3" />
+                  </span>
+                )}
               </Link>
             ))}
           </div>
@@ -444,16 +567,16 @@ const FormationPageTemplate = ({
       {/* CTA */}
       <section className="py-16 bg-primary">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Prêt à vous lancer ?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{ctaTitle || "Prêt à vous lancer ?"}</h2>
           <p className="text-white/75 mb-8 max-w-xl mx-auto">
-            Inscription ouverte toute l'année. Paiement en 4x sans frais via Alma.
+            {soireeFormation?.price || price}€ tout compris — Paiement en 4× sans frais via Alma.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => setShowPreRegistration(true)}
               className="btn-cta-orange px-8 py-4 font-bold rounded-lg inline-flex items-center gap-2"
             >
-              Je m'inscris <ArrowRight className="w-5 h-5" />
+              Je m'inscris maintenant <ArrowRight className="w-5 h-5" />
             </button>
             <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2">
               <Phone className="w-5 h-5" /> 01 88 75 05 55

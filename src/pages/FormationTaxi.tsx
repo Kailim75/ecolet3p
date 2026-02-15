@@ -19,6 +19,20 @@ const FormationTaxi = () => (
     thirdTag={{ icon: Award, label: "94% réussite" }}
     category="taxi"
     profession="taxi"
+    includes={[
+      "Frais d'examen T3P (241€) inclus",
+      "2 heures de conduite incluses",
+      "Véhicule mis à disposition le jour de l'examen",
+      "Accompagnement personnalisé",
+      "Accès aux ressources pédagogiques",
+      "Aide à la création d'entreprise",
+    ]}
+    ctaTitle="Prêt à devenir chauffeur Taxi ? Je m'inscris maintenant"
+    crossSellLinks={[
+      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
+      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
+      { title: "Passerelle Taxi ↔ VTC", desc: "Obtenez votre double carte en 14h", path: "/passerelle-vtc-taxi" },
+    ]}
     premiumPrice={1190}
     premiumLabel="PREMIUM"
     premiumFeatures={[
