@@ -55,6 +55,7 @@ const FormationAccessibilitePMR = lazy(() => import("./pages/FormationAccessibil
 const AccompagnementGestionActivite = lazy(() => import("./pages/AccompagnementGestionActivite"));
 const AideAdministrativeCreationEntreprise = lazy(() => import("./pages/AideAdministrativeCreationEntreprise"));
 const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
+const FormationMontrouge = lazy(() => import("./pages/FormationMontrouge"));
 
 const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
 const FormationVTCDetail = lazy(() => import("./pages/FormationVTCDetail"));
@@ -99,6 +100,7 @@ const App = () => {
                       <Route path="/stage-recuperation-points" element={<RecuperationPoints />} />
                       <Route path="/renouvellement-carte-professionnelle" element={<RenouvellementCarteProfessionnelle />} />
                       <Route path="/formations/villes" element={<FormationsVilles />} />
+                      <Route path="/formations/montrouge" element={<FormationMontrouge />} />
                       <Route path="/formations/:ville" element={<FormationVille />} />
                       <Route path="/guide-formation" element={<GuideFormation />} />
                       <Route path="/guide-formation/pdf" element={<GuideFormationPDF />} />
