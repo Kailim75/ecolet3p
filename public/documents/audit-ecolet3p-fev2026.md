@@ -188,7 +188,7 @@ Pages dans le footer (formations) :
 - /formations/continue-taxi
 - /formations/continue-vtc
 - /formations/mobilite
-- /formations/recuperation-points
+- /stage-recuperation-points
 - /services/location-vehicule-examen
 
 **Problèmes** :

@@ -198,7 +198,7 @@ Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à **
 - Avoir au moins 1 point sur le permis
 - Ne pas avoir fait de stage dans les 12 derniers mois (si stage volontaire)
 
-**Plus d'informations** : https://www.ecolet3p.fr/formations/recuperation-points
+**Plus d'informations** : https://www.ecolet3p.fr/stage-recuperation-points
 
 ---
 
@@ -348,7 +348,7 @@ ECOLE T3P publie régulièrement des guides et articles pour accompagner les fut
 - **Formation VTC** : https://www.ecolet3p.fr/formations/vtc
 - **Formation VMDTR** : https://www.ecolet3p.fr/formations/vmdtr
 - **Formation Mobilité** : https://www.ecolet3p.fr/formations/mobilite
-- **Récupération de points** : https://www.ecolet3p.fr/formations/recuperation-points
+- **Récupération de points** : https://www.ecolet3p.fr/stage-recuperation-points
 - **Blog** : https://www.ecolet3p.fr/blog
 - **Contact** : https://www.ecolet3p.fr/contact
 - **À propos** : https://www.ecolet3p.fr/a-propos
