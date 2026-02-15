@@ -31,9 +31,9 @@ export const megaMenuColumns: MegaMenuColumn[] = [
     subtitle: "Journée ou soirée · Examen inclus",
     icon: GraduationCap,
     items: [
-      { name: "Formation Taxi", path: "/formations/taxi", icon: CarTaxiFront, detail: "63h · dès 990€", color: "text-amber-600" },
-      { name: "Formation VTC", path: "/formations/vtc", icon: Car, detail: "63h · dès 990€", color: "text-forest" },
-      { name: "Formation VMDTR", path: "/formations/vmdtr", icon: Bike, detail: "63h · dès 990€", color: "text-orange-600" },
+      { name: "Formation Taxi", path: "/formations/taxi", icon: CarTaxiFront, detail: "dès 990€", color: "text-amber-600" },
+      { name: "Formation VTC", path: "/formations/vtc", icon: Car, detail: "dès 990€", color: "text-forest" },
+      { name: "Formation VMDTR", path: "/formations/vmdtr", icon: Bike, detail: "dès 990€", color: "text-orange-600" },
       { name: "Passerelle T3P", path: "/passerelle-vtc-taxi", icon: ArrowLeftRight, detail: "665€ tout compris", color: "text-amber-600" },
     ],
   },
