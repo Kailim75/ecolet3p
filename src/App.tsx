@@ -50,10 +50,12 @@ const GuideFormation = lazy(() => import("./pages/GuideFormation"));
 const GuideFormationPDF = lazy(() => import("./pages/GuideFormationPDF"));
 const Paiement = lazy(() => import("./pages/Paiement"));
 const CalendrierExamens = lazy(() => import("./pages/CalendrierExamens"));
-const FormationPMR = lazy(() => import("./pages/FormationPMR"));
-const FormationGestionEntreprise = lazy(() => import("./pages/FormationGestionEntreprise"));
+const PasserelleVtcTaxi = lazy(() => import("./pages/PasserelleVtcTaxi"));
+const FormationAccessibilitePMR = lazy(() => import("./pages/FormationAccessibilitePMR"));
+const AccompagnementGestionActivite = lazy(() => import("./pages/AccompagnementGestionActivite"));
+const AideAdministrativeCreationEntreprise = lazy(() => import("./pages/AideAdministrativeCreationEntreprise"));
 const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
-const FormationAccompagnementAdmin = lazy(() => import("./pages/FormationAccompagnementAdmin"));
+
 const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
 const FormationVTCDetail = lazy(() => import("./pages/FormationVTCDetail"));
 const FormationTaxiDetail = lazy(() => import("./pages/FormationTaxiDetail"));
@@ -127,10 +129,11 @@ const App = () => {
                       <Route path="/paiement" element={<Paiement />} />
                       <Route path="/calendrier-examens" element={<CalendrierExamens />} />
                       <Route path="/services/location-vehicule-examen" element={<LocationVehiculeExamen />} />
-                      <Route path="/formations/accessibilite-pmr" element={<FormationPMR />} />
-                      <Route path="/formations/gestion-entreprise" element={<FormationGestionEntreprise />} />
+                      <Route path="/passerelle-vtc-taxi" element={<PasserelleVtcTaxi />} />
+                      <Route path="/formation-accessibilite-pmr" element={<FormationAccessibilitePMR />} />
+                      <Route path="/accompagnement-gestion-activite" element={<AccompagnementGestionActivite />} />
+                      <Route path="/aide-administrative-creation-entreprise" element={<AideAdministrativeCreationEntreprise />} />
                       <Route path="/formations/anglais-professionnel" element={<FormationAnglais />} />
-                      <Route path="/formations/accompagnement-administratif" element={<FormationAccompagnementAdmin />} />
                       <Route path="/formations/formule-soiree" element={<FormuleSoiree />} />
                       <Route path="/formation-vtc" element={<FormationVTCDetail />} />
                       <Route path="/formation-taxi" element={<FormationTaxiDetail />} />
