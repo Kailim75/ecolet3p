@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Eye, Trophy, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import formationSession from "@/assets/center/formation-session.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+
+  const floatAnimation = isMobile ? {} : { y: [0, -6, 0] };
+  const floatTransition = isMobile ? {} : { duration: 3, repeat: Infinity, ease: "easeInOut" as const };
+  const floatAnimation2 = isMobile ? {} : { y: [0, -5, 0] };
+  const floatTransition2 = isMobile ? {} : { duration: 3.5, repeat: Infinity, ease: "easeInOut" as const, delay: 0.5 };
+
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
       {/* Background image — real <img> for LCP optimization */}
@@ -57,8 +65,8 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              animate={floatAnimation}
+              transition={floatTransition}
               className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
             >
               <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
@@ -78,8 +86,8 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.div
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              animate={floatAnimation2}
+              transition={floatTransition2}
               className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
             >
               <div className="flex flex-col items-center gap-0.5">
