@@ -57,7 +57,7 @@ const AideAdministrativeCreationEntreprise = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P Montrouge</title>
+        <title>Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P</title>
         <meta name="description" content="Accompagnement administratif complet pour chauffeurs à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes VTC. Dès 190€." />
         <link rel="canonical" href="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
         <meta property="og:title" content="Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P" />

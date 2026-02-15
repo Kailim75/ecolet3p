@@ -54,8 +54,8 @@ const FormationAccessibilitePMR = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Formation Accessibilité PMR 14h — 290€ | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Formation transport PMR 14h (2 jours) à 290€ à Montrouge (92). Maîtrisez le transport de personnes à mobilité réduite. Paiement 4× sans frais." />
+        <title>Formation PMR 14h Montrouge (92) — 290€ | ECOLE T3P</title>
+        <meta name="description" content="Formation transport PMR 14h à 290€ à Montrouge (92). Maîtrisez l'accueil des personnes à mobilité réduite. Paiement en 4× sans frais Alma." />
         <link rel="canonical" href="https://www.ecolet3p.fr/formation-accessibilite-pmr" />
         <meta property="og:title" content="Formation Accessibilité PMR 14h — 290€ | ECOLE T3P" />
         <meta property="og:description" content="Maîtrisez le transport de personnes à mobilité réduite. Formation pratique de 14h." />
