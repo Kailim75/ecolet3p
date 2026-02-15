@@ -125,6 +125,15 @@ const RecuperationPoints = () => {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(f => ({
+      "@type": "Question", name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -145,6 +154,7 @@ const RecuperationPoints = () => {
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
