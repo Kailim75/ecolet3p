@@ -5,7 +5,7 @@ const FormationGestionEntreprise = () => (
   <ServicePageTemplate
     title="Formation Gestion & Création d'Entreprise 21h — 390€ | ECOLE T3P"
     description="Formation gestion d'entreprise 21h (3 jours) à 390€. Lancez votre activité de chauffeur sur des bases solides. Paiement 4× sans frais."
-    canonical="https://www.ecolet3p.fr/formations/gestion-entreprise"
+    canonical="https://www.ecolet3p.fr/accompagnement-gestion-activite"
     badge="Gestion d'Entreprise"
     badgeIcon={Briefcase}
     heading="Gestion & Création d'Entreprise"
@@ -24,7 +24,7 @@ const FormationGestionEntreprise = () => (
     relatedLinks={[
       { title: "Formation VTC", desc: "Formation initiale VTC 63h", path: "/formations/vtc" },
       { title: "Formation Taxi", desc: "Formation initiale Taxi 63h", path: "/formations/taxi" },
-      { title: "Accompagnement Administratif", desc: "On s'occupe de la paperasse", path: "/formations/accompagnement-administratif" },
+      { title: "Accompagnement Administratif", desc: "On s'occupe de la paperasse", path: "/aide-administrative-creation-entreprise" },
       { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
     ]}
   />

@@ -12,31 +12,31 @@ const services = [
     icon: ArrowLeftRight,
     title: "Passerelle VTC ↔ Taxi",
     desc: "Obtenez la double carte en seulement 14 heures de formation.",
-    link: "/formations/mobilite",
+    link: "/passerelle-vtc-taxi",
   },
   {
     icon: Accessibility,
     title: "Accessibilité PMR",
     desc: "Formation TPMR pour le transport de personnes à mobilité réduite.",
-    link: "/formations/accessibilite-pmr",
+    link: "/formation-accessibilite-pmr",
   },
   {
     icon: Briefcase,
     title: "Gestion d'activité",
     desc: "Apprenez à gérer et développer votre activité de chauffeur.",
-    link: "/formations/gestion-entreprise",
+    link: "/accompagnement-gestion-activite",
   },
   {
     icon: FileText,
     title: "Aide administrative",
     desc: "Accompagnement pour la création d'entreprise et démarches préfecture.",
-    link: "/formations/accompagnement-administratif",
+    link: "/aide-administrative-creation-entreprise",
   },
   {
     icon: AlertTriangle,
     title: "Récupération de points",
     desc: "Stages agréés pour récupérer jusqu'à 4 points sur votre permis.",
-    link: "/formations/recuperation-points",
+    link: "/stage-recuperation-points",
   },
 ];
 
