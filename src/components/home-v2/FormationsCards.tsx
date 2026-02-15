@@ -87,6 +87,16 @@ const FormationsCards = () => {
             </div>
           ))}
         </div>
+
+        <div className="text-center mt-8">
+          <Link
+            to="/formations#tarifs"
+            className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors"
+          >
+            Voir tous les tarifs en un coup d'œil
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
