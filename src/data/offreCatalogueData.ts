@@ -383,7 +383,7 @@ export const packs: PackOffer[] = [
       amountCents: 169000,
     },
     soiree: {
-      composition: "Initiale soirée (33h) + Passerelle au choix",
+      composition: "Initiale soirée + Passerelle au choix",
       prixSepares: 1655,
       prixPack: 1490,
       economie: 165,
@@ -405,7 +405,7 @@ export const packs: PackOffer[] = [
       amountCents: 129000,
     },
     soiree: {
-      composition: "Initiale soirée (33h) + Stage récupération de points (14h)",
+      composition: "Initiale soirée + Stage récupération de points (14h)",
       prixSepares: 1240,
       prixPack: 1090,
       economie: 150,
@@ -427,7 +427,7 @@ export const packs: PackOffer[] = [
       amountCents: 139000,
     },
     soiree: {
-      composition: "Initiale soirée (33h) + Gestion & Création d'entreprise (21h)",
+      composition: "Initiale soirée + Gestion & Création d'entreprise (21h)",
       prixSepares: 1380,
       prixPack: 1190,
       economie: 190,
@@ -449,7 +449,7 @@ export const packs: PackOffer[] = [
       amountCents: 129000,
     },
     soiree: {
-      composition: "Initiale soirée (33h) + Accompagnement administratif (7h groupe)",
+      composition: "Initiale soirée + Accompagnement administratif (7h groupe)",
       prixSepares: 1180,
       prixPack: 1090,
       economie: 90,
@@ -471,7 +471,7 @@ export const packs: PackOffer[] = [
       amountCents: 139000,
     },
     soiree: {
-      composition: "Initiale soirée (33h) + Anglais professionnel (20h)",
+      composition: "Initiale soirée + Anglais professionnel (20h)",
       prixSepares: 1340,
       prixPack: 1190,
       economie: 150,
@@ -493,7 +493,7 @@ export const packs: PackOffer[] = [
       amountCents: 135000,
     },
     soiree: {
-      composition: "Initiale soirée (33h) + Formation PMR (14h)",
+      composition: "Initiale soirée + Formation PMR (14h)",
       prixSepares: 1280,
       prixPack: 1150,
       economie: 130,

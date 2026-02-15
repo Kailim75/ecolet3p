@@ -28,7 +28,7 @@ const heroAnim = (delay: number, type: "up" | "left" | "pop" = "up") => ({
 type ScheduleOption = "soiree" | "journee" | "elearning";
 
 const scheduleOptions: { key: ScheduleOption; emoji: React.ReactNode; label: string; detail: string }[] = [
-  { key: "soiree", emoji: <Moon className="w-4 h-4" />, label: "Soirée", detail: "33h" },
+  { key: "soiree", emoji: <Moon className="w-4 h-4" />, label: "Soirée", detail: "2 sem." },
   { key: "journee", emoji: <Sun className="w-4 h-4" />, label: "Journée", detail: "40h" },
   { key: "elearning", emoji: <Monitor className="w-4 h-4" />, label: "E-learning", detail: "À votre rythme" },
 ];

@@ -1673,7 +1673,7 @@ La formation n'est pas légalement obligatoire pour passer l'examen, mais elle e
 
 ### Le programme de formation ECOLE T3P
 
-Notre formation Taxi de **63 heures** (ou 33h en format soir) couvre tous les modules de l'examen :
+Notre formation Taxi couvre tous les modules de l'examen, disponible en journée (1 semaine) ou en soirée (2 semaines) :
 
 #### Module 1 : Réglementation T3P (14h)
 - Loi sur les taxis et VTC
@@ -2040,7 +2040,7 @@ La formation n'est pas légalement obligatoire pour passer l'examen, mais elle e
 
 ### Le programme de formation ECOLE T3P
 
-Notre formation VTC de **63 heures** (ou 33h en format soir) couvre tous les modules de l'examen :
+Notre formation VTC couvre tous les modules de l'examen, disponible en journée (1 semaine) ou en soirée (2 semaines) :
 
 #### Module 1 : Réglementation T3P (12h)
 - Loi Grandguillaume et évolutions 2026

@@ -28,7 +28,7 @@ const FormationVTC = () => (
       "Suivi post-formation 3 mois",
     ]}
     essentielFeatures={[
-      "Formation complète 33h",
+      "Formation complète VTC",
       "Préparation intensive examen CMA",
       "Support pédagogique",
       "Accès aux quiz en ligne",
