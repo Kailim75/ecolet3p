@@ -17,14 +17,14 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 ## Formations proposées
 
 ### Formation Taxi Initiale
-- **Durée** : 63h (journée) ou 33h (soir)
+- **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle Taxi
 - **Public** : Toute personne souhaitant devenir chauffeur de taxi
 - **Prérequis** : Permis B depuis 3 ans minimum
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/taxi
 
 ### Formation VTC Initiale
-- **Durée** : 63h (journée) ou 33h (soir)
+- **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle VTC
 - **Public** : Toute personne souhaitant devenir chauffeur VTC
 - **Prérequis** : Permis B depuis 3 ans minimum
@@ -38,7 +38,7 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/vmdtr
 
 ### Formation Mobilité (Passerelle Taxi ↔ VTC)
-- **Durée** : 14h à 35h selon département
+- **Durée** : 14h
 - **Objectif** : Ajouter une mention complémentaire à sa carte
 - **Public** : Chauffeurs déjà titulaires d'une carte Taxi ou VTC
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/mobilite
