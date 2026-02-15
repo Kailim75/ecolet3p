@@ -5,7 +5,7 @@ const FormationPMR = () => (
   <ServicePageTemplate
     title="Formation Accessibilité PMR 14h — 290€ | ECOLE T3P"
     description="Formation transport PMR 14h (2 jours) à 290€. Maîtrisez le transport de personnes à mobilité réduite. Paiement 4× sans frais."
-    canonical="https://www.ecolet3p.fr/formations/accessibilite-pmr"
+    canonical="https://www.ecolet3p.fr/formation-accessibilite-pmr"
     badge="Formation PMR"
     badgeIcon={Accessibility}
     heading="Formation Accessibilité & Transport PMR"
@@ -24,7 +24,7 @@ const FormationPMR = () => (
     relatedLinks={[
       { title: "Formation VTC", desc: "Formation initiale VTC 63h", path: "/formations/vtc" },
       { title: "Formation Taxi", desc: "Formation initiale Taxi 63h", path: "/formations/taxi" },
-      { title: "Gestion d'entreprise", desc: "Lancez votre activité sur des bases solides", path: "/formations/gestion-entreprise" },
+      { title: "Gestion d'entreprise", desc: "Lancez votre activité sur des bases solides", path: "/accompagnement-gestion-activite" },
       { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
     ]}
   />

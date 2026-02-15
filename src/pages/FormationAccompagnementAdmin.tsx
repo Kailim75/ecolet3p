@@ -5,7 +5,7 @@ const FormationAccompagnementAdmin = () => (
   <ServicePageTemplate
     title="Accompagnement Administratif 7h — À partir de 190€ | ECOLE T3P"
     description="Accompagnement administratif 7h à partir de 190€. Carte pro, registre T3P, préfecture, plateformes VTC. Paiement 4× sans frais."
-    canonical="https://www.ecolet3p.fr/formations/accompagnement-administratif"
+    canonical="https://www.ecolet3p.fr/aide-administrative-creation-entreprise"
     badge="Accompagnement Admin"
     badgeIcon={ClipboardList}
     heading="Accompagnement Administratif"
@@ -28,7 +28,7 @@ const FormationAccompagnementAdmin = () => (
     relatedLinks={[
       { title: "Formation VTC", desc: "Formation initiale VTC 63h", path: "/formations/vtc" },
       { title: "Formation Taxi", desc: "Formation initiale Taxi 63h", path: "/formations/taxi" },
-      { title: "Gestion d'entreprise", desc: "Lancez votre activité sur des bases solides", path: "/formations/gestion-entreprise" },
+      { title: "Gestion d'entreprise", desc: "Lancez votre activité sur des bases solides", path: "/accompagnement-gestion-activite" },
       { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
     ]}
   />

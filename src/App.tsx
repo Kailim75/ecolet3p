@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PageLoader from "./components/ui/PageLoader";
 import CookieConsent from "./components/CookieConsent";
 import PWAStatus from "./components/pwa/PWAStatus";
@@ -153,6 +153,11 @@ const App = () => {
                       <Route path="/logo-export" element={<LogoExport />} />
                       <Route path="/logo-institutionnel" element={<LogoInstitutional />} />
                       <Route path="/templates" element={<Templates />} />
+                      {/* Redirects anciennes URLs → nouvelles URLs SEO */}
+                      <Route path="/formations/recuperation-points" element={<Navigate to="/stage-recuperation-points" replace />} />
+                      <Route path="/formations/accessibilite-pmr" element={<Navigate to="/formation-accessibilite-pmr" replace />} />
+                      <Route path="/formations/gestion-entreprise" element={<Navigate to="/accompagnement-gestion-activite" replace />} />
+                      <Route path="/formations/accompagnement-administratif" element={<Navigate to="/aide-administrative-creation-entreprise" replace />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </Suspense>
