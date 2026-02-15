@@ -92,7 +92,7 @@ const organizationSchema = {
         "itemOffered": {
           "@type": "Course",
           "name": "Formation Taxi Montrouge",
-          "description": "Formation complète de 63h pour obtenir la carte professionnelle Taxi. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e."
+          "description": "Formation complète pour obtenir la carte professionnelle Taxi. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e."
         }
       },
       {

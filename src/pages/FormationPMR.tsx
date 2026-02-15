@@ -22,8 +22,8 @@ const FormationPMR = () => (
       "Connaissance des différents types de handicap",
     ]}
     relatedLinks={[
-      { title: "Formation VTC", desc: "Formation initiale VTC 63h", path: "/formations/vtc" },
-      { title: "Formation Taxi", desc: "Formation initiale Taxi 63h", path: "/formations/taxi" },
+      { title: "Formation VTC", desc: "Formation initiale VTC", path: "/formations/vtc" },
+      { title: "Formation Taxi", desc: "Formation initiale Taxi", path: "/formations/taxi" },
       { title: "Gestion d'entreprise", desc: "Lancez votre activité sur des bases solides", path: "/accompagnement-gestion-activite" },
       { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
     ]}

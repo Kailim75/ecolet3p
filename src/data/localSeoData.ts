@@ -46,7 +46,7 @@ export const getLocalFaqs = (city: CityData): LocalFaq[] => {
     },
     {
       question: `Quelles formations sont accessibles aux habitants de ${city.name} ?`,
-      answer: `Les habitants de ${city.name} ont accès à l'ensemble de nos formations : Formation Taxi initiale (63h), Formation VTC (63h), Formation VMDTR moto-taxi (14h), Formation Mobilité passerelle Taxi↔VTC (14h), ainsi que les formations continues obligatoires (14h). Toutes sont dispensées dans notre centre agréé Préfecture à Montrouge.`
+      answer: `Les habitants de ${city.name} ont accès à l'ensemble de nos formations : Formation Taxi initiale, Formation VTC, Formation VMDTR moto-taxi, Formation Mobilité passerelle Taxi↔VTC, ainsi que les formations continues obligatoires. Toutes sont dispensées dans notre centre agréé Préfecture à Montrouge, en journée, en soirée ou en e-learning.`
     },
     {
       question: `Y a-t-il des horaires adaptés pour les stagiaires venant de ${city.name} ?`,

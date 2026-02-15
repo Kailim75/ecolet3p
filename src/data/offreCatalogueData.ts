@@ -375,7 +375,7 @@ export const packs: PackOffer[] = [
     emoji: "🔥",
     description: "Pour les chauffeurs qui veulent cumuler deux cartes professionnelles.",
     journee: {
-      composition: "Initiale journée (63h) + Passerelle au choix",
+      composition: "Initiale journée + Passerelle au choix",
       prixSepares: 1855,
       prixPack: 1690,
       economie: 165,
@@ -397,7 +397,7 @@ export const packs: PackOffer[] = [
     emoji: "🚀",
     description: "Pour ceux qui repartent de zéro avec un permis fragilisé.",
     journee: {
-      composition: "Initiale journée (63h) + Stage récupération de points (14h)",
+      composition: "Initiale journée + Stage récupération de points (14h)",
       prixSepares: 1440,
       prixPack: 1290,
       economie: 150,
@@ -419,7 +419,7 @@ export const packs: PackOffer[] = [
     emoji: "💼",
     description: "Pour les primo-accédants qui veulent se lancer avec toutes les clés en main.",
     journee: {
-      composition: "Initiale journée (63h) + Gestion & Création d'entreprise (21h)",
+      composition: "Initiale journée + Gestion & Création d'entreprise (21h)",
       prixSepares: 1580,
       prixPack: 1390,
       economie: 190,
@@ -441,7 +441,7 @@ export const packs: PackOffer[] = [
     emoji: "📋",
     description: "Pour ne pas s'embêter avec les démarches après la formation.",
     journee: {
-      composition: "Initiale journée (63h) + Accompagnement administratif (7h groupe)",
+      composition: "Initiale journée + Accompagnement administratif (7h groupe)",
       prixSepares: 1380,
       prixPack: 1290,
       economie: 90,
@@ -463,7 +463,7 @@ export const packs: PackOffer[] = [
     emoji: "🇬🇧",
     description: "Pour les chauffeurs visant une clientèle internationale (aéroports, gares, zones touristiques).",
     journee: {
-      composition: "Initiale journée (63h) + Anglais professionnel (20h)",
+      composition: "Initiale journée + Anglais professionnel (20h)",
       prixSepares: 1540,
       prixPack: 1390,
       economie: 150,
@@ -485,7 +485,7 @@ export const packs: PackOffer[] = [
     emoji: "♿",
     description: "Pour élargir sa clientèle aux personnes à mobilité réduite.",
     journee: {
-      composition: "Initiale journée (63h) + Formation PMR (14h)",
+      composition: "Initiale journée + Formation PMR (14h)",
       prixSepares: 1480,
       prixPack: 1350,
       economie: 130,
