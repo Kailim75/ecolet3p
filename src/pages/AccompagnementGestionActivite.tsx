@@ -41,6 +41,16 @@ const AccompagnementGestionActivite = () => {
     offers: { "@type": "Offer", price: 390, priceCurrency: "EUR" },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Gestion d'activité", item: "https://www.ecolet3p.fr/accompagnement-gestion-activite" },
+    ],
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -51,6 +61,7 @@ const AccompagnementGestionActivite = () => {
         <meta property="og:description" content="Lancez votre activité de chauffeur sur des bases solides. Statut juridique, comptabilité, fiscalité." />
         <meta property="og:url" content="https://www.ecolet3p.fr/accompagnement-gestion-activite" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}

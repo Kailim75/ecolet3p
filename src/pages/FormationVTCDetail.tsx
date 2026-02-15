@@ -2,8 +2,8 @@ import FormationDetailTemplate from "@/components/formations/FormationDetailTemp
 
 const FormationVTCDetail = () => (
   <FormationDetailTemplate
-    title="Formation VTC à Montrouge (92) — 990€ tout compris | ECOLE T3P"
-    description="Obtenez votre carte professionnelle VTC avec 94% de taux de réussite. Formation 990€ tout compris, examen inclus, paiement en 4x sans frais."
+    title="Formation VTC Montrouge (92) — 990€ | ECOLE T3P"
+    description="Formation VTC 990€ tout compris à Montrouge. 94% de réussite, examen inclus. Paiement en 4x sans frais. Inscrivez-vous maintenant !"
     canonical="https://www.ecolet3p.fr/formation-vtc"
     profession="vtc"
     heroTitle="Formation VTC à Montrouge (92) — 990€ tout compris"
@@ -38,9 +38,9 @@ const FormationVTCDetail = () => (
       { question: "Comment se déroule l'examen ?", answer: "L'examen se compose de 7 épreuves QCM à la CMA : réglementation, gestion, sécurité routière, français, anglais, développement commercial et réglementation locale." },
     ]}
     crossSellLinks={[
-      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/formations/gestion-entreprise" },
-      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/formations/accompagnement-administratif" },
-      { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez votre double carte en 14h", path: "/formations/mobilite" },
+      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
+      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
+      { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez votre double carte en 14h", path: "/passerelle-vtc-taxi" },
     ]}
     ctaTitle="Prêt à devenir chauffeur VTC ? Je m'inscris maintenant"
   />

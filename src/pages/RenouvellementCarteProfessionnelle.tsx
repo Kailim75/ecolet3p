@@ -78,6 +78,15 @@ const RenouvellementCarteProfessionnelle = () => {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Renouvellement carte professionnelle", item: "https://www.ecolet3p.fr/renouvellement-carte-professionnelle" },
+    ],
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -89,6 +98,7 @@ const RenouvellementCarteProfessionnelle = () => {
         <meta property="og:url" content="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}

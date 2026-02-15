@@ -41,6 +41,16 @@ const FormationAccessibilitePMR = () => {
     offers: { "@type": "Offer", price: 290, priceCurrency: "EUR" },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Formation PMR", item: "https://www.ecolet3p.fr/formation-accessibilite-pmr" },
+    ],
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -51,6 +61,7 @@ const FormationAccessibilitePMR = () => {
         <meta property="og:description" content="Maîtrisez le transport de personnes à mobilité réduite. Formation pratique de 14h." />
         <meta property="og:url" content="https://www.ecolet3p.fr/formation-accessibilite-pmr" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}
