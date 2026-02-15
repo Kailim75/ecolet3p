@@ -419,7 +419,7 @@ const FormationsManager = () => {
                   id="duration"
                   value={formData.duration}
                   onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                  placeholder="Ex: 63h (Journée)"
+                  placeholder="Ex: Journée (1 semaine)"
                 />
               </div>
 

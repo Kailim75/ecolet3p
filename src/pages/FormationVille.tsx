@@ -26,13 +26,13 @@ const FormationVille = () => {
   const formations = [
     {
       title: "Formation TAXI Initiale",
-      duration: "63h",
+      duration: "Journée, Soir ou E-learning",
       description: "Formation complète pour obtenir la carte professionnelle TAXI",
       link: "/formations/taxi"
     },
     {
       title: "Formation VTC",
-      duration: "63h", 
+      duration: "Journée, Soir ou E-learning", 
       description: "Formation pour devenir chauffeur VTC professionnel",
       link: "/formations/vtc"
     },

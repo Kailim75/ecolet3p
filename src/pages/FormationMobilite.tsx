@@ -269,8 +269,8 @@ const FormationMobilite = () => {
           <h2 className="section-title text-center mb-8">Découvrez aussi</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "Formation VTC", desc: "Formation initiale VTC 63h", path: "/formations/vtc" },
-              { title: "Formation Taxi", desc: "Formation initiale Taxi 63h", path: "/formations/taxi" },
+              { title: "Formation VTC", desc: "Formation initiale VTC", path: "/formations/vtc" },
+              { title: "Formation Taxi", desc: "Formation initiale Taxi", path: "/formations/taxi" },
               { title: "Formation Continue VTC", desc: "Renouvelez votre carte VTC", path: "/formations/continue-vtc" },
               { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
             ].map((link, i) => (

@@ -9,7 +9,7 @@ const smoothEase = [0.22, 1, 0.36, 1] as const;
 const steps = [
   { number: 1, icon: Phone, title: "Contactez-nous", description: "Appelez ou remplissez le formulaire", color: "#F97316" },
   { number: 2, icon: ClipboardList, title: "Choisissez votre formation", description: "Initiale, Continue, Mobilité...", color: "#059669" },
-  { number: 3, icon: GraduationCap, title: "Suivez la formation", description: "63h ou 33h selon votre disponibilité", color: "#2563EB" },
+  { number: 3, icon: GraduationCap, title: "Suivez la formation", description: "Journée, soir ou e-learning selon vos disponibilités", color: "#2563EB" },
   { number: 4, icon: Trophy, title: "Obtenez votre carte pro", description: "Examen CMA puis demande en Préfecture", color: "#D4A853" },
 ];
 

@@ -25,7 +25,7 @@ const steps = [
     icon: BookOpen,
     number: "3",
     title: "Suivez la formation",
-    description: "33h à 63h selon la formation. Cours + préparation examen CMA.",
+    description: "Journée, soir ou e-learning selon vos disponibilités. Cours + préparation examen CMA.",
     color: "#2563EB",
     bgColor: "rgba(37,99,235,0.1)",
   },

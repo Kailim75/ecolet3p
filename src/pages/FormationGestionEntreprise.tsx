@@ -22,8 +22,8 @@ const FormationGestionEntreprise = () => (
       "Démarches URSSAF et obligations sociales",
     ]}
     relatedLinks={[
-      { title: "Formation VTC", desc: "Formation initiale VTC 63h", path: "/formations/vtc" },
-      { title: "Formation Taxi", desc: "Formation initiale Taxi 63h", path: "/formations/taxi" },
+      { title: "Formation VTC", desc: "Formation initiale VTC", path: "/formations/vtc" },
+      { title: "Formation Taxi", desc: "Formation initiale Taxi", path: "/formations/taxi" },
       { title: "Accompagnement Administratif", desc: "On s'occupe de la paperasse", path: "/aide-administrative-creation-entreprise" },
       { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
     ]}
