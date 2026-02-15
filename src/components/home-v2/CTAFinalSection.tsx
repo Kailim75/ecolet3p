@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
+import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 
 const CTAFinalSection = () => {
   return (
@@ -11,6 +12,12 @@ const CTAFinalSection = () => {
         <p className="text-white/75 text-base md:text-lg mb-8 max-w-xl mx-auto">
           Inscription ouverte toute l'année. Rejoignez +2 000 chauffeurs formés avec succès.
         </p>
+
+        {/* Animated places counter */}
+        <div className="max-w-md mx-auto mb-8">
+          <PlacesProgressBar />
+        </div>
+
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to="/contact"
