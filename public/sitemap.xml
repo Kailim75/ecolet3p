@@ -516,6 +516,30 @@
   </url>
   <!-- Pages de services complémentaires -->
   <url>
+    <loc>https://www.ecolet3p.fr/services/location-vehicule-examen</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/calendrier-examens</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/anglais-professionnel</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/formule-soiree</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.ecolet3p.fr/stage-recuperation-points</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
