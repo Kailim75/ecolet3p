@@ -18,7 +18,7 @@ const formationTabs: { key: FormationType; label: string; icon: React.ElementTyp
 ];
 
 const formatOptions: { key: FormatType; icon: React.ElementType; label: string; hours: string; schedule: string; duration: string }[] = [
-  { key: "soiree", icon: Moon, label: "Option Soirée", hours: "33h", schedule: "Lun–Ven 18h à 21h30", duration: "2 semaines" },
+  { key: "soiree", icon: Moon, label: "Option Soirée", hours: "2 semaines", schedule: "Lun–Ven 18h à 21h30", duration: "2 semaines" },
   { key: "journee", icon: Sun, label: "Option Journée", hours: "40h", schedule: "9h30 à 17h00", duration: "2 semaines" },
   { key: "elearning", icon: Monitor, label: "Option E-learning", hours: "Illimité", schedule: "Quiz interactifs", duration: "À votre rythme" },
 ];

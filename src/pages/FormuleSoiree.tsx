@@ -64,7 +64,7 @@ const FormuleSoiree = () => {
   const [showAlmaSimulation, setShowAlmaSimulation] = useState(false);
 
   const badges = [
-    { icon: Clock, label: "33h de formation" },
+    { icon: Clock, label: "2 semaines de formation" },
     { icon: Moon, label: "Lun–Ven 18h–21h30" },
     { icon: Car, label: "2h de conduite incluses" },
     { icon: Key, label: "Véhicule fourni à l'examen" },
