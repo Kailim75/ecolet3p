@@ -58,9 +58,6 @@ const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
 const FormationMontrouge = lazy(() => import("./pages/FormationMontrouge"));
 
 const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
-const FormationVTCDetail = lazy(() => import("./pages/FormationVTCDetail"));
-const FormationTaxiDetail = lazy(() => import("./pages/FormationTaxiDetail"));
-const FormationVMDTRDetail = lazy(() => import("./pages/FormationVMDTRDetail"));
 
 const queryClient = new QueryClient();
 
@@ -113,9 +110,9 @@ const App = () => {
                       <Route path="/aide-administrative-creation-entreprise" element={<AideAdministrativeCreationEntreprise />} />
                       <Route path="/formations/anglais-professionnel" element={<FormationAnglais />} />
                       <Route path="/formations/formule-soiree" element={<FormuleSoiree />} />
-                      <Route path="/formation-vtc" element={<FormationVTCDetail />} />
-                      <Route path="/formation-taxi" element={<FormationTaxiDetail />} />
-                      <Route path="/formation-vmdtr" element={<FormationVMDTRDetail />} />
+                      <Route path="/formation-vtc" element={<Navigate to="/formations/vtc" replace />} />
+                      <Route path="/formation-taxi" element={<Navigate to="/formations/taxi" replace />} />
+                      <Route path="/formation-vmdtr" element={<Navigate to="/formations/vmdtr" replace />} />
                       <Route path="/a-propos" element={<About />} />
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />

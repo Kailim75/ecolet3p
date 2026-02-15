@@ -19,6 +19,20 @@ const FormationVTC = () => (
     thirdTag={{ icon: Smartphone, label: "Multi-apps" }}
     category="vtc"
     profession="vtc"
+    includes={[
+      "Frais d'examen T3P (241€) inclus",
+      "2 heures de conduite incluses",
+      "Véhicule mis à disposition le jour de l'examen",
+      "Accompagnement personnalisé",
+      "Accès aux ressources pédagogiques",
+      "Aide à la création d'entreprise",
+    ]}
+    ctaTitle="Prêt à devenir chauffeur VTC ? Je m'inscris maintenant"
+    crossSellLinks={[
+      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
+      { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous", path: "/aide-administrative-creation-entreprise" },
+      { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez votre double carte en 14h", path: "/passerelle-vtc-taxi" },
+    ]}
     premiumPrice={1190}
     premiumLabel="PREMIUM"
     premiumFeatures={[

@@ -445,15 +445,15 @@ const RecuperationPoints = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-xl font-bold text-forest mb-6 text-center">Découvrez nos formations initiales</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <Link to="/formation-vtc" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+              <Link to="/formations/vtc" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
                 <h3 className="font-semibold text-forest mb-1">Formation VTC</h3>
                 <p className="text-sm text-muted-foreground">Devenez chauffeur VTC — dès 990€ tout compris</p>
               </Link>
-              <Link to="/formation-taxi" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+              <Link to="/formations/taxi" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
                 <h3 className="font-semibold text-forest mb-1">Formation Taxi</h3>
                 <p className="text-sm text-muted-foreground">Obtenez votre carte professionnelle Taxi — dès 990€</p>
               </Link>
-              <Link to="/formation-vmdtr" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
+              <Link to="/formations/vmdtr" className="p-4 bg-card rounded-lg border hover:border-gold transition-colors">
                 <h3 className="font-semibold text-forest mb-1">Formation VMDTR</h3>
                 <p className="text-sm text-muted-foreground">Devenez chauffeur moto — dès 990€</p>
               </Link>
