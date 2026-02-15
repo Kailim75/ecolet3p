@@ -1,11 +1,11 @@
 // App.tsx - Main application component
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import PageLoader from "./components/ui/PageLoader";
+
 import CookieConsent from "./components/CookieConsent";
 import PWAStatus from "./components/pwa/PWAStatus";
 
@@ -74,37 +74,13 @@ const PageFallback = () => (
 );
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    // Quick initial page load animation
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleLoadingComplete = () => {
-    setShowContent(true);
-  };
-
-  // Fallback: ensure content shows even if PageLoader callback fails
-  useEffect(() => {
-    if (!isLoading && !showContent) {
-      const fallback = setTimeout(() => setShowContent(true), 800);
-      return () => clearTimeout(fallback);
-    }
-  }, [isLoading, showContent]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <QuoteModalProvider>
           <TooltipProvider>
-            <PageLoader isLoading={isLoading} onLoadingComplete={handleLoadingComplete} />
-            <div style={{ opacity: showContent ? 1 : 0, transition: 'opacity 0.3s ease' }}>
+            <div>
               <Toaster />
               <Sonner />
               <BrowserRouter>

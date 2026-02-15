@@ -17,8 +17,7 @@ const HeroSection = () => {
       {/* Background image — real <img> for LCP optimization */}
       <img
         src={formationSession}
-        alt=""
-        role="presentation"
+        alt="Session de formation Taxi VTC en salle à l'ECOLE T3P Montrouge"
         width={1920}
         height={1080}
         fetchPriority="high"
