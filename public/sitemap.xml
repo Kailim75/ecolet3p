@@ -507,11 +507,41 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- Pages de services -->
+  <!-- Pages de services complémentaires -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/recuperation-points</loc>
-    <lastmod>2026-02-10</lastmod>
+    <loc>https://www.ecolet3p.fr/stage-recuperation-points</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/passerelle-vtc-taxi</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formation-accessibilite-pmr</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/accompagnement-gestion-activite</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/aide-administrative-creation-entreprise</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/renouvellement-carte-professionnelle</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Blog -->
