@@ -8,8 +8,11 @@ const formationsLinks = [
   { name: "Formation VMDTR", path: "/formations/vmdtr" },
   { name: "Renouvellement VTC", path: "/formations/continue-vtc" },
   { name: "Renouvellement TAXI", path: "/formations/continue-taxi" },
-  { name: "Passerelle Taxi ↔ VTC", path: "/formations/mobilite" },
-  { name: "Récupération de points", path: "/formations/recuperation-points" },
+  { name: "Passerelle Taxi ↔ VTC", path: "/passerelle-vtc-taxi" },
+  { name: "Récupération de points", path: "/stage-recuperation-points" },
+  { name: "Accessibilité PMR", path: "/formation-accessibilite-pmr" },
+  { name: "Gestion d'activité", path: "/accompagnement-gestion-activite" },
+  { name: "Aide administrative", path: "/aide-administrative-creation-entreprise" },
 ];
 
 const usefulLinks = [
