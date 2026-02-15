@@ -30,6 +30,7 @@ import {
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const sections = [
+  { id: "tarifs", label: "Tarifs" },
   { id: "initiales", label: "Formations Initiales" },
   { id: "continues", label: "Continues" },
   { id: "passerelles", label: "Passerelles" },
@@ -198,8 +199,64 @@ const Formations = () => {
         </div>
       </nav>
 
+      {/* ============ TARIFS EN UN COUP D'ŒIL ============ */}
+      <section id="tarifs" className="py-10 md:py-16 bg-white scroll-mt-14">
+        <div className="container-custom">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">💰 Tarifs en un coup d'œil</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Tous nos tarifs sont <strong>tout compris</strong> — frais d'examen inclus. Paiement en 4× sans frais avec Alma.</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="rounded-2xl border border-border overflow-hidden">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-forest text-cream">
+                    <th className="px-4 md:px-6 py-3 text-sm font-bold">Formation</th>
+                    <th className="px-4 md:px-6 py-3 text-sm font-bold">Format</th>
+                    <th className="px-4 md:px-6 py-3 text-sm font-bold text-right">Tarif TTC</th>
+                    <th className="px-4 md:px-6 py-3 text-sm font-bold text-right hidden md:table-cell">4× Alma</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {[
+                    { name: "Taxi Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
+                    { name: "VTC Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
+                    { name: "VMDTR Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
+                    { name: "Passerelle T3P", format: "14h · 2 jours", price: "665€", alma: "166,25€", highlight: false },
+                    { name: "Renouvellement", format: "14h · tous les 5 ans", price: "350€", alma: "87,50€", highlight: false },
+                    { name: "Récup. de points", format: "14h · 2 jours", price: "250€", alma: "62,50€", highlight: false },
+                  ].map((row, i) => (
+                    <tr key={i} className={row.highlight ? "bg-gold/5" : "bg-card"}>
+                      <td className="px-4 md:px-6 py-3.5">
+                        <span className="font-bold text-sm text-foreground">{row.name}</span>
+                        {row.highlight && <span className="ml-2 text-[10px] font-bold text-gold bg-gold/15 px-1.5 py-0.5 rounded-full align-middle">TOUT COMPRIS</span>}
+                      </td>
+                      <td className="px-4 md:px-6 py-3.5 text-sm text-muted-foreground">{row.format}</td>
+                      <td className="px-4 md:px-6 py-3.5 text-right">
+                        <span className="text-lg font-black text-foreground">{row.price}</span>
+                      </td>
+                      <td className="px-4 md:px-6 py-3.5 text-right hidden md:table-cell">
+                        <span className="text-sm font-semibold" style={{ color: "#FA5022" }}>{row.alma}/mois</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-4">
+              Frais d'examen CMA (241€) inclus dans les formations initiales • Frais d'examen (165€) inclus dans la passerelle • Pas de CPF — tarifs accessibles à tous
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ============ 1. FORMATIONS INITIALES ============ */}
-      <section id="initiales" className="py-10 md:py-20 bg-white scroll-mt-14">
+      <section id="initiales" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🚀 Formations Initiales — Devenez Chauffeur</h2>
