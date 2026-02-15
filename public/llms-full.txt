@@ -43,16 +43,15 @@
 
 ECOLE T3P propose une gamme complète de formations pour tous les métiers du transport de personnes :
 
-| Formation | Durée | Objectif |
-|-----------|-------|----------|
-| Taxi Initiale | Journée / Soir / E-learning | Carte professionnelle Taxi |
-| VTC Initiale | Journée / Soir / E-learning | Carte professionnelle VTC |
-| VMDTR | 14h | Carte professionnelle moto-taxi |
-| Mobilité | 14h | Passerelle Taxi ↔ VTC |
-| Continue Taxi | 14h | Renouvellement obligatoire |
-| Continue VTC | 14h | Renouvellement obligatoire |
-| Continue VMDTR | 7h | Renouvellement obligatoire |
-| Récupération points | 14h | Récupérer 4 points |
+| Formation | Format / Durée | Tarif | Objectif |
+|-----------|---------------|-------|----------|
+| Taxi Initiale | Journée / Soir / E-learning | 990€ tout compris | Carte professionnelle Taxi |
+| VTC Initiale | Journée / Soir / E-learning | 990€ tout compris | Carte professionnelle VTC |
+| VMDTR | Journée / Soir / E-learning | 990€ tout compris | Carte professionnelle moto-taxi |
+| Mobilité (Passerelle) | 14h | 665€ tout compris | Passerelle Taxi ↔ VTC |
+| Renouvellement | 14h | 350€ | Maintien carte pro |
+| Continue VMDTR | 7h | 350€ | Renouvellement obligatoire |
+| Récupération points | 14h | — | Récupérer 4 points |
 
 ---
 
@@ -68,6 +67,9 @@ La formation Taxi vous prépare à l'examen de la carte professionnelle de condu
 - **Langue française** : expression orale et écrite
 - **Développement commercial** : marketing, fidélisation
 - **Connaissance du territoire** : géographie locale, itinéraires
+
+### Tarif
+**990€ tout compris** (frais d'examen CMA de 241€ inclus)
 
 ### Formats disponibles
 - **Format journée** : 1 semaine intensive (9h-17h)
@@ -100,6 +102,9 @@ La formation VTC (Voiture de Transport avec Chauffeur) vous prépare à devenir 
 - **Relation client** : service premium, protocole
 - **Anglais professionnel** : vocabulaire transport
 - **Connaissance du territoire** : Paris et Île-de-France
+
+### Tarif
+**990€ tout compris** (frais d'examen CMA de 241€ inclus)
 
 ### Formats disponibles
 - **Format journée** : 1 semaine intensive
@@ -150,6 +155,9 @@ La formation Mobilité permet aux chauffeurs titulaires d'une carte Taxi ou VTC 
 - **Taxi → VTC** : ajouter la mention VTC à votre carte
 - **VTC → Taxi** : ajouter la mention Taxi à votre carte
 
+### Tarif
+**665€ tout compris** (frais d'examen de 165€ inclus)
+
 ### Durée
 - 14h (2 jours)
 
@@ -166,19 +174,19 @@ La formation Mobilité permet aux chauffeurs titulaires d'une carte Taxi ou VTC 
 
 Les formations continues sont **obligatoires tous les 5 ans** pour maintenir votre carte professionnelle.
 
-### Formation Continue Taxi (14h)
+### Formation Continue Taxi — 350€ (14h)
 - Actualisation réglementaire
 - Évolutions du métier
 - Sécurité et prévention
 - **URL** : https://www.ecolet3p.fr/formations/formation-continue-taxi
 
-### Formation Continue VTC (14h)
+### Formation Continue VTC — 350€ (14h)
 - Nouvelles réglementations
 - Outils numériques
 - Relation client premium
 - **URL** : https://www.ecolet3p.fr/formations/formation-continue-vtc
 
-### Formation Continue VMDTR (7h)
+### Formation Continue VMDTR — 350€ (7h)
 - Sécurité moto actualisée
 - Évolutions réglementaires
 - **URL** : https://www.ecolet3p.fr/formations/formation-continue-vmdtr
@@ -246,9 +254,9 @@ Trois formats au choix pour les formations initiales Taxi et VTC :
 
 ### Quelles sont les options de financement ?
 Nous proposons :
-- Paiement en 4 fois sans frais
+- Paiement en 4 fois sans frais avec Alma
 - Échelonnement personnalisé selon votre situation
-- Accompagnement pour trouver la solution adaptée
+- Pas de CPF ni d'aides publiques : tarifs accessibles et transparents
 
 ### Quel est le taux de réussite ?
 Notre taux de réussite est de **94%** aux examens officiels, grâce à notre méthodologie pédagogique et notre accompagnement personnalisé.

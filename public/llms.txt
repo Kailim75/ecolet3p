@@ -17,16 +17,16 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 ## Formations proposées
 
 ### Formation Taxi Initiale
+- **Tarif** : 990€ tout compris (frais d'examen de 241€ inclus)
 - **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle Taxi
-- **Public** : Toute personne souhaitant devenir chauffeur de taxi
 - **Prérequis** : Permis B depuis 3 ans minimum
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/taxi
 
 ### Formation VTC Initiale
+- **Tarif** : 990€ tout compris (frais d'examen de 241€ inclus)
 - **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle VTC
-- **Public** : Toute personne souhaitant devenir chauffeur VTC
 - **Prérequis** : Permis B depuis 3 ans minimum
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/vtc
 
@@ -38,15 +38,16 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/vmdtr
 
 ### Formation Mobilité (Passerelle Taxi ↔ VTC)
+- **Tarif** : 665€ tout compris (frais d'examen de 165€ inclus)
 - **Durée** : 14h
 - **Objectif** : Ajouter une mention complémentaire à sa carte
-- **Public** : Chauffeurs déjà titulaires d'une carte Taxi ou VTC
 - **Plus d'infos** : https://www.ecolet3p.fr/formations/mobilite
 
-### Formations Continues Obligatoires
-- **Formation Continue Taxi** : 14h tous les 5 ans - https://www.ecolet3p.fr/formations/formation-continue-taxi
-- **Formation Continue VTC** : 14h tous les 5 ans - https://www.ecolet3p.fr/formations/formation-continue-vtc
-- **Formation Continue VMDTR** : 7h tous les 5 ans - https://www.ecolet3p.fr/formations/formation-continue-vmdtr
+### Formations Continues Obligatoires (Renouvellement)
+- **Renouvellement carte pro** : 350€ — 14h tous les 5 ans
+- **Formation Continue Taxi** : https://www.ecolet3p.fr/formations/formation-continue-taxi
+- **Formation Continue VTC** : https://www.ecolet3p.fr/formations/formation-continue-vtc
+- **Formation Continue VMDTR** : 7h tous les 5 ans — https://www.ecolet3p.fr/formations/formation-continue-vmdtr
 
 ### Récupération de Points
 - **Durée** : 2 jours (14h)
@@ -77,10 +78,9 @@ Versailles, Saint-Germain-en-Laye, Poissy, Sartrouville
 
 ## Financement
 
-Nos formations peuvent être financées par :
-- **Paiement en 4 fois sans frais**
-- **Échelonnement personnalisé**
-- **Facilités selon votre situation**
+- **Paiement en 4 fois sans frais** avec Alma
+- **Échelonnement personnalisé** selon votre situation
+- Pas de CPF ni d'aides publiques : tarifs accessibles et transparents
 
 ## Horaires d'ouverture
 
