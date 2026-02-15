@@ -45,10 +45,10 @@ ECOLE T3P propose une gamme complète de formations pour tous les métiers du tr
 
 | Formation | Durée | Objectif |
 |-----------|-------|----------|
-| Taxi Initiale | 63h ou 33h | Carte professionnelle Taxi |
-| VTC Initiale | 63h ou 33h | Carte professionnelle VTC |
+| Taxi Initiale | Journée / Soir / E-learning | Carte professionnelle Taxi |
+| VTC Initiale | Journée / Soir / E-learning | Carte professionnelle VTC |
 | VMDTR | 14h | Carte professionnelle moto-taxi |
-| Mobilité | 14h-35h | Passerelle Taxi ↔ VTC |
+| Mobilité | 14h | Passerelle Taxi ↔ VTC |
 | Continue Taxi | 14h | Renouvellement obligatoire |
 | Continue VTC | 14h | Renouvellement obligatoire |
 | Continue VMDTR | 7h | Renouvellement obligatoire |
@@ -70,8 +70,9 @@ La formation Taxi vous prépare à l'examen de la carte professionnelle de condu
 - **Connaissance du territoire** : géographie locale, itinéraires
 
 ### Formats disponibles
-- **Format journée** : 63h sur 2 semaines (9h-17h)
-- **Format soir** : 33h sur 3 semaines (18h-21h)
+- **Format journée** : 1 semaine intensive (9h-17h)
+- **Format soir** : 2 semaines (18h-21h)
+- **Format e-learning** : à votre rythme
 
 ### Prérequis
 - Permis B valide depuis au moins 3 ans
@@ -101,8 +102,9 @@ La formation VTC (Voiture de Transport avec Chauffeur) vous prépare à devenir 
 - **Connaissance du territoire** : Paris et Île-de-France
 
 ### Formats disponibles
-- **Format journée** : 63h sur 2 semaines
-- **Format soir** : 33h sur 3 semaines
+- **Format journée** : 1 semaine intensive
+- **Format soir** : 2 semaines
+- **Format e-learning** : à votre rythme
 
 ### Prérequis
 - Permis B valide depuis au moins 3 ans
@@ -149,8 +151,7 @@ La formation Mobilité permet aux chauffeurs titulaires d'une carte Taxi ou VTC 
 - **VTC → Taxi** : ajouter la mention Taxi à votre carte
 
 ### Durée
-- 14h (format court)
-- Jusqu'à 35h selon département d'exercice
+- 14h (2 jours)
 
 ### Avantages
 - Diversifier son activité
@@ -237,10 +238,11 @@ Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à **
 La carte professionnelle T3P (Transport Public Particulier de Personnes) est un document obligatoire pour exercer les métiers de chauffeur VTC, taxi ou conducteur VMDTR. Elle atteste de vos compétences et de votre aptitude à exercer.
 
 ### Combien de temps dure la formation ?
-La durée varie selon la formation :
-- Formation TAXI : 63h (journée) ou 33h (soir)
-- Formation VTC : 63h (journée) ou 33h (soir)
-- Formation Mobilité : 14h à 35h selon le département
+Trois formats au choix pour les formations initiales Taxi et VTC :
+- **Journée** : 1 semaine intensive
+- **Soir** : 2 semaines
+- **E-learning** : à votre rythme
+- Formation Mobilité : 14h (2 jours)
 
 ### Quelles sont les options de financement ?
 Nous proposons :
