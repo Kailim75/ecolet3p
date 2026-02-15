@@ -32,7 +32,7 @@ const FormationVTCDetail = () => (
     ]}
     faqs={[
       { question: "Quelles sont les conditions pour s'inscrire ?", answer: "Avoir 21 ans minimum, permis B depuis 3 ans, casier judiciaire vierge et aptitude médicale (visite médicale préfectorale)." },
-      { question: "Combien de temps dure la formation ?", answer: "La formation VTC dure 63h en journée (1 semaine), 33h en soirée (2 semaines) ou en e-learning (illimité jusqu'à l'examen)." },
+      { question: "Combien de temps dure la formation ?", answer: "La formation VTC est disponible en journée (1 semaine), en soirée (2 semaines) ou en e-learning (illimité jusqu'à l'examen)." },
       { question: "Le e-learning est-il aussi efficace ?", answer: "Oui, notre plateforme e-learning couvre l'intégralité du programme avec des quiz, des mises en situation et un suivi personnalisé. Le taux de réussite est identique." },
       { question: "Que se passe-t-il si j'échoue à l'examen ?", answer: "Vous pouvez repasser l'examen sans frais supplémentaires de formation. Nous vous accompagnons jusqu'à l'obtention de votre carte." },
       { question: "Comment se déroule l'examen ?", answer: "L'examen se compose de 7 épreuves QCM à la CMA : réglementation, gestion, sécurité routière, français, anglais, développement commercial et réglementation locale." },
