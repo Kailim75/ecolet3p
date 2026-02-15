@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { 
   Users, Mail, FileText, LogOut, Download, Trash2, 
   RefreshCw, Search, Filter, ChevronDown, Loader2,
-  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send
+  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send, BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,8 +40,9 @@ import FormationsManager from "@/components/admin/FormationsManager";
 import SessionsManager from "@/components/admin/SessionsManager";
 import AppointmentsManager from "@/components/admin/AppointmentsManager";
 import EmailLogsManager from "@/components/admin/EmailLogsManager";
+import AdminDashboard from "@/components/admin/AdminDashboard";
 
-type Tab = "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails";
+type Tab = "dashboard" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails";
 
 interface NewsletterSubscriber {
   id: string;
@@ -67,7 +68,7 @@ const Admin = () => {
   const { user, isAdmin, isLoading, signOut } = useAuth();
   const navigate = useNavigate();
 
-  const [activeTab, setActiveTab] = useState<Tab>("newsletter");
+  const [activeTab, setActiveTab] = useState<Tab>("dashboard");
   const [subscribers, setSubscribers] = useState<NewsletterSubscriber[]>([]);
   const [preRegistrations, setPreRegistrations] = useState<PreRegistration[]>([]);
   const [appointments, setAppointments] = useState<{ id: string; status: string }[]>([]);
@@ -426,7 +427,18 @@ const Admin = () => {
         {/* Tabs */}
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           <div className="border-b border-gray-100">
-            <div className="flex">
+            <div className="flex overflow-x-auto">
+              <button
+                onClick={() => { setActiveTab("dashboard"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors whitespace-nowrap ${
+                  activeTab === "dashboard"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <BarChart3 className="w-4 h-4 inline-block mr-2" />
+                Statistiques
+              </button>
               <button
                 onClick={() => { setActiveTab("newsletter"); setSearchTerm(""); setStatusFilter("all"); }}
                 className={`px-6 py-4 font-medium transition-colors ${
@@ -497,7 +509,9 @@ const Admin = () => {
           </div>
 
           {/* Tab content */}
-          {activeTab === "formations" ? (
+          {activeTab === "dashboard" ? (
+            <AdminDashboard />
+          ) : activeTab === "formations" ? (
             <FormationsManager />
           ) : activeTab === "sessions" ? (
             <SessionsManager />
