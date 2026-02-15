@@ -6,10 +6,17 @@ import formationSession from "@/assets/center/formation-session.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${formationSession})`, filter: "blur(3px) brightness(0.4)" }}
+      {/* Background image — real <img> for LCP optimization */}
+      <img
+        src={formationSession}
+        alt=""
+        role="presentation"
+        width={1920}
+        height={1080}
+        fetchPriority="high"
+        loading="eager"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover blur-[3px] brightness-[0.4]"
       />
       {/* Green overlay */}
       <div className="absolute inset-0 bg-primary/70" />
