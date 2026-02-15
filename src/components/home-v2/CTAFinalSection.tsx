@@ -26,7 +26,7 @@ const CTAFinalSection = () => {
 
         {/* Places counter with better contrast */}
         <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-6 md:mb-8">
-          <PlacesProgressBar className="!bg-white/10 !border-white/15 [&_span]:!text-white/90 [&_p]:!text-white/50" />
+          <PlacesProgressBar className="!bg-white/95 !border-white/80 shadow-lg" />
         </div>
 
         {/* CTAs */}
