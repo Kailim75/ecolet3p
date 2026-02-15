@@ -47,22 +47,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-
-        // LiveMentor Brand Colors
+        // Brand colors
         forest: {
-          DEFAULT: "#1B4D3E",
-          light: "#2A6B54",
-          dark: "#143D31",
+          DEFAULT: "#1B5E20",
+          light: "#2E7D32",
+          dark: "#1B5E20",
+        },
+        orange: {
+          DEFAULT: "#E65100",
+          light: "#FF6D00",
+          dark: "#BF360C",
+        },
+        "green-light": "#E8F5E9",
+        "orange-light": "#FFF3E0",
+        "gray-light": "#F5F5F5",
+        gold: {
+          DEFAULT: "#D4A853",
+          light: "#E4BE73",
+          dark: "#C49843",
         },
         cream: {
           DEFAULT: "#F5EBD7",
           light: "#FBF7EF",
           dark: "#E8DCC4",
-        },
-        gold: {
-          DEFAULT: "#D4A853",
-          light: "#E4BE73",
-          dark: "#C49843",
         },
         "warm-gray": {
           50: "#FAF9F7",
@@ -81,25 +88,16 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        xl: "1rem",
-        "2xl": "1.5rem",
-        "3xl": "2rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
       },
       fontFamily: {
-        sans: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
-        display: ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"],
-        serif: ["Georgia", "'Times New Roman'", "serif"],
-      },
-      fontSize: {
-        "display-1": ["4.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em", fontWeight: "900" }],
-        "display-2": ["3.75rem", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
-        "display-3": ["3rem", { lineHeight: "1.15", letterSpacing: "-0.01em", fontWeight: "800" }],
+        sans: ["'Poppins'", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 2px 15px rgba(27, 77, 62, 0.05)",
-        warm: "0 4px 20px rgba(27, 77, 62, 0.08)",
-        "warm-lg": "0 8px 30px rgba(27, 77, 62, 0.12)",
-        gold: "0 4px 20px rgba(212, 168, 83, 0.25)",
+        soft: "0 2px 12px rgba(0,0,0,0.06)",
+        card: "0 4px 16px rgba(0,0,0,0.08)",
+        "card-hover": "0 8px 24px rgba(0,0,0,0.12)",
       },
       keyframes: {
         "accordion-down": {
@@ -111,19 +109,14 @@ export default {
           to: { height: "0" },
         },
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fadeUp 0.6s ease-out forwards",
-        float: "float 6s ease-in-out infinite",
+        "fade-up": "fadeUp 0.5s ease-out forwards",
       },
     },
   },

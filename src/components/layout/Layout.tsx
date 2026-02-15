@@ -2,9 +2,6 @@ import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "./Header";
 import Footer from "./Footer";
-import FloatingWhatsAppButton from "./FloatingWhatsAppButton";
-import FloatingPhoneButton from "./FloatingPhoneButton";
-import MobileStickyBar from "./MobileStickyBar";
 import ScrollToTopButton from "./ScrollToTopButton";
 
 
@@ -228,9 +225,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="flex-1 pb-[60px] lg:pb-0">{children}</main>
       <Footer />
-      <FloatingWhatsAppButton />
-      <FloatingPhoneButton />
-      <MobileStickyBar />
+      
       <ScrollToTopButton />
     </div>
   );

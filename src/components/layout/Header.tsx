@@ -1,33 +1,49 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, FileText, BookOpen, Info, Mail, ArrowRight, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
-import PrefetchLink from "@/components/ui/PrefetchLink";
-import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
-import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
-import DesktopMegaMenu from "@/components/layout/DesktopMegaMenu";
-import MobileMegaMenu from "@/components/layout/MobileMegaMenu";
+import { Menu, X, Phone, ChevronDown, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
-  { name: "Formations", path: "/formations", hasSubmenu: true, icon: BookOpen },
-  { name: "Paiement", path: "/paiement", icon: FileText },
-  { name: "Blog", path: "/blog", icon: FileText },
-  { name: "À propos", path: "/a-propos", icon: Info },
-  { name: "Contact", path: "/contact", icon: Mail },
+  {
+    name: "Devenir Chauffeur",
+    hasSubmenu: true,
+    children: [
+      { name: "Formation VTC", path: "/formations/vtc" },
+      { name: "Formation TAXI", path: "/formations/taxi" },
+      { name: "Formation VMDTR", path: "/formations/vmdtr" },
+    ],
+  },
+  {
+    name: "Renouveler sa Carte",
+    hasSubmenu: true,
+    children: [
+      { name: "Renouvellement VTC", path: "/formations/continue-vtc" },
+      { name: "Renouvellement TAXI", path: "/formations/continue-taxi" },
+      { name: "Renouvellement VMDTR", path: "/formations/continue-vmdtr" },
+    ],
+  },
+  {
+    name: "Services Pro",
+    hasSubmenu: true,
+    children: [
+      { name: "Passerelle TAXI↔VTC", path: "/formations/mobilite" },
+      { name: "Accessibilité TPMR", path: "/formations/accessibilite-pmr" },
+      { name: "Gestion d'activité", path: "/formations/gestion-entreprise" },
+      { name: "Aide administrative", path: "/formations/accompagnement-administratif" },
+    ],
+  },
+  { name: "Récupération de Points", path: "/formations/recuperation-points" },
+  { name: "Témoignages", path: "/a-propos" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact", path: "/contact" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showMegaMenu, setShowMegaMenu] = useState(false);
-  const [mobileFormationsOpen, setMobileFormationsOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [hoverSubmenu, setHoverSubmenu] = useState<string | null>(null);
   const location = useLocation();
-  const { openQuoteModal } = useQuoteModal();
-  const megaMenuTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const isActive = (path: string) => location.pathname === path;
-  const isFormationActive = location.pathname.startsWith("/formations");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -37,155 +53,105 @@ const Header = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
-    setMobileFormationsOpen(false);
-    setShowMegaMenu(false);
+    setOpenSubmenu(null);
+    setHoverSubmenu(null);
   }, [location]);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isMenuOpen]);
-
-  // Close mega menu on Escape
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setShowMegaMenu(false);
-    };
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, []);
-
-  const handleMegaEnter = () => {
-    if (megaMenuTimer.current) clearTimeout(megaMenuTimer.current);
-    megaMenuTimer.current = setTimeout(() => setShowMegaMenu(true), 150);
-  };
-
-  const handleMegaLeave = () => {
-    if (megaMenuTimer.current) clearTimeout(megaMenuTimer.current);
-    megaMenuTimer.current = setTimeout(() => setShowMegaMenu(false), 100);
-  };
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-cream-light shadow-md"
-            : "bg-cream-light/95 backdrop-blur-sm"
+          isScrolled ? "bg-card shadow-md" : "bg-card/95 backdrop-blur-sm"
         }`}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5">
-              <EcoleT3PMonogram className="w-8 h-8 lg:w-9 lg:h-9" theme="light" />
-              <span className="text-lg lg:text-xl font-serif font-bold text-forest tracking-wide">ÉCOLE T3P</span>
+            <Link to="/" className="flex items-center gap-2">
+              <span className="text-lg lg:text-xl font-bold text-primary tracking-wide">ECOLE T3P</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) =>
                 link.hasSubmenu ? (
                   <div
-                    key={link.path}
+                    key={link.name}
                     className="relative"
-                    onMouseEnter={handleMegaEnter}
-                    onMouseLeave={handleMegaLeave}
+                    onMouseEnter={() => setHoverSubmenu(link.name)}
+                    onMouseLeave={() => setHoverSubmenu(null)}
                   >
-                    <PrefetchLink
-                      to={link.path}
-                      prefetchOnHover
-                      className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 flex items-center gap-1 ${
-                        isFormationActive ? "text-forest" : "text-warm-gray-600 hover:text-forest"
-                      }`}
-                      aria-haspopup="true"
-                      aria-expanded={showMegaMenu}
-                    >
+                    <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg">
                       {link.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showMegaMenu ? "rotate-180" : ""}`} />
-                      {isFormationActive && (
-                        <motion.div layoutId="activeNav" className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full" />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
+                    </button>
+                    <AnimatePresence>
+                      {hoverSubmenu === link.name && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 8 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-card-hover py-2 min-w-[220px] z-50"
+                        >
+                          {link.children?.map((child) => (
+                            <Link
+                              key={child.path}
+                              to={child.path}
+                              className="block px-4 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                            >
+                              {child.name}
+                            </Link>
+                          ))}
+                        </motion.div>
                       )}
-                    </PrefetchLink>
+                    </AnimatePresence>
                   </div>
                 ) : (
-                  <PrefetchLink
+                  <Link
                     key={link.path}
-                    to={link.path}
-                    prefetchOnHover={link.path !== "/"}
-                    className={`relative font-semibold text-sm uppercase tracking-wide transition-colors duration-200 py-2 ${
-                      isActive(link.path) ? "text-forest" : "text-warm-gray-600 hover:text-forest"
-                    }`}
+                    to={link.path!}
+                    className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg"
                   >
                     {link.name}
-                    {isActive(link.path) && (
-                      <motion.div layoutId="activeNav" className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-gold rounded-full" />
-                    )}
-                  </PrefetchLink>
+                  </Link>
                 )
               )}
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3">
               <a
                 href="tel:0188750555"
-                className="flex items-center gap-2 font-semibold text-forest hover:text-forest-light transition-colors text-sm"
+                className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>01 88 75 05 55</span>
+                01 88 75 05 55
               </a>
-              <a
-                href="https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 font-semibold text-sm transition-colors hover:opacity-80"
-                style={{ color: "#25D366" }}
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp</span>
-              </a>
-              <Button asChild className="btn-cta-orange">
-                <Link to="/contact">S'inscrire</Link>
-              </Button>
-              <Button
-                onClick={() => openQuoteModal()}
-                variant="outline"
-                className="border-forest text-forest hover:bg-forest/5"
-              >
-                <FileText className="w-4 h-4 mr-1" />
-                Devis
-              </Button>
+              <Link to="/contact" className="btn-cta-orange px-5 py-2.5 text-sm font-bold rounded-lg inline-flex items-center gap-1">
+                Je m'inscris
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
-            {/* Mobile: Phone + WhatsApp + Menu Button */}
-            <div className="flex items-center gap-1 lg:hidden">
+            {/* Mobile */}
+            <div className="flex items-center gap-2 lg:hidden">
               <a
                 href="tel:0188750555"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-forest/10 text-forest"
+                className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center"
                 aria-label="Appeler"
               >
                 <Phone className="w-4 h-4" />
               </a>
-              <a
-                href="https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full"
-                style={{ backgroundColor: "rgba(37,211,102,0.1)", color: "#25D366" }}
-                aria-label="WhatsApp"
-              >
-                <MessageCircle className="w-4 h-4" />
-              </a>
               <button
-                className="flex items-center justify-center w-10 h-10 text-forest hover:bg-forest/5 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                className="w-10 h-10 flex items-center justify-center text-foreground"
+                aria-label={isMenuOpen ? "Fermer" : "Menu"}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -194,119 +160,79 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Desktop Mega Menu — positioned outside header for full width */}
-      <div
-        className="hidden lg:block fixed top-0 left-0 right-0 z-[49]"
-        style={{ pointerEvents: "none" }}
-      >
-        <div
-          className="flex justify-center relative"
-          style={{ pointerEvents: showMegaMenu ? "auto" : "none", paddingTop: "72px" }}
-          onMouseEnter={handleMegaEnter}
-          onMouseLeave={handleMegaLeave}
-        >
-          <DesktopMegaMenu open={showMegaMenu} />
-        </div>
-      </div>
-
-      {/* Mobile Full-Screen Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 lg:hidden bg-cream-light z-[60] overflow-y-auto"
+            className="fixed inset-0 top-16 lg:hidden bg-card z-[60] overflow-y-auto"
           >
-            <div className="container-custom py-6 pb-32 flex flex-col min-h-full">
-              {/* Navigation */}
-              <nav className="flex flex-col gap-0.5">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.path}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
+            <div className="container-custom py-4 pb-32">
+              <nav className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <div key={link.name}>
                     {link.hasSubmenu ? (
                       <>
                         <button
-                          onClick={() => setMobileFormationsOpen(!mobileFormationsOpen)}
-                          className={`w-full flex items-center gap-3 py-3.5 px-4 rounded-xl text-left transition-colors ${
-                            isFormationActive
-                              ? "text-forest bg-forest/10"
-                              : "text-foreground hover:bg-forest/5"
-                          }`}
+                          onClick={() => setOpenSubmenu(openSubmenu === link.name ? null : link.name)}
+                          className="w-full flex items-center justify-between py-3 px-3 rounded-lg text-sm font-medium text-foreground hover:bg-secondary transition-colors"
                         >
-                          <link.icon className="w-5 h-5 text-forest" />
-                          <span className="text-[15px] font-semibold flex-1">{link.name}</span>
-                          <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${mobileFormationsOpen ? "rotate-180" : ""}`} />
+                          {link.name}
+                          <ChevronDown className={`w-4 h-4 transition-transform ${openSubmenu === link.name ? "rotate-180" : ""}`} />
                         </button>
-
                         <AnimatePresence>
-                          {mobileFormationsOpen && (
+                          {openSubmenu === link.name && (
                             <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden"
                             >
-                              <MobileMegaMenu />
+                              <div className="pl-4 pb-2 space-y-1">
+                                {link.children?.map((child) => (
+                                  <Link
+                                    key={child.path}
+                                    to={child.path}
+                                    className="block py-2.5 px-3 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-secondary transition-colors"
+                                  >
+                                    {child.name}
+                                  </Link>
+                                ))}
+                              </div>
                             </motion.div>
                           )}
                         </AnimatePresence>
                       </>
                     ) : (
                       <Link
-                        to={link.path}
-                        className={`flex items-center gap-3 py-3.5 px-4 rounded-xl text-[15px] font-semibold transition-colors ${
-                          isActive(link.path)
-                            ? "text-forest bg-forest/10"
-                            : "text-foreground hover:bg-forest/5"
-                        }`}
+                        to={link.path!}
+                        className="block py-3 px-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
                       >
-                        <link.icon className="w-5 h-5 text-forest" />
                         {link.name}
                       </Link>
                     )}
-                  </motion.div>
+                  </div>
                 ))}
               </nav>
 
-              {/* Separator + CTAs */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.25 }}
-                className="mt-6 pt-6 border-t border-cream-dark space-y-3"
-              >
+              <div className="mt-6 pt-6 border-t border-border space-y-3">
                 <a
                   href="tel:0188750555"
-                  className="flex items-center gap-3 py-3 px-4 rounded-xl bg-forest/5 font-semibold text-forest"
+                  className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary font-semibold text-primary text-sm"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>01 88 75 05 55</span>
-                  <span className="ml-auto text-xs text-muted-foreground">Appeler</span>
+                  01 88 75 05 55
                 </a>
-
-                <Button asChild className="btn-cta-orange w-full h-12 text-base font-bold">
-                  <Link to="/contact">
-                    S'inscrire à une formation
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-
-                <Button
-                  onClick={() => { openQuoteModal(); setIsMenuOpen(false); }}
-                  variant="outline"
-                  className="w-full h-11 border-forest/20 text-forest"
+                <Link
+                  to="/contact"
+                  className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg flex items-center justify-center gap-2"
                 >
-                  <FileText className="w-4 h-4 mr-2" />
-                  Demander un devis gratuit
-                </Button>
-              </motion.div>
+                  Je m'inscris
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

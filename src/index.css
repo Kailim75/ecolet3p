@@ -1,4 +1,8 @@
-/* Fonts are loaded in index.html with preload for better performance */
+/* Fonts */
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -11,7 +15,7 @@
   }
 }
 
-/* Prevent iOS auto-zoom on focus for all form elements */
+/* Prevent iOS auto-zoom on focus */
 @media screen and (max-width: 767px) {
   input, textarea, select {
     font-size: 16px !important;
@@ -20,62 +24,70 @@
 
 @layer base {
   :root {
-    /* T3P Campus: Forest Green + Warm Cream - Enhanced Contrast */
-    --background: 42 35% 96%;
-    --foreground: 158 54% 18%;
+    /* New ECOLE T3P palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 158 54% 18%;
+    --card-foreground: 0 0% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 158 54% 18%;
-    --primary: 158 54% 20%;
-    --primary-foreground: 42 40% 98%;
-    --secondary: 42 25% 93%;
-    --secondary-foreground: 158 54% 18%;
-    --muted: 42 20% 90%;
-    --muted-foreground: 158 30% 30%;
-    --accent: 38 90% 55%;
-    --accent-foreground: 158 54% 12%;
+    --popover-foreground: 0 0% 13%;
+    --primary: 125 55% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 123 38% 94%;
+    --secondary-foreground: 125 55% 24%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 21 100% 45%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 42 15% 88%;
-    --input: 42 20% 92%;
-    --ring: 158 54% 25%;
-    --radius: 0.75rem;
-    
-    /* Enhanced accent colors */
-    --success: 158 60% 40%;
-    --success-foreground: 0 0% 100%;
-    --warning: 38 90% 55%;
-    --warning-foreground: 158 54% 12%;
-    
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 125 55% 24%;
+    --radius: 0.5rem;
+
     /* CTA Orange */
-    --cta: 28 82% 52%;
-    --cta-hover: 20 100% 41%;
+    --cta: 21 100% 45%;
+    --cta-hover: 21 100% 38%;
     --cta-foreground: 0 0% 100%;
+
+    /* Semantic */
+    --success: 125 55% 24%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 100% 94%;
+    --warning-foreground: 21 100% 45%;
+
+    /* Custom palette */
+    --forest: 125 55% 24%;
+    --forest-hex: #1B5E20;
+    --orange: 21 100% 45%;
+    --orange-hex: #E65100;
+    --green-light: 123 38% 94%;
+    --orange-light: 36 100% 94%;
   }
 
   .dark {
-    --background: 158 54% 6%;
-    --foreground: 42 30% 96%;
-    --card: 158 54% 10%;
-    --card-foreground: 42 30% 96%;
-    --popover: 158 54% 10%;
-    --popover-foreground: 42 30% 96%;
-    --primary: 158 50% 45%;
-    --primary-foreground: 42 30% 98%;
-    --secondary: 158 40% 16%;
-    --secondary-foreground: 42 30% 96%;
-    --muted: 158 40% 14%;
-    --muted-foreground: 42 20% 70%;
-    --accent: 38 90% 58%;
-    --accent-foreground: 158 54% 8%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 125 55% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 125 30% 16%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 21 100% 50%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 158 40% 18%;
-    --input: 158 40% 18%;
-    --ring: 38 90% 58%;
-    --cta: 28 82% 52%;
-    --cta-hover: 20 100% 41%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 125 55% 40%;
+    --cta: 21 100% 50%;
+    --cta-hover: 21 100% 42%;
     --cta-foreground: 0 0% 100%;
   }
 }
@@ -93,8 +105,8 @@
   }
 
   body {
-    @apply bg-background font-sans text-foreground antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
@@ -102,258 +114,103 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight text-forest;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    line-height: 1.1;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    color: hsl(var(--primary));
   }
 
   h1 {
-    @apply text-[32px] md:text-[40px] lg:text-[48px];
+    @apply text-[28px] md:text-[36px] lg:text-[44px];
   }
 
   h2 {
-    @apply text-[24px] md:text-[28px] lg:text-[32px];
+    @apply text-[22px] md:text-[28px] lg:text-[32px];
   }
 
   h3 {
-    @apply text-xl md:text-2xl;
+    @apply text-lg md:text-xl;
+    font-weight: 600;
   }
 }
 
 @layer components {
   /* Container */
   .container-custom {
-    @apply mx-auto max-w-7xl px-5 md:px-8 lg:px-12 2xl:max-w-[1400px];
-  }
-  @media (min-width: 1920px) {
-    .container-custom {
-      max-width: 1600px;
-    }
+    @apply mx-auto max-w-7xl px-5 md:px-8 lg:px-12;
   }
 
-  /* Section padding — 96px desktop / 64px mobile */
+  /* Section padding */
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-14 md:py-20 lg:py-24;
   }
 
-  /* T3P Campus Hero Background - Enhanced Gradient */
-  .hero-bg {
-    background: linear-gradient(180deg, #FBF7EF 0%, #F5EBD7 50%, #EDE3CD 100%);
-  }
-
-  /* T3P Campus Primary Button - Bold & Modern */
-  .btn-primary {
-    @apply inline-flex items-center justify-center font-bold
-           px-8 py-4 rounded-xl transition-all duration-300
-           text-sm tracking-wider uppercase relative overflow-hidden;
-    background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-    color: #FFFFFF;
-    box-shadow: 0 4px 15px rgba(27, 77, 62, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .btn-primary:hover::before {
-    left: 100%;
-  }
-
-  .btn-primary:hover {
-    background: linear-gradient(135deg, #143D31 0%, #1B4D3E 100%);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(27, 77, 62, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  }
-
-  .btn-primary:active {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(27, 77, 62, 0.3);
-  }
-
-  .btn-primary span,
-  .btn-primary svg {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* T3P Campus Secondary Button - Clean & Modern */
-  .btn-secondary {
-    @apply inline-flex items-center justify-center font-bold
-           px-8 py-4 rounded-xl border-2 transition-all duration-300
-           text-sm tracking-wider uppercase relative overflow-hidden;
-    background-color: transparent;
-    border-color: #1B4D3E;
-    color: #1B4D3E;
-  }
-
-  .btn-secondary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-    transition: width 0.3s ease;
-    z-index: 0;
-  }
-
-  .btn-secondary:hover::before {
-    width: 100%;
-  }
-
-  .btn-secondary:hover {
-    color: #FFFFFF;
-    border-color: transparent;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(27, 77, 62, 0.3);
-  }
-
-  .btn-secondary:active {
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary > *,
-  .btn-secondary span,
-  .btn-secondary svg {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* T3P Campus Card - Modern with design-specified depth */
-  .card-livementor {
-    @apply bg-card border border-border/50
-           transition-all duration-300 relative overflow-hidden;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 8px 32px rgba(27, 77, 62, 0.08);
-  }
-
-  .card-livementor::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #1B4D3E, #D4A853, #1B4D3E);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .card-livementor:hover::before {
-    opacity: 1;
-  }
-
-  .card-livementor:hover {
-    border-color: rgba(27, 77, 62, 0.15);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(27, 77, 62, 0.12), 0 8px 16px rgba(27, 77, 62, 0.08);
-  }
-
-  .card-livementor:active {
-    transform: translateY(-4px);
-  }
-
-  /* T3P Campus Section Title - Modern Bold */
-  .section-title {
-    @apply tracking-tight leading-tight;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800;
-    color: #1B4D3E;
-    text-transform: none;
-  }
-
-  .section-subtitle {
-    @apply text-lg md:text-xl max-w-2xl leading-relaxed;
-    color: #5A5A5A;
-  }
-
-  /* T3P Campus Badge - More vibrant */
-  .badge-livementor {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold;
-    background: linear-gradient(135deg, rgba(212, 168, 83, 0.25) 0%, rgba(212, 168, 83, 0.15) 100%);
-    color: #1B4D3E;
-    border: 1px solid rgba(212, 168, 83, 0.3);
-  }
-
-  /* Step Number - Enhanced */
-  .step-number {
-    @apply w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl;
-    background: linear-gradient(135deg, #1B4D3E 0%, #2A5F4D 100%);
-    color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(27, 77, 62, 0.25);
-  }
-
-  /* T3P Campus Stat Number - Gradient accent */
-  .stat-number {
-    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight;
-    background: linear-gradient(135deg, #1B4D3E 0%, #2A6B54 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Hero Gradient - Enhanced depth */
-  .gradient-hero {
-    background: linear-gradient(135deg, #1B4D3E 0%, #1F5545 50%, #2A6B54 100%);
-  }
-
-  /* Warm Gradient Background - Richer */
-  .gradient-warm {
-    background: linear-gradient(180deg, #FBF7EF 0%, #F5EBD7 40%, #EDE3CD 100%);
-  }
-
-  /* Icon Container - Modern */
-  .icon-container {
-    @apply flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-300;
-    background: linear-gradient(135deg, rgba(27, 77, 62, 0.08) 0%, rgba(27, 77, 62, 0.12) 100%);
-    color: #1B4D3E;
-  }
-
-  .icon-container:hover {
-    background: linear-gradient(135deg, rgba(27, 77, 62, 0.12) 0%, rgba(27, 77, 62, 0.18) 100%);
-    transform: scale(1.05);
-  }
-
-  /* CTA Accent Button - Gold variant */
-  .btn-accent {
-    @apply inline-flex items-center justify-center font-bold
-           px-8 py-4 rounded-xl transition-all duration-300
-           text-sm tracking-wider uppercase relative overflow-hidden;
-    background: linear-gradient(135deg, #E67E22 0%, #F39C12 100%);
-    color: #FFFFFF;
-    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.35);
-  }
-
-  .btn-accent:hover {
-    background: linear-gradient(135deg, #D35400 0%, #E67E22 100%);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(230, 126, 34, 0.45);
-  }
-
-  /* CTA Orange Button - High-visibility conversion button */
+  /* CTA Orange Button */
   .btn-cta-orange {
     @apply inline-flex items-center justify-center font-bold
-           px-6 py-3 rounded-xl transition-all duration-300
-           text-sm tracking-wider uppercase;
-    background: linear-gradient(135deg, #E8793A 0%, #F09052 100%);
-    color: #FFFFFF;
-    box-shadow: 0 4px 15px rgba(232, 121, 58, 0.35);
+           px-6 py-3 rounded-lg transition-all duration-300
+           text-sm;
+    background-color: hsl(var(--cta));
+    color: hsl(var(--cta-foreground));
+    box-shadow: 0 4px 14px hsla(var(--cta) / 0.35);
   }
 
   .btn-cta-orange:hover {
-    background: linear-gradient(135deg, #D0682F 0%, #E8793A 100%);
+    background-color: hsl(var(--cta-hover));
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(232, 121, 58, 0.45);
+    box-shadow: 0 8px 24px hsla(var(--cta) / 0.45);
+  }
+
+  /* Primary Button (forest) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-bold
+           px-8 py-4 rounded-lg transition-all duration-300 text-sm;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 4px 14px hsla(var(--primary) / 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px hsla(var(--primary) / 0.35);
+  }
+
+  /* Secondary Button (outline) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-bold
+           px-8 py-4 rounded-lg border-2 transition-all duration-300 text-sm;
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-2px);
+  }
+
+  /* Card style */
+  .card-t3p {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .card-t3p:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  /* Section title */
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: hsl(var(--primary));
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg max-w-2xl leading-relaxed;
+    color: hsl(var(--muted-foreground));
   }
 
   /* Safe area for mobile sticky bar */
@@ -361,293 +218,88 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  /* Text Colors */
-  .text-forest {
-    color: #1B4D3E;
-  }
-
-  .text-gold {
-    color: #D4A853;
-  }
-
-  .text-cream {
-    color: #F5EBD7;
-  }
-
-  /* Background Colors */
-  .bg-forest {
-    background-color: #1B4D3E;
-  }
-
-  .bg-cream {
-    background-color: #F5EBD7;
-  }
-
-  .bg-gold {
-    background-color: #D4A853;
+  /* Stat number */
+  .stat-number {
+    @apply text-3xl md:text-4xl font-bold;
+    color: hsl(var(--primary));
   }
 }
 
 @layer utilities {
-  .duration-250 {
-    transition-duration: 250ms;
-  }
-
-  /* Icon hover effects */
-  .icon-hover {
-    @apply transition-all duration-300;
-  }
-
-  .icon-hover:hover {
-    transform: scale(1.1) rotate(5deg);
-  }
-
-  /* Link underline animation */
-  .link-underline {
-    @apply relative;
-  }
-
-  .link-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #D4A853;
-    transition: width 0.3s ease;
-  }
-
-  .link-underline:hover::after {
-    width: 100%;
-  }
-
-  /* Magnetic button effect placeholder */
-  .magnetic-hover {
-    @apply transition-transform duration-200;
-  }
-
-  /* Glow effect on hover */
-  .glow-hover {
-    @apply transition-all duration-300;
-  }
-
-  .glow-hover:hover {
-    box-shadow: 0 0 20px rgba(212, 168, 83, 0.4), 0 0 40px rgba(212, 168, 83, 0.2);
-  }
-
-  /* Pulse animation for CTAs */
-  .pulse-subtle {
-    animation: pulse-subtle 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-subtle {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(27, 77, 62, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 10px rgba(27, 77, 62, 0);
-    }
-  }
-
-  /* Shake animation for attention */
-  .shake-hover:hover {
-    animation: shake 0.5s ease-in-out;
-  }
-
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-3px) rotate(-1deg); }
-    75% { transform: translateX(3px) rotate(1deg); }
-  }
-
-  /* Bounce subtle */
-  .bounce-hover:hover {
-    animation: bounce-subtle 0.4s ease;
-  }
-
-  @keyframes bounce-subtle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-  }
-
-  /* Text shimmer effect */
-  .shimmer-text {
-    background: linear-gradient(90deg, #1B4D3E 0%, #D4A853 50%, #1B4D3E 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .shimmer-text:hover {
-    animation: shimmer 2s linear infinite;
-  }
-
-  @keyframes shimmer {
-    to {
-      background-position: 200% center;
-    }
-  }
-
-  /* Scroll animation utility classes */
+  /* Scroll animation */
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
   .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
-
-  /* ===== Blog Article Content Styles ===== */
-  .article-content {
-    @apply text-base leading-relaxed;
-    color: hsl(var(--muted-foreground));
-  }
-
-  .article-content h2 {
-    @apply text-2xl md:text-3xl font-black uppercase tracking-wide mt-14 mb-6 pb-3;
-    color: hsl(var(--foreground));
-    border-bottom: 3px solid hsl(var(--accent));
-  }
-
-  .article-content h3 {
-    @apply text-lg md:text-xl font-bold mt-8 mb-4;
-    color: hsl(var(--foreground));
-  }
-
-  .article-content p {
-    @apply mb-5 leading-relaxed;
-  }
-
-  .article-content strong {
-    color: hsl(var(--foreground));
-    @apply font-semibold;
-  }
-
-  .article-content a {
-    color: hsl(var(--foreground));
-    @apply font-semibold underline underline-offset-4 decoration-gold/50 hover:decoration-gold transition-colors;
-  }
-
-  .article-content ul {
-    @apply my-6 space-y-2 pl-0;
-    list-style: none;
-  }
-
-  .article-content ul li {
-    @apply pl-6 relative leading-relaxed;
-  }
-
-  .article-content ul li::before {
-    content: '';
-    @apply absolute left-0 top-2.5 w-2 h-2 rounded-full;
-    background: hsl(var(--accent));
-  }
-
-  .article-content ul li.check-item,
-  .article-content ul li.cross-item,
-  .article-content ul li.doc-item {
-    @apply pl-0;
-  }
-
-  .article-content ul li.check-item::before,
-  .article-content ul li.cross-item::before,
-  .article-content ul li.doc-item::before {
-    display: none;
-  }
-
-  .article-content .table-wrapper {
-    @apply my-8 overflow-x-auto rounded-xl border border-border shadow-soft;
-  }
-
-  .article-content table {
-    @apply w-full text-sm;
-    border-collapse: collapse;
-  }
-
-  .article-content thead th {
-    @apply px-4 py-3 text-left font-bold text-sm uppercase tracking-wider;
-    background: hsl(var(--foreground));
-    color: hsl(var(--primary-foreground));
-  }
-
-  .article-content thead th:first-child {
-    @apply rounded-tl-xl;
-  }
-
-  .article-content thead th:last-child {
-    @apply rounded-tr-xl;
-  }
-
-  .article-content tbody td {
-    @apply px-4 py-3 border-b;
-    border-color: hsl(var(--border));
-  }
-
-  .article-content tbody tr:last-child td {
-    @apply border-b-0;
-  }
-
-  .article-content tbody tr:hover {
-    background: hsl(var(--muted) / 0.5);
-  }
 }
 
-/* Hero shimmer effect on CTA button */
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 200%; }
+/* Blog article styles */
+.article-content {
+  @apply text-base leading-relaxed;
+  color: hsl(var(--muted-foreground));
 }
 
-.cta-shimmer {
-  position: relative;
-  overflow: hidden;
+.article-content h2 {
+  @apply text-2xl md:text-3xl font-bold mt-12 mb-5 pb-3;
+  color: hsl(var(--foreground));
+  border-bottom: 3px solid hsl(var(--accent));
 }
 
-.cta-shimmer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  animation: shimmer 1.5s ease-in-out 1s 1;
-  pointer-events: none;
+.article-content h3 {
+  @apply text-lg md:text-xl font-semibold mt-8 mb-4;
+  color: hsl(var(--foreground));
 }
 
-/* CTA hover enhancement */
-.cta-shimmer:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(243, 156, 18, 0.5) !important;
+.article-content p {
+  @apply mb-5 leading-relaxed;
 }
 
-/* Hero floating card animation */
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+.article-content strong {
+  color: hsl(var(--foreground));
+  @apply font-semibold;
 }
 
-.hero-float {
-  animation: hero-float 3s ease-in-out infinite;
+.article-content a {
+  color: hsl(var(--primary));
+  @apply font-semibold underline underline-offset-4;
 }
 
-/* Places bar pulse animation */
-@keyframes places-pulse {
-  0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(1.01); }
+.article-content ul {
+  @apply my-6 space-y-2 pl-6;
+  list-style: disc;
 }
 
-.places-bar-pulse {
-  animation: places-pulse 3s ease-in-out infinite;
-  transform-origin: left;
+.article-content .table-wrapper {
+  @apply my-8 overflow-x-auto rounded-xl border border-border;
 }
 
-/* Mobile homepage optimizations — anti-overflow + typography */
+.article-content table {
+  @apply w-full text-sm;
+  border-collapse: collapse;
+}
+
+.article-content thead th {
+  @apply px-4 py-3 text-left font-bold text-sm;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.article-content tbody td {
+  @apply px-4 py-3 border-b;
+  border-color: hsl(var(--border));
+}
+
+.article-content tbody tr:hover {
+  background: hsl(var(--muted));
+}
+
+/* Mobile overflow fix */
 @media (max-width: 767px) {
   html, body {
     overflow-x: hidden;
@@ -660,11 +312,10 @@
   }
 }
 
-/* Accessibility: disable animations for reduced-motion users */
+/* Accessibility: disable animations for reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .cta-shimmer::after,
-  .hero-float,
-  .places-bar-pulse {
-    animation: none !important;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
