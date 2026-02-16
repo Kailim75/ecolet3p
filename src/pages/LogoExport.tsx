@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { EcoleT3PLogo, EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowLeft } from "lucide-react";
@@ -11,6 +12,7 @@ const LogoExport = () => {
 
   return (
     <>
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       {/* Navigation bar - hidden when printing */}
       <div className="print:hidden bg-cream p-4 border-b border-forest/10 sticky top-0 z-50">
         <div className="max-w-4xl mx-auto flex items-center justify-between">

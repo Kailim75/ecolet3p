@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Check, X } from "lucide-react";
 import { EcoleT3PInstitutional, EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
@@ -6,6 +7,7 @@ import { EcoleT3PInstitutional, EcoleT3PMonogram } from "@/components/logo/Ecole
 const LogoInstitutional = () => {
   return (
     <div className="min-h-screen bg-[#F8F6F3] p-8">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <div className="max-w-5xl mx-auto">
         {/* Back link */}
         <Link 
