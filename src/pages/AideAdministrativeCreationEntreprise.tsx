@@ -11,6 +11,7 @@ import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const whyChooseUs = [
@@ -219,6 +220,56 @@ const AideAdministrativeCreationEntreprise = () => {
           </div>
         </div>
       </section>
+
+      {/* AVANT / APRÈS */}
+      <BeforeAfterBlock
+        title="De la paperasse au premier client"
+        subtitle="Nos stagiaires témoignent du gain de temps et de sérénité apporté par notre accompagnement."
+        transformations={[
+          {
+            name: "Rachid A.", initials: "RA", formation: "Aide administrative",
+            before: [
+              { label: "Démarches", value: "Bloqué depuis 3 semaines" },
+              { label: "Dossier préfecture", value: "Incomplet, refusé 2 fois" },
+              { label: "Stress", value: "Prêt à abandonner" },
+            ],
+            after: [
+              { label: "Démarches", value: "Tout lancé en 1 journée" },
+              { label: "Dossier préfecture", value: "Accepté du premier coup" },
+              { label: "Activité", value: "Première course 3 semaines après" },
+            ],
+            quote: "J'avais perdu 3 semaines à tourner en rond. En une journée chez ECOLE T3P, tout était réglé. Je roulais 3 semaines plus tard.",
+          },
+          {
+            name: "Linda M.", initials: "LM", formation: "Aide administrative",
+            before: [
+              { label: "URSSAF", value: "Ne savait pas par où commencer" },
+              { label: "Plateformes", value: "Inscription jamais finalisée" },
+              { label: "Temps perdu", value: "+2 mois sans rouler" },
+            ],
+            after: [
+              { label: "URSSAF", value: "Déclaration d'activité faite" },
+              { label: "Plateformes", value: "Inscrite sur Uber, Bolt, Marcel" },
+              { label: "Délai", value: "Active en 10 jours" },
+            ],
+            quote: "Sans leur aide, j'aurais encore perdu des mois. Ils ont tout fait en une journée, même l'inscription sur les plateformes.",
+          },
+          {
+            name: "Jean-Pierre V.", initials: "JV", formation: "Aide administrative",
+            before: [
+              { label: "Assurance", value: "RC Pro non souscrite" },
+              { label: "Compte pro", value: "Pas encore ouvert" },
+              { label: "Situation", value: "Carte pro obtenue mais inactif" },
+            ],
+            after: [
+              { label: "Assurance", value: "RC Pro au meilleur tarif" },
+              { label: "Compte pro", value: "Ouvert et opérationnel" },
+              { label: "Situation", value: "En activité, 100% en règle" },
+            ],
+            quote: "J'avais ma carte pro depuis 2 mois mais je ne savais pas quoi faire ensuite. Ils ont débloqué la situation en un jour.",
+          },
+        ]}
+      />
 
       {/* 4. PROGRAMME STRUCTURÉ — Ce que nous faisons */}
       <section className="section-padding bg-background">
