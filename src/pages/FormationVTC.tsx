@@ -5,7 +5,7 @@ import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
 const FormationVTC = () => (
   <FormationPageTemplate
     title="Formation VTC Montrouge 92 — 94% Réussite | 990€"
-    description="Devenez chauffeur VTC avec ECOLE T3P à Montrouge. Formation agréée, 94% de réussite. 990€ payable en 4x sans frais via Alma."
+    description="Devenez chauffeur VTC avec ECOLE T3P à Montrouge (92). Formation agréée Préfecture, 94% de réussite, 990€ tout compris payable en 4x sans frais. Uber, Bolt, Heetch."
     canonical="https://www.ecolet3p.fr/formations/vtc"
     ogTitle="Formation VTC Initiale à Montrouge — ECOLE T3P"
     ogDescription="Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais."
@@ -29,9 +29,14 @@ const FormationVTC = () => (
     ]}
     ctaTitle="Prêt à devenir chauffeur VTC ? Je m'inscris maintenant"
     crossSellLinks={[
-      { title: "Location véhicule examen", desc: "Véhicule conforme + 2h de conduite dès 189€", path: "/services/location-vehicule-examen" },
-      { title: "Gestion d'activité chauffeur", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
-      { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez votre double carte en 14h", path: "/passerelle-vtc-taxi" },
+      { title: "Location véhicule examen VTC", desc: "Véhicule conforme + 2h de conduite dès 189€", path: "/services/location-vehicule-examen" },
+      { title: "Accompagnement gestion d'activité VTC", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
+      { title: "Passerelle VTC → Taxi", desc: "Obtenez votre double carte professionnelle en 14h — 665€", path: "/passerelle-vtc-taxi" },
+    ]}
+    blogLinks={[
+      { title: "Comment devenir chauffeur VTC en 2026 : le guide complet", desc: "Étapes, prérequis, financement et conseils pour réussir", path: "/blog/comment-devenir-chauffeur-vtc-2026" },
+      { title: "Quel statut juridique choisir : micro-entreprise ou SASU ?", desc: "Comparaison fiscale et sociale pour les chauffeurs T3P", path: "/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026" },
+      { title: "Carte professionnelle VTC : obtention et renouvellement", desc: "Tout savoir sur la carte pro VTC et ses démarches", path: "/blog/carte-professionnelle-vtc" },
     ]}
     premiumPrice={1190}
     premiumLabel="PREMIUM"
@@ -67,23 +72,30 @@ const FormationVTC = () => (
       { name: "Thomas G.", role: "Chauffeur VTC indépendant", content: "Excellente formation, très complète sur les aspects juridiques et commerciaux. Le module sur les applications m'a permis d'optimiser mes revenus.", rating: 5 },
     ]}
     faqs={[
-      { question: "Quelle est la différence entre taxi et VTC ?", answer: "Le taxi peut prendre des clients dans la rue (maraude) et a accès aux bornes taxi. Le VTC travaille uniquement sur réservation préalable via des applications ou contrats." },
-      { question: "Combien peut gagner un chauffeur VTC ?", answer: "En moyenne, un chauffeur VTC à temps plein peut générer entre 3000€ et 5000€ de chiffre d'affaires mensuel avant charges." },
-      { question: "Faut-il avoir son propre véhicule ?", answer: "Non, vous pouvez louer un véhicule VTC auprès de sociétés spécialisées (LOA, LLD) ou travailler comme salarié d'une société VTC." },
-      { question: "Combien de temps dure la formation VTC ?", answer: "La formation VTC est disponible en journée (1 semaine), en soirée (2 semaines) ou en e-learning (illimité jusqu'à l'examen)." },
-      { question: "Puis-je travailler pour Uber après la formation ?", answer: "Oui, une fois votre carte professionnelle VTC obtenue, vous pouvez vous inscrire sur toutes les plateformes : Uber, Bolt, Heetch, etc." },
-      { question: "Comment se passe l'examen VTC ?", answer: "L'examen se compose de 7 épreuves : réglementation des transports, gestion, sécurité routière, français, anglais, développement commercial et réglementation locale." },
+      { question: "Quelle est la différence entre taxi et VTC ?", answer: "Le taxi peut prendre des clients dans la rue (maraude) et a accès aux bornes taxi. Le VTC travaille uniquement sur réservation préalable via des applications comme Uber, Bolt ou Heetch, ou par contrat direct avec des entreprises et hôtels." },
+      { question: "Combien peut gagner un chauffeur VTC en 2026 ?", answer: "Un chauffeur VTC à temps plein en Île-de-France peut générer entre 3 000€ et 6 000€ de chiffre d'affaires mensuel brut. Le revenu net dépend du statut juridique choisi (micro-entreprise : environ 70% du CA, SASU : variable selon les charges). Les chauffeurs multi-apps optimisent leurs revenus en combinant Uber, Bolt et Heetch." },
+      { question: "Faut-il avoir son propre véhicule pour exercer en VTC ?", answer: "Non. Plusieurs options existent : la location longue durée (LLD) à partir de 800€/mois, la location avec option d'achat (LOA), le travail comme salarié d'une société VTC, ou l'achat d'un véhicule conforme aux normes VTC (moins de 6 ans, 4 portes minimum)." },
+      { question: "Combien de temps dure la formation VTC à ECOLE T3P ?", answer: "Trois formats sont proposés au même tarif de 990€ : en journée (1 semaine, 9h30-16h30), en soirée (2 semaines, 18h-21h30) pour ceux qui travaillent, ou en e-learning (accès illimité jusqu'à l'examen). Les trois formats préparent au même examen T3P organisé par la CMA." },
+      { question: "Puis-je travailler pour Uber après la formation ?", answer: "Oui, dès l'obtention de votre carte professionnelle VTC délivrée par la Préfecture. Vous pouvez vous inscrire sur toutes les plateformes : Uber, Bolt, Heetch, Marcel, Kapten, etc. Notre module 'Applications et plateformes' vous prépare spécifiquement à optimiser vos revenus sur ces applications." },
+      { question: "Comment se déroule l'examen VTC à la CMA ?", answer: "L'examen T3P se compose de 7 épreuves écrites sous forme de QCM : réglementation des transports (T3P), gestion d'entreprise, sécurité routière, français, anglais, développement commercial et réglementation locale. Il faut obtenir une moyenne générale de 10/20 avec aucune note éliminatoire en dessous de 6/20. L'examen a lieu à la Chambre de Métiers et de l'Artisanat (CMA)." },
+      { question: "Quels sont les documents nécessaires pour s'inscrire à la formation VTC ?", answer: "Pour vous inscrire, vous aurez besoin de : une pièce d'identité valide, votre permis B (3 ans d'ancienneté minimum), un justificatif de domicile, une photo d'identité et une attestation de visite médicale préfectorale. Notre équipe administrative vous accompagne dans la constitution de votre dossier." },
+      { question: "La formation VTC est-elle éligible au CPF ?", answer: "La formation VTC initiale n'est pas éligible au CPF. Cependant, ECOLE T3P propose le paiement en 4 fois sans frais via Alma (247,50€/mois) et des facilités de paiement personnalisées. Le tarif de 990€ inclut déjà les frais d'examen (241€), les 2 heures de conduite et le véhicule pour l'examen." },
+      { question: "Quel statut juridique choisir pour exercer en VTC ?", answer: "Les deux principaux statuts sont la micro-entreprise (simple, charges réduites à 22%, plafond CA 77 700€) et la SASU (plus complexe mais récupération TVA, dividendes possibles). En début d'activité, la micro-entreprise est souvent recommandée. Notre module Gestion d'entreprise compare ces deux statuts en détail." },
     ]}
     seoContent={[
-      { title: "Présentation de la formation VTC", text: "La formation VTC initiale dispensée par ECOLE T3P à Montrouge est un parcours complet destiné aux candidats souhaitant obtenir leur carte professionnelle de conducteur de voiture de transport avec chauffeur. Disponible en journée, soirée ou e-learning. Notre centre, agréé par la Préfecture des Hauts-de-Seine, affiche un taux de réussite de 94% avec plus de 359 avis 5 étoiles sur Google." },
-      { title: "Débouchés après la formation VTC", text: "Une fois votre carte professionnelle VTC en poche, plusieurs options s'offrent à vous : exercer en tant que chauffeur VTC indépendant sous le statut de micro-entrepreneur ou SASU, devenir salarié d'une société de VTC, ou travailler via les plateformes de réservation telles qu'Uber, Bolt ou Heetch." },
-      { title: "Financement de la formation", text: "ECOLE T3P facilite l'accès à la formation avec le paiement en 4 fois sans frais via Alma et un échelonnement personnalisé. Notre équipe administrative vous accompagne dans toutes vos démarches." },
+      { title: "Devenir chauffeur VTC en 2026 : un métier en pleine croissance", text: "Le métier de chauffeur VTC (Voiture de Transport avec Chauffeur) connaît une croissance soutenue en Île-de-France, portée par la demande des plateformes Uber, Bolt et Heetch. En 2026, la profession compte plus de 50 000 chauffeurs actifs en France, dont plus de 30 000 en région parisienne. ECOLE T3P, centre de formation agréé par la Préfecture des Hauts-de-Seine situé au 3 rue Corneille à Montrouge (92120), forme les futurs chauffeurs VTC depuis 2014 avec un taux de réussite de 94% et plus de 2 000 professionnels accompagnés." },
+      { title: "Le cadre réglementaire de la profession VTC", text: "L'activité de chauffeur VTC est strictement encadrée par la loi Thévenoud de 2014 et la loi Grandguillaume de 2016. Pour exercer légalement, tout chauffeur VTC doit être titulaire d'une carte professionnelle délivrée par la Préfecture après réussite à l'examen T3P organisé par la Chambre de Métiers et de l'Artisanat (CMA). La carte professionnelle VTC est valable 5 ans et doit être renouvelée par une formation continue de 14 heures. Le chauffeur VTC ne peut prendre de clients qu'en réservation préalable (pas de maraude ni de borne), ce qui le distingue du taxi." },
+      { title: "Programme complet de la formation VTC ECOLE T3P", text: "Notre formation VTC initiale couvre l'ensemble des 7 matières de l'examen T3P : réglementation du transport public particulier de personnes, gestion d'entreprise, sécurité routière, langue française, langue anglaise, développement commercial et réglementation locale. Le programme inclut également des mises en situation pratiques, 2 heures de conduite avec un moniteur diplômé d'État et la mise à disposition du véhicule le jour de l'examen. Nos formateurs, tous issus du métier, vous transmettent leur expertise terrain en plus des connaissances théoriques." },
+      { title: "Revenus et perspectives d'un chauffeur VTC en Île-de-France", text: "Un chauffeur VTC débutant en Île-de-France peut espérer un chiffre d'affaires mensuel de 3 000€ à 4 500€. Avec l'expérience et l'optimisation multi-plateformes (combinaison Uber + Bolt + Heetch), les chauffeurs confirmés atteignent régulièrement 5 000€ à 6 000€ de CA mensuel. Les charges varient selon le statut : en micro-entreprise, comptez environ 22% de cotisations sociales. Les postes de dépenses principaux sont la location du véhicule (800€-1 200€/mois), le carburant ou la recharge électrique, et l'assurance professionnelle." },
+      { title: "Pourquoi choisir ECOLE T3P pour votre formation VTC à Montrouge ?", text: "ECOLE T3P se distingue par son approche tout compris à 990€ : frais d'examen CMA (241€) inclus, 2 heures de conduite incluses, véhicule mis à disposition pour l'examen et accompagnement administratif pour la création de votre entreprise. Notre centre situé à Montrouge est accessible par le métro ligne 4 (Mairie de Montrouge), à 2 minutes à pied. Avec 359 avis Google à 5 étoiles et un taux de réussite de 94%, nous sommes le centre de formation T3P de référence dans les Hauts-de-Seine (92)." },
+      { title: "Les étapes pour obtenir votre carte professionnelle VTC", text: "Le parcours pour devenir chauffeur VTC suit 5 étapes clés : 1) Vérifier les prérequis (21 ans, permis B 3 ans, casier vierge, visite médicale). 2) S'inscrire à la formation VTC chez ECOLE T3P (990€, 3 formats disponibles). 3) Réussir l'examen T3P à la CMA (7 épreuves QCM). 4) Déposer le dossier de carte professionnelle à la Préfecture (délai : 2 à 4 semaines). 5) Créer votre entreprise (micro-entreprise ou SASU) et vous inscrire au registre VTC. Notre équipe vous accompagne à chaque étape, de l'inscription jusqu'à votre première course." },
+      { title: "Formation VTC accessible depuis tout le sud de Paris", text: "Situé à Montrouge, au carrefour des Hauts-de-Seine (92) et de Paris, notre centre de formation VTC est facilement accessible depuis Bagneux, Malakoff, Châtillon, Vanves, Issy-les-Moulineaux, Clamart, Boulogne-Billancourt, Antony et le 14ème arrondissement de Paris. Le métro ligne 4 (station Mairie de Montrouge) est à 2 minutes à pied. Un parking est disponible à proximité pour ceux qui viennent en voiture." },
     ]}
     relatedLinks={[
-      { title: "Formation Taxi", desc: "Découvrez notre formation Taxi initiale", path: "/formations/taxi" },
-      { title: "Formation VMDTR", desc: "Formation VMDTR moto-taxi professionnelle", path: "/formations/vmdtr" },
-      { title: "Passerelle Mobilité", desc: "Passerelle VTC vers Taxi ou Taxi vers VTC", path: "/formations/mobilite" },
-      { title: "Contact", desc: "Contactez-nous pour vous inscrire", path: "/contact" },
+      { title: "Formation Taxi initiale à Montrouge", desc: "Obtenez votre carte professionnelle Taxi — 990€ tout compris", path: "/formations/taxi" },
+      { title: "Formation VMDTR moto-taxi", desc: "Devenez conducteur moto-taxi professionnel", path: "/formations/vmdtr" },
+      { title: "Passerelle VTC ↔ Taxi", desc: "Double carte professionnelle en 14h — 665€", path: "/passerelle-vtc-taxi" },
+      { title: "Renouvellement carte professionnelle VTC", desc: "Formation continue obligatoire tous les 5 ans", path: "/renouvellement-carte-professionnelle" },
     ]}
   />
 );

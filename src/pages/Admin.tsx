@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -318,6 +319,7 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-cream">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       {/* Header */}
       <header className="bg-forest text-cream py-4 px-6 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

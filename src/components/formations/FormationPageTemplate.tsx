@@ -83,6 +83,7 @@ interface FormationPageProps {
   seoContent: { title: string; text: string }[];
   includes?: string[];
   crossSellLinks?: { title: string; desc: string; path: string }[];
+  blogLinks?: { title: string; desc: string; path: string }[];
   ctaTitle?: string;
 
   // Pricing
@@ -98,7 +99,7 @@ const FormationPageTemplate = ({
   duration, price, thirdTag,
   category, profession, programModules, prerequisites,
   testimonials, faqs, relatedLinks, seoContent,
-  includes, crossSellLinks, ctaTitle,
+  includes, crossSellLinks, blogLinks, ctaTitle,
   premiumPrice, premiumLabel, premiumFeatures, essentielFeatures,
 }: FormationPageProps) => {
   const [showPreRegistration, setShowPreRegistration] = useState(false);
@@ -564,7 +565,26 @@ const FormationPageTemplate = ({
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Blog Articles utiles */}
+      {blogLinks && blogLinks.length > 0 && (
+        <section className="section-padding bg-background">
+          <div className="container-custom">
+            <h2 className="section-title text-center mb-8">Articles utiles</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {blogLinks.map((link, i) => (
+                <Link key={i} to={link.path} className="card-t3p group">
+                  <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
+                  <p className="text-xs text-muted-foreground">{link.desc}</p>
+                  <span className="text-xs font-semibold text-accent mt-2 inline-flex items-center gap-1">
+                    Lire l'article <ArrowRight className="w-3 h-3" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="py-16 bg-primary">
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{ctaTitle || "Prêt à vous lancer ?"}</h2>
