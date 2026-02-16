@@ -1,8 +1,23 @@
 // Local SEO data for city-specific landing pages
+import { Trophy, MapPin, Shield, CreditCard, Clock, GraduationCap, Car, Users } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export interface LocalFaq {
   question: string;
   answer: string;
+}
+
+export interface WhyChooseItem {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+}
+
+export interface LocalTestimonial {
+  name: string;
+  role: string;
+  content: string;
+  city: string;
 }
 
 export interface CityData {
@@ -24,13 +39,37 @@ export interface CityData {
   seoKeywords: string[];
   latitude: number;
   longitude: number;
+  // Enriched fields (optional — for priority cities)
+  introTitle?: string;
+  introText?: string[];
+  detailedAccess?: string;
+  whyChoose?: WhyChooseItem[];
+  enrichedFaqs?: LocalFaq[];
 }
 
-/**
- * Generate 3 unique local FAQ questions for a given city.
- * Each city gets contextual questions based on its transport access and distance.
- */
+/** Pool of testimonials attributed by department */
+const testimonialPool: LocalTestimonial[] = [
+  { name: "Moussa K.", role: "Chauffeur VTC diplômé en 2025", content: "J'ai hésité longtemps avant de me lancer. La formation à ECOLE T3P m'a donné confiance : les formateurs sont d'anciens chauffeurs qui comprennent nos questions. J'ai eu ma carte VTC du premier coup et je travaille aujourd'hui sur Uber et Bolt.", city: "Val-de-Marne" },
+  { name: "Fatou D.", role: "Chauffeure Taxi diplômée en 2024", content: "Après 15 ans en restauration, j'ai voulu changer de vie. ECOLE T3P m'a accompagnée de A à Z : formation, examen, création d'entreprise. Le centre est bien situé, j'y allais en RER sans problème. Aujourd'hui je suis artisan taxi à mon compte.", city: "Essonne" },
+  { name: "Rachid B.", role: "Chauffeur VTC diplômé en 2025", content: "Le format soirée m'a permis de continuer à travailler pendant la formation. Les formateurs donnent des conseils concrets pour réussir l'examen CMA et optimiser son activité ensuite. J'ai obtenu ma carte du premier coup.", city: "Seine-Saint-Denis" },
+  { name: "Thomas L.", role: "Double carte Taxi + VTC en 2025", content: "J'ai d'abord passé ma carte VTC, puis la passerelle Taxi. Aujourd'hui je jongle entre les deux activités et j'ai doublé mon chiffre d'affaires. ECOLE T3P est le seul centre qui m'a proposé cet accompagnement complet.", city: "Hauts-de-Seine" },
+  { name: "Amadou S.", role: "Conducteur VMDTR diplômé en 2024", content: "Passionné de moto, j'ai découvert le métier de VMDTR grâce à ECOLE T3P. La formation est intensive mais les formateurs sont patients et expérimentés. Je fais maintenant du transport moto-taxi vers les aéroports.", city: "Yvelines" },
+  { name: "Nadia M.", role: "Chauffeure VTC diplômée en 2025", content: "En tant que mère de famille, le e-learning a été parfait pour moi. J'ai pu réviser à mon rythme tout en gardant mes enfants. L'examen s'est très bien passé grâce à la préparation complète d'ECOLE T3P.", city: "Paris" },
+];
+
+/** Get a testimonial matched to the city's department */
+export const getTestimonialForCity = (city: CityData): LocalTestimonial => {
+  const match = testimonialPool.find(t => t.city === city.department);
+  if (match) return { ...match, city: city.name };
+  const hash = city.name.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  const t = testimonialPool[hash % testimonialPool.length];
+  return { ...t, city: city.name };
+};
+
+/** Generate local FAQs — uses enriched FAQs if available */
 export const getLocalFaqs = (city: CityData): LocalFaq[] => {
+  if (city.enrichedFaqs && city.enrichedFaqs.length > 0) return city.enrichedFaqs;
+
   const transport = city.metroAccess 
     ? `en métro (${city.metroAccess.split(' - ')[0]})`
     : city.trainAccess
@@ -40,18 +79,12 @@ export const getLocalFaqs = (city: CityData): LocalFaq[] => {
     : `en bus (${city.busAccess?.split(',')[0]?.trim() || 'lignes locales'})`;
 
   return [
-    {
-      question: `Comment se rendre au centre ECOLE T3P depuis ${city.name} ?`,
-      answer: `Depuis ${city.name} (${city.postalCodes[0]}), rejoignez notre centre au 3 rue Corneille à Montrouge en ${city.travelTime} ${transport}. ${city.busAccess ? `Les lignes de bus ${city.busAccess} desservent également le trajet.` : ''} Notre centre se situe à ${city.distanceFromCenter} de ${city.name}.`
-    },
-    {
-      question: `Quelles formations sont accessibles aux habitants de ${city.name} ?`,
-      answer: `Les habitants de ${city.name} ont accès à l'ensemble de nos formations : Formation Taxi initiale, Formation VTC, Formation VMDTR moto-taxi, Formation Mobilité passerelle Taxi↔VTC, ainsi que les formations continues obligatoires. Toutes sont dispensées dans notre centre agréé Préfecture à Montrouge, en journée, en soirée ou en e-learning.`
-    },
-    {
-      question: `Y a-t-il des horaires adaptés pour les stagiaires venant de ${city.name} ?`,
-      answer: `Oui, nous proposons des sessions en journée (9h-17h) et en soirée (18h-22h) pour s'adapter aux contraintes des stagiaires de ${city.name} et des communes voisines. Le trajet de ${city.travelTime} depuis ${city.name} permet de suivre la formation sans difficulté, quel que soit le format choisi.`
-    }
+    { question: `Comment se rendre au centre ECOLE T3P depuis ${city.name} ?`, answer: `Depuis ${city.name} (${city.postalCodes[0]}), rejoignez notre centre au 3 rue Corneille à Montrouge en ${city.travelTime} ${transport}. ${city.busAccess ? `Les lignes de bus ${city.busAccess} desservent également le trajet.` : ''} Notre centre se situe à ${city.distanceFromCenter} de ${city.name}.` },
+    { question: `Quelles formations sont accessibles aux habitants de ${city.name} ?`, answer: `Les habitants de ${city.name} ont accès à toutes nos formations : Taxi (990€), VTC (990€), VMDTR (990€), Passerelle Taxi↔VTC (665€), et formations continues (170-239€). Centre agréé Préfecture à Montrouge. Formats : journée, soirée ou e-learning.` },
+    { question: `Y a-t-il des horaires adaptés pour les stagiaires de ${city.name} ?`, answer: `Oui : sessions en journée (9h30-16h30), soirée (18h-21h30) et e-learning illimité. Le trajet de ${city.travelTime} depuis ${city.name} permet de suivre la formation sans difficulté. Même tarif pour les 3 formats.` },
+    { question: `Combien coûte la formation Taxi ou VTC ?`, answer: `990€ tout compris : frais d'examen CMA (241€) inclus, 2h de conduite et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois).` },
+    { question: `ECOLE T3P est-elle agréée par la Préfecture ?`, answer: `Oui, agrément n° 23/007 de la Préfecture des Hauts-de-Seine. Taux de réussite de 94%, +2 000 chauffeurs formés depuis 2014, noté 5.0/5 sur Google (359 avis).` },
+    { question: `Quel est le taux de réussite aux examens ?`, answer: `94% de réussite, bien au-dessus de la moyenne nationale. Ce résultat s'explique par nos formateurs experts (anciens chauffeurs professionnels) et notre préparation intensive à l'examen CMA.` },
   ];
 };
 
@@ -252,9 +285,15 @@ export const cities: CityData[] = [
     distanceFromCenter: "4 km",
     travelTime: "15 minutes en RER + bus",
     nearbyLandmarks: ["Parc de Sceaux", "Château de Sceaux"],
-    localContext: "Sceaux, ville historique connue pour son magnifique parc, attire des candidats soucieux de qualité. Notre centre de formation est accessible en 15 minutes pour les Scéens souhaitant obtenir leur carte professionnelle TAXI ou VTC.",
-    seoTitle: "Formation Taxi VTC Sceaux (92330) | ECOLE T3P - Centre à 15 min",
-    seoDescription: "Formation TAXI et VTC à Sceaux (92330). Centre ECOLE T3P à 15 min en RER B. Formation agréée Préfecture, 94% de réussite. Proche du Parc de Sceaux.",
+    localContext: "Sceaux, ville historique célèbre pour son parc classé et son château, attire des candidats soucieux de qualité. Les Scéens rejoignent notre centre en 15 minutes via le RER B jusqu'à Bourg-la-Reine puis le bus 128.",
+    introTitle: "Sceaux — Formation Taxi & VTC à 15 minutes de chez vous",
+    introText: [
+      "Vous habitez Sceaux, le quartier des Blagis ou près du Parc de Sceaux ? Notre centre de formation à Montrouge est le plus proche et le plus accessible. Depuis la gare RER B de Sceaux, rejoignez-nous en 15 minutes via Bourg-la-Reine et le bus 128.",
+      "Sceaux, avec ses quartiers résidentiels prisés et sa proximité avec Antony et Bourg-la-Reine, représente un vivier de futurs chauffeurs professionnels. La demande de transport est soutenue dans le sud des Hauts-de-Seine, notamment vers les aéroports et le centre de Paris."
+    ],
+    detailedAccess: "Depuis la gare RER B de Sceaux, prenez le RER B direction Paris (3 min jusqu'à Bourg-la-Reine). Puis le bus 128 jusqu'à Mairie de Montrouge (10 min). Notre centre est au 3 rue Corneille, à 200m. Alternative en voiture : 10 minutes via la D920.",
+    seoTitle: "Formation Taxi VTC Sceaux (92330) | ECOLE T3P — Centre Agréé à 15 min",
+    seoDescription: "Formation Taxi et VTC à Sceaux (92330). Centre ECOLE T3P agréé Préfecture à 15 min en RER B. 990€ tout compris, 94% de réussite. Proche Parc de Sceaux.",
     seoKeywords: ["formation taxi Sceaux", "formation VTC Sceaux", "centre formation 92330", "carte professionnelle taxi Sceaux", "formation chauffeur Sceaux", "ECOLE T3P Sceaux"],
     latitude: 48.7767,
     longitude: 2.2928
@@ -748,12 +787,35 @@ export const cities: CityData[] = [
     trainAccess: "RER A - Vincennes",
     busAccess: "Lignes 56, 115, 118, 215, 318",
     distanceFromCenter: "8 km",
-    travelTime: "30 minutes en métro/RER",
+    travelTime: "30 minutes en métro",
     nearbyLandmarks: ["Château de Vincennes", "Bois de Vincennes", "Parc Floral"],
-    localContext: "Vincennes, ville historique avec son château royal, attire de nombreux candidats. Notre centre est accessible via le métro ligne 1 ou le RER A puis correspondance.",
-    seoTitle: "Formation Taxi VTC Vincennes (94300) | ECOLE T3P - Centre Agréé",
-    seoDescription: "Formation TAXI et VTC à Vincennes (94300). Centre ECOLE T3P à 30 min en métro/RER. Formation agréée Préfecture, 94% de réussite. Proche Château de Vincennes.",
-    seoKeywords: ["formation taxi Vincennes", "formation VTC Vincennes", "centre formation 94300", "carte professionnelle taxi Vincennes", "ECOLE T3P Vincennes"],
+    localContext: "Vincennes, ville historique avec son château royal et le plus grand espace vert de Paris, est un bassin de recrutement naturel pour les métiers du transport. Les Vincennois bénéficient d'un accès direct à notre centre via le métro ligne 1 jusqu'à Châtelet puis ligne 4 jusqu'à Mairie de Montrouge.",
+    introTitle: "Vincennes — Votre centre de formation Taxi & VTC à 30 minutes",
+    introText: [
+      "Vous habitez Vincennes, Saint-Mandé ou le quartier du Château ? ECOLE T3P est le centre de formation le plus accessible pour obtenir votre carte professionnelle de chauffeur. Depuis la station Château de Vincennes (ligne 1), rejoignez-nous en 30 minutes via une correspondance à Châtelet (ligne 4, direction Bagneux).",
+      "Vincennes, avec ses 50 000 habitants et sa proximité avec le Bois de Vincennes, le Parc Floral et l'Hippodrome, offre un cadre idéal pour débuter une carrière de chauffeur VTC ou Taxi. La demande de transport est forte dans l'est parisien, notamment pour les transferts vers les gares de Lyon et de l'Est, ainsi que les aéroports d'Orly et Roissy.",
+      "Notre centre agréé Préfecture (n° 23/007) vous propose des formations complètes à 990€ tout compris, incluant les frais d'examen CMA de 241€ et un accompagnement personnalisé jusqu'à l'obtention de votre carte. Avec 94% de réussite et plus de 2 000 chauffeurs formés depuis 2014, nous sommes la référence en Île-de-France."
+    ],
+    detailedAccess: "Depuis Vincennes centre, prenez le métro ligne 1 à la station Château de Vincennes (5 min à pied). Descendez à Châtelet (12 min), puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (15 min). Notre centre est à 200m de la sortie du métro, au 3 rue Corneille. Total : environ 30 minutes. Alternative : RER A depuis la gare de Vincennes jusqu'à Châtelet-Les Halles, puis ligne 4. Pour les stagiaires en voiture, un parking public est disponible à proximité du centre.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux de réussite exceptionnel, bien au-dessus de la moyenne nationale des centres de formation T3P." },
+      { icon: MapPin, title: "30 min depuis Vincennes", text: "Métro ligne 1 + ligne 4 : un trajet direct et simple depuis Château de Vincennes." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus + 2h de conduite. Paiement en 4× sans frais via Alma." },
+      { icon: Shield, title: "Agrément Préfecture", text: "Centre agréé n° 23/007. Formateurs experts, anciens chauffeurs professionnels." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment aller de Vincennes à ECOLE T3P Montrouge ?", answer: "Prenez le métro ligne 1 à Château de Vincennes, descendez à Châtelet puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Trajet total : 30 minutes. Le centre est au 3 rue Corneille, à 200m du métro." },
+      { question: "Quelles formations sont disponibles pour les Vincennois ?", answer: "Toutes nos formations sont accessibles : Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle Taxi↔VTC (665€) et formations continues (170-239€). Formats : journée (1 semaine), soirée (2 semaines) ou e-learning illimité." },
+      { question: "Le marché VTC est-il porteur dans l'est parisien ?", answer: "Très porteur. L'est parisien (Vincennes, Fontenay, Nogent, Montreuil) génère une forte demande de transport vers les gares parisiennes et les aéroports. Les chauffeurs VTC de ce secteur bénéficient d'une clientèle régulière et de temps morts réduits." },
+      { question: "Peut-on suivre la formation en soirée depuis Vincennes ?", answer: "Oui, les sessions soirée (18h-21h30) sont parfaitement compatibles avec le trajet depuis Vincennes. Vous arrivez facilement pour 18h et êtes de retour chez vous avant 22h30." },
+      { question: "Combien coûte la formation et comment payer ?", answer: "990€ tout compris (frais d'examen CMA de 241€ inclus). Paiement en 4× sans frais via Alma : 247,50€/mois. Même tarif pour les 3 formats (journée, soir, e-learning)." },
+      { question: "ECOLE T3P accompagne-t-elle la création d'entreprise ?", answer: "Oui, notre accompagnement inclut l'aide à la création de votre micro-entreprise, l'inscription sur les plateformes (Uber, Bolt, Heetch) et les conseils pour optimiser votre activité dès le départ." },
+      { question: "Quel est le taux de réussite pour les stagiaires du Val-de-Marne ?", answer: "Notre taux de réussite global est de 94%, identique pour tous nos stagiaires quelle que soit leur ville d'origine. Ce résultat est supérieur à la moyenne nationale grâce à notre méthode pédagogique éprouvée." },
+      { question: "Y a-t-il un parking près du centre de formation ?", answer: "Oui, un parking public est situé à proximité immédiate du centre, rue Gabriel Péri. Cependant, nous recommandons le métro (ligne 4) qui dessert le centre en 2 minutes à pied." }
+    ],
+    seoTitle: "Formation Taxi VTC Vincennes (94300) | ECOLE T3P — Centre Agréé à 30 min",
+    seoDescription: "Formation Taxi et VTC à Vincennes (94300). Centre ECOLE T3P agréé Préfecture à 30 min en métro. 990€ tout compris, 94% de réussite, paiement en 4×.",
+    seoKeywords: ["formation taxi Vincennes", "formation VTC Vincennes", "centre formation 94300", "carte professionnelle taxi Vincennes", "formation chauffeur Vincennes", "ECOLE T3P Vincennes"],
     latitude: 48.8478,
     longitude: 2.4392
   },
