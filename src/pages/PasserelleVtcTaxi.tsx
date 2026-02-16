@@ -11,6 +11,7 @@ import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import PricingCard from "@/components/formations/PricingCard";
+import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const passerelleDirections = [
@@ -277,6 +278,56 @@ const PasserelleVtcTaxi = () => {
           </div>
         </div>
       </section>
+
+      {/* AVANT / APRÈS */}
+      <BeforeAfterBlock
+        title="La passerelle qui change tout"
+        subtitle="Découvrez comment nos stagiaires ont élargi leurs revenus grâce à une double carte professionnelle."
+        transformations={[
+          {
+            name: "Karim M.", initials: "KM", formation: "Passerelle VTC → Taxi",
+            before: [
+              { label: "Activité", value: "Chauffeur VTC uniquement" },
+              { label: "Revenus", value: "2 200€/mois" },
+              { label: "Situation", value: "Dépendant des plateformes" },
+            ],
+            after: [
+              { label: "Activité", value: "Double carte VTC + Taxi" },
+              { label: "Revenus", value: "3 800€/mois" },
+              { label: "Situation", value: "Diversification totale des revenus" },
+            ],
+            quote: "Avec les deux cartes, je choisis mes courses et je ne dépends plus d'une seule plateforme. Mon chiffre d'affaires a bondi.",
+          },
+          {
+            name: "Sophie L.", initials: "SL", formation: "Passerelle Taxi → VTC",
+            before: [
+              { label: "Activité", value: "Taxi en zone calme" },
+              { label: "Revenus", value: "2 000€/mois" },
+              { label: "Situation", value: "Peu de courses le soir" },
+            ],
+            after: [
+              { label: "Activité", value: "Taxi + VTC le soir" },
+              { label: "Revenus", value: "3 200€/mois" },
+              { label: "Situation", value: "Activité continue jour et soir" },
+            ],
+            quote: "La passerelle m'a permis de combler les creux. Le soir, je fais du VTC et mes revenus ont augmenté de 60%.",
+          },
+          {
+            name: "Youssef B.", initials: "YB", formation: "Passerelle VTC → VMDTR",
+            before: [
+              { label: "Activité", value: "Chauffeur VTC" },
+              { label: "Revenus", value: "2 400€/mois" },
+              { label: "Situation", value: "Concurrence forte sur les plateformes" },
+            ],
+            after: [
+              { label: "Activité", value: "VTC + Moto-taxi VMDTR" },
+              { label: "Revenus", value: "3 600€/mois" },
+              { label: "Situation", value: "Niche premium moto-taxi en semaine" },
+            ],
+            quote: "Le moto-taxi complète parfaitement mon activité VTC. Les courses urgentes en semaine sont très bien payées.",
+          },
+        ]}
+      />
 
       {/* 4. PROGRAMME STRUCTURÉ */}
       <section className="section-padding bg-background">

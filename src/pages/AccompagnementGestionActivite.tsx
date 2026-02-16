@@ -11,6 +11,7 @@ import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const whyChooseUs = [
@@ -215,6 +216,56 @@ const AccompagnementGestionActivite = () => {
           </div>
         </div>
       </section>
+
+      {/* AVANT / APRÈS */}
+      <BeforeAfterBlock
+        title="La gestion qui fait la différence"
+        subtitle="Découvrez comment nos stagiaires ont optimisé leur activité grâce à une gestion maîtrisée."
+        transformations={[
+          {
+            name: "Moussa T.", initials: "MT", formation: "Gestion d'activité",
+            before: [
+              { label: "Statut", value: "Micro-entreprise par défaut" },
+              { label: "Charges", value: "Aucune optimisation fiscale" },
+              { label: "Revenus nets", value: "1 900€/mois" },
+            ],
+            after: [
+              { label: "Statut", value: "SASU optimisée" },
+              { label: "Charges", value: "−350€/mois grâce à la bonne structure" },
+              { label: "Revenus nets", value: "2 600€/mois" },
+            ],
+            quote: "Je perdais de l'argent en micro-entreprise sans le savoir. Le passage en SASU m'a fait gagner 350€ nets par mois.",
+          },
+          {
+            name: "Amina B.", initials: "AB", formation: "Gestion d'activité",
+            before: [
+              { label: "Comptabilité", value: "Aucun suivi des dépenses" },
+              { label: "Business plan", value: "Inexistant" },
+              { label: "Assurances", value: "Trop chères, mal négociées" },
+            ],
+            after: [
+              { label: "Comptabilité", value: "Suivi mensuel automatisé" },
+              { label: "Business plan", value: "Prévisionnel sur 12 mois" },
+              { label: "Assurances", value: "Renégociées, −120€/mois" },
+            ],
+            quote: "J'ai enfin un tableau de bord de mon activité. Je sais exactement combien je gagne et combien je dépense.",
+          },
+          {
+            name: "David R.", initials: "DR", formation: "Gestion d'activité",
+            before: [
+              { label: "Plateformes", value: "100% Uber" },
+              { label: "Clientèle directe", value: "0 client fidèle" },
+              { label: "Marge nette", value: "22%" },
+            ],
+            after: [
+              { label: "Plateformes", value: "Multi-plateformes + clients directs" },
+              { label: "Clientèle directe", value: "15 clients réguliers" },
+              { label: "Marge nette", value: "38%" },
+            ],
+            quote: "La formation m'a appris à développer ma clientèle directe. Ma marge a presque doublé en 6 mois.",
+          },
+        ]}
+      />
 
       {/* 4. PROGRAMME STRUCTURÉ */}
       <section className="section-padding bg-background">

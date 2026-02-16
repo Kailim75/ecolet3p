@@ -11,6 +11,7 @@ import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const whyChooseUs = [
@@ -214,6 +215,56 @@ const FormationAccessibilitePMR = () => {
           </div>
         </div>
       </section>
+
+      {/* AVANT / APRÈS */}
+      <BeforeAfterBlock
+        title="L'impact PMR sur leur activité"
+        subtitle="Nos stagiaires témoignent de l'effet concret de la spécialisation PMR sur leurs revenus et leur clientèle."
+        transformations={[
+          {
+            name: "Oumar S.", initials: "OS", formation: "Formation PMR",
+            before: [
+              { label: "Clientèle", value: "Grand public uniquement" },
+              { label: "Revenus", value: "2 100€/mois" },
+              { label: "Différenciation", value: "Aucune spécialisation" },
+            ],
+            after: [
+              { label: "Clientèle", value: "Grand public + PMR fidèle" },
+              { label: "Revenus", value: "2 800€/mois" },
+              { label: "Différenciation", value: "Référencé transport PMR" },
+            ],
+            quote: "Mes clients PMR me rappellent systématiquement. C'est une clientèle fidèle qui recommande — mes revenus ont bondi de 30%.",
+          },
+          {
+            name: "Nadia K.", initials: "NK", formation: "Formation PMR",
+            before: [
+              { label: "Compétences", value: "Aucune formation handicap" },
+              { label: "Confiance", value: "Mal à l'aise avec les fauteuils" },
+              { label: "Courses PMR", value: "Refusait les demandes" },
+            ],
+            after: [
+              { label: "Compétences", value: "Attestation officielle PMR" },
+              { label: "Confiance", value: "Gestes maîtrisés, empathie naturelle" },
+              { label: "Courses PMR", value: "3-4 courses PMR par semaine" },
+            ],
+            quote: "Avant j'avais peur de mal faire. Aujourd'hui je suis à l'aise et mes clients me font entièrement confiance.",
+          },
+          {
+            name: "Thomas G.", initials: "TG", formation: "Formation PMR",
+            before: [
+              { label: "Plateformes", value: "Uber uniquement" },
+              { label: "Courses/jour", value: "6-8 courses" },
+              { label: "Tarif moyen", value: "18€/course" },
+            ],
+            after: [
+              { label: "Plateformes", value: "Uber + contrats PMR directs" },
+              { label: "Courses/jour", value: "8-10 courses" },
+              { label: "Tarif moyen", value: "25€/course (PMR mieux payées)" },
+            ],
+            quote: "Les courses PMR sont mieux rémunérées et les clients sont reconnaissants. C'est humainement et financièrement gratifiant.",
+          },
+        ]}
+      />
 
       {/* 4. PROGRAMME STRUCTURÉ */}
       <section className="section-padding bg-background">

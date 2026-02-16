@@ -10,6 +10,7 @@ import {
 import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
+import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const whyChooseUs = [
@@ -261,6 +262,56 @@ const RenouvellementCarteProfessionnelle = () => {
           </div>
         </div>
       </section>
+
+      {/* AVANT / APRÈS */}
+      <BeforeAfterBlock
+        title="Ce que le renouvellement change concrètement"
+        subtitle="Nos stagiaires repartent avec bien plus qu'une attestation — ils repartent avec des outils concrets."
+        transformations={[
+          {
+            name: "Ahmed B.", initials: "AB", formation: "Continue Taxi",
+            before: [
+              { label: "Conformité", value: "Carte bientôt expirée" },
+              { label: "Connaissance", value: "Réglementation ZFE floue" },
+              { label: "Risque", value: "Contrôle = sanction possible" },
+            ],
+            after: [
+              { label: "Conformité", value: "Carte renouvelée 5 ans" },
+              { label: "Connaissance", value: "ZFE et réforme tarifaire maîtrisées" },
+              { label: "Sérénité", value: "100% en règle, zéro stress" },
+            ],
+            quote: "La formation m'a mis à jour sur les nouvelles ZFE et la réforme tarifaire. Je me sens serein pour les 5 prochaines années.",
+          },
+          {
+            name: "Fatima R.", initials: "FR", formation: "Continue VTC",
+            before: [
+              { label: "Gestion", value: "Charges mal optimisées" },
+              { label: "Outils", value: "Aucun logiciel de suivi" },
+              { label: "Revenus nets", value: "1 800€/mois" },
+            ],
+            after: [
+              { label: "Gestion", value: "Charges réduites de 200€/mois" },
+              { label: "Outils", value: "Applications de gestion adoptées" },
+              { label: "Revenus nets", value: "2 200€/mois" },
+            ],
+            quote: "Grâce aux conseils fiscaux de la formation continue, j'économise plus de 200€ par mois sur mes charges.",
+          },
+          {
+            name: "Ibrahima D.", initials: "ID", formation: "Continue VMDTR",
+            before: [
+              { label: "Sécurité", value: "Conduite non évaluée depuis 5 ans" },
+              { label: "PMR", value: "Aucune formation PMR" },
+              { label: "Clients", value: "Clientèle classique uniquement" },
+            ],
+            after: [
+              { label: "Sécurité", value: "Éco-conduite et prévention à jour" },
+              { label: "PMR", value: "Sensibilisé à l'accueil PMR" },
+              { label: "Clients", value: "Clientèle élargie au PMR" },
+            ],
+            quote: "La partie éco-conduite m'a fait prendre conscience de mes mauvaises habitudes. Je conduis mieux et j'économise du carburant.",
+          },
+        ]}
+      />
 
       {/* 4. PROGRAMME — Tarifs & Étapes */}
       <section className="section-padding bg-background">
