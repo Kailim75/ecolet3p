@@ -173,6 +173,31 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Villes déjà indexées par Google — ne pas supprimer -->
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/longjumeau</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/la-courneuve</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/conflans-sainte-honorine</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ecolet3p.fr/formations/sceaux</loc>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Hub des villes -->
   <url>
     <loc>https://www.ecolet3p.fr/formations/villes</loc>
