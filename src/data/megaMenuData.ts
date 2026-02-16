@@ -60,7 +60,7 @@ export const megaMenuColumns: MegaMenuColumn[] = [
       { name: "Gestion d'activité", path: "/accompagnement-gestion-activite", icon: Briefcase, detail: "21h · 390€", color: "text-forest", badge: "NOUVEAU" },
       { name: "Anglais professionnel", path: "/formations/anglais-professionnel", icon: Languages, detail: "20h · 350€", color: "text-blue-600", badge: "NOUVEAU" },
       { name: "Aide administrative", path: "/aide-administrative-creation-entreprise", icon: ClipboardList, detail: "dès 190€", color: "text-muted-foreground", badge: "NOUVEAU" },
-      { name: "Mobilité géographique", path: "/formations/mobilite", icon: MapPin, detail: "14-35h · 440€", color: "text-forest" },
+      { name: "Mobilité géographique", path: "/passerelle-vtc-taxi", icon: MapPin, detail: "665€ tout compris", color: "text-forest" },
     ],
   },
   {

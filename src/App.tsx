@@ -21,7 +21,7 @@ const Formations = lazy(() => import("./pages/Formations"));
 const FormationTaxi = lazy(() => import("./pages/FormationTaxi"));
 const FormationVTC = lazy(() => import("./pages/FormationVTC"));
 const FormationVMDTR = lazy(() => import("./pages/FormationVMDTR"));
-const FormationMobilite = lazy(() => import("./pages/FormationMobilite"));
+// FormationMobilite removed — redirects to /passerelle-vtc-taxi
 const FormationContinueTaxi = lazy(() => import("./pages/FormationContinueTaxi"));
 const FormationContinueVTC = lazy(() => import("./pages/FormationContinueVTC"));
 const FormationContinueVMDTR = lazy(() => import("./pages/FormationContinueVMDTR"));
@@ -90,7 +90,7 @@ const App = () => {
                       <Route path="/formations/taxi" element={<FormationTaxi />} />
                       <Route path="/formations/vtc" element={<FormationVTC />} />
                       <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
-                      <Route path="/formations/mobilite" element={<FormationMobilite />} />
+                      <Route path="/formations/mobilite" element={<Navigate to="/passerelle-vtc-taxi" replace />} />
                       <Route path="/formations/continue-taxi" element={<FormationContinueTaxi />} />
                       <Route path="/formations/continue-vtc" element={<FormationContinueVTC />} />
                       <Route path="/formations/continue-vmdtr" element={<FormationContinueVMDTR />} />
