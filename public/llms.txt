@@ -45,9 +45,9 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 
 ### Formations Continues Obligatoires (Renouvellement)
 - **Renouvellement carte pro** : 350€ — 14h tous les 5 ans
-- **Formation Continue Taxi** : https://www.ecolet3p.fr/formations/formation-continue-taxi
-- **Formation Continue VTC** : https://www.ecolet3p.fr/formations/formation-continue-vtc
-- **Formation Continue VMDTR** : 7h tous les 5 ans — https://www.ecolet3p.fr/formations/formation-continue-vmdtr
+- **Formation Continue Taxi** : https://www.ecolet3p.fr/formations/continue-taxi
+- **Formation Continue VTC** : https://www.ecolet3p.fr/formations/continue-vtc
+- **Formation Continue VMDTR** : 7h tous les 5 ans — https://www.ecolet3p.fr/formations/continue-vmdtr
 
 ### Récupération de Points
 - **Durée** : 2 jours (14h)
