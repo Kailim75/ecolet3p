@@ -34,6 +34,12 @@ interface RelatedLink {
   path: string;
 }
 
+interface BlogLink {
+  title: string;
+  description: string;
+  path: string;
+}
+
 interface ContinueFormationProps {
   // SEO
   title: string;
@@ -63,6 +69,7 @@ interface ContinueFormationProps {
   // Optional
   testimonial?: { name: string; role: string; content: string };
   extraSection?: React.ReactNode;
+  blogLinks?: BlogLink[];
 }
 
 const ContinueFormationTemplate = ({
@@ -71,7 +78,7 @@ const ContinueFormationTemplate = ({
   duration, price, format,
   category, objectives, regulatoryText, programModules,
   seoContent, faqs, relatedLinks,
-  testimonial, extraSection,
+  testimonial, extraSection, blogLinks,
 }: ContinueFormationProps) => {
   const [showPreRegistration, setShowPreRegistration] = useState(false);
 
@@ -283,7 +290,7 @@ const ContinueFormationTemplate = ({
               {faqs.map((faq, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-xl border border-border px-5">
                   <AccordionTrigger className="text-left text-sm font-medium">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">{faq.answer}</AccordionContent>
+                  <AccordionContent forceMount className="text-sm text-muted-foreground data-[state=closed]:hidden">{faq.answer}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -291,10 +298,30 @@ const ContinueFormationTemplate = ({
         </div>
       </section>
 
+      {/* Blog Links */}
+      {blogLinks && blogLinks.length > 0 && (
+        <section className="section-padding bg-muted">
+          <div className="container-custom">
+            <h2 className="section-title text-center mb-8">Articles utiles</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {blogLinks.map((link, i) => (
+                <Link key={i} to={link.path} className="card-t3p group">
+                  <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
+                  <p className="text-xs text-muted-foreground">{link.description}</p>
+                  <span className="text-xs font-semibold text-accent mt-2 inline-flex items-center gap-1">
+                    Lire l'article <ArrowRight className="w-3 h-3" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Related Links */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-8">Découvrez aussi</h2>
+          <h2 className="section-title text-center mb-8">Formations complémentaires</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {relatedLinks.map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
