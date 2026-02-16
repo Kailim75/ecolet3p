@@ -41,11 +41,14 @@ const programSteps = [
 ];
 
 const faqs = [
-  { question: "Quelle est la différence entre passerelle et formation initiale ?", answer: "La passerelle est réservée aux titulaires d'un résultat d'examen T3P de moins de 3 ans. Elle permet de passer d'une profession à une autre (VTC, Taxi ou VMDTR) à 665€ tout compris, contre 990€ pour une formation initiale complète." },
+  { question: "Quelle est la différence entre passerelle et formation initiale ?", answer: "La passerelle est réservée aux titulaires d'un résultat d'examen T3P de moins de 3 ans. Elle permet de passer d'une profession à une autre (VTC, Taxi ou VMDTR) à 665€ tout compris, contre 990€ pour une formation initiale complète. Vous ne passez que les 2 modules spécifiques à la nouvelle profession." },
   { question: "Que comprend le tarif de 665€ ?", answer: "Le tarif inclut la préparation aux 2 modules spécifiques de la profession visée, 2 heures de conduite pour la présentation à l'examen pratique, les frais d'examen de 165€ et la mise à disposition du véhicule le jour de l'examen. Paiement en 4× 167€ sans frais via Alma." },
   { question: "Quelles passerelles sont possibles ?", answer: "Toutes les directions sont possibles : Taxi vers VTC, VTC vers Taxi, VTC vers VMDTR, Taxi vers VMDTR, VMDTR vers VTC, VMDTR vers Taxi. La seule condition est d'avoir obtenu vos résultats d'examen T3P depuis moins de 3 ans." },
   { question: "Quels documents dois-je fournir ?", answer: "Vos résultats d'examen T3P datant de moins de 3 ans, une pièce d'identité en cours de validité, un justificatif de domicile de moins de 3 mois et une photo d'identité. Notre équipe vous accompagne pour le reste des démarches." },
-  { question: "Combien de temps faut-il pour obtenir la seconde carte ?", answer: "La formation est accélérée. Après l'examen, les délais dépendent de la préfecture (généralement 2 à 4 semaines). Nous vous accompagnons dans toutes les démarches administratives." },
+  { question: "Combien de temps faut-il pour obtenir la seconde carte ?", answer: "La formation est accélérée. Après l'examen, les délais dépendent de la préfecture (généralement 2 à 4 semaines). Nous vous accompagnons dans toutes les démarches administratives jusqu'à l'obtention de votre carte." },
+  { question: "La passerelle permet-elle vraiment de doubler ses revenus ?", answer: "Oui, de nombreux chauffeurs constatent une augmentation de 50 à 80% de leur chiffre d'affaires après l'obtention d'une double carte. La diversification permet de capter plus de courses, de réduire les temps morts et de ne plus dépendre d'une seule plateforme." },
+  { question: "Que se passe-t-il si mes résultats T3P datent de plus de 3 ans ?", answer: "Si vos résultats d'examen T3P datent de plus de 3 ans, la passerelle n'est plus accessible. Vous devrez suivre une formation initiale complète à 990€ tout compris. Nous vous recommandons d'agir rapidement si vos résultats approchent de la limite de 3 ans." },
+  { question: "Comment se passe l'examen passerelle à la CMA ?", answer: "L'examen passerelle se déroule à la Chambre des Métiers et de l'Artisanat (CMA). Vous passez uniquement les 2 épreuves spécifiques à la profession visée. L'épreuve de conduite se fait avec le véhicule fourni par ECOLE T3P. Les résultats sont communiqués sous 2 à 3 semaines." },
 ];
 
 const PasserelleVtcTaxi = () => {
@@ -108,7 +111,7 @@ const PasserelleVtcTaxi = () => {
         </div>
       </div>
 
-      {/* 1. HERO — Promesse claire + résultat précis */}
+      {/* 1. HERO */}
       <section className="py-12 lg:py-20 bg-primary">
         <div className="container-custom">
           <div className="max-w-3xl">
@@ -251,7 +254,7 @@ const PasserelleVtcTaxi = () => {
         </div>
       </section>
 
-      {/* 3. RÉSULTATS & ACCOMPAGNEMENT */}
+      {/* 3. RÉSULTATS */}
       <section className="section-padding bg-primary/5">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -378,7 +381,61 @@ const PasserelleVtcTaxi = () => {
         </div>
       </section>
 
-      {/* 5. FAQ STRATÉGIQUE */}
+      {/* 5. RÉGLEMENTATION & CONTENU SEO */}
+      <section className="section-padding bg-muted/50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto space-y-10">
+            <div>
+              <h2 className="section-title mb-4">Réglementation de la passerelle T3P en 2026</h2>
+              <p className="text-muted-foreground mb-4">
+                La passerelle T3P est encadrée par l'arrêté du 6 avril 2017 modifié relatif aux examens de chauffeur 
+                de transport public particulier de personnes. Elle permet aux chauffeurs ayant réussi l'examen T3P 
+                de passer d'une profession à une autre (VTC, Taxi ou VMDTR) sans repasser l'intégralité de l'examen. 
+                Le candidat ne doit réussir que les 2 épreuves spécifiques à la profession visée.
+              </p>
+              <p className="text-muted-foreground mb-4">
+                Pour être éligible, le candidat doit avoir obtenu ses résultats d'examen T3P depuis moins de 3 ans. 
+                Cette condition est vérifiée à la date d'inscription à l'examen passerelle auprès de la Chambre des 
+                Métiers et de l'Artisanat (CMA). Passé ce délai, le candidat devra suivre une formation initiale 
+                complète et repasser l'ensemble des épreuves.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="section-title mb-4">Pourquoi la double carte est un avantage stratégique</h2>
+              <p className="text-muted-foreground mb-4">
+                En 2026, le marché du transport de personnes est plus concurrentiel que jamais. Les chauffeurs VTC 
+                font face à une pression tarifaire croissante des plateformes, tandis que les chauffeurs Taxi 
+                voient leur zone de chalandise évoluer avec les nouvelles réglementations urbaines. La double carte 
+                professionnelle offre une flexibilité inégalée : possibilité de basculer entre les deux activités 
+                selon la demande, diversification des sources de revenus et indépendance vis-à-vis des plateformes.
+              </p>
+              <p className="text-muted-foreground">
+                Nos anciens stagiaires constatent en moyenne une augmentation de 50 à 80% de leur chiffre d'affaires 
+                dans les 6 mois suivant l'obtention de leur seconde carte. La passerelle à 665€ est un investissement 
+                qui se rentabilise généralement en moins d'un mois d'activité complémentaire.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="section-title mb-4">Le déroulement de l'examen passerelle</h2>
+              <p className="text-muted-foreground mb-4">
+                L'examen passerelle se déroule à la Chambre des Métiers et de l'Artisanat (CMA) d'Île-de-France. 
+                Le candidat passe uniquement les 2 épreuves spécifiques à la profession visée : une épreuve théorique 
+                portant sur la réglementation propre au métier et une épreuve pratique de conduite.
+              </p>
+              <p className="text-muted-foreground">
+                ECOLE T3P prend en charge l'intégralité du processus : inscription à l'examen, préparation intensive 
+                aux 2 modules, 2 heures de conduite pratique, mise à disposition du véhicule le jour de l'examen 
+                et accompagnement administratif jusqu'à l'obtention de la nouvelle carte professionnelle. 
+                Les frais d'examen de 165€ sont inclus dans le tarif de 665€.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FAQ STRATÉGIQUE */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -404,15 +461,40 @@ const PasserelleVtcTaxi = () => {
         </div>
       </section>
 
-      {/* Cross-sell */}
+      {/* Articles utiles */}
       <section className="section-padding bg-background">
+        <div className="container-custom">
+          <h2 className="section-title text-center mb-8">Articles utiles</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {[
+              { title: "VTC vs Taxi vs VMDTR en 2026", desc: "Comparatif complet des 3 professions T3P : revenus, conditions, avantages.", path: "/blog/vtc-taxi-vmdtr-comparatif-2026" },
+              { title: "Devenir chauffeur VTC en 2026", desc: "Le guide complet pour obtenir votre carte professionnelle VTC.", path: "/blog/devenir-chauffeur-vtc-2026" },
+              { title: "Statuts juridiques du chauffeur T3P", desc: "Micro-entreprise, SASU, EURL : quel statut choisir ?", path: "/blog/statuts-juridiques-chauffeur-t3p" },
+            ].map((link, i) => (
+              <Link key={i} to={link.path} className="card-t3p group">
+                <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
+                <p className="text-xs text-muted-foreground">{link.desc}</p>
+                <span className="text-xs font-semibold text-accent mt-2 inline-flex items-center gap-1">
+                  Lire l'article <ArrowRight className="w-3 h-3" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-sell */}
+      <section className="section-padding bg-muted/50">
         <div className="container-custom">
           <h2 className="section-title text-center mb-8">Complétez votre parcours</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
               { title: "Renouvellement carte pro", desc: "Formation continue obligatoire tous les 5 ans — 350€.", path: "/renouvellement-carte-professionnelle" },
               { title: "Formation Accessibilité PMR", desc: "Élargissez votre clientèle au transport PMR — 290€.", path: "/formation-accessibilite-pmr" },
-              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — dès 990€ tout compris.", path: "/formations" },
+              { title: "Formation initiale VTC", desc: "Devenez chauffeur VTC — 990€ tout compris.", path: "/formations/vtc" },
+              { title: "Formation initiale Taxi", desc: "Obtenez votre carte professionnelle Taxi — 990€.", path: "/formations/taxi" },
+              { title: "Gestion d'entreprise", desc: "Lancez votre activité sur des bases solides — 390€.", path: "/accompagnement-gestion-activite" },
+              { title: "Stage récupération de points", desc: "Récupérez jusqu'à 4 points — 250€.", path: "/stage-recuperation-points" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
@@ -426,7 +508,7 @@ const PasserelleVtcTaxi = () => {
         </div>
       </section>
 
-      {/* 6. CTA FINAL FORT */}
+      {/* 7. CTA FINAL */}
       <section className="py-16 lg:py-20 bg-primary">
         <div className="container-custom text-center">
           <motion.div
