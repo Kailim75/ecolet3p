@@ -4,57 +4,47 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Home, ChevronRight, RefreshCw, Check, ArrowRight,
-  Phone, Calendar, Clock, Euro, Shield, FileText,
-  Star, AlertTriangle, Users
+  Phone, Calendar, Clock, Euro, Shield, Star,
+  AlertTriangle, Users, Award, FileCheck, Zap, HeartHandshake
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const whyChooseUs = [
+  { icon: Shield, title: "Centre agréé Préfecture 92", desc: "Agrément officiel — votre attestation est reconnue par toutes les préfectures d'Île-de-France." },
+  { icon: Calendar, title: "Sessions chaque semaine", desc: "Pas d'attente : inscrivez-vous aujourd'hui, commencez dès la semaine prochaine." },
+  { icon: FileCheck, title: "Attestation immédiate", desc: "Votre attestation de formation continue est délivrée le jour même, en fin de stage." },
+  { icon: HeartHandshake, title: "Accompagnement préfecture", desc: "Nous vous guidons dans toutes les démarches de dépôt de dossier de renouvellement." },
+];
+
+const results = [
+  { value: "+2 000", label: "cartes renouvelées depuis 2014" },
+  { value: "100%", label: "attestations délivrées le jour même" },
+  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "48h", label: "délai moyen pour obtenir votre session" },
+];
 
 const formations = [
-  {
-    title: "Formation Continue VTC",
-    duration: "14h sur 2 jours",
-    price: "350€",
-    validity: "Tous les 5 ans",
-    description: "Obligatoire pour renouveler votre carte professionnelle VTC.",
-  },
-  {
-    title: "Formation Continue TAXI",
-    duration: "14h sur 2 jours",
-    price: "350€",
-    validity: "Tous les 5 ans",
-    description: "Obligatoire pour renouveler votre carte professionnelle Taxi.",
-  },
-  {
-    title: "Formation Continue VMDTR",
-    duration: "14h sur 2 jours",
-    price: "350€",
-    validity: "Tous les 5 ans",
-    description: "Obligatoire pour renouveler votre carte professionnelle VMDTR.",
-  },
+  { title: "Formation Continue VTC", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VTC." },
+  { title: "Formation Continue TAXI", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle Taxi." },
+  { title: "Formation Continue VMDTR", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VMDTR." },
 ];
 
-const obligations = [
-  "La formation continue est obligatoire tous les 5 ans (article R3120-9 du Code des transports)",
-  "Sans attestation de formation continue, votre carte professionnelle ne peut pas être renouvelée",
-  "Le non-renouvellement entraîne l'interdiction d'exercer votre activité de transport",
-  "La demande de renouvellement doit être faite avant la date d'expiration de votre carte",
-];
-
-const steps = [
-  { step: "1", title: "Vérifiez la date d'expiration", description: "Consultez votre carte professionnelle pour connaître la date limite de validité." },
-  { step: "2", title: "Suivez la formation continue", description: "14h de formation sur 2 jours dans notre centre agréé à Montrouge." },
-  { step: "3", title: "Recevez votre attestation", description: "Attestation de formation délivrée immédiatement à la fin du stage." },
-  { step: "4", title: "Déposez votre dossier", description: "Nous vous accompagnons dans les démarches auprès de la préfecture." },
+const programSteps = [
+  { step: "1", title: "Vérifiez votre date d'expiration", desc: "Consultez votre carte professionnelle. La demande doit être faite dans les 3 mois précédant l'expiration." },
+  { step: "2", title: "Inscrivez-vous à la formation continue", desc: "14h de formation sur 2 jours dans notre centre agréé à Montrouge. Sessions chaque semaine." },
+  { step: "3", title: "Recevez votre attestation", desc: "Attestation de formation continue délivrée immédiatement en fin de stage — le jour même." },
+  { step: "4", title: "Déposez votre dossier préfecture", desc: "Nous vous accompagnons dans le montage du dossier et les démarches auprès de la préfecture." },
 ];
 
 const faqs = [
-  { question: "Quand dois-je renouveler ma carte professionnelle ?", answer: "Votre carte professionnelle doit être renouvelée tous les 5 ans. La demande de renouvellement doit être effectuée dans les 3 mois précédant la date d'expiration." },
-  { question: "Que se passe-t-il si ma carte est expirée ?", answer: "Si votre carte est expirée, vous ne pouvez plus exercer légalement. Vous devrez suivre la formation continue et effectuer une nouvelle demande de carte auprès de la préfecture." },
-  { question: "La formation continue est-elle la même pour VTC et Taxi ?", answer: "Non, le contenu est adapté à chaque profession. Les modules réglementaires et pratiques sont spécifiques à votre activité (VTC, Taxi ou VMDTR)." },
-  { question: "Quels documents sont nécessaires pour le renouvellement ?", answer: "Vous aurez besoin de : votre carte professionnelle en cours, une attestation de formation continue, un justificatif de domicile, une photo d'identité et un extrait de casier judiciaire de moins de 3 mois." },
-  { question: "Combien de temps dure la procédure de renouvellement ?", answer: "Une fois votre dossier complet déposé, le délai de traitement est généralement de 2 à 4 semaines selon la préfecture." },
+  { question: "Quand dois-je renouveler ma carte professionnelle ?", answer: "Votre carte professionnelle doit être renouvelée tous les 5 ans. La demande de renouvellement doit être effectuée dans les 3 mois précédant la date d'expiration. N'attendez pas le dernier moment — inscrivez-vous dès maintenant." },
+  { question: "Que se passe-t-il si ma carte est expirée ?", answer: "Si votre carte est expirée, vous ne pouvez plus exercer légalement. Vous risquez une amende et la saisie de votre véhicule. Contactez-nous immédiatement — nous pouvons vous inscrire à la prochaine session disponible." },
+  { question: "La formation continue est-elle la même pour VTC et Taxi ?", answer: "Non, le contenu est adapté à chaque profession. Les modules réglementaires et pratiques sont spécifiques à votre activité (VTC, Taxi ou VMDTR). Le tarif est identique : 350€." },
+  { question: "Quels documents sont nécessaires pour le renouvellement ?", answer: "Votre carte professionnelle en cours, l'attestation de formation continue (délivrée par ECOLE T3P), un justificatif de domicile, une photo d'identité et un extrait de casier judiciaire de moins de 3 mois." },
+  { question: "Combien de temps dure la procédure de renouvellement ?", answer: "Une fois votre dossier complet déposé en préfecture, le délai de traitement est généralement de 2 à 4 semaines. Nous vous accompagnons pour garantir que votre dossier est complet du premier coup." },
 ];
 
 const RenouvellementCarteProfessionnelle = () => {
@@ -64,7 +54,7 @@ const RenouvellementCarteProfessionnelle = () => {
     "@context": "https://schema.org",
     "@type": "Course",
     name: "Renouvellement de carte professionnelle VTC, Taxi & VMDTR",
-    description: "Formation continue obligatoire pour le renouvellement de carte professionnelle VTC, Taxi et VMDTR à Montrouge (92).",
+    description: "Formation continue obligatoire 14h pour le renouvellement de carte professionnelle VTC, Taxi et VMDTR à Montrouge (92). 350€, attestation immédiate.",
     provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
     offers: { "@type": "Offer", price: 350, priceCurrency: "EUR" },
   };
@@ -90,11 +80,11 @@ const RenouvellementCarteProfessionnelle = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P</title>
-        <meta name="description" content="Renouvellement de carte professionnelle VTC, Taxi et VMDTR à Montrouge (92). Formation continue obligatoire 14h. Attestation immédiate. 350€." />
+        <title>Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P</title>
+        <meta name="description" content="Renouvellement carte pro VTC, Taxi, VMDTR à Montrouge (92). Formation continue 14h, attestation immédiate. 350€. Sessions chaque semaine." />
         <link rel="canonical" href="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
         <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P" />
-        <meta property="og:description" content="Formation continue obligatoire pour renouveler votre carte professionnelle. 14h sur 2 jours à Montrouge." />
+        <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. 350€. Centre agréé Préfecture 92." />
         <meta property="og:url" content="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -114,17 +104,17 @@ const RenouvellementCarteProfessionnelle = () => {
         </div>
       </div>
 
-      {/* Hero */}
+      {/* 1. HERO */}
       <section className="py-12 lg:py-20 bg-primary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-white/15 text-white border border-white/20 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-destructive/20 text-white border border-destructive/30 mb-6"
             >
               <AlertTriangle className="w-4 h-4" />
-              Obligation légale tous les 5 ans
+              Obligation légale — Ne risquez pas l'interdiction d'exercer
             </motion.div>
 
             <motion.h1
@@ -133,8 +123,8 @@ const RenouvellementCarteProfessionnelle = () => {
               transition={{ delay: 0.1 }}
               className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4"
             >
-              Renouvellement de carte professionnelle<br />
-              <span className="text-accent">VTC, TAXI & VMDTR — Montrouge (92)</span>
+              Renouvelez votre carte pro en<br />
+              <span className="text-accent">2 jours — Attestation immédiate</span>
             </motion.h1>
 
             <motion.p
@@ -143,14 +133,32 @@ const RenouvellementCarteProfessionnelle = () => {
               transition={{ delay: 0.2 }}
               className="text-white/80 text-base md:text-lg mb-8 max-w-2xl"
             >
-              Formation continue obligatoire de 14h pour renouveler votre carte professionnelle. 
-              Attestation délivrée immédiatement. Sessions toutes les semaines.
+              Formation continue obligatoire de 14h pour chauffeurs VTC, Taxi et VMDTR. 
+              <strong className="text-white"> Attestation délivrée le jour même</strong>, sessions chaque semaine à Montrouge (92). 
+              350€ payable en 4× sans frais.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-3 mb-8"
+            >
+              <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
+                <Euro className="w-4 h-4" /> 350€
+              </span>
+              <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
+                <Clock className="w-4 h-4" /> 14h sur 2 jours
+              </span>
+              <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
+                <FileCheck className="w-4 h-4" /> Attestation immédiate
+              </span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3"
             >
               <button
@@ -175,12 +183,12 @@ const RenouvellementCarteProfessionnelle = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: Calendar, value: "Depuis 2014", label: "+10 ans" },
-              { icon: Users, value: "+2 000", label: "Chauffeurs" },
-              { icon: Clock, value: "14h", label: "sur 2 jours" },
-              { icon: Star, value: "5.0/5", label: "359 avis" },
+              { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
+              { icon: Users, value: "+2 000", label: "Cartes renouvelées" },
+              { icon: Clock, value: "14h", label: "Sur 2 jours" },
+              { icon: Star, value: "5.0/5", label: "359 avis Google" },
             ].map((s) => (
-              <div key={s.value} className="flex items-center gap-3">
+              <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
                   <s.icon className="w-5 h-5 text-primary" />
                 </div>
@@ -194,40 +202,92 @@ const RenouvellementCarteProfessionnelle = () => {
         </div>
       </section>
 
-      {/* Obligation légale */}
+      {/* 2. POURQUOI NOUS CHOISIR */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="section-title text-center mb-4">Pourquoi renouveler votre carte ?</h2>
-            <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-              La loi impose aux chauffeurs VTC, Taxi et VMDTR de suivre une formation continue 
-              tous les 5 ans pour maintenir leur carte professionnelle en vigueur.
+          <div className="text-center mb-12">
+            <h2 className="section-title">Pourquoi renouveler chez ECOLE T3P ?</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Plus de 2 000 chauffeurs nous font confiance pour maintenir leur carte professionnelle en règle.
             </p>
-            <div className="space-y-4">
-              {obligations.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-3 p-4 bg-card rounded-xl border border-border"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-destructive/10 flex items-center justify-center shrink-0">
-                    <Shield className="w-4 h-4 text-destructive" />
-                  </div>
-                  <span className="text-sm text-foreground">{item}</span>
-                </motion.div>
-              ))}
-            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {whyChooseUs.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/20 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Tarifs & durées */}
-      <section className="section-padding bg-muted">
+      {/* 3. RÉSULTATS & ACCOMPAGNEMENT */}
+      <section className="section-padding bg-primary/5">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-10">Tarifs et durées par formation</h2>
+          <div className="text-center mb-12">
+            <h2 className="section-title">Des résultats concrets, un accompagnement réel</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Nous ne nous contentons pas de délivrer une attestation — nous vous accompagnons 
+              jusqu'au renouvellement effectif de votre carte.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {results.map((r, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-6 bg-card rounded-xl border border-border"
+              >
+                <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{r.value}</p>
+                <p className="text-xs text-muted-foreground">{r.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROGRAMME — Tarifs & Étapes */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Comment renouveler votre carte en 4 étapes</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
+            {programSteps.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                  {s.step}
+                </div>
+                <h3 className="font-bold text-foreground mb-2 text-center text-sm">{s.title}</h3>
+                <p className="text-xs text-muted-foreground text-center">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Tarifs */}
+          <h3 className="section-title text-center mb-8">Tarifs par profession — 350€</h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {formations.map((f, i) => (
               <motion.div
@@ -238,62 +298,44 @@ const RenouvellementCarteProfessionnelle = () => {
                 transition={{ delay: i * 0.1 }}
                 className="card-t3p text-center"
               >
-                <h3 className="text-lg font-bold text-primary mb-3">{f.title}</h3>
+                <h4 className="text-lg font-bold text-primary mb-3">{f.title}</h4>
                 <p className="text-3xl font-bold text-accent mb-2">{f.price}</p>
                 <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                  <p className="flex items-center justify-center gap-2"><Clock className="w-4 h-4" /> {f.duration}</p>
+                  <p className="flex items-center justify-center gap-2"><Clock className="w-4 h-4" /> 14h sur 2 jours</p>
                   <p className="flex items-center justify-center gap-2"><Calendar className="w-4 h-4" /> {f.validity}</p>
                 </div>
-                <p className="text-xs text-muted-foreground">{f.description}</p>
+                <p className="text-xs text-muted-foreground mb-4">{f.description}</p>
+                <button onClick={() => setShowForm(true)} className="btn-cta-orange w-full px-4 py-3 font-bold rounded-lg inline-flex items-center justify-center gap-2 text-sm">
+                  Je m'inscris <ArrowRight className="w-4 h-4" />
+                </button>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Étapes */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
-          <h2 className="section-title text-center mb-10">Comment renouveler votre carte</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {steps.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                  {s.step}
-                </div>
-                <h3 className="font-bold text-foreground mb-2 text-sm">{s.title}</h3>
-                <p className="text-xs text-muted-foreground">{s.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
+      {/* 5. FAQ STRATÉGIQUE */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-10">Questions fréquentes</h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-xl p-6 border border-border"
-              >
-                <h3 className="font-bold text-foreground mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground text-sm">{faq.answer}</p>
-              </motion.div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="section-title">Questions fréquentes sur le renouvellement</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Tout savoir sur la procédure de renouvellement de votre carte professionnelle.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-xl border border-border px-6">
+                  <AccordionTrigger className="text-left font-bold text-foreground hover:no-underline py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent forceMount className="data-[state=closed]:hidden">
+                    <p className="text-muted-foreground text-sm pb-4">{faq.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
@@ -304,8 +346,8 @@ const RenouvellementCarteProfessionnelle = () => {
           <h2 className="section-title text-center mb-8">Complétez votre parcours</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez une double carte professionnelle.", path: "/passerelle-vtc-taxi" },
-              { title: "Formation Accessibilité PMR", desc: "Maîtrisez l'accueil des personnes à mobilité réduite.", path: "/formation-accessibilite-pmr" },
+              { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez une double carte professionnelle — 665€.", path: "/passerelle-vtc-taxi" },
+              { title: "Formation Accessibilité PMR", desc: "Élargissez votre clientèle au transport PMR — 290€.", path: "/formation-accessibilite-pmr" },
               { title: "Formations initiales", desc: "Taxi, VTC ou VMDTR — dès 990€ tout compris.", path: "/formations" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
@@ -320,30 +362,40 @@ const RenouvellementCarteProfessionnelle = () => {
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="py-16 bg-primary">
+      {/* 6. CTA FINAL FORT */}
+      <section className="py-16 lg:py-20 bg-primary">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Ne risquez pas l'interdiction d'exercer
-          </h2>
-          <p className="text-white/75 mb-8 max-w-xl mx-auto">
-            Renouvelez votre carte professionnelle dès maintenant. Formation continue de 14h sur 2 jours — 350€.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => setShowForm(true)}
-              className="btn-cta-orange px-8 py-4 font-bold rounded-lg inline-flex items-center gap-2"
-            >
-              Je renouvelle ma carte <ArrowRight className="w-5 h-5" />
-            </button>
-            <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2">
-              <Phone className="w-5 h-5" /> 01 88 75 05 55
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-destructive/20 text-white border border-destructive/30 mb-6">
+              <AlertTriangle className="w-4 h-4" />
+              Ne risquez pas l'interdiction d'exercer
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+              Renouvelez votre carte dès cette semaine
+            </h2>
+            <p className="text-white/80 mb-4 max-w-2xl mx-auto text-lg">
+              Sessions disponibles chaque semaine. Attestation délivrée le jour même. 
+              350€ payable en 4× sans frais.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <button
+                onClick={() => setShowForm(true)}
+                className="btn-cta-orange px-10 py-4 text-lg font-bold rounded-lg inline-flex items-center gap-2"
+              >
+                Je renouvelle ma carte <ArrowRight className="w-5 h-5" />
+              </button>
+              <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
+                <Phone className="w-5 h-5" /> 01 88 75 05 55
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Pre-Registration Dialog */}
       <Dialog open={showForm} onOpenChange={setShowForm}>
         <DialogContent className="max-w-lg">
           <DialogHeader>

@@ -4,29 +4,42 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Home, ChevronRight, ClipboardList, Check, ArrowRight,
-  Phone, Clock, Euro, Star, Users, Calendar, GraduationCap
+  Phone, Clock, Euro, Star, Users, Calendar, GraduationCap,
+  Shield, Zap, HeartHandshake, FileCheck, Headphones, Ban
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const whyChooseUs = [
+  { icon: HeartHandshake, title: "On fait tout pour vous", desc: "Pas de paperasse : nous réalisons l'intégralité des démarches à votre place." },
+  { icon: Zap, title: "Résultat en 1 journée", desc: "Toutes les démarches sont lancées en une seule journée — pas de rendez-vous multiples." },
+  { icon: Shield, title: "+10 ans d'expertise administrative", desc: "Nous connaissons chaque processus sur le bout des doigts : préfecture, URSSAF, plateformes." },
+  { icon: Headphones, title: "Suivi post-accompagnement", desc: "Un doute après la journée ? Nos conseillers restent disponibles par téléphone." },
+];
+
+const results = [
+  { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
+  { value: "100%", label: "de dossiers acceptés en préfecture" },
+  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "1 jour", label: "pour lancer toutes vos démarches" },
+];
 
 const services = [
-  "Création du dossier carte professionnelle complet",
-  "Inscription au registre T3P obligatoire",
-  "Démarches préfecture (dépôt et suivi du dossier)",
-  "Inscription sur les plateformes VTC (Uber, Bolt, Marcel, etc.)",
-  "Aide à l'immatriculation du véhicule professionnel",
-  "Assistance choix et souscription assurances professionnelles",
-  "Déclaration d'activité URSSAF / création micro-entreprise",
-  "Accompagnement ouverture compte bancaire professionnel",
+  { title: "Carte professionnelle", items: ["Création du dossier complet", "Vérification de tous les documents", "Suivi jusqu'à l'obtention"] },
+  { title: "Registre T3P & préfecture", items: ["Inscription au registre obligatoire", "Dépôt du dossier en préfecture", "Suivi et relance si nécessaire"] },
+  { title: "Plateformes & URSSAF", items: ["Inscription Uber, Bolt, Marcel, etc.", "Déclaration d'activité URSSAF", "Création micro-entreprise si besoin"] },
+  { title: "Véhicule & assurances", items: ["Aide à l'immatriculation professionnelle", "Comparatif assurances RC Pro", "Ouverture compte bancaire pro"] },
 ];
 
 const faqs = [
-  { question: "En quoi consiste exactement l'accompagnement ?", answer: "Nous réalisons toutes les démarches administratives à votre place : inscription registre T3P, dossier préfecture, plateformes VTC, URSSAF, assurances. Vous n'avez qu'à fournir les documents nécessaires." },
-  { question: "Quelle est la différence entre groupe et individuel ?", answer: "En groupe (190€), vous êtes accompagné avec d'autres stagiaires sur une journée. En individuel (290€), un formateur dédié s'occupe exclusivement de votre dossier avec un suivi personnalisé." },
-  { question: "Puis-je prendre ce service sans suivre de formation ?", answer: "Oui, ce service est ouvert à tous les chauffeurs, même ceux qui n'ont pas suivi leur formation chez nous. Il est particulièrement adapté aux personnes ayant obtenu leur carte mais bloquées par l'administratif." },
-  { question: "Combien de temps durent les démarches ?", answer: "La journée d'accompagnement permet de lancer toutes les démarches. Les délais de traitement dépendent ensuite des organismes (préfecture : 2-4 semaines, URSSAF : quelques jours, plateformes : variable)." },
+  { question: "En quoi consiste exactement l'accompagnement ?", answer: "Nous réalisons toutes les démarches administratives à votre place en une journée : inscription registre T3P, dossier préfecture, plateformes VTC, URSSAF, assurances. Vous n'avez qu'à fournir les documents nécessaires et on s'occupe du reste." },
+  { question: "Quelle est la différence entre groupe et individuel ?", answer: "En groupe (190€), vous êtes accompagné avec d'autres stagiaires sur une journée partagée. En individuel (290€), un conseiller dédié s'occupe exclusivement de votre dossier avec un suivi personnalisé et prioritaire." },
+  { question: "Puis-je prendre ce service sans avoir suivi de formation chez vous ?", answer: "Oui, ce service est ouvert à tous les chauffeurs, même ceux formés ailleurs. Il est particulièrement adapté aux personnes ayant obtenu leur carte mais bloquées par la complexité administrative." },
+  { question: "Combien de temps durent les démarches après la journée ?", answer: "La journée d'accompagnement permet de lancer toutes les démarches simultanément. Les délais dépendent ensuite des organismes : préfecture 2-4 semaines, URSSAF quelques jours, plateformes variable. Nous assurons le suivi." },
+  { question: "Quels documents dois-je préparer ?", answer: "Pièce d'identité, justificatif de domicile, photo d'identité, résultats d'examen T3P et permis de conduire. Nous vous envoyons une checklist complète avant votre rendez-vous." },
 ];
 
 const AideAdministrativeCreationEntreprise = () => {
@@ -36,7 +49,7 @@ const AideAdministrativeCreationEntreprise = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Aide Administrative & Création d'Entreprise pour Chauffeurs",
-    description: "Accompagnement administratif complet pour chauffeurs VTC, Taxi et VMDTR. Carte pro, registre T3P, préfecture, plateformes.",
+    description: "Accompagnement administratif complet pour chauffeurs VTC, Taxi et VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€.",
     provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
     offers: [
       { "@type": "Offer", name: "En groupe", price: 190, priceCurrency: "EUR" },
@@ -66,11 +79,11 @@ const AideAdministrativeCreationEntreprise = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P</title>
-        <meta name="description" content="Accompagnement administratif complet pour chauffeurs à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes VTC. Dès 190€." />
+        <title>Aide Administrative Chauffeur Montrouge — Dès 190€ | ECOLE T3P</title>
+        <meta name="description" content="Accompagnement administratif complet pour chauffeurs VTC, Taxi, VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€." />
         <link rel="canonical" href="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
         <meta property="og:title" content="Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P" />
-        <meta property="og:description" content="On s'occupe de la paperasse — carte pro, registre T3P, préfecture, plateformes VTC." />
+        <meta property="og:description" content="On s'occupe de toute la paperasse. Carte pro, registre T3P, préfecture, plateformes VTC. Résultat en 1 journée." />
         <meta property="og:url" content="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -92,35 +105,40 @@ const AideAdministrativeCreationEntreprise = () => {
         </div>
       </div>
 
-      {/* Hero */}
+      {/* 1. HERO */}
       <section className="py-12 lg:py-20 bg-primary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-white/15 text-white border border-white/20 mb-6">
-              <ClipboardList className="w-4 h-4" /> Service complémentaire
+              <ClipboardList className="w-4 h-4" /> Service exclusif — 100% de dossiers acceptés
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              Aide Administrative &<br />
-              <span className="text-accent">Création d'Entreprise — Montrouge (92)</span>
+              Concentrez-vous sur la route,<br />
+              <span className="text-accent">on s'occupe de la paperasse</span>
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">
-              On s'occupe de la paperasse pour vous — carte professionnelle, registre T3P, préfecture, plateformes VTC. Concentrez-vous sur votre réussite.
+              Carte professionnelle, registre T3P, préfecture, URSSAF, plateformes — 
+              <strong className="text-white"> toutes vos démarches réalisées en 1 journée</strong>. 
+              Zéro stress, zéro erreur, résultat garanti.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap gap-3 mb-8">
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Clock className="w-4 h-4" /> 7h (1 journée)
+                <Clock className="w-4 h-4" /> 1 journée
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Euro className="w-4 h-4" /> À partir de 190€
+                <Euro className="w-4 h-4" /> Dès 190€
+              </span>
+              <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
+                <FileCheck className="w-4 h-4" /> 100% dossiers acceptés
               </span>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row gap-3">
               <button onClick={() => setShowForm(true)} className="btn-cta-orange px-8 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2">
-                <GraduationCap className="w-5 h-5" /> Je réserve
+                <GraduationCap className="w-5 h-5" /> Je réserve maintenant
               </button>
               <a href="tel:0188750555" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-white text-white font-bold hover:bg-white hover:text-primary transition-all">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
@@ -135,10 +153,10 @@ const AideAdministrativeCreationEntreprise = () => {
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: Calendar, value: "Depuis 2014", label: "+10 ans" },
+              { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs accompagnés" },
-              { icon: Clock, value: "7h", label: "1 journée" },
-              { icon: Star, value: "5.0/5", label: "359 avis" },
+              { icon: FileCheck, value: "100%", label: "Dossiers acceptés" },
+              { icon: Star, value: "5.0/5", label: "359 avis Google" },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -154,26 +172,85 @@ const AideAdministrativeCreationEntreprise = () => {
         </div>
       </section>
 
-      {/* Services inclus */}
+      {/* 2. POURQUOI NOUS CHOISIR */}
       <section className="section-padding bg-background">
-        <div className="container-custom max-w-4xl">
-          <h2 className="section-title text-center mb-10">Ce que nous faisons pour vous</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {services.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="flex items-start gap-3 p-4 bg-muted rounded-xl">
-                <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-sm text-foreground">{s}</span>
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Pourquoi nous confier vos démarches ?</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              L'administratif est le premier frein au lancement d'activité. 
+              Nous éliminons ce frein en une journée.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {whyChooseUs.map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Tarifs */}
-      <section className="section-padding bg-muted">
+      {/* 3. RÉSULTATS & ACCOMPAGNEMENT */}
+      <section className="section-padding bg-primary/5">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-10">Nos formules</h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Un track record irréprochable</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              10 ans d'accompagnement administratif sans un seul dossier refusé.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {results.map((r, i) => (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="text-center p-6 bg-card rounded-xl border border-border">
+                <p className="text-3xl md:text-4xl font-bold text-primary mb-2">{r.value}</p>
+                <p className="text-xs text-muted-foreground">{r.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PROGRAMME STRUCTURÉ — Ce que nous faisons */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Ce que nous faisons pour vous — en détail</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Un accompagnement complet couvrant chaque étape de votre lancement administratif.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {services.map((svc, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="p-6 bg-card rounded-xl border border-border">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">{i + 1}</div>
+                  <h3 className="font-bold text-foreground">{svc.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {svc.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Tarifs */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mt-16">
             {[
               { label: "En groupe", price: 190, recommended: false },
               { label: "Individuel", price: 290, recommended: true },
@@ -206,30 +283,38 @@ const AideAdministrativeCreationEntreprise = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="section-padding bg-background">
+      {/* 5. FAQ STRATÉGIQUE */}
+      <section className="section-padding bg-muted">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-10">Questions fréquentes</h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-card rounded-xl p-6 border border-border">
-                <h3 className="font-bold text-foreground mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground text-sm">{faq.answer}</p>
-              </motion.div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="section-title">Questions fréquentes</h2>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-xl border border-border px-6">
+                  <AccordionTrigger className="text-left font-bold text-foreground hover:no-underline py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent forceMount className="data-[state=closed]:hidden">
+                    <p className="text-muted-foreground text-sm pb-4">{faq.answer}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
 
       {/* Cross-sell */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding bg-background">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-8">Découvrez aussi</h2>
+          <h2 className="section-title text-center mb-8">Complétez votre parcours</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "Gestion d'activité", desc: "Statut juridique, comptabilité, fiscalité.", path: "/accompagnement-gestion-activite" },
-              { title: "Formation Accessibilité PMR", desc: "Élargissez votre clientèle au transport PMR.", path: "/formation-accessibilite-pmr" },
-              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — dès 990€.", path: "/formations" },
+              { title: "Gestion d'activité", desc: "Statut juridique, comptabilité, fiscalité — 390€.", path: "/accompagnement-gestion-activite" },
+              { title: "Formation PMR", desc: "Élargissez votre clientèle au transport PMR — 290€.", path: "/formation-accessibilite-pmr" },
+              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — dès 990€ tout compris.", path: "/formations" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
@@ -241,21 +326,29 @@ const AideAdministrativeCreationEntreprise = () => {
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="py-16 bg-primary">
+      {/* 6. CTA FINAL FORT */}
+      <section className="py-16 lg:py-20 bg-primary">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Concentrez-vous sur la route</h2>
-          <p className="text-white/75 mb-8 max-w-xl mx-auto">
-            On s'occupe de toute la paperasse. Accompagnement complet dès 190€, paiement en 4× sans frais.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onClick={() => setShowForm(true)} className="btn-cta-orange px-8 py-4 font-bold rounded-lg inline-flex items-center gap-2">
-              Je réserve <ArrowRight className="w-5 h-5" />
-            </button>
-            <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2">
-              <Phone className="w-5 h-5" /> 01 88 75 05 55
-            </a>
-          </div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+              Arrêtez de perdre du temps en paperasse
+            </h2>
+            <p className="text-white/80 mb-4 max-w-2xl mx-auto text-lg">
+              100% de dossiers acceptés en préfecture. 
+              Toutes vos démarches lancées en 1 journée. Résultat garanti.
+            </p>
+            <p className="text-accent font-semibold mb-8">
+              À partir de 190€ — Paiement en 4× sans frais via Alma
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button onClick={() => setShowForm(true)} className="btn-cta-orange px-10 py-4 text-lg font-bold rounded-lg inline-flex items-center gap-2">
+                Je réserve maintenant <ArrowRight className="w-5 h-5" />
+              </button>
+              <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
+                <Phone className="w-5 h-5" /> 01 88 75 05 55
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
