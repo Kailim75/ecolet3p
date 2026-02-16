@@ -692,11 +692,34 @@ export const cities: CityData[] = [
     busAccess: "Lignes 125, 132, 180, 323",
     distanceFromCenter: "4 km",
     travelTime: "18 minutes en métro",
-    nearbyLandmarks: ["Manufacture des Œillets", "Parc des Cormailles"],
-    localContext: "Ivry-sur-Seine, ville culturelle et industrielle aux portes de Paris, attire de nombreux candidats à la reconversion. Notre centre de formation est accessible via le métro ligne 7.",
-    seoTitle: "Formation Taxi VTC Ivry-sur-Seine (94200) | ECOLE T3P - Centre à 18 min",
-    seoDescription: "Formation TAXI et VTC à Ivry-sur-Seine (94200). Centre ECOLE T3P à 18 min en métro ligne 7. Formation agréée Préfecture, 94% de réussite.",
-    seoKeywords: ["formation taxi Ivry-sur-Seine", "formation VTC Ivry", "centre formation 94200", "carte professionnelle taxi Ivry", "ECOLE T3P Ivry"],
+    nearbyLandmarks: ["Manufacture des Œillets", "Parc des Cormailles", "Quartier Ivry Confluences"],
+    localContext: "Ivry-sur-Seine, ville de 60 000 habitants en pleine mutation urbaine avec le projet Ivry Confluences, est un pôle créatif et industriel aux portes de Paris. La ligne 7 du métro offre un accès direct vers le centre de la capitale et notre centre de formation.",
+    introTitle: "Ivry-sur-Seine — Formation Taxi & VTC à seulement 18 minutes",
+    introText: [
+      "Vous habitez Ivry-sur-Seine, le quartier d'Ivry Port, la Manufacture ou les Cormailles ? ECOLE T3P à Montrouge est votre centre de formation le plus rapide d'accès. Depuis Mairie d'Ivry (ligne 7), descendez à Châtelet puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Trajet total : 18 minutes.",
+      "Ivry-sur-Seine connaît une transformation majeure avec le projet Ivry Confluences (145 hectares) qui attire entreprises et nouveaux habitants. Cette dynamique renforce la demande de transport professionnel dans le sud-est parisien. Les chauffeurs VTC et Taxi basés à Ivry bénéficient d'une position stratégique entre Paris 13e, Vitry et Villejuif — un secteur en plein essor.",
+      "Notre centre agréé Préfecture (n° 23/007) vous prépare avec 94% de réussite à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€), 2h de conduite et l'accompagnement à la création d'entreprise. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Ivry-sur-Seine, prenez le métro ligne 7 à Mairie d'Ivry. Descendez à Châtelet (10 min). Prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 200m. Total : 18 minutes. Alternative depuis Pierre et Marie Curie : même itinéraire. En voiture : boulevard périphérique Porte d'Italie puis D920, environ 15 min.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant grâce à nos formateurs anciens chauffeurs professionnels et notre méthode pédagogique éprouvée." },
+      { icon: MapPin, title: "18 min en direct", text: "Ligne 7 + ligne 4 : le trajet le plus court depuis le Val-de-Marne vers notre centre de Montrouge." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€), 2h de conduite et accompagnement création d'entreprise inclus. 4× sans frais via Alma." },
+      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/007 depuis 2014. +2 000 chauffeurs formés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis Ivry-sur-Seine ?", answer: "Métro ligne 7 depuis Mairie d'Ivry jusqu'à Châtelet (10 min), puis ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 200m du métro. Total : 18 minutes." },
+      { question: "Le sud-est parisien est-il un bon secteur pour les chauffeurs VTC ?", answer: "Oui. Le secteur Ivry-Vitry-Villejuif est en plein essor avec les projets urbains (Ivry Confluences, Grand Paris Express). La demande de transport est soutenue vers Paris, les gares et Orly. CA moyen : 3 000 à 4 500€/mois pour un chauffeur actif." },
+      { question: "Quelles formations propose ECOLE T3P aux Ivryens ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues réglementaires (170-239€). Trois formats : journée, soirée ou e-learning illimité." },
+      { question: "Le format soirée est-il adapté depuis Ivry ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) permettent d'arriver facilement pour 18h depuis Ivry. Vous êtes de retour chez vous avant 22h. De nombreux Ivryens en activité choisissent ce format." },
+      { question: "Les frais d'examen CMA sont-ils inclus ?", answer: "Oui, les 241€ de frais d'inscription à la Chambre des Métiers sont inclus dans les 990€. Aucun supplément. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "ECOLE T3P aide-t-elle à créer son entreprise ?", answer: "Oui, l'accompagnement est inclus : choix du statut juridique, inscription aux registres, ouverture de compte professionnel et inscription sur les plateformes VTC (Uber, Bolt, Heetch)." },
+      { question: "Le Grand Paris Express va-t-il impacter le secteur ?", answer: "Oui, la ligne 15 du Grand Paris Express desservira Villejuif et renforcera l'attractivité du secteur. Les chauffeurs installés dans le Val-de-Marne bénéficieront d'une clientèle élargie grâce aux nouvelles connexions." },
+      { question: "Quel est le taux de réussite pour les stagiaires du 94 ?", answer: "94%, identique pour tous nos stagiaires quelle que soit leur origine géographique. Ce résultat est supérieur à la moyenne nationale grâce à notre préparation intensive et nos formateurs experts." }
+    ],
+    seoTitle: "Formation Taxi VTC Ivry-sur-Seine (94200) | ECOLE T3P — Centre Agréé à 18 min",
+    seoDescription: "Formation Taxi et VTC à Ivry-sur-Seine (94200). Centre ECOLE T3P agréé Préfecture à 18 min en métro 7. 990€ tout compris, 94% de réussite, paiement en 4×.",
+    seoKeywords: ["formation taxi Ivry-sur-Seine", "formation VTC Ivry", "centre formation 94200", "carte professionnelle taxi Ivry", "ECOLE T3P Ivry", "formation chauffeur Val-de-Marne"],
     latitude: 48.8131,
     longitude: 2.3847
   },
@@ -707,15 +730,38 @@ export const cities: CityData[] = [
     departmentCode: "94",
     postalCodes: ["94400"],
     metroAccess: "Ligne 7 - Villejuif-Louis Aragon (proche)",
-    tramAccess: "T9 - plusieurs arrêts à Vitry",
+    tramAccess: "T9 - Vitry centre, Port à l'Anglais, Ardoines",
     busAccess: "Lignes 132, 172, 180, 183",
     distanceFromCenter: "5 km",
     travelTime: "22 minutes en transport",
-    nearbyLandmarks: ["MAC VAL - Musée d'Art Contemporain", "Parc du Coteau"],
-    localContext: "Vitry-sur-Seine, ville d'art contemporain avec le MAC VAL, compte de nombreux habitants en reconversion professionnelle. Notre centre est accessible via le tramway T9 ou le métro ligne 7.",
-    seoTitle: "Formation Taxi VTC Vitry-sur-Seine (94400) | ECOLE T3P - Centre à 22 min",
-    seoDescription: "Formation TAXI et VTC à Vitry-sur-Seine (94400). Centre ECOLE T3P à 22 min en métro/tram. Formation agréée Préfecture, 94% de réussite.",
-    seoKeywords: ["formation taxi Vitry-sur-Seine", "formation VTC Vitry", "centre formation 94400", "carte professionnelle taxi Vitry", "ECOLE T3P Vitry"],
+    nearbyLandmarks: ["MAC VAL - Musée d'Art Contemporain", "Parc du Coteau", "Quartier des Ardoines"],
+    localContext: "Vitry-sur-Seine, première ville du Val-de-Marne par sa population (95 000 habitants), est un carrefour culturel avec le MAC VAL et un pôle en transformation avec le quartier des Ardoines et le Grand Paris Express.",
+    introTitle: "Vitry-sur-Seine — Devenez chauffeur professionnel à 22 minutes du centre",
+    introText: [
+      "Vous habitez Vitry-sur-Seine, le quartier du Port à l'Anglais, le centre-ville ou les Ardoines ? Notre centre ECOLE T3P à Montrouge est accessible en 22 minutes. Le tramway T9 vous conduit jusqu'à la ligne 7 puis la ligne 4 vers Mairie de Montrouge.",
+      "Vitry-sur-Seine est la commune la plus peuplée du Val-de-Marne et un territoire en pleine mutation. Le projet des Ardoines (Grand Paris Express, ligne 15) va transformer le sud du territoire et créer de nouvelles opportunités pour les chauffeurs de transport de personnes. Les Vitriots qui se forment aujourd'hui seront les premiers à bénéficier de cette dynamique.",
+      "Avec 94% de réussite et plus de 2 000 chauffeurs formés depuis 2014, ECOLE T3P est le centre de référence en Île-de-France. Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise."
+    ],
+    detailedAccess: "Depuis Vitry-sur-Seine, prenez le tramway T9 jusqu'à Porte de Choisy, puis le métro ligne 7 direction Villejuif jusqu'à Châtelet. Correspondance ligne 4 direction Bagneux, descendre à Mairie de Montrouge. Total : environ 22 minutes. Alternative : bus 183 jusqu'à Porte d'Italie puis métro 7. En voiture : D5 puis périphérique, environ 15 min hors pointe.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Nos stagiaires du Val-de-Marne obtiennent les mêmes résultats excellents. Préparation intensive par des formateurs expérimentés." },
+      { icon: MapPin, title: "22 min via T9 + métro", text: "Tramway T9 + ligne 7 + ligne 4 : un trajet fluide depuis Vitry vers notre centre de Montrouge." },
+      { icon: GraduationCap, title: "3 formats disponibles", text: "Journée (1 semaine), soirée (2 semaines) ou e-learning 24h/24. Même tarif, même qualité de formation." },
+      { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Examen CMA (241€), conduite et création d'entreprise inclus." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment rejoindre ECOLE T3P depuis Vitry-sur-Seine ?", answer: "Prenez le tramway T9 jusqu'à Porte de Choisy, puis le métro 7 jusqu'à Châtelet et la ligne 4 jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 200m. Total : environ 22 minutes." },
+      { question: "Quel potentiel pour un chauffeur VTC basé à Vitry ?", answer: "Excellent. Vitry est la plus grande ville du 94 et bénéficie de la proximité d'Orly (20 min), du marché de Rungis et des zones d'activités du sud parisien. Le Grand Paris Express (ligne 15 aux Ardoines) va encore renforcer la demande. CA moyen : 3 000 à 4 500€/mois." },
+      { question: "Quelles formations sont accessibles aux Vitriots ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues obligatoires (170-239€). Tous les formats sont disponibles au même tarif." },
+      { question: "Peut-on suivre la formation en soirée depuis Vitry ?", answer: "Oui. Les sessions soirée (18h-21h30) sont compatibles avec le trajet depuis Vitry. Le T9 et le métro 7 fonctionnent jusqu'à 0h30, vous êtes de retour chez vous confortablement." },
+      { question: "Le e-learning est-il efficace pour préparer l'examen ?", answer: "Oui, notre plateforme e-learning est accessible 24h/24 avec des cours, des QCM d'entraînement et des examens blancs. Vous ne vous déplacez à Montrouge que pour les 2h de conduite pratique. C'est le format préféré des stagiaires en activité." },
+      { question: "La double carte Taxi + VTC est-elle intéressante ?", answer: "Oui, la Passerelle VTC↔Taxi (665€, 14h en 2 jours) permet de cumuler les deux activités. C'est un levier puissant pour maximiser vos revenus, surtout dans un secteur comme le sud du 94 où les deux clientèles coexistent." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription sur les plateformes VTC (Uber, Bolt, Heetch), conseils fiscaux et préparation au renouvellement de carte tous les 5 ans." },
+      { question: "Comment le Grand Paris Express va-t-il changer le métier ?", answer: "La ligne 15 (prévue aux Ardoines) connectera directement Vitry à La Défense, Villejuif et Saint-Denis. Cela créera de nouveaux flux de passagers et renforcera la demande de transport VTC et Taxi dans le secteur sud-est." }
+    ],
+    seoTitle: "Formation Taxi VTC Vitry-sur-Seine (94400) | ECOLE T3P — Centre Agréé à 22 min",
+    seoDescription: "Formation Taxi et VTC à Vitry-sur-Seine (94400). Centre ECOLE T3P agréé Préfecture à 22 min. 990€ tout compris, 94% de réussite. Plus grande ville du 94.",
+    seoKeywords: ["formation taxi Vitry-sur-Seine", "formation VTC Vitry", "centre formation 94400", "carte professionnelle taxi Vitry", "ECOLE T3P Vitry", "formation chauffeur Val-de-Marne"],
     latitude: 48.7875,
     longitude: 2.3922
   },
@@ -924,6 +970,47 @@ export const cities: CityData[] = [
     seoKeywords: ["formation taxi Maisons-Alfort", "formation VTC Maisons-Alfort", "centre formation 94700", "carte professionnelle taxi Maisons-Alfort", "ECOLE T3P Maisons-Alfort"],
     latitude: 48.8056,
     longitude: 2.4378
+  },
+  {
+    slug: "creteil",
+    name: "Créteil",
+    department: "Val-de-Marne",
+    departmentCode: "94",
+    postalCodes: ["94000"],
+    metroAccess: "Ligne 8 - Créteil-Préfecture, Créteil-Université, Créteil-L'Échat, Créteil-Pointe du Lac",
+    busAccess: "Lignes 104, 117, 172, 181, 281, 317",
+    distanceFromCenter: "10 km",
+    travelTime: "30 minutes en métro ligne 8",
+    nearbyLandmarks: ["Lac de Créteil", "Préfecture du Val-de-Marne", "Cathédrale Notre-Dame de Créteil", "Centre commercial Créteil Soleil"],
+    localContext: "Créteil, préfecture du Val-de-Marne et ville de 92 000 habitants, est le centre administratif et commercial du département. Desservie par 4 stations de la ligne 8, elle concentre les services publics, un pôle universitaire et le plus grand centre commercial du Val-de-Marne.",
+    introTitle: "Créteil — Préfecture du 94, centre de formation à 30 minutes",
+    introText: [
+      "Vous habitez Créteil, le quartier du Lac, Mont-Mesly, l'Échat ou l'Université ? ECOLE T3P à Montrouge est accessible en 30 minutes via le métro ligne 8. Depuis Créteil-Préfecture, prenez la ligne 8 jusqu'à Concorde ou Opéra, puis correspondance vers la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge.",
+      "En tant que préfecture du Val-de-Marne, Créteil concentre les administrations, l'université Paris-Est Créteil (40 000 étudiants), l'hôpital Henri Mondor et le centre commercial Créteil Soleil. Cette densité d'activités génère une demande importante de transport professionnel. Les chauffeurs VTC et Taxi basés à Créteil couvrent efficacement le sud-est francilien, avec un accès rapide à l'A86 et l'A4 vers les aéroports.",
+      "Notre centre agréé Préfecture (n° 23/007) affiche 94% de réussite à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€), 2h de conduite et l'accompagnement à la création d'entreprise. Le format e-learning est particulièrement apprécié des Cristoliens souhaitant étudier à leur rythme."
+    ],
+    detailedAccess: "Depuis Créteil, prenez le métro ligne 8 à Créteil-Préfecture. Descendez à Opéra (25 min) ou Concorde, puis prenez la ligne correspondante vers Châtelet et la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Total : environ 30 minutes. Alternative rapide : ligne 8 jusqu'à Madeleine, puis ligne 14 jusqu'à Châtelet et ligne 4. En voiture : A86 puis A6b vers Montrouge, environ 25 min hors pointe.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Nos stagiaires du Val-de-Marne affichent un taux identique à la moyenne du centre. Notre méthode intensive fait la différence." },
+      { icon: Car, title: "Position stratégique", text: "Depuis Créteil, couvrez le sud-est parisien : A86, A4 vers Roissy, A6 vers Orly. Un bassin de clientèle vaste et diversifié." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€), 2h de conduite et accompagnement création d'entreprise inclus. 4× sans frais via Alma." },
+      { icon: Users, title: "E-learning recommandé", text: "Le format e-learning 24h/24 est idéal depuis Créteil : révisez à votre rythme, déplacez-vous uniquement pour la pratique." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis Créteil ?", answer: "Métro ligne 8 depuis Créteil-Préfecture jusqu'à Opéra (25 min), puis correspondance vers Châtelet et ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Centre au 3 rue Corneille, à 200m du métro. Total : environ 30 minutes." },
+      { question: "Le marché VTC est-il rentable depuis Créteil ?", answer: "Oui. Créteil bénéficie d'un positionnement central dans le Val-de-Marne avec accès direct à l'A86 (Roissy, La Défense) et à l'A4. L'hôpital Mondor, l'université et Créteil Soleil génèrent une demande variée. CA moyen : 3 500 à 5 000€/mois pour un chauffeur actif." },
+      { question: "Quelles formations sont proposées aux Cristoliens ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues réglementaires (170-239€). Trois formats : journée intensive, soirée ou e-learning illimité." },
+      { question: "Le format e-learning est-il adapté pour Créteil ?", answer: "Oui, c'est le format le plus recommandé pour les stagiaires de Créteil. Vous accédez aux cours et QCM 24h/24, et ne vous déplacez à Montrouge que pour les 2h de conduite. De nombreux Cristoliens choisissent cette option." },
+      { question: "Les frais d'examen sont-ils inclus dans le prix ?", answer: "Oui, les 241€ de frais d'inscription à la Chambre des Métiers sont inclus dans les 990€. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun frais caché." },
+      { question: "Peut-on cumuler carte Taxi et carte VTC ?", answer: "Oui, la Passerelle VTC↔Taxi (665€, 14h en 2 jours) permet d'obtenir la seconde carte professionnelle. Cumuler les deux activités est un atout majeur dans le Val-de-Marne où les deux clientèles coexistent." },
+      { question: "ECOLE T3P aide-t-elle à la création d'entreprise ?", answer: "Oui, l'accompagnement est inclus : choix du statut juridique (micro-entreprise, SASU, EURL), inscription aux registres, compte professionnel et inscription sur les plateformes VTC (Uber, Bolt, Heetch)." },
+      { question: "Quel impact aura le Grand Paris Express sur le métier ?", answer: "La ligne 15 du Grand Paris Express connectera le Val-de-Marne à La Défense, Saint-Denis et Villejuif. Ces nouvelles gares créeront des flux de passagers supplémentaires et renforceront la demande de chauffeurs VTC et Taxi dans le département." }
+    ],
+    seoTitle: "Formation Taxi VTC Créteil (94000) | ECOLE T3P — Centre Agréé à 30 min",
+    seoDescription: "Formation Taxi et VTC à Créteil (94000), préfecture du Val-de-Marne. Centre ECOLE T3P agréé à 30 min en métro 8. 990€ tout compris, 94% de réussite.",
+    seoKeywords: ["formation taxi Créteil", "formation VTC Créteil", "centre formation 94000", "carte professionnelle taxi Créteil", "ECOLE T3P Créteil", "formation chauffeur Val-de-Marne"],
+    latitude: 48.7904,
+    longitude: 2.4556
   },
   {
     slug: "alfortville",
