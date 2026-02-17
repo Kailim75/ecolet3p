@@ -365,31 +365,32 @@ const RecuperationPoints = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto space-y-10">
             <div>
-              <h2 className="section-title mb-4">Réglementation du stage de récupération de points en 2026</h2>
+              <h2 className="section-title mb-4">Stage de récupération de points à Montrouge (92) — Réglementation 2026</h2>
               <p className="text-muted-foreground mb-4">
                 Le stage de sensibilisation à la sécurité routière est encadré par les articles R223-5 à R223-13 du Code de la route. 
-                Il permet à tout conducteur ayant perdu des points de récupérer jusqu'à 4 points sur son permis de conduire, 
+                Ce stage permis à points permet à tout conducteur ayant perdu des points de récupérer jusqu'à 4 points sur son permis de conduire, 
                 dans la limite du plafond légal (12 points pour un permis classique, 6 pour un permis probatoire).
               </p>
               <p className="text-muted-foreground mb-4">
-                Le stage se déroule sur 2 jours consécutifs (14 heures au total) dans un centre agréé par la préfecture. 
-                À Montrouge, ECOLE T3P dispose de l'agrément préfectoral n° 23/007 pour dispenser ces stages. 
+                Le stage de récupération de points se déroule sur 2 jours consécutifs (14 heures au total) dans un centre agréé par la préfecture. 
+                À Montrouge, ECOLE T3P dispose de l'agrément préfectoral n° 23/007 pour dispenser ces stages permis à points. 
                 L'attestation de stage est transmise automatiquement à la préfecture, et les points sont crédités 
-                dès le lendemain du dernier jour de formation.
+                dès le lendemain du dernier jour de formation. Notre stage est accessible depuis le 92 (Hauts-de-Seine) et le 94 (Val-de-Marne).
               </p>
             </div>
 
             <div>
-              <h2 className="section-title mb-4">Qui peut participer au stage volontaire ?</h2>
+              <h2 className="section-title mb-4">Stage permis 92 et 94 : qui peut participer ?</h2>
               <p className="text-muted-foreground mb-4">
-                Pour s'inscrire à un stage volontaire de récupération de points, trois conditions doivent être réunies : 
+                Pour s'inscrire à un stage volontaire de récupération de points à Montrouge, trois conditions doivent être réunies : 
                 disposer d'au moins 1 point restant sur le permis, ne pas avoir effectué de stage dans les 12 derniers mois, 
-                et ne pas avoir reçu de courrier 48SI signifiant l'invalidation du permis pour solde nul.
+                et ne pas avoir reçu de courrier 48SI signifiant l'invalidation du permis pour solde nul. Notre stage permis à points 
+                accueille des conducteurs de tout le 92 et le 94.
               </p>
               <p className="text-muted-foreground mb-4">
                 Les titulaires d'un permis probatoire ayant commis une infraction entraînant un retrait de 3 points ou plus 
                 sont tenus d'effectuer un stage obligatoire dans les 4 mois suivant la réception du courrier 48N. 
-                Dans ce cas, le stage permet de récupérer les points retirés et d'être remboursé de l'amende forfaitaire.
+                Dans ce cas, le stage 4 points permis permet de récupérer les points retirés et d'être remboursé de l'amende forfaitaire.
               </p>
             </div>
 
@@ -398,12 +399,12 @@ const RecuperationPoints = () => {
               <p className="text-muted-foreground mb-4">
                 Pour les chauffeurs professionnels (VTC, Taxi, VMDTR), le permis de conduire est un outil de travail indispensable. 
                 Une suspension ou une invalidation signifie l'arrêt immédiat de l'activité et donc une perte de revenus importante. 
-                Le stage de récupération de points est un investissement préventif qui sécurise votre carrière.
+                Le stage de récupération de points à Montrouge est un investissement préventif qui sécurise votre carrière de chauffeur professionnel.
               </p>
               <p className="text-muted-foreground">
-                De plus, le contenu pédagogique du stage vous permet de prendre conscience de vos comportements à risque 
-                et d'adopter une conduite plus sûre au quotidien. Les retours de nos stagiaires montrent une réduction 
-                significative des infractions dans les mois suivant le stage.
+                Accessible en métro ligne 4, notre centre accueille les conducteurs du 92 (Bagneux, Malakoff, Châtillon, Boulogne-Billancourt, Nanterre) 
+                et du 94 (Créteil, Ivry-sur-Seine, Vitry-sur-Seine, Villejuif). Le contenu pédagogique du stage vous permet de prendre conscience 
+                de vos comportements à risque et d'adopter une conduite plus sûre au quotidien.
               </p>
             </div>
           </div>
