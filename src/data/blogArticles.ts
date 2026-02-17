@@ -12,6 +12,7 @@ import carteProfessionnelleVtc from "@/assets/blog/carte-professionnelle-vtc.jpg
 import financementFormation from "@/assets/blog/financement-formation.jpg";
 import motoTaxiVmdtr from "@/assets/blog/moto-taxi-vmdtr.jpg";
 import formationContinue from "@/assets/blog/formation-continue.jpg";
+import renouvellementCartePro from "@/assets/blog/renouvellement-carte-pro.jpg";
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -2866,6 +2867,200 @@ Au-delà de l'obligation légale, la formation continue vous apporte :
 La formation continue n'est pas qu'une contrainte administrative : c'est l'occasion de faire le point sur votre pratique et de vous perfectionner, que vous soyez chauffeur VTC, Taxi ou VMDTR.
 
 Chez ECOLE T3P, nous rendons cette formation agréable et enrichissante pour les trois métiers du transport de personnes. Réservez votre place dès maintenant !
+    `
+  },
+  {
+    slug: "renouvellement-carte-professionnelle-vtc-taxi-2026",
+    title: "Renouvellement carte professionnelle VTC Taxi 2026 : démarches, délais et formation obligatoire",
+    metaDescription: "Comment renouveler votre carte professionnelle VTC, Taxi ou VMDTR en 2026 ? Démarches, délais, formation continue obligatoire 14h et pièces à fournir.",
+    excerpt: "Votre carte professionnelle VTC, Taxi ou VMDTR arrive à expiration ? Découvrez les démarches complètes, les délais à respecter et la formation continue obligatoire pour renouveler votre titre.",
+    category: "RÉGLEMENTATION",
+    readTime: "11 min",
+    publishDate: "2026-02-17",
+    author: "ECOLE T3P",
+    image: renouvellementCartePro,
+    content: `
+## Introduction : anticiper le renouvellement de votre carte professionnelle
+
+La **carte professionnelle** de chauffeur VTC, Taxi ou VMDTR a une **validité de 5 ans**. À l'expiration, vous devez impérativement la renouveler pour continuer à exercer légalement. Le non-renouvellement entraîne l'interdiction d'exercer et des sanctions pénales.
+
+Chez **ECOLE T3P à Montrouge (92)**, nous accompagnons chaque année des dizaines de chauffeurs professionnels dans leur renouvellement. Ce guide vous détaille les démarches, les délais et la formation continue obligatoire à suivre.
+
+## Qui est concerné par le renouvellement ?
+
+Tous les titulaires d'une carte professionnelle de transport public particulier de personnes :
+
+| Carte | Validité | Formation continue requise |
+|-------|----------|---------------------------|
+| Carte professionnelle VTC | 5 ans | 14h obligatoires |
+| Carte professionnelle Taxi | 5 ans | 14h obligatoires |
+| Carte professionnelle VMDTR | 5 ans | 7h obligatoires |
+
+**Important** : le renouvellement doit être demandé **au moins 3 mois avant l'expiration** de votre carte. Ne tardez pas — les délais administratifs peuvent être longs.
+
+## La formation continue obligatoire : condition sine qua non
+
+### Pourquoi une formation continue ?
+
+La réglementation impose une **formation continue** avant chaque renouvellement. Cette obligation vise à :
+
+- Mettre à jour vos connaissances réglementaires
+- Renforcer la sécurité routière
+- Améliorer la qualité de service aux usagers
+- Maintenir vos compétences professionnelles
+
+### Durée et contenu par métier
+
+#### Formation continue VTC — 14h
+
+Programme sur 2 jours :
+- Évolutions réglementaires du transport VTC
+- Sécurité routière et prévention des risques
+- Gestion de la relation client
+- Développement de l'activité professionnelle
+
+**[→ Voir la formation continue VTC](/formations/continue-vtc)**
+
+#### Formation continue Taxi — 14h
+
+Programme sur 2 jours :
+- Mise à jour de la réglementation Taxi
+- Évolutions tarifaires et zone de prise en charge
+- Sécurité routière
+- Relation client et qualité de service
+
+**[→ Voir la formation continue Taxi](/formations/continue-taxi)**
+
+#### Formation continue VMDTR — 7h
+
+Programme sur 1 jour :
+- Réglementation spécifique VMDTR
+- Sécurité routière deux-roues motorisés
+- Équipements de protection obligatoires
+- Relation client et qualité de service
+
+**[→ Voir la formation continue VMDTR](/formations/continue-vmdtr)**
+
+### Tarifs de la formation continue chez ECOLE T3P
+
+| Formation | Durée | Tarif |
+|-----------|-------|-------|
+| Continue VTC | 14h (2 jours) | 350€ |
+| Continue Taxi | 14h (2 jours) | 350€ |
+| Continue VMDTR | 7h (1 jour) | 350€ |
+
+Les sessions ont lieu dans notre centre de Montrouge, à 5 minutes du métro Mairie de Montrouge (ligne 4).
+
+## Les démarches de renouvellement étape par étape
+
+### Étape 1 : Vérifier la date d'expiration
+
+Consultez votre carte professionnelle : la date d'expiration est indiquée au recto. **Anticipez au minimum 3 à 6 mois** avant cette date.
+
+### Étape 2 : Suivre la formation continue
+
+Inscrivez-vous à une session de formation continue auprès d'un centre agréé. Chez ECOLE T3P, nous organisons des sessions régulières tout au long de l'année.
+
+À l'issue de la formation, vous recevez une **attestation de suivi de formation continue**, indispensable pour votre dossier de renouvellement.
+
+### Étape 3 : Constituer votre dossier
+
+#### Pièces à fournir pour le renouvellement
+
+| Pièce | Détail |
+|-------|--------|
+| Formulaire CERFA | Demande de renouvellement de carte professionnelle |
+| Carte professionnelle actuelle | Original ou copie |
+| Attestation de formation continue | Délivrée par le centre de formation agréé |
+| Pièce d'identité | CNI ou passeport en cours de validité |
+| Permis de conduire | En cours de validité (B pour VTC/Taxi, A pour VMDTR) |
+| Justificatif de domicile | De moins de 3 mois |
+| Photo d'identité | Conforme aux normes en vigueur |
+| Extrait de casier judiciaire | Bulletin n°2 (demandé par la préfecture) |
+| Certificat médical | Aptitude à la conduite professionnelle |
+| Attestation d'assurance | Responsabilité civile professionnelle |
+
+### Étape 4 : Déposer votre demande
+
+La demande de renouvellement se fait auprès de la **préfecture de votre département** ou via la plateforme dématérialisée selon votre zone :
+
+- **Île-de-France** : Préfecture de Police de Paris (pour les taxis parisiens) ou préfecture du département de résidence
+- **Province** : Préfecture du département
+
+### Étape 5 : Recevoir votre nouvelle carte
+
+Le délai de traitement varie de **2 à 8 semaines** selon la préfecture. Pendant ce délai, conservez le récépissé de dépôt qui fait office de justificatif temporaire.
+
+## Calendrier type pour un renouvellement serein
+
+| Échéance | Action |
+|----------|--------|
+| J-6 mois | Vérifier la date d'expiration de la carte |
+| J-4 mois | S'inscrire à la formation continue |
+| J-3 mois | Suivre la formation continue |
+| J-2 mois | Constituer le dossier complet |
+| J-6 semaines | Déposer la demande en préfecture |
+| J-0 | Réception de la nouvelle carte |
+
+## Que se passe-t-il en cas de retard ?
+
+### Carte expirée = interdiction d'exercer
+
+Si votre carte professionnelle est expirée, vous êtes en **situation d'exercice illégal**. Les conséquences sont :
+
+- **Amende** : jusqu'à 15 000€
+- **Suspension** : du permis de conduire
+- **Immobilisation** : du véhicule
+- **Assurance** : non-couverture en cas d'accident
+
+### Comment régulariser la situation ?
+
+Si votre carte est déjà expirée :
+1. **Cessez immédiatement** toute activité de transport
+2. Inscrivez-vous en urgence à une session de formation continue
+3. Déposez votre dossier de renouvellement dès l'obtention de l'attestation
+4. Certaines préfectures proposent des procédures accélérées
+
+## Questions fréquentes
+
+### Puis-je renouveler ma carte dans un autre département ?
+
+Oui, vous pouvez demander le renouvellement auprès de la préfecture de votre lieu de résidence, même si votre carte initiale a été délivrée ailleurs.
+
+### La formation continue suffit-elle pour le renouvellement ?
+
+Non, la formation continue est une condition nécessaire mais pas suffisante. Vous devez également fournir un dossier complet (certificat médical, casier judiciaire vierge, etc.).
+
+### Puis-je suivre la formation continue en e-learning ?
+
+La réglementation impose que la formation continue soit dispensée en **présentiel** dans un centre agréé. Les formations en ligne ne sont pas acceptées pour le renouvellement.
+
+### Combien de temps à l'avance puis-je suivre la formation continue ?
+
+La formation continue peut être suivie dans les **12 mois précédant l'expiration** de votre carte. Nous recommandons de la suivre 3 à 4 mois avant.
+
+### Que faire si ma carte est perdue ou volée ?
+
+En cas de perte ou de vol, demandez un duplicata auprès de la préfecture. Vous aurez besoin d'une déclaration de perte ou d'un dépôt de plainte.
+
+## Pourquoi choisir ECOLE T3P pour votre formation continue ?
+
+- ✅ **Centre agréé par la Préfecture** — Attestation reconnue pour le renouvellement
+- ✅ **Sessions régulières** — Plusieurs dates chaque mois
+- ✅ **Localisation pratique** — 3 rue Corneille, 92120 Montrouge (métro ligne 4)
+- ✅ **Formateurs expérimentés** — Professionnels du transport de personnes
+- ✅ **Accompagnement administratif** — Aide à la constitution du dossier de renouvellement
+
+## 📚 Articles connexes
+
+- **[Devenir chauffeur VTC en 2026](/blog/comment-devenir-chauffeur-vtc-2026)** : Le guide complet de la formation initiale
+- **[Devenir chauffeur Taxi en 2026](/blog/comment-devenir-chauffeur-taxi-2026)** : Réglementation et formation
+- **[Formation continue obligatoire : ce qu'il faut savoir](/blog/formation-continue-obligatoire-vtc-taxi-vmdtr)** : Détail du programme
+- **[Quel statut juridique choisir ?](/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026)** : Auto-entrepreneur, SASU, EURL
+
+---
+
+*Article publié le 17 février 2026 par ECOLE T3P — Centre de formation agréé à Montrouge (92). Informations conformes à la réglementation en vigueur.*
     `
   }
 ];
