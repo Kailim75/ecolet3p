@@ -101,8 +101,31 @@ export const cities: CityData[] = [
     travelTime: "8 minutes en métro",
     nearbyLandmarks: ["Cimetière parisien de Bagneux", "Parc François Mitterrand"],
     localContext: "Bagneux, ville dynamique du sud des Hauts-de-Seine, bénéficie désormais d'un accès direct à notre centre grâce au prolongement de la ligne 4. De nombreux habitants de Bagneux choisissent ECOLE T3P pour leur formation TAXI ou VTC grâce à sa proximité.",
+    introTitle: "Bagneux — Formation Taxi & VTC à 8 minutes en métro ligne 4",
+    introText: [
+      "Vous habitez Bagneux, le quartier des Mathurins, du Pont Royal ou près du Parc François Mitterrand ? Grâce au prolongement de la ligne 4, notre centre de formation à Montrouge est désormais à seulement 8 minutes de chez vous. Depuis la station Barbara ou Bagneux-Lucie Aubrac, descendez à Mairie de Montrouge : le centre est à 200m.",
+      "Bagneux connaît une transformation urbaine majeure avec l'arrivée du métro et de nouveaux quartiers. Cette dynamique génère une demande croissante de transport professionnel. Les chauffeurs VTC et Taxi basés à Bagneux profitent d'un accès rapide au périphérique sud, aux aéroports d'Orly (20 min) et de Roissy, ainsi qu'à une clientèle résidentielle en pleine expansion.",
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990€ tout compris : frais d'examen CMA (241€), 2h de conduite et accompagnement création d'entreprise inclus. Avec 94% de réussite et +2 000 chauffeurs formés, nous sommes la référence du sud des Hauts-de-Seine."
+    ],
+    detailedAccess: "Depuis Bagneux, prenez la ligne 4 à la station Barbara (quartier sud) ou Bagneux-Lucie Aubrac (quartier nord). Direction Porte de Clignancourt, descendez à Mairie de Montrouge (2 stations, 5 min). Sortie rue Corneille : le centre est au n°3, à 200m. Alternative bus : ligne 128 arrêt Mairie de Montrouge. En voiture : 5 min via l'avenue Aristide Briand, parking rue Gabriel Péri.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant depuis 2014, grâce à nos formateurs anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "8 min en ligne 4", text: "Accès direct depuis Barbara ou Bagneux-Lucie Aubrac. Le centre de formation le plus proche de Bagneux." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) + 2h conduite inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/007. +2 000 chauffeurs diplômés depuis 2014, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis Bagneux ?", answer: "Prenez la ligne 4 à Barbara ou Bagneux-Lucie Aubrac. Descendez à Mairie de Montrouge (2 stations, 5 min). Le centre est au 3 rue Corneille, à 200m de la sortie du métro. Trajet total : environ 8 minutes." },
+      { question: "Le prolongement de la ligne 4 facilite-t-il l'accès ?", answer: "Absolument. Depuis décembre 2022, les stations Barbara et Bagneux-Lucie Aubrac offrent un accès direct sans correspondance vers Mairie de Montrouge. C'est le trajet le plus rapide et le plus simple pour rejoindre notre centre." },
+      { question: "Quelles formations sont accessibles depuis Bagneux ?", answer: "Toutes nos formations : Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues réglementaires (170-239€). Trois formats disponibles : journée (9h30-16h30), soirée (18h-21h30) ou e-learning." },
+      { question: "Le marché du transport est-il porteur autour de Bagneux ?", answer: "Oui. Bagneux bénéficie d'un accès rapide au périphérique sud et à l'A6. La proximité d'Orly (20 min) et la desserte vers Paris sont des atouts majeurs. Les chauffeurs du sud 92 réalisent en moyenne 3 500 à 5 000€ de CA mensuel." },
+      { question: "La formation inclut-elle l'examen CMA ?", answer: "Oui, les 241€ de frais d'inscription à la Chambre des Métiers sont inclus dans les 990€. Aucun supplément. Le paiement en 4× sans frais via Alma est proposé (247,50€/mois)." },
+      { question: "Y a-t-il des sessions le soir pour les actifs de Bagneux ?", answer: "Oui, le format soirée (18h-21h30, 2 semaines) est idéal pour les Balnéolais en activité. À 8 min en métro, vous pouvez facilement suivre les cours après le travail. Même tarif que le format journée." },
+      { question: "ECOLE T3P aide-t-elle à créer son entreprise ?", answer: "Oui. Notre accompagnement post-formation comprend l'aide à la création d'entreprise (micro-entreprise ou SASU), l'inscription sur les plateformes VTC (Uber, Bolt, Heetch) et des conseils pour optimiser votre lancement." },
+      { question: "Peut-on obtenir une double carte Taxi + VTC ?", answer: "Oui, grâce à la Passerelle VTC↔Taxi (665€, 14h sur 2 jours). La double carte permet de jongler entre courses Taxi et missions VTC selon la demande et de maximiser vos revenus." }
+    ],
     seoTitle: "Formation Taxi VTC Bagneux (92220) | ECOLE T3P - Centre Agréé à 8 min",
-    seoDescription: "Formation TAXI et VTC à Bagneux (92220). Centre ECOLE T3P à 8 min en métro ligne 4. Formation agréée Préfecture, 94% de réussite. Accessible depuis Barbara ou Bagneux-Lucie Aubrac.",
+    seoDescription: "Formation TAXI et VTC à Bagneux (92220). Centre ECOLE T3P à 8 min en métro ligne 4. Formation agréée Préfecture, 94% de réussite. 990€ tout compris, paiement en 4×.",
     seoKeywords: ["formation taxi Bagneux", "formation VTC Bagneux", "centre formation 92220", "carte professionnelle taxi Bagneux", "formation chauffeur Bagneux", "ECOLE T3P Bagneux"],
     latitude: 48.7964,
     longitude: 2.3167
@@ -138,8 +161,31 @@ export const cities: CityData[] = [
     travelTime: "5 minutes à pied",
     nearbyLandmarks: ["Théâtre 71", "Parc Léon Salagnac"],
     localContext: "Malakoff est la ville la plus proche de notre centre de formation. À seulement 5 minutes à pied, les habitants de Malakoff peuvent facilement suivre leur formation TAXI ou VTC sans perdre de temps dans les transports.",
+    introTitle: "Malakoff — Le centre de formation Taxi & VTC le plus proche, à 5 min à pied",
+    introText: [
+      "Vous habitez Malakoff, le quartier du Plateau de Vanves, de la Tour Malakoff ou près de la rue Étienne Dolet ? Notre centre est littéralement votre voisin ! Au 3 rue Corneille à Montrouge, ECOLE T3P est accessible en 5 minutes à pied depuis la limite communale. Aucun transport en commun nécessaire.",
+      "Malakoff, avec ses 31 000 habitants et sa forte identité populaire, est un terreau fertile pour les reconversions professionnelles. La ville bénéficie d'une excellente desserte vers Paris (métro 13, bus) et d'un accès rapide au périphérique sud, un avantage décisif pour les chauffeurs VTC et Taxi qui ciblent la clientèle parisienne et les transferts aéroport.",
+      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre vous prépare efficacement à l'examen CMA. Formation complète à 990€ tout compris : frais d'examen (241€), 2h de conduite et accompagnement jusqu'à la création de votre entreprise."
+    ],
+    detailedAccess: "Depuis Malakoff, rejoignez notre centre à pied en 5 minutes : suivez l'avenue Pierre Larousse direction sud, tournez rue Corneille. Le centre est au n°3. Depuis le métro Malakoff-Plateau de Vanves (ligne 13), comptez 8 minutes à pied direction Montrouge. Alternative bus : ligne 126 arrêt Mairie de Montrouge (3 min). Le métro Mairie de Montrouge (ligne 4) est à 200m du centre.",
+    whyChoose: [
+      { icon: MapPin, title: "5 min à pied", text: "Le centre de formation le plus proche de Malakoff. Pas de transport en commun nécessaire, venez à pied !" },
+      { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence bien au-dessus de la moyenne nationale, grâce à nos formateurs experts du métier." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) + 2h conduite inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { icon: GraduationCap, title: "3 formats au choix", text: "Journée (9h30-16h30), soirée (18h-21h30) ou e-learning 24h/24. Même tarif, même qualité." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis Malakoff ?", answer: "Le plus simple : à pied ! Depuis le centre-ville de Malakoff, suivez l'avenue Pierre Larousse vers le sud, puis tournez rue Corneille. Comptez 5 minutes de marche. Depuis le métro Malakoff-Plateau de Vanves (ligne 13), 8 minutes à pied direction Montrouge." },
+      { question: "ECOLE T3P est-elle vraiment le centre le plus proche de Malakoff ?", answer: "Oui, à 800 mètres de la limite communale. Notre centre au 3 rue Corneille à Montrouge est le plus accessible pour les Malakoffiots. Aucun autre centre agréé ne se trouve aussi près." },
+      { question: "Quelles formations propose ECOLE T3P ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Tous les formats : journée intensive, soirée ou e-learning illimité." },
+      { question: "Est-il possible de se former le soir après le travail ?", answer: "Oui, le format soirée (18h-21h30, 2 semaines) est très prisé par les Malakoffiots en activité. À 5 min à pied, vous rentrez chez vous en quelques minutes après les cours." },
+      { question: "Comment financer ma formation depuis Malakoff ?", answer: "Le paiement en 4× sans frais est proposé via Alma (247,50€/mois). Le tarif de 990€ inclut déjà les frais d'examen CMA (241€). Aucun supplément caché." },
+      { question: "Le marché du transport est-il intéressant autour de Malakoff ?", answer: "Très intéressant. La proximité de Paris (métro 13 direct), du boulevard périphérique et de la porte d'Orléans offre un bassin de clientèle important. Les chauffeurs VTC du sud parisien réalisent en moyenne 3 500 à 5 500€ de CA mensuel." },
+      { question: "ECOLE T3P aide-t-elle après l'examen ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise ou SASU), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." },
+      { question: "Quel est le taux de réussite aux examens ?", answer: "94% de réussite, bien au-dessus de la moyenne nationale. Ce résultat s'explique par notre préparation intensive et nos formateurs anciens chauffeurs professionnels qui connaissent parfaitement l'examen CMA." }
+    ],
     seoTitle: "Formation Taxi VTC Malakoff (92240) | ECOLE T3P - Centre à 5 min à pied",
-    seoDescription: "Formation TAXI et VTC à Malakoff (92240). Centre ECOLE T3P à 5 min à pied ! Formation agréée Préfecture, 94% de réussite. Le centre de formation le plus proche de Malakoff.",
+    seoDescription: "Formation TAXI et VTC à Malakoff (92240). Centre ECOLE T3P à 5 min à pied ! 990€ tout compris, 94% de réussite. Le centre de formation le plus proche de Malakoff.",
     seoKeywords: ["formation taxi Malakoff", "formation VTC Malakoff", "centre formation 92240", "carte professionnelle taxi Malakoff", "formation chauffeur Malakoff", "ECOLE T3P Malakoff"],
     latitude: 48.8189,
     longitude: 2.2978
@@ -157,8 +203,31 @@ export const cities: CityData[] = [
     travelTime: "6 minutes en métro",
     nearbyLandmarks: ["Centre commercial Châtillon-Montrouge", "Parc Henri Barbusse"],
     localContext: "Châtillon bénéficie d'une excellente desserte avec le terminus de la ligne 13 et le tramway T6. Les habitants de Châtillon rejoignent notre centre ECOLE T3P en quelques minutes pour leur formation de chauffeur professionnel.",
-    seoTitle: "Formation Taxi VTC Châtillon (92320) | ECOLE T3P - Centre à 6 min en métro",
-    seoDescription: "Formation TAXI et VTC à Châtillon (92320). Centre ECOLE T3P à 6 min en métro ligne 13. Formation agréée Préfecture, 94% de réussite. Terminus Châtillon-Montrouge.",
+    introTitle: "Châtillon — Formation Taxi & VTC à 6 minutes en métro ligne 13",
+    introText: [
+      "Vous habitez Châtillon, le quartier du Centre-Ville, des Sorbiers ou près du terminus Châtillon-Montrouge ? Notre centre de formation est à seulement 6 minutes. Depuis la station Châtillon-Montrouge (terminus ligne 13), prenez le bus 126 ou marchez 10 minutes direction Montrouge centre.",
+      "Châtillon, ville résidentielle de 37 000 habitants, est idéalement positionnée pour les futurs chauffeurs professionnels. Le terminus de la ligne 13 et le tramway T6 offrent une connectivité exceptionnelle vers Paris et le sud des Hauts-de-Seine. Les Châtillonnais qui exercent comme chauffeur VTC ou Taxi profitent d'un accès rapide à la clientèle parisienne et aux grands axes routiers (A86, périphérique).",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Châtillon-Montrouge (terminus ligne 13), prenez le bus 126 direction Mairie de Montrouge (3 arrêts, 5 min) ou marchez 10 min via l'avenue de la République. Le centre est au 3 rue Corneille, à 200m du métro Mairie de Montrouge (ligne 4). Alternative : tramway T6 jusqu'à Châtillon-Montrouge puis bus 126. En voiture : 5 min via l'avenue de la République, parking rue Gabriel Péri.",
+    whyChoose: [
+      { icon: MapPin, title: "6 min depuis Châtillon", text: "Terminus ligne 13 + bus 126 : un trajet rapide et simple vers notre centre de Montrouge." },
+      { icon: Trophy, title: "94% de réussite", text: "Nos formateurs, anciens chauffeurs professionnels, vous préparent avec un taux bien au-dessus de la moyenne." },
+      { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Examen CMA (241€), 2h de conduite et création d'entreprise inclus." },
+      { icon: Car, title: "Accès rapide aux axes", text: "Depuis Châtillon, accédez au périphérique et à l'A86 en minutes. Position idéale pour exercer vers Paris, Orly et La Défense." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment rejoindre ECOLE T3P depuis Châtillon ?", answer: "Depuis le terminus Châtillon-Montrouge (ligne 13), prenez le bus 126 jusqu'à Mairie de Montrouge (5 min, 3 arrêts). Le centre est au 3 rue Corneille, à 200m. Vous pouvez aussi marcher (10 min via l'avenue de la République)." },
+      { question: "La ligne 13 dessert-elle directement le centre ?", answer: "Le terminus Châtillon-Montrouge est à 1.2 km du centre. Le bus 126 fait la liaison en 5 minutes. Alternative : le métro ligne 4 (Mairie de Montrouge) est à 200m du centre et accessible via correspondance à Montparnasse." },
+      { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Trois formats : journée (9h30-16h30), soirée (18h-21h30) ou e-learning illimité." },
+      { question: "Le format soirée est-il adapté aux Châtillonnais actifs ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) permettent de suivre la formation après le travail. Avec un trajet de seulement 6 minutes, vous êtes rentré chez vous avant 22h." },
+      { question: "Combien coûte la formation et que comprend-elle ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète (réglementation, gestion, sécurité) et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "Exercer depuis Châtillon est-il avantageux ?", answer: "Oui. Châtillon est stratégiquement situé : accès rapide au périphérique sud, à l'A86 et aux portes de Paris. Les chauffeurs VTC du secteur bénéficient d'une clientèle diversifiée (résidentielle et business) et de transferts aéroport fréquents." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise, inscription sur les plateformes VTC (Uber, Bolt, Heetch), conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." },
+      { question: "Peut-on se garer près du centre ?", answer: "Oui, un parking public est disponible rue Gabriel Péri, à proximité. Mais le trajet en transport (bus 126 depuis Châtillon-Montrouge) reste l'option la plus pratique." }
+    ],
+    seoTitle: "Formation Taxi VTC Châtillon (92320) | ECOLE T3P - Centre Agréé à 6 min",
+    seoDescription: "Formation TAXI et VTC à Châtillon (92320). Centre ECOLE T3P à 6 min en métro ligne 13. 990€ tout compris, 94% de réussite. Terminus Châtillon-Montrouge.",
     seoKeywords: ["formation taxi Châtillon", "formation VTC Châtillon", "centre formation 92320", "carte professionnelle taxi Châtillon", "formation chauffeur Châtillon", "ECOLE T3P Châtillon"],
     latitude: 48.8106,
     longitude: 2.2892
@@ -212,8 +281,31 @@ export const cities: CityData[] = [
     travelTime: "3 minutes en métro depuis Alésia",
     nearbyLandmarks: ["Catacombes de Paris", "Parc Montsouris", "Cité Universitaire"],
     localContext: "Le 14e arrondissement de Paris est notre voisin immédiat. Les habitants du 14e peuvent rejoindre notre centre de formation en quelques minutes depuis Alésia. C'est le choix idéal pour une formation TAXI ou VTC à proximité de chez soi.",
+    introTitle: "Paris 14e — Le centre de formation Taxi & VTC à 3 minutes d'Alésia",
+    introText: [
+      "Vous habitez le 14e arrondissement — quartier Alésia, Mouton-Duvernet, Denfert-Rochereau ou Plaisance ? Notre centre est votre voisin immédiat. Depuis la station Alésia (ligne 4), une seule station vous sépare de Mairie de Montrouge. En 3 minutes, vous êtes devant notre porte au 3 rue Corneille.",
+      "Le 14e arrondissement, avec ses 140 000 habitants et ses quartiers populaires comme la rue Daguerre ou la Butte-aux-Cailles (limitrophe 13e), est un vivier de futurs chauffeurs professionnels. La position centrale du 14e offre un avantage stratégique : accès direct au périphérique sud (porte d'Orléans), proximité des gares Montparnasse et Denfert-Rochereau (Orlybus), et desserte vers tous les arrondissements parisiens.",
+      "Avec un agrément Préfecture n° 23/007, 94% de réussite et +2 000 chauffeurs formés depuis 2014, ECOLE T3P est la référence pour les habitants du 14e. Formation à 990€ tout compris, paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis le 14e arrondissement, prenez la ligne 4 à Alésia. Direction Bagneux, descendez à Mairie de Montrouge (1 station, 3 min). Sortie rue Corneille : le centre est au n°3, à 200m. Depuis Mouton-Duvernet : ligne 4 direction Bagneux, 2 stations. Depuis Denfert-Rochereau : ligne 4 direction Bagneux, 3 stations (5 min). À pied depuis Alésia : 12 min via l'avenue de la République. Bus 68 arrêt Mairie de Montrouge.",
+    whyChoose: [
+      { icon: MapPin, title: "3 min depuis Alésia", text: "Une seule station de métro (ligne 4) sépare Alésia de notre centre. Le trajet le plus court de toute l'Île-de-France." },
+      { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant, grâce à nos formateurs anciens chauffeurs professionnels." },
+      { icon: Car, title: "Position stratégique", text: "Depuis le 14e, accès direct au périphérique (Porte d'Orléans), Montparnasse et Orlybus : idéal pour exercer." },
+      { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Examen CMA (241€), 2h conduite et création d'entreprise inclus." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis le 14e arrondissement ?", answer: "Ligne 4 depuis Alésia : 1 station jusqu'à Mairie de Montrouge (3 min). Sortie rue Corneille, le centre est au n°3, à 200m. Depuis Denfert-Rochereau : 3 stations (5 min). C'est le centre de formation le plus proche du 14e." },
+      { question: "Pourquoi le 14e est-il un bon territoire pour exercer comme chauffeur ?", answer: "Excellent territoire. Accès direct au périphérique sud (Porte d'Orléans), proximité de la gare Montparnasse (TGV), de l'Orlybus (Denfert-Rochereau) et d'une clientèle parisienne diversifiée. Les chauffeurs VTC du 14e réalisent en moyenne 4 000 à 6 000€ de CA mensuel." },
+      { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) ou e-learning illimité." },
+      { question: "Le format soirée convient-il aux actifs du 14e ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) sont idéales : à 3 minutes d'Alésia en métro, vous êtes rentré chez vous en quelques minutes après les cours. De nombreux habitants du 14e en reconversion choisissent ce format." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ TTC, incluant les frais d'examen CMA (241€), 2h de conduite et l'accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun frais caché." },
+      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: "Oui, agrément n° 23/007 de la Préfecture des Hauts-de-Seine. Centre actif depuis 2014, +2 000 chauffeurs formés, 94% de réussite et 5.0/5 sur Google (359 avis vérifiés)." },
+      { question: "Peut-on passer la double carte Taxi + VTC ?", answer: "Oui. Passez d'abord votre carte VTC ou Taxi (990€), puis la Passerelle (665€, 14h sur 2 jours) pour obtenir la seconde carte. La double carte permet de maximiser vos revenus en alternant les deux activités." },
+      { question: "Y a-t-il un accompagnement après l'examen ?", answer: "Oui : aide à la création d'entreprise (choix du statut juridique), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Paris 14e (75014) | ECOLE T3P - Centre à 3 min d'Alésia",
-    seoDescription: "Formation TAXI et VTC Paris 14e arrondissement (75014). Centre ECOLE T3P à 3 min d'Alésia (métro 4). Formation agréée Préfecture, 94% de réussite. Le plus proche du 14e.",
+    seoDescription: "Formation TAXI et VTC Paris 14e (75014). Centre ECOLE T3P à 3 min d'Alésia (ligne 4). 990€ tout compris, 94% de réussite. Le centre le plus proche du 14e arrondissement.",
     seoKeywords: ["formation taxi Paris 14", "formation VTC Paris 14e", "centre formation 75014", "carte professionnelle taxi Paris 14", "formation chauffeur Paris 14e", "ECOLE T3P Paris 14"],
     latitude: 48.8331,
     longitude: 2.3264
