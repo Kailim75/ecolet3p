@@ -590,6 +590,29 @@ export const cities: CityData[] = [
     travelTime: "18 minutes en tramway",
     nearbyLandmarks: ["Forêt de Meudon", "Observatoire de Meudon", "Terrasse de Meudon"],
     localContext: "Meudon, ville verdoyante avec sa forêt et son observatoire, offre un cadre de vie privilégié. Les Meudonnais souhaitant devenir chauffeur professionnel rejoignent notre centre via le tramway T6.",
+    introTitle: "Meudon — Formation Taxi & VTC à 18 min, entre forêt et opportunités",
+    introText: [
+      "Vous habitez Meudon, Meudon-la-Forêt ou Bellevue ? Notre centre ECOLE T3P à Montrouge est accessible en 18 minutes via le tramway T6. Depuis l'arrêt Meudon-la-Forêt (T6), descendez au terminus Châtillon-Montrouge puis prenez le bus 126 — vous êtes à 200m du centre.",
+      "Meudon, ville résidentielle de 46 000 habitants nichée entre la forêt domaniale et la Seine, attire de nombreux profils en reconversion professionnelle. Sa position stratégique entre Vélizy-Villacoublay, Issy-les-Moulineaux et Clamart offre aux futurs chauffeurs un accès privilégié vers les zones d'affaires du sud-ouest parisien, les aéroports et le plateau de Saclay.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis Meudon-la-Forêt, prenez le tramway T6 à l'arrêt Meudon-la-Forêt direction Châtillon-Montrouge (terminus, 12 min). Puis bus 126 (3 arrêts, 5 min) jusqu'à l'arrêt Corneille. Le centre est au 3 rue Corneille. Alternative depuis la gare de Meudon (Transilien N) : bus 169 jusqu'à Châtillon-Montrouge puis bus 126. En voiture : D2 puis N306, parking disponible rue Corneille, environ 15 min hors pointe.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Nos formateurs, anciens chauffeurs professionnels, vous préparent avec un taux de réussite bien supérieur à la moyenne nationale de 59%." },
+      { icon: MapPin, title: "À 18 min en T6", text: "Le tramway T6 relie directement Meudon-la-Forêt à Châtillon-Montrouge. Un trajet simple, sans correspondance stressante." },
+      { icon: Car, title: "Bassin Vélizy-Saclay", text: "Depuis Meudon, accédez rapidement aux zones d'activité de Vélizy, Saclay et La Défense — un bassin de clientèle business à fort potentiel." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus. Paiement en 4× sans frais via Alma. Aucun coût caché, accompagnement jusqu'à la carte pro." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Meudon à ECOLE T3P ?", answer: "Le tramway T6 depuis Meudon-la-Forêt vous amène au terminus Châtillon-Montrouge en 12 minutes. De là, le bus 126 (3 arrêts) vous dépose à 200m du centre. Trajet total : 18 minutes." },
+      { question: "La formation est-elle compatible avec un emploi à Meudon ?", answer: "Oui. Nous proposons 3 formats : journée (9h-17h), soirée (18h-21h30) et e-learning. Le format soirée est très prisé des Meudonnais en activité — vous êtes de retour chez vous vers 22h15." },
+      { question: "Quel est le marché VTC/Taxi depuis Meudon ?", answer: "Excellent. La proximité de Vélizy-2 (centre commercial), du plateau de Saclay, d'Issy-les-Moulineaux (sièges sociaux) et de l'A86 offre un bassin de clientèle diversifié. Les chauffeurs du sud-92 réalisent 3 500 à 5 500€ de CA mensuel." },
+      { question: "Quels formats de formation sont disponibles ?", answer: "Journée (5 semaines), soirée (7 semaines, 18h-21h30) et e-learning (à votre rythme + 2h de conduite au centre). Les 3 formats mènent au même examen CMA et au même taux de réussite de 94%." },
+      { question: "La Passerelle VTC↔Taxi est-elle intéressante depuis Meudon ?", answer: "Oui. La Passerelle (665€, 14h en 2 jours) permet de cumuler les deux cartes. Depuis Meudon, vous couvrez aussi bien la clientèle taxi des gares (Montparnasse, Meudon-Val-Fleury) que les courses VTC vers les aéroports et La Défense." },
+      { question: "Comment se déroule l'examen CMA ?", answer: "L'examen se passe à la Chambre des Métiers et de l'Artisanat d'Île-de-France. Il comporte des épreuves théoriques (QCM + questions ouvertes) sur la réglementation, la gestion et la sécurité. Nous vous préparons avec des examens blancs réguliers." },
+      { question: "Le stationnement est-il facile près du centre ?", answer: "Oui, parking gratuit disponible rue Corneille et dans les rues adjacentes. Mais le T6 + bus 126 reste l'option la plus pratique depuis Meudon-la-Forêt." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription sur les plateformes VTC (Uber, Bolt, Heetch), conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Meudon (92190) | ECOLE T3P - Centre à 18 min en T6",
     seoDescription: "Formation TAXI et VTC à Meudon (92190). Centre ECOLE T3P à 18 min en tramway T6. Formation agréée Préfecture, 94% de réussite. Accessible depuis Meudon-la-Forêt.",
     seoKeywords: ["formation taxi Meudon", "formation VTC Meudon", "centre formation 92190", "carte professionnelle taxi Meudon", "formation chauffeur Meudon", "ECOLE T3P Meudon"],
@@ -961,6 +984,29 @@ export const cities: CityData[] = [
     travelTime: "12 minutes en métro",
     nearbyLandmarks: ["Hôpital Bicêtre", "Fort de Bicêtre"],
     localContext: "Le Kremlin-Bicêtre, petite commune aux portes du 13e arrondissement, est très proche de notre centre. Les Kremlinois rejoignent ECOLE T3P en seulement 12 minutes via le métro ligne 7.",
+    introTitle: "Le Kremlin-Bicêtre — Formation Taxi & VTC à 12 min, aux portes de Paris",
+    introText: [
+      "Vous habitez Le Kremlin-Bicêtre, le quartier de l'Hôpital, du Fort ou du centre-ville ? Notre centre ECOLE T3P est à seulement 12 minutes en métro. Depuis la station Le Kremlin-Bicêtre (ligne 7), prenez la direction Mairie d'Ivry puis correspondance ligne 4 à Châtelet — ou plus simplement, le bus 125 direct jusqu'à Montrouge.",
+      "Le Kremlin-Bicêtre, commune de 27 000 habitants adossée à Paris 13e, est l'une des villes les plus proches de notre centre. Son positionnement stratégique entre la Porte d'Italie, Villejuif et Gentilly en fait un territoire idéal pour les chauffeurs professionnels. Le CHU de Bicêtre génère une forte demande de transport sanitaire et de courses VTC.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis Le Kremlin-Bicêtre, prenez le métro ligne 7 à la station Le Kremlin-Bicêtre direction Mairie d'Ivry. Descendez à Villejuif-Léo Lagrange, puis bus 323 direction Issy-Val de Seine (5 arrêts, 8 min) jusqu'à Montrouge. Alternative : bus 125 direct depuis le centre-ville (15 min). En voiture : A6b sortie Montrouge, 8 min hors pointe. Parking disponible rue Corneille.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux exceptionnel pour les stagiaires du Kremlin-Bicêtre et des communes voisines du Val-de-Marne." },
+      { icon: MapPin, title: "À 12 min seulement", text: "L'une des communes les plus proches de notre centre. Bus 125 direct ou métro ligne 7 + correspondance rapide." },
+      { icon: Users, title: "Bassin CHU Bicêtre", text: "L'hôpital Bicêtre et la Porte d'Italie génèrent une forte demande de transport. Un avantage compétitif pour les chauffeurs locaux." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus. Paiement en 4× sans frais via Alma. Zéro surprise, accompagnement complet." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Le Kremlin-Bicêtre à ECOLE T3P ?", answer: "Le bus 125 relie directement le centre-ville du Kremlin à Montrouge en 15 minutes. Alternative : métro ligne 7 + bus 323. Le centre est au 3 rue Corneille, à 200m de l'arrêt." },
+      { question: "La formation est-elle compatible avec un emploi au Kremlin-Bicêtre ?", answer: "Oui. Le format soirée (18h-21h30) est idéal pour les actifs. Avec le bus 125 direct, vous êtes de retour chez vous vers 22h. Le format e-learning est aussi disponible pour travailler à votre rythme." },
+      { question: "Quel est le marché VTC/Taxi depuis Le Kremlin-Bicêtre ?", answer: "Très porteur. La proximité de Paris 13e, de la Porte d'Italie et du CHU de Bicêtre crée une forte demande. Les chauffeurs du sud-est parisien réalisent 3 500 à 5 500€ de CA mensuel." },
+      { question: "La formation Taxi ou VTC, laquelle choisir depuis Le Kremlin ?", answer: "Les deux sont rentables. Le Taxi offre un accès aux stations et bornes d'appel (gares, hôpitaux). Le VTC est idéal via les plateformes (Uber, Bolt). La Passerelle VTC↔Taxi (665€) permet de cumuler les deux cartes." },
+      { question: "Le format e-learning est-il efficace ?", answer: "Oui. Notre plateforme est accessible 24h/24 avec cours, QCM et examens blancs. Vous ne vous déplacez à Montrouge que pour les 2h de conduite pratique. Même taux de réussite de 94%." },
+      { question: "Comment se déroule l'inscription ?", answer: "Appelez le 01 88 75 05 55 ou inscrivez-vous en ligne. Nous constituons votre dossier CMA complet. La prochaine session démarre chaque semaine." },
+      { question: "Le Grand Paris Express changera-t-il le métier au Kremlin ?", answer: "Oui. La future ligne 15 (Métro Grand Paris) passera à proximité et connectera le sud du 94 à La Défense, Saint-Denis et les aéroports. Cela créera de nouveaux flux de clientèle pour les chauffeurs." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et préparation au renouvellement de carte tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Le Kremlin-Bicêtre (94270) | ECOLE T3P - Centre à 12 min",
     seoDescription: "Formation TAXI et VTC au Kremlin-Bicêtre (94270). Centre ECOLE T3P à 12 min en métro ligne 7. Formation agréée Préfecture, 94% de réussite.",
     seoKeywords: ["formation taxi Kremlin-Bicêtre", "formation VTC Kremlin", "centre formation 94270", "carte professionnelle taxi Kremlin", "ECOLE T3P Kremlin-Bicêtre"],
@@ -998,6 +1044,29 @@ export const cities: CityData[] = [
     travelTime: "10 minutes en RER B",
     nearbyLandmarks: ["Aqueduc d'Arcueil", "Maison des Arts"],
     localContext: "Arcueil, ville historique avec son aqueduc gallo-romain, est très bien desservie par le RER B. Les Arcueillais rejoignent notre centre en 10 minutes seulement.",
+    introTitle: "Arcueil — Formation Taxi & VTC à 10 min, au cœur du sud parisien",
+    introText: [
+      "Vous habitez Arcueil, le quartier de la gare Laplace, du centre-ville ou du Chaperon-Vert ? Notre centre ECOLE T3P est à seulement 10 minutes. Depuis la gare Arcueil-Cachan (RER B), prenez le bus 187 direction Montrouge — 3 arrêts et vous êtes à 200m du centre.",
+      "Arcueil, commune de 22 000 habitants adossée à Montrouge et Cachan, est l'une des villes les plus proches de notre centre de formation. Son tissu urbain dynamique, entre la Cité Internationale Universitaire et le futur campus Arago, attire de nombreux candidats en reconversion. La proximité directe de la N20 et de l'A6b offre aux futurs chauffeurs un accès rapide à Paris, aux aéroports et à l'ensemble du sud francilien.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis la gare Arcueil-Cachan (RER B), prenez le bus 187 direction Montrouge-Cimetière (3 arrêts, 6 min). Descendez à l'arrêt Corneille. Le centre est au 3 rue Corneille. Alternative : depuis la gare Laplace (RER B), marchez 5 min jusqu'à l'arrêt bus 323 puis direction Issy (4 arrêts). En voiture : N20 direction Montrouge puis rue Corneille, 8 min. Parking disponible.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux exceptionnel pour les stagiaires d'Arcueil, Cachan et Gentilly. Nos formateurs préparent intensivement à chaque épreuve CMA." },
+      { icon: MapPin, title: "À 10 min en RER B", text: "Arcueil est l'une des communes les plus proches de notre centre. Un trajet simple et rapide via le bus 187 depuis la gare." },
+      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/007 délivré par la Préfecture des Hauts-de-Seine. Formation conforme aux exigences réglementaires pour l'examen CMA." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun coût caché." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Arcueil à ECOLE T3P ?", answer: "Depuis la gare Arcueil-Cachan (RER B), le bus 187 vous amène à Montrouge en 6 minutes (3 arrêts). Le centre est au 3 rue Corneille, à 200m de l'arrêt. Trajet total : 10 minutes." },
+      { question: "La formation est-elle compatible avec un emploi à Arcueil ?", answer: "Oui. Le format soirée (18h-21h30) est parfait pour les actifs. Avec le bus 187 + RER B, vous êtes de retour chez vous vers 22h. Le e-learning est aussi disponible." },
+      { question: "Quel est le marché VTC/Taxi depuis Arcueil ?", answer: "Très porteur. La proximité immédiate de Paris 14e, de la Porte d'Orléans et de la N20 offre un accès rapide à toute la clientèle parisienne. Les chauffeurs du sud-94 réalisent 3 500 à 5 500€ de CA mensuel." },
+      { question: "Taxi ou VTC, quelle formation choisir depuis Arcueil ?", answer: "Les deux sont rentables. Le Taxi est idéal pour les courses en gare (Denfert-Rochereau, Montparnasse). Le VTC via plateformes (Uber, Bolt) offre plus de flexibilité. La Passerelle (665€) permet de cumuler les deux cartes." },
+      { question: "Le format e-learning est-il adapté aux Arcueillais ?", answer: "Oui. Plateforme accessible 24h/24 avec cours, QCM et examens blancs. Vous ne vous déplacez à Montrouge que pour les 2h de conduite. Même taux de réussite de 94%." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "Le campus Arago va-t-il créer des opportunités pour les chauffeurs ?", answer: "Oui. Le futur campus Arago (recherche et innovation) va renforcer la demande de transport dans le secteur Arcueil-Cachan. C'est un atout supplémentaire pour les chauffeurs locaux." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et préparation au renouvellement de carte tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Arcueil (94110) | ECOLE T3P - Centre à 10 min en RER B",
     seoDescription: "Formation TAXI et VTC à Arcueil (94110). Centre ECOLE T3P à 10 min en RER B. Formation agréée Préfecture, 94% de réussite. Gare Arcueil-Cachan.",
     seoKeywords: ["formation taxi Arcueil", "formation VTC Arcueil", "centre formation 94110", "carte professionnelle taxi Arcueil", "ECOLE T3P Arcueil"],
@@ -1016,6 +1085,29 @@ export const cities: CityData[] = [
     travelTime: "12 minutes en RER B",
     nearbyLandmarks: ["ENS Paris-Saclay (ancien site)", "Parc Raspail"],
     localContext: "Cachan, ville universitaire et résidentielle, est bien desservie par le RER B. Les Cachanais souhaitant devenir chauffeur professionnel rejoignent notre centre facilement.",
+    introTitle: "Cachan — Formation Taxi & VTC à 12 min, ville universitaire du sud-94",
+    introText: [
+      "Vous habitez Cachan, le quartier de la gare, du Coteau ou de la Plaine ? Notre centre ECOLE T3P à Montrouge est accessible en 12 minutes. Depuis la gare Arcueil-Cachan (RER B), le bus 187 vous dépose à 200m du centre en 6 minutes.",
+      "Cachan, commune résidentielle de 31 000 habitants, héberge l'ancien site de l'ENS Paris-Saclay et bénéficie d'un cadre de vie attractif. Sa position entre Arcueil, Bagneux et L'Haÿ-les-Roses en fait un carrefour stratégique du sud du Val-de-Marne. La N20 et l'A6b offrent aux futurs chauffeurs un accès direct vers Paris, Orly et le plateau de Saclay.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis la gare Arcueil-Cachan (RER B, zone 2), prenez le bus 187 direction Montrouge (3 arrêts, 6 min). Descendez à l'arrêt Corneille. Le centre est au 3 rue Corneille, à 200m. Alternative depuis le sud de Cachan : bus 162 jusqu'à Bagneux puis bus 323 direction Montrouge. En voiture : N20 puis D128 direction Montrouge, 10 min. Parking disponible rue Corneille et rues adjacentes.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Nos formateurs, anciens chauffeurs professionnels, accompagnent les Cachanais avec un taux de réussite bien supérieur à la moyenne nationale de 59%." },
+      { icon: MapPin, title: "À 12 min en RER B", text: "La gare Arcueil-Cachan (RER B) + bus 187 : un trajet rapide et fiable vers notre centre de Montrouge." },
+      { icon: GraduationCap, title: "Ville universitaire", text: "Cachan, ancien site de l'ENS, attire des profils ambitieux et méthodiques. Des qualités idéales pour réussir l'examen CMA." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus. Paiement en 4× sans frais via Alma. Accompagnement jusqu'à la carte professionnelle." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Cachan à ECOLE T3P ?", answer: "Depuis la gare Arcueil-Cachan (RER B), le bus 187 vous amène à Montrouge en 6 minutes. Le centre est au 3 rue Corneille, à 200m de l'arrêt. Trajet total : 12 minutes." },
+      { question: "La formation est-elle compatible avec un emploi à Cachan ?", answer: "Oui. Le format soirée (18h-21h30) est idéal. Avec le bus 187 + RER B, vous êtes rentré à Cachan vers 22h15. Le e-learning permet aussi d'étudier à votre rythme depuis chez vous." },
+      { question: "Quel est le marché VTC/Taxi depuis Cachan ?", answer: "Très porteur. L'accès direct à la N20 et l'A6b vous positionne entre Paris sud, Orly et le plateau de Saclay. Les chauffeurs du sud-94 réalisent 3 500 à 5 500€ de CA mensuel." },
+      { question: "Taxi ou VTC, quelle formation choisir depuis Cachan ?", answer: "Les deux sont rentables. Le Taxi offre des stations stratégiques (Denfert, Montparnasse). Le VTC via Uber/Bolt permet plus de flexibilité. La Passerelle (665€, 2 jours) permet de cumuler les deux cartes." },
+      { question: "Quels formats de formation sont disponibles ?", answer: "Journée (5 semaines, 9h-17h), soirée (7 semaines, 18h-21h30) et e-learning (à votre rythme + 2h de conduite). Les 3 formats préparent au même examen CMA avec 94% de réussite." },
+      { question: "Le e-learning est-il efficace pour préparer l'examen ?", answer: "Oui. Plateforme 24h/24 avec cours vidéo, QCM d'entraînement et examens blancs corrigés. Vous ne venez à Montrouge que pour les 2h de conduite. C'est le format préféré des Cachanais en activité." },
+      { question: "La reconversion du site ENS crée-t-elle des opportunités ?", answer: "Oui. La mutation du campus en pôle d'activités et de logements va densifier le quartier et augmenter la demande de transport. Un atout pour les chauffeurs locaux sur le long terme." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et préparation au renouvellement de carte tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Cachan (94230) | ECOLE T3P - Centre à 12 min en RER B",
     seoDescription: "Formation TAXI et VTC à Cachan (94230). Centre ECOLE T3P à 12 min en RER B. Formation agréée Préfecture, 94% de réussite.",
     seoKeywords: ["formation taxi Cachan", "formation VTC Cachan", "centre formation 94230", "carte professionnelle taxi Cachan", "ECOLE T3P Cachan"],
