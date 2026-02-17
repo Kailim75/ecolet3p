@@ -143,8 +143,31 @@ export const cities: CityData[] = [
     travelTime: "10 minutes en bus",
     nearbyLandmarks: ["Parc Frédéric Pic", "Lycée Michelet"],
     localContext: "Vanves, charmante commune limitrophe de Paris 15e, offre un cadre de vie agréable à ses habitants. Notre centre de formation à Montrouge est facilement accessible depuis Vanves, permettant aux futurs chauffeurs TAXI et VTC de se former à proximité de chez eux.",
+    introTitle: "Vanves — Formation Taxi & VTC à 10 min, entre Paris 15e et Montrouge",
+    introText: [
+      "Vous habitez Vanves, le quartier du Plateau, de la Gare ou près du Lycée Michelet ? Notre centre ECOLE T3P est à seulement 10 minutes en bus depuis le cœur de Vanves. La station Malakoff-Plateau de Vanves (ligne 13) vous connecte directement à notre quartier.",
+      "Vanves, avec ses 28 000 habitants et sa position stratégique entre Paris 15e et Malakoff, est un emplacement idéal pour les futurs chauffeurs professionnels. La proximité immédiate du périphérique sud, de la porte de Vanves et de la porte Brancion offre un accès privilégié à la clientèle parisienne et aux courses vers les gares Montparnasse et les aéroports.",
+      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre vous accompagne de la formation à la création de votre entreprise. Formation complète à 990€ tout compris : frais d'examen CMA (241€), 2h de conduite et aide administrative inclus."
+    ],
+    detailedAccess: "Depuis Vanves, le plus rapide : bus 126 direction Montrouge (arrêt Mairie de Montrouge, 10 min). Le centre est au 3 rue Corneille, à 200m de l'arrêt. Alternative : métro Malakoff-Plateau de Vanves (ligne 13), puis 12 min à pied direction Montrouge centre. Depuis la gare Vanves-Malakoff (Transilien N), comptez 15 min à pied via la rue de Châtillon. En voiture : 5 min via la D906, stationnement facile rue Corneille.",
+    whyChoose: [
+      { icon: MapPin, title: "10 min en bus", text: "Bus 126 direct depuis Vanves. Un trajet rapide et simple vers le centre de formation le plus proche." },
+      { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence grâce à nos formateurs experts, anciens chauffeurs professionnels." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) + 2h conduite inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { icon: Car, title: "Position stratégique", text: "Depuis Vanves, accédez au périphérique et aux portes de Paris en 3 min. Idéal pour exercer vers Montparnasse et les aéroports." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis Vanves ?", answer: "Le plus simple : bus 126 depuis Vanves centre, arrêt Mairie de Montrouge (10 min). Le centre est au 3 rue Corneille, à 200m. Alternative : métro Malakoff-Plateau de Vanves (ligne 13) puis 12 min à pied." },
+      { question: "Vanves est-elle proche du centre de formation ?", answer: "Oui, seulement 1.5 km. Vanves est l'une des communes les plus proches de notre centre à Montrouge. En bus 126, vous y êtes en 10 minutes." },
+      { question: "Quelles formations propose ECOLE T3P ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Trois formats : journée, soirée ou e-learning illimité." },
+      { question: "Le format soirée est-il adapté pour les Vanvéens ?", answer: "Oui, les cours du soir (18h-21h30, 2 semaines) sont parfaits. Avec un trajet de 10 min, vous êtes rentré chez vous avant 22h." },
+      { question: "Comment financer ma formation depuis Vanves ?", answer: "Paiement en 4× sans frais via Alma (247,50€/mois). Le tarif de 990€ inclut les frais d'examen CMA (241€). Aucun supplément caché." },
+      { question: "Le marché du transport est-il porteur autour de Vanves ?", answer: "Très porteur. La proximité de Paris 15e, du périphérique et de la porte de Vanves offre un large bassin de clientèle. Les chauffeurs VTC du secteur réalisent en moyenne 3 500 à 5 500€ de CA mensuel." },
+      { question: "ECOLE T3P aide-t-elle après l'obtention de la carte ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise ou SASU), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte tous les 5 ans." },
+      { question: "Quel est le taux de réussite aux examens CMA ?", answer: "94% de réussite, bien au-dessus de la moyenne nationale. Ce résultat s'explique par nos formateurs anciens chauffeurs et notre préparation intensive à l'examen CMA." }
+    ],
     seoTitle: "Formation Taxi VTC Vanves (92170) | ECOLE T3P - Centre à 10 min",
-    seoDescription: "Formation TAXI et VTC à Vanves (92170). Centre ECOLE T3P à 10 min en bus ou Transilien. Formation agréée Préfecture, 94% de réussite. Proche Malakoff-Plateau de Vanves.",
+    seoDescription: "Formation TAXI et VTC à Vanves (92170). Centre ECOLE T3P à 10 min en bus 126. 990€ tout compris, 94% de réussite. Proche Malakoff-Plateau de Vanves.",
     seoKeywords: ["formation taxi Vanves", "formation VTC Vanves", "centre formation 92170", "carte professionnelle taxi Vanves", "formation chauffeur Vanves", "ECOLE T3P Vanves"],
     latitude: 48.8203,
     longitude: 2.2892
@@ -244,8 +267,31 @@ export const cities: CityData[] = [
     travelTime: "15 minutes en tramway",
     nearbyLandmarks: ["Forêt de Meudon", "Étang de Trivaux"],
     localContext: "Clamart, ville verte aux portes de Paris, est bien desservie par le tramway T6. Les Clamartois souhaitant devenir chauffeur TAXI ou VTC peuvent rejoindre notre centre de formation en 15 minutes via le T6.",
+    introTitle: "Clamart — Formation Taxi & VTC à 15 min en tramway T6",
+    introText: [
+      "Vous habitez Clamart, le quartier du Centre-Ville, du Jardin Parisien ou du Bas-Clamart ? Notre centre ECOLE T3P est à 15 minutes via le tramway T6. Depuis l'arrêt Châtillon-Montrouge (terminus T6), le bus 126 vous dépose à 200m du centre.",
+      "Clamart, ville résidentielle de 53 000 habitants bordée par la forêt de Meudon, attire des profils en reconversion professionnelle. La proximité de Vélizy-Villacoublay, de l'A86 et de la N118 offre aux futurs chauffeurs un accès stratégique vers Paris, les aéroports et les zones d'affaires de la Défense et du plateau de Saclay.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Clamart, prenez le tramway T6 jusqu'au terminus Châtillon-Montrouge (15 min), puis le bus 126 direction Mairie de Montrouge (5 min, 3 arrêts). Le centre est au 3 rue Corneille, à 200m de l'arrêt. Alternative : bus 169 ou 190 direction Montrouge. En voiture : 10 min via la D906 ou la D2, stationnement disponible rue Corneille.",
+    whyChoose: [
+      { icon: MapPin, title: "15 min en T6", text: "Tramway T6 direct + bus 126 : un trajet simple depuis tous les quartiers de Clamart vers Montrouge." },
+      { icon: Trophy, title: "94% de réussite", text: "Des formateurs anciens chauffeurs professionnels qui vous préparent intensivement à l'examen CMA." },
+      { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Examen CMA (241€), 2h de conduite et création d'entreprise inclus." },
+      { icon: Car, title: "Bassin d'activité riche", text: "Depuis Clamart, accédez à l'A86, la N118 et Vélizy. Position idéale pour exercer vers Paris, Orly et La Défense." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment rejoindre ECOLE T3P depuis Clamart ?", answer: "Prenez le tramway T6 jusqu'au terminus Châtillon-Montrouge (15 min), puis le bus 126 direction Mairie de Montrouge (5 min). Le centre est au 3 rue Corneille. En voiture, comptez 10 min via la D906." },
+      { question: "Le T6 dessert-il directement le centre de formation ?", answer: "Le T6 vous amène au terminus Châtillon-Montrouge, à 1.2 km du centre. Le bus 126 fait la liaison en 5 minutes (3 arrêts). L'ensemble du trajet depuis Clamart prend environ 20 minutes." },
+      { question: "Quelles formations sont disponibles ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Trois formats : journée (9h30-16h30), soirée (18h-21h30) ou e-learning illimité." },
+      { question: "Le format soirée convient-il aux Clamartois ?", answer: "Oui. Les sessions soirée (18h-21h30) sont idéales pour les actifs. Avec le T6 + bus 126, vous êtes rentré à Clamart vers 22h15." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "Exercer comme chauffeur depuis Clamart est-il rentable ?", answer: "Très rentable. L'accès direct à l'A86, la N118 et la proximité de Vélizy, Meudon et Issy offrent un large bassin de clientèle. Les chauffeurs VTC du sud-92 réalisent en moyenne 3 500 à 5 500€ de CA mensuel." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise, inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." },
+      { question: "Peut-on stationner près du centre ?", answer: "Oui, stationnement disponible rue Corneille et dans les rues adjacentes. Mais le trajet en T6 + bus reste l'option la plus pratique depuis Clamart." }
+    ],
     seoTitle: "Formation Taxi VTC Clamart (92140) | ECOLE T3P - Centre à 15 min en T6",
-    seoDescription: "Formation TAXI et VTC à Clamart (92140). Centre ECOLE T3P à 15 min en tramway T6. Formation agréée Préfecture, 94% de réussite. Accessible depuis tous les quartiers de Clamart.",
+    seoDescription: "Formation TAXI et VTC à Clamart (92140). Centre ECOLE T3P à 15 min en tramway T6. 990€ tout compris, 94% de réussite. Accessible depuis tous les quartiers de Clamart.",
     seoKeywords: ["formation taxi Clamart", "formation VTC Clamart", "centre formation 92140", "carte professionnelle taxi Clamart", "formation chauffeur Clamart", "ECOLE T3P Clamart"],
     latitude: 48.8028,
     longitude: 2.2658
@@ -263,8 +309,31 @@ export const cities: CityData[] = [
     travelTime: "12 minutes en métro/bus",
     nearbyLandmarks: ["Île Saint-Germain", "Parc de l'Île Saint-Germain"],
     localContext: "Issy-les-Moulineaux, ville moderne et dynamique, est facilement accessible depuis notre centre via plusieurs lignes de transport. De nombreux Isséens choisissent ECOLE T3P pour se former aux métiers de TAXI et VTC.",
+    introTitle: "Issy-les-Moulineaux — Formation Taxi & VTC à 12 min, cœur du sud-92",
+    introText: [
+      "Vous habitez Issy-les-Moulineaux, le quartier Val de Seine, des Épinettes ou du Fort d'Issy ? Notre centre ECOLE T3P est à seulement 12 minutes. Depuis la station Corentin Celton (ligne 12), prenez le bus 189 ou 126 direction Montrouge.",
+      "Issy-les-Moulineaux, ville dynamique de 69 000 habitants, concentre de nombreuses entreprises (Canal+, Microsoft, Coca-Cola) et une clientèle business importante. Les Isséens qui se lancent comme chauffeur VTC ou Taxi bénéficient d'un bassin de clientèle premium : quartiers d'affaires, hôtels, transferts vers les gares et aéroports.",
+      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre forme efficacement à l'examen CMA. Formation à 990€ tout compris : frais d'examen (241€), 2h de conduite et accompagnement jusqu'à la création de votre entreprise."
+    ],
+    detailedAccess: "Depuis Issy-les-Moulineaux, option 1 : métro Corentin Celton (ligne 12) jusqu'à Montparnasse, puis ligne 4 direction Mairie de Montrouge (12 min au total). Option 2 : bus 189 ou 190 direction Montrouge, arrêt Mairie de Montrouge (15 min). Le centre est au 3 rue Corneille, à 200m du métro ligne 4. En voiture : 10 min via le boulevard des Frères Voisin et la D906.",
+    whyChoose: [
+      { icon: MapPin, title: "12 min en transport", text: "Métro 12 + ligne 4 ou bus 189 direct. Plusieurs itinéraires rapides depuis Issy vers Montrouge." },
+      { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence grâce à nos formateurs experts et une préparation intensive à l'examen CMA." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) + 2h conduite inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { icon: Users, title: "Clientèle premium", text: "Issy concentre des sièges sociaux et hôtels. Un bassin de clientèle business idéal pour les chauffeurs VTC." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment rejoindre ECOLE T3P depuis Issy-les-Moulineaux ?", answer: "Option rapide : métro Corentin Celton (ligne 12) → correspondance Montparnasse → ligne 4 Mairie de Montrouge (12 min). Le centre est au 3 rue Corneille, à 200m. Alternative : bus 189 direction Montrouge (15 min)." },
+      { question: "Pourquoi choisir ECOLE T3P plutôt qu'un centre parisien ?", answer: "Proximité (12 min), tarif compétitif (990€ tout compris vs 1 200-1 500€ à Paris), 94% de réussite et accompagnement post-formation inclus. Le meilleur rapport qualité-prix du sud parisien." },
+      { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Trois formats : journée, soirée ou e-learning illimité." },
+      { question: "Le format soirée est-il adapté pour les Isséens ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) permettent de se former après le travail. Le trajet retour vers Issy prend 12-15 min, vous êtes chez vous avant 22h." },
+      { question: "Combien coûte la formation et comment payer ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite et accompagnement inclus. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun supplément." },
+      { question: "Exercer comme chauffeur depuis Issy est-il avantageux ?", answer: "Très avantageux. Issy concentre des entreprises (Canal+, Microsoft), des hôtels et une clientèle business. L'accès rapide au périphérique, au pont d'Issy et aux quais de Seine facilite les courses vers Paris et les aéroports." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise ou SASU), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte tous les 5 ans." },
+      { question: "Quel est le taux de réussite aux examens ?", answer: "94% de réussite, grâce à nos formateurs anciens chauffeurs professionnels qui connaissent parfaitement l'examen CMA et ses subtilités." }
+    ],
     seoTitle: "Formation Taxi VTC Issy-les-Moulineaux (92130) | ECOLE T3P - Centre à 12 min",
-    seoDescription: "Formation TAXI et VTC à Issy-les-Moulineaux (92130). Centre ECOLE T3P à 12 min en transport. Formation agréée Préfecture, 94% de réussite. Métro 12, Tram T2.",
+    seoDescription: "Formation TAXI et VTC à Issy-les-Moulineaux (92130). Centre ECOLE T3P à 12 min en métro/bus. 990€ tout compris, 94% de réussite. Métro 12, Tram T2.",
     seoKeywords: ["formation taxi Issy-les-Moulineaux", "formation VTC Issy", "centre formation 92130", "carte professionnelle taxi Issy", "formation chauffeur Issy-les-Moulineaux", "ECOLE T3P Issy"],
     latitude: 48.8239,
     longitude: 2.2700
@@ -360,8 +429,31 @@ export const cities: CityData[] = [
     travelTime: "12 minutes en RER + bus",
     nearbyLandmarks: ["Coulée verte du Sud parisien", "Parc de Sceaux à proximité"],
     localContext: "Fontenay-aux-Roses, ville résidentielle prisée, est bien desservie par le RER B. Les Fontenaisiens souhaitant se reconvertir dans le transport de personnes choisissent notre centre pour sa proximité et son expertise.",
+    introTitle: "Fontenay-aux-Roses — Formation Taxi & VTC à 12 min en RER B",
+    introText: [
+      "Vous habitez Fontenay-aux-Roses, le quartier de la Gare, des Blagis ou du Val Content ? Notre centre ECOLE T3P est à 12 minutes. Depuis la gare RER B Fontenay-aux-Roses, prenez le bus 194 direction Montrouge ou le bus 128 jusqu'à la Mairie de Montrouge.",
+      "Fontenay-aux-Roses, ville résidentielle de 25 000 habitants nichée entre Sceaux et Bagneux, séduit par son cadre de vie verdoyant. Les Fontenaisiens en reconversion professionnelle bénéficient d'un accès rapide aux grands axes (A86, N20) et à Paris via le RER B, un atout majeur pour exercer comme chauffeur VTC ou Taxi.",
+      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre propose une formation complète à 990€ tout compris : frais d'examen CMA (241€), 2h de conduite et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis la gare Fontenay-aux-Roses (RER B), prenez le bus 194 direction Montrouge centre (10 min, arrêt Mairie de Montrouge). Le centre est au 3 rue Corneille, à 200m. Alternative : bus 128 vers Montrouge (12 min). En voiture : 10 min via la D920 direction Bagneux puis Montrouge, stationnement facile rue Corneille et rues adjacentes.",
+    whyChoose: [
+      { icon: MapPin, title: "12 min en RER + bus", text: "RER B Fontenay-aux-Roses + bus 194 : un trajet rapide vers le centre de formation le plus proche." },
+      { icon: Trophy, title: "94% de réussite", text: "Des formateurs experts, anciens chauffeurs professionnels, pour une préparation intensive à l'examen CMA." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) + 2h conduite inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { icon: Shield, title: "Centre agréé Préfecture", text: "Agrément n° 23/007 des Hauts-de-Seine. Formation conforme aux exigences réglementaires pour l'examen CMA." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment se rendre à ECOLE T3P depuis Fontenay-aux-Roses ?", answer: "Depuis la gare RER B Fontenay-aux-Roses, prenez le bus 194 direction Montrouge (10 min) ou le bus 128 (12 min). Le centre est au 3 rue Corneille, à 200m de l'arrêt Mairie de Montrouge." },
+      { question: "Le RER B dessert-il directement le centre ?", answer: "Le RER B vous amène à la gare de Fontenay-aux-Roses. De là, le bus 194 rejoint Montrouge en 10 min. Alternative : RER B jusqu'à Bourg-la-Reine puis bus 194 direct." },
+      { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-239€). Trois formats : journée (9h30-16h30), soirée (18h-21h30) ou e-learning 24h/24." },
+      { question: "Le format soirée convient-il aux Fontenaisiens ?", answer: "Oui. Les cours du soir (18h-21h30) sont parfaits pour les actifs. Avec le bus 194, vous êtes de retour à Fontenay-aux-Roses vers 22h." },
+      { question: "Combien coûte la formation et que comprend-elle ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation réglementation/gestion/sécurité et accompagnement création d'entreprise. Paiement en 4× sans frais (247,50€/mois)." },
+      { question: "Exercer depuis Fontenay-aux-Roses est-il intéressant ?", answer: "Oui. L'accès au RER B (Paris en 20 min), à l'A86 et à la N20 offre une couverture large : Paris sud, aéroport d'Orly et le plateau de Saclay. Les chauffeurs VTC du secteur réalisent 3 500 à 5 500€ de CA mensuel." },
+      { question: "ECOLE T3P aide-t-elle après l'obtention de la carte ?", answer: "Oui : création d'entreprise (micro-entreprise ou SASU), inscription Uber, Bolt, Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." },
+      { question: "Quel est le taux de réussite ?", answer: "94% de réussite, bien au-dessus de la moyenne nationale. Nos formateurs anciens chauffeurs vous préparent avec des examens blancs et un suivi personnalisé." }
+    ],
     seoTitle: "Formation Taxi VTC Fontenay-aux-Roses (92260) | ECOLE T3P - Centre à 12 min",
-    seoDescription: "Formation TAXI et VTC à Fontenay-aux-Roses (92260). Centre ECOLE T3P à 12 min en RER B. Formation agréée Préfecture, 94% de réussite. Accessible depuis la gare RER.",
+    seoDescription: "Formation TAXI et VTC à Fontenay-aux-Roses (92260). Centre ECOLE T3P à 12 min en RER B + bus. 990€ tout compris, 94% de réussite. Gare RER Fontenay-aux-Roses.",
     seoKeywords: ["formation taxi Fontenay-aux-Roses", "formation VTC Fontenay-aux-Roses", "centre formation 92260", "carte professionnelle taxi Fontenay", "formation chauffeur Fontenay-aux-Roses", "ECOLE T3P Fontenay"],
     latitude: 48.7900,
     longitude: 2.2903
