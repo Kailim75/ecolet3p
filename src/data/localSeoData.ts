@@ -1026,8 +1026,31 @@ export const cities: CityData[] = [
     travelTime: "10 minutes en métro/RER",
     nearbyLandmarks: ["Cité Internationale Universitaire", "Parc de la Mairie"],
     localContext: "Gentilly, ville limitrophe du 14e arrondissement et de la Cité Universitaire, est très proche de notre centre. Les Gentilléens peuvent rejoindre ECOLE T3P en 10 minutes.",
+    introTitle: "Gentilly — Formation Taxi & VTC à 10 min, aux portes de Paris",
+    introText: [
+      "Vous habitez Gentilly, le quartier de la Mairie, du Plateau ou du Chaperon-Vert ? Notre centre ECOLE T3P à Montrouge est à seulement 10 minutes. Depuis la gare Gentilly (RER B), un bus 125 ou 184 vous dépose directement à Montrouge. Vous pouvez aussi emprunter le métro ligne 7 jusqu'à Villejuif puis correspondance bus vers notre centre.",
+      "Gentilly, commune de 17 000 habitants nichée entre le 14e arrondissement et la Cité Internationale Universitaire, offre un positionnement exceptionnel aux futurs chauffeurs professionnels. La proximité immédiate de la Porte d'Italie, du périphérique sud et de l'A6 garantit un accès rapide à toute la clientèle parisienne, aux gares (Austerlitz, Montparnasse) et à l'aéroport d'Orly.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis la gare de Gentilly (RER B, zone 2), prenez le bus 125 direction Mairie de Montrouge (4 arrêts, 8 min). Descendez à l'arrêt Corneille. Le centre est au 3 rue Corneille, à 200m. Alternative : bus 184 depuis le centre de Gentilly jusqu'à Montrouge (5 arrêts). En voiture : avenue Paul-Vaillant-Couturier vers D128/Montrouge, 7 min. Parking disponible rue Corneille et rues adjacentes.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux bien supérieur à la moyenne nationale. Nos formateurs, anciens chauffeurs professionnels, préparent intensivement les Gentilléens à chaque épreuve CMA." },
+      { icon: MapPin, title: "À 10 min seulement", text: "Gentilly est l'une des communes les plus proches de notre centre. Bus 125 ou 184 depuis la gare RER B : un trajet rapide et direct." },
+      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/007 délivré par la Préfecture des Hauts-de-Seine. Centre agréé depuis 2014, +2 000 chauffeurs formés." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus, 2h de conduite et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Gentilly à ECOLE T3P ?", answer: "Depuis la gare de Gentilly (RER B), prenez le bus 125 direction Montrouge (4 arrêts, 8 min). Le centre est au 3 rue Corneille, à 200m de l'arrêt. Trajet total : environ 10 minutes." },
+      { question: "La formation est-elle compatible avec un emploi à Gentilly ?", answer: "Oui. Le format soirée (18h-21h30) est idéal pour les actifs. Avec le bus 125 + RER B, vous êtes de retour chez vous à Gentilly vers 22h. Le e-learning est aussi disponible 24h/24." },
+      { question: "Quel est le marché VTC/Taxi depuis Gentilly ?", answer: "Excellent. La proximité de la Porte d'Italie, du 13e et du 14e arrondissement offre un accès immédiat à la clientèle parisienne. Les gares d'Austerlitz et Montparnasse sont à 10 minutes. Les chauffeurs du secteur réalisent 3 500 à 5 500€ de CA mensuel." },
+      { question: "Taxi ou VTC, quelle formation choisir depuis Gentilly ?", answer: "Les deux sont très rentables. Le Taxi est idéal pour les stations du sud parisien (Denfert, Alésia, Porte d'Orléans). Le VTC via Uber/Bolt offre plus de flexibilité. La Passerelle (665€, 14h) permet de cumuler les deux cartes." },
+      { question: "La Cité Universitaire génère-t-elle de la demande de transport ?", answer: "Oui. La Cité Internationale Universitaire accueille 12 000 résidents internationaux qui utilisent régulièrement des VTC pour leurs déplacements vers les aéroports et gares. Un vivier de clients premium pour les chauffeurs locaux." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "Le format e-learning convient-il aux habitants de Gentilly ?", answer: "Oui. Plateforme accessible 24h/24 avec cours vidéo, QCM et examens blancs corrigés. Vous ne vous déplacez à Montrouge que pour les 2h de conduite. Même taux de réussite de 94%." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et accompagnement pour le renouvellement de carte tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Gentilly (94250) | ECOLE T3P - Centre à 10 min",
-    seoDescription: "Formation TAXI et VTC à Gentilly (94250). Centre ECOLE T3P à 10 min en métro ligne 7. Formation agréée Préfecture, 94% de réussite. Proche Cité Universitaire.",
+    seoDescription: "Formation TAXI et VTC à Gentilly (94250). Centre ECOLE T3P à 10 min en bus/RER B. Formation agréée Préfecture, 94% de réussite. Proche Cité Universitaire.",
     seoKeywords: ["formation taxi Gentilly", "formation VTC Gentilly", "centre formation 94250", "carte professionnelle taxi Gentilly", "ECOLE T3P Gentilly"],
     latitude: 48.8131,
     longitude: 2.3417
@@ -1126,8 +1149,31 @@ export const cities: CityData[] = [
     travelTime: "15 minutes en métro ligne 7",
     nearbyLandmarks: ["Institut Gustave Roussy", "Parc des Hautes-Bruyères"],
     localContext: "Villejuif, ville connue pour son pôle médical de renommée mondiale, compte de nombreux candidats à la reconversion. Le métro ligne 7 dessert bien la ville vers notre centre.",
+    introTitle: "Villejuif — Formation Taxi & VTC à 15 min, capitale médicale du Val-de-Marne",
+    introText: [
+      "Vous habitez Villejuif, le quartier Louis Aragon, du centre-ville ou des Hautes-Bruyères ? Notre centre ECOLE T3P à Montrouge est accessible en 15 minutes. Depuis la station Villejuif-Louis Aragon (métro 7, terminus), prenez la direction La Courneuve et descendez à Maison Blanche, puis correspondance bus 323 vers Montrouge. Alternative plus rapide : bus 162 direct depuis Villejuif centre.",
+      "Villejuif, commune dynamique de 60 000 habitants, abrite l'Institut Gustave Roussy, premier centre européen de lutte contre le cancer. Ce pôle médical d'excellence génère une demande constante de transport premium : patients, familles, personnels soignants et visiteurs internationaux. Pour les futurs chauffeurs VTC et Taxi, c'est un bassin de clientèle à fort pouvoir d'achat.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis Villejuif-Louis Aragon (métro 7, zone 2), prenez le bus 162 direction Montrouge (6 arrêts, 12 min). Descendez à l'arrêt Corneille. Le centre est au 3 rue Corneille, à 200m. Alternative : métro 7 jusqu'à Villejuif-P. Vaillant-Couturier puis bus 131 direction Montrouge (8 arrêts). En voiture : D7 (ex-N7) puis D128 direction Montrouge, 12 min. Parking disponible rue Corneille.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux exceptionnel pour les stagiaires de Villejuif et du sud Val-de-Marne. Formateurs experts, anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "À 15 min en bus direct", text: "Le bus 162 relie directement Villejuif à Montrouge. Un trajet simple sans correspondance pour accéder à notre centre." },
+      { icon: Users, title: "Pôle médical Gustave Roussy", text: "Le premier centre anticancer d'Europe génère une demande permanente de transport VTC et Taxi. Un avantage compétitif pour les chauffeurs locaux." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus, 2h de conduite et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Villejuif à ECOLE T3P ?", answer: "Depuis Villejuif, le bus 162 vous amène directement à Montrouge en 12 minutes. Le centre est au 3 rue Corneille, à 200m de l'arrêt. Trajet total : environ 15 minutes." },
+      { question: "La formation est-elle compatible avec un emploi à Villejuif ?", answer: "Oui. Le format soirée (18h-21h30) est parfait pour les actifs. Avec le bus 162 direct, vous êtes de retour à Villejuif vers 22h15. Le e-learning permet aussi de réviser à votre rythme." },
+      { question: "Le pôle Gustave Roussy est-il un atout pour les chauffeurs VTC ?", answer: "Absolument. L'Institut Gustave Roussy attire chaque jour des patients, familles et médecins de toute la France et de l'étranger. Les transferts gare/aéroport représentent un flux régulier de courses premium pour les chauffeurs VTC et Taxi du secteur." },
+      { question: "Taxi ou VTC, quelle formation choisir depuis Villejuif ?", answer: "Les deux sont très rentables. Le Taxi est idéal pour les stations des portes de Paris (Italie, Choisy). Le VTC via Uber/Bolt vous positionne sur les transferts médicaux premium. La Passerelle (665€, 14h) permet de cumuler les deux cartes." },
+      { question: "Quels formats de formation sont disponibles ?", answer: "3 formats au même tarif de 990€ : Journée (1 semaine, 9h30-16h30), Soirée (2 semaines, 18h-21h30) et E-learning (accès illimité 24h/24 jusqu'à l'examen). Tous préparent au même examen CMA." },
+      { question: "Le Grand Paris Express va-t-il impacter Villejuif ?", answer: "Oui. La future ligne 15 du métro (Grand Paris Express) aura une gare à Villejuif-Institut Gustave Roussy, renforçant considérablement la connectivité et la demande de transport. C'est le moment idéal pour se former." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et accompagnement pour le renouvellement de carte professionnelle tous les 5 ans." }
+    ],
     seoTitle: "Formation Taxi VTC Villejuif (94800) | ECOLE T3P - Centre à 15 min en métro",
-    seoDescription: "Formation TAXI et VTC à Villejuif (94800). Centre ECOLE T3P à 15 min en métro ligne 7. Formation agréée Préfecture, 94% de réussite.",
+    seoDescription: "Formation TAXI et VTC à Villejuif (94800). Centre ECOLE T3P à 15 min en bus 162 direct. Formation agréée Préfecture, 94% de réussite. Proche Gustave Roussy.",
     seoKeywords: ["formation taxi Villejuif", "formation VTC Villejuif", "centre formation 94800", "carte professionnelle taxi Villejuif", "ECOLE T3P Villejuif"],
     latitude: 48.7944,
     longitude: 2.3636
@@ -1947,6 +1993,88 @@ export const cities: CityData[] = [
     seoKeywords: ["formation taxi Houilles", "formation VTC Houilles", "centre formation 78800", "carte professionnelle taxi Houilles", "ECOLE T3P Houilles"],
     latitude: 48.9261,
     longitude: 2.1881
+  },
+  {
+    slug: "l-hay-les-roses",
+    name: "L'Haÿ-les-Roses",
+    department: "Val-de-Marne",
+    departmentCode: "94",
+    postalCodes: ["94240"],
+    trainAccess: "RER B - Bourg-la-Reine (proche)",
+    busAccess: "Lignes 172, 184, 192, 286, 396",
+    distanceFromCenter: "4 km",
+    travelTime: "18 minutes en bus/RER",
+    nearbyLandmarks: ["Roseraie du Val-de-Marne", "Parc départemental de la Roseraie"],
+    localContext: "L'Haÿ-les-Roses, ville fleurie connue pour sa roseraie classée, offre un cadre résidentiel recherché dans le sud du Val-de-Marne. Les L'Haÿssiens rejoignent notre centre via les bus 172 ou 184.",
+    introTitle: "L'Haÿ-les-Roses — Formation Taxi & VTC à 18 min, entre roseraie et opportunités",
+    introText: [
+      "Vous habitez L'Haÿ-les-Roses, le quartier de la Roseraie, du Jardin Parisien ou du Lièvre d'Or ? Notre centre ECOLE T3P à Montrouge est accessible en 18 minutes. Depuis le centre-ville, le bus 184 vous conduit directement à Montrouge. Vous pouvez aussi rejoindre la gare de Bourg-la-Reine (RER B) puis le bus 323 vers notre centre.",
+      "L'Haÿ-les-Roses, commune résidentielle de 32 000 habitants, est célèbre pour sa Roseraie du Val-de-Marne, la plus ancienne au monde. Au-delà de son charme, la ville bénéficie d'un positionnement stratégique pour les chauffeurs professionnels : proximité de l'A6 et de l'A86, accès rapide à Orly (15 min), et bassin de population dense entre Cachan, Villejuif et Bourg-la-Reine.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis le centre de L'Haÿ-les-Roses, prenez le bus 184 direction Porte d'Orléans (5 arrêts, 12 min), puis correspondance bus 323 direction Montrouge (3 arrêts). Descendez à l'arrêt Corneille. Alternative : bus 172 jusqu'à Bagneux puis marche 5 min vers le centre. En voiture : D126 puis D128 direction Montrouge, 12 min. Parking disponible rue Corneille et rues adjacentes.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux exceptionnel pour les stagiaires de L'Haÿ-les-Roses et du sud Val-de-Marne. Formateurs experts, anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "À 18 min en bus", text: "Le bus 184 relie directement L'Haÿ-les-Roses à Montrouge. Un trajet simple pour accéder à notre centre de formation." },
+      { icon: Car, title: "Proximité d'Orly", text: "L'aéroport d'Orly est à 15 min de L'Haÿ-les-Roses. Les transferts aéroport sont parmi les courses les plus lucratives pour les chauffeurs VTC et Taxi." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus, 2h de conduite et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis L'Haÿ-les-Roses à ECOLE T3P ?", answer: "Depuis le centre de L'Haÿ-les-Roses, le bus 184 vous amène vers Montrouge en 12 minutes. Correspondance bus 323 puis descente à l'arrêt Corneille. Trajet total : environ 18 minutes. Le centre est au 3 rue Corneille." },
+      { question: "La formation est-elle compatible avec un emploi à L'Haÿ-les-Roses ?", answer: "Oui. Le format soirée (18h-21h30) est idéal pour les actifs. Vous êtes de retour chez vous vers 22h30. Le e-learning est aussi disponible 24h/24 pour réviser à votre rythme." },
+      { question: "Quel est le marché VTC/Taxi depuis L'Haÿ-les-Roses ?", answer: "Très porteur. La proximité d'Orly (15 min), de l'A6 et de l'A86 vous positionne idéalement pour les transferts aéroport, les courses vers Paris sud et les trajets vers le plateau de Saclay. CA mensuel moyen : 3 500 à 5 500€." },
+      { question: "Taxi ou VTC, quelle formation choisir depuis L'Haÿ-les-Roses ?", answer: "Les deux sont rentables. Le Taxi est idéal pour la maraude et les stations (Denfert, gare de Lyon). Le VTC via Uber/Bolt offre plus de flexibilité, notamment pour les transferts Orly. La Passerelle (665€, 14h) permet de cumuler les deux cartes." },
+      { question: "La Roseraie attire-t-elle des clients VTC ?", answer: "Oui. La Roseraie du Val-de-Marne accueille plus de 80 000 visiteurs par an, dont des touristes internationaux. C'est un flux saisonnier intéressant pour les chauffeurs VTC locaux, en complément de la clientèle régulière." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "Le Grand Paris Express va-t-il impacter le secteur ?", answer: "Oui. La ligne 14 prolongée vers Orly et la ligne 15 (Grand Paris Express) vont transformer la mobilité dans le sud du Val-de-Marne. Pour les chauffeurs, cela signifie plus de connectivité et plus de demande de transport complémentaire." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et accompagnement pour le renouvellement de carte professionnelle tous les 5 ans." }
+    ],
+    seoTitle: "Formation Taxi VTC L'Haÿ-les-Roses (94240) | ECOLE T3P - Centre à 18 min",
+    seoDescription: "Formation TAXI et VTC à L'Haÿ-les-Roses (94240). Centre ECOLE T3P à 18 min en bus. Formation agréée Préfecture, 94% de réussite. Proche Orly et A6.",
+    seoKeywords: ["formation taxi L'Haÿ-les-Roses", "formation VTC L'Haÿ-les-Roses", "centre formation 94240", "carte professionnelle taxi L'Haÿ-les-Roses", "ECOLE T3P L'Haÿ-les-Roses"],
+    latitude: 48.7792,
+    longitude: 2.3378
+  },
+  {
+    slug: "chevilly-larue",
+    name: "Chevilly-Larue",
+    department: "Val-de-Marne",
+    departmentCode: "94",
+    postalCodes: ["94550"],
+    busAccess: "Lignes 172, 192, 286, 396",
+    tramAccess: "T7 - Chevilly 'Trois Communes' (proche)",
+    distanceFromCenter: "5 km",
+    travelTime: "20 minutes en bus",
+    nearbyLandmarks: ["Marché International de Rungis", "Parc départemental des Hautes-Bruyères"],
+    localContext: "Chevilly-Larue, commune limitrophe de Rungis et proche de l'aéroport d'Orly, offre un positionnement stratégique pour les métiers du transport. Les Chevillais rejoignent notre centre via les bus 172 ou 286.",
+    introTitle: "Chevilly-Larue — Formation Taxi & VTC à 20 min, aux portes de Rungis et Orly",
+    introText: [
+      "Vous habitez Chevilly-Larue, le quartier du Sorbier, des Sorbiers ou du centre-ville ? Notre centre ECOLE T3P à Montrouge est accessible en 20 minutes. Depuis le centre de Chevilly-Larue, le bus 172 vous conduit vers Bagneux puis Montrouge. Le tramway T7 (arrêt Chevilly 'Trois Communes') offre une alternative vers Villejuif.",
+      "Chevilly-Larue, commune de 20 000 habitants, est idéalement positionnée entre le Marché International de Rungis (le plus grand marché de produits frais au monde) et l'aéroport d'Orly. Cette localisation stratégique est un atout majeur pour les futurs chauffeurs professionnels : transferts aéroport, courses vers Rungis à l'aube, et clientèle d'affaires dans la zone d'activités d'Orly-Rungis.",
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€), 2h de conduite et un accompagnement complet jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)."
+    ],
+    detailedAccess: "Depuis le centre de Chevilly-Larue, prenez le bus 172 direction Bagneux (8 arrêts, 15 min), puis marche 5 min vers le centre ou correspondance bus 323. Alternative : bus 286 jusqu'à Cachan puis bus 187 direction Montrouge. En voiture : D7 puis D128 direction Montrouge, 15 min. Parking disponible rue Corneille et rues adjacentes.",
+    whyChoose: [
+      { icon: Trophy, title: "94% de réussite", text: "Un taux bien supérieur à la moyenne nationale. Nos formateurs préparent intensivement les Chevillais à chaque épreuve de l'examen CMA." },
+      { icon: Car, title: "Orly + Rungis à portée", text: "L'aéroport d'Orly (10 min) et le MIN de Rungis (5 min) génèrent un flux constant de courses premium. Un avantage compétitif décisif." },
+      { icon: Clock, title: "3 formats au choix", text: "Journée (1 semaine), soirée (2 semaines) ou e-learning (illimité). Le même tarif de 990€ pour les 3 formats." },
+      { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus, 2h de conduite et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir depuis Chevilly-Larue à ECOLE T3P ?", answer: "Depuis le centre de Chevilly-Larue, le bus 172 vous conduit vers Bagneux/Montrouge en 15 minutes. Le centre est au 3 rue Corneille. Trajet total : environ 20 minutes." },
+      { question: "La formation est-elle compatible avec un emploi à Chevilly-Larue ?", answer: "Oui. Le format soirée (18h-21h30) est idéal pour les actifs de la zone Orly-Rungis. Le e-learning permet aussi de réviser 24h/24 depuis chez vous." },
+      { question: "Rungis et Orly sont-ils des atouts pour les chauffeurs ?", answer: "Absolument. Le MIN de Rungis génère des courses dès 4h du matin (professionnels, restaurateurs). Orly assure un flux constant de transferts aéroport. Les chauffeurs du secteur réalisent 3 500 à 6 000€ de CA mensuel grâce à ce positionnement." },
+      { question: "Taxi ou VTC, quelle formation choisir depuis Chevilly-Larue ?", answer: "Les deux sont très rentables. Le Taxi est idéal pour les stations d'Orly et les courses réglementées. Le VTC via Uber/Bolt offre plus de flexibilité pour les transferts premium. La Passerelle (665€, 14h) permet de cumuler les deux cartes." },
+      { question: "Quels formats de formation sont disponibles ?", answer: "3 formats au même tarif de 990€ : Journée (1 semaine, 9h30-16h30), Soirée (2 semaines, 18h-21h30) et E-learning (accès illimité 24h/24 jusqu'à l'examen). Tous préparent au même examen CMA." },
+      { question: "Le tramway T7 dessert-il bien Chevilly-Larue ?", answer: "Oui. Le T7 (arrêt Chevilly 'Trois Communes') relie Villejuif à Athis-Mons via Chevilly-Larue. C'est une alternative pour rejoindre Villejuif puis prendre le bus 162 vers Montrouge." },
+      { question: "Combien coûte la formation tout compris ?", answer: "990€ tout compris : frais d'examen CMA (241€), 2h de conduite, formation complète et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+      { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et accompagnement pour le renouvellement de carte professionnelle tous les 5 ans." }
+    ],
+    seoTitle: "Formation Taxi VTC Chevilly-Larue (94550) | ECOLE T3P - Centre à 20 min",
+    seoDescription: "Formation TAXI et VTC à Chevilly-Larue (94550). Centre ECOLE T3P à 20 min en bus. Formation agréée Préfecture, 94% de réussite. Proche Orly et Rungis.",
+    seoKeywords: ["formation taxi Chevilly-Larue", "formation VTC Chevilly-Larue", "centre formation 94550", "carte professionnelle taxi Chevilly-Larue", "ECOLE T3P Chevilly-Larue"],
+    latitude: 48.7647,
+    longitude: 2.3503
   }
 ];
 
