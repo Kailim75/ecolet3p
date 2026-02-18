@@ -10,7 +10,7 @@
     <link rel="icon" type="image/svg+xml" href="/logo/ecole-t3p-favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
-    <script>if(location.pathname==='/')document.head.insertAdjacentHTML('beforeend','<link rel="preload" as="image" href="/images/hero-formation-session.jpg" fetchpriority="high">');</script>
+    <script>if(location.pathname==='/'){var l=document.createElement('link');l.rel='preload';l.as='image';l.href='/images/hero-formation-session.jpg';l.fetchPriority='high';document.head.appendChild(l);}</script>
     <link rel="apple-touch-icon" href="/icon-192.png" />
 
     <!-- Open Graph (fallback statique, écrasé par react-helmet-async) -->
