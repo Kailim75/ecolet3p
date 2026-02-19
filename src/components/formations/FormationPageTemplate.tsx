@@ -138,6 +138,26 @@ const FormationPageTemplate = ({
     fetchFormations();
   }, [category]);
 
+  // Cross-links between formations (maillage interne croisé)
+  const crossFormationLinks: Record<string, { label: string; path: string; desc: string }[]> = {
+    vtc: [
+      { label: "Formation Taxi", path: "/formations/taxi", desc: "Maraude, borne taxi — même tarif 990€" },
+      { label: "Formation VMDTR", path: "/formations/vmdtr", desc: "Moto-taxi — mobilité maximale" },
+      { label: "Passerelle VTC → Taxi", path: "/passerelle-vtc-taxi", desc: "Double carte en 14h — 665€" },
+    ],
+    taxi: [
+      { label: "Formation VTC", path: "/formations/vtc", desc: "Uber, Bolt, Heetch — même tarif 990€" },
+      { label: "Formation VMDTR", path: "/formations/vmdtr", desc: "Moto-taxi — diversifiez votre activité" },
+      { label: "Passerelle Taxi → VTC", path: "/passerelle-vtc-taxi", desc: "Double carte en 14h — 665€" },
+    ],
+    vmdtr: [
+      { label: "Formation VTC", path: "/formations/vtc", desc: "Complémentaire avec le VMDTR" },
+      { label: "Formation Taxi", path: "/formations/taxi", desc: "Élargi à toutes courses — 990€" },
+      { label: "Renouvellement VMDTR", path: "/formations/continue-vmdtr", desc: "Formation continue obligatoire" },
+    ],
+  };
+  const relatedFormations = crossFormationLinks[profession] || [];
+
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -179,6 +199,16 @@ const FormationPageTemplate = ({
         <meta property="og:description" content={ogDescription} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="ECOLE T3P" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={ogTitle} />
+        <meta name="twitter:description" content={ogDescription} />
+        <meta name="twitter:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
@@ -577,6 +607,34 @@ const FormationPageTemplate = ({
                   <p className="text-xs text-muted-foreground">{link.desc}</p>
                   <span className="text-xs font-semibold text-accent mt-2 inline-flex items-center gap-1">
                     Lire l'article <ArrowRight className="w-3 h-3" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Maillage interne croisé Taxi ↔ VTC ↔ VMDTR ── */}
+      {relatedFormations.length > 0 && (
+        <section className="section-padding bg-muted/50 border-t border-border">
+          <div className="container-custom">
+            <h2 className="section-title text-center mb-2">Vous hésitez entre plusieurs métiers ?</h2>
+            <p className="text-center text-muted-foreground text-sm mb-8 max-w-xl mx-auto">
+              Découvrez nos autres formations au même tarif — ou combinez-les pour maximiser vos revenus.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              {relatedFormations.map((link, i) => (
+                <Link
+                  key={i}
+                  to={link.path}
+                  className="card-t3p group border-2 border-transparent hover:border-primary/20 transition-all"
+                >
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent mb-1 block">Formation</span>
+                  <h3 className="text-base font-bold text-primary mb-1 group-hover:text-accent transition-colors">{link.label}</h3>
+                  <p className="text-xs text-muted-foreground mb-2">{link.desc}</p>
+                  <span className="text-xs font-semibold text-primary inline-flex items-center gap-1">
+                    Voir la formation <ArrowRight className="w-3 h-3" />
                   </span>
                 </Link>
               ))}
