@@ -13,6 +13,7 @@ const siloFormationsInitiales = [
 
 // ── SILO 2 : Renouvellement & Services ───────────────────────────────────────
 const siloServices = [
+  { name: "Guide renouvellement →", path: "/formations/renouvellement" },
   { name: "Renouvellement VTC", path: "/formations/continue-vtc" },
   { name: "Renouvellement Taxi", path: "/formations/continue-taxi" },
   { name: "Renouvellement VMDTR", path: "/formations/continue-vmdtr" },
