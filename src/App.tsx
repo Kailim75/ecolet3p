@@ -58,6 +58,7 @@ const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
 const FormationMontrouge = lazy(() => import("./pages/FormationMontrouge"));
 
 const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
+const FormationRenouvellement = lazy(() => import("./pages/FormationRenouvellement"));
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,7 @@ const App = () => {
                       <Route path="/formations/continue-taxi" element={<FormationContinueTaxi />} />
                       <Route path="/formations/continue-vtc" element={<FormationContinueVTC />} />
                       <Route path="/formations/continue-vmdtr" element={<FormationContinueVMDTR />} />
+                      <Route path="/formations/renouvellement" element={<FormationRenouvellement />} />
                       <Route path="/stage-recuperation-points" element={<RecuperationPoints />} />
                       <Route path="/renouvellement-carte-professionnelle" element={<RenouvellementCarteProfessionnelle />} />
                       <Route path="/formations/villes" element={<FormationsVilles />} />
