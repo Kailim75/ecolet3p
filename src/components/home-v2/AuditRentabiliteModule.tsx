@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { supabase } from "@/integrations/supabase/client";
+import RdvChoiceModal from "@/components/layout/RdvChoiceModal";
 
 const BASE_COUNT = 2000;
 const FORMATION_COUT = 990;
@@ -99,6 +100,7 @@ export default function AuditRentabiliteModule() {
   const [showResults, setShowResults] = useState(false);
   const [showComparatif, setShowComparatif] = useState(false);
   const [showAmortissement, setShowAmortissement] = useState(false);
+  const [isRdvOpen, setIsRdvOpen] = useState(false);
 
   useEffect(() => {
     supabase.rpc("get_simulation_count").then(({ data }) => {
@@ -380,12 +382,12 @@ export default function AuditRentabiliteModule() {
                           <p className="text-primary-foreground/80 text-sm mb-4">
                             Nos conseillers analysent votre situation et vous accompagnent jusqu'à l'examen.
                           </p>
-                          <a
-                            href="tel:0188750555"
+                          <button
+                            onClick={() => setIsRdvOpen(true)}
                             className="btn-cta-orange px-8 py-3.5 font-bold rounded-lg inline-flex items-center gap-2"
                           >
                             Prendre rendez-vous <ArrowRight className="w-4 h-4" />
-                          </a>
+                          </button>
                         </div>
                       </motion.div>
                     )}
@@ -395,6 +397,8 @@ export default function AuditRentabiliteModule() {
             </AnimatePresence>
           </div>
         </div>
+
+        <RdvChoiceModal isOpen={isRdvOpen} onClose={() => setIsRdvOpen(false)} />
       </div>
     </section>
   );
