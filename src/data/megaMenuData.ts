@@ -1,7 +1,7 @@
 import {
   CarTaxiFront, Car, Bike, RefreshCw, ArrowRight, ArrowLeftRight,
   Accessibility, Briefcase, Languages, ClipboardList, MapPin,
-  Package, Gift, GraduationCap, Star, Tag, RotateCcw, KeyRound, Calculator
+  Package, Gift, GraduationCap, Star, Tag, RotateCcw, KeyRound, FileSearch
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -78,7 +78,7 @@ export const megaMenuColumns: MegaMenuColumn[] = [
       { name: "Pack Accessibilité", path: "/formations#packs", icon: Package, detail: "dès 1 150€", color: "text-primary" },
     ],
     footer: [
-      { name: "Simulateur de revenus", path: "/simulateur-revenus", icon: Calculator, detail: "Gratuit · 30 sec", color: "text-primary", badge: "NOUVEAU" },
+      { name: "Audit Rentabilité", path: "/audit-rentabilite", icon: FileSearch, detail: "Gratuit · 30 sec", color: "text-primary", badge: "NOUVEAU" },
       { name: "Récupération de points", path: "/stage-recuperation-points", icon: RotateCcw, detail: "2j · 250€ · Jusqu'à 4 pts", color: "text-forest" },
       { name: "Programme Parrainage", path: "/formations#parrainage", icon: Gift, detail: "Jusqu'à 100€ offerts", color: "text-primary" },
     ],

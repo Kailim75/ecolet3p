@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, ArrowRight, CheckCircle2, BarChart3, Target, Sparkles } from "lucide-react";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import type { SimulationInputs, SimulationResult } from "./SimulatorLevel1";
 import { calculateSimulation } from "./SimulatorLevel1";
 
@@ -53,7 +54,6 @@ export default function SimulatorLevel2({ inputs, basicResults }: SimulatorLevel
   // ROI month: when cumOptimized > cumStandard
   const roiMonth = projection.findIndex((m) => m.cumOptimized > m.cumStandard) + 1;
   const gain12m = projection[11].cumOptimized - projection[11].cumStandard;
-  const maxBar = Math.max(...projection.map((m) => Math.max(m.standard, m.optimized)));
 
   return (
     <motion.div
@@ -65,10 +65,10 @@ export default function SimulatorLevel2({ inputs, basicResults }: SimulatorLevel
       <div className="bg-secondary rounded-xl p-5 border border-border">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="w-5 h-5 text-primary" />
-          <h3 className="font-bold text-foreground">Simulation avancée débloquée</h3>
+          <h3 className="font-bold text-foreground">Rapport stratégique débloqué</h3>
         </div>
         <p className="text-sm text-muted-foreground">
-          Projection 12 mois avec comparaison scénario standard vs formation ECOLE T3P.
+          Projection 12 mois avec comparaison scénario standard vs méthode optimisée ECOLE T3P.
         </p>
       </div>
 
@@ -94,47 +94,37 @@ export default function SimulatorLevel2({ inputs, basicResults }: SimulatorLevel
         />
       </div>
 
-      {/* 12-month chart */}
+      {/* 12-month Recharts area chart */}
       <div>
         <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
-          <BarChart3 className="w-4 h-4 text-primary" /> Projection mensuelle sur 12 mois
+          <BarChart3 className="w-4 h-4 text-primary" /> Évolution annuelle des revenus
         </h4>
-        <div className="space-y-2">
-          {projection.map((m, i) => (
-            <motion.div
-              key={m.month}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="flex items-center gap-3"
-            >
-              <span className="text-xs font-mono text-muted-foreground w-8 shrink-0">M{m.month}</span>
-              <div className="flex-1 space-y-1">
-                <div className="flex items-center gap-2">
-                  <div
-                    className="h-3 rounded-full bg-muted-foreground/30 transition-all"
-                    style={{ width: `${(m.standard / maxBar) * 100}%` }}
-                  />
-                  <span className="text-xs text-muted-foreground">{m.standard.toLocaleString("fr-FR")}€</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    className="h-3 rounded-full bg-primary transition-all"
-                    style={{ width: `${(m.optimized / maxBar) * 100}%` }}
-                  />
-                  <span className="text-xs font-semibold text-primary">{m.optimized.toLocaleString("fr-FR")}€</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <div className="flex items-center gap-6 mt-3">
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <div className="w-3 h-3 rounded-full bg-muted-foreground/30" /> Sans formation
-          </div>
-          <div className="flex items-center gap-2 text-xs text-primary font-semibold">
-            <div className="w-3 h-3 rounded-full bg-primary" /> Avec ECOLE T3P
-          </div>
+        <div className="bg-card rounded-xl border border-border p-4">
+          <ResponsiveContainer width="100%" height={280}>
+            <AreaChart data={projection.map(m => ({ name: `M${m.month}`, standard: m.standard, optimized: m.optimized }))} margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
+              <defs>
+                <linearGradient id="colorOptimized" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                </linearGradient>
+                <linearGradient id="colorStandard" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="hsl(var(--muted-foreground))" stopOpacity={0.15} />
+                  <stop offset="95%" stopColor="hsl(var(--muted-foreground))" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="name" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+              <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v) => `${(v / 1000).toFixed(1)}k`} />
+              <Tooltip
+                contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }}
+                formatter={(value: number, name: string) => [`${value.toLocaleString("fr-FR")}€`, name === "optimized" ? "Avec ECOLE T3P" : "Sans formation"]}
+                labelFormatter={(label) => `Mois ${label.replace("M", "")}`}
+              />
+              <Legend formatter={(value) => value === "optimized" ? "Avec ECOLE T3P" : "Sans formation"} wrapperStyle={{ fontSize: 12 }} />
+              <Area type="monotone" dataKey="standard" stroke="hsl(var(--muted-foreground))" fill="url(#colorStandard)" strokeWidth={2} strokeDasharray="5 5" />
+              <Area type="monotone" dataKey="optimized" stroke="hsl(var(--primary))" fill="url(#colorOptimized)" strokeWidth={2.5} />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
