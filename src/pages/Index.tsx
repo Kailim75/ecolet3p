@@ -9,6 +9,7 @@ import EcosystemSection from "@/components/home-v2/EcosystemSection";
 import TestimonialsSection from "@/components/home-v2/TestimonialsSection";
 import NoCPFSection from "@/components/home-v2/NoCPFSection";
 import CTAFinalSection from "@/components/home-v2/CTAFinalSection";
+import SimulatorWidget from "@/components/home-v2/SimulatorWidget";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
 
 const organizationSchema = {
@@ -93,6 +94,7 @@ const Index = () => {
       <FormationsCards />
       <FormatsTable />
       <UpcomingSessionsSection />
+      <SimulatorWidget />
       <EcosystemSection />
       <TestimonialsSection />
       <NoCPFSection />
