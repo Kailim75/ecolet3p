@@ -90,40 +90,38 @@ export default function SimulatorLevel1({ onUnlockLevel2, onResultsReady }: Simu
       </div>
 
       {/* Sliders */}
-      <div className="space-y-6">
-        <SliderInput
-          label="Heures par jour"
-          value={inputs.hoursPerDay}
-          min={4} max={14} step={1}
-          unit="h"
-          icon={<Clock className="w-4 h-4" />}
-          onChange={(v) => setInputs({ ...inputs, hoursPerDay: v })}
-        />
-        <SliderInput
-          label="Jours par semaine"
-          value={inputs.daysPerWeek}
-          min={3} max={7} step={1}
-          unit="j"
-          icon={<Clock className="w-4 h-4" />}
-          onChange={(v) => setInputs({ ...inputs, daysPerWeek: v })}
-        />
-        <SliderInput
-          label="Tarif moyen par course"
-          value={inputs.avgFare}
-          min={10} max={60} step={1}
-          unit="€"
-          icon={<Euro className="w-4 h-4" />}
-          onChange={(v) => setInputs({ ...inputs, avgFare: v })}
-        />
-        <SliderInput
-          label="Courses par heure"
-          value={inputs.ridesPerHour}
-          min={1} max={4} step={0.5}
-          unit=""
-          icon={<TrendingUp className="w-4 h-4" />}
-          onChange={(v) => setInputs({ ...inputs, ridesPerHour: v })}
-        />
-      </div>
+      <motion.div
+        className="space-y-6"
+        initial="hidden"
+        animate="visible"
+        variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+      >
+        {[
+          { label: "Heures par jour", value: inputs.hoursPerDay, min: 4, max: 14, step: 1, unit: "h", icon: <Clock className="w-4 h-4" />, key: "hoursPerDay" },
+          { label: "Jours par semaine", value: inputs.daysPerWeek, min: 3, max: 7, step: 1, unit: "j", icon: <Clock className="w-4 h-4" />, key: "daysPerWeek" },
+          { label: "Tarif moyen par course", value: inputs.avgFare, min: 10, max: 60, step: 1, unit: "€", icon: <Euro className="w-4 h-4" />, key: "avgFare" },
+          { label: "Courses par heure", value: inputs.ridesPerHour, min: 1, max: 4, step: 0.5, unit: "", icon: <TrendingUp className="w-4 h-4" />, key: "ridesPerHour" },
+        ].map((s) => (
+          <motion.div
+            key={s.key}
+            variants={{
+              hidden: { opacity: 0, x: -20 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+            }}
+          >
+            <SliderInput
+              label={s.label}
+              value={s.value}
+              min={s.min}
+              max={s.max}
+              step={s.step}
+              unit={s.unit}
+              icon={s.icon}
+              onChange={(v) => setInputs({ ...inputs, [s.key]: v })}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
 
       {/* Calculate button */}
       <button
