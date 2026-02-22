@@ -72,7 +72,7 @@ const PricingPaymentBlock = ({
       ? `${formatPrice(price)} en une fois`
       : `${monthlyFormatted}/mois pendant ${selected} mois`;
 
-  const ctaLine1 = selected === 1 ? "S'inscrire et payer" : "S'inscrire à la formation";
+  const ctaLine1 = selected === 1 ? "Réserver et payer" : "Réserver ma place";
   const ctaLine2 =
     selected === 1
       ? formatPrice(price)

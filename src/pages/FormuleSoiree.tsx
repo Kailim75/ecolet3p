@@ -126,7 +126,7 @@ const FormuleSoiree = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild size="lg" className="btn-cta-orange text-base px-8">
                 <PrefetchLink to="/formations#inscription">
-                  S'inscrire maintenant <ArrowRight className="w-5 h-5 ml-2" />
+                  Réserver ma place <ArrowRight className="w-5 h-5 ml-2" />
                 </PrefetchLink>
               </Button>
               <Button variant="outline" size="lg" onClick={() => openQuoteModal("t3p")}
@@ -349,7 +349,7 @@ const FormuleSoiree = () => {
           </div>
           <Button asChild size="sm" className="btn-cta-orange text-xs px-4">
             <PrefetchLink to="/formations#inscription">
-              S'inscrire <ArrowRight className="w-3 h-3 ml-1" />
+              Réserver <ArrowRight className="w-3 h-3 ml-1" />
             </PrefetchLink>
           </Button>
         </div>

@@ -52,7 +52,7 @@ const PricingCard = ({ title, price, duration, features, examFees, onRegister }:
 
       <Button className="w-full btn-cta-orange text-base" size="lg" onClick={onRegister}>
         <Euro className="h-4 w-4 mr-2" />
-        S'inscrire maintenant
+        Réserver ma place
       </Button>
 
       <AlmaPaymentButton formationTitle={title} price={price} />

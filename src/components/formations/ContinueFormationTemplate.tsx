@@ -160,7 +160,7 @@ const ContinueFormationTemplate = ({
                 onClick={() => setShowPreRegistration(true)}
                 className="btn-cta-orange px-8 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2"
               >
-                <GraduationCap className="w-5 h-5" /> S'inscrire
+                <GraduationCap className="w-5 h-5" /> Réserver ma place
               </button>
               <Link
                 to="/contact"
@@ -239,7 +239,7 @@ const ContinueFormationTemplate = ({
                 onClick={() => setShowPreRegistration(true)}
                 className="btn-cta-orange w-full px-6 py-3.5 font-bold rounded-lg inline-flex items-center justify-center gap-2"
               >
-                S'inscrire <ArrowRight className="w-4 h-4" />
+                Réserver ma place <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
