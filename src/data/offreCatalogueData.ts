@@ -517,7 +517,7 @@ export const parrainage = {
     "Le filleul s'inscrit en mentionnant le nom de son parrain",
     "Les deux reçoivent automatiquement leur réduction",
   ],
-  whatsappUrl: "https://wa.me/33188750555?text=Bonjour%2C%20je%20souhaite%20parrainer%20un%20proche%20pour%20une%20formation.",
+  whatsappUrl: "https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20parrainer%20un%20proche%20pour%20une%20formation.",
 };
 
 // ============ BADGES DE CONFIANCE ============
