@@ -455,7 +455,7 @@ const FormationPageTemplate = ({
                 <div className="md:order-2">
                   <PricingPaymentBlock
                     formationTitle={`Formation ${badge} Journée`}
-                    price={mainFormation?.price || premiumPrice || 1190}
+                    price={premiumPrice || mainFormation?.price || 1190}
                     onRegister={() => setShowPreRegistration(true)}
                     tier="premium"
                     tierLabel={premiumLabel || "PREMIUM"}
