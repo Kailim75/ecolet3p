@@ -59,6 +59,13 @@ const HeroSection = () => {
           >
             <Calculator className="w-4 h-4" />
             Simulez vos revenus gratuitement →
+            <motion.span
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="ml-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-accent text-accent-foreground rounded-full"
+            >
+              Nouveau
+            </motion.span>
           </Link>
 
           {/* Badges — inline on mobile, floating on desktop */}
