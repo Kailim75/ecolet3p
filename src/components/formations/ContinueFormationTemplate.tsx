@@ -102,6 +102,16 @@ const ContinueFormationTemplate = ({
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
+      { "@type": "ListItem", "position": 3, "name": badge, "item": canonical },
+    ]
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -114,6 +124,7 @@ const ContinueFormationTemplate = ({
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}
