@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calculator, ArrowRight, Users } from "lucide-react";
+import { FileSearch, ArrowRight, Users } from "lucide-react";
 import SimulatorLevel1 from "@/components/simulator/SimulatorLevel1";
 import type { SimulationInputs, SimulationResult } from "@/components/simulator/SimulatorLevel1";
 import { supabase } from "@/integrations/supabase/client";
@@ -35,7 +35,7 @@ const SimulatorWidget = () => {
   };
 
   const handleUnlockLevel2 = () => {
-    window.location.href = "/simulateur-revenus";
+    window.location.href = "/audit-rentabilite";
   };
 
   return (
@@ -48,10 +48,10 @@ const SimulatorWidget = () => {
           className="text-center mb-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-accent/10 text-accent border border-accent/20 mb-4">
-            <Calculator className="w-4 h-4" /> Outil gratuit
+            <FileSearch className="w-4 h-4" /> Audit gratuit
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-            Estimez vos revenus en 30 secondes
+            Auditez votre rentabilité en 30 secondes
           </h2>
           {simCount !== null && (
             <motion.div
@@ -62,7 +62,7 @@ const SimulatorWidget = () => {
             >
               <Users className="w-4 h-4 text-primary" />
               <span>
-                <AnimatedCounter value={BASE_COUNT + simCount} /> simulations réalisées
+                <AnimatedCounter value={BASE_COUNT + simCount} /> audits réalisés
               </span>
             </motion.div>
           )}
@@ -81,10 +81,10 @@ const SimulatorWidget = () => {
           </div>
           <div className="text-center mt-6">
             <Link
-              to="/simulateur-revenus"
+              to="/audit-rentabilite"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline transition-all"
             >
-              Accéder à la simulation avancée complète
+              Accéder à l'audit stratégique complet
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

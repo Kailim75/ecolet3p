@@ -59,7 +59,7 @@ const FormationMontrouge = lazy(() => import("./pages/FormationMontrouge"));
 
 const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
 const FormationRenouvellement = lazy(() => import("./pages/FormationRenouvellement"));
-const SimulateurRevenus = lazy(() => import("./pages/SimulateurRevenus"));
+const AuditRentabilite = lazy(() => import("./pages/SimulateurRevenus"));
 
 const queryClient = new QueryClient();
 
@@ -113,7 +113,8 @@ const App = () => {
                       <Route path="/aide-administrative-creation-entreprise" element={<AideAdministrativeCreationEntreprise />} />
                       <Route path="/formations/anglais-professionnel" element={<FormationAnglais />} />
                       <Route path="/formations/formule-soiree" element={<FormuleSoiree />} />
-                      <Route path="/simulateur-revenus" element={<SimulateurRevenus />} />
+                      <Route path="/audit-rentabilite" element={<AuditRentabilite />} />
+                      <Route path="/simulateur-revenus" element={<Navigate to="/audit-rentabilite" replace />} />
                       <Route path="/formation-vtc" element={<Navigate to="/formations/vtc" replace />} />
                       <Route path="/formation-taxi" element={<Navigate to="/formations/taxi" replace />} />
                       <Route path="/formation-vmdtr" element={<Navigate to="/formations/vmdtr" replace />} />

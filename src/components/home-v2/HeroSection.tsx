@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Eye, Trophy, Star, Calculator } from "lucide-react";
+import { ArrowRight, Eye, Trophy, Star, FileSearch } from "lucide-react";
 import { motion } from "framer-motion";
 const formationSession = "/images/hero-formation-session.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -54,11 +54,11 @@ const HeroSection = () => {
             </a>
           </div>
           <Link
-            to="/simulateur-revenus"
+            to="/audit-rentabilite"
             className="inline-flex items-center gap-2 mt-4 text-accent font-semibold text-sm hover:underline transition-all"
           >
-            <Calculator className="w-4 h-4" />
-            Simulez vos revenus gratuitement →
+            <FileSearch className="w-4 h-4" />
+            Audit de rentabilité gratuit →
             <motion.span
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
