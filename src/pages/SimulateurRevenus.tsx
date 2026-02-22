@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Home, ChevronRight, TrendingUp, Star, Users,
-  Phone, ArrowRight, Shield, Award, Clock, FileSearch
+  Phone, ArrowRight, Shield, Award, Clock, FileSearch, Briefcase
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import SimulatorLevel1 from "@/components/simulator/SimulatorLevel1";
 import SimulatorLevel2 from "@/components/simulator/SimulatorLevel2";
 import LeadCaptureForm from "@/components/simulator/LeadCaptureForm";
+import StatutJuridiqueGuide from "@/components/simulator/StatutJuridiqueGuide";
 import type { SimulationInputs, SimulationResult } from "@/components/simulator/SimulatorLevel1";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -163,6 +164,20 @@ const AuditRentabilite = () => {
                 onResultsReady={handleResultsReady}
               />
             </div>
+
+            {/* Statut juridique guide - shown after L1 results */}
+            {inputs && results && (
+              <div className="card-t3p mt-8 border-2 border-primary/10">
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
+                    <Briefcase className="w-4 h-4" />
+                  </div>
+                  <h2 className="text-lg font-bold text-foreground">Guide statut juridique</h2>
+                  <span className="text-xs bg-secondary text-primary px-2 py-0.5 rounded-full font-semibold ml-auto">Inclus</span>
+                </div>
+                <StatutJuridiqueGuide inputs={inputs} results={results} />
+              </div>
+            )}
 
             {/* Level 2 gate / form */}
             <div ref={level2Ref} className="mt-8">
