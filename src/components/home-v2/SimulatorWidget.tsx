@@ -1,11 +1,21 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calculator, ArrowRight } from "lucide-react";
+import { Calculator, ArrowRight, Users } from "lucide-react";
 import SimulatorLevel1 from "@/components/simulator/SimulatorLevel1";
 import type { SimulationInputs, SimulationResult } from "@/components/simulator/SimulatorLevel1";
 import { supabase } from "@/integrations/supabase/client";
 
+const BASE_COUNT = 2000; // historically trained drivers
+
 const SimulatorWidget = () => {
+  const [simCount, setSimCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase.rpc("get_simulation_count").then(({ data }) => {
+      if (data !== null) setSimCount(Number(data));
+    });
+  }, []);
   const handleResultsReady = async (inp: SimulationInputs, res: SimulationResult) => {
     try {
       await supabase.from("simulations").insert({
@@ -43,6 +53,20 @@ const SimulatorWidget = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
             Estimez vos revenus en 30 secondes
           </h2>
+          {simCount !== null && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center gap-2 mb-6 text-sm text-muted-foreground"
+            >
+              <Users className="w-4 h-4 text-primary" />
+              <span>
+                <AnimatedCounter value={BASE_COUNT + simCount} /> simulations réalisées
+              </span>
+            </motion.div>
+          )}
+
           <p className="text-muted-foreground max-w-xl mx-auto">
             Choisissez votre métier, ajustez les paramètres et découvrez votre potentiel de revenus.
           </p>
@@ -69,5 +93,21 @@ const SimulatorWidget = () => {
     </section>
   );
 };
+
+function AnimatedCounter({ value }: { value: number }) {
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    const duration = 1200;
+    const start = Date.now();
+    const animate = () => {
+      const progress = Math.min((Date.now() - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(value * eased));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [value]);
+  return <span className="font-bold text-primary">{display.toLocaleString("fr-FR")}+</span>;
+}
 
 export default SimulatorWidget;
