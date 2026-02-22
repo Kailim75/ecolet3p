@@ -45,9 +45,9 @@ ECOLE T3P propose une gamme complète de formations pour tous les métiers du tr
 
 | Formation | Format / Durée | Tarif | Objectif |
 |-----------|---------------|-------|----------|
-| Taxi Initiale | Journée / Soir / E-learning | 990€ tout compris | Carte professionnelle Taxi |
-| VTC Initiale | Journée / Soir / E-learning | 990€ tout compris | Carte professionnelle VTC |
-| VMDTR | Journée / Soir / E-learning | 990€ tout compris | Carte professionnelle moto-taxi |
+| Taxi Initiale | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle Taxi |
+| VTC Initiale | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle VTC |
+| VMDTR | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle moto-taxi |
 | Mobilité (Passerelle) | 14h | 665€ tout compris | Passerelle Taxi ↔ VTC |
 | Renouvellement | 14h | 350€ | Maintien carte pro |
 | Continue VMDTR | 7h | 350€ | Renouvellement obligatoire |
@@ -69,7 +69,7 @@ La formation Taxi vous prépare à l'examen de la carte professionnelle de condu
 - **Connaissance du territoire** : géographie locale, itinéraires
 
 ### Tarif
-**990€ tout compris** (frais d'examen CMA de 241€ inclus)
+**À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
 
 ### Formats disponibles
 - **Format journée** : 1 semaine intensive (9h-17h)
@@ -104,7 +104,7 @@ La formation VTC (Voiture de Transport avec Chauffeur) vous prépare à devenir 
 - **Connaissance du territoire** : Paris et Île-de-France
 
 ### Tarif
-**990€ tout compris** (frais d'examen CMA de 241€ inclus)
+**À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
 
 ### Formats disponibles
 - **Format journée** : 1 semaine intensive
@@ -136,7 +136,7 @@ La formation VMDTR (Véhicule Motorisé à Deux ou Trois Roues) vous permet de d
 - **Gestion d'activité** : tarification, planning
 
 ### Tarif
-**990€ tout compris** (frais d'examen CMA de 241€ inclus)
+**À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
 
 ### Formats disponibles
 - **Format journée** : 1 semaine intensive

@@ -465,11 +465,11 @@ const RecuperationPoints = () => {
           <h2 className="section-title text-center mb-8">Complétez votre parcours</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "Formation initiale VTC", desc: "Devenez chauffeur VTC — 990€ tout compris.", path: "/formations/vtc" },
-              { title: "Formation initiale Taxi", desc: "Obtenez votre carte professionnelle Taxi — 990€.", path: "/formations/taxi" },
+              { title: "Formation initiale VTC", desc: "Devenez chauffeur VTC — à partir de 990€.", path: "/formations/vtc" },
+              { title: "Formation initiale Taxi", desc: "Obtenez votre carte professionnelle Taxi — à partir de 990€.", path: "/formations/taxi" },
               { title: "Renouvellement carte pro", desc: "Formation continue obligatoire tous les 5 ans — 350€.", path: "/renouvellement-carte-professionnelle" },
               { title: "Passerelle VTC ↔ Taxi", desc: "Doublez vos opportunités — 665€ tout compris.", path: "/passerelle-vtc-taxi" },
-              { title: "Formation VMDTR", desc: "Devenez chauffeur moto — 990€ tout compris.", path: "/formations/vmdtr" },
+              { title: "Formation VMDTR", desc: "Devenez chauffeur moto — à partir de 990€.", path: "/formations/vmdtr" },
               { title: "Contact", desc: "Réservez votre place au prochain stage.", path: "/contact" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">

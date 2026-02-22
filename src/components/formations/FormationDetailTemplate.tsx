@@ -387,7 +387,7 @@ const FormationDetailTemplate = ({
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{ctaTitle}</h2>
           <p className="text-white/75 mb-8 max-w-xl mx-auto">
-            990€ tout compris — Paiement en 4× sans frais via Alma.
+            À partir de 990€ — Paiement en 4× sans frais via Alma.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
