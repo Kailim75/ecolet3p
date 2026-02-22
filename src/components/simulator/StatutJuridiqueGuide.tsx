@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Building2, User, Briefcase, Building, CheckCircle2, XCircle,
@@ -150,17 +150,28 @@ function calculateForStatut(inputs: SimulationInputs, results: SimulationResult,
 }
 
 export default function StatutJuridiqueGuide({ inputs, results }: StatutJuridiqueGuideProps) {
-  const [selectedStatut, setSelectedStatut] = useState<string>("micro");
+  // Taxis sont artisans : micro-entrepreneur n'est pas applicable
+  const isTaxi = inputs.profession === "taxi";
+  const availableStatuts = isTaxi ? statuts.filter((s) => s.id !== "micro") : statuts;
+
+  const [selectedStatut, setSelectedStatut] = useState<string>(isTaxi ? "eurl" : "micro");
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
+  // Reset selection when profession changes and micro isn't available
+  useEffect(() => {
+    if (isTaxi && selectedStatut === "micro") {
+      setSelectedStatut("eurl");
+    }
+  }, [isTaxi, selectedStatut]);
+
   const comparatif = useMemo(() => {
-    return statuts.map((s) => ({
+    return availableStatuts.map((s) => ({
       ...s,
       calc: calculateForStatut(inputs, results, s),
     }));
-  }, [inputs, results]);
+  }, [inputs, results, availableStatuts]);
 
-  const selected = comparatif.find((s) => s.id === selectedStatut)!;
+  const selected = comparatif.find((s) => s.id === selectedStatut) ?? comparatif[0];
   const bestStatut = comparatif.reduce((best, s) => s.calc.monthlyNet > best.calc.monthlyNet ? s : best);
 
   return (
@@ -176,7 +187,9 @@ export default function StatutJuridiqueGuide({ inputs, results }: StatutJuridiqu
           <h3 className="font-bold text-foreground">Guide stratégique : choix du statut juridique</h3>
         </div>
         <p className="text-sm text-muted-foreground">
-          Comparez les statuts adaptés à votre profil. Les calculs s'ajustent automatiquement selon vos paramètres d'audit.
+          {isTaxi
+            ? "Les chauffeurs de taxi ont le statut d'artisan. Le micro-entrepreneur n'est pas applicable. Comparez les statuts adaptés à votre profil."
+            : "Comparez les statuts adaptés à votre profil. Les calculs s'ajustent automatiquement selon vos paramètres d'audit."}
         </p>
       </div>
 
