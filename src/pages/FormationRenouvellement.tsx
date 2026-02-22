@@ -33,7 +33,7 @@ const formations = [
       "Attestation le jour même",
     ],
     description: "Obligatoire tous les 5 ans. Maintien de la carte professionnelle VTC.",
-    cta: "S'inscrire formation VTC",
+    cta: "Réserver ma place VTC",
   },
   {
     id: "taxi",
@@ -54,7 +54,7 @@ const formations = [
       "Attestation le jour même",
     ],
     description: "Obligatoire tous les 5 ans. Maintien de la carte professionnelle Taxi.",
-    cta: "S'inscrire formation Taxi",
+    cta: "Réserver ma place Taxi",
   },
   {
     id: "vmdtr",
@@ -75,7 +75,7 @@ const formations = [
       "Attestation le jour même",
     ],
     description: "Obligatoire tous les 5 ans. Maintien de la carte professionnelle VMDTR.",
-    cta: "S'inscrire formation VMDTR",
+    cta: "Réserver ma place VMDTR",
   },
 ];
 
