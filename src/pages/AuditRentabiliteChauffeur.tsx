@@ -14,7 +14,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const AuditRentabiliteModule = lazy(() => import("@/components/home-v2/AuditRentabiliteModule"));
 
 /* ── Config ── */
-const WHATSAPP_PHONE_E164 = "33188750555";
+const WHATSAPP_PHONE_E164 = "33783787663";
 const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_PHONE_E164}`;
 
 function buildWhatsAppUrl(message: string) {
@@ -22,7 +22,7 @@ function buildWhatsAppUrl(message: string) {
 }
 
 const defaultWhatsAppMessage =
-  "Bonjour École T3P 👋\nJe viens de réaliser mon audit de rentabilité sur votre site.\nJ'aimerais en discuter et en savoir plus sur la formation à 990€.\nMerci !";
+  "Bonjour École T3P, je viens de faire l'Audit Rentabilité Chauffeur. Je souhaite échanger pour finaliser mon projet.";
 
 /* ── Schema.org ── */
 const localBusinessSchema = {
