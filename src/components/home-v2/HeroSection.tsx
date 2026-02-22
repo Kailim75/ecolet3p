@@ -42,7 +42,7 @@ const HeroSection = () => {
               to="/contact"
               className="btn-cta-orange px-8 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2"
             >
-              Je m'inscris
+              Réserver ma place
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a

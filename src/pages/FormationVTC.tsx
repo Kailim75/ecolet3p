@@ -27,7 +27,7 @@ const FormationVTC = () => (
       "Accès aux ressources pédagogiques",
       "Aide à la création d'entreprise",
     ]}
-    ctaTitle="Prêt à devenir chauffeur VTC ? Je m'inscris maintenant"
+    ctaTitle="Prêt à devenir chauffeur VTC ? Réserver ma place"
     crossSellLinks={[
       { title: "Location véhicule examen VTC", desc: "Véhicule conforme + 2h de conduite dès 189€", path: "/services/location-vehicule-examen" },
       { title: "Accompagnement gestion d'activité VTC", desc: "Apprenez à gérer votre entreprise de transport", path: "/accompagnement-gestion-activite" },
