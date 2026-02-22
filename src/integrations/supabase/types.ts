@@ -262,6 +262,92 @@ export type Database = {
         }
         Relationships: []
       }
+      simulations: {
+        Row: {
+          appointment_id: string | null
+          avg_fare: number
+          created_at: string
+          days_per_week: number
+          email: string | null
+          first_name: string | null
+          formation_roi_months: number | null
+          hours_per_day: number
+          id: string
+          last_name: string | null
+          monthly_charges: number | null
+          monthly_net: number | null
+          monthly_revenue: number | null
+          phone: string | null
+          profession: string
+          projection_12m: Json | null
+          rides_per_hour: number
+          scenario_optimized: Json | null
+          scenario_standard: Json | null
+          simulation_level: number
+          source: string | null
+          updated_at: string
+          vehicle_type: string | null
+        }
+        Insert: {
+          appointment_id?: string | null
+          avg_fare?: number
+          created_at?: string
+          days_per_week?: number
+          email?: string | null
+          first_name?: string | null
+          formation_roi_months?: number | null
+          hours_per_day?: number
+          id?: string
+          last_name?: string | null
+          monthly_charges?: number | null
+          monthly_net?: number | null
+          monthly_revenue?: number | null
+          phone?: string | null
+          profession?: string
+          projection_12m?: Json | null
+          rides_per_hour?: number
+          scenario_optimized?: Json | null
+          scenario_standard?: Json | null
+          simulation_level?: number
+          source?: string | null
+          updated_at?: string
+          vehicle_type?: string | null
+        }
+        Update: {
+          appointment_id?: string | null
+          avg_fare?: number
+          created_at?: string
+          days_per_week?: number
+          email?: string | null
+          first_name?: string | null
+          formation_roi_months?: number | null
+          hours_per_day?: number
+          id?: string
+          last_name?: string | null
+          monthly_charges?: number | null
+          monthly_net?: number | null
+          monthly_revenue?: number | null
+          phone?: string | null
+          profession?: string
+          projection_12m?: Json | null
+          rides_per_hour?: number
+          scenario_optimized?: Json | null
+          scenario_standard?: Json | null
+          simulation_level?: number
+          source?: string | null
+          updated_at?: string
+          vehicle_type?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "simulations_appointment_id_fkey"
+            columns: ["appointment_id"]
+            isOneToOne: false
+            referencedRelation: "appointments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
