@@ -147,41 +147,44 @@ function calculateForStatut(inputs: SimulationInputs, results: SimulationResult,
     const vlIR = caMensuel * 0.022;
     netMensuel = caMensuel - operationalCharges - cotisations - vlIR;
   } else if (statut.id === "sasu") {
-    // SASU : on se verse ~60% du bénéfice en salaire, le reste en dividendes
-    // Charges patronales + salariales ~75% sur le salaire brut (assimilé salarié)
-    // IS 15% sur le bénéfice restant, flat tax 30% sur dividendes
-    const comptable = 250; // frais mensuels comptable/CFE
+    // SASU assimilé salarié :
+    // - On alloue ~60% du bénéfice au coût total salarial
+    // - Coût total = salaire brut × 1.45 (charges patronales ~45% du brut)
+    // - Salaire net = salaire brut × 0.78 (charges salariales ~22% du brut)
+    // - Le reste du bénéfice : IS 15% puis dividendes flat tax 30%
+    const comptable = 250;
     const beneficeNet = beneficeBrut - comptable;
-    const salaireBrut = beneficeNet * 0.55;
-    const chargesSalaire = salaireBrut * 0.75;
-    const salaireNet = salaireBrut - chargesSalaire;
-    const beneficeApresRemuneration = beneficeNet - salaireBrut - chargesSalaire;
-    const isAmount = Math.max(0, beneficeApresRemuneration) * 0.15;
-    const dividendesBruts = Math.max(0, beneficeApresRemuneration - isAmount);
-    const dividendesNets = dividendesBruts * 0.70; // flat tax 30%
+    const coutSalarialTotal = beneficeNet * 0.60;
+    const salaireBrut = coutSalarialTotal / 1.45; // brut = coût / (1 + patronales)
+    const salaireNet = salaireBrut * 0.78; // net après salariales
+    const beneficeRestant = Math.max(0, beneficeNet - coutSalarialTotal);
+    const is = beneficeRestant * 0.15;
+    const dividendesNets = (beneficeRestant - is) * 0.70; // flat tax 30%
     netMensuel = salaireNet + dividendesNets;
   } else if (statut.id === "eurl") {
-    // EURL à l'IS : rémunération TNS, cotisations ~45% sur rémunération nette
-    // On se verse ~70% du bénéfice en rémunération
+    // EURL à l'IS, gérant TNS :
+    // - Rémunération nette = part du bénéfice
+    // - Cotisations TNS ~45% calculées SUR la rémunération nette (coût total = net × 1.45)
+    // - On alloue ~70% du bénéfice au coût total rémunération
+    // - Reste : IS 15% + dividendes (flat tax 30%, + cotisations sociales sur >10% capital)
     const comptable = 200;
     const beneficeNet = beneficeBrut - comptable;
-    const remunerationNette = beneficeNet * 0.65;
-    const cotisationsTNS = remunerationNette * 0.45;
-    const remunerationReelle = remunerationNette - cotisationsTNS;
-    // Reste en société : IS 15% + flat tax 30%
-    const reste = beneficeNet - remunerationNette - cotisationsTNS;
-    const dividendes = Math.max(0, reste * (1 - 0.15) * 0.70);
-    netMensuel = remunerationReelle + dividendes;
+    const coutRemunerationTotal = beneficeNet * 0.70;
+    const remunerationNette = coutRemunerationTotal / 1.45; // net = coût / (1 + cotisations)
+    const beneficeRestant = Math.max(0, beneficeNet - coutRemunerationTotal);
+    const is = beneficeRestant * 0.15;
+    const dividendesNets = (beneficeRestant - is) * 0.70;
+    netMensuel = remunerationNette + dividendesNets;
   } else {
-    // Société existante : similaire EURL mais plus de frais de structure
+    // Société existante : similaire EURL avec frais de structure plus élevés
     const comptable = 350;
     const beneficeNet = beneficeBrut - comptable;
-    const remunerationNette = beneficeNet * 0.60;
-    const cotisations = remunerationNette * 0.45;
-    const remunerationReelle = remunerationNette - cotisations;
-    const reste = beneficeNet - remunerationNette - cotisations;
-    const dividendes = Math.max(0, reste * (1 - 0.15) * 0.70);
-    netMensuel = remunerationReelle + dividendes;
+    const coutRemunerationTotal = beneficeNet * 0.65;
+    const remunerationNette = coutRemunerationTotal / 1.45;
+    const beneficeRestant = Math.max(0, beneficeNet - coutRemunerationTotal);
+    const is = beneficeRestant * 0.15;
+    const dividendesNets = (beneficeRestant - is) * 0.70;
+    netMensuel = remunerationNette + dividendesNets;
   }
 
   netMensuel = Math.max(0, Math.round(netMensuel));
