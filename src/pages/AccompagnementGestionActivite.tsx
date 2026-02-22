@@ -135,7 +135,7 @@ const AccompagnementGestionActivite = () => {
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row gap-3">
               <button onClick={() => setShowForm(true)} className="btn-cta-orange px-8 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2">
-                <GraduationCap className="w-5 h-5" /> S'inscrire maintenant
+                <GraduationCap className="w-5 h-5" /> Réserver ma place
               </button>
               <a href="tel:0188750555" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-white text-white font-bold hover:bg-white hover:text-primary transition-all">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
@@ -305,7 +305,7 @@ const AccompagnementGestionActivite = () => {
               <AlmaLogo className="h-4" />
             </div>
             <button onClick={() => setShowForm(true)} className="btn-cta-orange w-full px-6 py-3.5 font-bold rounded-lg inline-flex items-center justify-center gap-2">
-              S'inscrire maintenant <ArrowRight className="w-4 h-4" />
+              Réserver ma place <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -370,7 +370,7 @@ const AccompagnementGestionActivite = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button onClick={() => setShowForm(true)} className="btn-cta-orange px-10 py-4 text-lg font-bold rounded-lg inline-flex items-center gap-2">
-                S'inscrire maintenant <ArrowRight className="w-5 h-5" />
+                Réserver ma place <ArrowRight className="w-5 h-5" />
               </button>
               <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
