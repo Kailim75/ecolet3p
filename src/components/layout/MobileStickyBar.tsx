@@ -82,9 +82,9 @@ const MobileStickyBar = () => {
           fontSize: 14,
           boxShadow: "0 4px 14px rgba(232,121,58,0.4)",
         }}
-        aria-label="S'inscrire à la formation"
+        aria-label="Prendre rendez-vous"
       >
-        S'inscrire <ArrowRight className="w-4 h-4" />
+        Prendre RDV <ArrowRight className="w-4 h-4" />
       </Link>
     </div>
   );
