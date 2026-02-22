@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Eye, Trophy, Star } from "lucide-react";
+import { ArrowRight, Eye, Trophy, Star, Calculator } from "lucide-react";
 import { motion } from "framer-motion";
 const formationSession = "/images/hero-formation-session.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -53,6 +53,13 @@ const HeroSection = () => {
               Voir les formations
             </a>
           </div>
+          <Link
+            to="/simulateur-revenus"
+            className="inline-flex items-center gap-2 mt-4 text-accent font-semibold text-sm hover:underline transition-all"
+          >
+            <Calculator className="w-4 h-4" />
+            Simulez vos revenus gratuitement →
+          </Link>
 
           {/* Badges — inline on mobile, floating on desktop */}
           <div className="flex flex-row gap-3 mt-6 lg:hidden">
