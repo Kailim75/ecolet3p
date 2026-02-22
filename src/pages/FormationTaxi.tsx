@@ -27,7 +27,7 @@ const FormationTaxi = () => (
       "Accès aux ressources pédagogiques",
       "Aide à la création d'entreprise",
     ]}
-    ctaTitle="Prêt à devenir chauffeur Taxi ? Je m'inscris maintenant"
+    ctaTitle="Prêt à devenir chauffeur Taxi ? Réserver ma place"
     crossSellLinks={[
       { title: "Location véhicule examen Taxi", desc: "Taxi équipé lumineux + taximètre + 2h de conduite dès 249€", path: "/services/location-vehicule-examen" },
       { title: "Accompagnement gestion d'activité Taxi", desc: "Apprenez à gérer et optimiser votre entreprise de taxi", path: "/accompagnement-gestion-activite" },

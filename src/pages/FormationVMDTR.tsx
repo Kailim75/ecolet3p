@@ -27,7 +27,7 @@ const FormationVMDTR = () => (
       "Équipement passager fourni pour l'examen",
       "Aide à la création d'entreprise",
     ]}
-    ctaTitle="Prêt à devenir moto-taxi ? Je m'inscris maintenant"
+    ctaTitle="Prêt à devenir moto-taxi ? Réserver ma place"
     crossSellLinks={[
       { title: "Location moto pour l'examen VMDTR", desc: "Moto conforme + équipement passager + 2h de conduite dès 299€", path: "/services/location-vehicule-examen" },
       { title: "Accompagnement gestion d'activité moto-taxi", desc: "Apprenez à gérer et développer votre activité VMDTR", path: "/accompagnement-gestion-activite" },

@@ -360,7 +360,7 @@ const RenouvellementCarteProfessionnelle = () => {
                 </div>
                 <p className="text-xs text-muted-foreground mb-4">{f.description}</p>
                 <button onClick={() => setShowForm(true)} className="btn-cta-orange w-full px-4 py-3 font-bold rounded-lg inline-flex items-center justify-center gap-2 text-sm">
-                  Je m'inscris <ArrowRight className="w-4 h-4" />
+                  Réserver ma place <ArrowRight className="w-4 h-4" />
                 </button>
               </motion.div>
             ))}

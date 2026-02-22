@@ -114,7 +114,7 @@ const CatalogueCard = ({ formation, onRegister, compact = false }: CatalogueCard
             className="w-full font-bold text-sm btn-cta-orange"
             onClick={() => onRegister?.(formation)}
           >
-            Je m'inscris <ArrowRight className="w-4 h-4 ml-1" />
+            Réserver ma place <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
           {hasAlma && (
             <AlmaPaymentButton formationTitle={formation.title} price={formation.price} />

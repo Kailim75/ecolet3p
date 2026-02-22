@@ -40,7 +40,7 @@ const FormationAnglais = () => {
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-white text-sm"><Euro className="w-4 h-4" /> 350€</div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="lg" className="font-bold btn-cta-orange" onClick={() => setPreRegOpen(true)}>Je m'inscris <ArrowRight className="w-4 h-4 ml-2" /></Button>
+              <Button size="lg" className="font-bold btn-cta-orange" onClick={() => setPreRegOpen(true)}>Réserver ma place <ArrowRight className="w-4 h-4 ml-2" /></Button>
               <Button asChild size="lg" variant="outline" className="font-bold border-white/30 text-white hover:bg-white/10"><a href="tel:0188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a></Button>
             </div>
           </motion.div>
@@ -65,7 +65,7 @@ const FormationAnglais = () => {
               <span className="text-sm font-semibold" style={{ color: "#FA5022" }}>ou 4× 87,50€/mois</span>
               <AlmaLogo className="h-4" />
             </div>
-            <Button size="lg" className="font-bold btn-cta-orange" onClick={() => setPreRegOpen(true)}>Je m'inscris <ArrowRight className="w-4 h-4 ml-2" /></Button>
+            <Button size="lg" className="font-bold btn-cta-orange" onClick={() => setPreRegOpen(true)}>Réserver ma place <ArrowRight className="w-4 h-4 ml-2" /></Button>
           </div>
         </div>
       </section>
