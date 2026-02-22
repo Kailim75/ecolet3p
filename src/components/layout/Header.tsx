@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import RdvChoiceModal from "./RdvChoiceModal";
 
 const navLinks = [
   {
@@ -44,6 +45,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [hoverSubmenu, setHoverSubmenu] = useState<string | null>(null);
+  const [isRdvOpen, setIsRdvOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -134,10 +136,10 @@ const Header = () => {
                 <Phone className="w-4 h-4" />
                 01 88 75 05 55
               </a>
-              <Link to="/contact" className="btn-cta-orange px-5 py-2.5 text-sm font-bold rounded-lg inline-flex items-center gap-1">
+              <button onClick={() => setIsRdvOpen(true)} className="btn-cta-orange px-5 py-2.5 text-sm font-bold rounded-lg inline-flex items-center gap-1">
                 Prendre RDV
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
             </div>
 
             {/* Mobile */}
@@ -226,18 +228,20 @@ const Header = () => {
                   <Phone className="w-5 h-5" />
                   01 88 75 05 55
                 </a>
-                <Link
-                  to="/contact"
+                <button
+                  onClick={() => { setIsMenuOpen(false); setIsRdvOpen(true); }}
                   className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg flex items-center justify-center gap-2"
                 >
                   Prendre RDV
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <RdvChoiceModal isOpen={isRdvOpen} onClose={() => setIsRdvOpen(false)} />
     </>
   );
 };
