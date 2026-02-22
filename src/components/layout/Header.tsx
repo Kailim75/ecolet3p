@@ -75,7 +75,16 @@ const Header = () => {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
+            <Link
+              to="/"
+              className="flex items-center gap-2"
+              onClick={(e) => {
+                if (location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
               <span className="text-lg lg:text-xl font-bold text-primary tracking-wide">ECOLE T3P</span>
             </Link>
 
