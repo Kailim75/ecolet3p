@@ -95,7 +95,7 @@ const faqs = [
   },
   {
     question: "Quelle est la différence entre formation initiale et formation continue ?",
-    answer: "La formation initiale est celle que vous suivez pour obtenir votre première carte professionnelle (990€, plusieurs semaines). La formation continue est un stage de remise à niveau (7h à 14h selon le métier) obligatoire tous les 5 ans pour renouveler votre carte. Les deux sont distinctes et non interchangeables.",
+    answer: "La formation initiale est celle que vous suivez pour obtenir votre première carte professionnelle (à partir de 990€, plusieurs semaines). La formation continue est un stage de remise à niveau (7h à 14h selon le métier) obligatoire tous les 5 ans pour renouveler votre carte. Les deux sont distinctes et non interchangeables.",
   },
   {
     question: "Que se passe-t-il si je ne fais pas ma formation continue à temps ?",
@@ -491,9 +491,9 @@ const FormationRenouvellement = () => {
           <h2 className="section-title text-center mb-8">Formations associées</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "Formation initiale VTC", desc: "Obtenez votre première carte professionnelle VTC — 990€", path: "/formations/vtc" },
-              { title: "Formation initiale Taxi", desc: "Obtenez votre première carte professionnelle Taxi — 990€", path: "/formations/taxi" },
-              { title: "Formation initiale VMDTR", desc: "Obtenez votre première carte professionnelle VMDTR — 990€", path: "/formations/vmdtr" },
+              { title: "Formation initiale VTC", desc: "Obtenez votre première carte professionnelle VTC — à partir de 990€", path: "/formations/vtc" },
+              { title: "Formation initiale Taxi", desc: "Obtenez votre première carte professionnelle Taxi — à partir de 990€", path: "/formations/taxi" },
+              { title: "Formation initiale VMDTR", desc: "Obtenez votre première carte professionnelle VMDTR — à partir de 990€", path: "/formations/vmdtr" },
               { title: "Passerelle VTC ↔ Taxi", desc: "Doublez vos revenus avec une seconde carte professionnelle — 665€", path: "/passerelle-vtc-taxi" },
               { title: "Stage récupération de points", desc: "Récupérez jusqu'à 4 points sur votre permis de conduire", path: "/stage-recuperation-points" },
               { title: "Formation accessibilité PMR", desc: "Obligatoire pour transporter des personnes à mobilité réduite", path: "/formation-accessibilite-pmr" },

@@ -72,7 +72,7 @@ const advantages = [
   {
     icon: CreditCard,
     title: "Paiement en 4× sans frais",
-    text: "990€ tout compris avec frais d'examen CMA inclus. Paiement facilité en 4× sans frais via Alma (247,50€/mois).",
+    text: "À partir de 990€ avec frais d'examen CMA inclus. Paiement facilité en 4× sans frais via Alma.",
   },
   {
     icon: Clock,
@@ -166,11 +166,11 @@ const FormationMontrouge = () => {
         <title>Formation Taxi VTC Montrouge (92) — ECOLE T3P</title>
         <meta
           name="description"
-          content="Centre de formation Taxi, VTC et VMDTR à Montrouge (92120). Agrément Préfecture n° 23/007, 94% de réussite, 990€ tout compris. Métro Mairie de Montrouge ligne 4."
+          content="Centre de formation Taxi, VTC et VMDTR à Montrouge (92120). Agrément Préfecture n° 23/007, 94% de réussite, à partir de 990€. Métro Mairie de Montrouge ligne 4."
         />
         <link rel="canonical" href="https://www.ecolet3p.fr/formations/montrouge" />
         <meta property="og:title" content="Formation Taxi VTC Montrouge — ECOLE T3P" />
-        <meta property="og:description" content="Centre agréé Préfecture à Montrouge. 94% de réussite aux examens Taxi et VTC. 990€ tout compris, paiement en 4×." />
+        <meta property="og:description" content="Centre agréé Préfecture à Montrouge. 94% de réussite aux examens Taxi et VTC. À partir de 990€, paiement en 4×." />
         <meta property="og:url" content="https://www.ecolet3p.fr/formations/montrouge" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
@@ -217,7 +217,7 @@ const FormationMontrouge = () => {
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
               Depuis 2014, ECOLE T3P forme les futurs chauffeurs Taxi, VTC et VMDTR au cœur de Montrouge.
-              Agrément Préfecture n° 23/007 — <strong className="text-white">94% de réussite</strong> — 990€ tout compris.
+              Agrément Préfecture n° 23/007 — <strong className="text-white">94% de réussite</strong> — à partir de 990€.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild className="btn-cta-orange px-8 py-4 text-base font-bold">

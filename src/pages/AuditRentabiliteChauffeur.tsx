@@ -56,8 +56,8 @@ const faqItems = [
   { q: "Comment estimer ma rentabilité en tant que chauffeur VTC ou Taxi ?", a: "Notre audit gratuit en ligne calcule votre chiffre d'affaires, déduit les charges (commission plateforme, charges sociales, charges fixes) et affiche votre net mensuel estimé selon votre statut juridique." },
   { q: "Quel statut juridique choisir : micro-entreprise, SASU ou EURL ?", a: "La micro-entreprise est idéale pour démarrer (charges sociales ~22% du CA après commission). La SASU convient aux revenus élevés (IS à 15%). L'EURL (TNS) offre une couverture sociale complète avec des cotisations de ~45%." },
   { q: "Combien gagne un chauffeur VTC en moyenne par mois ?", a: "Avec 22 jours travaillés, 8h/jour et un revenu horaire de 25€, le CA mensuel est d'environ 4 400€. Après déduction des charges (commission, cotisations, frais fixes), le net se situe entre 1 500€ et 2 800€ selon le statut juridique." },
-  { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: "La formation est à 990€ tout compris, incluant les frais d'examen CMA de 241€. Paiement en 4× sans frais possible avec Alma." },
-  { q: "En combien de temps la formation est-elle rentabilisée ?", a: "Selon notre audit, la formation à 990€ est généralement rentabilisée en 10 à 30 jours d'activité, selon votre rythme de travail et votre statut juridique." },
+  { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: "La formation est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium), frais d'examen CMA de 241€ inclus. Paiement en 4× sans frais possible avec Alma." },
+  { q: "En combien de temps la formation est-elle rentabilisée ?", a: "Selon notre audit, la formation est généralement rentabilisée en 10 à 30 jours d'activité, selon votre rythme de travail et votre statut juridique." },
   { q: "Quels sont les formats de formation disponibles ?", a: "3 formats au même tarif : Journée (1 semaine intensive), Soir (2 semaines en soirée) et E-learning (accès illimité jusqu'à l'examen)." },
   { q: "Quel est le taux de réussite à l'examen ?", a: "Notre taux de réussite est de 94%, très supérieur à la moyenne nationale. Plus de 2 000 chauffeurs ont été formés depuis 2014." },
   { q: "Comment financer ma formation sans le CPF ?", a: "Le CPF n'est pas éligible pour les formations T3P. Le financement se fait en direct avec paiement en 4× sans frais via Alma, soit ~247,50€/mois." },
@@ -185,7 +185,7 @@ export default function AuditRentabiliteChauffeur() {
               { icon: Users, value: "+2 000", label: "chauffeurs formés" },
               { icon: Star, value: "5.0/5", label: "359 avis Google" },
               { icon: Award, value: "94%", label: "taux de réussite" },
-              { icon: Shield, value: "990€", label: "tout compris" },
+              { icon: Shield, value: "990€", label: "à partir de" },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -326,7 +326,7 @@ export default function AuditRentabiliteChauffeur() {
             </p>
             <div className="grid gap-4 md:grid-cols-3 my-8">
               {[
-                { icon: GraduationCap, title: "Formation à 990€", desc: "Tout compris, frais d'examen CMA inclus. 3 formats au choix." },
+                { icon: GraduationCap, title: "À partir de 990€", desc: "Frais d'examen CMA inclus. 3 formats au choix." },
                 { icon: TrendingUp, title: "94% de réussite", desc: "Taux très supérieur à la moyenne nationale depuis 2014." },
                 { icon: Users, title: "+2 000 formés", desc: "Une communauté active de chauffeurs professionnels en IDF." },
               ].map((item) => (
@@ -425,7 +425,7 @@ export default function AuditRentabiliteChauffeur() {
               Envoyez votre audit de rentabilité sur WhatsApp et recevez un accompagnement personnalisé sous 24h.
             </p>
             <p className="text-accent font-semibold mb-8">
-              Formation à 990€ tout compris • 94% de réussite • Paiement en 4× sans frais
+              Formation à partir de 990€ • 94% de réussite • Paiement en 4× sans frais
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <WhatsAppCTA />

@@ -341,7 +341,7 @@ const FormationAccessibilitePMR = () => {
             {[
               { title: "Passerelle VTC ↔ Taxi", desc: "Obtenez une double carte professionnelle — 665€.", path: "/passerelle-vtc-taxi" },
               { title: "Gestion d'activité", desc: "Lancez votre activité sur des bases solides — 390€.", path: "/accompagnement-gestion-activite" },
-              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — dès 990€ tout compris.", path: "/formations" },
+              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — à partir de 990€.", path: "/formations" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>

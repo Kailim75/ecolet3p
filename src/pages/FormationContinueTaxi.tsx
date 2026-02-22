@@ -106,7 +106,7 @@ const FormationContinueTaxi = () => (
       { title: "Statuts juridiques du chauffeur T3P", description: "Micro-entreprise, SASU, EURL : quel statut choisir ?", path: "/blog/statuts-juridiques-chauffeur-t3p" },
     ]}
     relatedLinks={[
-      { title: "Formation Taxi Initiale", desc: "Obtenez votre carte professionnelle Taxi — 990€ tout compris", path: "/formations/taxi" },
+      { title: "Formation Taxi Initiale", desc: "Obtenez votre carte professionnelle Taxi — à partir de 990€", path: "/formations/taxi" },
       { title: "Formation Continue VTC", desc: "Renouvelez votre carte VTC — 170€", path: "/formations/continue-vtc" },
       { title: "Passerelle Taxi ↔ VTC", desc: "Doublez vos revenus avec une seconde carte", path: "/passerelle-vtc-taxi" },
       { title: "Renouvellement carte pro", desc: "Tout savoir sur le renouvellement de carte", path: "/renouvellement-carte-professionnelle" },
