@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,11 +13,20 @@ import LeadCaptureForm from "@/components/simulator/LeadCaptureForm";
 import type { SimulationInputs, SimulationResult } from "@/components/simulator/SimulatorLevel1";
 import { supabase } from "@/integrations/supabase/client";
 
+const BASE_COUNT = 2000;
+
 const SimulateurRevenus = () => {
   const [step, setStep] = useState<"level1" | "capture" | "level2">("level1");
   const [inputs, setInputs] = useState<SimulationInputs | null>(null);
   const [results, setResults] = useState<SimulationResult | null>(null);
+  const [simCount, setSimCount] = useState<number | null>(null);
   const level2Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    supabase.rpc("get_simulation_count").then(({ data }) => {
+      if (data !== null) setSimCount(Number(data));
+    });
+  }, []);
 
   const handleResultsReady = async (inp: SimulationInputs, res: SimulationResult) => {
     setInputs(inp);
@@ -101,6 +110,17 @@ const SimulateurRevenus = () => {
               Simulez vos revenus en 30 secondes. Estimation CA, charges et net mensuel 
               — puis débloquez la <strong className="text-white">projection 12 mois</strong> gratuite.
             </motion.p>
+            {simCount !== null && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm"
+              >
+                <Users className="w-4 h-4" />
+                <span className="font-bold text-accent">{(BASE_COUNT + simCount).toLocaleString("fr-FR")}+</span> simulations réalisées
+              </motion.div>
+            )}
           </div>
         </div>
       </section>
