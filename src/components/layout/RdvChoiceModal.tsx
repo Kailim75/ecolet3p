@@ -28,7 +28,7 @@ const RdvChoiceModal = ({ isOpen, onClose }: RdvChoiceModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[61] w-[90vw] max-w-sm bg-card rounded-2xl shadow-2xl border border-border overflow-hidden"
+            className="fixed left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 top-1/2 -translate-y-1/2 z-[61] sm:w-[90vw] sm:max-w-sm bg-card rounded-2xl shadow-2xl border border-border overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-border">
