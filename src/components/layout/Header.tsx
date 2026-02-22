@@ -135,7 +135,7 @@ const Header = () => {
                 01 88 75 05 55
               </a>
               <Link to="/contact" className="btn-cta-orange px-5 py-2.5 text-sm font-bold rounded-lg inline-flex items-center gap-1">
-                Je m'inscris
+                Prendre RDV
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -230,7 +230,7 @@ const Header = () => {
                   to="/contact"
                   className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg flex items-center justify-center gap-2"
                 >
-                  Je m'inscris
+                  Prendre RDV
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
