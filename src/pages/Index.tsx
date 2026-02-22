@@ -12,64 +12,7 @@ import CTAFinalSection from "@/components/home-v2/CTAFinalSection";
 import AuditRentabiliteModule from "@/components/home-v2/AuditRentabiliteModule";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "ECOLE T3P",
-  "description": "Centre de formation professionnelle agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge. 94% de taux de réussite, +2000 chauffeurs formés depuis 2014.",
-  "url": "https://www.ecolet3p.fr",
-  "telephone": "+33188750555",
-  "email": "montrouge@ecolet3p.fr",
-  "image": "https://www.ecolet3p.fr/og-image.jpg",
-  "logo": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg",
-  "foundingDate": "2014",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "3 rue Corneille",
-    "addressLocality": "Montrouge",
-    "postalCode": "92120",
-    "addressRegion": "Île-de-France",
-    "addressCountry": "FR"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "359"
-  }
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Combien coûte la formation Taxi ou VTC ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La formation coûte 990€ tout compris, incluant les frais d'examen CMA de 241€. Paiement en 4x sans frais avec Alma possible."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quel est le taux de réussite ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Notre taux de réussite est de 94%, supérieur à la moyenne nationale."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels formats de formation proposez-vous ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "3 formats au même tarif : Journée (1 semaine), Soir (2 semaines) et E-learning (illimité jusqu'à l'examen)."
-      }
-    }
-  ]
-};
+// Organization + FAQ schemas are in index.html (static, no duplication)
 
 const Index = () => {
   return (
@@ -84,8 +27,6 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         <meta name="robots" content="index, follow" />
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <MobileQuickBar />
