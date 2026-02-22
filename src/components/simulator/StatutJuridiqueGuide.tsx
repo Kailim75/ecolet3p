@@ -126,27 +126,72 @@ const statuts: StatutConfig[] = [
 ];
 
 function calculateForStatut(inputs: SimulationInputs, results: SimulationResult, statut: StatutConfig) {
-  const ca = results.monthlyRevenue;
-  // Platform + fuel + insurance + vehicle from base calculation
-  const operationalRate = inputs.profession === "vtc" ? 0.47 : inputs.profession === "taxi" ? 0.34 : 0.37;
-  const operationalCharges = ca * (operationalRate - 0.22); // Remove base social, we'll use statut's
+  const caMensuel = results.monthlyRevenue;
 
-  const socialCharges = ca * statut.socialRate;
-  const extraCharges = ca * statut.extraCharges;
+  // 1. Charges opérationnelles fixes (carburant, assurance, véhicule, plateforme) — identiques quel que soit le statut
+  const platformRate = inputs.profession === "vtc" ? 0.20 : inputs.profession === "taxi" ? 0.10 : 0.20;
+  const fuelRate = inputs.profession === "vmdtr" ? 0.03 : 0.07;
+  const vehicleRate = inputs.profession === "vmdtr" ? 0.06 : inputs.profession === "taxi" ? 0.10 : 0.13;
+  const insuranceRate = 0.03;
+  const operationalCharges = caMensuel * (platformRate + fuelRate + vehicleRate + insuranceRate);
 
-  let netBeforeTax = ca - operationalCharges - socialCharges - extraCharges;
-  
-  // Simplified tax (for micro, versement libératoire is in socialRate)
-  if (statut.id !== "micro") {
-    netBeforeTax = netBeforeTax * (1 - statut.irRate);
+  // 2. Base imposable / rémunérable = CA - charges opérationnelles
+  const beneficeBrut = caMensuel - operationalCharges;
+
+  let netMensuel: number;
+
+  if (statut.id === "micro") {
+    // Micro : cotisations sociales 21,2% sur CA + versement libératoire IR 2,2% sur CA
+    // Pas de déduction des charges réelles, mais pas de TVA sous 37 500€
+    const cotisations = caMensuel * 0.212;
+    const vlIR = caMensuel * 0.022;
+    netMensuel = caMensuel - operationalCharges - cotisations - vlIR;
+  } else if (statut.id === "sasu") {
+    // SASU : on se verse ~60% du bénéfice en salaire, le reste en dividendes
+    // Charges patronales + salariales ~75% sur le salaire brut (assimilé salarié)
+    // IS 15% sur le bénéfice restant, flat tax 30% sur dividendes
+    const comptable = 250; // frais mensuels comptable/CFE
+    const beneficeNet = beneficeBrut - comptable;
+    const salaireBrut = beneficeNet * 0.55;
+    const chargesSalaire = salaireBrut * 0.75;
+    const salaireNet = salaireBrut - chargesSalaire;
+    const beneficeApresRemuneration = beneficeNet - salaireBrut - chargesSalaire;
+    const isAmount = Math.max(0, beneficeApresRemuneration) * 0.15;
+    const dividendesBruts = Math.max(0, beneficeApresRemuneration - isAmount);
+    const dividendesNets = dividendesBruts * 0.70; // flat tax 30%
+    netMensuel = salaireNet + dividendesNets;
+  } else if (statut.id === "eurl") {
+    // EURL à l'IS : rémunération TNS, cotisations ~45% sur rémunération nette
+    // On se verse ~70% du bénéfice en rémunération
+    const comptable = 200;
+    const beneficeNet = beneficeBrut - comptable;
+    const remunerationNette = beneficeNet * 0.65;
+    const cotisationsTNS = remunerationNette * 0.45;
+    const remunerationReelle = remunerationNette - cotisationsTNS;
+    // Reste en société : IS 15% + flat tax 30%
+    const reste = beneficeNet - remunerationNette - cotisationsTNS;
+    const dividendes = Math.max(0, reste * (1 - 0.15) * 0.70);
+    netMensuel = remunerationReelle + dividendes;
+  } else {
+    // Société existante : similaire EURL mais plus de frais de structure
+    const comptable = 350;
+    const beneficeNet = beneficeBrut - comptable;
+    const remunerationNette = beneficeNet * 0.60;
+    const cotisations = remunerationNette * 0.45;
+    const remunerationReelle = remunerationNette - cotisations;
+    const reste = beneficeNet - remunerationNette - cotisations;
+    const dividendes = Math.max(0, reste * (1 - 0.15) * 0.70);
+    netMensuel = remunerationReelle + dividendes;
   }
 
-  return {
-    monthlyNet: Math.round(netBeforeTax),
-    annualNet: Math.round(netBeforeTax * 12),
-    totalChargesRate: Math.round((1 - netBeforeTax / ca) * 100),
-    formationAmortMonths: Math.max(1, Math.ceil(990 / (netBeforeTax * 0.15))), // 15% gain from formation
-  };
+  netMensuel = Math.max(0, Math.round(netMensuel));
+  const annualNet = netMensuel * 12;
+  const totalChargesRate = caMensuel > 0 ? Math.round((1 - netMensuel / caMensuel) * 100) : 0;
+  // Amortissement : gain estimé à 15% grâce à la formation
+  const gainMensuel = netMensuel * 0.15;
+  const formationAmortMonths = gainMensuel > 0 ? Math.max(1, Math.ceil(990 / gainMensuel)) : 12;
+
+  return { monthlyNet: netMensuel, annualNet, totalChargesRate, formationAmortMonths };
 }
 
 export default function StatutJuridiqueGuide({ inputs, results }: StatutJuridiqueGuideProps) {
