@@ -42,8 +42,9 @@ import SessionsManager from "@/components/admin/SessionsManager";
 import AppointmentsManager from "@/components/admin/AppointmentsManager";
 import EmailLogsManager from "@/components/admin/EmailLogsManager";
 import AdminDashboard from "@/components/admin/AdminDashboard";
+import SEODashboard from "@/components/admin/SEODashboard";
 
-type Tab = "dashboard" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails";
+type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails";
 
 interface NewsletterSubscriber {
   id: string;
@@ -442,6 +443,17 @@ const Admin = () => {
                 Statistiques
               </button>
               <button
+                onClick={() => { setActiveTab("seo"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors whitespace-nowrap ${
+                  activeTab === "seo"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <Search className="w-4 h-4 inline-block mr-2" />
+                SEO
+              </button>
+              <button
                 onClick={() => { setActiveTab("newsletter"); setSearchTerm(""); setStatusFilter("all"); }}
                 className={`px-6 py-4 font-medium transition-colors ${
                   activeTab === "newsletter"
@@ -513,6 +525,8 @@ const Admin = () => {
           {/* Tab content */}
           {activeTab === "dashboard" ? (
             <AdminDashboard />
+          ) : activeTab === "seo" ? (
+            <SEODashboard />
           ) : activeTab === "formations" ? (
             <FormationsManager />
           ) : activeTab === "sessions" ? (
