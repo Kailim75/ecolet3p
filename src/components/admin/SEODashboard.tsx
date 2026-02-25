@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
+import { ArrowRightLeft } from "lucide-react";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
   ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
@@ -414,7 +415,47 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
 
 // --- Cannibalization Panel ---
 const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) => {
+  const [creatingRedirect, setCreatingRedirect] = useState<string | null>(null);
+  const [createdRedirects, setCreatedRedirects] = useState<Set<string>>(new Set());
+
   if (!groups || groups.length === 0) return null;
+
+  const createRedirect = async (fromPath: string, toPath: string, keyword: string) => {
+    const key = `${fromPath}->${toPath}`;
+    setCreatingRedirect(key);
+    try {
+      const { error } = await supabase.from("seo_redirects").insert({
+        from_path: fromPath,
+        to_path: toPath,
+        source: "cannibalization",
+        cannibalization_keyword: keyword,
+        notes: `Auto-créé depuis audit cannibalisation — « ${keyword} »`,
+      });
+
+      if (error) {
+        if (error.code === "23505") {
+          toast.warning("Redirection déjà existante pour ce chemin");
+          setCreatedRedirects(prev => new Set(prev).add(key));
+        } else {
+          toast.error("Erreur lors de la création");
+        }
+      } else {
+        toast.success(`Redirection 301 créée : ${fromPath} → ${toPath}`);
+        setCreatedRedirects(prev => new Set(prev).add(key));
+      }
+    } catch {
+      toast.error("Erreur inattendue");
+    }
+    setCreatingRedirect(null);
+  };
+
+  const createAllRedirects = async (group: CannibalizationGroup) => {
+    if (group.pages.length < 2) return;
+    const targetPage = group.pages[0]; // Keep first page, redirect others
+    for (let i = 1; i < group.pages.length; i++) {
+      await createRedirect(group.pages[i].url, targetPage.url, group.keyword);
+    }
+  };
 
   const severityStyles: Record<string, string> = {
     high: "border-red-200 bg-red-50/40",
@@ -465,21 +506,63 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
             </div>
 
             <div className="space-y-1.5">
-              {group.pages.map((page, pIdx) => (
-                <div key={pIdx} className="flex items-start gap-2 text-xs">
-                  <XCircle className="w-3.5 h-3.5 text-red-400 mt-0.5 shrink-0" />
-                  <div>
-                    <span className="font-medium text-foreground">{page.url}</span>
-                    <span className="text-muted-foreground"> — {page.overlap_reason}</span>
+              {group.pages.map((page, pIdx) => {
+                const isTarget = pIdx === 0;
+                const redirectKey = `${page.url}->${group.pages[0].url}`;
+                const alreadyCreated = createdRedirects.has(redirectKey);
+
+                return (
+                  <div key={pIdx} className="flex items-center gap-2 text-xs">
+                    {isTarget ? (
+                      <CheckCircle className="w-3.5 h-3.5 text-green-600 shrink-0" />
+                    ) : (
+                      <XCircle className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <span className={`font-medium ${isTarget ? "text-green-700" : "text-foreground"}`}>
+                        {page.url}
+                      </span>
+                      {isTarget && <span className="text-green-600 ml-1">(page cible)</span>}
+                      <span className="text-muted-foreground"> — {page.overlap_reason}</span>
+                    </div>
+                    {!isTarget && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => createRedirect(page.url, group.pages[0].url, group.keyword)}
+                        disabled={creatingRedirect === redirectKey || alreadyCreated}
+                        className="text-[10px] h-6 px-2 shrink-0"
+                      >
+                        {alreadyCreated ? (
+                          <><CheckCircle className="w-3 h-3 mr-1 text-green-600" /> Créé</>
+                        ) : creatingRedirect === redirectKey ? (
+                          <Loader2 className="w-3 h-3 animate-spin" />
+                        ) : (
+                          <><ArrowRightLeft className="w-3 h-3 mr-1" /> 301</>
+                        )}
+                      </Button>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="flex items-start gap-2 bg-white/60 rounded-md p-2.5 border border-border/50">
               <Sparkles className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
               <p className="text-xs text-foreground">{group.recommendation}</p>
             </div>
+
+            {group.pages.length > 2 && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => createAllRedirects(group)}
+                className="text-[10px] h-7 border-primary/30 text-primary hover:bg-primary/5"
+              >
+                <ArrowRightLeft className="w-3 h-3 mr-1" />
+                Créer toutes les redirections vers {group.pages[0].url}
+              </Button>
+            )}
           </div>
         ))}
       </div>

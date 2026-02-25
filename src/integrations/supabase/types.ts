@@ -383,6 +383,48 @@ export type Database = {
           },
         ]
       }
+      seo_redirects: {
+        Row: {
+          cannibalization_keyword: string | null
+          created_at: string
+          from_path: string
+          hit_count: number
+          id: string
+          is_active: boolean
+          notes: string | null
+          redirect_type: number
+          source: string
+          to_path: string
+          updated_at: string
+        }
+        Insert: {
+          cannibalization_keyword?: string | null
+          created_at?: string
+          from_path: string
+          hit_count?: number
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          redirect_type?: number
+          source?: string
+          to_path: string
+          updated_at?: string
+        }
+        Update: {
+          cannibalization_keyword?: string | null
+          created_at?: string
+          from_path?: string
+          hit_count?: number
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          redirect_type?: number
+          source?: string
+          to_path?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       simulations: {
         Row: {
           appointment_id: string | null

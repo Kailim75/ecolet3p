@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import CookieConsent from "./components/CookieConsent";
 import PWAStatus from "./components/pwa/PWAStatus";
+import RedirectHandler from "./components/seo/RedirectHandler";
 
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
@@ -86,6 +87,7 @@ const App = () => {
               <Sonner />
               <BrowserRouter>
                 <AnalyticsProvider>
+                  <RedirectHandler />
                   <Suspense fallback={<PageFallback />}>
                     <Routes>
                       <Route path="/" element={<Index />} />
