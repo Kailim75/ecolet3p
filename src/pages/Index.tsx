@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
@@ -52,6 +52,8 @@ const homeFaqSchema = {
 };
 
 const Index = () => {
+  const h1 = useDynamicH1("/", "Devenez chauffeur professionnel à partir de 990€.");
+
   return (
     <Layout>
       <DynamicSEOHead
@@ -65,7 +67,7 @@ const Index = () => {
       </DynamicSEOHead>
 
       <MobileQuickBar />
-      <HeroSection />
+      <HeroSection h1Override={h1} />
       <ReassuranceBar />
       <AuditRentabiliteModule />
       <FormationsCards />

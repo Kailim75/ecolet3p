@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const formationSession = "/images/hero-formation-session.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const HeroSection = () => {
+const HeroSection = ({ h1Override }: { h1Override?: string }) => {
   const isMobile = useIsMobile();
 
   const floatAnimation = isMobile ? {} : { y: [0, -6, 0] };
@@ -31,7 +31,7 @@ const HeroSection = () => {
       <div className="container-custom relative z-10 py-12 lg:py-20">
         <div className="max-w-3xl lg:max-w-[55%]">
           <h1 className="text-[28px] md:text-[40px] lg:text-[52px] font-bold text-white leading-tight mb-6">
-            Devenez chauffeur professionnel à partir de 990€.
+            {h1Override || "Devenez chauffeur professionnel à partir de 990€."}
           </h1>
           <p className="text-white/80 text-base md:text-lg lg:text-xl mb-8 max-w-2xl leading-relaxed">
             Formation VTC, Taxi ou VMDTR. 3 formats au choix : Journée, Soir ou E-learning. 
