@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -117,6 +118,31 @@ ${JSON.stringify(pages, null, 2)}`;
         JSON.stringify({ error: "Impossible de parser la réponse IA", raw: content }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
+    }
+
+    // Save audit to database
+    try {
+      const supabaseAdmin = createClient(
+        Deno.env.get("SUPABASE_URL")!,
+        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+      );
+
+      const totalErrors = parsed.pages?.reduce(
+        (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "error").length || 0), 0
+      ) || 0;
+      const totalWarnings = parsed.pages?.reduce(
+        (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "warning").length || 0), 0
+      ) || 0;
+
+      await supabaseAdmin.from("seo_audits").insert({
+        overall_score: parsed.overallScore || 0,
+        pages_count: parsed.pages?.length || 0,
+        total_errors: totalErrors,
+        total_warnings: totalWarnings,
+        audit_data: parsed,
+      });
+    } catch (saveErr) {
+      console.error("Failed to save audit:", saveErr);
     }
 
     return new Response(JSON.stringify(parsed), {
