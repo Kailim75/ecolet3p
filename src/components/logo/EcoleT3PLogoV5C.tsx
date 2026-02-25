@@ -23,12 +23,12 @@ const EcoleT3PLogoV5C = ({
 
   return (
     <svg
-      viewBox="0 0 320 56"
+      viewBox="0 0 340 68"
       fill="none"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="École T3P — Formation Taxi VTC VMDTR"
+      aria-label="École T3P — Centre de Formation Agréé"
     >
       {/* É C O L E */}
       <text
@@ -82,17 +82,31 @@ const EcoleT3PLogoV5C = ({
         P
       </text>
 
-      {/* Baseline */}
+      {/* Tagline — CENTRE DE FORMATION AGRÉÉ */}
       <text
         x="1"
-        y="52"
+        y="49"
         fontFamily="Inter, 'Helvetica Neue', Arial, sans-serif"
-        fontSize="9"
-        fontWeight="500"
+        fontSize="8.5"
+        fontWeight="600"
         fill={taglineColor}
-        letterSpacing="0.12em"
+        letterSpacing="0.14em"
       >
-        FORMATION TAXI • VTC • VMDTR
+        CENTRE DE FORMATION AGRÉÉ
+      </text>
+
+      {/* by Stampee & aamet */}
+      <text
+        x="1"
+        y="62"
+        fontFamily="Inter, 'Helvetica Neue', Arial, sans-serif"
+        fontSize="6.5"
+        fontWeight="400"
+        fill={isWhite ? "rgba(255,255,255,0.4)" : "#9CA3AF"}
+        letterSpacing="0.06em"
+        fontStyle="italic"
+      >
+        by Stampee &amp; aamet
       </text>
     </svg>
   );
