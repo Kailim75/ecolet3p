@@ -4,8 +4,10 @@ import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
   ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
-  Bell, BellOff, Settings2,
+  Bell, BellOff, Settings2, FileDown,
 } from "lucide-react";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
@@ -367,6 +369,80 @@ const SEODashboard = () => {
     }
   };
 
+  const exportPDF = () => {
+    if (!auditResult) {
+      toast.error("Lancez d'abord un audit avant d'exporter.");
+      return;
+    }
+
+    const doc = new jsPDF({ orientation: "landscape" });
+    const now = format(new Date(), "dd/MM/yyyy HH:mm");
+
+    // Title
+    doc.setFontSize(18);
+    doc.setTextColor(30, 70, 50);
+    doc.text("Rapport d'audit SEO — ECOLE T3P", 14, 18);
+    doc.setFontSize(10);
+    doc.setTextColor(120, 120, 120);
+    doc.text(`Généré le ${now} • ${auditResult.pages?.length || 0} pages analysées`, 14, 25);
+
+    // Summary
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text(`Score global : ${auditResult.overallScore}/100`, 14, 35);
+    doc.text(`Erreurs : ${totalErrors}   |   Avertissements : ${totalWarnings}`, 14, 42);
+
+    // Pages table
+    const tableData = (auditResult.pages || []).map(p => {
+      const errors = p.issues?.filter(i => i.type === "error").length || 0;
+      const warnings = p.issues?.filter(i => i.type === "warning").length || 0;
+      const topRec = p.recommendations?.[0]?.suggested || "—";
+      return [p.url, `${p.score}/100`, String(errors), String(warnings), topRec.slice(0, 80)];
+    });
+
+    autoTable(doc, {
+      startY: 48,
+      head: [["URL", "Score", "Erreurs", "Avert.", "Recommandation principale"]],
+      body: tableData,
+      styles: { fontSize: 8, cellPadding: 2 },
+      headStyles: { fillColor: [30, 70, 50], textColor: 255, fontSize: 9 },
+      columnStyles: {
+        0: { cellWidth: 70 },
+        1: { cellWidth: 20, halign: "center" },
+        2: { cellWidth: 18, halign: "center" },
+        3: { cellWidth: 18, halign: "center" },
+        4: { cellWidth: "auto" },
+      },
+      alternateRowStyles: { fillColor: [245, 245, 240] },
+    });
+
+    // Global recommendations on new page if present
+    if (auditResult.globalRecommendations?.length) {
+      doc.addPage();
+      doc.setFontSize(14);
+      doc.setTextColor(30, 70, 50);
+      doc.text("Recommandations globales IA", 14, 18);
+
+      const recData = auditResult.globalRecommendations.map(r => [
+        r.priority === "high" ? "🔴 Élevé" : r.priority === "medium" ? "🟡 Moyen" : "🔵 Faible",
+        r.category,
+        r.message,
+      ]);
+
+      autoTable(doc, {
+        startY: 24,
+        head: [["Priorité", "Catégorie", "Recommandation"]],
+        body: recData,
+        styles: { fontSize: 9, cellPadding: 3 },
+        headStyles: { fillColor: [30, 70, 50], textColor: 255 },
+        columnStyles: { 0: { cellWidth: 25 }, 1: { cellWidth: 35 } },
+      });
+    }
+
+    doc.save(`audit-seo-ecolet3p-${format(new Date(), "yyyy-MM-dd")}.pdf`);
+    toast.success("PDF exporté !");
+  };
+
   const filteredPages = seoPages.filter(
     p => p.url.toLowerCase().includes(filter.toLowerCase()) || p.title.toLowerCase().includes(filter.toLowerCase())
   );
@@ -392,6 +468,12 @@ const SEODashboard = () => {
           <p className="text-sm text-muted-foreground">{seoPages.length} pages analysées • Recommandations IA</p>
         </div>
         <div className="flex items-center gap-2">
+          {auditResult && (
+            <Button variant="outline" size="sm" onClick={exportPDF}>
+              <FileDown className="w-4 h-4 mr-1.5" />
+              Export PDF
+            </Button>
+          )}
           <Button
             variant="outline"
             size="sm"
