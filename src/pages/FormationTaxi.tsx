@@ -1,6 +1,7 @@
 import { CarTaxiFront, Users, FileText, CheckCircle, Target, Award } from "lucide-react";
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
+import heroImageTaxiWebp from "@/assets/formations/hero-taxi.jpg?w=640;1024;1920&format=webp&as=srcset";
 
 const FormationTaxi = () => (
   <FormationPageTemplate
@@ -10,6 +11,7 @@ const FormationTaxi = () => (
     ogTitle="Formation Taxi Initiale à Montrouge — ECOLE T3P"
     ogDescription="Formation initiale Taxi à Montrouge. Centre agréé Préfecture, 94% de réussite."
     heroImage={heroImageTaxi}
+    heroImageWebp={heroImageTaxiWebp}
     badge="Formation Taxi"
     badgeIcon={CarTaxiFront}
     heading="Formation Taxi à Montrouge — Carte Professionnelle"

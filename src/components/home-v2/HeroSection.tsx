@@ -9,17 +9,23 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
 
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
-      {/* Background image — real <img> for LCP optimization */}
-      <img
-        src={formationSession}
-        alt="Session de formation Taxi VTC en salle à l'ECOLE T3P Montrouge"
-        width={1920}
-        height={1080}
-        fetchPriority="high"
-        loading="eager"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover blur-[3px] brightness-[0.4]"
-      />
+      {/* Background image — <picture> with WebP for LCP optimization */}
+      <picture className="absolute inset-0">
+        <source
+          type="image/webp"
+          srcSet="/images/hero-formation-session.webp"
+        />
+        <img
+          src={formationSession}
+          alt="Session de formation Taxi VTC en salle à l'ECOLE T3P Montrouge"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="w-full h-full object-cover blur-[3px] brightness-[0.4]"
+        />
+      </picture>
       {/* Green overlay */}
       <div className="absolute inset-0 bg-primary/70" />
       

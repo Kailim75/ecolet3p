@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-// Import center images
+// Original imports
 import formationSession from "@/assets/center/formation-session.jpg";
 import formationWhiteboard from "@/assets/center/formation-whiteboard.jpg";
 import salleEquipee from "@/assets/center/salle-formation-equipee.jpg";
@@ -19,15 +19,25 @@ import accueilReception from "@/assets/center/accueil-reception.jpg";
 import entreeCentre from "@/assets/center/entree-centre.jpg";
 import groupePromotion1 from "@/assets/center/groupe-promotion-1.jpg";
 
+// WebP srcset imports (vite-imagetools generates responsive WebP variants)
+import formationSessionWebp from "@/assets/center/formation-session.jpg?w=400;800;1200&format=webp&as=srcset";
+import formationWhiteboardWebp from "@/assets/center/formation-whiteboard.jpg?w=400;800;1200&format=webp&as=srcset";
+import salleEquipeeWebp from "@/assets/center/salle-formation-equipee.jpg?w=400;800;1200&format=webp&as=srcset";
+import salleModerneWebp from "@/assets/center/salle-moderne.jpg?w=400;800;1200&format=webp&as=srcset";
+import salleProjecteurWebp from "@/assets/center/salle-projecteur.jpg?w=400;800;1200&format=webp&as=srcset";
+import accueilReceptionWebp from "@/assets/center/accueil-reception.jpg?w=400;800;1200&format=webp&as=srcset";
+import entreeCentreWebp from "@/assets/center/entree-centre.jpg?w=400;800;1200&format=webp&as=srcset";
+import groupePromotion1Webp from "@/assets/center/groupe-promotion-1.jpg?w=400;800;1200&format=webp&as=srcset";
+
 const images = [
-  { src: salleEquipee, alt: "Salle de formation équipée ECOLE T3P", label: "Salle de formation" },
-  { src: formationSession, alt: "Session de formation en cours", label: "Cours en session" },
-  { src: salleModerne, alt: "Salle moderne avec équipement digital", label: "Équipement moderne" },
-  { src: accueilReception, alt: "Espace d'accueil ECOLE T3P", label: "Espace accueil" },
-  { src: formationWhiteboard, alt: "Formateur au tableau interactif", label: "Formation interactive" },
-  { src: entreeCentre, alt: "Entrée du centre de formation", label: "Entrée du centre" },
-  { src: salleProjecteur, alt: "Salle avec vidéoprojecteur", label: "Salle de projection" },
-  { src: groupePromotion1, alt: "Promotion d'élèves diplômés", label: "Nos diplômés" },
+  { src: salleEquipee, webp: salleEquipeeWebp, alt: "Salle de formation équipée ECOLE T3P", label: "Salle de formation" },
+  { src: formationSession, webp: formationSessionWebp, alt: "Session de formation en cours", label: "Cours en session" },
+  { src: salleModerne, webp: salleModerneWebp, alt: "Salle moderne avec équipement digital", label: "Équipement moderne" },
+  { src: accueilReception, webp: accueilReceptionWebp, alt: "Espace d'accueil ECOLE T3P", label: "Espace accueil" },
+  { src: formationWhiteboard, webp: formationWhiteboardWebp, alt: "Formateur au tableau interactif", label: "Formation interactive" },
+  { src: entreeCentre, webp: entreeCentreWebp, alt: "Entrée du centre de formation", label: "Entrée du centre" },
+  { src: salleProjecteur, webp: salleProjecteurWebp, alt: "Salle avec vidéoprojecteur", label: "Salle de projection" },
+  { src: groupePromotion1, webp: groupePromotion1Webp, alt: "Promotion d'élèves diplômés", label: "Nos diplômés" },
 ];
 
 const features = [
@@ -119,15 +129,22 @@ const LocalsSection = () => {
                     className="relative group cursor-pointer"
                   >
                     <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[4/3]">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        loading="lazy"
-                        decoding="async"
-                        width={400}
-                        height={300}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      <picture>
+                        <source
+                          type="image/webp"
+                          srcSet={image.webp}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          decoding="async"
+                          width={400}
+                          height={300}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </picture>
                       {/* Overlay gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       

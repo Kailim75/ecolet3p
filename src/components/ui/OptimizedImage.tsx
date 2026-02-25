@@ -11,6 +11,10 @@ interface OptimizedImageProps {
   sizes?: string;
   width?: number;
   height?: number;
+  /** WebP srcset string (from vite-imagetools: ?w=400;800;1200&format=webp&as=srcset) */
+  webpSrcSet?: string;
+  /** Original format srcset string */
+  srcSet?: string;
 }
 
 const aspectRatioClasses = {
@@ -30,6 +34,8 @@ const OptimizedImage = ({
   sizes = "100vw",
   width,
   height,
+  webpSrcSet,
+  srcSet,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -68,6 +74,27 @@ const OptimizedImage = ({
 
   const handleLoad = useCallback(() => setIsLoaded(true), []);
 
+  const imgElement = (
+    <img
+      ref={imgElRef}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      sizes={sizes}
+      srcSet={srcSet}
+      fetchPriority={priority ? "high" : "auto"}
+      onLoad={handleLoad}
+      className={cn(
+        "w-full h-full object-cover transition-opacity duration-500",
+        isLoaded ? "opacity-100" : "opacity-0",
+        className
+      )}
+    />
+  );
+
   return (
     <div
       ref={imgRef}
@@ -91,23 +118,14 @@ const OptimizedImage = ({
       )}
 
       {isInView && (
-        <img
-          ref={imgElRef}
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          sizes={sizes}
-          fetchPriority={priority ? "high" : "auto"}
-          onLoad={handleLoad}
-          className={cn(
-            "w-full h-full object-cover transition-opacity duration-500",
-            isLoaded ? "opacity-100" : "opacity-0",
-            className
-          )}
-        />
+        webpSrcSet ? (
+          <picture>
+            <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
+            {imgElement}
+          </picture>
+        ) : (
+          imgElement
+        )
       )}
     </div>
   );
