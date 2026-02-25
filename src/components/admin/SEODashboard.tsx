@@ -9,6 +9,10 @@ import {
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
+  AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
@@ -348,15 +352,33 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
         </h3>
         <div className="flex items-center gap-2">
           {pendingCount > 0 && (
-            <Button
-              size="sm"
-              onClick={onApproveAll}
-              disabled={bulkApproving}
-              className="bg-green-600 hover:bg-green-700 text-white text-[10px] h-7 px-2.5"
-            >
-              {bulkApproving ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
-              Tout approuver ({pendingCount})
-            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  size="sm"
+                  disabled={bulkApproving}
+                  className="bg-green-600 hover:bg-green-700 text-white text-[10px] h-7 px-2.5"
+                >
+                  {bulkApproving ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
+                  Tout approuver ({pendingCount})
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Confirmer l'approbation en lot</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Vous êtes sur le point d'approuver et appliquer <strong>{pendingCount} correction{pendingCount > 1 ? "s" : ""}</strong> en attente.
+                    Les overrides metadata seront immédiatement actifs sur le site. Cette action est irréversible.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Annuler</AlertDialogCancel>
+                  <AlertDialogAction onClick={onApproveAll} className="bg-green-600 hover:bg-green-700">
+                    Tout approuver
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           )}
           <div className="flex gap-1">
           {["all", "pending", "approved", "rejected"].map(s => (
