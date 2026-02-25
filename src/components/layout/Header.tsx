@@ -85,7 +85,7 @@ const Header = () => {
                 }
               }}
             >
-              <img src="/images/ecole-t3p-logo-v5c.png" alt="École T3P - Centre de formation Taxi VTC VMDTR" className="h-10 lg:h-12 w-auto object-contain" />
+              <img src="/images/ecole-t3p-logo-v5c.png" alt="École T3P - Centre de formation Taxi VTC VMDTR" className="h-12 lg:h-14 xl:h-16 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation */}
