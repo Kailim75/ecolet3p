@@ -7,6 +7,161 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+// ── Deterministic SEO Rules (60% of final score) ──────────────────────
+interface PageData {
+  url: string;
+  title: string;
+  description: string;
+  h1: string;
+  hasSchema: string[];
+  internalLinks: string[];
+  wordCount?: number;
+}
+
+interface DeterministicResult {
+  score: number;
+  issues: { type: "error" | "warning" | "info"; message: string; rule: string }[];
+  checks: Record<string, { passed: boolean; score: number; maxScore: number; detail: string }>;
+}
+
+function runDeterministicChecks(page: PageData): DeterministicResult {
+  const issues: DeterministicResult["issues"] = [];
+  const checks: DeterministicResult["checks"] = {};
+  let totalScore = 0;
+  let maxScore = 0;
+
+  // ── 1. Title (max 20pts) ──
+  const titleLen = (page.title || "").length;
+  let titleScore = 0;
+  if (!page.title || titleLen === 0) {
+    issues.push({ type: "error", message: "Balise <title> manquante", rule: "title_missing" });
+  } else if (titleLen < 30) {
+    titleScore = 8;
+    issues.push({ type: "warning", message: `Title trop court (${titleLen} car., min 30)`, rule: "title_short" });
+  } else if (titleLen > 60) {
+    titleScore = 12;
+    issues.push({ type: "warning", message: `Title trop long (${titleLen} car., max 60)`, rule: "title_long" });
+  } else {
+    titleScore = 20;
+  }
+  checks.title = { passed: titleScore >= 16, score: titleScore, maxScore: 20, detail: `${titleLen} caractères` };
+  totalScore += titleScore;
+  maxScore += 20;
+
+  // ── 2. Meta description (max 15pts) ──
+  const descLen = (page.description || "").length;
+  let descScore = 0;
+  if (!page.description || descLen === 0) {
+    issues.push({ type: "error", message: "Meta description manquante", rule: "desc_missing" });
+  } else if (descLen < 120) {
+    descScore = 6;
+    issues.push({ type: "warning", message: `Meta description trop courte (${descLen} car., min 120)`, rule: "desc_short" });
+  } else if (descLen > 160) {
+    descScore = 10;
+    issues.push({ type: "warning", message: `Meta description trop longue (${descLen} car., max 160)`, rule: "desc_long" });
+  } else {
+    descScore = 15;
+  }
+  checks.description = { passed: descScore >= 12, score: descScore, maxScore: 15, detail: `${descLen} caractères` };
+  totalScore += descScore;
+  maxScore += 15;
+
+  // ── 3. H1 (max 15pts) ──
+  const h1Len = (page.h1 || "").length;
+  let h1Score = 0;
+  if (!page.h1 || h1Len === 0) {
+    issues.push({ type: "error", message: "Balise H1 manquante", rule: "h1_missing" });
+  } else {
+    h1Score = 10;
+    if (page.title && page.h1.toLowerCase().trim() === page.title.toLowerCase().trim()) {
+      h1Score = 6;
+      issues.push({ type: "warning", message: "H1 identique au title — à différencier", rule: "h1_same_title" });
+    } else {
+      h1Score = 15;
+    }
+  }
+  checks.h1 = { passed: h1Score >= 12, score: h1Score, maxScore: 15, detail: h1Len > 0 ? `${h1Len} caractères` : "absent" };
+  totalScore += h1Score;
+  maxScore += 15;
+
+  // ── 4. URL structure (max 10pts) ──
+  let urlScore = 10;
+  const url = page.url || "";
+  if (url.length > 80) {
+    urlScore = 5;
+    issues.push({ type: "warning", message: "URL trop longue (>80 caractères)", rule: "url_long" });
+  }
+  if (/[A-Z]/.test(url)) {
+    urlScore = Math.min(urlScore, 7);
+    issues.push({ type: "info", message: "URL contient des majuscules", rule: "url_uppercase" });
+  }
+  if (/[?&]/.test(url) && !url.includes("utm_")) {
+    urlScore = Math.min(urlScore, 6);
+    issues.push({ type: "warning", message: "URL contient des paramètres non-tracking", rule: "url_params" });
+  }
+  checks.url = { passed: urlScore >= 8, score: urlScore, maxScore: 10, detail: `${url.length} caractères` };
+  totalScore += urlScore;
+  maxScore += 10;
+
+  // ── 5. JSON-LD structured data (max 15pts) ──
+  const schemas = page.hasSchema || [];
+  let schemaScore = 0;
+  if (schemas.length === 0) {
+    issues.push({ type: "error", message: "Aucune donnée structurée JSON-LD détectée", rule: "schema_missing" });
+  } else {
+    schemaScore = Math.min(schemas.length * 5, 15);
+    const recommended = ["FAQPage", "BreadcrumbList"];
+    const missing = recommended.filter(s => !schemas.includes(s));
+    if (missing.length > 0) {
+      issues.push({ type: "info", message: `Schémas recommandés manquants: ${missing.join(", ")}`, rule: "schema_incomplete" });
+    }
+  }
+  checks.schema = { passed: schemaScore >= 10, score: schemaScore, maxScore: 15, detail: schemas.join(", ") || "aucun" };
+  totalScore += schemaScore;
+  maxScore += 15;
+
+  // ── 6. Internal links (max 10pts) ──
+  const links = page.internalLinks || [];
+  let linkScore = 0;
+  if (links.length === 0) {
+    issues.push({ type: "warning", message: "Aucun lien interne vers les pages piliers", rule: "links_missing" });
+  } else if (links.length < 3) {
+    linkScore = 5;
+    issues.push({ type: "info", message: `Seulement ${links.length} lien(s) interne(s) — enrichir le maillage`, rule: "links_few" });
+  } else {
+    linkScore = 10;
+  }
+  checks.internalLinks = { passed: linkScore >= 7, score: linkScore, maxScore: 10, detail: `${links.length} lien(s)` };
+  totalScore += linkScore;
+  maxScore += 10;
+
+  // ── 7. Content depth (max 15pts) ──
+  const wordCount = page.wordCount || 0;
+  let contentScore = 0;
+  if (wordCount > 0) {
+    if (wordCount < 300) {
+      contentScore = 3;
+      issues.push({ type: "warning", message: `Contenu léger (${wordCount} mots, min recommandé 500)`, rule: "content_thin" });
+    } else if (wordCount < 800) {
+      contentScore = 8;
+      issues.push({ type: "info", message: `Contenu correct (${wordCount} mots) — enrichir pour dépasser 1000 mots`, rule: "content_medium" });
+    } else {
+      contentScore = 15;
+    }
+  } else {
+    contentScore = 8; // Unknown word count, assume average
+    issues.push({ type: "info", message: "Nombre de mots non renseigné", rule: "content_unknown" });
+  }
+  checks.content = { passed: contentScore >= 10, score: contentScore, maxScore: 15, detail: wordCount > 0 ? `${wordCount} mots` : "non renseigné" };
+  totalScore += contentScore;
+  maxScore += 15;
+
+  const normalizedScore = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
+
+  return { score: normalizedScore, issues, checks };
+}
+
+// ── Main handler ──────────────────────────────────────────
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -25,41 +180,34 @@ serve(async (req) => {
       );
     }
 
-    const systemPrompt = `Tu es un expert SEO francophone spécialisé dans les centres de formation professionnelle.
-Tu analyses les données SEO d'un site web de formation Taxi/VTC/VMDTR situé à Montrouge (92).
+    // ── Step 1: Run deterministic checks on all pages ──
+    const deterministicResults = new Map<string, DeterministicResult>();
+    for (const page of pages) {
+      deterministicResults.set(page.url, runDeterministicChecks(page));
+    }
 
-Pour chaque page fournie, tu dois:
-1. Attribuer un score SEO de 0 à 100
-2. Identifier les problèmes critiques (erreurs bloquantes)
-3. Identifier les avertissements (améliorations recommandées)
-4. Générer des recommandations concrètes et actionnables
+    // ── Step 2: AI semantic analysis (focused prompt, lighter) ──
+    const semanticPrompt = `Tu es un expert SEO francophone. Analyse la QUALITÉ SÉMANTIQUE uniquement (pas les aspects techniques déjà mesurés) de ces pages d'un centre de formation Taxi/VTC/VMDTR à Montrouge (92).
 
-Critères d'évaluation:
-- Title: 30-60 caractères, contient le mot-clé principal
-- Meta description: 120-160 caractères, incitative, contient le mot-clé
-- H1: unique, contient le mot-clé principal, différent du title
-- URL: courte, descriptive, sans paramètres inutiles
-- Maillage interne: liens vers les pages piliers (taxi, vtc, vmdtr)
-- Données structurées: présence de JSON-LD (FAQPage, Course, BreadcrumbList)
+Pour chaque page, évalue sur 100 :
+- Pertinence du mot-clé principal dans title/H1/description
+- Intention de recherche bien ciblée
+- Qualité rédactionnelle du title et de la description (incitation au clic)
+- Cohérence entre title, H1 et description
+- Potentiel de cannibalisation avec d'autres pages
 
-Réponds UNIQUEMENT avec un JSON valide, sans markdown, sans backticks.`;
-
-    const userPrompt = `Analyse ces pages SEO et retourne un JSON avec cette structure exacte:
+Réponds UNIQUEMENT avec un JSON valide (sans markdown, sans backticks) :
 {
-  "overallScore": number,
   "pages": [
     {
       "url": string,
-      "score": number,
-      "issues": [{ "type": "error" | "warning" | "info", "message": string }],
-      "recommendations": [{ "category": "title" | "description" | "h1" | "linking" | "schema" | "content", "current": string, "suggested": string, "impact": "high" | "medium" | "low" }]
+      "semanticScore": number (0-100),
+      "insights": [{ "type": "error" | "warning" | "info", "message": string }],
+      "recommendations": [{ "category": string, "current": string, "suggested": string, "impact": "high" | "medium" | "low" }]
     }
   ],
   "globalRecommendations": [{ "category": string, "message": string, "priority": "high" | "medium" | "low" }]
-}
-
-Données des pages:
-${JSON.stringify(pages, null, 2)}`;
+}`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -70,8 +218,8 @@ ${JSON.stringify(pages, null, 2)}`;
       body: JSON.stringify({
         model: "google/gemini-3-flash-preview",
         messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: userPrompt },
+          { role: "system", content: semanticPrompt },
+          { role: "user", content: `Données des pages :\n${JSON.stringify(pages, null, 2)}` },
         ],
       }),
     });
@@ -100,44 +248,76 @@ ${JSON.stringify(pages, null, 2)}`;
     const data = await response.json();
     const content = data.choices?.[0]?.message?.content;
 
-    if (!content) {
-      return new Response(
-        JSON.stringify({ error: "Réponse IA vide" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    let aiResult: any = { pages: [], globalRecommendations: [] };
+    if (content) {
+      try {
+        const cleaned = content.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+        aiResult = JSON.parse(cleaned);
+      } catch {
+        console.error("Failed to parse AI response:", content);
+      }
     }
 
-    // Parse the JSON from the AI response (strip potential markdown fences)
-    let parsed;
-    try {
-      const cleaned = content.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
-      parsed = JSON.parse(cleaned);
-    } catch {
-      console.error("Failed to parse AI response:", content);
-      return new Response(
-        JSON.stringify({ error: "Impossible de parser la réponse IA", raw: content }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    // ── Step 3: Merge scores (60% deterministic + 40% semantic) ──
+    const DETERMINISTIC_WEIGHT = 0.6;
+    const SEMANTIC_WEIGHT = 0.4;
 
+    const mergedPages = pages.map((page: PageData) => {
+      const det = deterministicResults.get(page.url)!;
+      const aiPage = aiResult.pages?.find((p: any) => p.url === page.url);
+      const semanticScore = aiPage?.semanticScore ?? 75; // default if AI didn't return this page
+
+      const finalScore = Math.round(det.score * DETERMINISTIC_WEIGHT + semanticScore * SEMANTIC_WEIGHT);
+
+      // Merge issues: deterministic + AI insights
+      const allIssues = [
+        ...det.issues.map(i => ({ type: i.type, message: `[Règle] ${i.message}` })),
+        ...(aiPage?.insights || []).map((i: any) => ({ type: i.type, message: `[IA] ${i.message}` })),
+      ];
+
+      return {
+        url: page.url,
+        score: finalScore,
+        deterministicScore: det.score,
+        semanticScore,
+        checks: det.checks,
+        issues: allIssues,
+        recommendations: aiPage?.recommendations || [],
+      };
+    });
+
+    const overallScore = mergedPages.length > 0
+      ? Math.round(mergedPages.reduce((s: number, p: any) => s + p.score, 0) / mergedPages.length)
+      : 0;
+
+    const totalErrors = mergedPages.reduce(
+      (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "error").length || 0), 0
+    );
+    const totalWarnings = mergedPages.reduce(
+      (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "warning").length || 0), 0
+    );
+
+    const parsed = {
+      overallScore,
+      pages: mergedPages,
+      globalRecommendations: aiResult.globalRecommendations || [],
+      methodology: {
+        deterministicWeight: DETERMINISTIC_WEIGHT,
+        semanticWeight: SEMANTIC_WEIGHT,
+        rules: ["title_length", "description_length", "h1_presence", "h1_uniqueness", "url_structure", "schema_presence", "internal_links", "content_depth"],
+      },
+    };
+
+    // ── Save to database ──
     const supabaseAdmin = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    // Calculate totals
-    const totalErrors = parsed.pages?.reduce(
-      (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "error").length || 0), 0
-    ) || 0;
-    const totalWarnings = parsed.pages?.reduce(
-      (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "warning").length || 0), 0
-    ) || 0;
-
-    // Save audit to database
     try {
       await supabaseAdmin.from("seo_audits").insert({
-        overall_score: parsed.overallScore || 0,
-        pages_count: parsed.pages?.length || 0,
+        overall_score: parsed.overallScore,
+        pages_count: mergedPages.length,
         total_errors: totalErrors,
         total_warnings: totalWarnings,
         audit_data: parsed,
@@ -146,14 +326,14 @@ ${JSON.stringify(pages, null, 2)}`;
       console.error("Failed to save audit:", saveErr);
     }
 
-    // Send alert email if score is below threshold
+    // ── Send alert email if below threshold ──
     let alertSent = false;
     if (alertConfig && parsed.overallScore < alertConfig.threshold) {
       try {
         const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
         if (RESEND_API_KEY && alertConfig.email) {
-          const topErrors = parsed.pages
-            ?.filter((p: any) => p.issues?.some((i: any) => i.type === "error"))
+          const topErrors = mergedPages
+            .filter((p: any) => p.issues?.some((i: any) => i.type === "error"))
             .slice(0, 5)
             .map((p: any) => `• ${p.url} (${p.score}/100) — ${p.issues.filter((i: any) => i.type === "error").map((i: any) => i.message).join(", ")}`)
             .join("\n") || "Aucune erreur critique détaillée.";
@@ -170,12 +350,12 @@ ${JSON.stringify(pages, null, 2)}`;
               subject: `⚠️ Alerte SEO — Score ${parsed.overallScore}/100 (seuil : ${alertConfig.threshold})`,
               html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-                  <h2 style="color: #dc2626;">⚠️ Alerte SEO — Score en dessous du seuil</h2>
+                  <h2 style="color: #dc2626;">⚠️ Alerte SEO — Score hybride en dessous du seuil</h2>
                   <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
                     <tr>
                       <td style="padding: 8px 16px; background: #fef2f2; border-radius: 8px;">
                         <strong style="font-size: 28px; color: #dc2626;">${parsed.overallScore}/100</strong>
-                        <br/><span style="color: #6b7280; font-size: 13px;">Score global (seuil configuré : ${alertConfig.threshold})</span>
+                        <br/><span style="color: #6b7280; font-size: 13px;">Score hybride (60% règles + 40% IA)</span>
                       </td>
                       <td style="padding: 8px 16px; text-align: center;">
                         <strong style="font-size: 20px; color: #dc2626;">${totalErrors}</strong> erreurs<br/>
@@ -186,9 +366,9 @@ ${JSON.stringify(pages, null, 2)}`;
                   <h3 style="margin-top: 24px;">Pages les plus impactées :</h3>
                   <pre style="background: #f9fafb; padding: 16px; border-radius: 8px; font-size: 12px; line-height: 1.6; white-space: pre-wrap;">${topErrors}</pre>
                   <p style="color: #6b7280; font-size: 13px; margin-top: 24px;">
-                    ${parsed.pages?.length || 0} pages analysées le ${new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+                    ${mergedPages.length} pages analysées le ${new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
                   </p>
-                  <p style="color: #9ca3af; font-size: 11px;">Cet email est envoyé automatiquement par le système d'audit SEO d'ECOLE T3P.</p>
+                  <p style="color: #9ca3af; font-size: 11px;">Cet email est envoyé automatiquement par le système d'audit SEO hybride d'ECOLE T3P.</p>
                 </div>
               `,
             }),
@@ -196,9 +376,6 @@ ${JSON.stringify(pages, null, 2)}`;
 
           if (emailRes.ok) {
             alertSent = true;
-            console.log("SEO alert email sent to", alertConfig.email);
-
-            // Log the alert email
             try {
               await supabaseAdmin.from("email_logs").insert({
                 email_type: "seo_alert",
@@ -210,8 +387,6 @@ ${JSON.stringify(pages, null, 2)}`;
             } catch (logErr) {
               console.error("Failed to log alert email:", logErr);
             }
-          } else {
-            console.error("Failed to send SEO alert:", await emailRes.text());
           }
         }
       } catch (alertErr) {
