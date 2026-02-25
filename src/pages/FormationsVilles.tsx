@@ -1,4 +1,4 @@
-import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -28,6 +28,7 @@ const getCitiesByDepartment = () => {
 const departmentOrder = ["75 - Paris", "92 - Hauts-de-Seine", "93 - Seine-Saint-Denis", "94 - Val-de-Marne", "91 - Essonne", "78 - Yvelines"];
 
 const FormationsVilles = () => {
+  const dynamicH1 = useDynamicH1("/formations/villes", "Formations Taxi VTC VMDTR près de chez vous en Île-de-France");
   const citiesByDepartment = getCitiesByDepartment();
   const totalCities = cities.length;
 
@@ -135,8 +136,7 @@ const FormationsVilles = () => {
             </span>
             
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-cream uppercase tracking-tight mb-6">
-              Formations Taxi VTC VMDTR <span className="text-gold">près de chez vous</span><br />
-              en Île-de-France
+              {dynamicH1}
             </h1>
             
             <p className="text-lg md:text-xl text-cream/80 max-w-3xl mx-auto mb-8">

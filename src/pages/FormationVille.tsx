@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import {
@@ -20,6 +20,7 @@ import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
 const FormationVille = () => {
   const { ville } = useParams<{ ville: string }>();
   const city = ville ? getCityBySlug(ville) : undefined;
+  const dynamicH1 = useDynamicH1(`/formations/${ville || ""}`, city ? `Formation Taxi & VTC près de ${city.name}` : "");
 
   if (!city) {
     return <Navigate to="/formations" replace />;
@@ -143,8 +144,7 @@ const FormationVille = () => {
               <MapPin className="w-4 h-4" /> {city.name} ({city.postalCodes[0]}) — {city.department}
             </span>
             <h1 className="text-[28px] md:text-[42px] lg:text-[52px] font-bold text-white leading-tight mb-5">
-              Formation <span className="text-accent">Taxi & VTC</span>
-              <br />près de {city.name}
+              {dynamicH1}
             </h1>
             <p className="text-base md:text-lg text-white/80 max-w-2xl mb-6">
               Centre ECOLE T3P à <strong className="text-white">{city.travelTime}</strong> de {city.name}.

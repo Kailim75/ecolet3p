@@ -887,7 +887,10 @@ const SEODashboard = () => {
       // When approving a metadata fix, upsert the override into seo_overrides
       if (status === "approved") {
         const fix = fixes.find(f => f.id === fixId);
-        if (fix && fix.fix_type === "metadata") {
+        const isMetadataFix = fix && fix.fix_type === "metadata";
+        const isH1ContentFix = fix && fix.fix_type === "content" && fix.category === "h1";
+
+        if (fix && (isMetadataFix || isH1ContentFix)) {
           // Map category to field name
           const categoryToField: Record<string, string> = {
             title: "title",
@@ -959,8 +962,8 @@ const SEODashboard = () => {
 
         if (error) throw error;
 
-        // Apply metadata overrides
-        if (fix.fix_type === "metadata") {
+        // Apply metadata and H1 content overrides
+        if (fix.fix_type === "metadata" || (fix.fix_type === "content" && fix.category === "h1")) {
           const categoryToField: Record<string, string> = {
             title: "title", description: "description", h1: "h1",
             og_title: "og_title", og_description: "og_description",

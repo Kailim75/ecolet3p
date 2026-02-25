@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
   Home, ChevronRight, RefreshCw, Calendar, MapPin,
@@ -80,14 +80,28 @@ const ContinueFormationTemplate = ({
   seoContent, faqs, relatedLinks,
   testimonial, extraSection, blogLinks,
 }: ContinueFormationProps) => {
+  const pageUrl = new URL(canonical).pathname;
+  const dynamicH1 = useDynamicH1(pageUrl, heading);
   const [showPreRegistration, setShowPreRegistration] = useState(false);
 
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": heading,
+    "name": dynamicH1,
     "description": description,
-    "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://www.ecolet3p.fr" },
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "ECOLE T3P",
+      "url": "https://www.ecolet3p.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 rue Corneille",
+        "addressLocality": "Montrouge",
+        "postalCode": "92120",
+        "addressRegion": "Hauts-de-Seine",
+        "addressCountry": "FR"
+      }
+    },
     "offers": { "@type": "Offer", "price": price, "priceCurrency": "EUR" },
     "timeRequired": `PT${duration.replace(/\D/g, "")}H`,
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "359" }
@@ -148,7 +162,7 @@ const ContinueFormationTemplate = ({
               <BadgeIcon className="w-4 h-4" /> {badge}
             </span>
             <h1 className="text-[26px] md:text-[36px] lg:text-[46px] font-bold text-white leading-tight mb-5">
-              {heading}
+              {dynamicH1}
             </h1>
             <p className="text-white/80 text-base md:text-lg mb-6 max-w-2xl">{subheading}</p>
 
