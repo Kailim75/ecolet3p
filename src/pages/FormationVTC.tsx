@@ -1,6 +1,7 @@
 import { Car, Users, FileText, CheckCircle, Target, Smartphone } from "lucide-react";
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
+import heroImageVTCWebp from "@/assets/formations/hero-vtc.jpg?w=640;1024;1920&format=webp&as=srcset";
 
 const FormationVTC = () => (
   <FormationPageTemplate
@@ -10,6 +11,7 @@ const FormationVTC = () => (
     ogTitle="Formation VTC Initiale à Montrouge — ECOLE T3P"
     ogDescription="Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais."
     heroImage={heroImageVTC}
+    heroImageWebp={heroImageVTCWebp}
     badge="Formation VTC"
     badgeIcon={Car}
     heading="Formation VTC Initiale à Montrouge — à partir de 990€"

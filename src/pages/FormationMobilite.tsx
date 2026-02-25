@@ -12,6 +12,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import heroImageMobilite from "@/assets/formations/hero-mobilite.jpg";
+import heroImageMobiliteWebp from "@/assets/formations/hero-mobilite.jpg?w=640;1024;1920&format=webp&as=srcset";
 
 const programModules = [
   { title: "Réglementation spécifique", duration: "4h", topics: ["Différences Taxi/VTC", "Obligations réglementaires", "Zones d'exercice", "Sanctions"] },
@@ -88,10 +89,19 @@ const FormationMobilite = () => {
 
       {/* Hero */}
       <section className="relative py-16 lg:py-24 bg-primary overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImageMobilite})`, filter: "blur(2px) brightness(0.35)" }}
-        />
+        <picture className="absolute inset-0">
+          <source type="image/webp" srcSet={heroImageMobiliteWebp} sizes="100vw" />
+          <img
+            src={heroImageMobilite}
+            alt="Formation Mobilité Passerelle"
+            className="w-full h-full object-cover"
+            style={{ filter: "blur(2px) brightness(0.35)" }}
+            loading="eager"
+            decoding="async"
+            width={1920}
+            height={600}
+          />
+        </picture>
         <div className="absolute inset-0 bg-primary/65" />
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">

@@ -1,6 +1,7 @@
 import { Bike, Users, FileText, CheckCircle, Target, Shield } from "lucide-react";
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageVMDTR from "@/assets/formations/hero-vmdtr.jpg";
+import heroImageVMDTRWebp from "@/assets/formations/hero-vmdtr.jpg?w=640;1024;1920&format=webp&as=srcset";
 
 const FormationVMDTR = () => (
   <FormationPageTemplate
@@ -10,6 +11,7 @@ const FormationVMDTR = () => (
     ogTitle="Formation VMDTR Moto-Taxi à Montrouge — ECOLE T3P"
     ogDescription="Formation VMDTR à Montrouge. Centre agréé Préfecture, 94% de réussite."
     heroImage={heroImageVMDTR}
+    heroImageWebp={heroImageVMDTRWebp}
     badge="Formation VMDTR"
     badgeIcon={Bike}
     heading="Formation VMDTR Moto-Taxi à Montrouge"
