@@ -207,7 +207,7 @@
         background: linear-gradient(135deg, rgba(27,77,62,0.1) 0%, rgba(212,168,83,0.1) 100%);
       }
       /* Hide SEO fallback once React renders */
-      #root:not(:empty) + .seo-fallback { display: none !important; }
+      #root:not(:empty) ~ .seo-fallback { display: none !important; }
       .seo-fallback {
         font-family: 'Inter', sans-serif;
         color: #1B4D3E;
