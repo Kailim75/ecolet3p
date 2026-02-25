@@ -73,7 +73,7 @@ const Header = () => {
           isScrolled ? "bg-card shadow-md" : "bg-card/95 backdrop-blur-sm"
         }`}
       >
-        <div className="container-custom">
+        <div className="container-custom px-3 lg:px-4">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
             <Link
@@ -138,17 +138,17 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex flex-shrink-0 items-center gap-2">
               <a
                 href="tel:0188750555"
-                className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                className="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors whitespace-nowrap"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
                 01 88 75 05 55
               </a>
-              <button onClick={() => setIsRdvOpen(true)} className="btn-cta-orange px-5 py-2.5 text-sm font-bold rounded-lg inline-flex items-center gap-1">
+              <button onClick={() => setIsRdvOpen(true)} className="btn-cta-orange px-3 py-1.5 text-xs font-bold rounded-lg inline-flex items-center gap-1 whitespace-nowrap">
                 Prendre RDV
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3 h-3" />
               </button>
             </div>
 

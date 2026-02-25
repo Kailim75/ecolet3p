@@ -22,8 +22,8 @@ const EcoleT3PLogoV5C = ({
       src={src}
       alt="École T3P — Centre de Formation Agréé"
       className={className}
-      width={130}
-      height={32}
+      width={110}
+      height={28}
       style={{ objectFit: "contain" }}
     />
   );
