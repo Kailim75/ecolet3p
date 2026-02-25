@@ -252,19 +252,21 @@ const FormationPageTemplate = ({
 
       {/* Hero */}
       <section className="relative py-16 lg:py-24 bg-primary overflow-hidden">
-        <picture className="absolute inset-0">
-          {heroImageWebp && <source type="image/webp" srcSet={heroImageWebp} />}
-          <img
-            src={heroImage}
-            alt={badge}
-            className="w-full h-full object-cover"
-            style={{ filter: "blur(2px) brightness(0.35)" }}
-            loading="eager"
-            decoding="async"
-            width={1920}
-            height={600}
-          />
-        </picture>
+        <div className="absolute inset-0">
+          <picture>
+            {heroImageWebp && <source type="image/webp" srcSet={heroImageWebp} />}
+            <img
+              src={heroImage}
+              alt={badge}
+              className="w-full h-full object-cover"
+              style={{ filter: "blur(2px) brightness(0.35)" }}
+              loading="eager"
+              decoding="async"
+              width={1920}
+              height={600}
+            />
+          </picture>
+        </div>
         <div className="absolute inset-0 bg-primary/65" />
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
