@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -84,17 +84,16 @@ const PasserelleVtcTaxi = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Formation passerelle VTC ↔ Taxi ↔ VMDTR à Montrouge (92). 665€ tout compris incluant frais d'examen. 94% de réussite. Paiement 4× sans frais." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/passerelle-vtc-taxi" />
-        <meta property="og:title" content="Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P" />
-        <meta property="og:description" content="Doublez vos opportunités : obtenez une seconde carte professionnelle. 665€ tout compris, 94% de réussite." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/passerelle-vtc-taxi" />
+      <DynamicSEOHead
+        pageUrl="/passerelle-vtc-taxi"
+        defaultTitle="Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P Montrouge"
+        defaultDescription="Formation passerelle VTC ↔ Taxi ↔ VMDTR à Montrouge (92). 665€ tout compris incluant frais d'examen. 94% de réussite. Paiement 4× sans frais."
+        canonicalUrl="https://www.ecolet3p.fr/passerelle-vtc-taxi"
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">

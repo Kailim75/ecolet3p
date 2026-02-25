@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
   Home, ChevronRight, RefreshCw, Calendar, MapPin,
@@ -114,18 +114,16 @@ const ContinueFormationTemplate = ({
 
   return (
     <Layout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={ogTitle} />
-        <meta property="og:description" content={ogDescription} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:type" content="website" />
+      <DynamicSEOHead
+        pageUrl={new URL(canonical).pathname}
+        defaultTitle={title}
+        defaultDescription={description}
+        canonicalUrl={canonical}
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
