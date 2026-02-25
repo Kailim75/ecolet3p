@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Plus, Pencil, Trash2, Save, X, Loader2, Calendar,
-  Clock, MapPin, Users, CheckCircle, XCircle, AlertCircle
+  Clock, MapPin, Users, CheckCircle, XCircle, AlertCircle, Copy
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -401,6 +401,30 @@ const SessionsManager = () => {
 
                   {/* Actions */}
                   <div className="flex items-center gap-2 shrink-0">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      title="Dupliquer"
+                      onClick={() => {
+                        setEditingSession(null);
+                        setFormData({
+                          formation_id: session.formation_id,
+                          start_date: "",
+                          end_date: "",
+                          start_time: session.start_time,
+                          end_time: session.end_time,
+                          location: session.location || "",
+                          max_participants: session.max_participants,
+                          current_participants: 0,
+                          price_override: session.price_override?.toString() || "",
+                          status: "upcoming",
+                          notes: session.notes || "",
+                        });
+                        setIsDialogOpen(true);
+                      }}
+                    >
+                      <Copy className="w-4 h-4" />
+                    </Button>
                     <Button
                       variant="ghost"
                       size="sm"
