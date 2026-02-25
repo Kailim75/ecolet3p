@@ -78,7 +78,7 @@ const Header = () => {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2"
+              className="flex-shrink-0 flex items-center gap-2"
               onClick={(e) => {
                 if (location.pathname === "/") {
                   e.preventDefault();
@@ -86,11 +86,11 @@ const Header = () => {
                 }
               }}
             >
-              <EcoleT3PLogoV5C className="h-10 lg:h-12 xl:h-14 w-auto" variant="color" />
+              <EcoleT3PLogoV5C className="" variant="color" />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) =>
                 link.hasSubmenu ? (
                   <div
@@ -99,7 +99,7 @@ const Header = () => {
                     onMouseEnter={() => setHoverSubmenu(link.name)}
                     onMouseLeave={() => setHoverSubmenu(null)}
                   >
-                    <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg">
+                    <button className="flex items-center gap-1 px-2 py-2 text-[13px] font-medium text-foreground hover:text-primary transition-colors rounded-lg">
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
@@ -129,7 +129,7 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path!}
-                    className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-lg"
+                    className="px-2 py-2 text-[13px] font-medium text-foreground hover:text-primary transition-colors rounded-lg"
                   >
                     {link.name}
                   </Link>
