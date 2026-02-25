@@ -1,16 +1,25 @@
+import { lazy, Suspense } from "react";
 import Layout from "@/components/layout/Layout";
 import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
-import FormatsTable from "@/components/home-v2/FormatsTable";
-import UpcomingSessionsSection from "@/components/home-v2/UpcomingSessionsSection";
-import EcosystemSection from "@/components/home-v2/EcosystemSection";
-import TestimonialsSection from "@/components/home-v2/TestimonialsSection";
-import NoCPFSection from "@/components/home-v2/NoCPFSection";
-import CTAFinalSection from "@/components/home-v2/CTAFinalSection";
-import AuditRentabiliteModule from "@/components/home-v2/AuditRentabiliteModule";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
+
+// Lazy-load below-fold heavy sections
+const FormatsTable = lazy(() => import("@/components/home-v2/FormatsTable"));
+const UpcomingSessionsSection = lazy(() => import("@/components/home-v2/UpcomingSessionsSection"));
+const AuditRentabiliteModule = lazy(() => import("@/components/home-v2/AuditRentabiliteModule"));
+const EcosystemSection = lazy(() => import("@/components/home-v2/EcosystemSection"));
+const TestimonialsSection = lazy(() => import("@/components/home-v2/TestimonialsSection"));
+const NoCPFSection = lazy(() => import("@/components/home-v2/NoCPFSection"));
+const CTAFinalSection = lazy(() => import("@/components/home-v2/CTAFinalSection"));
+
+const SectionFallback = () => (
+  <div className="py-16 flex justify-center">
+    <div className="w-8 h-8 border-3 border-primary/20 border-t-primary rounded-full animate-spin" />
+  </div>
+);
 
 const homeFaqSchema = {
   "@context": "https://schema.org",
@@ -69,14 +78,21 @@ const Index = () => {
       <MobileQuickBar />
       <HeroSection h1Override={h1} />
       <ReassuranceBar />
-      <AuditRentabiliteModule />
+
+      <Suspense fallback={<SectionFallback />}>
+        <AuditRentabiliteModule />
+      </Suspense>
+
       <FormationsCards />
-      <FormatsTable />
-      <UpcomingSessionsSection />
-      <EcosystemSection />
-      <TestimonialsSection />
-      <NoCPFSection />
-      <CTAFinalSection />
+
+      <Suspense fallback={<SectionFallback />}>
+        <FormatsTable />
+        <UpcomingSessionsSection />
+        <EcosystemSection />
+        <TestimonialsSection />
+        <NoCPFSection />
+        <CTAFinalSection />
+      </Suspense>
     </Layout>
   );
 };
