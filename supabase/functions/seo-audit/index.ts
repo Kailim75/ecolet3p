@@ -16,7 +16,7 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
-    const { pages } = await req.json();
+    const { pages, alertConfig } = await req.json();
 
     if (!pages || !Array.isArray(pages)) {
       return new Response(
@@ -120,20 +120,21 @@ ${JSON.stringify(pages, null, 2)}`;
       );
     }
 
+    const supabaseAdmin = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+    );
+
+    // Calculate totals
+    const totalErrors = parsed.pages?.reduce(
+      (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "error").length || 0), 0
+    ) || 0;
+    const totalWarnings = parsed.pages?.reduce(
+      (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "warning").length || 0), 0
+    ) || 0;
+
     // Save audit to database
     try {
-      const supabaseAdmin = createClient(
-        Deno.env.get("SUPABASE_URL")!,
-        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
-      );
-
-      const totalErrors = parsed.pages?.reduce(
-        (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "error").length || 0), 0
-      ) || 0;
-      const totalWarnings = parsed.pages?.reduce(
-        (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "warning").length || 0), 0
-      ) || 0;
-
       await supabaseAdmin.from("seo_audits").insert({
         overall_score: parsed.overallScore || 0,
         pages_count: parsed.pages?.length || 0,
@@ -145,7 +146,80 @@ ${JSON.stringify(pages, null, 2)}`;
       console.error("Failed to save audit:", saveErr);
     }
 
-    return new Response(JSON.stringify(parsed), {
+    // Send alert email if score is below threshold
+    let alertSent = false;
+    if (alertConfig && parsed.overallScore < alertConfig.threshold) {
+      try {
+        const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+        if (RESEND_API_KEY && alertConfig.email) {
+          const topErrors = parsed.pages
+            ?.filter((p: any) => p.issues?.some((i: any) => i.type === "error"))
+            .slice(0, 5)
+            .map((p: any) => `• ${p.url} (${p.score}/100) — ${p.issues.filter((i: any) => i.type === "error").map((i: any) => i.message).join(", ")}`)
+            .join("\n") || "Aucune erreur critique détaillée.";
+
+          const emailRes = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${RESEND_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              from: "ECOLE T3P SEO <montrouge@ecolet3p.fr>",
+              to: [alertConfig.email],
+              subject: `⚠️ Alerte SEO — Score ${parsed.overallScore}/100 (seuil : ${alertConfig.threshold})`,
+              html: `
+                <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                  <h2 style="color: #dc2626;">⚠️ Alerte SEO — Score en dessous du seuil</h2>
+                  <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+                    <tr>
+                      <td style="padding: 8px 16px; background: #fef2f2; border-radius: 8px;">
+                        <strong style="font-size: 28px; color: #dc2626;">${parsed.overallScore}/100</strong>
+                        <br/><span style="color: #6b7280; font-size: 13px;">Score global (seuil configuré : ${alertConfig.threshold})</span>
+                      </td>
+                      <td style="padding: 8px 16px; text-align: center;">
+                        <strong style="font-size: 20px; color: #dc2626;">${totalErrors}</strong> erreurs<br/>
+                        <strong style="font-size: 20px; color: #ca8a04;">${totalWarnings}</strong> avertissements
+                      </td>
+                    </tr>
+                  </table>
+                  <h3 style="margin-top: 24px;">Pages les plus impactées :</h3>
+                  <pre style="background: #f9fafb; padding: 16px; border-radius: 8px; font-size: 12px; line-height: 1.6; white-space: pre-wrap;">${topErrors}</pre>
+                  <p style="color: #6b7280; font-size: 13px; margin-top: 24px;">
+                    ${parsed.pages?.length || 0} pages analysées le ${new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+                  </p>
+                  <p style="color: #9ca3af; font-size: 11px;">Cet email est envoyé automatiquement par le système d'audit SEO d'ECOLE T3P.</p>
+                </div>
+              `,
+            }),
+          });
+
+          if (emailRes.ok) {
+            alertSent = true;
+            console.log("SEO alert email sent to", alertConfig.email);
+
+            // Log the alert email
+            try {
+              await supabaseAdmin.from("email_logs").insert({
+                email_type: "seo_alert",
+                recipient_email: alertConfig.email,
+                subject: `⚠️ Alerte SEO — Score ${parsed.overallScore}/100`,
+                status: "sent",
+                metadata: { score: parsed.overallScore, threshold: alertConfig.threshold, totalErrors, totalWarnings },
+              });
+            } catch (logErr) {
+              console.error("Failed to log alert email:", logErr);
+            }
+          } else {
+            console.error("Failed to send SEO alert:", await emailRes.text());
+          }
+        }
+      } catch (alertErr) {
+        console.error("Alert email error:", alertErr);
+      }
+    }
+
+    return new Response(JSON.stringify({ ...parsed, alertSent }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {

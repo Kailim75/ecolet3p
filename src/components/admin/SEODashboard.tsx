@@ -4,12 +4,15 @@ import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
   ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
+  Bell, BellOff, Settings2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 
@@ -18,7 +21,7 @@ interface Issue { type: "error" | "warning" | "info"; message: string; }
 interface Recommendation { category: string; current: string; suggested: string; impact: "high" | "medium" | "low"; }
 interface PageAudit { url: string; score: number; issues: Issue[]; recommendations: Recommendation[]; }
 interface GlobalRec { category: string; message: string; priority: "high" | "medium" | "low"; }
-interface AuditResult { overallScore: number; pages: PageAudit[]; globalRecommendations: GlobalRec[]; }
+interface AuditResult { overallScore: number; pages: PageAudit[]; globalRecommendations: GlobalRec[]; alertSent?: boolean; }
 interface AuditHistory { id: string; overall_score: number; pages_count: number; total_errors: number; total_warnings: number; created_at: string; }
 
 // --- Small Components ---
@@ -54,8 +57,65 @@ const IssueIcon = ({ type }: { type: string }) => {
   return <Info className="w-4 h-4 text-blue-500 shrink-0" />;
 };
 
+// --- Alert Settings Panel ---
+const AlertSettingsPanel = ({
+  enabled, threshold, email, onEnabledChange, onThresholdChange, onEmailChange,
+}: {
+  enabled: boolean; threshold: number; email: string;
+  onEnabledChange: (v: boolean) => void; onThresholdChange: (v: number) => void; onEmailChange: (v: string) => void;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, height: 0 }}
+    animate={{ opacity: 1, height: "auto" }}
+    exit={{ opacity: 0, height: 0 }}
+    className="overflow-hidden"
+  >
+    <div className="bg-white rounded-xl border border-border shadow-sm p-5 space-y-4">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {enabled ? <Bell className="w-4 h-4 text-primary" /> : <BellOff className="w-4 h-4 text-muted-foreground" />}
+          <span className="text-sm font-semibold text-foreground">Alertes email automatiques</span>
+        </div>
+        <Switch checked={enabled} onCheckedChange={onEnabledChange} />
+      </div>
+      {enabled && (
+        <div className="space-y-4 pt-2">
+          <div>
+            <label className="text-xs font-medium text-muted-foreground block mb-2">
+              Seuil d'alerte : <span className="text-foreground font-bold">{threshold}/100</span>
+            </label>
+            <Slider
+              value={[threshold]}
+              onValueChange={([v]) => onThresholdChange(v)}
+              min={30}
+              max={95}
+              step={5}
+              className="w-full"
+            />
+            <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+              <span>30</span>
+              <span>Alerte si score &lt; {threshold}</span>
+              <span>95</span>
+            </div>
+          </div>
+          <div>
+            <label className="text-xs font-medium text-muted-foreground block mb-1">Email de notification</label>
+            <input
+              type="email"
+              value={email}
+              onChange={e => onEmailChange(e.target.value)}
+              className="w-full px-3 py-2 text-sm border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
+              placeholder="montrouge@ecolet3p.fr"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  </motion.div>
+);
+
 // --- Score History Chart ---
-const ScoreHistoryChart = ({ history }: { history: AuditHistory[] }) => {
+const ScoreHistoryChart = ({ history, threshold }: { history: AuditHistory[]; threshold?: number }) => {
   if (history.length === 0) return null;
 
   const chartData = history
@@ -94,12 +154,21 @@ const ScoreHistoryChart = ({ history }: { history: AuditHistory[] }) => {
           <Line type="monotone" dataKey="score" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={{ r: 4 }} name="Score" />
           <Line type="monotone" dataKey="errors" stroke="#ef4444" strokeWidth={1.5} dot={{ r: 3 }} name="Erreurs" />
           <Line type="monotone" dataKey="warnings" stroke="#eab308" strokeWidth={1.5} dot={{ r: 3 }} name="Avert." />
+          {threshold && (
+            <ReferenceLine
+              y={threshold}
+              stroke="#ef4444"
+              strokeDasharray="6 4"
+              label={{ value: `Seuil ${threshold}`, position: "insideTopRight", fontSize: 10, fill: "#ef4444" }}
+            />
+          )}
         </LineChart>
       </ResponsiveContainer>
       <div className="flex justify-center gap-6 mt-2 text-[10px] text-muted-foreground">
         <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-primary inline-block rounded" /> Score</span>
         <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-red-500 inline-block rounded" /> Erreurs</span>
         <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-yellow-500 inline-block rounded" /> Avertissements</span>
+        {threshold && <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-red-500 inline-block rounded border-dashed" /> Seuil alerte</span>}
       </div>
     </motion.div>
   );
@@ -236,6 +305,16 @@ const SEODashboard = () => {
   const [filter, setFilter] = useState("");
   const [history, setHistory] = useState<AuditHistory[]>([]);
   const [historyLoading, setHistoryLoading] = useState(true);
+  const [alertEnabled, setAlertEnabled] = useState(() => localStorage.getItem("seo_alert_enabled") === "true");
+  const [alertThreshold, setAlertThreshold] = useState(() => parseInt(localStorage.getItem("seo_alert_threshold") || "70", 10));
+  const [alertEmail, setAlertEmail] = useState(() => localStorage.getItem("seo_alert_email") || "montrouge@ecolet3p.fr");
+  const [showAlertSettings, setShowAlertSettings] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("seo_alert_enabled", String(alertEnabled));
+    localStorage.setItem("seo_alert_threshold", String(alertThreshold));
+    localStorage.setItem("seo_alert_email", alertEmail);
+  }, [alertEnabled, alertThreshold, alertEmail]);
 
   useEffect(() => {
     fetchHistory();
@@ -263,15 +342,22 @@ const SEODashboard = () => {
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke("seo-audit", {
-        body: { pages: seoPages },
+        body: {
+          pages: seoPages,
+          alertConfig: alertEnabled ? { threshold: alertThreshold, email: alertEmail } : undefined,
+        },
       });
 
       if (error) throw error;
       if (data?.error) throw new Error(data.error);
 
       setAuditResult(data);
-      toast.success("Audit SEO terminé !");
-      // Refresh history after audit
+
+      if (data.alertSent) {
+        toast.warning(`Score ${data.overallScore}/100 < seuil ${alertThreshold} — alerte email envoyée à ${alertEmail}`);
+      } else {
+        toast.success("Audit SEO terminé !");
+      }
       fetchHistory();
     } catch (err: any) {
       console.error("SEO audit error:", err);
@@ -305,24 +391,52 @@ const SEODashboard = () => {
           </h2>
           <p className="text-sm text-muted-foreground">{seoPages.length} pages analysées • Recommandations IA</p>
         </div>
-        <Button onClick={runAudit} disabled={loading} className="bg-primary hover:bg-primary/90">
-          {loading ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Analyse en cours…
-            </>
-          ) : (
-            <>
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Lancer l'audit IA
-            </>
-          )}
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowAlertSettings(!showAlertSettings)}
+            className={alertEnabled ? "border-primary/50 text-primary" : ""}
+          >
+            <Settings2 className="w-4 h-4 mr-1.5" />
+            Alertes
+            {alertEnabled && (
+              <Badge className="ml-1.5 text-[9px] px-1 py-0 bg-primary/10 text-primary border-primary/20">{alertThreshold}</Badge>
+            )}
+          </Button>
+          <Button onClick={runAudit} disabled={loading} className="bg-primary hover:bg-primary/90">
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Analyse en cours…
+              </>
+            ) : (
+              <>
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Lancer l'audit IA
+              </>
+            )}
+          </Button>
+        </div>
       </div>
+
+      {/* Alert settings */}
+      <AnimatePresence>
+        {showAlertSettings && (
+          <AlertSettingsPanel
+            enabled={alertEnabled}
+            threshold={alertThreshold}
+            email={alertEmail}
+            onEnabledChange={setAlertEnabled}
+            onThresholdChange={setAlertThreshold}
+            onEmailChange={setAlertEmail}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Score History Chart */}
       {!historyLoading && history.length > 0 && (
-        <ScoreHistoryChart history={history} />
+        <ScoreHistoryChart history={history} threshold={alertEnabled ? alertThreshold : undefined} />
       )}
 
       {/* History summary */}
@@ -346,6 +460,9 @@ const SEODashboard = () => {
                   <ScoreBadge score={h.overall_score} />
                   <span className="text-red-500">{h.total_errors} err.</span>
                   <span className="text-yellow-500">{h.total_warnings} avert.</span>
+                  {alertEnabled && h.overall_score < alertThreshold && (
+                    <AlertTriangle className="w-3.5 h-3.5 text-red-500" />
+                  )}
                 </div>
               </div>
             ))}
