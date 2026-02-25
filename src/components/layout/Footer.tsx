@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Col 1 : Info centre — 2 colonnes sur lg */}
           <div className="pb-6 md:pb-0 lg:col-span-1">
-            <h3 className="text-xl font-bold text-white mb-4">ECOLE T3P</h3>
+            <img src="/images/ecole-t3p-logo-v5c-white.png" alt="École T3P" className="h-12 w-auto object-contain mb-4" />
             <p className="text-white/60 text-xs mb-4 leading-relaxed">
               Centre de formation agréé Préfecture des Hauts-de-Seine.<br />
               Agrément n° 23/007 — Depuis 2014.
