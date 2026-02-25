@@ -1,4 +1,7 @@
 // Static SEO data for each key page — used by the SEO dashboard audit
+import { blogArticles } from "./blogArticles";
+import { cities } from "./localSeoData";
+
 export interface SEOPageInfo {
   url: string;
   title: string;
@@ -9,7 +12,8 @@ export interface SEOPageInfo {
   wordCount?: number;
 }
 
-export const seoPages: SEOPageInfo[] = [
+// ── Core pages ────────────────────────────────────────────
+const corePages: SEOPageInfo[] = [
   {
     url: "/",
     title: "ECOLE T3P — Formation Taxi VTC VMDTR Montrouge | 990€",
@@ -111,3 +115,38 @@ export const seoPages: SEOPageInfo[] = [
     internalLinks: ["/formations/taxi", "/formations/vtc", "/contact"],
   },
 ];
+
+// ── Blog articles (auto-generated from blogArticles data) ──
+const blogPages: SEOPageInfo[] = blogArticles.map((a) => ({
+  url: `/blog/${a.slug}`,
+  title: a.title,
+  description: a.metaDescription,
+  h1: a.title,
+  hasSchema: ["Article", "BreadcrumbList"],
+  internalLinks: ["/blog", "/formations/taxi", "/formations/vtc", "/contact"],
+  wordCount: Math.round(a.content.split(/\s+/).length),
+}));
+
+// ── City pages (auto-generated from localSeoData) ──────────
+const cityPages: SEOPageInfo[] = [
+  {
+    url: "/formations/villes",
+    title: "Formations Taxi VTC VMDTR — Toutes les villes",
+    description: "Trouvez votre formation Taxi, VTC ou VMDTR près de chez vous. ECOLE T3P à Montrouge, accessible depuis toute l'Île-de-France.",
+    h1: "Formations par ville en Île-de-France",
+    hasSchema: ["BreadcrumbList"],
+    internalLinks: ["/formations/taxi", "/formations/vtc", "/formations/vmdtr"],
+  },
+  ...cities.map((c) => ({
+    url: `/formations/${c.slug}`,
+    title: c.seoTitle,
+    description: c.seoDescription,
+    h1: `Formation Taxi VTC VMDTR ${c.name}`,
+    hasSchema: ["FAQPage", "LocalBusiness", "BreadcrumbList"],
+    internalLinks: ["/formations/taxi", "/formations/vtc", "/formations/vmdtr", "/contact"],
+    wordCount: 900,
+  })),
+];
+
+// ── Merged export ─────────────────────────────────────────
+export const seoPages: SEOPageInfo[] = [...corePages, ...blogPages, ...cityPages];
