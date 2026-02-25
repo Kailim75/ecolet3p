@@ -18,7 +18,8 @@ const EcoleT3PLogoV5C = ({
     <img
       src={logoColor}
       alt="École T3P — Centre de Formation Agréé"
-      className={`${className} w-auto object-contain ${variant === "white" ? "brightness-0 invert" : ""}`}
+      className={`${className} w-auto max-w-[280px] object-contain block ${variant === "white" ? "brightness-0 invert" : ""}`}
+      style={{ minHeight: "40px" }}
     />
   );
 };
