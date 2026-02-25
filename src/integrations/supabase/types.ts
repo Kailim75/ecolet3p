@@ -345,6 +345,44 @@ export type Database = {
           },
         ]
       }
+      seo_overrides: {
+        Row: {
+          created_at: string
+          field: string
+          id: string
+          page_url: string
+          source_fix_id: string | null
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          field: string
+          id?: string
+          page_url: string
+          source_fix_id?: string | null
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          created_at?: string
+          field?: string
+          id?: string
+          page_url?: string
+          source_fix_id?: string | null
+          updated_at?: string
+          value?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seo_overrides_source_fix_id_fkey"
+            columns: ["source_fix_id"]
+            isOneToOne: false
+            referencedRelation: "seo_fixes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       simulations: {
         Row: {
           appointment_id: string | null
