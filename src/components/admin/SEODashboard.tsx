@@ -996,7 +996,7 @@ const SEODashboard = () => {
     }
   };
 
-  const exportPDF = () => {
+  const exportPDF = async () => {
     if (!auditResult) {
       toast.error("Lancez d'abord un audit avant d'exporter.");
       return;
@@ -1085,6 +1085,87 @@ const SEODashboard = () => {
         headStyles: { fillColor: [30, 70, 50], textColor: 255 },
         columnStyles: { 0: { cellWidth: 60 }, 3: { cellWidth: "auto" } },
       });
+    }
+
+    // Cannibalization groups section
+    const canniGroups = auditResult.cannibalization;
+    if (canniGroups && canniGroups.length > 0) {
+      doc.addPage();
+      doc.setFontSize(14);
+      doc.setTextColor(30, 70, 50);
+      doc.text(`Cannibalisation détectée — ${canniGroups.length} groupe(s)`, 14, 18);
+
+      const canniData = canniGroups.flatMap(g =>
+        g.pages.map((p, i) => [
+          g.keyword,
+          g.severity === "high" ? "🔴 Élevé" : g.severity === "medium" ? "🟡 Moyen" : "🔵 Faible",
+          i === 0 ? "✅ Cible" : "⚠️ Concurrent",
+          p.url,
+          p.title.slice(0, 60),
+          p.overlap_reason.slice(0, 50),
+        ])
+      );
+
+      autoTable(doc, {
+        startY: 24,
+        head: [["Mot-clé", "Sévérité", "Rôle", "URL", "Titre", "Raison"]],
+        body: canniData,
+        styles: { fontSize: 7, cellPadding: 2 },
+        headStyles: { fillColor: [30, 70, 50], textColor: 255, fontSize: 8 },
+        columnStyles: {
+          0: { cellWidth: 30 },
+          1: { cellWidth: 18, halign: "center" },
+          2: { cellWidth: 20, halign: "center" },
+          3: { cellWidth: 55 },
+          4: { cellWidth: 50 },
+          5: { cellWidth: "auto" },
+        },
+        alternateRowStyles: { fillColor: [245, 245, 240] },
+      });
+    }
+
+    // Active redirects section
+    try {
+      const { data: redirects } = await supabase
+        .from("seo_redirects")
+        .select("*")
+        .eq("is_active", true)
+        .order("created_at", { ascending: false });
+
+      if (redirects && redirects.length > 0) {
+        doc.addPage();
+        doc.setFontSize(14);
+        doc.setTextColor(30, 70, 50);
+        doc.text(`Redirections 301 actives — ${redirects.length} règle(s)`, 14, 18);
+
+        const redirData = redirects.map(r => [
+          r.from_path,
+          r.to_path,
+          r.source === "cannibalization" ? "Cannibalisation" : "Manuel",
+          r.cannibalization_keyword || "—",
+          String(r.hit_count),
+          format(new Date(r.created_at), "dd/MM/yyyy"),
+        ]);
+
+        autoTable(doc, {
+          startY: 24,
+          head: [["De", "Vers", "Source", "Mot-clé", "Hits", "Créée le"]],
+          body: redirData,
+          styles: { fontSize: 8, cellPadding: 2 },
+          headStyles: { fillColor: [30, 70, 50], textColor: 255 },
+          columnStyles: {
+            0: { cellWidth: 60 },
+            1: { cellWidth: 60 },
+            2: { cellWidth: 28, halign: "center" },
+            3: { cellWidth: 30 },
+            4: { cellWidth: 15, halign: "center" },
+            5: { cellWidth: 25, halign: "center" },
+          },
+          alternateRowStyles: { fillColor: [245, 245, 240] },
+        });
+      }
+    } catch {
+      // Silently skip redirects if fetch fails
     }
 
     doc.save(`audit-seo-ecolet3p-${format(new Date(), "yyyy-MM-dd")}.pdf`);
