@@ -292,6 +292,59 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_fixes: {
+        Row: {
+          ai_explanation: string | null
+          audit_id: string | null
+          category: string
+          created_at: string
+          current_value: string | null
+          fix_type: string
+          id: string
+          impact: string
+          page_url: string
+          proposed_value: string
+          reviewed_at: string | null
+          status: string
+        }
+        Insert: {
+          ai_explanation?: string | null
+          audit_id?: string | null
+          category: string
+          created_at?: string
+          current_value?: string | null
+          fix_type: string
+          id?: string
+          impact?: string
+          page_url: string
+          proposed_value: string
+          reviewed_at?: string | null
+          status?: string
+        }
+        Update: {
+          ai_explanation?: string | null
+          audit_id?: string | null
+          category?: string
+          created_at?: string
+          current_value?: string | null
+          fix_type?: string
+          id?: string
+          impact?: string
+          page_url?: string
+          proposed_value?: string
+          reviewed_at?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seo_fixes_audit_id_fkey"
+            columns: ["audit_id"]
+            isOneToOne: false
+            referencedRelation: "seo_audits"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       simulations: {
         Row: {
           appointment_id: string | null
