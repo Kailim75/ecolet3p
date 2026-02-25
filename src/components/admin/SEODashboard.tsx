@@ -302,11 +302,13 @@ const FixCard = ({ fix, onApprove, onReject, updating }: {
 };
 
 // --- Fixes Review Panel ---
-const FixesReviewPanel = ({ fixes, onApprove, onReject, updating }: {
+const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, bulkApproving }: {
   fixes: SEOFix[];
   onApprove: (id: string) => void;
   onReject: (id: string) => void;
+  onApproveAll: () => void;
   updating: string | null;
+  bulkApproving: boolean;
 }) => {
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const pendingCount = fixes.filter(f => f.status === "pending").length;
@@ -344,7 +346,19 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, updating }: {
             </Badge>
           )}
         </h3>
-        <div className="flex gap-1">
+        <div className="flex items-center gap-2">
+          {pendingCount > 0 && (
+            <Button
+              size="sm"
+              onClick={onApproveAll}
+              disabled={bulkApproving}
+              className="bg-green-600 hover:bg-green-700 text-white text-[10px] h-7 px-2.5"
+            >
+              {bulkApproving ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
+              Tout approuver ({pendingCount})
+            </Button>
+          )}
+          <div className="flex gap-1">
           {["all", "pending", "approved", "rejected"].map(s => (
             <button
               key={s}
@@ -358,6 +372,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, updating }: {
               {s === "all" ? "Tous" : s === "pending" ? "En attente" : s === "approved" ? "Approuvés" : "Rejetés"}
             </button>
           ))}
+          </div>
         </div>
       </div>
 
@@ -540,6 +555,7 @@ const SEODashboard = () => {
   const [fixes, setFixes] = useState<SEOFix[]>([]);
   const [generatingFix, setGeneratingFix] = useState<string | null>(null);
   const [updatingFix, setUpdatingFix] = useState<string | null>(null);
+  const [bulkApproving, setBulkApproving] = useState(false);
   const [lastAuditId, setLastAuditId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -702,6 +718,60 @@ const SEODashboard = () => {
       toast.error("Erreur lors de la mise à jour");
     } finally {
       setUpdatingFix(null);
+    }
+  };
+
+  const bulkApproveAll = async () => {
+    const pendingFixes = fixes.filter(f => f.status === "pending");
+    if (pendingFixes.length === 0) return;
+
+    setBulkApproving(true);
+    let successCount = 0;
+    let errorCount = 0;
+
+    for (const fix of pendingFixes) {
+      try {
+        const { error } = await supabase
+          .from("seo_fixes")
+          .update({ status: "applied", reviewed_at: new Date().toISOString() })
+          .eq("id", fix.id);
+
+        if (error) throw error;
+
+        // Apply metadata overrides
+        if (fix.fix_type === "metadata") {
+          const categoryToField: Record<string, string> = {
+            title: "title", description: "description", h1: "h1",
+            og_title: "og_title", og_description: "og_description",
+            meta_title: "title", meta_description: "description",
+          };
+          const field = categoryToField[fix.category] || fix.category;
+
+          await supabase
+            .from("seo_overrides")
+            .upsert(
+              { page_url: fix.page_url, field, value: fix.proposed_value, source_fix_id: fix.id },
+              { onConflict: "page_url,field" }
+            );
+        }
+
+        successCount++;
+      } catch {
+        errorCount++;
+      }
+    }
+
+    // Refresh fixes state
+    setFixes(prev => prev.map(f =>
+      f.status === "pending" ? { ...f, status: "applied" as any, reviewed_at: new Date().toISOString() } : f
+    ));
+
+    setBulkApproving(false);
+
+    if (errorCount === 0) {
+      toast.success(`${successCount} corrections approuvées et appliquées ! 🚀`);
+    } else {
+      toast.warning(`${successCount} approuvées, ${errorCount} erreurs`);
     }
   };
 
@@ -883,7 +953,9 @@ const SEODashboard = () => {
         fixes={fixes}
         onApprove={(id) => updateFixStatus(id, "approved")}
         onReject={(id) => updateFixStatus(id, "rejected")}
+        onApproveAll={bulkApproveAll}
         updating={updatingFix}
+        bulkApproving={bulkApproving}
       />
 
       {/* History summary */}
