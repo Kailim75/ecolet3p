@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -121,19 +121,17 @@ const Blog = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Blog Formation Taxi VTC VMDTR | ECOLE T3P</title>
-        <meta name="description" content="Articles, guides et conseils pour réussir votre examen Taxi, VTC ou VMDTR. Reconversion, réglementation 2026, astuces et retours d'expérience." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/blog" />
-        <meta property="og:title" content="Blog ECOLE T3P - Formation Taxi VTC Montrouge" />
-        <meta property="og:description" content="Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/blog" />
-        <meta property="og:type" content="blog" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+      <DynamicSEOHead
+        pageUrl="/blog"
+        defaultTitle="Blog Formation Taxi VTC VMDTR | ECOLE T3P"
+        defaultDescription="Articles, guides et conseils pour réussir votre examen Taxi, VTC ou VMDTR. Reconversion, réglementation 2026, astuces et retours d'expérience."
+        canonicalUrl="https://www.ecolet3p.fr/blog"
+        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+      >
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">

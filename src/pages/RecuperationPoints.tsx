@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -79,17 +79,16 @@ const RecuperationPoints = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Stage Récupération de Points Montrouge 92 | ECOLE T3P</title>
-        <meta name="description" content="Stage de récupération de points en 2 jours (14h) à Montrouge (92). Récupérez jusqu'à 4 points. 250€. Attestation immédiate. Sessions mensuelles." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/stage-recuperation-points" />
-        <meta property="og:title" content="Stage Récupération de Points — 2 jours | ECOLE T3P Montrouge" />
-        <meta property="og:description" content="Récupérez jusqu'à 4 points en 2 jours à Montrouge (92). 250€. Attestation immédiate." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/stage-recuperation-points" />
+      <DynamicSEOHead
+        pageUrl="/stage-recuperation-points"
+        defaultTitle="Stage Récupération de Points Montrouge 92 | ECOLE T3P"
+        defaultDescription="Stage de récupération de points en 2 jours (14h) à Montrouge (92). Récupérez jusqu'à 4 points. 250€. Attestation immédiate. Sessions mensuelles."
+        canonicalUrl="https://www.ecolet3p.fr/stage-recuperation-points"
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">

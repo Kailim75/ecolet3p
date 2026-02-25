@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -95,27 +95,17 @@ const FormationsVilles = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Formations Taxi VTC près de chez vous | ECOLE T3P</title>
-        <meta 
-          name="description" 
-          content="ECOLE T3P à Montrouge forme des chauffeurs Taxi, VTC et VMDTR de toute l'Île-de-France. Trouvez votre ville : 92, 94, 93, 91, 78 et Paris." 
-        />
-        <meta 
-          name="keywords" 
-          content="formation taxi Paris, formation VTC Hauts-de-Seine, formation taxi 92, formation VTC 94, centre formation Île-de-France, ECOLE T3P villes" 
-        />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations/villes" />
-        
-        <meta property="og:title" content="Formation Taxi VTC par ville | Paris, 92, 94 | ECOLE T3P" />
-        <meta property="og:description" content={`Formations accessibles depuis ${totalCities} villes d'Île-de-France. Trouvez le trajet depuis votre ville.`} />
-        <meta property="og:url" content="https://www.ecolet3p.fr/formations/villes" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
-        
+      <DynamicSEOHead
+        pageUrl="/formations/villes"
+        defaultTitle="Formations Taxi VTC près de chez vous | ECOLE T3P"
+        defaultDescription="ECOLE T3P à Montrouge forme des chauffeurs Taxi, VTC et VMDTR de toute l'Île-de-France. Trouvez votre ville : 92, 94, 93, 91, 78 et Paris."
+        canonicalUrl="https://www.ecolet3p.fr/formations/villes"
+        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+      >
+        <meta name="keywords" content="formation taxi Paris, formation VTC Hauts-de-Seine, formation taxi 92, formation VTC 94, centre formation Île-de-France, ECOLE T3P villes" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Hero Section */}
       <section className="gradient-hero py-20 md:py-28 relative overflow-hidden">

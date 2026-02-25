@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import {
@@ -96,15 +96,13 @@ const FormationVille = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{city.seoTitle}</title>
-        <meta name="description" content={city.seoDescription} />
-        <link rel="canonical" href={`https://www.ecolet3p.fr/formations/${city.slug}`} />
-        <meta property="og:title" content={city.seoTitle} />
-        <meta property="og:description" content={city.seoDescription} />
-        <meta property="og:url" content={`https://www.ecolet3p.fr/formations/${city.slug}`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+      <DynamicSEOHead
+        pageUrl={`/formations/${city.slug}`}
+        defaultTitle={city.seoTitle}
+        defaultDescription={city.seoDescription}
+        canonicalUrl={`https://www.ecolet3p.fr/formations/${city.slug}`}
+        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+      >
         <meta name="geo.region" content={`FR-${city.departmentCode}`} />
         <meta name="geo.placename" content={city.name} />
         <meta name="geo.position" content={`${city.latitude};${city.longitude}`} />
@@ -112,7 +110,7 @@ const FormationVille = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <nav className="bg-muted border-b border-border mt-16" aria-label="Breadcrumb">
