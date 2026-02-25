@@ -262,6 +262,36 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_audits: {
+        Row: {
+          audit_data: Json
+          created_at: string
+          id: string
+          overall_score: number
+          pages_count: number
+          total_errors: number
+          total_warnings: number
+        }
+        Insert: {
+          audit_data: Json
+          created_at?: string
+          id?: string
+          overall_score: number
+          pages_count?: number
+          total_errors?: number
+          total_warnings?: number
+        }
+        Update: {
+          audit_data?: Json
+          created_at?: string
+          id?: string
+          overall_score?: number
+          pages_count?: number
+          total_errors?: number
+          total_warnings?: number
+        }
+        Relationships: []
+      }
       simulations: {
         Row: {
           appointment_id: string | null

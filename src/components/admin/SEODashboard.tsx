@@ -1,46 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
-  ArrowRight, Sparkles, RefreshCw, ExternalLink, ChevronDown, ChevronUp,
+  ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
 
-interface Issue {
-  type: "error" | "warning" | "info";
-  message: string;
-}
+// --- Types ---
+interface Issue { type: "error" | "warning" | "info"; message: string; }
+interface Recommendation { category: string; current: string; suggested: string; impact: "high" | "medium" | "low"; }
+interface PageAudit { url: string; score: number; issues: Issue[]; recommendations: Recommendation[]; }
+interface GlobalRec { category: string; message: string; priority: "high" | "medium" | "low"; }
+interface AuditResult { overallScore: number; pages: PageAudit[]; globalRecommendations: GlobalRec[]; }
+interface AuditHistory { id: string; overall_score: number; pages_count: number; total_errors: number; total_warnings: number; created_at: string; }
 
-interface Recommendation {
-  category: string;
-  current: string;
-  suggested: string;
-  impact: "high" | "medium" | "low";
-}
-
-interface PageAudit {
-  url: string;
-  score: number;
-  issues: Issue[];
-  recommendations: Recommendation[];
-}
-
-interface GlobalRec {
-  category: string;
-  message: string;
-  priority: "high" | "medium" | "low";
-}
-
-interface AuditResult {
-  overallScore: number;
-  pages: PageAudit[];
-  globalRecommendations: GlobalRec[];
-}
-
+// --- Small Components ---
 const ScoreBadge = ({ score }: { score: number }) => {
   const color =
     score >= 80 ? "bg-green-100 text-green-700 border-green-200" :
@@ -73,6 +54,58 @@ const IssueIcon = ({ type }: { type: string }) => {
   return <Info className="w-4 h-4 text-blue-500 shrink-0" />;
 };
 
+// --- Score History Chart ---
+const ScoreHistoryChart = ({ history }: { history: AuditHistory[] }) => {
+  if (history.length === 0) return null;
+
+  const chartData = history
+    .slice()
+    .reverse()
+    .map(h => ({
+      date: format(new Date(h.created_at), "dd MMM", { locale: fr }),
+      score: h.overall_score,
+      errors: h.total_errors,
+      warnings: h.total_warnings,
+    }));
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white rounded-xl border border-border shadow-sm p-5"
+    >
+      <h3 className="text-sm font-bold text-foreground mb-4 flex items-center gap-2">
+        <TrendingUp className="w-4 h-4 text-primary" />
+        Évolution du score SEO
+      </h3>
+      <ResponsiveContainer width="100%" height={220}>
+        <LineChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+          <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+          <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: "hsl(var(--background))",
+              border: "1px solid hsl(var(--border))",
+              borderRadius: "8px",
+              fontSize: "12px",
+            }}
+          />
+          <Line type="monotone" dataKey="score" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={{ r: 4 }} name="Score" />
+          <Line type="monotone" dataKey="errors" stroke="#ef4444" strokeWidth={1.5} dot={{ r: 3 }} name="Erreurs" />
+          <Line type="monotone" dataKey="warnings" stroke="#eab308" strokeWidth={1.5} dot={{ r: 3 }} name="Avert." />
+        </LineChart>
+      </ResponsiveContainer>
+      <div className="flex justify-center gap-6 mt-2 text-[10px] text-muted-foreground">
+        <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-primary inline-block rounded" /> Score</span>
+        <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-red-500 inline-block rounded" /> Erreurs</span>
+        <span className="flex items-center gap-1"><span className="w-3 h-0.5 bg-yellow-500 inline-block rounded" /> Avertissements</span>
+      </div>
+    </motion.div>
+  );
+};
+
+// --- Page Card ---
 const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => {
   const [open, setOpen] = useState(false);
 
@@ -117,7 +150,6 @@ const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => 
             className="overflow-hidden"
           >
             <div className="px-4 pb-4 space-y-4 border-t border-border pt-3">
-              {/* Current meta info */}
               <div className="grid sm:grid-cols-2 gap-3">
                 <div>
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Title ({page.title.length} car.)</p>
@@ -141,7 +173,6 @@ const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => 
                 </div>
               </div>
 
-              {/* Issues */}
               {audit && audit.issues.length > 0 && (
                 <div>
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Problèmes détectés</p>
@@ -156,7 +187,6 @@ const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => 
                 </div>
               )}
 
-              {/* AI Recommendations */}
               {audit && audit.recommendations.length > 0 && (
                 <div>
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
@@ -199,10 +229,35 @@ const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => 
   );
 };
 
+// --- Main Dashboard ---
 const SEODashboard = () => {
   const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("");
+  const [history, setHistory] = useState<AuditHistory[]>([]);
+  const [historyLoading, setHistoryLoading] = useState(true);
+
+  useEffect(() => {
+    fetchHistory();
+  }, []);
+
+  const fetchHistory = async () => {
+    setHistoryLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from("seo_audits")
+        .select("id, overall_score, pages_count, total_errors, total_warnings, created_at")
+        .order("created_at", { ascending: false })
+        .limit(20);
+
+      if (error) throw error;
+      setHistory(data || []);
+    } catch (err) {
+      console.error("Error fetching SEO history:", err);
+    } finally {
+      setHistoryLoading(false);
+    }
+  };
 
   const runAudit = async () => {
     setLoading(true);
@@ -216,6 +271,8 @@ const SEODashboard = () => {
 
       setAuditResult(data);
       toast.success("Audit SEO terminé !");
+      // Refresh history after audit
+      fetchHistory();
     } catch (err: any) {
       console.error("SEO audit error:", err);
       toast.error(err.message || "Erreur lors de l'audit SEO");
@@ -262,6 +319,39 @@ const SEODashboard = () => {
           )}
         </Button>
       </div>
+
+      {/* Score History Chart */}
+      {!historyLoading && history.length > 0 && (
+        <ScoreHistoryChart history={history} />
+      )}
+
+      {/* History summary */}
+      {!historyLoading && history.length > 0 && !auditResult && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-muted/30 rounded-xl p-4 border border-border"
+        >
+          <h3 className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
+            <History className="w-4 h-4 text-muted-foreground" />
+            Derniers audits
+          </h3>
+          <div className="space-y-2">
+            {history.slice(0, 5).map(h => (
+              <div key={h.id} className="flex items-center justify-between text-xs">
+                <span className="text-muted-foreground">
+                  {format(new Date(h.created_at), "dd MMM yyyy à HH:mm", { locale: fr })}
+                </span>
+                <div className="flex items-center gap-3">
+                  <ScoreBadge score={h.overall_score} />
+                  <span className="text-red-500">{h.total_errors} err.</span>
+                  <span className="text-yellow-500">{h.total_warnings} avert.</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
 
       {/* Score overview */}
       {auditResult && (
