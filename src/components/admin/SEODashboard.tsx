@@ -461,6 +461,45 @@ const PageCard = ({ page, audit, onGenerateFixes, generatingFix }: {
             className="overflow-hidden"
           >
             <div className="px-4 pb-4 space-y-4 border-t border-border pt-3">
+              {/* Hybrid score breakdown */}
+              {audit && (audit as any).deterministicScore !== undefined && (
+                <div className="flex items-center gap-3 bg-muted/30 rounded-lg p-3">
+                  <div className="flex-1 space-y-1.5">
+                    <div className="flex items-center justify-between text-[10px]">
+                      <span className="font-semibold text-muted-foreground">Règles techniques (60%)</span>
+                      <span className="font-bold text-foreground">{(audit as any).deterministicScore}/100</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-1.5">
+                      <div className="bg-primary h-1.5 rounded-full transition-all" style={{ width: `${(audit as any).deterministicScore}%` }} />
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-1.5">
+                    <div className="flex items-center justify-between text-[10px]">
+                      <span className="font-semibold text-muted-foreground">Qualité sémantique IA (40%)</span>
+                      <span className="font-bold text-foreground">{(audit as any).semanticScore}/100</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-1.5">
+                      <div className="bg-amber-500 h-1.5 rounded-full transition-all" style={{ width: `${(audit as any).semanticScore}%` }} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Checks detail grid */}
+              {audit && (audit as any).checks && (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {Object.entries((audit as any).checks as Record<string, { passed: boolean; score: number; maxScore: number; detail: string }>).map(([key, check]) => (
+                    <div key={key} className={`text-[10px] rounded-lg border p-2 ${check.passed ? 'border-green-200 bg-green-50/50' : 'border-red-200 bg-red-50/50'}`}>
+                      <div className="flex items-center justify-between mb-0.5">
+                        <span className="font-semibold capitalize">{key === 'internalLinks' ? 'Liens' : key}</span>
+                        {check.passed ? <CheckCircle className="w-3 h-3 text-green-600" /> : <XCircle className="w-3 h-3 text-red-500" />}
+                      </div>
+                      <span className="text-muted-foreground">{check.score}/{check.maxScore} — {check.detail}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               <div className="grid sm:grid-cols-2 gap-3">
                 <div>
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Title ({page.title.length} car.)</p>
@@ -914,7 +953,7 @@ const SEODashboard = () => {
             <Sparkles className="w-5 h-5 text-primary" />
             Dashboard SEO
           </h2>
-          <p className="text-sm text-muted-foreground">{seoPages.length} pages analysées • Recommandations IA</p>
+          <p className="text-sm text-muted-foreground">{seoPages.length} pages analysées • Score hybride (60% règles + 40% IA sémantique)</p>
         </div>
         <div className="flex items-center gap-2">
           {auditResult && (
