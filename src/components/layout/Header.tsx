@@ -85,7 +85,7 @@ const Header = () => {
                 }
               }}
             >
-              <span className="text-lg lg:text-xl font-bold text-primary tracking-wide">ECOLE T3P</span>
+              <img src="/images/ecole-t3p-logo-v5c.png" alt="École T3P - Centre de formation Taxi VTC VMDTR" className="h-10 lg:h-12 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation */}
