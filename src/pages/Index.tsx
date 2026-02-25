@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
@@ -54,18 +54,15 @@ const homeFaqSchema = {
 const Index = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>ECOLE T3P — Formation Taxi VTC VMDTR Montrouge | 990€</title>
-        <meta name="description" content="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 formés, paiement en 4x sans frais. Inscription ouverte." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/" />
-        <meta property="og:title" content="ECOLE T3P — Formation Taxi VTC VMDTR à Montrouge" />
-        <meta property="og:description" content="Devenez chauffeur professionnel à 990€ tout compris. 94% de réussite. 3 formats au choix." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
-        <meta name="robots" content="index, follow" />
+      <DynamicSEOHead
+        pageUrl="/"
+        defaultTitle="ECOLE T3P — Formation Taxi VTC VMDTR Montrouge | 990€"
+        defaultDescription="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 formés, paiement en 4x sans frais. Inscription ouverte."
+        canonicalUrl="https://www.ecolet3p.fr/"
+        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(homeFaqSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       <MobileQuickBar />
       <HeroSection />
