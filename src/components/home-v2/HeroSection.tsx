@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Eye, Trophy, Star, FileSearch } from "lucide-react";
-import { motion } from "framer-motion";
-const formationSession = "/images/hero-formation-session.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+const formationSession = "/images/hero-formation-session.jpg";
 
 const HeroSection = ({ h1Override }: { h1Override?: string }) => {
   const isMobile = useIsMobile();
-
-  const floatAnimation = isMobile ? {} : { y: [0, -6, 0] };
-  const floatTransition = isMobile ? {} : { duration: 3, repeat: Infinity, ease: "easeInOut" as const };
-  const floatAnimation2 = isMobile ? {} : { y: [0, -5, 0] };
-  const floatTransition2 = isMobile ? {} : { duration: 3.5, repeat: Infinity, ease: "easeInOut" as const, delay: 0.5 };
 
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
@@ -59,22 +54,16 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
           >
             <FileSearch className="w-4 h-4" />
             Audit de rentabilité gratuit →
-            <motion.span
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="ml-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-accent text-accent-foreground rounded-full"
-            >
+            <span className="ml-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-accent text-accent-foreground rounded-full animate-pulse">
               Nouveau
-            </motion.span>
+            </span>
           </Link>
 
-          {/* Badges — inline on mobile, floating on desktop */}
+          {/* Badges — inline on mobile */}
           <div className="flex flex-row gap-3 mt-6 lg:hidden">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-card-hover flex items-center gap-2.5 flex-1"
+            <div
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-card-hover flex items-center gap-2.5 flex-1 animate-fade-in-up"
+              style={{ animationDelay: "0.6s", animationFillMode: "both" }}
             >
               <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                 <Trophy className="w-5 h-5 text-accent" />
@@ -83,12 +72,10 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
                 <p className="text-xl font-bold text-primary leading-none">94%</p>
                 <p className="text-[10px] text-muted-foreground font-medium">de réussite</p>
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-card-hover flex items-center gap-2.5 flex-1"
+            </div>
+            <div
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-card-hover flex items-center gap-2.5 flex-1 animate-fade-in-up"
+              style={{ animationDelay: "0.9s", animationFillMode: "both" }}
             >
               <div className="flex flex-col items-center gap-0.5">
                 <div className="flex">
@@ -102,57 +89,49 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
                 <p className="text-xs font-bold text-primary leading-tight">359 avis</p>
                 <p className="text-[10px] text-muted-foreground font-medium">Google</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Floating badges — desktop only */}
-        <div className="hidden lg:flex absolute right-12 top-1/2 -translate-y-1/2 flex-col gap-3">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div
-              animate={floatAnimation}
-              transition={floatTransition}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
+        {/* Floating badges — desktop only, CSS animation instead of framer-motion */}
+        {!isMobile && (
+          <div className="hidden lg:flex absolute right-12 top-1/2 -translate-y-1/2 flex-col gap-3">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.6s", animationFillMode: "both" }}
             >
-              <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
-                <Trophy className="w-6 h-6 text-accent" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-primary leading-none">94%</p>
-                <p className="text-xs text-muted-foreground font-medium">de réussite</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div
-              animate={floatAnimation2}
-              transition={floatTransition2}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3"
-            >
-              <div className="flex flex-col items-center gap-0.5">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
-                  ))}
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3 animate-float">
+                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-accent" />
                 </div>
-                <span className="text-lg font-bold text-primary leading-none">5.0/5</span>
+                <div>
+                  <p className="text-2xl font-bold text-primary leading-none">94%</p>
+                  <p className="text-xs text-muted-foreground font-medium">de réussite</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-bold text-primary leading-tight">359 avis</p>
-                <p className="text-xs text-muted-foreground font-medium">Google</p>
+            </div>
+
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "0.9s", animationFillMode: "both" }}
+            >
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-card-hover flex items-center gap-3 animate-float-delayed">
+                <div className="flex flex-col items-center gap-0.5">
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                  <span className="text-lg font-bold text-primary leading-none">5.0/5</span>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-primary leading-tight">359 avis</p>
+                  <p className="text-xs text-muted-foreground font-medium">Google</p>
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
