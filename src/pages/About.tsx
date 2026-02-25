@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TrustBar from "@/components/home/TrustBar";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { 
@@ -135,10 +135,12 @@ const About = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>À Propos d'ECOLE T3P — Formation Taxi VTC</title>
-        <meta name="description" content="Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/a-propos" />
+      <DynamicSEOHead
+        pageUrl="/a-propos"
+        defaultTitle="À Propos d'ECOLE T3P — Formation Taxi VTC"
+        defaultDescription="Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport."
+        canonicalUrl="https://www.ecolet3p.fr/a-propos"
+      >
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -148,7 +150,7 @@ const About = () => {
             { "@type": "ListItem", "position": 2, "name": "À propos", "item": "https://www.ecolet3p.fr/a-propos" }
           ]
         })}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">

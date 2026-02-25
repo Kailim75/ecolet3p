@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
@@ -130,16 +130,14 @@ const BlogArticle = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={article.metaDescription} />
+      <DynamicSEOHead
+        pageUrl={`/blog/${article.slug}`}
+        defaultTitle={seoTitle}
+        defaultDescription={article.metaDescription}
+        canonicalUrl={articleUrl}
+        ogImage={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://www.ecolet3p.fr${article.image}`}
+      >
         <meta name="keywords" content={`${article.category}, formation ${article.category.toLowerCase()}, ECOLE T3P, transport de personnes`} />
-        <link rel="canonical" href={articleUrl} />
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.metaDescription} />
-        <meta property="og:url" content={articleUrl} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://www.ecolet3p.fr${article.image}`} />
         <meta property="og:site_name" content="ECOLE T3P" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="article:published_time" content={formatDateISO(article.publishDate)} />
@@ -149,7 +147,7 @@ const BlogArticle = () => {
         <meta name="twitter:description" content={article.metaDescription} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Reading progress bar */}
       <div className="fixed top-0 left-0 w-full h-1 z-50 bg-border/30">

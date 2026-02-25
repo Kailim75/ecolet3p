@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
@@ -121,16 +121,14 @@ const Formations = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Formations Taxi VTC VMDTR | ECOLE T3P</title>
-        <meta name="description" content="Catalogue complet : formations initiales Taxi VTC VMDTR dès 990€, continues, passerelles, packs économiques et programme parrainage. Paiement 4× sans frais." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations" />
-        <meta property="og:title" content="Formations Taxi VTC VMDTR | ECOLE T3P Montrouge" />
-        <meta property="og:description" content="Catalogue complet des formations professionnelles Taxi VTC VMDTR. 94% de réussite. Paiement 4× sans frais Alma." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/formations" />
-        <meta property="og:type" content="website" />
+      <DynamicSEOHead
+        pageUrl="/formations"
+        defaultTitle="Formations Taxi VTC VMDTR | ECOLE T3P"
+        defaultDescription="Catalogue complet : formations initiales Taxi VTC VMDTR dès 990€, continues, passerelles, packs économiques et programme parrainage. Paiement 4× sans frais."
+        canonicalUrl="https://www.ecolet3p.fr/formations"
+      >
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* ============ HERO ============ */}
       <section ref={heroRef} className="relative min-h-[420px] md:min-h-[560px] flex items-center overflow-hidden">

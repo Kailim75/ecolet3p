@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import TrustBar from "@/components/home/TrustBar";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion, useScroll, useTransform, AnimatePresence, type Variants } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -287,22 +287,20 @@ const Contact = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Contact ECOLE T3P Montrouge (92) | Taxi VTC</title>
-        <meta name="description" content="Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55." />
+      <DynamicSEOHead
+        pageUrl="/contact"
+        defaultTitle="Contact ECOLE T3P Montrouge (92) | Taxi VTC"
+        defaultDescription="Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55."
+        canonicalUrl="https://www.ecolet3p.fr/contact"
+        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+      >
         <meta name="keywords" content="contact formation taxi Montrouge, centre VTC Bagneux, formation taxi Vanves, centre formation Malakoff, formation VTC Châtillon, ECOLE T3P contact, devis formation taxi 92, centre formation sud Paris" />
-        <link rel="canonical" href="https://www.ecolet3p.fr/contact" />
-        <meta property="og:title" content="Contact ECOLE T3P Montrouge - Formation Taxi VTC Bagneux Vanves" />
-        <meta property="og:description" content="3 rue Corneille 92120 Montrouge. Tél : 01 88 75 05 55. Métro Mairie de Montrouge. Accessible depuis Bagneux, Vanves, Malakoff et Paris 14e." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/contact" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Contact ECOLE T3P Montrouge | Sud Paris 92" />
         <meta name="twitter:description" content="01 88 75 05 55. 3 rue Corneille, Montrouge. Accessible depuis Bagneux, Vanves, Malakoff." />
         <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">
