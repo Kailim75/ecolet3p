@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import RdvChoiceModal from "./RdvChoiceModal";
+import EcoleT3PLogoV5C from "../logo/EcoleT3PLogoV5C";
 
 const navLinks = [
   {
@@ -85,7 +86,7 @@ const Header = () => {
                 }
               }}
             >
-              <img src="/images/ecole-t3p-logo-v5c.png" alt="École T3P - Centre de formation Taxi VTC VMDTR" className="h-12 lg:h-14 xl:h-16 w-auto object-contain" />
+              <EcoleT3PLogoV5C className="h-10 lg:h-12 xl:h-14 w-auto" variant="color" />
             </Link>
 
             {/* Desktop Navigation */}

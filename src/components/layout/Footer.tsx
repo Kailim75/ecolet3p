@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Star, ChevronDown } from "lucide-react";
+import EcoleT3PLogoV5C from "../logo/EcoleT3PLogoV5C";
 
 // ── SILO 1 : Formations initiales ────────────────────────────────────────────
 const siloFormationsInitiales = [
@@ -67,7 +68,7 @@ const Footer = () => {
 
           {/* Col 1 : Info centre — 2 colonnes sur lg */}
           <div className="pb-6 md:pb-0 lg:col-span-1">
-            <img src="/images/ecole-t3p-logo-v5c-white.png" alt="École T3P" className="h-12 w-auto object-contain mb-4" />
+            <EcoleT3PLogoV5C className="h-10 w-auto mb-4" variant="white" />
             <p className="text-white/60 text-xs mb-4 leading-relaxed">
               Centre de formation agréé Préfecture des Hauts-de-Seine.<br />
               Agrément n° 23/007 — Depuis 2014.
