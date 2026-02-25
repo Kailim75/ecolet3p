@@ -4,7 +4,7 @@ import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
   ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
-  Bell, BellOff, Settings2, FileDown,
+  Bell, BellOff, Settings2, FileDown, Wrench, Check, X, Copy, ClipboardCheck,
 } from "lucide-react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -25,6 +25,20 @@ interface PageAudit { url: string; score: number; issues: Issue[]; recommendatio
 interface GlobalRec { category: string; message: string; priority: "high" | "medium" | "low"; }
 interface AuditResult { overallScore: number; pages: PageAudit[]; globalRecommendations: GlobalRec[]; alertSent?: boolean; }
 interface AuditHistory { id: string; overall_score: number; pages_count: number; total_errors: number; total_warnings: number; created_at: string; }
+interface SEOFix {
+  id: string;
+  audit_id: string | null;
+  page_url: string;
+  fix_type: "metadata" | "jsonld" | "content";
+  category: string;
+  current_value: string | null;
+  proposed_value: string;
+  impact: "high" | "medium" | "low";
+  ai_explanation: string | null;
+  status: "pending" | "approved" | "rejected" | "applied";
+  reviewed_at: string | null;
+  created_at: string;
+}
 
 // --- Small Components ---
 const ScoreBadge = ({ score }: { score: number }) => {
@@ -49,6 +63,20 @@ const ImpactBadge = ({ impact }: { impact: string }) => {
   return (
     <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded border ${styles[impact] || styles.low}`}>
       {labels[impact] || impact}
+    </span>
+  );
+};
+
+const FixTypeBadge = ({ type }: { type: string }) => {
+  const styles: Record<string, string> = {
+    metadata: "bg-purple-50 text-purple-600 border-purple-200",
+    jsonld: "bg-indigo-50 text-indigo-600 border-indigo-200",
+    content: "bg-emerald-50 text-emerald-600 border-emerald-200",
+  };
+  const labels: Record<string, string> = { metadata: "Métadonnées", jsonld: "JSON-LD", content: "Contenu" };
+  return (
+    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded border ${styles[type] || styles.metadata}`}>
+      {labels[type] || type}
     </span>
   );
 };
@@ -176,9 +204,184 @@ const ScoreHistoryChart = ({ history, threshold }: { history: AuditHistory[]; th
   );
 };
 
+// --- Fix Card ---
+const FixCard = ({ fix, onApprove, onReject, updating }: {
+  fix: SEOFix;
+  onApprove: (id: string) => void;
+  onReject: (id: string) => void;
+  updating: string | null;
+}) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyValue = () => {
+    navigator.clipboard.writeText(fix.proposed_value);
+    setCopied(true);
+    toast.success("Valeur copiée !");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const statusStyles: Record<string, string> = {
+    pending: "border-yellow-200 bg-yellow-50/30",
+    approved: "border-green-200 bg-green-50/30",
+    rejected: "border-red-200 bg-red-50/30",
+    applied: "border-primary/20 bg-primary/5",
+  };
+  const statusLabels: Record<string, string> = {
+    pending: "⏳ En attente",
+    approved: "✅ Approuvé",
+    rejected: "❌ Rejeté",
+    applied: "🚀 Appliqué",
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 5 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`rounded-lg border p-4 space-y-3 ${statusStyles[fix.status]}`}
+    >
+      <div className="flex items-center justify-between gap-2 flex-wrap">
+        <div className="flex items-center gap-2">
+          <FixTypeBadge type={fix.fix_type} />
+          <Badge variant="outline" className="text-[10px] capitalize">{fix.category}</Badge>
+          <ImpactBadge impact={fix.impact} />
+        </div>
+        <span className="text-[10px] font-medium text-muted-foreground">{statusLabels[fix.status]}</span>
+      </div>
+
+      {fix.ai_explanation && (
+        <p className="text-xs text-muted-foreground italic">{fix.ai_explanation}</p>
+      )}
+
+      {fix.current_value && (
+        <div>
+          <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Actuel</p>
+          <div className="text-xs text-foreground bg-red-50 p-2 rounded border border-red-100 line-through opacity-70 whitespace-pre-wrap break-all max-h-32 overflow-auto">
+            {fix.current_value}
+          </div>
+        </div>
+      )}
+
+      <div>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Correction proposée</p>
+          <button onClick={copyValue} className="text-muted-foreground hover:text-foreground transition-colors">
+            {copied ? <ClipboardCheck className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
+          </button>
+        </div>
+        <div className="text-xs text-primary font-medium bg-green-50 p-2 rounded border border-green-100 whitespace-pre-wrap break-all max-h-48 overflow-auto">
+          {fix.proposed_value}
+        </div>
+      </div>
+
+      {fix.status === "pending" && (
+        <div className="flex items-center gap-2 pt-1">
+          <Button
+            size="sm"
+            onClick={() => onApprove(fix.id)}
+            disabled={updating === fix.id}
+            className="bg-green-600 hover:bg-green-700 text-white text-xs h-8"
+          >
+            {updating === fix.id ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
+            Approuver
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => onReject(fix.id)}
+            disabled={updating === fix.id}
+            className="text-xs h-8 border-red-200 text-red-600 hover:bg-red-50"
+          >
+            <X className="w-3 h-3 mr-1" />
+            Rejeter
+          </Button>
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+// --- Fixes Review Panel ---
+const FixesReviewPanel = ({ fixes, onApprove, onReject, updating }: {
+  fixes: SEOFix[];
+  onApprove: (id: string) => void;
+  onReject: (id: string) => void;
+  updating: string | null;
+}) => {
+  const [filterStatus, setFilterStatus] = useState<string>("all");
+  const pendingCount = fixes.filter(f => f.status === "pending").length;
+  const approvedCount = fixes.filter(f => f.status === "approved").length;
+
+  const filtered = filterStatus === "all" ? fixes : fixes.filter(f => f.status === filterStatus);
+
+  // Group by page
+  const groupedByPage = filtered.reduce((acc, fix) => {
+    if (!acc[fix.page_url]) acc[fix.page_url] = [];
+    acc[fix.page_url].push(fix);
+    return acc;
+  }, {} as Record<string, SEOFix[]>);
+
+  if (fixes.length === 0) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white rounded-xl border border-border shadow-sm p-5 space-y-4"
+    >
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
+          <Wrench className="w-4 h-4 text-primary" />
+          Corrections IA à valider
+          {pendingCount > 0 && (
+            <Badge className="bg-yellow-100 text-yellow-700 border-yellow-200 text-[10px]">
+              {pendingCount} en attente
+            </Badge>
+          )}
+          {approvedCount > 0 && (
+            <Badge className="bg-green-100 text-green-700 border-green-200 text-[10px]">
+              {approvedCount} approuvé(s)
+            </Badge>
+          )}
+        </h3>
+        <div className="flex gap-1">
+          {["all", "pending", "approved", "rejected"].map(s => (
+            <button
+              key={s}
+              onClick={() => setFilterStatus(s)}
+              className={`text-[10px] px-2 py-1 rounded-full border transition-colors ${
+                filterStatus === s
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-background text-muted-foreground border-border hover:bg-muted/50"
+              }`}
+            >
+              {s === "all" ? "Tous" : s === "pending" ? "En attente" : s === "approved" ? "Approuvés" : "Rejetés"}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {Object.entries(groupedByPage).map(([url, pageFixes]) => (
+        <div key={url} className="space-y-2">
+          <p className="text-xs font-semibold text-foreground border-b border-border pb-1">{url}</p>
+          {pageFixes.map(fix => (
+            <FixCard key={fix.id} fix={fix} onApprove={onApprove} onReject={onReject} updating={updating} />
+          ))}
+        </div>
+      ))}
+    </motion.div>
+  );
+};
+
 // --- Page Card ---
-const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => {
+const PageCard = ({ page, audit, onGenerateFixes, generatingFix }: {
+  page: SEOPageInfo;
+  audit?: PageAudit;
+  onGenerateFixes: (pageAudit: PageAudit) => void;
+  generatingFix: string | null;
+}) => {
   const [open, setOpen] = useState(false);
+  const hasIssues = audit && (audit.issues.length > 0 || audit.recommendations.length > 0);
 
   return (
     <div className="bg-white rounded-xl border border-border shadow-sm overflow-hidden">
@@ -289,6 +492,29 @@ const PageCard = ({ page, audit }: { page: SEOPageInfo; audit?: PageAudit }) => 
                 </div>
               )}
 
+              {/* Generate fixes button */}
+              {audit && hasIssues && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => onGenerateFixes(audit)}
+                  disabled={generatingFix === audit.url}
+                  className="border-primary/30 text-primary hover:bg-primary/5"
+                >
+                  {generatingFix === audit.url ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 mr-1.5 animate-spin" />
+                      Génération des corrections…
+                    </>
+                  ) : (
+                    <>
+                      <Wrench className="w-3.5 h-3.5 mr-1.5" />
+                      Générer les corrections IA
+                    </>
+                  )}
+                </Button>
+              )}
+
               {!audit && (
                 <p className="text-xs text-muted-foreground italic">Lancez l'audit IA pour obtenir des recommandations pour cette page.</p>
               )}
@@ -311,6 +537,10 @@ const SEODashboard = () => {
   const [alertThreshold, setAlertThreshold] = useState(() => parseInt(localStorage.getItem("seo_alert_threshold") || "70", 10));
   const [alertEmail, setAlertEmail] = useState(() => localStorage.getItem("seo_alert_email") || "montrouge@ecolet3p.fr");
   const [showAlertSettings, setShowAlertSettings] = useState(false);
+  const [fixes, setFixes] = useState<SEOFix[]>([]);
+  const [generatingFix, setGeneratingFix] = useState<string | null>(null);
+  const [updatingFix, setUpdatingFix] = useState<string | null>(null);
+  const [lastAuditId, setLastAuditId] = useState<string | null>(null);
 
   useEffect(() => {
     localStorage.setItem("seo_alert_enabled", String(alertEnabled));
@@ -320,6 +550,7 @@ const SEODashboard = () => {
 
   useEffect(() => {
     fetchHistory();
+    fetchFixes();
   }, []);
 
   const fetchHistory = async () => {
@@ -333,10 +564,26 @@ const SEODashboard = () => {
 
       if (error) throw error;
       setHistory(data || []);
+      if (data && data.length > 0) setLastAuditId(data[0].id);
     } catch (err) {
       console.error("Error fetching SEO history:", err);
     } finally {
       setHistoryLoading(false);
+    }
+  };
+
+  const fetchFixes = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("seo_fixes")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(100);
+
+      if (error) throw error;
+      setFixes((data as SEOFix[]) || []);
+    } catch (err) {
+      console.error("Error fetching fixes:", err);
     }
   };
 
@@ -369,6 +616,45 @@ const SEODashboard = () => {
     }
   };
 
+  const generateFixesForPage = async (pageAudit: PageAudit) => {
+    setGeneratingFix(pageAudit.url);
+    try {
+      const { data, error } = await supabase.functions.invoke("seo-fix-proposal", {
+        body: { pageAudit, auditId: lastAuditId },
+      });
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+
+      toast.success(`${data.fixes?.length || 0} corrections générées pour ${pageAudit.url}`);
+      fetchFixes();
+    } catch (err: any) {
+      console.error("Fix generation error:", err);
+      toast.error(err.message || "Erreur lors de la génération des corrections");
+    } finally {
+      setGeneratingFix(null);
+    }
+  };
+
+  const updateFixStatus = async (fixId: string, status: "approved" | "rejected") => {
+    setUpdatingFix(fixId);
+    try {
+      const { error } = await supabase
+        .from("seo_fixes")
+        .update({ status, reviewed_at: new Date().toISOString() })
+        .eq("id", fixId);
+
+      if (error) throw error;
+      setFixes(prev => prev.map(f => f.id === fixId ? { ...f, status, reviewed_at: new Date().toISOString() } : f));
+      toast.success(status === "approved" ? "Correction approuvée ✅" : "Correction rejetée ❌");
+    } catch (err: any) {
+      console.error("Fix update error:", err);
+      toast.error("Erreur lors de la mise à jour");
+    } finally {
+      setUpdatingFix(null);
+    }
+  };
+
   const exportPDF = () => {
     if (!auditResult) {
       toast.error("Lancez d'abord un audit avant d'exporter.");
@@ -378,7 +664,6 @@ const SEODashboard = () => {
     const doc = new jsPDF({ orientation: "landscape" });
     const now = format(new Date(), "dd/MM/yyyy HH:mm");
 
-    // Title
     doc.setFontSize(18);
     doc.setTextColor(30, 70, 50);
     doc.text("Rapport d'audit SEO — ECOLE T3P", 14, 18);
@@ -386,13 +671,11 @@ const SEODashboard = () => {
     doc.setTextColor(120, 120, 120);
     doc.text(`Généré le ${now} • ${auditResult.pages?.length || 0} pages analysées`, 14, 25);
 
-    // Summary
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0);
     doc.text(`Score global : ${auditResult.overallScore}/100`, 14, 35);
     doc.text(`Erreurs : ${totalErrors}   |   Avertissements : ${totalWarnings}`, 14, 42);
 
-    // Pages table
     const tableData = (auditResult.pages || []).map(p => {
       const errors = p.issues?.filter(i => i.type === "error").length || 0;
       const warnings = p.issues?.filter(i => i.type === "warning").length || 0;
@@ -416,7 +699,6 @@ const SEODashboard = () => {
       alternateRowStyles: { fillColor: [245, 245, 240] },
     });
 
-    // Global recommendations on new page if present
     if (auditResult.globalRecommendations?.length) {
       doc.addPage();
       doc.setFontSize(14);
@@ -436,6 +718,31 @@ const SEODashboard = () => {
         styles: { fontSize: 9, cellPadding: 3 },
         headStyles: { fillColor: [30, 70, 50], textColor: 255 },
         columnStyles: { 0: { cellWidth: 25 }, 1: { cellWidth: 35 } },
+      });
+    }
+
+    // Add approved fixes section
+    const approvedFixes = fixes.filter(f => f.status === "approved");
+    if (approvedFixes.length > 0) {
+      doc.addPage();
+      doc.setFontSize(14);
+      doc.setTextColor(30, 70, 50);
+      doc.text("Corrections approuvées", 14, 18);
+
+      const fixData = approvedFixes.map(f => [
+        f.page_url,
+        f.fix_type === "metadata" ? "Méta" : f.fix_type === "jsonld" ? "JSON-LD" : "Contenu",
+        f.category,
+        (f.proposed_value || "").slice(0, 100),
+      ]);
+
+      autoTable(doc, {
+        startY: 24,
+        head: [["Page", "Type", "Catégorie", "Correction"]],
+        body: fixData,
+        styles: { fontSize: 8, cellPadding: 2 },
+        headStyles: { fillColor: [30, 70, 50], textColor: 255 },
+        columnStyles: { 0: { cellWidth: 60 }, 3: { cellWidth: "auto" } },
       });
     }
 
@@ -520,6 +827,14 @@ const SEODashboard = () => {
       {!historyLoading && history.length > 0 && (
         <ScoreHistoryChart history={history} threshold={alertEnabled ? alertThreshold : undefined} />
       )}
+
+      {/* Fixes Review Panel */}
+      <FixesReviewPanel
+        fixes={fixes}
+        onApprove={(id) => updateFixStatus(id, "approved")}
+        onReject={(id) => updateFixStatus(id, "rejected")}
+        updating={updatingFix}
+      />
 
       {/* History summary */}
       {!historyLoading && history.length > 0 && !auditResult && (
@@ -619,7 +934,13 @@ const SEODashboard = () => {
       {/* Pages list */}
       <div className="space-y-3">
         {filteredPages.map(page => (
-          <PageCard key={page.url} page={page} audit={getPageAudit(page.url)} />
+          <PageCard
+            key={page.url}
+            page={page}
+            audit={getPageAudit(page.url)}
+            onGenerateFixes={generateFixesForPage}
+            generatingFix={generatingFix}
+          />
         ))}
       </div>
     </div>
