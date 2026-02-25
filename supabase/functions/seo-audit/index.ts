@@ -297,10 +297,84 @@ Réponds UNIQUEMENT avec un JSON valide (sans markdown, sans backticks) :
       (sum: number, p: any) => sum + (p.issues?.filter((i: any) => i.type === "warning").length || 0), 0
     );
 
+    // ── Step 4: Cannibalization detection via AI ──
+    let cannibalizationGroups: any[] = [];
+    try {
+      const pageSummaries = pages.map((p: PageData) => ({
+        url: p.url,
+        title: p.title,
+        h1: p.h1,
+        description: p.description,
+      }));
+
+      const canniPrompt = `Tu es un expert SEO. Analyse ces pages d'un site de formation Taxi/VTC/VMDTR et détecte les GROUPES DE CANNIBALISATION : des pages qui ciblent la même intention de recherche ou le même mot-clé principal et se font concurrence dans les SERPs.
+
+Critères de cannibalisation :
+- Mots-clés principaux quasi-identiques dans title/H1
+- Même intention de recherche (informationnelle, transactionnelle, navigationnelle)
+- Chevauchement sémantique fort entre descriptions
+- Pages qui pourraient être fusionnées ou mieux différenciées
+
+NE signale PAS comme cannibalisation :
+- Des pages ciblant des professions différentes (taxi vs vtc vs vmdtr)
+- Des pages avec des intentions clairement distinctes (formation initiale vs continue)
+- Des pages géo-locales distinctes (villes différentes)
+
+Réponds UNIQUEMENT avec un JSON valide (sans markdown, sans backticks) :
+{
+  "groups": [
+    {
+      "keyword": "mot-clé principal en compétition",
+      "severity": "high" | "medium" | "low",
+      "pages": [
+        { "url": string, "title": string, "overlap_reason": string }
+      ],
+      "recommendation": "action recommandée pour résoudre la cannibalisation"
+    }
+  ]
+}
+
+Si aucune cannibalisation n'est détectée, retourne { "groups": [] }.`;
+
+      const canniResponse = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "google/gemini-3-flash-preview",
+          messages: [
+            { role: "system", content: canniPrompt },
+            { role: "user", content: JSON.stringify(pageSummaries) },
+          ],
+        }),
+      });
+
+      if (canniResponse.ok) {
+        const canniData = await canniResponse.json();
+        const canniContent = canniData.choices?.[0]?.message?.content;
+        if (canniContent) {
+          try {
+            const cleaned = canniContent.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+            const canniResult = JSON.parse(cleaned);
+            cannibalizationGroups = canniResult.groups || [];
+          } catch {
+            console.error("Failed to parse cannibalization response:", canniContent);
+          }
+        }
+      } else {
+        console.error("Cannibalization AI call failed:", canniResponse.status);
+      }
+    } catch (canniErr) {
+      console.error("Cannibalization detection error:", canniErr);
+    }
+
     const parsed = {
       overallScore,
       pages: mergedPages,
       globalRecommendations: aiResult.globalRecommendations || [],
+      cannibalization: cannibalizationGroups,
       methodology: {
         deterministicWeight: DETERMINISTIC_WEIGHT,
         semanticWeight: SEMANTIC_WEIGHT,

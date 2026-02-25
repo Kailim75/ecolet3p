@@ -27,7 +27,9 @@ interface Issue { type: "error" | "warning" | "info"; message: string; }
 interface Recommendation { category: string; current: string; suggested: string; impact: "high" | "medium" | "low"; }
 interface PageAudit { url: string; score: number; issues: Issue[]; recommendations: Recommendation[]; }
 interface GlobalRec { category: string; message: string; priority: "high" | "medium" | "low"; }
-interface AuditResult { overallScore: number; pages: PageAudit[]; globalRecommendations: GlobalRec[]; alertSent?: boolean; }
+interface CannibalizationPage { url: string; title: string; overlap_reason: string; }
+interface CannibalizationGroup { keyword: string; severity: "high" | "medium" | "low"; pages: CannibalizationPage[]; recommendation: string; }
+interface AuditResult { overallScore: number; pages: PageAudit[]; globalRecommendations: GlobalRec[]; cannibalization?: CannibalizationGroup[]; alertSent?: boolean; }
 interface AuditHistory { id: string; overall_score: number; pages_count: number; total_errors: number; total_warnings: number; created_at: string; }
 interface SEOFix {
   id: string;
@@ -406,6 +408,81 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
           ))}
         </div>
       ))}
+    </motion.div>
+  );
+};
+
+// --- Cannibalization Panel ---
+const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) => {
+  if (!groups || groups.length === 0) return null;
+
+  const severityStyles: Record<string, string> = {
+    high: "border-red-200 bg-red-50/40",
+    medium: "border-yellow-200 bg-yellow-50/40",
+    low: "border-blue-200 bg-blue-50/40",
+  };
+  const severityLabels: Record<string, string> = {
+    high: "🔴 Critique",
+    medium: "🟡 Modéré",
+    low: "🔵 Faible",
+  };
+  const severityIcon: Record<string, string> = {
+    high: "text-red-600",
+    medium: "text-yellow-600",
+    low: "text-blue-600",
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white rounded-xl border border-border shadow-sm p-5 space-y-4"
+    >
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
+          <AlertTriangle className="w-4 h-4 text-amber-500" />
+          Cannibalisation détectée
+          <Badge className="bg-amber-100 text-amber-700 border-amber-200 text-[10px]">
+            {groups.length} groupe{groups.length > 1 ? "s" : ""}
+          </Badge>
+        </h3>
+        <span className="text-[10px] text-muted-foreground">Analyse sémantique IA</span>
+      </div>
+
+      <div className="space-y-3">
+        {groups.map((group, idx) => (
+          <div key={idx} className={`rounded-lg border p-4 space-y-3 ${severityStyles[group.severity] || severityStyles.low}`}>
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className={`text-xs font-bold ${severityIcon[group.severity]}`}>
+                  {severityLabels[group.severity]}
+                </span>
+                <Badge variant="outline" className="text-[10px] font-mono">
+                  « {group.keyword} »
+                </Badge>
+              </div>
+              <span className="text-[10px] text-muted-foreground">{group.pages.length} pages en concurrence</span>
+            </div>
+
+            <div className="space-y-1.5">
+              {group.pages.map((page, pIdx) => (
+                <div key={pIdx} className="flex items-start gap-2 text-xs">
+                  <XCircle className="w-3.5 h-3.5 text-red-400 mt-0.5 shrink-0" />
+                  <div>
+                    <span className="font-medium text-foreground">{page.url}</span>
+                    <span className="text-muted-foreground"> — {page.overlap_reason}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-start gap-2 bg-white/60 rounded-md p-2.5 border border-border/50">
+              <Sparkles className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+              <p className="text-xs text-foreground">{group.recommendation}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 };
@@ -1018,6 +1095,11 @@ const SEODashboard = () => {
         updating={updatingFix}
         bulkApproving={bulkApproving}
       />
+
+      {/* Cannibalization Panel */}
+      {auditResult?.cannibalization && auditResult.cannibalization.length > 0 && (
+        <CannibalizationPanel groups={auditResult.cannibalization} />
+      )}
 
       {/* History summary */}
       {!historyLoading && history.length > 0 && !auditResult && (
