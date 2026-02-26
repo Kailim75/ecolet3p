@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" width="420" height="90">
-  <!-- ÉCOLE — Geometric sans-serif semibold, forest green -->
-  <text x="0" y="52" font-family="'Montserrat', 'Poppins', 'Avenir Next', sans-serif" font-weight="700" font-size="48" letter-spacing="2" fill="#0E3B2E">ÉCOLE</text>
-  <!-- T3P — Same family, gold/mustard, slightly more spacing -->
-  <text x="222" y="52" font-family="'Montserrat', 'Poppins', 'Avenir Next', sans-serif" font-weight="700" font-size="48" letter-spacing="4" fill="#B8860B">T3P</text>
-  <!-- Subtitle — Light weight, wide tracking, institutional gray -->
-  <text x="210" y="78" text-anchor="middle" font-family="'Montserrat', 'Poppins', 'Open Sans', sans-serif" font-weight="300" font-size="10.5" letter-spacing="4" fill="#6E6E6E">CENTRE DE FORMATION AGRÉÉ</text>
-</svg>
