@@ -70,7 +70,7 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-card shadow-md" : "bg-transparent"
+          isScrolled ? "bg-card shadow-md" : "bg-black/10 backdrop-blur-sm"
         }`}
       >
         <div className="container-custom px-3 lg:px-4">
