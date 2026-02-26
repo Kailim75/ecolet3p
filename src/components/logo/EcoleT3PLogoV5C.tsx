@@ -7,19 +7,21 @@ interface EcoleT3PLogoV5CProps {
 
 /**
  * ÉCOLE T3P — Logo final (image PNG)
- * Utilise l'image publique existante
+ * Color: nouveau logo header | White: ancienne version blanche (fond transparent)
  */
 const EcoleT3PLogoV5C = ({
   className = "h-12",
   variant = "color",
 }: EcoleT3PLogoV5CProps) => {
-  const src = "/images/ecole-t3p-logo-header.png";
+  const src = variant === "white"
+    ? "/images/ecole-t3p-logo-v5c-white.png"
+    : "/images/ecole-t3p-logo-header.png";
 
   return (
     <img
       src={src}
       alt="École T3P — Centre de Formation Agréé"
-      className={`${className} ${variant === "white" ? "brightness-0 invert" : ""}`}
+      className={className}
       loading="eager"
       decoding="async"
     />
