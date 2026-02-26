@@ -102,7 +102,7 @@ const Header = () => {
                     onMouseEnter={() => setHoverSubmenu(link.name)}
                     onMouseLeave={() => setHoverSubmenu(null)}
                   >
-                    <button className={`flex items-center gap-0.5 px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}>
+                    <button className={`relative flex items-center gap-0.5 px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg after:absolute after:bottom-0.5 after:left-1.5 after:right-1.5 after:h-[1.5px] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 ${isTransparent ? "text-white/90 hover:text-white after:bg-white/70" : "text-foreground hover:text-primary after:bg-primary"}`}>
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
@@ -132,7 +132,7 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path!}
-                    className={`px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}
+                    className={`relative px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg after:absolute after:bottom-0.5 after:left-1.5 after:right-1.5 after:h-[1.5px] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 ${isTransparent ? "text-white/90 hover:text-white after:bg-white/70" : "text-foreground hover:text-primary after:bg-primary"}`}
                   >
                     {link.name}
                   </Link>
