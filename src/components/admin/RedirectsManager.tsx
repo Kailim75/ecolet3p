@@ -21,6 +21,23 @@ interface Redirect {
   created_at: string;
 }
 
+// Routes protégées — interdites comme source de redirection
+const PROTECTED_ROUTES = new Set([
+  "/", "/formations", "/formations/taxi", "/formations/vtc", "/formations/vmdtr",
+  "/formations/mobilite", "/formations/continue-taxi", "/formations/continue-vtc",
+  "/formations/continue-vmdtr", "/formations/renouvellement", "/formations/villes",
+  "/formations/montrouge", "/formations/anglais-professionnel", "/formations/formule-soiree",
+  "/stage-recuperation-points", "/renouvellement-carte-professionnelle",
+  "/guide-formation", "/guide-formation/pdf", "/paiement", "/calendrier-examens",
+  "/services/location-vehicule-examen", "/passerelle-vtc-taxi",
+  "/formation-accessibilite-pmr", "/accompagnement-gestion-activite",
+  "/aide-administrative-creation-entreprise", "/audit-rentabilite",
+  "/audit-rentabilite-chauffeur", "/a-propos", "/contact", "/blog",
+  "/mentions-legales", "/politique-de-confidentialite", "/unsubscribe",
+  "/admin", "/admin-login", "/admin-signup", "/charte-graphique",
+  "/logo-preview", "/logo-export", "/logo-institutionnel", "/templates",
+]);
+
 const RedirectsManager = () => {
   const [redirects, setRedirects] = useState<Redirect[]>([]);
   const [loading, setLoading] = useState(true);
@@ -53,6 +70,10 @@ const RedirectsManager = () => {
   const addRedirect = async () => {
     if (!newFrom.trim() || !newTo.trim()) {
       toast.error("Les chemins source et destination sont requis");
+      return;
+    }
+    if (PROTECTED_ROUTES.has(newFrom.trim())) {
+      toast.error("Ce chemin correspond à une route protégée de l'application et ne peut pas être redirigé.");
       return;
     }
     setAdding(true);
