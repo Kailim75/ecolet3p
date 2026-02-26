@@ -22,6 +22,7 @@ const EcoleT3PLogoV5C = ({
       src={src}
       alt="École T3P — Centre de Formation Agréé"
       className={className}
+      style={variant === "color" ? { mixBlendMode: "multiply" } : undefined}
       loading="eager"
       decoding="async"
     />
