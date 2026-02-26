@@ -15,7 +15,7 @@ const EcoleT3PLogoV5C = ({
 }: EcoleT3PLogoV5CProps) => {
   const src = variant === "white"
     ? "/images/ecole-t3p-logo-v5c-white.png"
-    : "/images/ecole-t3p-logo-v5c.png";
+    : "/images/ecole-t3p-logo-header.png";
 
   return (
     <img
