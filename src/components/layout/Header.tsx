@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import RdvChoiceModal from "./RdvChoiceModal";
-import EcoleT3PLogoV5C from "../logo/EcoleT3PLogoV5C";
+
 
 const navLinks = [
   {
@@ -89,7 +89,7 @@ const Header = () => {
                 }
               }}
             >
-              <EcoleT3PLogoV5C className="h-[64px] lg:h-[72px] w-auto block object-contain" variant={isTransparent ? "white" : "color"} />
+              <span className={`text-2xl lg:text-3xl font-black tracking-tight ${isTransparent ? "text-white" : "text-primary"}`}>ÉCOLE <span className="text-accent">T3P</span></span>
             </Link>
 
             {/* Desktop Navigation */}
