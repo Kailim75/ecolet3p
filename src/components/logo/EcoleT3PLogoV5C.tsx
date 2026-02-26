@@ -22,9 +22,8 @@ const EcoleT3PLogoV5C = ({
       src={src}
       alt="École T3P — Centre de Formation Agréé"
       className={className}
-      width={130}
-      height={32}
-      style={{ objectFit: "contain" }}
+      loading="eager"
+      decoding="async"
     />
   );
 };
