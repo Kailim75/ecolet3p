@@ -1,56 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { PROTECTED_ROUTES } from "@/data/protectedRoutes";
 
 interface Redirect {
   from_path: string;
   to_path: string;
 }
-
-// Routes définies dans App.tsx — ne jamais rediriger depuis ces chemins
-const PROTECTED_ROUTES = new Set([
-  "/",
-  "/formations",
-  "/formations/taxi",
-  "/formations/vtc",
-  "/formations/vmdtr",
-  "/formations/mobilite",
-  "/formations/continue-taxi",
-  "/formations/continue-vtc",
-  "/formations/continue-vmdtr",
-  "/formations/renouvellement",
-  "/formations/villes",
-  "/formations/montrouge",
-  "/formations/anglais-professionnel",
-  "/formations/formule-soiree",
-  "/stage-recuperation-points",
-  "/renouvellement-carte-professionnelle",
-  "/guide-formation",
-  "/guide-formation/pdf",
-  "/paiement",
-  "/calendrier-examens",
-  "/services/location-vehicule-examen",
-  "/passerelle-vtc-taxi",
-  "/formation-accessibilite-pmr",
-  "/accompagnement-gestion-activite",
-  "/aide-administrative-creation-entreprise",
-  "/audit-rentabilite",
-  "/audit-rentabilite-chauffeur",
-  "/a-propos",
-  "/contact",
-  "/blog",
-  "/mentions-legales",
-  "/politique-de-confidentialite",
-  "/unsubscribe",
-  "/admin",
-  "/admin-login",
-  "/admin-signup",
-  "/charte-graphique",
-  "/logo-preview",
-  "/logo-export",
-  "/logo-institutionnel",
-  "/templates",
-]);
 
 const RedirectHandler = () => {
   const location = useLocation();
