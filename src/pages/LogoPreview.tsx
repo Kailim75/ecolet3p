@@ -2,9 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { T3PCampusLogo, T3PCampusIcon } from "@/components/logo/T3PCampusLogo";
-import { EcoleT3PLogo, EcoleT3PIcon } from "@/components/logo/EcoleT3PLogo";
 import EcoleT3PLogoV5C from "@/components/logo/EcoleT3PLogoV5C";
+import { EcoleT3PInstitutional, EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mb-16">
@@ -31,10 +30,10 @@ const LogoPreview = () => {
         </Link>
 
         <h1 className="text-4xl font-black text-primary mb-2">Prévisualisation des Logos</h1>
-        <p className="text-muted-foreground mb-12">Tous les variants de logo côte à côte</p>
+        <p className="text-muted-foreground mb-12">Logo officiel ECOLE T3P — toutes variantes</p>
 
         {/* ── LOGO V5C (Actuel) ── */}
-        <Section title="⭐ Logo V5C — Actuel (SVG React)">
+        <Section title="⭐ Logo V5C — Officiel">
           <div className="grid gap-8">
             <Card label="V5C Couleur (fond clair)">
               <EcoleT3PLogoV5C className="h-14" variant="color" />
@@ -71,71 +70,29 @@ const LogoPreview = () => {
           </div>
         </Section>
 
-        {/* ── ECOLE T3P Legacy ── */}
-        <Section title="📜 Logo ECOLE T3P — Legacy (SVG React)">
+        {/* ── Logo Institutionnel ── */}
+        <Section title="📜 Logo Institutionnel (SVG React)">
           <div className="grid gap-8">
-            <Card label="Full — Color">
-              <EcoleT3PLogo className="h-16" variant="full" theme="color" />
+            <Card label="Institutionnel — Clair">
+              <EcoleT3PInstitutional className="h-14" theme="light" showBaseline />
             </Card>
-            <Card label="Full — White" bg="bg-primary">
-              <p className="text-sm font-semibold text-white/60 mb-4">Full — White</p>
-              <EcoleT3PLogo className="h-16" variant="full" theme="white" />
+            <Card label="Institutionnel — Sombre" bg="bg-primary">
+              <p className="text-sm font-semibold text-white/60 mb-4">Institutionnel — Sombre</p>
+              <EcoleT3PInstitutional className="h-14" theme="dark" showBaseline />
             </Card>
-            <Card label="Full — Mono">
-              <EcoleT3PLogo className="h-16" variant="full" theme="mono" />
-            </Card>
-            <Card label="Horizontal">
-              <EcoleT3PLogo className="h-12" variant="horizontal" theme="color" />
+            <Card label="Institutionnel — Mono">
+              <EcoleT3PInstitutional className="h-14" theme="mono" showBaseline />
             </Card>
           </div>
         </Section>
 
-        {/* ── Icônes Legacy ── */}
-        <Section title="🔵 Icônes ECOLE T3P — Legacy">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {(["color", "white", "mono", "gold", "stamp"] as const).map((theme) => (
-              <div key={theme} className={`rounded-2xl p-6 shadow-lg flex flex-col items-center ${theme === "white" ? "bg-primary" : "bg-card"}`}>
-                <p className={`text-xs font-semibold mb-3 ${theme === "white" ? "text-white/60" : "text-muted-foreground"}`}>{theme}</p>
-                <EcoleT3PIcon className="w-20 h-20" theme={theme} />
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* ── T3P Campus ── */}
-        <Section title="🎓 Logo T3P Campus">
-          <div className="grid gap-8">
-            <Card label="Campus — Color">
-              <T3PCampusLogo className="h-16" theme="color" />
-            </Card>
-            <Card label="Campus — White" bg="bg-primary">
-              <p className="text-sm font-semibold text-white/60 mb-4">Campus — White</p>
-              <T3PCampusLogo className="h-16" theme="white" />
-            </Card>
-            <Card label="Campus — Mono">
-              <T3PCampusLogo className="h-16" theme="mono" />
-            </Card>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-            {(["color", "white", "mono"] as const).map((theme) => (
-              <div key={theme} className={`rounded-2xl p-6 shadow-lg flex flex-col items-center ${theme === "white" ? "bg-primary" : "bg-card"}`}>
-                <p className={`text-xs font-semibold mb-3 ${theme === "white" ? "text-white/60" : "text-muted-foreground"}`}>Icon — {theme}</p>
-                <T3PCampusIcon className="w-20 h-20" theme={theme} />
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* ── Fichiers SVG statiques ── */}
-        <Section title="📁 Fichiers SVG statiques (src/assets)">
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { src: "/logo/ecole-t3p-institutional-white.svg", label: "Institutional White", dark: true },
-              { src: "/logo/ecole-t3p-monogram.svg", label: "Monogram", dark: false },
-            ].map(({ src, label, dark }) => (
-              <div key={src} className={`rounded-2xl p-6 shadow-lg flex flex-col items-center ${dark ? "bg-primary" : "bg-card"}`}>
-                <p className={`text-xs font-semibold mb-3 ${dark ? "text-white/60" : "text-muted-foreground"}`}>{label}</p>
-                <img src={src} alt={label} className="h-12 w-auto" />
+        {/* ── Monogramme ── */}
+        <Section title="🔵 Monogramme T3P">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {(["light", "dark", "mono"] as const).map((theme) => (
+              <div key={theme} className={`rounded-2xl p-6 shadow-lg flex flex-col items-center ${theme === "dark" ? "bg-primary" : "bg-card"}`}>
+                <p className={`text-xs font-semibold mb-3 ${theme === "dark" ? "text-white/60" : "text-muted-foreground"}`}>{theme}</p>
+                <EcoleT3PMonogram className="w-20 h-20" theme={theme} />
               </div>
             ))}
           </div>

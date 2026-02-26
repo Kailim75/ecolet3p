@@ -86,7 +86,7 @@ const Header = () => {
                 }
               }}
             >
-              <EcoleT3PLogoV5C className="" variant="color" />
+              <EcoleT3PLogoV5C className="h-8 lg:h-10 w-auto" variant="color" />
             </Link>
 
             {/* Desktop Navigation */}
