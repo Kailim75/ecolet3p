@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
-  <!-- ÉCOLE -->
-  <text x="122" y="58" text-anchor="middle" font-family="'Arial Black', 'Poppins', sans-serif" font-weight="900" font-size="52" letter-spacing="3" fill="#FFFFFF">ÉCOLE</text>
-  <!-- T3P -->
-  <text x="228" y="58" text-anchor="middle" font-family="'Arial Black', 'Poppins', sans-serif" font-weight="900" font-size="52" letter-spacing="3" fill="#D4A94A">T</text>
-  <text x="268" y="58" text-anchor="middle" font-family="'Arial Black', 'Poppins', sans-serif" font-weight="900" font-size="52" letter-spacing="3" fill="#D4A94A">3</text>
-  <text x="308" y="58" text-anchor="middle" font-family="'Arial Black', 'Poppins', sans-serif" font-weight="900" font-size="52" letter-spacing="3" fill="#D4A94A">P</text>
-  <!-- Tagline -->
-  <text x="200" y="82" text-anchor="middle" font-family="'Arial', sans-serif" font-weight="600" font-size="11" letter-spacing="3.5" fill="rgba(255,255,255,0.7)">CENTRE DE FORMATION AGRÉÉ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" width="420" height="90">
+  <!-- ÉCOLE — White version for dark backgrounds -->
+  <text x="0" y="52" font-family="'Montserrat', 'Poppins', 'Avenir Next', sans-serif" font-weight="700" font-size="48" letter-spacing="2" fill="#FFFFFF">ÉCOLE</text>
+  <!-- T3P — Gold preserved on dark -->
+  <text x="222" y="52" font-family="'Montserrat', 'Poppins', 'Avenir Next', sans-serif" font-weight="700" font-size="48" letter-spacing="4" fill="#D4A94A">T3P</text>
+  <!-- Subtitle -->
+  <text x="210" y="78" text-anchor="middle" font-family="'Montserrat', 'Poppins', 'Open Sans', sans-serif" font-weight="300" font-size="10.5" letter-spacing="4" fill="rgba(255,255,255,0.7)">CENTRE DE FORMATION AGRÉÉ</text>
 </svg>
