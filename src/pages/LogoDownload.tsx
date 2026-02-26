@@ -95,7 +95,7 @@ const LogoDownload = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <div className="min-h-screen bg-background py-12 px-4">
+      <div className="min-h-screen bg-background pt-28 pb-12 px-4">
         <div className="max-w-4xl mx-auto">
           <Link to="/logo-showcase" className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors mb-8 text-sm">
             <ArrowLeft className="w-4 h-4" />
