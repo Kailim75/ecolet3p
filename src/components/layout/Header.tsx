@@ -89,7 +89,7 @@ const Header = () => {
                 }
               }}
             >
-              <EcoleT3PLogoV5C className="h-16 lg:h-20 w-auto" variant={isTransparent ? "white" : "color"} />
+              <EcoleT3PLogoV5C className="h-[64px] lg:h-[72px] w-auto block object-contain" variant={isTransparent ? "white" : "color"} />
             </Link>
 
             {/* Desktop Navigation */}
