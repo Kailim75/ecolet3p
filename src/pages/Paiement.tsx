@@ -24,7 +24,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import AlmaLogo from "@/components/logo/AlmaLogo";
-import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
+
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
@@ -185,7 +185,7 @@ const Paiement = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <div className="flex items-center justify-center gap-4 mb-6">
-              <EcoleT3PMonogram className="w-12 h-12" />
+              <span className="text-2xl font-black text-primary">ÉCOLE <span className="text-accent">T3P</span></span>
               <span className="text-xl font-bold text-muted-foreground">×</span>
               <AlmaLogo className="h-10" />
             </div>
