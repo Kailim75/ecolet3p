@@ -43,6 +43,7 @@ const LogoPreview = lazy(() => import("./pages/LogoPreview"));
 const LogoExport = lazy(() => import("./pages/LogoExport"));
 const LogoInstitutional = lazy(() => import("./pages/LogoInstitutional"));
 const LogoShowcase = lazy(() => import("./pages/LogoShowcase"));
+const LogoDownload = lazy(() => import("./pages/LogoDownload"));
 const RecuperationPoints = lazy(() => import("./pages/RecuperationPoints"));
 const RenouvellementCarteProfessionnelle = lazy(() => import("./pages/RenouvellementCarteProfessionnelle"));
 const Templates = lazy(() => import("./pages/Templates"));
@@ -138,6 +139,7 @@ const App = () => {
                       <Route path="/logo-export" element={<LogoExport />} />
                       <Route path="/logo-institutionnel" element={<LogoInstitutional />} />
                       <Route path="/logo-showcase" element={<LogoShowcase />} />
+                      <Route path="/logo-download" element={<LogoDownload />} />
                       <Route path="/templates" element={<Templates />} />
                       {/* Redirects anciennes URLs → nouvelles URLs SEO */}
                       <Route path="/formations/recuperation-points" element={<Navigate to="/stage-recuperation-points" replace />} />
