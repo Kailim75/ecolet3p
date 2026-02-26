@@ -70,7 +70,7 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-card shadow-md" : "bg-card/95 backdrop-blur-sm"
+          isScrolled ? "bg-card shadow-md" : "bg-transparent"
         }`}
       >
         <div className="container-custom px-3 lg:px-4">
@@ -86,7 +86,7 @@ const Header = () => {
                 }
               }}
             >
-              <EcoleT3PLogoV5C className="h-16 lg:h-20 w-auto" variant="color" />
+              <EcoleT3PLogoV5C className="h-16 lg:h-20 w-auto" variant={isScrolled ? "color" : "white"} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -99,7 +99,7 @@ const Header = () => {
                     onMouseEnter={() => setHoverSubmenu(link.name)}
                     onMouseLeave={() => setHoverSubmenu(null)}
                   >
-                    <button className="flex items-center gap-1 px-2 py-2 text-[13px] font-medium text-foreground hover:text-primary transition-colors rounded-lg">
+                    <button className={`flex items-center gap-1 px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"}`}>
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
@@ -129,7 +129,7 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path!}
-                    className="px-2 py-2 text-[13px] font-medium text-foreground hover:text-primary transition-colors rounded-lg"
+                    className={`px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"}`}
                   >
                     {link.name}
                   </Link>
@@ -141,7 +141,7 @@ const Header = () => {
             <div className="hidden lg:flex flex-shrink-0 items-center gap-2">
               <a
                 href="tel:0188750555"
-                className="flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors whitespace-nowrap"
+                className={`flex items-center gap-1 text-xs font-semibold transition-colors whitespace-nowrap ${isScrolled ? "text-primary hover:text-primary/80" : "text-white/90 hover:text-white"}`}
               >
                 <Phone className="w-3.5 h-3.5" />
                 01 88 75 05 55
@@ -156,14 +156,14 @@ const Header = () => {
             <div className="flex items-center gap-2 lg:hidden">
               <a
                 href="tel:0188750555"
-                className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center"
+                className={`w-9 h-9 rounded-full flex items-center justify-center ${isScrolled ? "bg-primary/10 text-primary" : "bg-white/20 text-white"}`}
                 aria-label="Appeler"
               >
                 <Phone className="w-4 h-4" />
               </a>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="w-10 h-10 flex items-center justify-center text-foreground"
+                className={`w-10 h-10 flex items-center justify-center ${isScrolled ? "text-foreground" : "text-white"}`}
                 aria-label={isMenuOpen ? "Fermer" : "Menu"}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
