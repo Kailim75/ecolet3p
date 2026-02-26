@@ -102,7 +102,7 @@ const Header = () => {
                     onMouseEnter={() => setHoverSubmenu(link.name)}
                     onMouseLeave={() => setHoverSubmenu(null)}
                   >
-                    <button className={`flex items-center gap-1 px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}>
+                    <button className={`flex items-center gap-0.5 px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}>
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
@@ -132,7 +132,7 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path!}
-                    className={`px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}
+                    className={`px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}
                   >
                     {link.name}
                   </Link>
