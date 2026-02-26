@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import EcoleT3PLogoV5C from "@/components/logo/EcoleT3PLogoV5C";
+import { EcoleT3PMonogram } from "@/components/logo/EcoleT3PInstitutional";
 
 interface PageLoaderProps {
   isLoading: boolean;
@@ -100,7 +100,7 @@ const PageLoader = ({ isLoading, onLoadingComplete }: PageLoaderProps) => {
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <EcoleT3PLogoV5C className="h-24 w-24" variant="color" />
+                <EcoleT3PMonogram className="w-24 h-24" theme="light" />
               </motion.div>
             </motion.div>
           </div>
