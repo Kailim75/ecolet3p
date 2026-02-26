@@ -48,6 +48,7 @@ const Header = () => {
   const [hoverSubmenu, setHoverSubmenu] = useState<string | null>(null);
   const [isRdvOpen, setIsRdvOpen] = useState(false);
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -66,11 +67,13 @@ const Header = () => {
     return () => { document.body.style.overflow = ""; };
   }, [isMenuOpen]);
 
+  const isTransparent = isHomePage && !isScrolled;
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-card shadow-md" : "bg-black/10 backdrop-blur-sm"
+          isTransparent ? "bg-black/10 backdrop-blur-sm" : "bg-card shadow-md"
         }`}
       >
         <div className="container-custom px-3 lg:px-4">
@@ -86,7 +89,7 @@ const Header = () => {
                 }
               }}
             >
-              <EcoleT3PLogoV5C className="h-16 lg:h-20 w-auto" variant={isScrolled ? "color" : "white"} />
+              <EcoleT3PLogoV5C className="h-16 lg:h-20 w-auto" variant={isTransparent ? "white" : "color"} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -99,7 +102,7 @@ const Header = () => {
                     onMouseEnter={() => setHoverSubmenu(link.name)}
                     onMouseLeave={() => setHoverSubmenu(null)}
                   >
-                    <button className={`flex items-center gap-1 px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"}`}>
+                    <button className={`flex items-center gap-1 px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}>
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
@@ -129,7 +132,7 @@ const Header = () => {
                   <Link
                     key={link.path}
                     to={link.path!}
-                    className={`px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isScrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"}`}
+                    className={`px-2 py-2 text-[13px] font-medium transition-colors rounded-lg ${isTransparent ? "text-white/90 hover:text-white" : "text-foreground hover:text-primary"}`}
                   >
                     {link.name}
                   </Link>
@@ -141,7 +144,7 @@ const Header = () => {
             <div className="hidden lg:flex flex-shrink-0 items-center gap-2">
               <a
                 href="tel:0188750555"
-                className={`flex items-center gap-1 text-xs font-semibold transition-colors whitespace-nowrap ${isScrolled ? "text-primary hover:text-primary/80" : "text-white/90 hover:text-white"}`}
+                className={`flex items-center gap-1 text-xs font-semibold transition-colors whitespace-nowrap ${isTransparent ? "text-white/90 hover:text-white" : "text-primary hover:text-primary/80"}`}
               >
                 <Phone className="w-3.5 h-3.5" />
                 01 88 75 05 55
@@ -156,14 +159,14 @@ const Header = () => {
             <div className="flex items-center gap-2 lg:hidden">
               <a
                 href="tel:0188750555"
-                className={`w-9 h-9 rounded-full flex items-center justify-center ${isScrolled ? "bg-primary/10 text-primary" : "bg-white/20 text-white"}`}
+                className={`w-9 h-9 rounded-full flex items-center justify-center ${isTransparent ? "bg-white/20 text-white" : "bg-primary/10 text-primary"}`}
                 aria-label="Appeler"
               >
                 <Phone className="w-4 h-4" />
               </a>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`w-10 h-10 flex items-center justify-center ${isScrolled ? "text-foreground" : "text-white"}`}
+                className={`w-10 h-10 flex items-center justify-center ${isTransparent ? "text-white" : "text-foreground"}`}
                 aria-label={isMenuOpen ? "Fermer" : "Menu"}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
