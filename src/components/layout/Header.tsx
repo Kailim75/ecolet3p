@@ -74,7 +74,7 @@ const Header = () => {
         }`}
       >
         <div className="container-custom px-3 lg:px-4">
-          <div className="flex items-center justify-between h-16 lg:h-[72px]">
+          <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
             <Link
               to="/"
