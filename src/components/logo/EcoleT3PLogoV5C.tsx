@@ -6,21 +6,18 @@ interface EcoleT3PLogoV5CProps {
 }
 
 /**
- * ÉCOLE T3P — Logo PNG avec fond transparent
+ * ÉCOLE T3P — Logo SVG vectoriel tracé exact
+ * Color: couleurs originales | White: filtre CSS (SVG sans fond = rendu propre)
  */
 const EcoleT3PLogoV5C = ({
   className = "h-12",
   variant = "color",
 }: EcoleT3PLogoV5CProps) => {
-  const src = variant === "white"
-    ? "/images/ecole-t3p-logo-v5c-white.png"
-    : "/images/ecole-t3p-logo-v5c.png";
-
   return (
     <img
-      src={src}
+      src="/images/ecole-t3p-logo-color.svg"
       alt="École T3P — Centre de Formation Agréé"
-      className={className}
+      className={`${className} ${variant === "white" ? "brightness-0 invert" : ""}`}
       loading="eager"
       decoding="async"
     />
