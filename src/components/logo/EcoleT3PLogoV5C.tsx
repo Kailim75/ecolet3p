@@ -13,15 +13,13 @@ const EcoleT3PLogoV5C = ({
   className = "h-12",
   variant = "color",
 }: EcoleT3PLogoV5CProps) => {
-  const src = variant === "white"
-    ? "/images/ecole-t3p-logo-v5c-white.png"
-    : "/images/ecole-t3p-logo-header.png";
+  const src = "/images/ecole-t3p-logo-header.png";
 
   return (
     <img
       src={src}
       alt="École T3P — Centre de Formation Agréé"
-      className={className}
+      className={`${className} ${variant === "white" ? "brightness-0 invert" : ""}`}
       loading="eager"
       decoding="async"
     />
