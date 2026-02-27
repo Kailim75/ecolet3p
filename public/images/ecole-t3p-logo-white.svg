@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="120 66 530 142">
   <style>
     path[fill="#0E3B2E"] { fill: #FFFFFF; }
-    path[fill="#B47A00"] { fill: #D4A843; }
+    path[fill="#D4A843"] { fill: #D4A843; }
     path[fill="#6E6E6E"] { fill: rgba(255,255,255,0.9); }
   </style>
   <path d="M 409.00 132.00 L 409.00 136.75 L 409.75 136.75 L 410.00 137.75 L 442.75 137.75 L 442.75 131.00 L 410.00 131.00 L 410.00 131.75 Z" fill="#0E3B2E" fill-rule="evenodd"/>
