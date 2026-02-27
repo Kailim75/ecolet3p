@@ -9,7 +9,7 @@ import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
 // Lazy-load below-fold heavy sections
 const FormatsTable = lazy(() => import("@/components/home-v2/FormatsTable"));
 const UpcomingSessionsSection = lazy(() => import("@/components/home-v2/UpcomingSessionsSection"));
-const AuditRentabiliteModule = lazy(() => import("@/components/home-v2/AuditRentabiliteModule"));
+
 const EcosystemSection = lazy(() => import("@/components/home-v2/EcosystemSection"));
 const TestimonialsSection = lazy(() => import("@/components/home-v2/TestimonialsSection"));
 const NoCPFSection = lazy(() => import("@/components/home-v2/NoCPFSection"));
@@ -79,9 +79,6 @@ const Index = () => {
       <HeroSection h1Override={h1} />
       <ReassuranceBar />
 
-      <Suspense fallback={<SectionFallback />}>
-        <AuditRentabiliteModule />
-      </Suspense>
 
       <FormationsCards />
 
