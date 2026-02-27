@@ -70,7 +70,7 @@ const OptimizedImage = ({
     if (imgElRef.current?.complete && imgElRef.current.naturalWidth > 0) {
       setIsLoaded(true);
     }
-  });
+  }, [isInView]);
 
   const handleLoad = useCallback(() => setIsLoaded(true), []);
 
