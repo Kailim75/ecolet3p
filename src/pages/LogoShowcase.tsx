@@ -1,9 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const LogoShowcase = () => {
   return (
     <div className="min-h-screen bg-background p-8">
-      <h1 className="text-3xl font-black text-foreground mb-12 text-center">Kit Logo — ÉCOLE T3P</h1>
+      <div className="flex items-center justify-between mb-12 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-black text-foreground">Kit Logo — ÉCOLE T3P</h1>
+        <Button asChild>
+          <Link to="/logo-export">
+            <Download className="w-4 h-4 mr-2" />
+            Télécharger en PDF
+          </Link>
+        </Button>
+      </div>
 
       {/* Logo principal */}
       <section className="mb-16">
