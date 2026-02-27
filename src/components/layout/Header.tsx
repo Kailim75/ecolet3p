@@ -89,7 +89,7 @@ const Header = () => {
                 }
               }}
             >
-              <img src={isTransparent ? "/images/ecole-t3p-logo-white.svg" : "/images/ecole-t3p-logo-color.svg"} alt="ÉCOLE T3P — Centre de Formation Agréé" className="h-[48px] lg:h-[56px] w-auto block" loading="eager" decoding="async" />
+              <img src={isTransparent ? "/images/ecole-t3p-logo-white.svg" : "/images/ecole-t3p-logo-color.svg"} alt="ÉCOLE T3P — Centre de Formation Agréé" className="h-[48px] lg:h-[56px] w-auto block" width={160} height={48} loading="eager" decoding="async" />
             </Link>
 
             {/* Desktop Navigation */}

@@ -59,17 +59,13 @@ export default {
           dark: "#BF360C",
         },
         gold: {
-          DEFAULT: "hsl(var(--gold))",
-          light: "hsl(var(--gold-light))",
+          DEFAULT: "#D4A843",
+          light: "#E4BE73",
+          dark: "#C49843",
         },
         "green-light": "#E8F5E9",
         "orange-light": "#FFF3E0",
         "gray-light": "#F5F5F5",
-        gold: {
-          DEFAULT: "#D4A853",
-          light: "#E4BE73",
-          dark: "#C49843",
-        },
         cream: {
           DEFAULT: "#F5EBD7",
           light: "#FBF7EF",
@@ -96,7 +92,8 @@ export default {
         "2xl": "1rem",
       },
       fontFamily: {
-        sans: ["'Poppins'", "system-ui", "sans-serif"],
+        sans: ["'Inter'", "system-ui", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
       },
       boxShadow: {
         soft: "0 2px 12px rgba(0,0,0,0.06)",
