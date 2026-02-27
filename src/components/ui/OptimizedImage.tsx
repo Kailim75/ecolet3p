@@ -11,10 +11,9 @@ interface OptimizedImageProps {
   sizes?: string;
   width?: number;
   height?: number;
-  /** WebP srcset string (from vite-imagetools: ?w=400;800;1200&format=webp&as=srcset) */
   webpSrcSet?: string;
-  /** Original format srcset string */
   srcSet?: string;
+  onError?: () => void;
 }
 
 const aspectRatioClasses = {
@@ -36,6 +35,7 @@ const OptimizedImage = ({
   height,
   webpSrcSet,
   srcSet,
+  onError,
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -87,6 +87,7 @@ const OptimizedImage = ({
       srcSet={srcSet}
       fetchPriority={priority ? "high" : "auto"}
       onLoad={handleLoad}
+      onError={onError}
       className={cn(
         "w-full h-full object-cover transition-opacity duration-500",
         isLoaded ? "opacity-100" : "opacity-0",
