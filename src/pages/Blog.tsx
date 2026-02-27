@@ -7,6 +7,7 @@ import { blogArticles, BlogArticle } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowRight, BookOpen, Tag, Home, Car, Bike, FileText, Scale, Smartphone } from "lucide-react";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import { getBlogImageSrcset } from "@/data/blogImageSrcsets";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -51,6 +52,7 @@ const Blog = () => {
 
   const BlogImage = ({ article, className, priority }: { article: BlogArticle; className?: string; priority?: boolean }) => {
     const [hasError, setHasError] = useState(false);
+    const srcsetData = getBlogImageSrcset(article.image);
     
     if (hasError || !article.image) {
       return <BlogImageFallback category={article.category} className={className} />;
@@ -64,6 +66,8 @@ const Blog = () => {
         priority={priority}
         width={600}
         height={340}
+        webpSrcSet={srcsetData?.webpSrcSet}
+        sizes={srcsetData?.sizes || "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"}
         onError={() => setHasError(true)}
       />
     );
