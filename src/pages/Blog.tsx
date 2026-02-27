@@ -57,23 +57,15 @@ const Blog = () => {
     }
     
     return (
-      <div className="w-full h-full relative">
-        <OptimizedImage
-          src={article.image}
-          alt={article.title}
-          className={className}
-          priority={priority}
-          width={600}
-          height={340}
-        />
-        {/* Hidden img to detect load errors */}
-        <img
-          src={article.image}
-          alt=""
-          className="hidden"
-          onError={() => setHasError(true)}
-        />
-      </div>
+      <OptimizedImage
+        src={article.image}
+        alt={article.title}
+        className={className}
+        priority={priority}
+        width={600}
+        height={340}
+        onError={() => setHasError(true)}
+      />
     );
   };
 
@@ -265,7 +257,7 @@ const Blog = () => {
                     <BlogImage 
                       article={article}
                       className="group-hover:scale-105 transition-transform duration-500"
-                      priority={index < 3}
+                      priority={false}
                     />
                   </div>
 
