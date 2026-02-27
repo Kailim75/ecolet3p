@@ -162,7 +162,7 @@ export default function AuditRentabiliteChauffeur() {
               className="text-[22px] md:text-[32px] lg:text-[42px] font-bold text-white leading-tight mb-4"
             >
               Audit rentabilité chauffeur<br />
-              <span className="text-accent">Taxi / VTC / VMDTR</span> à Paris
+              <span className="text-[#D4A853]">Taxi / VTC / VMDTR</span> à Paris
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
