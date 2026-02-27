@@ -67,31 +67,31 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 md:gap-8">
 
           {/* Col 1 : Info centre — 2 colonnes sur lg */}
-          <div className="pb-6 md:pb-0 lg:col-span-1 text-center">
+          <div className="pb-6 md:pb-0 lg:col-span-1">
             <img src="/images/ecole-t3p-logo-white.svg" alt="ÉCOLE T3P — Centre de Formation Agréé" className="h-14 w-auto mb-4 mx-auto block" loading="lazy" decoding="async" />
             <p className="text-white/60 text-xs mb-4 leading-relaxed">
               Centre de formation agréé Préfecture des Hauts-de-Seine.<br />
               Agrément n° 23/007 — Depuis 2014.
             </p>
             <ul className="space-y-3 mb-5">
-              <li className="flex items-center justify-center gap-3">
-                <MapPin className="w-4 h-4 text-accent shrink-0" />
-                <span className="text-white/70 text-sm">3 rue Corneille, 92120 Montrouge</span>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-accent mt-1 shrink-0" />
+                <span className="text-white/70 text-sm">3 rue Corneille,<br />92120 Montrouge</span>
               </li>
               <li>
-                <a href="tel:0188750555" className="flex items-center justify-center gap-3 text-white/70 hover:text-accent transition-colors text-sm">
+                <a href="tel:0188750555" className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm">
                   <Phone className="w-4 h-4 text-accent shrink-0" />
                   01 88 75 05 55
                 </a>
               </li>
               <li>
-                <a href="mailto:montrouge@ecolet3p.fr" className="flex items-center justify-center gap-3 text-white/70 hover:text-accent transition-colors text-sm">
-                  <Mail className="w-4 h-4 text-accent shrink-0" />
+                <a href="mailto:montrouge@ecolet3p.fr" className="flex items-start gap-3 text-white/70 hover:text-accent transition-colors text-sm">
+                  <Mail className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                   montrouge@ecolet3p.fr
                 </a>
               </li>
-              <li className="flex items-center justify-center gap-3">
-                <Clock className="w-4 h-4 text-accent shrink-0" />
+              <li className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-accent mt-1 shrink-0" />
                 <span className="text-white/70 text-sm">Lun-Ven: 9h30-18h00</span>
               </li>
             </ul>
