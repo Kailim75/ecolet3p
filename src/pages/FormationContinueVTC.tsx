@@ -1,8 +1,10 @@
 import { RefreshCw } from "lucide-react";
 import ContinueFormationTemplate from "@/components/formations/ContinueFormationTemplate";
+import carteVtc from "@/assets/carte-professionnelle-vtc.jpg";
 
 const FormationContinueVTC = () => (
   <ContinueFormationTemplate
+    heroBackground={carteVtc}
     title="Formation Continue VTC 14h Montrouge — 170€ | ECOLE T3P"
     description="Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation délivrée le jour même. Sessions chaque semaine."
     canonical="https://www.ecolet3p.fr/formations/continue-vtc"
