@@ -1,6 +1,7 @@
 import { RefreshCw, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContinueFormationTemplate from "@/components/formations/ContinueFormationTemplate";
+import carteVmdtr from "@/assets/carte-professionnelle-vmdtr.jpg";
 
 const CrossSellSection = () => (
   <section className="section-padding bg-muted">
@@ -35,6 +36,7 @@ const CrossSellSection = () => (
 
 const FormationContinueVMDTR = () => (
   <ContinueFormationTemplate
+    heroBackground={carteVmdtr}
     title="Formation Continue VMDTR 14h Montrouge — 239€ | ECOLE T3P"
     description="Formation continue obligatoire VMDTR (moto-taxi) 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation immédiate."
     canonical="https://www.ecolet3p.fr/formations/continue-vmdtr"
