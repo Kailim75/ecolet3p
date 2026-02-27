@@ -203,11 +203,13 @@ const FormationRenouvellement = () => {
 
       {/* Hero */}
       <section className="py-16 lg:py-24 bg-primary relative overflow-hidden">
+        {/* Card image — positioned right */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-15"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] md:w-[45%] h-[130%] bg-contain bg-no-repeat bg-right-center opacity-20 md:opacity-25"
           style={{ backgroundImage: `url(${carteProfessionnelle})` }}
         />
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, white 0%, transparent 60%)" }} />
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/40" />
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/15 text-white mb-5">
