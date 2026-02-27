@@ -436,7 +436,7 @@ const FormationVille = () => {
           <GraduationCap className="w-12 h-12 text-white/30 mx-auto mb-4" />
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Vous habitez {city.name} ?<br />
-            <span className="text-accent">Lancez votre carrière de chauffeur</span>
+            <span className="text-gold">Lancez votre carrière de chauffeur</span>
           </h2>
           <p className="text-white/75 mb-8 max-w-xl mx-auto">
             990€ tout compris, frais d'examen inclus.

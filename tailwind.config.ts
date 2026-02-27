@@ -58,6 +58,10 @@ export default {
           light: "#FF6D00",
           dark: "#BF360C",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
         "green-light": "#E8F5E9",
         "orange-light": "#FFF3E0",
         "gray-light": "#F5F5F5",
