@@ -147,10 +147,13 @@ export default function AuditRentabiliteChauffeur() {
 
       {/* Hero */}
       <section className="py-14 lg:py-20 bg-primary relative overflow-hidden">
+        {/* Background image — positioned right */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-15"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] md:w-[50%] h-[130%] bg-contain bg-no-repeat bg-right-center opacity-20 md:opacity-25"
           style={{ backgroundImage: `url(${auditBg})` }}
         />
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/30" />
         <div className="container-custom relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
