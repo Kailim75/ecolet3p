@@ -8,6 +8,7 @@ import {
   Briefcase, TrendingUp, GraduationCap, Building2
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import auditBg from "@/assets/audit-rentabilite-bg.jpg";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 // Lazy-load the heavy audit module
@@ -145,8 +146,12 @@ export default function AuditRentabiliteChauffeur() {
       </div>
 
       {/* Hero */}
-      <section className="py-14 lg:py-20 bg-primary">
-        <div className="container-custom">
+      <section className="py-14 lg:py-20 bg-primary relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-15"
+          style={{ backgroundImage: `url(${auditBg})` }}
+        />
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
