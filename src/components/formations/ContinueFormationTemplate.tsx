@@ -70,6 +70,7 @@ interface ContinueFormationProps {
   testimonial?: { name: string; role: string; content: string };
   extraSection?: React.ReactNode;
   blogLinks?: BlogLink[];
+  heroBackground?: string;
 }
 
 const ContinueFormationTemplate = ({
@@ -78,7 +79,7 @@ const ContinueFormationTemplate = ({
   duration, price, format,
   category, objectives, regulatoryText, programModules,
   seoContent, faqs, relatedLinks,
-  testimonial, extraSection, blogLinks,
+  testimonial, extraSection, blogLinks, heroBackground,
 }: ContinueFormationProps) => {
   const pageUrl = new URL(canonical).pathname;
   const dynamicH1 = useDynamicH1(pageUrl, heading);
@@ -155,8 +156,14 @@ const ContinueFormationTemplate = ({
       </div>
 
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-primary">
-        <div className="container-custom">
+      <section className="py-16 lg:py-24 bg-primary relative overflow-hidden">
+        {heroBackground && (
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-15"
+            style={{ backgroundImage: `url(${heroBackground})` }}
+          />
+        )}
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/15 text-white mb-5">
               <BadgeIcon className="w-4 h-4" /> {badge}

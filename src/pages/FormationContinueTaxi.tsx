@@ -1,8 +1,10 @@
 import { RefreshCw } from "lucide-react";
 import ContinueFormationTemplate from "@/components/formations/ContinueFormationTemplate";
+import carteProfessionnelle from "@/assets/carte-professionnelle-taxi.png";
 
 const FormationContinueTaxi = () => (
   <ContinueFormationTemplate
+    heroBackground={carteProfessionnelle}
     title="Formation Continue Taxi 14h Montrouge — 239€ | ECOLE T3P"
     description="Formation continue obligatoire Taxi 14h à Montrouge (92). Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture. Attestation immédiate."
     canonical="https://www.ecolet3p.fr/formations/continue-taxi"
