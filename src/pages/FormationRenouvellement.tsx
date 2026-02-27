@@ -7,6 +7,7 @@ import {
   GraduationCap, Car, Bike, Clock, Euro, Shield, HelpCircle, AlertCircle
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import carteProfessionnelle from "@/assets/carte-professionnelle-taxi.png";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
@@ -202,6 +203,10 @@ const FormationRenouvellement = () => {
 
       {/* Hero */}
       <section className="py-16 lg:py-24 bg-primary relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-15"
+          style={{ backgroundImage: `url(${carteProfessionnelle})` }}
+        />
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, white 0%, transparent 60%)" }} />
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
