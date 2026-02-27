@@ -130,7 +130,7 @@ const PasserelleVtcTaxi = () => {
               className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4"
             >
               Doublez vos revenus avec une<br />
-              <span className="text-accent">seconde carte professionnelle</span>
+              <span className="text-gold">seconde carte professionnelle</span>
             </motion.h1>
 
             <motion.p

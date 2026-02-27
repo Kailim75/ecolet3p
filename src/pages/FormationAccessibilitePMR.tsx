@@ -113,7 +113,7 @@ const FormationAccessibilitePMR = () => {
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
               Boostez vos revenus avec le<br />
-              <span className="text-accent">transport PMR — Montrouge (92)</span>
+              <span className="text-gold">transport PMR — Montrouge (92)</span>
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">

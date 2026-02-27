@@ -213,7 +213,7 @@ const FormationMontrouge = () => {
               <MapPin className="w-4 h-4" /> Montrouge (92120) — Métro ligne 4
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-6">
-              Centre de formation <span className="text-accent">Taxi & VTC</span> à Montrouge
+              Centre de formation <span className="text-gold">Taxi & VTC</span> à Montrouge
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
               Depuis 2014, ECOLE T3P forme les futurs chauffeurs Taxi, VTC et VMDTR au cœur de Montrouge.
