@@ -65,9 +65,9 @@
     --green-light: 123 38% 94%;
     --orange-light: 36 100% 94%;
 
-    /* Gold — warm accent for hero titles */
-    --gold: 40 72% 50%;
-    --gold-light: 40 72% 65%;
+    /* Gold — warm accent for hero titles & logo T3P */
+    --gold: 42 65% 55%;
+    --gold-light: 42 65% 70%;
   }
 
   .dark {
