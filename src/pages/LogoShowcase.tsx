@@ -21,13 +21,21 @@ const monograms: LogoItem[] = [
   { label: "Monogramme blanc (SVG)", src: "/logo/ecole-t3p-monogram-white.svg", bg: "dark" },
 ];
 
-const handleDownload = (path: string) => {
-  const a = document.createElement("a");
-  a.href = path;
-  a.download = path.split("/").pop() || "logo";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+const handleDownload = async (path: string) => {
+  try {
+    const response = await fetch(path);
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = path.split("/").pop() || "logo";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    console.error("Download failed:", e);
+  }
 };
 
 const LogoCard = ({ item }: { item: LogoItem }) => (
