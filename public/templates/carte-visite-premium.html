@@ -249,6 +249,20 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .id-back-wordmark {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3.6mm;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 3mm;
+      display: flex;
+      align-items: baseline;
+      gap: 1mm;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+    }
+
     /* ===== VERSO PAYSAGE ===== */
     .card-back {
       width: 85mm;
@@ -642,10 +656,7 @@
           <div class="card-stage">
             <div class="card-front">
               <div class="gold-line top"></div>
-              <div class="front-logo-lockup" aria-label="ÉCOLE T3P — Centre de formation agréé">
-                <div class="front-wordmark"><span class="front-ecole">ÉCOLE</span><span class="front-t3p">T3P</span></div>
-                <div class="front-subtitle">CENTRE DE FORMATION AGRÉÉ</div>
-              </div>
+              <img class="front-logo" src="/images/ecole-t3p-logo-white-print.svg" alt="ÉCOLE T3P — Centre de formation agréé" style="height:17mm; width:auto; position:relative; z-index:1;" />
               <div class="gold-line bottom"></div>
             </div>
           </div>
@@ -656,7 +667,7 @@
           <div class="card-stage">
             <div class="card-back">
               <div class="back-identity">
-                <img src="/images/ecole-t3p-logo-white.svg" alt="ÉCOLE T3P" style="height:8mm; width:auto; margin-bottom:1mm;" />
+                <div class="id-back-wordmark"><span class="front-ecole">ÉCOLE</span> <span class="front-t3p">T3P</span></div>
                 <div class="id-gold-bar"></div>
                 <div class="id-name">Karim KATI</div>
                 <div class="id-role">Directeur du centre de formation</div>
@@ -701,10 +712,7 @@
           <div class="card-stage">
             <div class="card-front-v">
               <div class="gold-line top" style="top:6mm; width:16mm;"></div>
-              <div class="front-logo-lockup is-portrait" aria-label="ÉCOLE T3P — Centre de formation agréé">
-                <div class="front-wordmark"><span class="front-ecole">ÉCOLE</span><span class="front-t3p">T3P</span></div>
-                <div class="front-subtitle">CENTRE DE FORMATION AGRÉÉ</div>
-              </div>
+              <img src="/images/ecole-t3p-logo-white-print.svg" alt="ÉCOLE T3P — Centre de formation agréé" style="height:14mm; width:auto; position:relative; z-index:1;" />
               <div class="gold-line bottom" style="bottom:6mm; width:16mm;"></div>
             </div>
           </div>
@@ -714,7 +722,7 @@
           <div class="card-tag">Verso</div>
           <div class="card-stage">
             <div class="card-back-v">
-              <img src="/images/ecole-t3p-logo-white.svg" alt="ÉCOLE T3P" style="height:7mm; width:auto; margin-bottom:1mm;" />
+              <div class="id-back-wordmark" style="font-size:3mm;"><span class="front-ecole">ÉCOLE</span> <span class="front-t3p">T3P</span></div>
               <div class="bv-bar"></div>
               <div class="bv-name">Karim KATI</div>
               <div class="bv-role">Directeur du centre de formation</div>
