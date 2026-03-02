@@ -69,6 +69,13 @@ const templates = [
     category: "Document"
   },
   {
+    title: "Carte de Visite Premium",
+    description: "Carte de visite style cabinet — fond vert forêt, monogramme doré, formats paysage et portrait",
+    path: "/templates/carte-visite-premium.html",
+    icon: CreditCard,
+    category: "Document"
+  },
+  {
     title: "Contrat de Formation",
     description: "Modèle de contrat de formation professionnelle",
     path: "/templates/contrat-ecole-t3p.html",
