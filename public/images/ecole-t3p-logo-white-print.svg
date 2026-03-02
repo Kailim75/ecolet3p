@@ -17,9 +17,4 @@
     font-weight="500" 
     fill="rgba(255,255,255,0.85)" 
     letter-spacing="3.8">CENTRE DE FORMATION AGRÉÉ</text>
-
-  <!-- Drapeau français -->
-  <rect x="441" y="119" width="5" height="13" rx="1" fill="#002395"/>
-  <rect x="446" y="119" width="5" height="13" fill="#FFFFFF"/>
-  <rect x="451" y="119" width="5" height="13" rx="1" fill="#ED2939"/>
 </svg>
