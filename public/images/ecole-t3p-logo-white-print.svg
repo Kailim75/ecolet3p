@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 160" fill="none">
+  <!-- ÉCOLE T3P — Version blanche haute qualité pour impression -->
+
+  <!-- Nom principal en un seul bloc pour espacement naturel -->
+  <text y="95" text-anchor="middle" x="270"
+    font-family="'Montserrat','Plus Jakarta Sans','Poppins',system-ui,sans-serif" 
+    font-size="72" 
+    letter-spacing="-1">
+    <tspan fill="#FFFFFF" font-weight="700">ÉCOLE </tspan><tspan fill="#D4A843" font-weight="800">T3P</tspan>
+  </text>
+  
+  <!-- Sous-titre centré -->
+  <text x="270" y="130" 
+    text-anchor="middle"
+    font-family="'Inter','Helvetica Neue',system-ui,sans-serif" 
+    font-size="14.5" 
+    font-weight="500" 
+    fill="rgba(255,255,255,0.85)" 
+    letter-spacing="3.8">CENTRE DE FORMATION AGRÉÉ</text>
+
+  <!-- Drapeau français -->
+  <rect x="441" y="119" width="5" height="13" rx="1" fill="#002395"/>
+  <rect x="446" y="119" width="5" height="13" fill="#FFFFFF"/>
+  <rect x="451" y="119" width="5" height="13" rx="1" fill="#ED2939"/>
+</svg>
