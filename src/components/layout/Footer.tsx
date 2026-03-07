@@ -21,8 +21,9 @@ const siloServices = [
   { name: "Récupération de points", path: "/stage-recuperation-points" },
   { name: "Accessibilité PMR", path: "/formation-accessibilite-pmr" },
   { name: "Location véhicule examen", path: "/services/location-vehicule-examen" },
-  { name: "Aide administrative entreprise", path: "/aide-administrative-creation-entreprise" },
-  { name: "Gestion d'activité", path: "/accompagnement-gestion-activite" },
+  { name: "Calendrier examens CMA", path: "/calendrier-examens" },
+  { name: "Formule soirée (18h-21h30)", path: "/formations/formule-soiree" },
+  { name: "Guide de formation", path: "/guide-formation" },
 ];
 
 // ── SILO 3 : Blog Transport ───────────────────────────────────────────────────
