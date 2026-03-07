@@ -40,7 +40,7 @@ const siloInstitutionnel = [
   { name: "Paiement en plusieurs fois", path: "/paiement" },
   { name: "À propos d'ECOLE T3P", path: "/a-propos" },
   { name: "Contact", path: "/contact" },
-  { name: "Mentions juridiques", path: "/mentions-juridiques" },
+  { name: "Mentions légales", path: "/mentions-legales" },
   { name: "Politique de confidentialité", path: "/politique-de-confidentialite" },
 ];
 
