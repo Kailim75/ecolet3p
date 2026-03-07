@@ -144,9 +144,9 @@ const LocationVehiculeExamen = () => {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.ecolet3p.fr/" },
-            { "@type": "ListItem", "position": 3, "name": "Location Véhicule Examen", "item": "https://www.ecolet3p.fr/services/location-vehicule-examen" }
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 3, "name": "Location Véhicule Examen", "item": "https://ecolet3p.fr/services/location-vehicule-examen" }
           ]
         })}</script>
       </Helmet>

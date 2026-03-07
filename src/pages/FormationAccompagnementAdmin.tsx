@@ -5,7 +5,7 @@ const FormationAccompagnementAdmin = () => (
   <ServicePageTemplate
     title="Accompagnement Administratif 7h — À partir de 190€ | ECOLE T3P"
     description="Accompagnement administratif 7h à partir de 190€. Carte pro, registre T3P, préfecture, plateformes VTC. Paiement 4× sans frais."
-    canonical="https://www.ecolet3p.fr/aide-administrative-creation-entreprise"
+    canonical="https://ecolet3p.fr/aide-administrative-creation-entreprise"
     badge="Accompagnement Admin"
     badgeIcon={ClipboardList}
     heading="Accompagnement Administratif"

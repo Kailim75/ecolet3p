@@ -121,8 +121,8 @@ const Blog = () => {
         pageUrl="/blog"
         defaultTitle="Blog Formation Taxi VTC VMDTR | ECOLE T3P"
         defaultDescription="Articles, guides et conseils pour réussir votre examen Taxi, VTC ou VMDTR. Reconversion, réglementation 2026, astuces et retours d'expérience."
-        canonicalUrl="https://www.ecolet3p.fr/blog"
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl="https://ecolet3p.fr/blog"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>

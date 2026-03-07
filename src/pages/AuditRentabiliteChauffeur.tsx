@@ -119,12 +119,12 @@ export default function AuditRentabiliteChauffeur() {
       <Helmet>
         <title>Audit rentabilité chauffeur (Taxi/VTC/VMDTR) – École T3P Paris</title>
         <meta name="description" content="Estimez votre net mensuel (charges, statut, véhicule). Envoyez votre audit sur WhatsApp et démarrez votre formation." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/audit-rentabilite-chauffeur" />
+        <link rel="canonical" href="https://ecolet3p.fr/audit-rentabilite-chauffeur" />
         <meta property="og:title" content="Audit rentabilité chauffeur – École T3P Paris" />
         <meta property="og:description" content="Simulez votre rentabilité chauffeur VTC, Taxi ou VMDTR. Résultats instantanés + accompagnement WhatsApp." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/audit-rentabilite-chauffeur" />
+        <meta property="og:url" content="https://ecolet3p.fr/audit-rentabilite-chauffeur" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
