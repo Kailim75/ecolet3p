@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useSEOOverrides } from "@/hooks/useSEOOverrides";
+import { getCanonicalUrl } from "@/lib/siteConfig";
 
 interface DynamicSEOHeadProps {
   pageUrl: string; // e.g. "/formations/taxi"
@@ -13,11 +14,11 @@ interface DynamicSEOHeadProps {
 
 /**
  * Renders Helmet tags with dynamic SEO overrides from the database.
- * If an admin has approved an AI fix for title/description/og_title/og_description/h1,
- * it will override the static defaults.
  * 
- * Use the `h1` return value to render the page's H1 dynamically:
- * const { h1 } = DynamicSEOHead(...)  — or use the useDynamicH1 hook directly.
+ * CANONICAL LOGIC (centralized):
+ * - If `canonicalUrl` is provided, it is used as-is.
+ * - Otherwise, the canonical is auto-computed from `pageUrl` via getCanonicalUrl().
+ * - This guarantees every page using DynamicSEOHead has exactly ONE canonical tag.
  */
 const DynamicSEOHead = ({
   pageUrl,
@@ -35,14 +36,17 @@ const DynamicSEOHead = ({
   const ogTitle = overrides.og_title || title;
   const ogDescription = overrides.og_description || description;
 
+  // Always compute canonical — either from explicit prop or from pageUrl
+  const canonical = canonicalUrl || getCanonicalUrl(pageUrl);
+
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      <link rel="canonical" href={canonical} />
       <meta property="og:title" content={ogTitle} />
       <meta property="og:description" content={ogDescription} />
-      {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+      <meta property="og:url" content={canonical} />
       <meta property="og:type" content="website" />
       {ogImage && <meta property="og:image" content={ogImage} />}
       <meta name="robots" content="index, follow" />
