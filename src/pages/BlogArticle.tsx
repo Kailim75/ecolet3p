@@ -73,11 +73,11 @@ const BlogArticle = () => {
       "width": 1200,
       "height": 630
     },
-    "author": { "@type": "Organization", "name": "ECOLE T3P", "url": "https://www.ecolet3p.fr" },
+    "author": { "@type": "Organization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
     "publisher": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "url": "https://www.ecolet3p.fr",
+      "url": "https://ecolet3p.fr",
       "logo": { "@type": "ImageObject", "url": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg", "width": 512, "height": 512 }
     },
     "datePublished": formatDateISO(article.publishDate),

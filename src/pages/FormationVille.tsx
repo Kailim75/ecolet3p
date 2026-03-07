@@ -37,12 +37,12 @@ const FormationVille = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `https://www.ecolet3p.fr/formations/${city.slug}#localbusiness`,
+    "@id": `https://ecolet3p.fr/formations/${city.slug}#localbusiness`,
     "name": `ECOLE T3P — Formation Taxi VTC près de ${city.name}`,
-    "image": "https://www.ecolet3p.fr/og-image.jpg",
+    "image": "https://ecolet3p.fr/og-image.jpg",
     "telephone": "+33188750555",
     "email": "montrouge@ecolet3p.fr",
-    "url": `https://www.ecolet3p.fr/formations/${city.slug}`,
+    "url": `https://ecolet3p.fr/formations/${city.slug}`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
