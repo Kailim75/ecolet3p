@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import {
   RefreshCw, Check, ArrowRight, Phone, Star, Home, ChevronRight,
