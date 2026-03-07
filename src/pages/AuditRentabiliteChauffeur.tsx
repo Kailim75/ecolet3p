@@ -29,14 +29,14 @@ const defaultWhatsAppMessage =
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.ecolet3p.fr/#organization",
+  "@id": "https://ecolet3p.fr/#organization",
   name: "ECOLE T3P",
   description: "Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge, Île-de-France.",
-  url: "https://www.ecolet3p.fr",
+  url: "https://ecolet3p.fr",
   telephone: "+33188750555",
   email: "montrouge@ecolet3p.fr",
-  image: "https://www.ecolet3p.fr/og-image.jpg",
-  logo: "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg",
+  image: "https://ecolet3p.fr/og-image.jpg",
+  logo: "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg",
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
