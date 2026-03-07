@@ -82,7 +82,7 @@ const AccompagnementGestionActivite = () => {
         <link rel="canonical" href="https://ecolet3p.fr/accompagnement-gestion-activite" />
         <meta property="og:title" content="Gestion d'Activité Chauffeur — 390€ | ECOLE T3P Montrouge" />
         <meta property="og:description" content="Lancez votre activité sur des bases solides. Statut juridique, comptabilité, fiscalité — ROI immédiat." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/accompagnement-gestion-activite" />
+        <meta property="og:url" content="https://ecolet3p.fr/accompagnement-gestion-activite" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

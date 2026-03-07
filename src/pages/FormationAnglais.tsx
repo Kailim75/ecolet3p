@@ -24,7 +24,7 @@ const FormationAnglais = () => {
       <Helmet>
         <title>Formation Anglais Professionnel | ECOLE T3P</title>
         <meta name="description" content="Renforcement en anglais professionnel 20h à 350€. Accueillez vos clients internationaux avec professionnalisme. Paiement 4× sans frais." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations/anglais-professionnel" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/anglais-professionnel" />
       </Helmet>
 
       <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%)' }}>
