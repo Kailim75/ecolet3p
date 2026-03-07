@@ -33,8 +33,8 @@ const handler = async (req: Request): Promise<Response> => {
       .maybeSingle();
 
     const unsubscribeToken = subscriber?.unsubscribe_token || "";
-    const unsubscribeUrl = `https://www.ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
-    const guideUrl = "https://www.ecolet3p.fr/guide-formation";
+    const unsubscribeUrl = `https://ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
+    const guideUrl = "https://ecolet3p.fr/guide-formation";
     const emailSubject = "📘 Votre guide : Les 7 étapes pour devenir chauffeur T3P en 2026";
 
     const emailResponse = await resend.emails.send({
