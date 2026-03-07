@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -136,18 +136,13 @@ const Paiement = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Paiement en 2×, 3×, 4× sans frais | ECOLE T3P</title>
-        <meta
-          name="description"
-          content="Payez votre formation Taxi, VTC ou VMDTR en 2, 3 ou 4 fois sans frais avec Alma. 0 € de frais, réponse immédiate, sans justificatif. ECOLE T3P Montrouge."
-        />
-        <link rel="canonical" href="https://ecolet3p.fr/paiement" />
-        <meta property="og:title" content="Paiement en plusieurs fois sans frais | ECOLE T3P" />
-        <meta property="og:description" content="Financez votre formation T3P en 2×, 3× ou 4× sans frais grâce à notre partenaire Alma. Réponse immédiate, sans justificatif." />
-        <meta property="og:url" content="https://ecolet3p.fr/paiement" />
+      <DynamicSEOHead
+        pageUrl="/paiement"
+        defaultTitle="Paiement en 4× sans Frais — Alma | ECOLE T3P"
+        defaultDescription="Payez votre formation Taxi, VTC ou VMDTR en 2, 3 ou 4 fois sans frais avec Alma. Réponse immédiate, sans justificatif."
+      >
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">

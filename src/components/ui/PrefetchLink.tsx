@@ -14,6 +14,9 @@ const routeImports: Record<string, () => Promise<unknown>> = {
   "/mentions-legales": () => import("@/pages/LegalMentions"),
   "/politique-de-confidentialite": () => import("@/pages/PrivacyPolicy"),
   "/paiement": () => import("@/pages/Paiement"),
+  "/calendrier-examens": () => import("@/pages/CalendrierExamens"),
+  "/formations/formule-soiree": () => import("@/pages/FormuleSoiree"),
+  "/guide-formation": () => import("@/pages/GuideFormation"),
 };
 
 interface PrefetchLinkProps extends LinkProps {

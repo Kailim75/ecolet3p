@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -23,14 +23,11 @@ const CalendrierExamens = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Calendrier examens CMA 2026 — Taxi VTC VMDTR | ECOLE T3P</title>
-        <meta
-          name="description"
-          content="Calendrier prévisionnel 2026 des examens CMA Île-de-France : dates d'admissibilité (théorique) et d'admission (pratique) pour les cartes professionnelles Taxi, VTC et VMDTR."
-        />
-        <link rel="canonical" href="https://ecolet3p.fr/calendrier-examens" />
-      </Helmet>
+      <DynamicSEOHead
+        pageUrl="/calendrier-examens"
+        defaultTitle="Calendrier Examens CMA 2026 | ECOLE T3P"
+        defaultDescription="Dates des examens CMA 2026 en Île-de-France : admissibilité et admission pour les cartes Taxi, VTC et VMDTR. Calendrier officiel."
+      ></DynamicSEOHead>
 
       {/* Hero */}
       <section className="pt-12 pb-8 md:pt-16 md:pb-12" style={{ background: "linear-gradient(135deg, #FFFAF5 0%, #F5F7FF 100%)" }}>
