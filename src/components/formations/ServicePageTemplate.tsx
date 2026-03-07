@@ -43,11 +43,12 @@ const ServicePageTemplate = ({
 
   return (
     <Layout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
-      </Helmet>
+      <DynamicSEOHead
+        pageUrl={new URL(canonical).pathname}
+        defaultTitle={title}
+        defaultDescription={description}
+        canonicalUrl={canonical}
+      />
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">

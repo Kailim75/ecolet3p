@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
@@ -20,10 +20,11 @@ const fadeUpVariants = {
 const PrivacyPolicy = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Politique de Confidentialité | ECOLE T3P</title>
-        <meta name="description" content="Politique de confidentialité et protection des données personnelles du site ecolet3p.fr. ECOLE T3P, centre de formation Taxi VTC à Montrouge." />
-        <link rel="canonical" href="https://ecolet3p.fr/politique-de-confidentialite" />
+      <DynamicSEOHead
+        pageUrl="/politique-de-confidentialite"
+        defaultTitle="Politique de Confidentialité | ECOLE T3P"
+        defaultDescription="Protection des données personnelles du site ecolet3p.fr. ECOLE T3P, centre de formation Taxi VTC à Montrouge. Conformité RGPD."
+      >
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -32,7 +33,7 @@ const PrivacyPolicy = () => {
             { "@type": "ListItem", "position": 2, "name": "Politique de confidentialité", "item": "https://ecolet3p.fr/politique-de-confidentialite" }
           ]
         })}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">

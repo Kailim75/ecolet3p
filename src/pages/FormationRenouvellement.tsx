@@ -167,24 +167,15 @@ const FormationRenouvellement = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Renouvellement Carte Professionnelle VTC Taxi VMDTR — ECOLE T3P Montrouge</title>
-        <meta
-          name="description"
-          content="Renouvelez votre carte professionnelle VTC, Taxi ou VMDTR avec ECOLE T3P Montrouge (92). Formation continue agréée préfecture. Attestation le jour même. Dès 170€."
-        />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/renouvellement" />
-        <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR — ECOLE T3P" />
-        <meta property="og:description" content="Formation continue obligatoire pour renouveler votre carte professionnelle de chauffeur. Agréé préfecture 92. Attestation immédiate. Dès 170€." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/renouvellement" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
-        <meta property="og:locale" content="fr_FR" />
-        <meta property="og:site_name" content="ECOLE T3P" />
-        <meta name="twitter:card" content="summary_large_image" />
+      <DynamicSEOHead
+        pageUrl="/renouvellement-carte-professionnelle"
+        defaultTitle="Renouvellement Carte Pro VTC Taxi VMDTR | T3P"
+        defaultDescription="Renouvelez votre carte pro VTC, Taxi ou VMDTR à Montrouge (92). Formation continue agréée préfecture. Attestation le jour même. Dès 170€."
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
