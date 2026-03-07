@@ -11,7 +11,7 @@ const routeImports: Record<string, () => Promise<unknown>> = {
   "/a-propos": () => import("@/pages/About"),
   "/contact": () => import("@/pages/Contact"),
   "/blog": () => import("@/pages/Blog"),
-  "/mentions-juridiques": () => import("@/pages/LegalMentions"),
+  "/mentions-legales": () => import("@/pages/LegalMentions"),
   "/politique-de-confidentialite": () => import("@/pages/PrivacyPolicy"),
   "/paiement": () => import("@/pages/Paiement"),
 };

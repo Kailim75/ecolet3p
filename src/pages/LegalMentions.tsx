@@ -23,13 +23,13 @@ const LegalMentions = () => {
       <Helmet>
         <title>Mentions Légales | ECOLE T3P Montrouge</title>
         <meta name="description" content="Mentions légales du site ecolet3p.fr. ECOLE T3P, centre de formation professionnelle Taxi VTC VMDTR. 3 rue Corneille, 92120 Montrouge. Informations légales." />
-        <link rel="canonical" href="https://ecolet3p.fr/mentions-juridiques" />
+        <link rel="canonical" href="https://ecolet3p.fr/mentions-legales" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
-            { "@type": "ListItem", "position": 2, "name": "Mentions juridiques", "item": "https://ecolet3p.fr/mentions-juridiques" }
+            { "@type": "ListItem", "position": 2, "name": "Mentions légales", "item": "https://ecolet3p.fr/mentions-legales" }
           ]
         })}</script>
       </Helmet>
