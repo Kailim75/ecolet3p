@@ -105,7 +105,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" style="width: 100%;">
                         <tr>
                           <td style="text-align: center;">
-                            <a href="https://www.ecolet3p.fr/contact" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 15px;">
+                            <a href="https://ecolet3p.fr/contact" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 15px;">
                               Prendre rendez-vous →
                             </a>
                           </td>
