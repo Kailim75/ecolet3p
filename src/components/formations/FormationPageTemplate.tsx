@@ -220,7 +220,7 @@ const FormationPageTemplate = ({
         defaultTitle={title}
         defaultDescription={description}
         canonicalUrl={canonical}
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
