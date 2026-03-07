@@ -118,10 +118,10 @@ const About = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "@id": "https://www.ecolet3p.fr/#organization",
+    "@id": "https://ecolet3p.fr/#organization",
     "name": "ECOLE T3P",
     "description": "Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge.",
-    "url": "https://www.ecolet3p.fr",
+    "url": "https://ecolet3p.fr",
     "telephone": "+33 1 88 75 05 55",
     "email": "montrouge@ecolet3p.fr",
     "address": {
