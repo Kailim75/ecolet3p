@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const unsubscribeToken = subscriber?.unsubscribe_token || "";
-    const unsubscribeUrl = `https://www.ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
+    const unsubscribeUrl = `https://ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
     const emailSubject = "Bienvenue dans notre newsletter !";
 
     const emailResponse = await resend.emails.send({
