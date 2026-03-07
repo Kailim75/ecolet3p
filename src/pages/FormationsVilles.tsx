@@ -40,19 +40,19 @@ const FormationsVilles = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://www.ecolet3p.fr/"
+        "item": "https://ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Formations",
-        "item": "https://www.ecolet3p.fr/formations"
+        "item": "https://ecolet3p.fr/formations"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Villes desservies",
-        "item": "https://www.ecolet3p.fr/formations/villes"
+        "item": "https://ecolet3p.fr/formations/villes"
       }
     ]
   };
