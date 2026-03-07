@@ -139,8 +139,8 @@ const Contact = () => {
   const breadcrumbSchema = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.ecolet3p.fr/contact" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ecolet3p.fr/contact" }
     ]
   };
 
