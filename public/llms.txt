@@ -1,5 +1,5 @@
 # ECOLE T3P - Formation Taxi VTC VMDTR
-# https://www.ecolet3p.fr
+# https://ecolet3p.fr
 
 > Centre de formation professionnelle agréé par la Préfecture pour les métiers du Transport Public Particulier de Personnes (T3P) : Taxi, VTC et VMDTR (moto-taxi).
 
@@ -10,7 +10,7 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 - **Adresse** : 3 rue Corneille, 92120 Montrouge, France
 - **Téléphone** : 01 88 75 05 55
 - **Email** : montrouge@ecolet3p.fr
-- **Site web** : https://www.ecolet3p.fr
+- **Site web** : https://ecolet3p.fr
 - **Taux de réussite** : 94%
 - **Avis Google** : 5.0/5 (359 avis)
 
@@ -21,38 +21,38 @@ ECOLE T3P est le centre de formation de référence pour les métiers du transpo
 - **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle Taxi
 - **Prérequis** : Permis B depuis 3 ans minimum
-- **Plus d'infos** : https://www.ecolet3p.fr/formations/taxi
+- **Plus d'infos** : https://ecolet3p.fr/formations/taxi
 
 ### Formation VTC Initiale
 - **Tarif** : à partir de 990€ (Essentiel) ou 1 190€ (Premium), frais d'examen de 241€ inclus
 - **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle VTC
 - **Prérequis** : Permis B depuis 3 ans minimum
-- **Plus d'infos** : https://www.ecolet3p.fr/formations/vtc
+- **Plus d'infos** : https://ecolet3p.fr/formations/vtc
 
 ### Formation VMDTR (Moto-taxi)
 - **Tarif** : à partir de 990€ (Essentiel) ou 1 190€ (Premium), frais d'examen de 241€ inclus
 - **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
 - **Objectif** : Obtenir la carte professionnelle VMDTR
 - **Prérequis** : Permis A depuis 3 ans minimum
-- **Plus d'infos** : https://www.ecolet3p.fr/formations/vmdtr
+- **Plus d'infos** : https://ecolet3p.fr/formations/vmdtr
 
 ### Formation Mobilité (Passerelle Taxi ↔ VTC)
 - **Tarif** : 665€ tout compris (frais d'examen de 165€ inclus)
 - **Durée** : 14h
 - **Objectif** : Ajouter une mention complémentaire à sa carte
-- **Plus d'infos** : https://www.ecolet3p.fr/formations/mobilite
+- **Plus d'infos** : https://ecolet3p.fr/formations/mobilite
 
 ### Formations Continues Obligatoires (Renouvellement)
 - **Renouvellement carte pro** : 350€ — 14h tous les 5 ans
-- **Formation Continue Taxi** : https://www.ecolet3p.fr/formations/continue-taxi
-- **Formation Continue VTC** : https://www.ecolet3p.fr/formations/continue-vtc
-- **Formation Continue VMDTR** : 7h tous les 5 ans — https://www.ecolet3p.fr/formations/continue-vmdtr
+- **Formation Continue Taxi** : https://ecolet3p.fr/formations/continue-taxi
+- **Formation Continue VTC** : https://ecolet3p.fr/formations/continue-vtc
+- **Formation Continue VMDTR** : 7h tous les 5 ans — https://ecolet3p.fr/formations/continue-vmdtr
 
 ### Récupération de Points
 - **Durée** : 2 jours (14h)
 - **Objectif** : Récupérer jusqu'à 4 points sur le permis
-- **Plus d'infos** : https://www.ecolet3p.fr/stage-recuperation-points
+- **Plus d'infos** : https://ecolet3p.fr/stage-recuperation-points
 
 ## Zone de chalandise
 
@@ -91,7 +91,7 @@ Du lundi au vendredi : 9h30 - 12h30 et 13h30 - 18h00
 Pour toute question ou inscription :
 - **Téléphone** : 01 88 75 05 55
 - **Email** : montrouge@ecolet3p.fr
-- **Rendez-vous** : https://www.ecolet3p.fr/contact
+- **Rendez-vous** : https://ecolet3p.fr/contact
 - **WhatsApp** : Disponible sur le site
 
 ## Blog et Ressources
@@ -105,7 +105,7 @@ Articles et guides pour accompagner votre projet professionnel dans le transport
 - **Anglais professionnel** : Vocabulaire et phrases clés pour la clientèle internationale
 - **Guides pratiques** : Carte professionnelle, financement, formation continue
 
-Tous les articles : https://www.ecolet3p.fr/blog
+Tous les articles : https://ecolet3p.fr/blog
 
 ## Optional
 
