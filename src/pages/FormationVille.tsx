@@ -101,8 +101,8 @@ const FormationVille = () => {
         pageUrl={`/formations/${city.slug}`}
         defaultTitle={city.seoTitle}
         defaultDescription={city.seoDescription}
-        canonicalUrl={`https://www.ecolet3p.fr/formations/${city.slug}`}
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl={`https://ecolet3p.fr/formations/${city.slug}`}
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="geo.region" content={`FR-${city.departmentCode}`} />
         <meta name="geo.placename" content={city.name} />
