@@ -169,7 +169,7 @@ const FormationPageTemplate = ({
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "url": "https://www.ecolet3p.fr",
+      "url": "https://ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
