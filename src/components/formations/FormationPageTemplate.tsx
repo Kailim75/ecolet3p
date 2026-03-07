@@ -229,7 +229,7 @@ const FormationPageTemplate = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={ogTitle} />
         <meta name="twitter:description" content={ogDescription} />
-        <meta name="twitter:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
