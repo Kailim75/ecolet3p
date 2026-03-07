@@ -59,7 +59,7 @@ const PasserelleVtcTaxi = () => {
     "@type": "Course",
     name: "Formation Passerelle VTC ↔ Taxi & VMDTR",
     description: "Formation passerelle pour chauffeurs VTC, Taxi et VMDTR. Obtenez une double carte professionnelle à Montrouge (92). 665€ tout compris.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 665, priceCurrency: "EUR" },
   };
 
