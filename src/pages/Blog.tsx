@@ -102,7 +102,7 @@ const Blog = () => {
       "description": article.excerpt,
       "datePublished": article.publishDate,
       "author": { "@type": "Organization", "name": "ECOLE T3P" },
-      "url": `https://www.ecolet3p.fr/blog/${article.slug}`
+      "url": `https://ecolet3p.fr/blog/${article.slug}`
     }))
   };
 
