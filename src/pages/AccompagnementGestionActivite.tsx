@@ -51,7 +51,7 @@ const AccompagnementGestionActivite = () => {
     "@type": "Course",
     name: "Formation Gestion & Création d'Entreprise pour Chauffeurs",
     description: "Formation gestion d'entreprise 21h à Montrouge (92). Statut juridique, comptabilité, fiscalité pour chauffeurs VTC, Taxi et VMDTR. 390€.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 390, priceCurrency: "EUR" },
   };
 
