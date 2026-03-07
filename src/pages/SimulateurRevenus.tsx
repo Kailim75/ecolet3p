@@ -65,7 +65,7 @@ const AuditRentabilite = () => {
     "@type": "WebApplication",
     name: "Audit Rentabilité Chauffeur Professionnel – ECOLE T3P",
     description: "Audit stratégique gratuit pour évaluer votre rentabilité en tant que chauffeur VTC, Taxi ou VMDTR. Projection 12 mois et plan d'action personnalisé.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     applicationCategory: "FinanceApplication",
     offers: { "@type": "Offer", price: 0, priceCurrency: "EUR" },
   };
