@@ -81,4 +81,4 @@ Allow: /
 # llms.txt - Guide concis pour les LLMs
 # llms-full.txt - Documentation complète en Markdown
 
-Sitemap: https://www.ecolet3p.fr/sitemap.xml
+Sitemap: https://ecolet3p.fr/sitemap.xml
