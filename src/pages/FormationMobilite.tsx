@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import {
   ArrowLeftRight, Clock, Euro, Check, ArrowRight, Phone,
   Home, ChevronRight, GraduationCap, Star, TrendingUp, Zap
