@@ -90,11 +90,11 @@ const Blog = () => {
     "@type": "Blog",
     "name": "Blog ECOLE T3P - Formation Taxi VTC",
     "description": "Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR",
-    "url": "https://www.ecolet3p.fr/blog",
+    "url": "https://ecolet3p.fr/blog",
     "publisher": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "logo": { "@type": "ImageObject", "url": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
+      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
     },
     "blogPost": blogArticles.map(article => ({
       "@type": "BlogPosting",
