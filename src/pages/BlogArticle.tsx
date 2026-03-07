@@ -69,7 +69,7 @@ const BlogArticle = () => {
       "@type": "ImageObject",
       "url": typeof article.image === 'string' && article.image.startsWith('http') 
         ? article.image 
-        : `https://www.ecolet3p.fr${article.image}`,
+        : `https://ecolet3p.fr${article.image}`,
       "width": 1200,
       "height": 630
     },
