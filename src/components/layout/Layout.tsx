@@ -1,15 +1,14 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, lazy, Suspense } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTopButton from "./ScrollToTopButton";
 
+const MobileStickyBar = lazy(() => import("./MobileStickyBar"));
+const FloatingWhatsAppButton = lazy(() => import("./FloatingWhatsAppButton"));
+
 interface LayoutProps {
   children: ReactNode;
 }
-
-// JSON-LD schemas (LocalBusiness, FAQPage) are defined statically in index.html
-// to ensure visibility for crawlers without JS.
-// Per-page schemas (BreadcrumbList, Course, etc.) are injected via react-helmet-async in each page component.
 
 const Layout = ({ children }: LayoutProps) => {
   return (
@@ -18,6 +17,10 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="flex-1 pb-[60px] lg:pb-0">{children}</main>
       <Footer />
       <ScrollToTopButton />
+      <Suspense fallback={null}>
+        <MobileStickyBar />
+        <FloatingWhatsAppButton />
+      </Suspense>
     </div>
   );
 };

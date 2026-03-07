@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown, ArrowRight } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import RdvChoiceModal from "./RdvChoiceModal";
 
+const RdvChoiceModal = lazy(() => import("./RdvChoiceModal"));
 
 const navLinks = [
   {
@@ -52,7 +51,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -106,27 +105,24 @@ const Header = () => {
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
-                    <AnimatePresence>
-                      {hoverSubmenu === link.name && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 8 }}
-                          transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-card-hover py-2 min-w-[220px] z-50"
+                    {/* CSS-only dropdown — no framer-motion */}
+                    <div
+                      className={`absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-card-hover py-2 min-w-[220px] z-50 transition-all duration-150 origin-top ${
+                        hoverSubmenu === link.name
+                          ? "opacity-100 scale-y-100 pointer-events-auto"
+                          : "opacity-0 scale-y-95 pointer-events-none"
+                      }`}
+                    >
+                      {link.children?.map((child) => (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          className="block px-4 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
                         >
-                          {link.children?.map((child) => (
-                            <Link
-                              key={child.path}
-                              to={child.path}
-                              className="block px-4 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
-                            >
-                              {child.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <Link
@@ -176,85 +172,79 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 top-16 lg:hidden bg-card z-[60] overflow-y-auto"
-          >
-            <div className="container-custom py-4 pb-32">
-              <nav className="flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <div key={link.name}>
-                    {link.hasSubmenu ? (
-                      <>
-                        <button
-                          onClick={() => setOpenSubmenu(openSubmenu === link.name ? null : link.name)}
-                          className="w-full flex items-center justify-between py-3 px-3 rounded-lg text-sm font-medium text-foreground hover:bg-secondary transition-colors"
-                        >
-                          {link.name}
-                          <ChevronDown className={`w-4 h-4 transition-transform ${openSubmenu === link.name ? "rotate-180" : ""}`} />
-                        </button>
-                        <AnimatePresence>
-                          {openSubmenu === link.name && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-4 pb-2 space-y-1">
-                                {link.children?.map((child) => (
-                                  <Link
-                                    key={child.path}
-                                    to={child.path}
-                                    className="block py-2.5 px-3 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-secondary transition-colors"
-                                  >
-                                    {child.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </>
-                    ) : (
-                      <Link
-                        to={link.path!}
-                        className="block py-3 px-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </nav>
-
-              <div className="mt-6 pt-6 border-t border-border space-y-3">
-                <a
-                  href="tel:0188750555"
-                  className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary font-semibold text-primary text-sm"
-                >
-                  <Phone className="w-5 h-5" />
-                  01 88 75 05 55
-                </a>
-                <button
-                  onClick={() => { setIsMenuOpen(false); setIsRdvOpen(true); }}
-                  className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg flex items-center justify-center gap-2"
-                >
-                  Prendre RDV
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+      {/* Mobile Menu — CSS transition instead of framer-motion */}
+      <div
+        className={`fixed inset-0 top-16 lg:hidden bg-card z-[60] overflow-y-auto transition-all duration-200 ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="container-custom py-4 pb-32">
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <div key={link.name}>
+                {link.hasSubmenu ? (
+                  <>
+                    <button
+                      onClick={() => setOpenSubmenu(openSubmenu === link.name ? null : link.name)}
+                      className="w-full flex items-center justify-between py-3 px-3 rounded-lg text-sm font-medium text-foreground hover:bg-secondary transition-colors"
+                    >
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${openSubmenu === link.name ? "rotate-180" : ""}`} />
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-200 ${
+                        openSubmenu === link.name ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <div className="pl-4 pb-2 space-y-1">
+                        {link.children?.map((child) => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            className="block py-2.5 px-3 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-secondary transition-colors"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to={link.path!}
+                    className="block py-3 px-3 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )}
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+          </nav>
 
-      <RdvChoiceModal isOpen={isRdvOpen} onClose={() => setIsRdvOpen(false)} />
+          <div className="mt-6 pt-6 border-t border-border space-y-3">
+            <a
+              href="tel:0188750555"
+              className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary font-semibold text-primary text-sm"
+            >
+              <Phone className="w-5 h-5" />
+              01 88 75 05 55
+            </a>
+            <button
+              onClick={() => { setIsMenuOpen(false); setIsRdvOpen(true); }}
+              className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg flex items-center justify-center gap-2"
+            >
+              Prendre RDV
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {isRdvOpen && (
+        <Suspense fallback={null}>
+          <RdvChoiceModal isOpen={isRdvOpen} onClose={() => setIsRdvOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 };

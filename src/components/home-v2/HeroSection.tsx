@@ -24,7 +24,7 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover blur-[3px] brightness-[0.4]"
+            className="w-full h-full object-cover brightness-[0.35]"
           />
         </picture>
       </div>
