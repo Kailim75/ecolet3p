@@ -8,35 +8,35 @@
   <!-- PAGES PILIERS — Priorité maximale              -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/</loc>
+    <loc>https://ecolet3p.fr/</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.ecolet3p.fr/og-image.jpg</image:loc>
+      <image:loc>https://ecolet3p.fr/og-image.jpg</image:loc>
       <image:title>ECOLE T3P - Formation Taxi VTC VMDTR Paris Montrouge</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations</loc>
+    <loc>https://ecolet3p.fr/formations</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/taxi</loc>
+    <loc>https://ecolet3p.fr/formations/taxi</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/vtc</loc>
+    <loc>https://ecolet3p.fr/formations/vtc</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/vmdtr</loc>
+    <loc>https://ecolet3p.fr/formations/vmdtr</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -46,25 +46,25 @@
   <!-- FORMATIONS CONTINUES                          -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/continue-taxi</loc>
+    <loc>https://ecolet3p.fr/formations/continue-taxi</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/continue-vtc</loc>
+    <loc>https://ecolet3p.fr/formations/continue-vtc</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/renouvellement</loc>
+    <loc>https://ecolet3p.fr/formations/renouvellement</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/continue-vmdtr</loc>
+    <loc>https://ecolet3p.fr/formations/continue-vmdtr</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -74,43 +74,43 @@
   <!-- SERVICES & FORMATIONS COMPLÉMENTAIRES         -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/passerelle-vtc-taxi</loc>
+    <loc>https://ecolet3p.fr/passerelle-vtc-taxi</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/stage-recuperation-points</loc>
+    <loc>https://ecolet3p.fr/stage-recuperation-points</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/renouvellement-carte-professionnelle</loc>
+    <loc>https://ecolet3p.fr/renouvellement-carte-professionnelle</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/services/location-vehicule-examen</loc>
+    <loc>https://ecolet3p.fr/services/location-vehicule-examen</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formation-accessibilite-pmr</loc>
+    <loc>https://ecolet3p.fr/formation-accessibilite-pmr</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/accompagnement-gestion-activite</loc>
+    <loc>https://ecolet3p.fr/accompagnement-gestion-activite</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/aide-administrative-creation-entreprise</loc>
+    <loc>https://ecolet3p.fr/aide-administrative-creation-entreprise</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -120,155 +120,155 @@
   <!-- PAGES LOCALES STRATÉGIQUES (10 villes max)    -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/montrouge</loc>
+    <loc>https://ecolet3p.fr/formations/montrouge</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/bagneux</loc>
+    <loc>https://ecolet3p.fr/formations/bagneux</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/malakoff</loc>
+    <loc>https://ecolet3p.fr/formations/malakoff</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/vanves</loc>
+    <loc>https://ecolet3p.fr/formations/vanves</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/chatillon</loc>
+    <loc>https://ecolet3p.fr/formations/chatillon</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/issy-les-moulineaux</loc>
+    <loc>https://ecolet3p.fr/formations/issy-les-moulineaux</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/clamart</loc>
+    <loc>https://ecolet3p.fr/formations/clamart</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/antony</loc>
+    <loc>https://ecolet3p.fr/formations/antony</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/boulogne-billancourt</loc>
+    <loc>https://ecolet3p.fr/formations/boulogne-billancourt</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/paris-14</loc>
+    <loc>https://ecolet3p.fr/formations/paris-14</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Villes déjà indexées par Google — ne pas supprimer -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/longjumeau</loc>
+    <loc>https://ecolet3p.fr/formations/longjumeau</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/la-courneuve</loc>
+    <loc>https://ecolet3p.fr/formations/la-courneuve</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/conflans-sainte-honorine</loc>
+    <loc>https://ecolet3p.fr/formations/conflans-sainte-honorine</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/sceaux</loc>
+    <loc>https://ecolet3p.fr/formations/sceaux</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/creteil</loc>
+    <loc>https://ecolet3p.fr/formations/creteil</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Villes du Val-de-Marne (94) -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/villejuif</loc>
+    <loc>https://ecolet3p.fr/formations/villejuif</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/gentilly</loc>
+    <loc>https://ecolet3p.fr/formations/gentilly</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/ivry-sur-seine</loc>
+    <loc>https://ecolet3p.fr/formations/ivry-sur-seine</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/vitry-sur-seine</loc>
+    <loc>https://ecolet3p.fr/formations/vitry-sur-seine</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/le-kremlin-bicetre</loc>
+    <loc>https://ecolet3p.fr/formations/le-kremlin-bicetre</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/arcueil</loc>
+    <loc>https://ecolet3p.fr/formations/arcueil</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/cachan</loc>
+    <loc>https://ecolet3p.fr/formations/cachan</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Hauts-de-Seine (92) supplémentaires -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/fontenay-aux-roses</loc>
+    <loc>https://ecolet3p.fr/formations/fontenay-aux-roses</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/formations/meudon</loc>
+    <loc>https://ecolet3p.fr/formations/meudon</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Hub des villes -->
   <url>
-    <loc>https://www.ecolet3p.fr/formations/villes</loc>
+    <loc>https://ecolet3p.fr/formations/villes</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -278,79 +278,79 @@
   <!-- BLOG                                          -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/blog</loc>
+    <loc>https://ecolet3p.fr/blog</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir</loc>
+    <loc>https://ecolet3p.fr/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/comment-devenir-chauffeur-vtc-2026</loc>
+    <loc>https://ecolet3p.fr/blog/comment-devenir-chauffeur-vtc-2026</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/comment-devenir-chauffeur-taxi-2026</loc>
+    <loc>https://ecolet3p.fr/blog/comment-devenir-chauffeur-taxi-2026</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi</loc>
+    <loc>https://ecolet3p.fr/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026</loc>
+    <loc>https://ecolet3p.fr/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/maitrise-numerique-ia-chauffeur-vtc-taxi</loc>
+    <loc>https://ecolet3p.fr/blog/maitrise-numerique-ia-chauffeur-vtc-taxi</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/anglais-chauffeur-vtc-taxi-clientele-internationale</loc>
+    <loc>https://ecolet3p.fr/blog/anglais-chauffeur-vtc-taxi-clientele-internationale</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/financement-formation-taxi-vtc</loc>
+    <loc>https://ecolet3p.fr/blog/financement-formation-taxi-vtc</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/carte-professionnelle-vtc</loc>
+    <loc>https://ecolet3p.fr/blog/carte-professionnelle-vtc</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/formation-continue-taxi-vtc</loc>
+    <loc>https://ecolet3p.fr/blog/formation-continue-taxi-vtc</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/moto-taxi-vmdtr</loc>
+    <loc>https://ecolet3p.fr/blog/moto-taxi-vmdtr</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/blog/devenir-chauffeur-vtc-2025</loc>
+    <loc>https://ecolet3p.fr/blog/devenir-chauffeur-vtc-2025</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -360,25 +360,25 @@
   <!-- PAGES INSTITUTIONNELLES                       -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/a-propos</loc>
+    <loc>https://ecolet3p.fr/a-propos</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/contact</loc>
+    <loc>https://ecolet3p.fr/contact</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/mentions-legales</loc>
+    <loc>https://ecolet3p.fr/mentions-legales</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.ecolet3p.fr/politique-de-confidentialite</loc>
+    <loc>https://ecolet3p.fr/politique-de-confidentialite</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

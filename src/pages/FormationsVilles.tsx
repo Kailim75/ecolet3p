@@ -40,19 +40,19 @@ const FormationsVilles = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Accueil",
-        "item": "https://www.ecolet3p.fr/"
+        "item": "https://ecolet3p.fr/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Formations",
-        "item": "https://www.ecolet3p.fr/formations"
+        "item": "https://ecolet3p.fr/formations"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Villes desservies",
-        "item": "https://www.ecolet3p.fr/formations/villes"
+        "item": "https://ecolet3p.fr/formations/villes"
       }
     ]
   };
@@ -60,12 +60,12 @@ const FormationsVilles = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.ecolet3p.fr/formations/villes#localbusiness",
+    "@id": "https://ecolet3p.fr/formations/villes#localbusiness",
     "name": "ECOLE T3P - Formation Taxi VTC Île-de-France",
-    "image": "https://www.ecolet3p.fr/og-image.jpg",
+    "image": "https://ecolet3p.fr/og-image.jpg",
     "telephone": "+33188750555",
     "email": "montrouge@ecolet3p.fr",
-    "url": "https://www.ecolet3p.fr/formations/villes",
+    "url": "https://ecolet3p.fr/formations/villes",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
@@ -100,8 +100,8 @@ const FormationsVilles = () => {
         pageUrl="/formations/villes"
         defaultTitle="Formations Taxi VTC près de chez vous | ECOLE T3P"
         defaultDescription="ECOLE T3P à Montrouge forme des chauffeurs Taxi, VTC et VMDTR de toute l'Île-de-France. Trouvez votre ville : 92, 94, 93, 91, 78 et Paris."
-        canonicalUrl="https://www.ecolet3p.fr/formations/villes"
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl="https://ecolet3p.fr/formations/villes"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="keywords" content="formation taxi Paris, formation VTC Hauts-de-Seine, formation taxi 92, formation VTC 94, centre formation Île-de-France, ECOLE T3P villes" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

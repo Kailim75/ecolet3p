@@ -59,7 +59,7 @@ const PasserelleVtcTaxi = () => {
     "@type": "Course",
     name: "Formation Passerelle VTC ↔ Taxi & VMDTR",
     description: "Formation passerelle pour chauffeurs VTC, Taxi et VMDTR. Obtenez une double carte professionnelle à Montrouge (92). 665€ tout compris.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 665, priceCurrency: "EUR" },
   };
 
@@ -76,9 +76,9 @@ const PasserelleVtcTaxi = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", position: 3, name: "Passerelle VTC ↔ Taxi", item: "https://www.ecolet3p.fr/passerelle-vtc-taxi" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Passerelle VTC ↔ Taxi", item: "https://ecolet3p.fr/passerelle-vtc-taxi" },
     ],
   };
 
@@ -88,7 +88,7 @@ const PasserelleVtcTaxi = () => {
         pageUrl="/passerelle-vtc-taxi"
         defaultTitle="Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P Montrouge"
         defaultDescription="Formation passerelle VTC ↔ Taxi ↔ VMDTR à Montrouge (92). 665€ tout compris incluant frais d'examen. 94% de réussite. Paiement 4× sans frais."
-        canonicalUrl="https://www.ecolet3p.fr/passerelle-vtc-taxi"
+        canonicalUrl="https://ecolet3p.fr/passerelle-vtc-taxi"
       >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

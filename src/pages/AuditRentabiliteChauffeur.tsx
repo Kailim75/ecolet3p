@@ -29,14 +29,14 @@ const defaultWhatsAppMessage =
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.ecolet3p.fr/#organization",
+  "@id": "https://ecolet3p.fr/#organization",
   name: "ECOLE T3P",
   description: "Centre de formation agréé pour chauffeurs Taxi, VTC et VMDTR à Montrouge, Île-de-France.",
-  url: "https://www.ecolet3p.fr",
+  url: "https://ecolet3p.fr",
   telephone: "+33188750555",
   email: "montrouge@ecolet3p.fr",
-  image: "https://www.ecolet3p.fr/og-image.jpg",
-  logo: "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg",
+  image: "https://ecolet3p.fr/og-image.jpg",
+  logo: "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg",
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
@@ -82,8 +82,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-    { "@type": "ListItem", position: 2, name: "Audit Rentabilité Chauffeur", item: "https://www.ecolet3p.fr/audit-rentabilite-chauffeur" },
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+    { "@type": "ListItem", position: 2, name: "Audit Rentabilité Chauffeur", item: "https://ecolet3p.fr/audit-rentabilite-chauffeur" },
   ],
 };
 
@@ -92,8 +92,8 @@ const webPageSchema = {
   "@type": "WebPage",
   name: "Audit rentabilité chauffeur (Taxi/VTC/VMDTR) – École T3P Paris",
   description: "Estimez votre net mensuel (charges, statut, véhicule). Envoyez votre audit sur WhatsApp et démarrez votre formation.",
-  url: "https://www.ecolet3p.fr/audit-rentabilite-chauffeur",
-  provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+  url: "https://ecolet3p.fr/audit-rentabilite-chauffeur",
+  provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
 };
 
 /* ── WhatsApp CTA Button ── */
@@ -119,12 +119,12 @@ export default function AuditRentabiliteChauffeur() {
       <Helmet>
         <title>Audit rentabilité chauffeur (Taxi/VTC/VMDTR) – École T3P Paris</title>
         <meta name="description" content="Estimez votre net mensuel (charges, statut, véhicule). Envoyez votre audit sur WhatsApp et démarrez votre formation." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/audit-rentabilite-chauffeur" />
+        <link rel="canonical" href="https://ecolet3p.fr/audit-rentabilite-chauffeur" />
         <meta property="og:title" content="Audit rentabilité chauffeur – École T3P Paris" />
         <meta property="og:description" content="Simulez votre rentabilité chauffeur VTC, Taxi ou VMDTR. Résultats instantanés + accompagnement WhatsApp." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/audit-rentabilite-chauffeur" />
+        <meta property="og:url" content="https://ecolet3p.fr/audit-rentabilite-chauffeur" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

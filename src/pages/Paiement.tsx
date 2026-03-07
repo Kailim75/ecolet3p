@@ -142,10 +142,10 @@ const Paiement = () => {
           name="description"
           content="Payez votre formation Taxi, VTC ou VMDTR en 2, 3 ou 4 fois sans frais avec Alma. 0 € de frais, réponse immédiate, sans justificatif. ECOLE T3P Montrouge."
         />
-        <link rel="canonical" href="https://www.ecolet3p.fr/paiement" />
+        <link rel="canonical" href="https://ecolet3p.fr/paiement" />
         <meta property="og:title" content="Paiement en plusieurs fois sans frais | ECOLE T3P" />
         <meta property="og:description" content="Financez votre formation T3P en 2×, 3× ou 4× sans frais grâce à notre partenaire Alma. Réponse immédiate, sans justificatif." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/paiement" />
+        <meta property="og:url" content="https://ecolet3p.fr/paiement" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 

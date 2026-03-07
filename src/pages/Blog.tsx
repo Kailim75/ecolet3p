@@ -90,11 +90,11 @@ const Blog = () => {
     "@type": "Blog",
     "name": "Blog ECOLE T3P - Formation Taxi VTC",
     "description": "Articles, conseils et actualités sur les formations Taxi, VTC et VMDTR",
-    "url": "https://www.ecolet3p.fr/blog",
+    "url": "https://ecolet3p.fr/blog",
     "publisher": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "logo": { "@type": "ImageObject", "url": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
+      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
     },
     "blogPost": blogArticles.map(article => ({
       "@type": "BlogPosting",
@@ -102,7 +102,7 @@ const Blog = () => {
       "description": article.excerpt,
       "datePublished": article.publishDate,
       "author": { "@type": "Organization", "name": "ECOLE T3P" },
-      "url": `https://www.ecolet3p.fr/blog/${article.slug}`
+      "url": `https://ecolet3p.fr/blog/${article.slug}`
     }))
   };
 
@@ -110,8 +110,8 @@ const Blog = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ecolet3p.fr/blog" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ecolet3p.fr/blog" }
     ]
   };
 
@@ -121,8 +121,8 @@ const Blog = () => {
         pageUrl="/blog"
         defaultTitle="Blog Formation Taxi VTC VMDTR | ECOLE T3P"
         defaultDescription="Articles, guides et conseils pour réussir votre examen Taxi, VTC ou VMDTR. Reconversion, réglementation 2026, astuces et retours d'expérience."
-        canonicalUrl="https://www.ecolet3p.fr/blog"
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl="https://ecolet3p.fr/blog"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>

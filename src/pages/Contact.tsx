@@ -126,7 +126,7 @@ const Contact = () => {
     "@context": "https://schema.org", "@type": "ContactPage",
     "name": "Contact ECOLE T3P",
     "description": "Contactez notre centre de formation Taxi VTC à Montrouge",
-    "url": "https://www.ecolet3p.fr/contact",
+    "url": "https://ecolet3p.fr/contact",
     "mainEntity": {
       "@type": "LocalBusiness", "name": "ECOLE T3P",
       "telephone": "+33188750555", "email": "montrouge@ecolet3p.fr",
@@ -139,8 +139,8 @@ const Contact = () => {
   const breadcrumbSchema = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.ecolet3p.fr/contact" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://ecolet3p.fr/contact" }
     ]
   };
 
@@ -291,8 +291,8 @@ const Contact = () => {
         pageUrl="/contact"
         defaultTitle="Contact ECOLE T3P Montrouge (92) | Taxi VTC"
         defaultDescription="Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55."
-        canonicalUrl="https://www.ecolet3p.fr/contact"
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl="https://ecolet3p.fr/contact"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="keywords" content="contact formation taxi Montrouge, centre VTC Bagneux, formation taxi Vanves, centre formation Malakoff, formation VTC Châtillon, ECOLE T3P contact, devis formation taxi 92, centre formation sud Paris" />
         <meta name="twitter:card" content="summary" />

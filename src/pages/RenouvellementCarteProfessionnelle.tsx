@@ -59,7 +59,7 @@ const RenouvellementCarteProfessionnelle = () => {
     "@type": "Course",
     name: "Renouvellement de carte professionnelle VTC, Taxi & VMDTR",
     description: "Formation continue obligatoire 14h pour le renouvellement de carte professionnelle VTC, Taxi et VMDTR à Montrouge (92). 350€, attestation immédiate.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 350, priceCurrency: "EUR" },
   };
 
@@ -76,8 +76,8 @@ const RenouvellementCarteProfessionnelle = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Renouvellement carte professionnelle", item: "https://www.ecolet3p.fr/renouvellement-carte-professionnelle" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Renouvellement carte professionnelle", item: "https://ecolet3p.fr/renouvellement-carte-professionnelle" },
     ],
   };
 
@@ -86,10 +86,10 @@ const RenouvellementCarteProfessionnelle = () => {
       <Helmet>
         <title>Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P</title>
         <meta name="description" content="Renouvellement carte pro VTC, Taxi, VMDTR à Montrouge (92). Formation continue 14h, attestation immédiate. 350€. Sessions chaque semaine." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
+        <link rel="canonical" href="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P" />
         <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. 350€. Centre agréé Préfecture 92." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
+        <meta property="og:url" content="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

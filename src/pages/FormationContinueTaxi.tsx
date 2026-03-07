@@ -7,7 +7,7 @@ const FormationContinueTaxi = () => (
     heroBackground={carteProfessionnelle}
     title="Formation Continue Taxi 14h Montrouge — 239€ | ECOLE T3P"
     description="Formation continue obligatoire Taxi 14h à Montrouge (92). Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture. Attestation immédiate."
-    canonical="https://www.ecolet3p.fr/formations/continue-taxi"
+    canonical="https://ecolet3p.fr/formations/continue-taxi"
     ogTitle="Formation Continue Taxi 14h — ECOLE T3P Montrouge"
     ogDescription="Renouvelez votre carte Taxi. Formation continue 14h à 239€. Centre agréé Préfecture 92. Attestation le jour même."
     badge="Formation Continue Taxi"

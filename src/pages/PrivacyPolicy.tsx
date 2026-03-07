@@ -23,13 +23,13 @@ const PrivacyPolicy = () => {
       <Helmet>
         <title>Politique de Confidentialité | ECOLE T3P</title>
         <meta name="description" content="Politique de confidentialité et protection des données personnelles du site ecolet3p.fr. ECOLE T3P, centre de formation Taxi VTC à Montrouge." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/politique-de-confidentialite" />
+        <link rel="canonical" href="https://ecolet3p.fr/politique-de-confidentialite" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-            { "@type": "ListItem", "position": 2, "name": "Politique de confidentialité", "item": "https://www.ecolet3p.fr/politique-de-confidentialite" }
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Politique de confidentialité", "item": "https://ecolet3p.fr/politique-de-confidentialite" }
           ]
         })}</script>
       </Helmet>

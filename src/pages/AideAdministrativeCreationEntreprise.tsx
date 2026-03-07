@@ -51,7 +51,7 @@ const AideAdministrativeCreationEntreprise = () => {
     "@type": "Service",
     name: "Aide Administrative & Création d'Entreprise pour Chauffeurs",
     description: "Accompagnement administratif complet pour chauffeurs VTC, Taxi et VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: [
       { "@type": "Offer", name: "En groupe", price: 190, priceCurrency: "EUR" },
       { "@type": "Offer", name: "Individuel", price: 290, priceCurrency: "EUR" },
@@ -71,9 +71,9 @@ const AideAdministrativeCreationEntreprise = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", position: 3, name: "Aide administrative", item: "https://www.ecolet3p.fr/aide-administrative-creation-entreprise" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Aide administrative", item: "https://ecolet3p.fr/aide-administrative-creation-entreprise" },
     ],
   };
 
@@ -82,10 +82,10 @@ const AideAdministrativeCreationEntreprise = () => {
       <Helmet>
         <title>Aide Administrative Chauffeur Montrouge — Dès 190€ | ECOLE T3P</title>
         <meta name="description" content="Accompagnement administratif complet pour chauffeurs VTC, Taxi, VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
+        <link rel="canonical" href="https://ecolet3p.fr/aide-administrative-creation-entreprise" />
         <meta property="og:title" content="Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P" />
         <meta property="og:description" content="On s'occupe de toute la paperasse. Carte pro, registre T3P, préfecture, plateformes VTC. Résultat en 1 journée." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
+        <meta property="og:url" content="https://ecolet3p.fr/aide-administrative-creation-entreprise" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

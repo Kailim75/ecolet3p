@@ -7,7 +7,7 @@ const FormationVMDTR = () => (
   <FormationPageTemplate
     title="Formation VMDTR Moto-Taxi Montrouge 92 — 990€ en 4x"
     description="Formation moto-taxi VMDTR à Montrouge (92). Préparation examen T3P CMA, 94% de réussite. À partir de 990€ payable en 4x sans frais. Permis A obligatoire."
-    canonical="https://www.ecolet3p.fr/formations/vmdtr"
+    canonical="https://ecolet3p.fr/formations/vmdtr"
     ogTitle="Formation VMDTR Moto-Taxi à Montrouge — ECOLE T3P"
     ogDescription="Formation VMDTR à Montrouge. Centre agréé Préfecture, 94% de réussite."
     heroImage={heroImageVMDTR}

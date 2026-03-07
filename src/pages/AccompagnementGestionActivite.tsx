@@ -51,7 +51,7 @@ const AccompagnementGestionActivite = () => {
     "@type": "Course",
     name: "Formation Gestion & Création d'Entreprise pour Chauffeurs",
     description: "Formation gestion d'entreprise 21h à Montrouge (92). Statut juridique, comptabilité, fiscalité pour chauffeurs VTC, Taxi et VMDTR. 390€.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 390, priceCurrency: "EUR" },
   };
 
@@ -68,9 +68,9 @@ const AccompagnementGestionActivite = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", position: 3, name: "Gestion d'activité", item: "https://www.ecolet3p.fr/accompagnement-gestion-activite" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Gestion d'activité", item: "https://ecolet3p.fr/accompagnement-gestion-activite" },
     ],
   };
 
@@ -79,10 +79,10 @@ const AccompagnementGestionActivite = () => {
       <Helmet>
         <title>Gestion d'Activité Chauffeur 21h — 390€ | ECOLE T3P</title>
         <meta name="description" content="Formation gestion d'entreprise 21h à 390€ à Montrouge (92). Statut juridique, comptabilité, fiscalité pour chauffeurs VTC et Taxi. 4× sans frais." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/accompagnement-gestion-activite" />
+        <link rel="canonical" href="https://ecolet3p.fr/accompagnement-gestion-activite" />
         <meta property="og:title" content="Gestion d'Activité Chauffeur — 390€ | ECOLE T3P Montrouge" />
         <meta property="og:description" content="Lancez votre activité sur des bases solides. Statut juridique, comptabilité, fiscalité — ROI immédiat." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/accompagnement-gestion-activite" />
+        <meta property="og:url" content="https://ecolet3p.fr/accompagnement-gestion-activite" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

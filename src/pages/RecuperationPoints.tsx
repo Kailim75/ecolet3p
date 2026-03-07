@@ -54,7 +54,7 @@ const RecuperationPoints = () => {
     "@type": "Course",
     name: "Stage de Récupération de Points",
     description: "Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à 4 points sur votre permis de conduire. Formation agréée de 2 jours à Montrouge (92).",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 250, priceCurrency: "EUR" },
   };
 
@@ -71,9 +71,9 @@ const RecuperationPoints = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", position: 3, name: "Récupération de Points", item: "https://www.ecolet3p.fr/stage-recuperation-points" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Récupération de Points", item: "https://ecolet3p.fr/stage-recuperation-points" },
     ],
   };
 
@@ -83,7 +83,7 @@ const RecuperationPoints = () => {
         pageUrl="/stage-recuperation-points"
         defaultTitle="Stage Récupération de Points Montrouge 92 | ECOLE T3P"
         defaultDescription="Stage de récupération de points en 2 jours (14h) à Montrouge (92). Récupérez jusqu'à 4 points. 250€. Attestation immédiate. Sessions mensuelles."
-        canonicalUrl="https://www.ecolet3p.fr/stage-recuperation-points"
+        canonicalUrl="https://ecolet3p.fr/stage-recuperation-points"
       >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

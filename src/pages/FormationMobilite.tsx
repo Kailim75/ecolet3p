@@ -44,7 +44,7 @@ const FormationMobilite = () => {
     "@type": "Course",
     "name": "Formation Mobilité - Passerelle Taxi ↔ VTC",
     "description": "Formation passerelle de 14 heures pour passer de Taxi à VTC ou inversement.",
-    "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://www.ecolet3p.fr" },
+    "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
     "offers": { "@type": "Offer", "price": "390", "priceCurrency": "EUR" },
     "timeRequired": "PT14H",
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "359" }
@@ -64,10 +64,10 @@ const FormationMobilite = () => {
       <Helmet>
         <title>Passerelle Taxi ↔ VTC 14h — 390€ | ECOLE T3P</title>
         <meta name="description" content="Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours à 390€. Ajoutez une mention à votre carte pro. Paiement 4× sans frais." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations/mobilite" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/mobilite" />
         <meta property="og:title" content="Formation Mobilité Passerelle Taxi ↔ VTC — ECOLE T3P" />
         <meta property="og:description" content="Formation passerelle 14h pour passer de Taxi à VTC ou inversement. 390€, 2 jours." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/formations/mobilite" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations/mobilite" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>

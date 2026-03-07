@@ -169,7 +169,7 @@ const FormationPageTemplate = ({
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "url": "https://www.ecolet3p.fr",
+      "url": "https://ecolet3p.fr",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3 rue Corneille",
@@ -205,8 +205,8 @@ const FormationPageTemplate = ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://ecolet3p.fr/formations" },
       { "@type": "ListItem", "position": 3, "name": `Formation ${badge}`, "item": canonical },
     ]
   };
@@ -220,7 +220,7 @@ const FormationPageTemplate = ({
         defaultTitle={title}
         defaultDescription={description}
         canonicalUrl={canonical}
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -229,7 +229,7 @@ const FormationPageTemplate = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={ogTitle} />
         <meta name="twitter:description" content={ogDescription} />
-        <meta name="twitter:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

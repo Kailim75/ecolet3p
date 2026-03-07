@@ -37,12 +37,12 @@ const FormationVille = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `https://www.ecolet3p.fr/formations/${city.slug}#localbusiness`,
+    "@id": `https://ecolet3p.fr/formations/${city.slug}#localbusiness`,
     "name": `ECOLE T3P — Formation Taxi VTC près de ${city.name}`,
-    "image": "https://www.ecolet3p.fr/og-image.jpg",
+    "image": "https://ecolet3p.fr/og-image.jpg",
     "telephone": "+33188750555",
     "email": "montrouge@ecolet3p.fr",
-    "url": `https://www.ecolet3p.fr/formations/${city.slug}`,
+    "url": `https://ecolet3p.fr/formations/${city.slug}`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
@@ -65,9 +65,9 @@ const FormationVille = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", "position": 3, "name": `Formation ${city.name}`, "item": `https://www.ecolet3p.fr/formations/${city.slug}` }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", "position": 3, "name": `Formation ${city.name}`, "item": `https://ecolet3p.fr/formations/${city.slug}` }
     ]
   };
 
@@ -101,8 +101,8 @@ const FormationVille = () => {
         pageUrl={`/formations/${city.slug}`}
         defaultTitle={city.seoTitle}
         defaultDescription={city.seoDescription}
-        canonicalUrl={`https://www.ecolet3p.fr/formations/${city.slug}`}
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl={`https://ecolet3p.fr/formations/${city.slug}`}
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="geo.region" content={`FR-${city.departmentCode}`} />
         <meta name="geo.placename" content={city.name} />

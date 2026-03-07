@@ -99,7 +99,7 @@ const FormuleSoiree = () => {
       <Helmet>
         <title>Formation Soirée Taxi VTC VMDTR — 990€ | ECOLE T3P</title>
         <meta name="description" content="Formation Taxi, VTC ou VMDTR en soirée à 990€. Paiement en 4× sans frais avec Alma. 94% de réussite. Lun-Ven 18h-21h30 à Montrouge." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations/formule-soiree" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/formule-soiree" />
       </Helmet>
 
       {/* BLOC 1 — Hero */}

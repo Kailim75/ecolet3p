@@ -177,7 +177,7 @@ const FormationDetailTemplate = ({
     "@type": "Course",
     name: heroTitle,
     description,
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 990, priceCurrency: "EUR" },
     aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "359" },
   };
@@ -195,8 +195,8 @@ const FormationDetailTemplate = ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://ecolet3p.fr/formations" },
       { "@type": "ListItem", position: 3, name: `Formation ${profession.toUpperCase()}`, item: canonical },
     ],
   };
