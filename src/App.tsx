@@ -6,13 +6,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import CookieConsent from "./components/CookieConsent";
-import PWAStatus from "./components/pwa/PWAStatus";
 import RedirectHandler from "./components/seo/RedirectHandler";
-
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 import { QuoteModalProvider } from "./components/quote/QuoteRequestModal";
+
+// Lazy load non-critical global components
+const CookieConsent = lazy(() => import("./components/CookieConsent"));
+const PWAStatus = lazy(() => import("./components/pwa/PWAStatus"));
 
 // Critical pages loaded immediately
 import Index from "./pages/Index";
@@ -22,7 +23,6 @@ const Formations = lazy(() => import("./pages/Formations"));
 const FormationTaxi = lazy(() => import("./pages/FormationTaxi"));
 const FormationVTC = lazy(() => import("./pages/FormationVTC"));
 const FormationVMDTR = lazy(() => import("./pages/FormationVMDTR"));
-// FormationMobilite removed — redirects to /passerelle-vtc-taxi
 const FormationContinueTaxi = lazy(() => import("./pages/FormationContinueTaxi"));
 const FormationContinueVTC = lazy(() => import("./pages/FormationContinueVTC"));
 const FormationContinueVMDTR = lazy(() => import("./pages/FormationContinueVMDTR"));
@@ -69,10 +69,10 @@ const queryClient = new QueryClient();
 
 // Fallback component for lazy loading
 const PageFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-cream">
+  <div className="min-h-screen flex items-center justify-center bg-background">
     <div className="flex flex-col items-center gap-4">
-      <div className="w-12 h-12 border-4 border-forest/20 border-t-forest rounded-full animate-spin" />
-      <p className="text-forest/60 text-sm">Chargement...</p>
+      <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
+      <p className="text-muted-foreground text-sm">Chargement...</p>
     </div>
   </div>
 );
@@ -142,7 +142,6 @@ const App = () => {
                       <Route path="/logo-showcase" element={<LogoShowcase />} />
                       <Route path="/logo-download" element={<LogoDownload />} />
                       <Route path="/templates" element={<Templates />} />
-                      {/* Redirects anciennes URLs → nouvelles URLs SEO */}
                       <Route path="/formations/recuperation-points" element={<Navigate to="/stage-recuperation-points" replace />} />
                       <Route path="/formations/accessibilite-pmr" element={<Navigate to="/formation-accessibilite-pmr" replace />} />
                       <Route path="/formations/gestion-entreprise" element={<Navigate to="/accompagnement-gestion-activite" replace />} />
@@ -150,9 +149,10 @@ const App = () => {
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </Suspense>
-                  <CookieConsent />
-                  <PWAStatus />
-                  
+                  <Suspense fallback={null}>
+                    <CookieConsent />
+                    <PWAStatus />
+                  </Suspense>
                 </AnalyticsProvider>
               </BrowserRouter>
             </div>
