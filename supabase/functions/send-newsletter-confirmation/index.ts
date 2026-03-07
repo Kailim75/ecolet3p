@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const unsubscribeToken = subscriber?.unsubscribe_token || "";
-    const unsubscribeUrl = `https://www.ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
+    const unsubscribeUrl = `https://ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
     const emailSubject = "Bienvenue dans notre newsletter !";
 
     const emailResponse = await resend.emails.send({
@@ -95,7 +95,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" style="width: 100%;">
                         <tr>
                           <td style="text-align: center;">
-                            <a href="https://www.ecolet3p.fr/formations" style="display: inline-block; background-color: #d4af37; color: #1a3a32; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                            <a href="https://ecolet3p.fr/formations" style="display: inline-block; background-color: #d4af37; color: #1a3a32; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 16px;">
                               Découvrir nos formations
                             </a>
                           </td>

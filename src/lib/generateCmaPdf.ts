@@ -20,7 +20,7 @@ const BRAND = {
   address: "3 rue Corneille, 92120 Montrouge",
   phone: "01 88 75 05 55",
   email: "montrouge@ecolet3p.fr",
-  website: "www.ecolet3p.fr",
+  website: "ecolet3p.fr",
 };
 
 const COLORS = {

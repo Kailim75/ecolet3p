@@ -119,7 +119,7 @@ const handler = async (req: Request): Promise<Response> => {
                   ${createdDate}
                 </div>
                 
-                <a href="https://www.ecolet3p.fr/admin" class="cta">
+                <a href="https://ecolet3p.fr/admin" class="cta">
                   Voir dans l'admin →
                 </a>
               </div>

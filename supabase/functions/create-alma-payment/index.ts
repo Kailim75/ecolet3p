@@ -48,8 +48,8 @@ serve(async (req) => {
       payment: {
         purchase_amount: Math.round(amount * 100), // Alma expects cents
         installments_count,
-        return_url: return_url || 'https://www.ecolet3p.fr/formations?payment=success',
-        customer_cancel_url: cancel_url || 'https://www.ecolet3p.fr/formations?payment=cancelled',
+        return_url: return_url || 'https://ecolet3p.fr/formations?payment=success',
+        customer_cancel_url: cancel_url || 'https://ecolet3p.fr/formations?payment=cancelled',
         locale: 'fr',
         custom_data: {
           formation_title: formation_title || '',

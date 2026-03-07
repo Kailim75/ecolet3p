@@ -33,8 +33,8 @@ const handler = async (req: Request): Promise<Response> => {
       .maybeSingle();
 
     const unsubscribeToken = subscriber?.unsubscribe_token || "";
-    const unsubscribeUrl = `https://www.ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
-    const guideUrl = "https://www.ecolet3p.fr/guide-formation";
+    const unsubscribeUrl = `https://ecolet3p.fr/unsubscribe?token=${unsubscribeToken}`;
+    const guideUrl = "https://ecolet3p.fr/guide-formation";
     const emailSubject = "📘 Votre guide : Les 7 étapes pour devenir chauffeur T3P en 2026";
 
     const emailResponse = await resend.emails.send({
@@ -105,7 +105,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" style="width: 100%;">
                         <tr>
                           <td style="text-align: center;">
-                            <a href="https://www.ecolet3p.fr/contact" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 15px;">
+                            <a href="https://ecolet3p.fr/contact" style="display: inline-block; background-color: #1B4332; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 15px;">
                               Prendre rendez-vous →
                             </a>
                           </td>
