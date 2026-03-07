@@ -56,7 +56,7 @@ const BlogArticle = () => {
   };
 
   const wordCount = article.content.split(/\s+/).filter(word => word.length > 0).length;
-  const articleUrl = `https://www.ecolet3p.fr/blog/${article.slug}`;
+  const articleUrl = `https://ecolet3p.fr/blog/${article.slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
