@@ -2593,8 +2593,8 @@ Le parcours vers la carte VTC est structuré et accessible. Avec ECOLE T3P, vous
   },
   {
     slug: "facilites-paiement-formation-taxi-vtc",
-    title: "Facilités de paiement pour votre formation Taxi/VTC",
-    metaDescription: "Découvrez nos options de paiement flexibles pour financer votre formation taxi ou VTC : paiement en 4x sans frais, échelonnement personnalisé.",
+    title: "Payer sa formation Taxi VTC en 4× sans frais avec Alma",
+    metaDescription: "Financez votre formation Taxi ou VTC à 990€ en 2, 3 ou 4 mensualités sans frais via Alma. Réponse immédiate, sans justificatif. ECOLE T3P Montrouge.",
     excerpt: "Le paiement ne doit pas être un frein à votre projet. Découvrez nos facilités de paiement pour financer votre formation de chauffeur.",
     category: "Pratique",
     readTime: "3 min",

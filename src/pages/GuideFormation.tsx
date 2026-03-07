@@ -102,10 +102,11 @@ const GuideFormation = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Guide de Formation Taxi VTC VMDTR | ECOLE T3P</title>
-        <meta name="description" content="Guide pédagogique pas à pas : programme de formation, modules, examen, carte professionnelle et opportunités pour devenir chauffeur Taxi, VTC ou VMDTR." />
-        <link rel="canonical" href="https://ecolet3p.fr/guide-formation" />
+      <DynamicSEOHead
+        pageUrl="/guide-formation"
+        defaultTitle="Guide Formation Taxi VTC VMDTR | ECOLE T3P"
+        defaultDescription="Programme détaillé de nos formations Taxi, VTC et VMDTR : modules, durée, examen CMA et accompagnement vers la carte professionnelle."
+      >
         <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -115,7 +116,7 @@ const GuideFormation = () => {
             { "@type": "ListItem", "position": 2, "name": "Guide de Formation", "item": "https://ecolet3p.fr/guide-formation" }
           ]
         })}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">

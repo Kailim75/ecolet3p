@@ -110,20 +110,21 @@ const BlogArticle = () => {
 
   // SEO title overrides to keep under 60 characters
   const seoTitleMap: Record<string, string> = {
-    "formation-continue-renouvellement-carte-professionnelle": "Renouvellement Carte Pro Taxi VTC | ECOLE T3P",
-    "facilites-paiement-formation-taxi-vtc": "Facilités de Paiement Formation Taxi VTC | T3P",
-    "formation-taxi-carte-professionnelle-t3p": "Obtenir la Carte Pro Taxi — Guide | ECOLE T3P",
-    "etapes-obtenir-carte-professionnelle-vtc": "Étapes Carte Professionnelle VTC | ECOLE T3P",
-    "vtc-ou-taxi-quelle-formation-choisir": "VTC ou Taxi : Quelle Formation Choisir ? | T3P",
-    "devenir-chauffeur-vtc-guide-complet-2025": "Devenir Chauffeur VTC — Guide Complet | T3P",
-    "comment-devenir-chauffeur-vtc-2026": "Comment Devenir Chauffeur VTC en 2026 | T3P",
-    "comment-devenir-chauffeur-taxi-2026": "Comment Devenir Chauffeur Taxi en 2026 | T3P",
-    "vtc-taxi-vmdtr-2026-quel-metier-choisir": "VTC, Taxi ou VMDTR : Quel Métier Choisir ?",
+    "formation-continue-renouvellement-carte-professionnelle": "Renouvellement Carte Pro : Formation Continue",
+    "facilites-paiement-formation-taxi-vtc": "Payer sa Formation en 4× sans Frais | T3P",
+    "formation-taxi-carte-professionnelle-t3p": "Carte Pro Taxi : Formation et Examen | T3P",
+    "etapes-obtenir-carte-professionnelle-vtc": "5 Étapes pour la Carte Pro VTC | ECOLE T3P",
+    "vtc-ou-taxi-quelle-formation-choisir": "VTC ou Taxi : Quelle Formation Choisir ?",
+    "devenir-chauffeur-vtc-guide-complet-2025": "Devenir VTC en 2025 : Démarches Pratiques",
+    "comment-devenir-chauffeur-vtc-2026": "Devenir Chauffeur VTC en 2026 — Guide Complet",
+    "comment-devenir-chauffeur-taxi-2026": "Devenir Chauffeur Taxi en 2026 — Guide Complet",
+    "vtc-taxi-vmdtr-2026-quel-metier-choisir": "VTC, Taxi ou VMDTR en 2026 : Quel Métier ?",
     "formation-vmdtr-2026-devenir-conducteur-moto-taxi": "Formation VMDTR 2026 — Devenir Moto-Taxi",
+    "formation-vmdtr-moto-taxi-scooter": "VMDTR : Moto ou Scooter Professionnel ?",
     "maitrise-numerique-ia-chauffeur-vtc-taxi": "Numérique et IA pour Chauffeurs VTC Taxi",
-    "anglais-chauffeur-vtc-taxi-clientele-internationale": "Anglais pour Chauffeurs VTC Taxi | ECOLE T3P",
+    "anglais-chauffeur-vtc-taxi-clientele-internationale": "Anglais pour Chauffeurs VTC Taxi | T3P",
     "quel-statut-juridique-chauffeur-vtc-taxi-2026": "Statut Juridique Chauffeur VTC Taxi 2026",
-    "formation-vmdtr-moto-taxi-scooter": "Formation VMDTR Moto-Taxi Scooter | T3P",
+    "financement-formation-taxi-vtc": "Financement Formation Taxi VTC | ECOLE T3P",
   };
 
   const seoTitle = slug && seoTitleMap[slug] ? seoTitleMap[slug] : `${article.title} | ECOLE T3P`;
