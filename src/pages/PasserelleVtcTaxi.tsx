@@ -88,7 +88,7 @@ const PasserelleVtcTaxi = () => {
         pageUrl="/passerelle-vtc-taxi"
         defaultTitle="Passerelle VTC Taxi VMDTR — 665€ tout compris | ECOLE T3P Montrouge"
         defaultDescription="Formation passerelle VTC ↔ Taxi ↔ VMDTR à Montrouge (92). 665€ tout compris incluant frais d'examen. 94% de réussite. Paiement 4× sans frais."
-        canonicalUrl="https://www.ecolet3p.fr/passerelle-vtc-taxi"
+        canonicalUrl="https://ecolet3p.fr/passerelle-vtc-taxi"
       >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

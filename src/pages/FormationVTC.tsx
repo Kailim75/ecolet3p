@@ -7,7 +7,7 @@ const FormationVTC = () => (
   <FormationPageTemplate
     title="Formation VTC Montrouge 92 — 94% Réussite | 990€"
     description="Devenez chauffeur VTC avec ECOLE T3P à Montrouge (92). Formation agréée Préfecture, 94% de réussite, à partir de 990€ payable en 4x sans frais. Uber, Bolt, Heetch."
-    canonical="https://www.ecolet3p.fr/formations/vtc"
+    canonical="https://ecolet3p.fr/formations/vtc"
     ogTitle="Formation VTC Initiale à Montrouge — ECOLE T3P"
     ogDescription="Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais."
     heroImage={heroImageVTC}

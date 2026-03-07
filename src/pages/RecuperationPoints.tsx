@@ -83,7 +83,7 @@ const RecuperationPoints = () => {
         pageUrl="/stage-recuperation-points"
         defaultTitle="Stage Récupération de Points Montrouge 92 | ECOLE T3P"
         defaultDescription="Stage de récupération de points en 2 jours (14h) à Montrouge (92). Récupérez jusqu'à 4 points. 250€. Attestation immédiate. Sessions mensuelles."
-        canonicalUrl="https://www.ecolet3p.fr/stage-recuperation-points"
+        canonicalUrl="https://ecolet3p.fr/stage-recuperation-points"
       >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
