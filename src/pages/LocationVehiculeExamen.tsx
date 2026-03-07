@@ -137,7 +137,7 @@ const LocationVehiculeExamen = () => {
       <Helmet>
         <title>Location Véhicule Examen Taxi VTC | ECOLE T3P</title>
         <meta name="description" content="Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/services/location-vehicule-examen" />
+        <link rel="canonical" href="https://ecolet3p.fr/services/location-vehicule-examen" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
