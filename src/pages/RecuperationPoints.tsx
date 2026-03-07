@@ -54,7 +54,7 @@ const RecuperationPoints = () => {
     "@type": "Course",
     name: "Stage de Récupération de Points",
     description: "Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à 4 points sur votre permis de conduire. Formation agréée de 2 jours à Montrouge (92).",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 250, priceCurrency: "EUR" },
   };
 
