@@ -29,7 +29,7 @@ const CalendrierExamens = () => {
           name="description"
           content="Calendrier prévisionnel 2026 des examens CMA Île-de-France : dates d'admissibilité (théorique) et d'admission (pratique) pour les cartes professionnelles Taxi, VTC et VMDTR."
         />
-        <link rel="canonical" href="https://www.ecolet3p.fr/calendrier-examens" />
+        <link rel="canonical" href="https://ecolet3p.fr/calendrier-examens" />
       </Helmet>
 
       {/* Hero */}

@@ -100,8 +100,8 @@ const FormationsVilles = () => {
         pageUrl="/formations/villes"
         defaultTitle="Formations Taxi VTC près de chez vous | ECOLE T3P"
         defaultDescription="ECOLE T3P à Montrouge forme des chauffeurs Taxi, VTC et VMDTR de toute l'Île-de-France. Trouvez votre ville : 92, 94, 93, 91, 78 et Paris."
-        canonicalUrl="https://www.ecolet3p.fr/formations/villes"
-        ogImage="https://www.ecolet3p.fr/og-image.jpg"
+        canonicalUrl="https://ecolet3p.fr/formations/villes"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="keywords" content="formation taxi Paris, formation VTC Hauts-de-Seine, formation taxi 92, formation VTC 94, centre formation Île-de-France, ECOLE T3P villes" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

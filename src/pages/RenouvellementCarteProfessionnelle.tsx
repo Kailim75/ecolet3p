@@ -86,10 +86,10 @@ const RenouvellementCarteProfessionnelle = () => {
       <Helmet>
         <title>Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P</title>
         <meta name="description" content="Renouvellement carte pro VTC, Taxi, VMDTR à Montrouge (92). Formation continue 14h, attestation immédiate. 350€. Sessions chaque semaine." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
+        <link rel="canonical" href="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P" />
         <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. 350€. Centre agréé Préfecture 92." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/renouvellement-carte-professionnelle" />
+        <meta property="og:url" content="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

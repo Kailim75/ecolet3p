@@ -75,10 +75,10 @@ const AuditRentabilite = () => {
       <Helmet>
         <title>Audit Rentabilité Chauffeur VTC Taxi VMDTR | ECOLE T3P</title>
         <meta name="description" content="Audit stratégique gratuit : évaluez votre rentabilité en VTC, Taxi ou VMDTR. Pré-audit instantané + rapport détaillé 12 mois avec plan d'action personnalisé par ECOLE T3P." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/audit-rentabilite" />
+        <link rel="canonical" href="https://ecolet3p.fr/audit-rentabilite" />
         <meta property="og:title" content="Audit Rentabilité Chauffeur Professionnel | ECOLE T3P" />
         <meta property="og:description" content="Évaluez votre rentabilité chauffeur VTC, Taxi ou VMDTR. Rapport stratégique 12 mois gratuit." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/audit-rentabilite" />
+        <meta property="og:url" content="https://ecolet3p.fr/audit-rentabilite" />
         <script type="application/ld+json">{JSON.stringify(auditSchema)}</script>
       </Helmet>
 
