@@ -2385,8 +2385,8 @@ La carte professionnelle taxi ouvre les portes d'un métier stable et recherché
   },
   {
     slug: "vtc-ou-taxi-quelle-formation-choisir",
-    title: "VTC vs Taxi : Quelle formation choisir en 2025 ?",
-    metaDescription: "Comparatif complet entre les métiers de VTC et Taxi. Revenus, avantages, inconvénients et formation adaptée à votre profil.",
+    title: "VTC ou Taxi : quelle formation choisir selon votre profil ?",
+    metaDescription: "VTC ou Taxi ? Comparez revenus, flexibilité, investissement initial et formation pour choisir le métier de chauffeur adapté à votre situation.",
     excerpt: "Hésitation entre VTC et Taxi ? Découvrez les différences clés entre ces deux métiers pour faire le bon choix de carrière.",
     category: "Guide",
     readTime: "10 min",
