@@ -8,12 +8,12 @@
   <!-- PAGES PILIERS — Priorité maximale              -->
   <!-- ══════════════════════════════════════════════ -->
   <url>
-    <loc>https://www.ecolet3p.fr/</loc>
+    <loc>https://ecolet3p.fr/</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.ecolet3p.fr/og-image.jpg</image:loc>
+      <image:loc>https://ecolet3p.fr/og-image.jpg</image:loc>
       <image:title>ECOLE T3P - Formation Taxi VTC VMDTR Paris Montrouge</image:title>
     </image:image>
   </url>
