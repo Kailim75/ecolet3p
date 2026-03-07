@@ -25,8 +25,8 @@ describe("Header", () => {
 
   it("renders main navigation items", () => {
     renderWithRouter(<Header />);
-    expect(screen.getByText("Devenir Chauffeur")).toBeInTheDocument();
-    expect(screen.getByText("Blog")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    expect(screen.getAllByText("Devenir Chauffeur").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Blog").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Contact").length).toBeGreaterThanOrEqual(1);
   });
 });

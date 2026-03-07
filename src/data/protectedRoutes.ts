@@ -40,5 +40,7 @@ export const PROTECTED_ROUTES = new Set([
   "/logo-preview",
   "/logo-export",
   "/logo-institutionnel",
+  "/logo-showcase",
+  "/logo-download",
   "/templates",
 ]);
