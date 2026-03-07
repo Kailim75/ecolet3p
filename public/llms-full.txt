@@ -332,26 +332,26 @@ Disponible sur notre site web
 ECOLE T3P publie régulièrement des guides et articles pour accompagner les futurs chauffeurs dans leur projet professionnel.
 
 ### Guides métiers 2026
-- **Comment devenir chauffeur VTC en 2026** : réglementations, ZFE, véhicules électriques, formation et revenus. https://www.ecolet3p.fr/blog/comment-devenir-chauffeur-vtc-2026
-- **Comment devenir chauffeur Taxi en 2026** : licence ADS, formation, examen et revenus. https://www.ecolet3p.fr/blog/comment-devenir-chauffeur-taxi-2026
-- **Formation VMDTR 2026 : Devenir conducteur moto-taxi** : formation 14h, examen, carte professionnelle et équipement. https://www.ecolet3p.fr/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi
-- **VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?** : comparatif complet des trois métiers. https://www.ecolet3p.fr/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir
+- **Comment devenir chauffeur VTC en 2026** : réglementations, ZFE, véhicules électriques, formation et revenus. https://ecolet3p.fr/blog/comment-devenir-chauffeur-vtc-2026
+- **Comment devenir chauffeur Taxi en 2026** : licence ADS, formation, examen et revenus. https://ecolet3p.fr/blog/comment-devenir-chauffeur-taxi-2026
+- **Formation VMDTR 2026 : Devenir conducteur moto-taxi** : formation 14h, examen, carte professionnelle et équipement. https://ecolet3p.fr/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi
+- **VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?** : comparatif complet des trois métiers. https://ecolet3p.fr/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir
 
 ### Statuts juridiques et création d'entreprise
-- **Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?** : auto-entrepreneur, SASU, EURL, SARL — avantages, inconvénients et fiscalité. https://www.ecolet3p.fr/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026
+- **Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?** : auto-entrepreneur, SASU, EURL, SARL — avantages, inconvénients et fiscalité. https://ecolet3p.fr/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026
 
 ### Compétences et outils professionnels
-- **Maîtrise du numérique et de l'IA : un atout indispensable pour les chauffeurs VTC et Taxi** : applications, GPS, gestion comptable et intelligence artificielle au service du transport. https://www.ecolet3p.fr/blog/maitrise-numerique-ia-chauffeur-vtc-taxi
-- **L'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale** : vocabulaire, phrases clés et conseils pour accueillir les passagers étrangers. https://www.ecolet3p.fr/blog/anglais-chauffeur-vtc-taxi-clientele-internationale
+- **Maîtrise du numérique et de l'IA : un atout indispensable pour les chauffeurs VTC et Taxi** : applications, GPS, gestion comptable et intelligence artificielle au service du transport. https://ecolet3p.fr/blog/maitrise-numerique-ia-chauffeur-vtc-taxi
+- **L'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale** : vocabulaire, phrases clés et conseils pour accueillir les passagers étrangers. https://ecolet3p.fr/blog/anglais-chauffeur-vtc-taxi-clientele-internationale
 
 ### Guides pratiques
-- **Comment devenir chauffeur VTC en 2025 : Guide complet** : toutes les étapes de la formation à l'activité. https://www.ecolet3p.fr/blog/devenir-chauffeur-vtc-guide-complet-2025
-- **Formation Taxi : Tout savoir sur la carte professionnelle T3P** : prérequis, examen, durée et coût. https://www.ecolet3p.fr/blog/formation-taxi-carte-professionnelle-t3p
-- **VTC vs Taxi : Quelle formation choisir en 2025 ?** : comparatif des métiers et formations. https://www.ecolet3p.fr/blog/vtc-ou-taxi-quelle-formation-choisir
-- **Les 5 étapes pour obtenir sa carte professionnelle VTC** : formation, examen, dossier préfecture. https://www.ecolet3p.fr/blog/etapes-obtenir-carte-professionnelle-vtc
-- **Facilités de paiement pour votre formation Taxi/VTC** : paiement en 4x sans frais, échelonnement personnalisé. https://www.ecolet3p.fr/blog/facilites-paiement-formation-taxi-vtc
-- **Formation VMDTR : Devenir conducteur moto-taxi ou scooter** : programme, examen et débouchés. https://www.ecolet3p.fr/blog/formation-vmdtr-moto-taxi-scooter
-- **Formation Continue : Renouveler sa carte professionnelle VTC/Taxi** : obligations, durée et programme. https://www.ecolet3p.fr/blog/formation-continue-renouvellement-carte-professionnelle
+- **Comment devenir chauffeur VTC en 2025 : Guide complet** : toutes les étapes de la formation à l'activité. https://ecolet3p.fr/blog/devenir-chauffeur-vtc-guide-complet-2025
+- **Formation Taxi : Tout savoir sur la carte professionnelle T3P** : prérequis, examen, durée et coût. https://ecolet3p.fr/blog/formation-taxi-carte-professionnelle-t3p
+- **VTC vs Taxi : Quelle formation choisir en 2025 ?** : comparatif des métiers et formations. https://ecolet3p.fr/blog/vtc-ou-taxi-quelle-formation-choisir
+- **Les 5 étapes pour obtenir sa carte professionnelle VTC** : formation, examen, dossier préfecture. https://ecolet3p.fr/blog/etapes-obtenir-carte-professionnelle-vtc
+- **Facilités de paiement pour votre formation Taxi/VTC** : paiement en 4x sans frais, échelonnement personnalisé. https://ecolet3p.fr/blog/facilites-paiement-formation-taxi-vtc
+- **Formation VMDTR : Devenir conducteur moto-taxi ou scooter** : programme, examen et débouchés. https://ecolet3p.fr/blog/formation-vmdtr-moto-taxi-scooter
+- **Formation Continue : Renouveler sa carte professionnelle VTC/Taxi** : obligations, durée et programme. https://ecolet3p.fr/blog/formation-continue-renouvellement-carte-professionnelle
 
 ---
 
