@@ -135,7 +135,7 @@ const BlogArticle = () => {
         defaultTitle={seoTitle}
         defaultDescription={article.metaDescription}
         canonicalUrl={articleUrl}
-        ogImage={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://www.ecolet3p.fr${article.image}`}
+        ogImage={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://ecolet3p.fr${article.image}`}
       >
         <meta name="keywords" content={`${article.category}, formation ${article.category.toLowerCase()}, ECOLE T3P, transport de personnes`} />
         <meta property="og:site_name" content="ECOLE T3P" />

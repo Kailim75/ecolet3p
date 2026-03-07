@@ -125,7 +125,7 @@ const Formations = () => {
         pageUrl="/formations"
         defaultTitle="Formations Taxi VTC VMDTR | ECOLE T3P"
         defaultDescription="Catalogue complet : formations initiales Taxi VTC VMDTR dès 990€, continues, passerelles, packs économiques et programme parrainage. Paiement 4× sans frais."
-        canonicalUrl="https://www.ecolet3p.fr/formations"
+        canonicalUrl="https://ecolet3p.fr/formations"
       >
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>

@@ -168,12 +168,12 @@ const FormationMontrouge = () => {
           name="description"
           content="Centre de formation Taxi, VTC et VMDTR à Montrouge (92120). Agrément Préfecture n° 23/007, 94% de réussite, à partir de 990€. Métro Mairie de Montrouge ligne 4."
         />
-        <link rel="canonical" href="https://www.ecolet3p.fr/formations/montrouge" />
+        <link rel="canonical" href="https://ecolet3p.fr/formations/montrouge" />
         <meta property="og:title" content="Formation Taxi VTC Montrouge — ECOLE T3P" />
         <meta property="og:description" content="Centre agréé Préfecture à Montrouge. 94% de réussite aux examens Taxi et VTC. À partir de 990€, paiement en 4×." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/formations/montrouge" />
+        <meta property="og:url" content="https://ecolet3p.fr/formations/montrouge" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ecolet3p.fr/og-image.jpg" />
+        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
         <meta name="geo.region" content="FR-92" />
         <meta name="geo.placename" content="Montrouge" />
         <meta name="geo.position" content="48.8155;2.3137" />

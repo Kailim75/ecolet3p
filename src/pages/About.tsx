@@ -139,15 +139,15 @@ const About = () => {
         pageUrl="/a-propos"
         defaultTitle="À Propos d'ECOLE T3P — Formation Taxi VTC"
         defaultDescription="Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport."
-        canonicalUrl="https://www.ecolet3p.fr/a-propos"
+        canonicalUrl="https://ecolet3p.fr/a-propos"
       >
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-            { "@type": "ListItem", "position": 2, "name": "À propos", "item": "https://www.ecolet3p.fr/a-propos" }
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "À propos", "item": "https://ecolet3p.fr/a-propos" }
           ]
         })}</script>
       </DynamicSEOHead>
