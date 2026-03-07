@@ -238,8 +238,8 @@ const PrivacyPolicy = () => {
             <div className="mt-12 p-6 bg-muted/30 rounded-xl">
               <h2 className="text-lg font-bold text-forest mb-4">Pages connexes</h2>
               <div className="grid sm:grid-cols-2 gap-3">
-                <Link to="/mentions-juridiques" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
-                  → Mentions juridiques
+                <Link to="/mentions-legales" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Mentions légales
                 </Link>
                 <Link to="/contact" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
                   → Nous contacter

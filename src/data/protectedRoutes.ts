@@ -30,7 +30,7 @@ export const PROTECTED_ROUTES = new Set([
   "/a-propos",
   "/contact",
   "/blog",
-  "/mentions-juridiques",
+  "/mentions-legales",
   "/politique-de-confidentialite",
   "/unsubscribe",
   "/admin",
