@@ -51,7 +51,7 @@ const FormationAccessibilitePMR = () => {
     "@type": "Course",
     name: "Formation Accessibilité & Transport PMR",
     description: "Formation transport de personnes à mobilité réduite (PMR) 14h à Montrouge (92). Attestation officielle. 290€ payable en 4× sans frais.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 290, priceCurrency: "EUR" },
   };
 
