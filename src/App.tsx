@@ -128,7 +128,8 @@ const App = () => {
                       <Route path="/contact" element={<Contact />} />
                       <Route path="/blog" element={<Blog />} />
                       <Route path="/blog/:slug" element={<BlogArticle />} />
-                      <Route path="/mentions-legales" element={<LegalMentions />} />
+                      <Route path="/mentions-juridiques" element={<LegalMentions />} />
+                      <Route path="/mentions-legales" element={<Navigate to="/mentions-juridiques" replace />} />
                       <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
                       <Route path="/unsubscribe" element={<Unsubscribe />} />
                       <Route path="/admin" element={<Admin />} />
