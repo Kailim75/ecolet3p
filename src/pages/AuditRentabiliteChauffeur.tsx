@@ -82,8 +82,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-    { "@type": "ListItem", position: 2, name: "Audit Rentabilité Chauffeur", item: "https://www.ecolet3p.fr/audit-rentabilite-chauffeur" },
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+    { "@type": "ListItem", position: 2, name: "Audit Rentabilité Chauffeur", item: "https://ecolet3p.fr/audit-rentabilite-chauffeur" },
   ],
 };
 
