@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import {
   Clock, Euro, Check, ArrowRight, Phone,
   Home, ChevronRight, GraduationCap
@@ -43,11 +43,12 @@ const ServicePageTemplate = ({
 
   return (
     <Layout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
-      </Helmet>
+      <DynamicSEOHead
+        pageUrl={new URL(canonical).pathname}
+        defaultTitle={title}
+        defaultDescription={description}
+        canonicalUrl={canonical}
+      />
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">

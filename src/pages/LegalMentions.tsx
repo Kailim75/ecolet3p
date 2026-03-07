@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
@@ -20,10 +20,11 @@ const fadeUpVariants = {
 const LegalMentions = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Mentions Légales | ECOLE T3P Montrouge</title>
-        <meta name="description" content="Mentions légales du site ecolet3p.fr. ECOLE T3P, centre de formation professionnelle Taxi VTC VMDTR. 3 rue Corneille, 92120 Montrouge. Informations légales." />
-        <link rel="canonical" href="https://ecolet3p.fr/mentions-legales" />
+      <DynamicSEOHead
+        pageUrl="/mentions-legales"
+        defaultTitle="Mentions Légales | ECOLE T3P Montrouge"
+        defaultDescription="Mentions légales du site ecolet3p.fr. ECOLE T3P, centre de formation Taxi VTC VMDTR, 3 rue Corneille, 92120 Montrouge."
+      >
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -32,7 +33,7 @@ const LegalMentions = () => {
             { "@type": "ListItem", "position": 2, "name": "Mentions légales", "item": "https://ecolet3p.fr/mentions-legales" }
           ]
         })}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">

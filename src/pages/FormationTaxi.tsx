@@ -5,8 +5,8 @@ import heroImageTaxiWebp from "@/assets/formations/hero-taxi.jpg?w=640;1024;1920
 
 const FormationTaxi = () => (
   <FormationPageTemplate
-    title="Formation Taxi Montrouge 92 — 94% Réussite | 990€"
-    description="Devenez chauffeur de taxi avec ECOLE T3P à Montrouge (92). Centre agréé Préfecture, 94% de réussite. À partir de 990€ en 4x sans frais. Carte professionnelle taxi."
+    title="Formation Taxi Montrouge (92) — 94% Réussite | 990€"
+    description="Formation Taxi agréée Préfecture à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais. Carte professionnelle Taxi."
     canonical="https://ecolet3p.fr/formations/taxi"
     ogTitle="Formation Taxi Initiale à Montrouge — ECOLE T3P"
     ogDescription="Formation initiale Taxi à Montrouge. Centre agréé Préfecture, 94% de réussite."

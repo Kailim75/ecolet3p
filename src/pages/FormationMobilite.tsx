@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import {
   ArrowLeftRight, Clock, Euro, Check, ArrowRight, Phone,
   Home, ChevronRight, GraduationCap, Star, TrendingUp, Zap
@@ -61,16 +61,14 @@ const FormationMobilite = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Passerelle Taxi ↔ VTC 14h — 390€ | ECOLE T3P</title>
-        <meta name="description" content="Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours à 390€. Ajoutez une mention à votre carte pro. Paiement 4× sans frais." />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/mobilite" />
-        <meta property="og:title" content="Formation Mobilité Passerelle Taxi ↔ VTC — ECOLE T3P" />
-        <meta property="og:description" content="Formation passerelle 14h pour passer de Taxi à VTC ou inversement. 390€, 2 jours." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/mobilite" />
+      <DynamicSEOHead
+        pageUrl="/formations/mobilite"
+        defaultTitle="Passerelle Taxi ↔ VTC 14h — 390€ | ECOLE T3P"
+        defaultDescription="Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours, 390€. Ajoutez une mention à votre carte pro."
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">

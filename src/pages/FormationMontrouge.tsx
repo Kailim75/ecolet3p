@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -162,25 +162,19 @@ const faqSchema = {
 const FormationMontrouge = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Formation Taxi VTC Montrouge (92) — ECOLE T3P</title>
-        <meta
-          name="description"
-          content="Centre de formation Taxi, VTC et VMDTR à Montrouge (92120). Agrément Préfecture n° 23/007, 94% de réussite, à partir de 990€. Métro Mairie de Montrouge ligne 4."
-        />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/montrouge" />
-        <meta property="og:title" content="Formation Taxi VTC Montrouge — ECOLE T3P" />
-        <meta property="og:description" content="Centre agréé Préfecture à Montrouge. 94% de réussite aux examens Taxi et VTC. À partir de 990€, paiement en 4×." />
-        <meta property="og:url" content="https://ecolet3p.fr/formations/montrouge" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
+      <DynamicSEOHead
+        pageUrl="/formations/montrouge"
+        defaultTitle="Formation Taxi VTC Montrouge (92) | ECOLE T3P"
+        defaultDescription="Centre de formation Taxi VTC VMDTR à Montrouge (92120). Agrément Préfecture, 94% de réussite, à partir de 990€. Métro ligne 4."
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <meta name="geo.region" content="FR-92" />
         <meta name="geo.placename" content="Montrouge" />
         <meta name="geo.position" content="48.8155;2.3137" />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <nav className="bg-muted border-b border-border mt-16" aria-label="Breadcrumb">
