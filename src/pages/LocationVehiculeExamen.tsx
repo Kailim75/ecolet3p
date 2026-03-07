@@ -101,7 +101,7 @@ const LocationVehiculeExamen = () => {
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
-      "sameAs": "https://www.ecolet3p.fr"
+      "sameAs": "https://ecolet3p.fr"
     },
     "areaServed": {
       "@type": "City",
