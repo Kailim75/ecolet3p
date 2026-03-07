@@ -60,12 +60,12 @@ const FormationsVilles = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.ecolet3p.fr/formations/villes#localbusiness",
+    "@id": "https://ecolet3p.fr/formations/villes#localbusiness",
     "name": "ECOLE T3P - Formation Taxi VTC Île-de-France",
-    "image": "https://www.ecolet3p.fr/og-image.jpg",
+    "image": "https://ecolet3p.fr/og-image.jpg",
     "telephone": "+33188750555",
     "email": "montrouge@ecolet3p.fr",
-    "url": "https://www.ecolet3p.fr/formations/villes",
+    "url": "https://ecolet3p.fr/formations/villes",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "3 rue Corneille",
