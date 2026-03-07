@@ -78,7 +78,7 @@ const BlogArticle = () => {
       "@type": "Organization",
       "name": "ECOLE T3P",
       "url": "https://ecolet3p.fr",
-      "logo": { "@type": "ImageObject", "url": "https://www.ecolet3p.fr/logo/ecole-t3p-favicon.svg", "width": 512, "height": 512 }
+      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg", "width": 512, "height": 512 }
     },
     "datePublished": formatDateISO(article.publishDate),
     "dateModified": formatDateISO(article.publishDate),
