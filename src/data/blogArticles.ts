@@ -2308,8 +2308,8 @@ Devenir chauffeur VTC est un projet accessible avec une bonne préparation. ECOL
   },
   {
     slug: "formation-taxi-carte-professionnelle-t3p",
-    title: "Formation Taxi : Tout savoir sur la carte professionnelle T3P",
-    metaDescription: "Guide complet sur la formation taxi et l'obtention de la carte professionnelle T3P. Prérequis, examen, durée et coût de la formation.",
+    title: "Carte professionnelle Taxi : formation, examen et obtention",
+    metaDescription: "Comment obtenir la carte professionnelle Taxi T3P : prérequis, programme de formation, épreuves de l'examen CMA et délais de délivrance en préfecture.",
     excerpt: "La carte professionnelle T3P est indispensable pour exercer le métier de taxi. Découvrez comment l'obtenir grâce à notre formation certifiante.",
     category: "TAXI",
     readTime: "7 min",
