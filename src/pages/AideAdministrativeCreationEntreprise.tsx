@@ -82,10 +82,10 @@ const AideAdministrativeCreationEntreprise = () => {
       <Helmet>
         <title>Aide Administrative Chauffeur Montrouge — Dès 190€ | ECOLE T3P</title>
         <meta name="description" content="Accompagnement administratif complet pour chauffeurs VTC, Taxi, VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
+        <link rel="canonical" href="https://ecolet3p.fr/aide-administrative-creation-entreprise" />
         <meta property="og:title" content="Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P" />
         <meta property="og:description" content="On s'occupe de toute la paperasse. Carte pro, registre T3P, préfecture, plateformes VTC. Résultat en 1 journée." />
-        <meta property="og:url" content="https://www.ecolet3p.fr/aide-administrative-creation-entreprise" />
+        <meta property="og:url" content="https://ecolet3p.fr/aide-administrative-creation-entreprise" />
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>

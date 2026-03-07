@@ -79,7 +79,7 @@ const AccompagnementGestionActivite = () => {
       <Helmet>
         <title>Gestion d'Activité Chauffeur 21h — 390€ | ECOLE T3P</title>
         <meta name="description" content="Formation gestion d'entreprise 21h à 390€ à Montrouge (92). Statut juridique, comptabilité, fiscalité pour chauffeurs VTC et Taxi. 4× sans frais." />
-        <link rel="canonical" href="https://www.ecolet3p.fr/accompagnement-gestion-activite" />
+        <link rel="canonical" href="https://ecolet3p.fr/accompagnement-gestion-activite" />
         <meta property="og:title" content="Gestion d'Activité Chauffeur — 390€ | ECOLE T3P Montrouge" />
         <meta property="og:description" content="Lancez votre activité sur des bases solides. Statut juridique, comptabilité, fiscalité — ROI immédiat." />
         <meta property="og:url" content="https://www.ecolet3p.fr/accompagnement-gestion-activite" />

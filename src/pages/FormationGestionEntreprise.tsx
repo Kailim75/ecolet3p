@@ -5,7 +5,7 @@ const FormationGestionEntreprise = () => (
   <ServicePageTemplate
     title="Formation Gestion & Création d'Entreprise 21h — 390€ | ECOLE T3P"
     description="Formation gestion d'entreprise 21h (3 jours) à 390€. Lancez votre activité de chauffeur sur des bases solides. Paiement 4× sans frais."
-    canonical="https://www.ecolet3p.fr/accompagnement-gestion-activite"
+    canonical="https://ecolet3p.fr/accompagnement-gestion-activite"
     badge="Gestion d'Entreprise"
     badgeIcon={Briefcase}
     heading="Gestion & Création d'Entreprise"

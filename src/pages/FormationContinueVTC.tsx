@@ -7,7 +7,7 @@ const FormationContinueVTC = () => (
     heroBackground={carteVtc}
     title="Formation Continue VTC 14h Montrouge — 170€ | ECOLE T3P"
     description="Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation délivrée le jour même. Sessions chaque semaine."
-    canonical="https://www.ecolet3p.fr/formations/continue-vtc"
+    canonical="https://ecolet3p.fr/formations/continue-vtc"
     ogTitle="Formation Continue VTC 14h — ECOLE T3P Montrouge"
     ogDescription="Renouvelez votre carte VTC. Formation continue 14h à 170€. Centre agréé Préfecture 92. Attestation immédiate."
     badge="Formation Continue VTC"

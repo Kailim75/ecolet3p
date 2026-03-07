@@ -39,7 +39,7 @@ const FormationContinueVMDTR = () => (
     heroBackground={carteVmdtr}
     title="Formation Continue VMDTR 14h Montrouge — 239€ | ECOLE T3P"
     description="Formation continue obligatoire VMDTR (moto-taxi) 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation immédiate."
-    canonical="https://www.ecolet3p.fr/formations/continue-vmdtr"
+    canonical="https://ecolet3p.fr/formations/continue-vmdtr"
     ogTitle="Formation Continue VMDTR 14h — ECOLE T3P Montrouge"
     ogDescription="Renouvelez votre carte VMDTR moto-taxi. Formation continue 14h à 239€. Centre agréé Préfecture 92. Attestation le jour même."
     badge="Formation Continue VMDTR"

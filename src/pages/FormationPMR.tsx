@@ -5,7 +5,7 @@ const FormationPMR = () => (
   <ServicePageTemplate
     title="Formation Accessibilité PMR 14h — 290€ | ECOLE T3P"
     description="Formation transport PMR 14h (2 jours) à 290€. Maîtrisez le transport de personnes à mobilité réduite. Paiement 4× sans frais."
-    canonical="https://www.ecolet3p.fr/formation-accessibilite-pmr"
+    canonical="https://ecolet3p.fr/formation-accessibilite-pmr"
     badge="Formation PMR"
     badgeIcon={Accessibility}
     heading="Formation Accessibilité & Transport PMR"
