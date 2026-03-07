@@ -2765,8 +2765,8 @@ La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs d
   },
   {
     slug: "formation-continue-renouvellement-carte-professionnelle",
-    title: "Formation Continue : Renouveler sa carte professionnelle VTC/Taxi/VMDTR",
-    metaDescription: "Tout savoir sur la formation continue obligatoire pour renouveler votre carte professionnelle VTC, Taxi ou VMDTR. Durée, programme et modalités.",
+    title: "Renouvellement carte pro : formation continue obligatoire",
+    metaDescription: "Votre carte VTC, Taxi ou VMDTR expire bientôt ? Durée, programme et tarifs de la formation continue obligatoire pour renouveler votre carte professionnelle.",
     excerpt: "Votre carte professionnelle VTC, Taxi ou VMDTR arrive à expiration ? Découvrez la formation continue obligatoire pour la renouveler et maintenir vos compétences à jour.",
     category: "Formation Continue",
     readTime: "6 min",
