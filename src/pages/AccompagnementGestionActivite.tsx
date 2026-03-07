@@ -68,9 +68,9 @@ const AccompagnementGestionActivite = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", position: 3, name: "Gestion d'activité", item: "https://www.ecolet3p.fr/accompagnement-gestion-activite" },
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://ecolet3p.fr/" },
+      { "@type": "ListItem", position: 2, name: "Formations", item: "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", position: 3, name: "Gestion d'activité", item: "https://ecolet3p.fr/accompagnement-gestion-activite" },
     ],
   };
 
