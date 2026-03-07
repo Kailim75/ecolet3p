@@ -126,7 +126,7 @@ const Contact = () => {
     "@context": "https://schema.org", "@type": "ContactPage",
     "name": "Contact ECOLE T3P",
     "description": "Contactez notre centre de formation Taxi VTC à Montrouge",
-    "url": "https://www.ecolet3p.fr/contact",
+    "url": "https://ecolet3p.fr/contact",
     "mainEntity": {
       "@type": "LocalBusiness", "name": "ECOLE T3P",
       "telephone": "+33188750555", "email": "montrouge@ecolet3p.fr",
