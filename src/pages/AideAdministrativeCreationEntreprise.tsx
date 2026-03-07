@@ -51,7 +51,7 @@ const AideAdministrativeCreationEntreprise = () => {
     "@type": "Service",
     name: "Aide Administrative & Création d'Entreprise pour Chauffeurs",
     description: "Accompagnement administratif complet pour chauffeurs VTC, Taxi et VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€.",
-    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+    provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: [
       { "@type": "Offer", name: "En groupe", price: 190, priceCurrency: "EUR" },
       { "@type": "Offer", name: "Individuel", price: 290, priceCurrency: "EUR" },
