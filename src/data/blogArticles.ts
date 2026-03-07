@@ -2232,8 +2232,8 @@ Découvrez nos autres guides sur les métiers du transport :
   },
   {
     slug: "devenir-chauffeur-vtc-guide-complet-2025",
-    title: "Comment devenir chauffeur VTC en 2025 : Guide complet",
-    metaDescription: "Découvrez toutes les étapes pour devenir chauffeur VTC en 2025 : formation, examen, carte professionnelle et démarches administratives.",
+    title: "Devenir chauffeur VTC en 2025 : démarches et conseils pratiques",
+    metaDescription: "Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l'examen, choix du véhicule et création de votre micro-entreprise.",
     excerpt: "Vous souhaitez devenir chauffeur VTC ? Découvrez notre guide complet avec toutes les étapes, de la formation à l'obtention de votre carte professionnelle.",
     category: "VTC",
     readTime: "8 min",
