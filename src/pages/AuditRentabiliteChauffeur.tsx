@@ -92,8 +92,8 @@ const webPageSchema = {
   "@type": "WebPage",
   name: "Audit rentabilité chauffeur (Taxi/VTC/VMDTR) – École T3P Paris",
   description: "Estimez votre net mensuel (charges, statut, véhicule). Envoyez votre audit sur WhatsApp et démarrez votre formation.",
-  url: "https://www.ecolet3p.fr/audit-rentabilite-chauffeur",
-  provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://www.ecolet3p.fr" },
+  url: "https://ecolet3p.fr/audit-rentabilite-chauffeur",
+  provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
 };
 
 /* ── WhatsApp CTA Button ── */
