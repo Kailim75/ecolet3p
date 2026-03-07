@@ -65,9 +65,9 @@ const FormationVille = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.ecolet3p.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://www.ecolet3p.fr/formations" },
-      { "@type": "ListItem", "position": 3, "name": `Formation ${city.name}`, "item": `https://www.ecolet3p.fr/formations/${city.slug}` }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ecolet3p.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://ecolet3p.fr/formations" },
+      { "@type": "ListItem", "position": 3, "name": `Formation ${city.name}`, "item": `https://ecolet3p.fr/formations/${city.slug}` }
     ]
   };
 
