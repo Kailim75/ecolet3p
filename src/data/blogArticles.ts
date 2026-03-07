@@ -2654,8 +2654,8 @@ Le paiement ne doit pas être un frein à votre projet professionnel. Avec nos f
   },
   {
     slug: "formation-vmdtr-moto-taxi-scooter",
-    title: "Formation VMDTR : Devenir conducteur moto-taxi ou scooter",
-    metaDescription: "Guide complet sur la formation VMDTR pour devenir conducteur de deux-roues motorisé. Prérequis, programme, examen et débouchés.",
+    title: "VMDTR : scooter ou moto pour le transport de passagers ?",
+    metaDescription: "Moto ou maxi-scooter pour exercer en VMDTR ? Comparatif des véhicules, équipements obligatoires et conseils pour choisir votre deux-roues professionnel.",
     excerpt: "Découvrez comment devenir conducteur de moto-taxi ou de scooter professionnel grâce à la formation VMDTR et obtenir votre carte professionnelle.",
     category: "VMDTR",
     readTime: "7 min",
