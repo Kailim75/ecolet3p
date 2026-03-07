@@ -116,12 +116,12 @@ const faqs = [
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.ecolet3p.fr/formations/montrouge#localbusiness",
+  "@id": "https://ecolet3p.fr/formations/montrouge#localbusiness",
   name: "ECOLE T3P — Centre de Formation Taxi VTC Montrouge",
-  image: "https://www.ecolet3p.fr/og-image.jpg",
+  image: "https://ecolet3p.fr/og-image.jpg",
   telephone: "+33188750555",
   email: "montrouge@ecolet3p.fr",
-  url: "https://www.ecolet3p.fr/formations/montrouge",
+  url: "https://ecolet3p.fr/formations/montrouge",
   address: {
     "@type": "PostalAddress",
     streetAddress: "3 rue Corneille",
