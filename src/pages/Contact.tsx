@@ -105,18 +105,20 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      // Build the record for notification
+      const record = {
+        full_name: formData.fullName.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        formation: formData.formation || null,
+        message: formData.message.trim() || null,
+        status: 'new',
+      };
+
       // Insert into database
-      const { data: insertedData, error: dbError } = await supabase
+      const { error: dbError } = await supabase
         .from('contact_requests' as any)
-        .insert({
-          full_name: formData.fullName.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim(),
-          formation: formData.formation || null,
-          message: formData.message.trim() || null,
-        } as any)
-        .select()
-        .single();
+        .insert(record as any);
 
       if (dbError) {
         console.error('Contact form DB error:', dbError);
@@ -135,7 +137,7 @@ const Contact = () => {
       // Send notification (non-blocking)
       try {
         await supabase.functions.invoke('notify-contact-request', {
-          body: { record: insertedData }
+          body: { record }
         });
       } catch (notifyErr) {
         console.error('Contact notification failed:', notifyErr);
