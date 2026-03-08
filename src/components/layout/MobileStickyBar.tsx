@@ -77,7 +77,7 @@ const MobileStickyBar = () => {
 
       {/* CTA */}
       <button
-        onClick={() => setIsRdvOpen(true)}
+        onClick={() => { analytics.trackAppointmentStart(); setIsRdvOpen(true); }}
         className="flex-1 flex items-center justify-center gap-2 rounded-xl"
         style={{
           height: 44,

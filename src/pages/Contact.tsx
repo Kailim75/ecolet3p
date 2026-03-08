@@ -318,8 +318,8 @@ const Contact = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                 >
-                  {isSubmitting ? (
-                    <motion.span animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>Envoi en cours...</motion.span>
+                {isSubmitting ? (
+                    <><Loader2 className="w-5 h-5 animate-spin" /> Envoi en cours...</>
                   ) : (
                     <>ENVOYER MA DEMANDE <Send className="w-5 h-5" /></>
                   )}

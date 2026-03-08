@@ -61,7 +61,7 @@ const RdvChoiceModal = ({ isOpen, onClose }: RdvChoiceModalProps) => {
               {/* Formulaire */}
               <Link
                 to="/contact"
-                onClick={onClose}
+                onClick={() => { analytics.trackCTAClick('contact-form', 'rdv-modal'); onClose(); }}
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-orange/30 bg-orange/5 hover:bg-orange/10 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center shrink-0">

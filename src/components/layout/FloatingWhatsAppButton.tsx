@@ -64,6 +64,7 @@ const FloatingWhatsAppButton: React.FC = () => {
       return;
     }
 
+    analytics.trackCTAClick('whatsapp', 'floating-button');
     const win = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     if (!win) {
       await handleCopyLinkWithFallback(whatsappUrl);
