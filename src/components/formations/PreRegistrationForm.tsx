@@ -131,6 +131,7 @@ const PreRegistrationForm = ({
 
       setIsSubmitting(false);
       setIsSuccess(true);
+      analytics.trackPreRegistrationComplete(formationTitle);
 
       toast({
         title: "Pré-inscription envoyée !",
