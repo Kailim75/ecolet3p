@@ -15,8 +15,8 @@
     <!-- Preload critical fonts for FCP -->
     <link rel="preload" href="/fonts/plus-jakarta-sans-800.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- Preload hero image for LCP -->
-    <script>if(location.pathname==='/'){var l=document.createElement('link');l.rel='preload';l.as='image';l.type='image/webp';l.href='/images/hero-formation-session.webp';l.fetchPriority='high';document.head.appendChild(l);}</script>
+    <!-- Preload hero image for LCP — direct link for homepage, no JS delay -->
+    <link rel="preload" as="image" type="image/webp" href="/images/hero-formation-session.webp" fetchpriority="high" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
 
     <!-- Open Graph (fallback statique, écrasé par react-helmet-async) -->
