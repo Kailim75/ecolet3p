@@ -54,12 +54,17 @@ export const useQuoteModal = () => {
   return context;
 };
 
+// Lazy-load the heavy modal (framer-motion) only when first opened
+const LazyQuoteModal = React.lazy(() => Promise.resolve({ default: QuoteRequestModal }));
+
 export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
   const [preselectedFormation, setPreselectedFormation] = useState("");
 
   const openQuoteModal = (formation?: string) => {
     setPreselectedFormation(formation || "");
+    setHasOpened(true);
     setIsOpen(true);
   };
   const closeQuoteModal = () => { setIsOpen(false); setPreselectedFormation(""); };
@@ -67,7 +72,11 @@ export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
   return (
     <QuoteModalContext.Provider value={{ openQuoteModal, closeQuoteModal, isOpen }}>
       {children}
-      <QuoteRequestModal isOpen={isOpen} onClose={closeQuoteModal} preselectedFormation={preselectedFormation} />
+      {hasOpened && (
+        <React.Suspense fallback={null}>
+          <LazyQuoteModal isOpen={isOpen} onClose={closeQuoteModal} preselectedFormation={preselectedFormation} />
+        </React.Suspense>
+      )}
     </QuoteModalContext.Provider>
   );
 };
