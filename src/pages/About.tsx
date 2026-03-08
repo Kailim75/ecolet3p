@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { 
   Award, Users, FileCheck, MapPin, Phone, 
   ChevronLeft, ChevronRight, Star, Home, CheckCircle,
-  Target, Handshake, Lightbulb, User, Building
+  Target, Handshake, Lightbulb, Building
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
