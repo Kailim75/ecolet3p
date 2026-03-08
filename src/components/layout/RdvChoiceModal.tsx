@@ -1,6 +1,7 @@
 import { Calendar, MessageCircle, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { analytics } from "@/lib/analytics";
 
 const WHATSAPP_URL = "https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20formation%20T3P.";
 
