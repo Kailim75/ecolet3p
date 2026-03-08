@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useContext, ReactNode } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,9 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
+// Re-export context for backward compatibility
+export { useQuoteModal, QuoteModalProvider } from "./QuoteModalContext";
+
 // ── Data ──────────────────────────────────────────────
 const formations = [
   { value: "taxi", label: "TAXI", desc: "Initiale · 182h", icon: CarTaxiFront, color: "from-amber-500/15 to-amber-600/5" },
@@ -38,48 +41,6 @@ const contactSchema = z.object({
   email: z.string().trim().email("Email invalide").max(100),
   phone: z.string().trim().min(10, "Numéro invalide (min 10 chiffres)").max(15),
 });
-
-// ── Context ───────────────────────────────────────────
-interface QuoteModalContextType {
-  openQuoteModal: (preselectedFormation?: string) => void;
-  closeQuoteModal: () => void;
-  isOpen: boolean;
-}
-
-const QuoteModalContext = createContext<QuoteModalContextType | undefined>(undefined);
-
-export const useQuoteModal = () => {
-  const context = useContext(QuoteModalContext);
-  if (!context) throw new Error("useQuoteModal must be used within a QuoteModalProvider");
-  return context;
-};
-
-// Lazy-load the heavy modal (framer-motion) only when first opened
-const LazyQuoteModal = React.lazy(() => Promise.resolve({ default: QuoteRequestModal }));
-
-export const QuoteModalProvider = ({ children }: { children: ReactNode }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [hasOpened, setHasOpened] = useState(false);
-  const [preselectedFormation, setPreselectedFormation] = useState("");
-
-  const openQuoteModal = (formation?: string) => {
-    setPreselectedFormation(formation || "");
-    setHasOpened(true);
-    setIsOpen(true);
-  };
-  const closeQuoteModal = () => { setIsOpen(false); setPreselectedFormation(""); };
-
-  return (
-    <QuoteModalContext.Provider value={{ openQuoteModal, closeQuoteModal, isOpen }}>
-      {children}
-      {hasOpened && (
-        <React.Suspense fallback={null}>
-          <LazyQuoteModal isOpen={isOpen} onClose={closeQuoteModal} preselectedFormation={preselectedFormation} />
-        </React.Suspense>
-      )}
-    </QuoteModalContext.Provider>
-  );
-};
 
 // ── Main modal ────────────────────────────────────────
 const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isOpen: boolean; onClose: () => void; preselectedFormation?: string }) => {
