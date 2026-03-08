@@ -405,13 +405,18 @@ const Formations = () => {
         <div className="container-custom relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Pas sûr de quelle formation choisir ?</h2>
-            <p className="text-white/70 mb-8">Nos conseillers vous orientent gratuitement en 5 minutes.</p>
+            <p className="text-white/70 mb-3">Nos conseillers vous orientent gratuitement en 5 minutes.</p>
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+              {["✅ Sans engagement", "📞 Réponse sous 24h", "💳 Paiement 4× sans frais"].map(tag => (
+                <span key={tag} className="text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">{tag}</span>
+              ))}
+            </div>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild size="lg" className="font-bold btn-cta-orange">
+                <Link to="/contact">Demander un devis gratuit <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              </Button>
               <Button asChild size="lg" variant="outline" className="font-bold border-white/30 text-white hover:bg-white/10">
                 <a href="tel:0188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
-              </Button>
-              <Button asChild size="lg" className="font-bold btn-cta-orange">
-                <Link to="/contact">Être rappelé <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
             </div>
           </motion.div>
