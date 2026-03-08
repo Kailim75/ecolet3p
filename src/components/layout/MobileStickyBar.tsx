@@ -61,6 +61,7 @@ const MobileStickyBar = () => {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => analytics.trackCTAClick('whatsapp', 'mobile-sticky-bar')}
         className="flex flex-col items-center justify-center rounded-xl shrink-0"
         style={{
           width: 52,
