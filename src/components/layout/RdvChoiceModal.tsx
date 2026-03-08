@@ -46,7 +46,7 @@ const RdvChoiceModal = ({ isOpen, onClose }: RdvChoiceModalProps) => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={onClose}
+                onClick={() => { analytics.trackCTAClick('whatsapp', 'rdv-modal'); onClose(); }}
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-[#25D366]/30 bg-[#25D366]/5 hover:bg-[#25D366]/10 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
