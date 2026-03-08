@@ -56,6 +56,39 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_requests: {
+        Row: {
+          created_at: string
+          email: string
+          formation: string | null
+          full_name: string
+          id: string
+          message: string | null
+          phone: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          formation?: string | null
+          full_name: string
+          id?: string
+          message?: string | null
+          phone: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          formation?: string | null
+          full_name?: string
+          id?: string
+          message?: string | null
+          phone?: string
+          status?: string
+        }
+        Relationships: []
+      }
       email_logs: {
         Row: {
           created_at: string
