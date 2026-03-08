@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import RedirectHandler from "./components/seo/RedirectHandler";
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
-import { QuoteModalProvider } from "./components/quote/QuoteRequestModal";
+import { QuoteModalProvider } from "./components/quote/QuoteModalContext";
 
 // Lazy load non-critical global components
 const CookieConsent = lazy(() => import("./components/CookieConsent"));

@@ -42,8 +42,9 @@ export default defineConfig(({ mode }) => ({
       },
       webp: {
         lossless: false,
-        quality: 80,
-        alphaQuality: 80,
+        quality: 70,
+        alphaQuality: 70,
+        effort: 6,
       },
     }),
   ].filter(Boolean),

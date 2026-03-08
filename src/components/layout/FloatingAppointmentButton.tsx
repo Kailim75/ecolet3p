@@ -2,7 +2,7 @@ import React from "react";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
+import { useQuoteModal } from "@/components/quote/QuoteModalContext";
 
 const FloatingAppointmentButton = () => {
   const isMobile = useIsMobile();

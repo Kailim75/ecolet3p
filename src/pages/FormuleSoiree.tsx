@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import AlmaLogo from "@/components/logo/AlmaLogo";
-import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
+import { useQuoteModal } from "@/components/quote/QuoteModalContext";
 import {
   ArrowRight, CreditCard, Clock, Moon, Car, Key,
   CheckCircle2, Star, Award, Shield, Users,
