@@ -2,23 +2,21 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Eye, Trophy, Star, FileSearch } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const formationSession = "/images/hero-formation-session.jpg";
-
 const HeroSection = ({ h1Override }: { h1Override?: string }) => {
   const isMobile = useIsMobile();
 
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
-      {/* Background image — no CSS filter on LCP element for faster paint */}
+      {/* Background image — responsive srcset for mobile/tablet/desktop */}
       <div className="absolute inset-0">
         <picture>
           <source
             type="image/webp"
-            srcSet="/images/hero-formation-session.webp"
+            srcSet="/images/hero-formation-session-768.webp 768w, /images/hero-formation-session-1200.webp 1200w, /images/hero-formation-session.webp 1920w"
             sizes="100vw"
           />
           <img
-            src={formationSession}
+            src="/images/hero-formation-session.jpg"
             alt="Session de formation Taxi VTC en salle à l'ECOLE T3P Montrouge"
             width={1920}
             height={1080}

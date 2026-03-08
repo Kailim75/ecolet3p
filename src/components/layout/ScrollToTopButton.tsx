@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
+
+// Inline SVG to avoid lucide-react in lazy-loaded component
+const ArrowUpIcon = () => (
+  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <line x1="12" y1="19" x2="12" y2="5" />
+    <polyline points="5 12 12 5 19 12" />
+  </svg>
+);
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -22,7 +29,7 @@ const ScrollToTopButton = () => {
       }}
       aria-label="Remonter en haut de la page"
     >
-      <ArrowUp className="w-5 h-5" />
+      <ArrowUpIcon />
     </button>
   );
 };

@@ -1,8 +1,9 @@
 import React, { ReactNode, lazy, Suspense } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import ScrollToTopButton from "./ScrollToTopButton";
 
+// Lazy-load all non-critical layout components
+const ScrollToTopButton = lazy(() => import("./ScrollToTopButton"));
 const MobileStickyBar = lazy(() => import("./MobileStickyBar"));
 const FloatingWhatsAppButton = lazy(() => import("./FloatingWhatsAppButton"));
 
@@ -16,8 +17,8 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="flex-1 pb-[60px] lg:pb-0">{children}</main>
       <Footer />
-      <ScrollToTopButton />
       <Suspense fallback={null}>
+        <ScrollToTopButton />
         <MobileStickyBar />
         <FloatingWhatsAppButton />
       </Suspense>

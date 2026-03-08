@@ -1,8 +1,42 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, ArrowRight } from "lucide-react";
 
 const RdvChoiceModal = lazy(() => import("./RdvChoiceModal"));
+
+// Inline SVG icons to avoid lucide-react bundle on critical path
+const MenuIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <line x1="4" y1="12" x2="20" y2="12" />
+    <line x1="4" y1="6" x2="20" y2="6" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+  </svg>
+);
+
+const XIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+const PhoneIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
+
+const ChevronDownIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
+
+const ArrowRightIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
 
 const navLinks = [
   {
@@ -103,7 +137,7 @@ const Header = () => {
                   >
                     <button className={`relative flex items-center gap-0.5 px-1.5 py-2 text-[12.5px] font-medium transition-colors rounded-lg after:absolute after:bottom-0.5 after:left-1.5 after:right-1.5 after:h-[1.5px] after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 ${isTransparent ? "text-white/90 hover:text-white after:bg-white/70" : "text-foreground hover:text-primary after:bg-primary"}`}>
                       {link.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
+                      <ChevronDownIcon className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
                     {/* CSS-only dropdown — no framer-motion */}
                     <div
@@ -142,12 +176,12 @@ const Header = () => {
                 href="tel:0188750555"
                 className={`flex items-center gap-1 text-xs font-semibold transition-colors whitespace-nowrap ${isTransparent ? "text-white/90 hover:text-white" : "text-primary hover:text-primary/80"}`}
               >
-                <Phone className="w-3.5 h-3.5" />
+                <PhoneIcon className="w-3.5 h-3.5" />
                 01 88 75 05 55
               </a>
               <button onClick={() => setIsRdvOpen(true)} className="btn-cta-orange px-3 py-1.5 text-xs font-bold rounded-lg inline-flex items-center gap-1 whitespace-nowrap">
                 Prendre RDV
-                <ArrowRight className="w-3 h-3" />
+                <ArrowRightIcon className="w-3 h-3" />
               </button>
             </div>
 
@@ -158,14 +192,14 @@ const Header = () => {
                 className={`w-9 h-9 rounded-full flex items-center justify-center ${isTransparent ? "bg-white/20 text-white" : "bg-primary/10 text-primary"}`}
                 aria-label="Appeler"
               >
-                <Phone className="w-4 h-4" />
+                <PhoneIcon />
               </a>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`w-10 h-10 flex items-center justify-center ${isTransparent ? "text-white" : "text-foreground"}`}
                 aria-label={isMenuOpen ? "Fermer" : "Menu"}
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <XIcon /> : <MenuIcon />}
               </button>
             </div>
           </div>
@@ -189,7 +223,7 @@ const Header = () => {
                       className="w-full flex items-center justify-between py-3 px-3 rounded-lg text-sm font-medium text-foreground hover:bg-secondary transition-colors"
                     >
                       {link.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${openSubmenu === link.name ? "rotate-180" : ""}`} />
+                      <ChevronDownIcon className={`w-4 h-4 transition-transform ${openSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
                     <div
                       className={`overflow-hidden transition-all duration-200 ${
@@ -226,7 +260,7 @@ const Header = () => {
               href="tel:0188750555"
               className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary font-semibold text-primary text-sm"
             >
-              <Phone className="w-5 h-5" />
+              <PhoneIcon className="w-5 h-5" />
               01 88 75 05 55
             </a>
             <button
@@ -234,7 +268,7 @@ const Header = () => {
               className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg flex items-center justify-center gap-2"
             >
               Prendre RDV
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRightIcon />
             </button>
           </div>
         </div>
