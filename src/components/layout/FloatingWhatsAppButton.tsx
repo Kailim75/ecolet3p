@@ -54,7 +54,7 @@ const FloatingWhatsAppButton: React.FC = () => {
       toast({
         title: "Prévisualisation : WhatsApp bloqué",
         description:
-          "Le lien est copié. Collez-le dans un nouvel onglet (ou utilisez le lien "Ouvrir").",
+          "Le lien est copié. Collez-le dans un nouvel onglet (ou utilisez le lien \u00ABOuvrir\u00BB).",
       });
       setIsOpen(false);
       return;
