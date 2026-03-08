@@ -103,10 +103,56 @@ const Contact = () => {
   const handleSubmit = async () => {
     if (!validateStep3()) return;
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({ title: "Demande envoyée !", description: "Nous vous recontacterons dans les plus brefs délais." });
+
+    try {
+      // Insert into database
+      const { data: insertedData, error: dbError } = await supabase
+        .from('contact_requests' as any)
+        .insert({
+          full_name: formData.fullName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          formation: formData.formation || null,
+          message: formData.message.trim() || null,
+        } as any)
+        .select()
+        .single();
+
+      if (dbError) {
+        console.error('Contact form DB error:', dbError);
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous appeler au 01 88 75 05 55.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Track conversion
+      analytics.trackFormSubmission('contact');
+
+      // Send notification (non-blocking)
+      try {
+        await supabase.functions.invoke('notify-contact-request', {
+          body: { record: insertedData }
+        });
+      } catch (notifyErr) {
+        console.error('Contact notification failed:', notifyErr);
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      toast({ title: "Demande envoyée !", description: "Nous vous recontacterons dans les plus brefs délais." });
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer ou nous appeler au 01 88 75 05 55.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
