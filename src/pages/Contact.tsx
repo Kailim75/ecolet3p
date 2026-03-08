@@ -114,6 +114,7 @@ const Contact = () => {
           phone: formData.phone.trim(),
           formation: formData.formation || null,
           message: formData.message.trim() || null,
+          status: 'new',
         } as any)
         .select()
         .single();
