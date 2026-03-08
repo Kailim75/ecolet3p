@@ -9,12 +9,13 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
 
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16">
-      {/* Background image — <picture> with WebP for LCP optimization */}
+      {/* Background image — no CSS filter on LCP element for faster paint */}
       <div className="absolute inset-0">
         <picture>
           <source
             type="image/webp"
             srcSet="/images/hero-formation-session.webp"
+            sizes="100vw"
           />
           <img
             src={formationSession}
@@ -23,13 +24,15 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
             height={1080}
             fetchPriority="high"
             loading="eager"
-            decoding="async"
-            className="w-full h-full object-cover brightness-[0.35]"
+            decoding="sync"
+            className="w-full h-full object-cover"
           />
         </picture>
       </div>
-      {/* Green overlay */}
-      <div className="absolute inset-0 bg-primary/70" />
+      {/* Dark overlay replaces brightness filter — separate layer avoids GPU filter on LCP img */}
+      <div className="absolute inset-0 bg-black/65" />
+      {/* Green tint overlay */}
+      <div className="absolute inset-0 bg-primary/60" />
       
       <div className="container-custom relative z-10 py-12 lg:py-20">
         <div className="max-w-3xl lg:max-w-[55%]">

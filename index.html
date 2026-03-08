@@ -15,8 +15,8 @@
     <!-- Preload critical fonts for FCP -->
     <link rel="preload" href="/fonts/plus-jakarta-sans-800.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
-    <!-- Preload hero image for LCP -->
-    <script>if(location.pathname==='/'){var l=document.createElement('link');l.rel='preload';l.as='image';l.type='image/webp';l.href='/images/hero-formation-session.webp';l.fetchPriority='high';document.head.appendChild(l);}</script>
+    <!-- Preload hero image for LCP — direct link for homepage, no JS delay -->
+    <link rel="preload" as="image" type="image/webp" href="/images/hero-formation-session.webp" fetchpriority="high" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
 
     <!-- Open Graph (fallback statique, écrasé par react-helmet-async) -->
@@ -181,52 +181,48 @@
       }
     </style>
     
-    <!-- Critical CSS inlined for faster first paint -->
+    <!-- Critical CSS inlined for faster first paint — matches real theme tokens -->
     <style>
       :root {
-        --background: 42 35% 96%;
-        --foreground: 158 54% 18%;
-        --forest: #1B4D3E;
-        --gold: #D4A853;
-        --cream: #F5EBD7;
+        --background: 0 0% 100%;
+        --foreground: 0 0% 13%;
+        --primary: 125 55% 24%;
+        --primary-foreground: 0 0% 100%;
       }
-      html { scroll-behavior: smooth; }
-      body { 
-        margin: 0; 
+      html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+      body {
+        margin: 0;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: hsl(42, 35%, 96%);
+        background: hsl(0, 0%, 100%);
+        color: hsl(0, 0%, 13%);
         -webkit-font-smoothing: antialiased;
       }
-      h1, h2, h3, h4, h5, h6 { 
+      h1, h2, h3, h4, h5, h6 {
         font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-        font-weight: 800;
+        font-weight: 700;
+        color: hsl(125, 55%, 24%);
       }
       #root:empty {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(180deg, #FBF7EF 0%, #F5EBD7 100%);
-      }
-      .hero-image-placeholder {
-        aspect-ratio: 4/3;
-        background: linear-gradient(135deg, rgba(27,77,62,0.1) 0%, rgba(212,168,83,0.1) 100%);
       }
       /* Hide SEO fallback once React renders */
       #root:not(:empty) ~ .seo-fallback { display: none !important; }
       .seo-fallback {
         font-family: 'Inter', sans-serif;
-        color: #1B4D3E;
+        color: hsl(125, 55%, 24%);
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem 1rem;
         line-height: 1.6;
       }
       .seo-fallback h1 { font-size: 2rem; margin-bottom: 1rem; }
-      .seo-fallback h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; color: #1B5E20; }
+      .seo-fallback h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; }
       .seo-fallback h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
       .seo-fallback p { margin-bottom: 0.75rem; color: #333; }
-      .seo-fallback a { color: #E65100; text-decoration: underline; }
+      .seo-fallback a { color: hsl(21, 100%, 45%); text-decoration: underline; }
       .seo-fallback ul { padding-left: 1.5rem; margin-bottom: 1rem; }
       .seo-fallback li { margin-bottom: 0.25rem; }
     </style>
