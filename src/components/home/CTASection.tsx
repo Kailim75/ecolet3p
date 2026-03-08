@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useQuoteModal } from "@/components/quote/QuoteRequestModal";
+import { useQuoteModal } from "@/components/quote/QuoteModalContext";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 

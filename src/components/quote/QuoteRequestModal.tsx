@@ -22,8 +22,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 
-// Re-export context for backward compatibility
-export { useQuoteModal, QuoteModalProvider } from "./QuoteModalContext";
+// Context is in QuoteModalContext.tsx — import useQuoteModal/QuoteModalProvider from there
 
 // ── Data ──────────────────────────────────────────────
 const formations = [
