@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { blogArticles, BlogArticle } from "@/data/blogArticles";
+import { blogArticlesMeta, BlogArticleMeta } from "@/data/blogArticlesMeta";
 import { Clock, Calendar, ArrowRight, BookOpen, Tag, Home, Car, Bike, FileText, Scale, Smartphone } from "lucide-react";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
@@ -16,19 +15,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
-const staggerContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.2 }
-  }
-};
-
-const staggerItemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
 
 const Blog = () => {
   const categoryStyles: Record<string, { gradient: string; Icon: typeof Car }> = {
@@ -50,7 +36,7 @@ const Blog = () => {
     );
   };
 
-  const BlogImage = ({ article, className, priority }: { article: BlogArticle; className?: string; priority?: boolean }) => {
+  const BlogImage = ({ article, className, priority }: { article: BlogArticleMeta; className?: string; priority?: boolean }) => {
     const [hasError, setHasError] = useState(false);
     const srcsetData = getBlogImageSrcset(article.image);
     
@@ -82,8 +68,8 @@ const Blog = () => {
   };
 
   // Featured article = first one
-  const featuredArticle = blogArticles[0];
-  const otherArticles = blogArticles.slice(1);
+  const featuredArticle = blogArticlesMeta[0];
+  const otherArticles = blogArticlesMeta.slice(1);
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -96,7 +82,7 @@ const Blog = () => {
       "name": "ECOLE T3P",
       "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
     },
-    "blogPost": blogArticles.map(article => ({
+    "blogPost": blogArticlesMeta.map(article => ({
       "@type": "BlogPosting",
       "headline": article.title,
       "description": article.excerpt,
@@ -151,47 +137,29 @@ const Blog = () => {
         </div>
       </div>
 
-      {/* Hero */}
+      {/* Hero — CSS animations instead of framer-motion */}
       <section className="relative bg-forest overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--accent)/0.15),_transparent_60%)]" />
         <div className="relative container-custom py-10 md:py-24 text-center">
-          <motion.span 
-            className="inline-flex items-center gap-2 bg-gold/20 backdrop-blur-sm text-gold text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30 mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <span className="inline-flex items-center gap-2 bg-gold/20 backdrop-blur-sm text-gold text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30 mb-6 animate-fade-in">
             <BookOpen className="w-4 h-4" />
             Blog & Ressources
-          </motion.span>
-          <motion.h1 
-            className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
+          </span>
+          <h1 className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4 animate-fade-in">
             Actualités &<br />
             <span className="text-gold">Conseils Pratiques</span>
-          </motion.h1>
-          <motion.p 
-            className="text-cream/70 max-w-xl mx-auto text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+          </h1>
+          <p className="text-cream/70 max-w-xl mx-auto text-lg animate-fade-in">
             Guides, conseils et actualités pour réussir votre reconversion 
             en tant que chauffeur professionnel.
-          </motion.p>
+          </p>
         </div>
       </section>
 
-      {/* Featured Article */}
+      {/* Featured Article — CSS animation */}
       <section className="py-8 md:py-16 bg-background">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
+          <div className="animate-fade-in">
             <Link 
               to={`/blog/${featuredArticle.slug}`}
               className="group grid md:grid-cols-2 gap-0 bg-card rounded-2xl overflow-hidden border border-border hover:shadow-warm-lg transition-all duration-300"
@@ -230,27 +198,23 @@ const Blog = () => {
                 </span>
               </div>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Articles Grid */}
+      {/* Articles Grid — CSS stagger via animation-delay */}
       <section className="pb-10 md:pb-16 bg-background">
         <div className="container-custom">
           <h2 className="text-xl font-black text-forest uppercase tracking-wide mb-8 flex items-center gap-3">
             <span className="w-8 h-1 bg-gold rounded-full" />
             Tous les articles
           </h2>
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainerVariants}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
             {otherArticles.map((article, index) => (
-              <motion.article 
+              <article 
                 key={article.slug}
-                variants={staggerItemVariants}
+                className="animate-fade-in"
+                style={{ animationDelay: `${index * 80}ms`, animationFillMode: "both" }}
               >
                 <Link 
                   to={`/blog/${article.slug}`}
@@ -301,9 +265,9 @@ const Blog = () => {
                     </span>
                   </div>
                 </Link>
-              </motion.article>
+              </article>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -316,16 +280,12 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — CSS animation */}
       <section className="py-10 md:py-16 bg-forest text-cream relative overflow-hidden">
         <div className="absolute top-0 right-0 w-60 h-60 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2" />
         <div className="container-custom text-center relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="animate-fade-in">
             <h2 className="text-2xl md:text-3xl font-black uppercase mb-4">
               Prêt à démarrer votre formation ?
             </h2>
@@ -340,7 +300,7 @@ const Blog = () => {
               Demander un rendez-vous
               <ArrowRight className="w-5 h-5" />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </Layout>
