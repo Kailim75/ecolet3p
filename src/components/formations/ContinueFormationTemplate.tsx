@@ -371,10 +371,15 @@ const ContinueFormationTemplate = ({
       {/* CTA */}
       <section className="py-16 bg-primary">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Renouvelez votre carte professionnelle</h2>
-          <p className="text-white/75 mb-8 max-w-xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Renouvelez votre carte professionnelle</h2>
+          <p className="text-white/75 mb-3 max-w-xl mx-auto">
             Inscription ouverte toute l'année. Formation obligatoire tous les 5 ans.
           </p>
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {["✅ Attestation immédiate", "📅 Sessions régulières", "💳 4× sans frais"].map(tag => (
+              <span key={tag} className="text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">{tag}</span>
+            ))}
+          </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => setShowPreRegistration(true)}

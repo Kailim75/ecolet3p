@@ -677,10 +677,15 @@ const FormationPageTemplate = ({
 
       <section className="py-16 bg-primary">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{ctaTitle || "Prêt à vous lancer ?"}</h2>
-          <p className="text-white/75 mb-8 max-w-xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{ctaTitle || "Prêt à vous lancer ?"}</h2>
+          <p className="text-white/75 mb-3 max-w-xl mx-auto">
             {soireeFormation?.price || price}€ tout compris — Paiement en 4× sans frais via Alma.
           </p>
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {["✅ 94% de réussite", "🎓 +2000 formés", "📋 Sans engagement"].map(tag => (
+              <span key={tag} className="text-xs font-medium text-white/70 bg-white/10 px-3 py-1.5 rounded-full">{tag}</span>
+            ))}
+          </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => setShowPreRegistration(true)}

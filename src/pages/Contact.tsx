@@ -325,9 +325,14 @@ const Contact = () => {
                   </div>
                   {errors.consent && <p className="text-sm text-destructive">{errors.consent}</p>}
                 </div>
+                {/* Reassurance before submit */}
+                <div className="flex items-center gap-3 py-3 px-4 bg-forest/5 rounded-xl text-xs text-muted-foreground">
+                  <Shield className="w-5 h-5 text-forest shrink-0" />
+                  <span>Vos données sont protégées. Aucun engagement, aucun spam.</span>
+                </div>
                 <motion.button
                   type="button" onClick={handleSubmit}
-                  className="btn-primary w-full flex items-center justify-center gap-2"
+                  className="btn-cta-orange w-full flex items-center justify-center gap-2 py-4 text-base font-bold rounded-xl"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                 >
@@ -337,7 +342,7 @@ const Contact = () => {
                     <>ENVOYER MA DEMANDE <Send className="w-5 h-5" /></>
                   )}
                 </motion.button>
-                <p className="text-center text-xs text-muted-foreground">Nous répondons sous 24h</p>
+                <p className="text-center text-xs text-muted-foreground">✅ Réponse garantie sous 24h · 94% de réussite · +2000 formés</p>
               </div>
             </motion.div>
           )}

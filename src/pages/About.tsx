@@ -4,7 +4,7 @@ import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { 
-  Award, Users, FileCheck, MapPin, Phone, 
+  Award, Users, FileCheck, MapPin, Phone, ArrowRight,
   ChevronLeft, ChevronRight, Star, Home, CheckCircle,
   Target, Handshake, Lightbulb, Building
 } from "lucide-react";
