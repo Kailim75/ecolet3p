@@ -14,6 +14,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Send, CheckCircle2, User, Mail, Phone, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { analytics } from "@/lib/analytics";
 
 // Validation schema
 const preRegistrationSchema = z.object({
