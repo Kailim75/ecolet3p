@@ -532,27 +532,23 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-cream">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-forest mb-4">Prêt à démarrer ?</h2>
-            <p className="text-muted-foreground mb-8">
-              Contactez-nous pour en savoir plus sur nos formations et discuter de votre projet.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="btn-accent">
-                <Link to="/contact">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Nous contacter
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/formations">
-                  Voir les formations
-                </Link>
-              </Button>
-            </div>
+      {/* Mid-page CTA break */}
+      <section className="py-10 bg-forest">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-white/80 text-sm mb-3">Convaincu par notre approche ?</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              to="/contact"
+              className="btn-cta-orange px-8 py-3.5 text-base font-bold rounded-lg inline-flex items-center gap-2"
+            >
+              Réserver ma place <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="tel:0188750555"
+              className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-sm"
+            >
+              <Phone className="w-4 h-4" /> 01 88 75 05 55
+            </a>
           </div>
         </div>
       </section>
