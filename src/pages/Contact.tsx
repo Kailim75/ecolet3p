@@ -12,8 +12,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { 
   MapPin, Phone, Mail, Clock, Send, CheckCircle, Train, Home,
   CarTaxiFront, Car, Bike, RefreshCw, ArrowLeftRight, Shield,
-  ArrowLeft, Star
+  ArrowLeft, Star, Loader2
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { analytics } from "@/lib/analytics";
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList,
   BreadcrumbPage, BreadcrumbSeparator,
