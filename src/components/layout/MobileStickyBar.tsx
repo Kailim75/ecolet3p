@@ -42,6 +42,7 @@ const MobileStickyBar = () => {
       {/* Phone */}
       <a
         href="tel:0188750555"
+        onClick={() => analytics.trackPhoneClick()}
         className="flex flex-col items-center justify-center rounded-xl shrink-0"
         style={{
           width: 52,
