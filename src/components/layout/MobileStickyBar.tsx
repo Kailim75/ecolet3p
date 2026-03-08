@@ -1,8 +1,9 @@
 import { Phone, ArrowRight, MessageCircle } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState, useEffect } from "react";
-import RdvChoiceModal from "./RdvChoiceModal";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { analytics } from "@/lib/analytics";
+
+const RdvChoiceModal = lazy(() => import("./RdvChoiceModal"));
 
 const WHATSAPP_URL = "https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P.";
 
@@ -93,7 +94,11 @@ const MobileStickyBar = () => {
       </button>
     </div>
 
-    <RdvChoiceModal isOpen={isRdvOpen} onClose={() => setIsRdvOpen(false)} />
+    {isRdvOpen && (
+      <Suspense fallback={null}>
+        <RdvChoiceModal isOpen={isRdvOpen} onClose={() => setIsRdvOpen(false)} />
+      </Suspense>
+    )}
     </>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
-import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2, User, Tag, Home } from "lucide-react";
@@ -17,11 +16,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
-
-const fadeUpVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 const BlogArticle = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -150,12 +144,11 @@ const BlogArticle = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>
 
-      {/* Reading progress bar */}
+      {/* Reading progress bar — CSS width instead of framer-motion */}
       <div className="fixed top-0 left-0 w-full h-1 z-50 bg-border/30">
-        <motion.div
-          className="h-full bg-gold"
+        <div
+          className="h-full bg-gold transition-[width] duration-100 ease-linear"
           style={{ width: `${readProgress}%` }}
-          transition={{ duration: 0.1 }}
         />
       </div>
 
@@ -187,9 +180,8 @@ const BlogArticle = () => {
         </div>
       </div>
 
-      {/* Hero with image */}
+      {/* Hero with image — CSS animations */}
       <section className="relative bg-forest overflow-hidden">
-        {/* Background image with overlay */}
         <div className="absolute inset-0">
           <OptimizedImage
             src={article.image}
@@ -203,13 +195,7 @@ const BlogArticle = () => {
         </div>
 
         <div className="relative container-custom py-16 md:py-24">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUpVariants}
-            className="max-w-3xl mx-auto text-center"
-          >
-            {/* Breadcrumb */}
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
             <Link 
               to="/blog" 
               className="inline-flex items-center gap-2 text-cream/70 hover:text-gold transition-colors mb-8 text-sm"
@@ -218,7 +204,6 @@ const BlogArticle = () => {
               Retour au blog
             </Link>
 
-            {/* Category badge */}
             <div className="mb-6">
               <span className="inline-flex items-center gap-1.5 bg-gold/20 backdrop-blur-sm text-gold text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30">
                 <Tag className="w-3 h-3" />
@@ -226,12 +211,10 @@ const BlogArticle = () => {
               </span>
             </div>
 
-            {/* Title */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-cream leading-tight mb-8">
               {article.title}
             </h1>
 
-            {/* Meta bar */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-cream/70 text-sm">
               <span className="flex items-center gap-2">
                 <User className="w-4 h-4" />
@@ -256,7 +239,7 @@ const BlogArticle = () => {
                 Partager
               </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -265,19 +248,13 @@ const BlogArticle = () => {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             {/* Lead / Excerpt */}
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 font-medium border-l-4 border-gold pl-6 italic"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-            >
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 font-medium border-l-4 border-gold pl-6 italic animate-fade-in">
               {article.excerpt}
-            </motion.p>
+            </p>
 
             {/* Main content — split to inject lead magnet CTA */}
             {(() => {
               const fullHtml = formatContent(article.content);
-              // Split after 2nd </p> to insert CTA
               const pCloseRegex = /<\/p>/g;
               let matchCount = 0;
               let splitIndex = -1;
@@ -291,11 +268,8 @@ const BlogArticle = () => {
               }
               if (splitIndex === -1) {
                 return (
-                  <motion.article
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="article-content"
+                  <article
+                    className="article-content animate-fade-in"
                     dangerouslySetInnerHTML={{ __html: fullHtml }}
                   />
                 );
@@ -304,20 +278,14 @@ const BlogArticle = () => {
               const after = fullHtml.slice(splitIndex);
               return (
                 <>
-                  <motion.article
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="article-content"
+                  <article
+                    className="article-content animate-fade-in"
                     dangerouslySetInnerHTML={{ __html: before }}
                   />
                   {/* Lead Magnet CTA */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="my-10 p-6 rounded-xl"
-                    style={{ backgroundColor: "#1B4332" }}
+                  <div
+                    className="my-10 p-6 rounded-xl animate-fade-in"
+                    style={{ backgroundColor: "#1B4332", animationDelay: "200ms", animationFillMode: "both" }}
                   >
                     <div className="flex items-start gap-3 mb-3">
                       <span className="text-2xl">📘</span>
@@ -348,7 +316,6 @@ const BlogArticle = () => {
                               throw error;
                             }
                           } else {
-                            // Send guide email via edge function
                             supabase.functions.invoke("send-lead-magnet-guide", {
                               body: { email, source },
                             });
@@ -379,12 +346,10 @@ const BlogArticle = () => {
                     <p className="mt-3 text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
                       ✓ Gratuit ✓ Sans engagement ✓ Envoi immédiat
                     </p>
-                  </motion.div>
-                  <motion.article
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="article-content"
+                  </div>
+                  <article
+                    className="article-content animate-fade-in"
+                    style={{ animationDelay: "300ms", animationFillMode: "both" }}
                     dangerouslySetInnerHTML={{ __html: after }}
                   />
                 </>
@@ -399,12 +364,7 @@ const BlogArticle = () => {
             </div>
 
             {/* Author box */}
-            <motion.div 
-              className="p-8 bg-cream rounded-2xl border border-border"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
+            <div className="p-8 bg-cream rounded-2xl border border-border animate-fade-in">
               <div className="flex items-center gap-5">
                 <div className="w-16 h-16 bg-forest rounded-2xl flex items-center justify-center flex-shrink-0 shadow-warm">
                   <span className="text-cream text-2xl font-black">T3P</span>
@@ -416,24 +376,16 @@ const BlogArticle = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Newsletter */}
-            <motion.div 
-              className="mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
+            <div className="mt-12 animate-fade-in">
               <NewsletterForm source="blog-article" />
-            </motion.div>
+            </div>
 
             {/* CTA */}
-            <motion.div 
-              className="mt-10 p-10 bg-forest text-cream rounded-2xl text-center relative overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+            <div 
+              className="mt-10 p-10 bg-forest text-cream rounded-2xl text-center relative overflow-hidden animate-fade-in"
             >
               <div className="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -452,7 +404,7 @@ const BlogArticle = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -504,40 +456,31 @@ const BlogArticle = () => {
 // Enhanced content formatter
 function formatContent(content: string): string {
   let html = content
-    // Headings with anchors
     .replace(/^## (.+)$/gm, (_match, title) => {
       const id = title.toLowerCase().replace(/[^a-zà-ÿ0-9]+/g, '-').replace(/^-|-$/g, '');
       return `<h2 id="${id}">${title}</h2>`;
     })
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    // Bold
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    // Links
     .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-    // Checkmark items
     .replace(/^✅ (.+)$/gm, '<li class="check-item"><span class="check-icon">✅</span> $1</li>')
     .replace(/^❌ (.+)$/gm, '<li class="cross-item"><span class="cross-icon">❌</span> $1</li>')
     .replace(/^📄 (.+)$/gm, '<li class="doc-item"><span class="doc-icon">📄</span> $1</li>')
-    // Regular list items
     .replace(/^- (.+)$/gm, '<li>$1</li>')
-    // Wrap consecutive li in ul
     .replace(/(<li[^>]*>.*<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
-    // Tables
     .replace(/(\|.+\|(?:\n\|.+\|)+)/g, (_match, tableBlock) => {
       const rows = tableBlock.trim().split('\n');
       let tableHtml = '<div class="table-wrapper"><table>';
       rows.forEach((row: string, i: number) => {
-        if (row.match(/^\|[\s-|:]+\|$/)) return; // skip separator
+        if (row.match(/^\|[\s-|:]+\|$/)) return;
         const cells = row.split('|').filter((c: string) => c.trim() !== '');
         const tag = i === 0 ? 'th' : 'td';
-        const rowTag = i === 0 ? 'thead' : '';
         const rowEndTag = i === 0 ? '</thead><tbody>' : '';
         tableHtml += `${i === 0 ? '<thead>' : ''}<tr>${cells.map((c: string) => `<${tag}>${c.trim()}</${tag}>`).join('')}</tr>${rowEndTag}`;
       });
       tableHtml += '</tbody></table></div>';
       return tableHtml;
     })
-    // Paragraphs
     .replace(/\n\n/g, '</p><p>')
     .replace(/^(?!<[hultd])/gm, '<p>')
     .replace(/(?<![>])$/gm, '</p>')
