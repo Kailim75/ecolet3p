@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Copy, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { analytics } from "@/lib/analytics";
 
 const WHATSAPP_NUMBER = "33783787663";
 const DEFAULT_MESSAGE = "Bonjour, je souhaite avoir des informations sur vos formations.";
@@ -63,6 +64,7 @@ const FloatingWhatsAppButton: React.FC = () => {
       return;
     }
 
+    analytics.trackCTAClick('whatsapp', 'floating-button');
     const win = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     if (!win) {
       await handleCopyLinkWithFallback(whatsappUrl);

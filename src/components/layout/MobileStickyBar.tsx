@@ -2,6 +2,7 @@ import { Phone, ArrowRight, MessageCircle } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
 import RdvChoiceModal from "./RdvChoiceModal";
+import { analytics } from "@/lib/analytics";
 
 const WHATSAPP_URL = "https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20T3P.";
 
@@ -41,6 +42,7 @@ const MobileStickyBar = () => {
       {/* Phone */}
       <a
         href="tel:0188750555"
+        onClick={() => analytics.trackPhoneClick()}
         className="flex flex-col items-center justify-center rounded-xl shrink-0"
         style={{
           width: 52,
@@ -59,6 +61,7 @@ const MobileStickyBar = () => {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => analytics.trackCTAClick('whatsapp', 'mobile-sticky-bar')}
         className="flex flex-col items-center justify-center rounded-xl shrink-0"
         style={{
           width: 52,
@@ -74,7 +77,7 @@ const MobileStickyBar = () => {
 
       {/* CTA */}
       <button
-        onClick={() => setIsRdvOpen(true)}
+        onClick={() => { analytics.trackAppointmentStart(); setIsRdvOpen(true); }}
         className="flex-1 flex items-center justify-center gap-2 rounded-xl"
         style={{
           height: 44,

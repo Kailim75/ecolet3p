@@ -26,3 +26,6 @@ verify_jwt = false
 
 [functions.send-lead-magnet-guide]
 verify_jwt = false
+
+[functions.notify-contact-request]
+verify_jwt = false

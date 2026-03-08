@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { 
   Award, Users, FileCheck, MapPin, Phone, 
   ChevronLeft, ChevronRight, Star, Home, CheckCircle,
-  Target, Handshake, Lightbulb, User, Building
+  Target, Handshake, Lightbulb, Building
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -276,55 +276,34 @@ const About = () => {
         </div>
       </section>
 
-      {/* Notre fondateur */}
+      {/* Notre histoire */}
       <section className="py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-[240px_1fr] gap-10 items-start">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center"
-              >
-                <div className="w-[200px] h-[200px] rounded-full bg-muted flex items-center justify-center border-4 border-forest/10">
-                  <User className="w-20 h-20 text-muted-foreground/40" />
-                </div>
-                <p className="text-xs text-muted-foreground mt-3 italic text-center">
-                  Photo à venir
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-2xl font-bold text-forest mb-6">Notre histoire</h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  Fondé en 2014, <strong className="text-forest">ECOLE T3P</strong> est né d'une conviction : 
+                  la formation des chauffeurs professionnels mérite l'excellence. 
+                  Le centre a été créé pour combiner rigueur pédagogique et accompagnement humain.
                 </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <h2 className="text-2xl font-bold text-forest mb-4">L'histoire d'ECOLE T3P</h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Fondé en 2014 par <strong className="text-forest">[Nom du fondateur]</strong>, ECOLE T3P 
-                    est né d'une conviction : la formation des chauffeurs professionnels mérite l'excellence. 
-                    Après plusieurs années dans le secteur du transport de personnes, il a créé un centre 
-                    qui combine rigueur pédagogique et accompagnement humain.
-                  </p>
-                  <p>
-                    Avec plus de 2 000 élèves formés en 10 ans, ECOLE T3P s'est imposé comme une référence 
-                    en Île-de-France pour les formations Taxi, VTC et VMDTR. Notre taux de réussite de 94% 
-                    témoigne de la qualité de notre enseignement et de l'engagement de notre équipe.
-                  </p>
-                  <p>
-                    Aujourd'hui, ECOLE T3P continue d'innover pour préparer les chauffeurs aux défis de demain : 
-                    nouvelles réglementations, transition écologique, outils numériques et intelligence artificielle.
-                  </p>
-                </div>
-                <div className="mt-4 p-3 bg-gold/10 rounded-lg border border-gold/20">
-                  <p className="text-xs text-muted-foreground italic">
-                    💡 Ce texte peut être personnalisé avec le nom et la photo du fondateur.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+                <p>
+                  Avec plus de 2 000 élèves formés en 10 ans, ECOLE T3P s'est imposé comme une référence 
+                  en Île-de-France pour les formations Taxi, VTC et VMDTR. Notre taux de réussite de 94% 
+                  témoigne de la qualité de notre enseignement et de l'engagement de notre équipe.
+                </p>
+                <p>
+                  Aujourd'hui, ECOLE T3P continue d'innover pour préparer les chauffeurs aux défis de demain : 
+                  nouvelles réglementations, transition écologique, outils numériques et intelligence artificielle.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

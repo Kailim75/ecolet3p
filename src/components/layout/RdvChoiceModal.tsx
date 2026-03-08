@@ -1,6 +1,7 @@
 import { Calendar, MessageCircle, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { analytics } from "@/lib/analytics";
 
 const WHATSAPP_URL = "https://wa.me/33783787663?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20formation%20T3P.";
 
@@ -45,7 +46,7 @@ const RdvChoiceModal = ({ isOpen, onClose }: RdvChoiceModalProps) => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={onClose}
+                onClick={() => { analytics.trackCTAClick('whatsapp', 'rdv-modal'); onClose(); }}
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-[#25D366]/30 bg-[#25D366]/5 hover:bg-[#25D366]/10 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
@@ -60,7 +61,7 @@ const RdvChoiceModal = ({ isOpen, onClose }: RdvChoiceModalProps) => {
               {/* Formulaire */}
               <Link
                 to="/contact"
-                onClick={onClose}
+                onClick={() => { analytics.trackCTAClick('contact-form', 'rdv-modal'); onClose(); }}
                 className="flex items-center gap-4 p-4 rounded-xl border-2 border-orange/30 bg-orange/5 hover:bg-orange/10 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center shrink-0">

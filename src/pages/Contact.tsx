@@ -12,8 +12,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { 
   MapPin, Phone, Mail, Clock, Send, CheckCircle, Train, Home,
   CarTaxiFront, Car, Bike, RefreshCw, ArrowLeftRight, Shield,
-  ArrowLeft, Star
+  ArrowLeft, Star, Loader2
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { analytics } from "@/lib/analytics";
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList,
   BreadcrumbPage, BreadcrumbSeparator,
@@ -101,10 +103,56 @@ const Contact = () => {
   const handleSubmit = async () => {
     if (!validateStep3()) return;
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({ title: "Demande envoyée !", description: "Nous vous recontacterons dans les plus brefs délais." });
+
+    try {
+      // Insert into database
+      const { data: insertedData, error: dbError } = await supabase
+        .from('contact_requests' as any)
+        .insert({
+          full_name: formData.fullName.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          formation: formData.formation || null,
+          message: formData.message.trim() || null,
+        } as any)
+        .select()
+        .single();
+
+      if (dbError) {
+        console.error('Contact form DB error:', dbError);
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous appeler au 01 88 75 05 55.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Track conversion
+      analytics.trackFormSubmission('contact');
+
+      // Send notification (non-blocking)
+      try {
+        await supabase.functions.invoke('notify-contact-request', {
+          body: { record: insertedData }
+        });
+      } catch (notifyErr) {
+        console.error('Contact notification failed:', notifyErr);
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      toast({ title: "Demande envoyée !", description: "Nous vous recontacterons dans les plus brefs délais." });
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer ou nous appeler au 01 88 75 05 55.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -270,8 +318,8 @@ const Contact = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                 >
-                  {isSubmitting ? (
-                    <motion.span animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>Envoi en cours...</motion.span>
+                {isSubmitting ? (
+                    <><Loader2 className="w-5 h-5 animate-spin" /> Envoi en cours...</>
                   ) : (
                     <>ENVOYER MA DEMANDE <Send className="w-5 h-5" /></>
                   )}
