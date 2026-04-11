@@ -5,6 +5,7 @@ import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
+import DeferredRender from "@/components/performance/DeferredRender";
 
 // Lazy-load below-fold heavy sections
 const FormatsTable = lazy(() => import("@/components/home-v2/FormatsTable"));
@@ -82,14 +83,41 @@ const Index = () => {
 
       <FormationsCards />
 
-      <Suspense fallback={<SectionFallback />}>
-        <FormatsTable />
-        <UpcomingSessionsSection />
-        <EcosystemSection />
-        <TestimonialsSection />
-        <NoCPFSection />
-        <CTAFinalSection />
-      </Suspense>
+      <DeferredRender fallback={<SectionFallback />} rootMargin="220px 0px">
+        <Suspense fallback={<SectionFallback />}>
+          <FormatsTable />
+        </Suspense>
+      </DeferredRender>
+
+      <DeferredRender fallback={<SectionFallback />} rootMargin="280px 0px">
+        <Suspense fallback={<SectionFallback />}>
+          <UpcomingSessionsSection />
+        </Suspense>
+      </DeferredRender>
+
+      <DeferredRender fallback={<SectionFallback />} rootMargin="320px 0px">
+        <Suspense fallback={<SectionFallback />}>
+          <EcosystemSection />
+        </Suspense>
+      </DeferredRender>
+
+      <DeferredRender fallback={<SectionFallback />} rootMargin="320px 0px">
+        <Suspense fallback={<SectionFallback />}>
+          <TestimonialsSection />
+        </Suspense>
+      </DeferredRender>
+
+      <DeferredRender fallback={<SectionFallback />} rootMargin="360px 0px">
+        <Suspense fallback={<SectionFallback />}>
+          <NoCPFSection />
+        </Suspense>
+      </DeferredRender>
+
+      <DeferredRender fallback={<SectionFallback />} rootMargin="420px 0px">
+        <Suspense fallback={<SectionFallback />}>
+          <CTAFinalSection />
+        </Suspense>
+      </DeferredRender>
     </Layout>
   );
 };

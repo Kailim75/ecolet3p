@@ -30,8 +30,8 @@
     --secondary: 123 38% 94%;
     --secondary-foreground: 125 55% 24%;
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 21 100% 45%;
+    --muted-foreground: 0 0% 38%;
+    --accent: 21 100% 38%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -41,21 +41,21 @@
     --radius: 0.5rem;
 
     /* CTA Orange */
-    --cta: 21 100% 45%;
-    --cta-hover: 21 100% 38%;
+    --cta: 21 100% 38%;
+    --cta-hover: 21 100% 32%;
     --cta-foreground: 0 0% 100%;
 
     /* Semantic */
     --success: 125 55% 24%;
     --success-foreground: 0 0% 100%;
     --warning: 36 100% 94%;
-    --warning-foreground: 21 100% 45%;
+    --warning-foreground: 21 100% 34%;
 
     /* Custom palette */
     --forest: 125 55% 24%;
     --forest-hex: #1B5E20;
-    --orange: 21 100% 45%;
-    --orange-hex: #E65100;
+    --orange: 21 100% 38%;
+    --orange-hex: #C2410C;
     --green-light: 123 38% 94%;
     --orange-light: 36 100% 94%;
 

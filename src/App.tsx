@@ -10,6 +10,7 @@ import RedirectHandler from "./components/seo/RedirectHandler";
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 import { QuoteModalProvider } from "./components/quote/QuoteModalContext";
+import DeferredRender from "./components/performance/DeferredRender";
 
 // Lazy load non-critical global components
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
@@ -148,10 +149,12 @@ const App = () => {
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </Suspense>
-                  <Suspense fallback={null}>
-                    <CookieConsent />
-                    <PWAStatus />
-                  </Suspense>
+                  <DeferredRender strategy="idle" timeoutMs={1400}>
+                    <Suspense fallback={null}>
+                      <CookieConsent />
+                      <PWAStatus />
+                    </Suspense>
+                  </DeferredRender>
                 </AnalyticsProvider>
               </BrowserRouter>
             </div>
