@@ -79,14 +79,9 @@ const MobileStickyBar = () => {
       {/* CTA */}
       <button
         onClick={() => { analytics.trackAppointmentStart(); setIsRdvOpen(true); }}
-        className="flex-1 flex items-center justify-center gap-2 rounded-xl"
+        className="btn-cta-orange flex-1 gap-2 rounded-xl px-4 py-0 text-sm shadow-lg"
         style={{
           height: 44,
-          backgroundColor: "#E8793A",
-          color: "#fff",
-          fontWeight: 700,
-          fontSize: 14,
-          boxShadow: "0 4px 14px rgba(232,121,58,0.4)",
         }}
         aria-label="Prendre rendez-vous"
       >

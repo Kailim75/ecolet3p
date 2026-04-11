@@ -1,6 +1,7 @@
 import React, { ReactNode, lazy, Suspense } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import DeferredRender from "@/components/performance/DeferredRender";
 
 // Lazy-load all non-critical layout components
 const ScrollToTopButton = lazy(() => import("./ScrollToTopButton"));
@@ -17,11 +18,13 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="flex-1 pb-[60px] lg:pb-0">{children}</main>
       <Footer />
-      <Suspense fallback={null}>
-        <ScrollToTopButton />
-        <MobileStickyBar />
-        <FloatingWhatsAppButton />
-      </Suspense>
+      <DeferredRender strategy="idle" timeoutMs={1000}>
+        <Suspense fallback={null}>
+          <ScrollToTopButton />
+          <MobileStickyBar />
+          <FloatingWhatsAppButton />
+        </Suspense>
+      </DeferredRender>
     </div>
   );
 };

@@ -133,7 +133,7 @@ const Formations = () => {
       {/* ============ HERO ============ */}
       <section ref={heroRef} className="relative min-h-[420px] md:min-h-[560px] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroImageY, scale: heroImageScale }}>
-          <img src={salleFormation} alt="Centre de formation ECOLE T3P" width={1200} height={560} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+          <img src={salleFormation} alt="Centre de formation ECOLE T3P" width={1200} height={560} className="w-full h-full object-cover" loading="eager" />
         </motion.div>
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.92) 0%, rgba(27,58,92,0.85) 100%)' }} />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />

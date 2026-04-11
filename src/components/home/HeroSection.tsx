@@ -280,7 +280,6 @@ const HeroSection = () => {
                 className="w-full h-[480px] xl:h-[560px] object-cover"
                 loading="eager"
                 decoding="async"
-                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
