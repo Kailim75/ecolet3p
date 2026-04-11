@@ -85,7 +85,6 @@ const OptimizedImage = ({
       decoding="async"
       sizes={sizes}
       srcSet={srcSet}
-      fetchPriority={priority ? "high" : "auto"}
       onLoad={handleLoad}
       onError={onError}
       className={cn(

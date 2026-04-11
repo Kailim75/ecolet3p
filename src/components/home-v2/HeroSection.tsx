@@ -20,7 +20,6 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
             alt="Session de formation Taxi VTC en salle à l'ECOLE T3P Montrouge"
             width={1920}
             height={1080}
-            fetchPriority="high"
             loading="eager"
             decoding="sync"
             className="w-full h-full object-cover"
