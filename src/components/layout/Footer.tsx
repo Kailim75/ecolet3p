@@ -40,8 +40,11 @@ const siloBlog = [
 const siloInstitutionnel = [
   { name: "Paiement en plusieurs fois", path: "/paiement" },
   { name: "À propos d'ECOLE T3P", path: "/a-propos" },
+  { name: "Nos chiffres (Qualiopi)", path: "/nos-chiffres" },
   { name: "Contact", path: "/contact" },
   { name: "Mentions légales", path: "/mentions-legales" },
+  { name: "CGV", path: "/cgv" },
+  { name: "Règlement intérieur", path: "/reglement-interieur" },
   { name: "Politique de confidentialité", path: "/politique-de-confidentialite" },
 ];
 
@@ -212,8 +215,11 @@ const Footer = () => {
         <div className="container-custom py-6">
           <div className="flex flex-col items-center gap-2 text-xs text-white/80 text-center">
             <p>© 2026 ECOLE T3P - Tous droits réservés | SIRET : 94856480200023</p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link>
+              <Link to="/cgv" className="hover:text-white transition-colors">CGV</Link>
+              <Link to="/reglement-interieur" className="hover:text-white transition-colors">Règlement intérieur</Link>
+              <Link to="/nos-chiffres" className="hover:text-white transition-colors">Nos chiffres</Link>
               <Link to="/politique-de-confidentialite" className="hover:text-white transition-colors">Confidentialité</Link>
             </div>
           </div>

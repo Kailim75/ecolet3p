@@ -34,6 +34,9 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const LegalMentions = lazy(() => import("./pages/LegalMentions"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CGV = lazy(() => import("./pages/CGV"));
+const ReglementInterieur = lazy(() => import("./pages/ReglementInterieur"));
+const NosChiffres = lazy(() => import("./pages/NosChiffres"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const Admin = lazy(() => import("./pages/Admin"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
@@ -131,6 +134,9 @@ const App = () => {
                       <Route path="/blog/:slug" element={<BlogArticle />} />
                       <Route path="/mentions-legales" element={<LegalMentions />} />
                       <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+                      <Route path="/cgv" element={<CGV />} />
+                      <Route path="/reglement-interieur" element={<ReglementInterieur />} />
+                      <Route path="/nos-chiffres" element={<NosChiffres />} />
                       <Route path="/unsubscribe" element={<Unsubscribe />} />
                       <Route path="/admin" element={<Admin />} />
                       <Route path="/admin-login" element={<AdminLogin />} />
