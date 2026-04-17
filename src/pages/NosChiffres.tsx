@@ -1,3 +1,4 @@
+import type { ElementType } from "react";
 import { motion } from "framer-motion";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
@@ -18,7 +19,7 @@ const fadeUpVariants = {
 };
 
 type Indicator = {
-  icon: React.ElementType;
+  icon: ElementType;
   title: string;
   value: string;
   status: "published" | "pending";
