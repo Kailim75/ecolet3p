@@ -105,6 +105,31 @@ const LegalMentions = () => {
             </div>
 
             <div className="card-livementor mb-8">
+              <h2 className="text-xl font-bold text-forest mb-4">1 bis. Organisme de formation</h2>
+              <p className="text-muted-foreground mb-3">
+                <strong>Agrément préfectoral Taxi/VTC/VMDTR :</strong> n° 23/007 — Préfecture des Hauts-de-Seine<br />
+                <strong>Numéro de déclaration d'activité (NDA/DREETS) :</strong> <em>en cours de demande auprès de la DREETS Île-de-France</em><br />
+                <strong>Certification Qualiopi :</strong> <em>en cours d'obtention — audit initial planifié</em>
+              </p>
+              <p className="text-muted-foreground text-sm italic">
+                Conformément à l'article L.6351-1 du Code du travail, le numéro de déclaration d'activité ne vaut pas agrément de l'État. La certification Qualiopi sera requise pour les formations financées par un OPCO, le CPF, Pôle Emploi ou les Régions.
+              </p>
+            </div>
+
+            <div className="card-livementor mb-8">
+              <h2 className="text-xl font-bold text-forest mb-4">1 ter. Référents</h2>
+              <p className="text-muted-foreground mb-2">
+                <strong>Référent pédagogique & Qualiopi :</strong> Karim KATI — <a href="mailto:montrouge@ecolet3p.fr" className="text-forest hover:text-gold">montrouge@ecolet3p.fr</a>
+              </p>
+              <p className="text-muted-foreground mb-2">
+                <strong>Référent handicap :</strong> <em>en cours de désignation</em> — en attendant, toute demande d'adaptation peut être adressée au référent pédagogique. Nous nous engageons à étudier chaque demande dans un délai de 7 jours ouvrés et à mettre en place les aménagements raisonnables en lien avec l'Agefiph et Cap Emploi.
+              </p>
+              <p className="text-muted-foreground">
+                <strong>Médiateur de la consommation :</strong> conformément aux articles L.612-1 et suivants du Code de la consommation, un médiateur sera désigné à l'issue de la certification Qualiopi.
+              </p>
+            </div>
+
+            <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">2. Hébergeur</h2>
               <p className="text-muted-foreground">
                 Ce site est hébergé par :<br />
@@ -170,6 +195,15 @@ const LegalMentions = () => {
               <div className="grid sm:grid-cols-2 gap-3">
                 <Link to="/politique-de-confidentialite" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
                   → Politique de confidentialité
+                </Link>
+                <Link to="/cgv" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → CGV
+                </Link>
+                <Link to="/reglement-interieur" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Règlement intérieur
+                </Link>
+                <Link to="/nos-chiffres" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
+                  → Nos chiffres (Qualiopi)
                 </Link>
                 <Link to="/contact" className="text-forest hover:text-gold font-semibold flex items-center gap-2">
                   → Nous contacter
