@@ -1,163 +1,38 @@
-// ECOLE T3P Service Worker - Cache Strategy
-// IMPORTANT: Never cache Vite dev modules (/src, /@vite, ?t=...) or it can cause
-// mixed React module instances ("Invalid hook call" / "useRef null") after hot updates.
-const CACHE_NAME = 't3p-campus-v2';
-const RUNTIME_CACHE = 't3p-runtime-v2';
+// Kill-switch Service Worker
+// Remplace l'ancien SW qui servait des chunks JS obsoletes (page blanche).
+// Ce SW se desinscrit lui-meme et vide tous les caches au prochain chargement.
 
-// Assets to cache immediately on install
-const PRECACHE_ASSETS = [
-  '/',
-  '/favicon.ico',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
-];
-
-// Cache strategies
-const CACHE_STRATEGIES = {
-  // Cache first, then network (for static assets)
-  cacheFirst: async (request, cacheName = RUNTIME_CACHE) => {
-    const cache = await caches.open(cacheName);
-    const cached = await cache.match(request);
-    if (cached) return cached;
-    
-    try {
-      const response = await fetch(request);
-      if (response.ok) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    } catch (error) {
-      return cached;
-    }
-  },
-  
-  // Network first, fallback to cache (for dynamic content)
-  networkFirst: async (request, cacheName = RUNTIME_CACHE) => {
-    const cache = await caches.open(cacheName);
-    
-    try {
-      const response = await fetch(request);
-      if (response.ok) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    } catch (error) {
-      const cached = await cache.match(request);
-      if (cached) return cached;
-      
-      // Return offline page for navigation requests
-      if (request.mode === 'navigate') {
-        return cache.match('/');
-      }
-      throw error;
-    }
-  },
-  
-  // Stale while revalidate (for fonts, images)
-  staleWhileRevalidate: async (request, cacheName = RUNTIME_CACHE) => {
-    const cache = await caches.open(cacheName);
-    const cached = await cache.match(request);
-    
-    const fetchPromise = fetch(request).then(response => {
-      if (response.ok) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    }).catch(() => cached);
-    
-    return cached || fetchPromise;
-  }
-};
-
-// Install event - precache static assets
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(PRECACHE_ASSETS))
-      .then(() => self.skipWaiting())
-  );
+self.addEventListener('install', () => {
+  self.skipWaiting();
 });
 
-// Activate event - clean old caches
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(name => name !== CACHE_NAME && name !== RUNTIME_CACHE)
-          .map(name => caches.delete(name))
-      );
-    }).then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    try {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+    } catch (e) {
+      // ignore
+    }
+
+    try {
+      await self.registration.unregister();
+    } catch (e) {
+      // ignore
+    }
+
+    try {
+      const clients = await self.clients.matchAll({ type: 'window' });
+      clients.forEach((client) => {
+        if ('navigate' in client) {
+          client.navigate(client.url);
+        }
+      });
+    } catch (e) {
+      // ignore
+    }
+  })());
 });
 
-// Fetch event - apply caching strategies
-self.addEventListener('fetch', (event) => {
-  const { request } = event;
-  const url = new URL(request.url);
-  
-  // Skip non-GET requests
-  if (request.method !== 'GET') return;
-  
-  // Skip chrome-extension and other non-http(s) requests
-  if (!url.protocol.startsWith('http')) return;
-
-  // Never cache Vite dev server assets (critical to avoid React hook crashes)
-  const isViteDevAsset =
-    url.pathname.startsWith('/@vite') ||
-    url.pathname.startsWith('/@react-refresh') ||
-    url.pathname.startsWith('/src/') ||
-    url.pathname.startsWith('/node_modules/') ||
-    url.pathname.startsWith('/@id/');
-
-  // Vite appends ?t=... for HMR-busted module URLs
-  if (isViteDevAsset || url.searchParams.has('t')) {
-    return;
-  }
-  
-  // Skip API calls (Supabase, external APIs)
-  if (url.hostname.includes('supabase') || 
-      url.pathname.startsWith('/api') ||
-      url.pathname.includes('functions')) {
-    return;
-  }
-  
-  // Strategy based on request type
-  let strategy;
-  
-  // Fonts - stale while revalidate
-  if (url.hostname.includes('fonts.googleapis.com') || 
-      url.hostname.includes('fonts.gstatic.com')) {
-    strategy = CACHE_STRATEGIES.staleWhileRevalidate(request);
-  }
-  // Images - cache first
-  else if (request.destination === 'image' || 
-           url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg|ico)$/i)) {
-    strategy = CACHE_STRATEGIES.cacheFirst(request);
-  }
-  // JS/CSS assets - stale while revalidate
-  else if (request.destination === 'script' || 
-           request.destination === 'style' ||
-           url.pathname.match(/\.(js|css)$/i)) {
-    strategy = CACHE_STRATEGIES.staleWhileRevalidate(request);
-  }
-  // HTML pages - network first
-  else if (request.mode === 'navigate' || 
-           request.destination === 'document') {
-    strategy = CACHE_STRATEGIES.networkFirst(request);
-  }
-  // Default - network first
-  else {
-    strategy = CACHE_STRATEGIES.networkFirst(request);
-  }
-  
-  event.respondWith(strategy);
-});
-
-// Handle messages from the app
-self.addEventListener('message', (event) => {
-  if (event.data === 'skipWaiting') {
-    self.skipWaiting();
-  }
-});
+// Pass-through: ne jamais intercepter de requetes (pas de cache).
+self.addEventListener('fetch', () => {});
