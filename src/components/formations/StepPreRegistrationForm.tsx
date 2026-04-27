@@ -85,10 +85,12 @@ const StepPreRegistrationForm = ({
     try {
       const formationLabel = formationChoices.find((f) => f.value === formation)?.label || formation;
       const scheduleLabel = scheduleChoices.find((s) => s.value === schedule)?.label || schedule;
+      const preregistrationId = crypto.randomUUID();
 
-      const { data: insertedData, error: dbError } = await supabase
+      const { error: dbError } = await supabase
         .from("pre_registrations")
         .insert({
+          id: preregistrationId,
           first_name: result.data.firstName,
           last_name: result.data.lastName,
           email: result.data.email,
@@ -97,15 +99,13 @@ const StepPreRegistrationForm = ({
           formation_duration: preferredDate
             ? `Date souhaitée : ${preferredDate}`
             : "Date à définir",
-        })
-        .select()
-        .single();
+        });
 
       if (dbError) throw dbError;
 
       try {
         await supabase.functions.invoke("notify-new-registration", {
-          body: { type: "INSERT", table: "pre_registrations", record: insertedData },
+          body: { preregistrationId },
         });
       } catch {
         // Non-blocking

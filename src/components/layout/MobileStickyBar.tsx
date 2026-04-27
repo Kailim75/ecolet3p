@@ -83,7 +83,6 @@ const MobileStickyBar = () => {
         style={{
           height: 44,
         }}
-        aria-label="Prendre rendez-vous"
       >
         Prendre RDV <ArrowRight className="w-4 h-4" />
       </button>

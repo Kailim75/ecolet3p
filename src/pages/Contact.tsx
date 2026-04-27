@@ -143,7 +143,9 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      const contactRequestId = crypto.randomUUID();
       const record = {
+        id: contactRequestId,
         full_name: formData.fullName.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim(),
@@ -171,7 +173,7 @@ const Contact = () => {
 
       try {
         await supabase.functions.invoke("notify-contact-request", {
-          body: { record },
+          body: { contactRequestId },
         });
       } catch (notifyErr) {
         console.error("Contact notification failed:", notifyErr);

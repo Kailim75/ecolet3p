@@ -15,6 +15,8 @@ import { dirname, join } from 'path';
 const DIST = join(process.cwd(), 'dist');
 const SITE_URL = 'https://ecolet3p.fr';
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+const SYNC_PUBLIC_SITEMAP = process.argv.includes('--sync-public-sitemap');
 
 // ─── Route SEO data ───────────────────────────────────────────────────────────
 // Each route needs: path, title, description. Optional: ogTitle, ogDescription.
@@ -294,12 +296,318 @@ for (const slug of citySlugs) {
 // ─── HTML transformation ──────────────────────────────────────────────────────
 
 function escapeHtml(str) {
-  return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 function getCanonical(path) {
   if (path === '/') return `${SITE_URL}/`;
   return `${SITE_URL}${path}`;
+}
+
+function renderLink(path, label) {
+  return `<a href="${getCanonical(path)}">${escapeHtml(label)}</a>`;
+}
+
+function renderList(items) {
+  return `<ul>\n${items.map((item) => `            <li>${item}</li>`).join('\n')}\n          </ul>`;
+}
+
+function inferProfession(text) {
+  const value = text.toLowerCase();
+  if (value.includes('vmdtr') || value.includes('moto-taxi')) return 'VMDTR';
+  if (value.includes('taxi')) return 'Taxi';
+  if (value.includes('vtc')) return 'VTC';
+  return null;
+}
+
+function getPrimaryFormationPath(route) {
+  const profession = inferProfession(`${route.path} ${route.title} ${route.description}`);
+  if (profession === 'Taxi') return '/formations/taxi';
+  if (profession === 'VTC') return '/formations/vtc';
+  if (profession === 'VMDTR') return '/formations/vmdtr';
+  return '/formations';
+}
+
+function getPrimaryFormationLabel(route) {
+  const profession = inferProfession(`${route.path} ${route.title} ${route.description}`);
+  return profession ? `Formation ${profession}` : 'Nos formations';
+}
+
+function getSampleCityLinks() {
+  return [
+    renderLink('/formations/montrouge', 'Montrouge'),
+    renderLink('/formations/bagneux', 'Bagneux'),
+    renderLink('/formations/vanves', 'Vanves'),
+    renderLink('/formations/malakoff', 'Malakoff'),
+    renderLink('/formations/chatillon', 'Châtillon'),
+    renderLink('/formations/issy-les-moulineaux', 'Issy-les-Moulineaux'),
+  ].join(' • ');
+}
+
+function renderContactDetails() {
+  return `
+        <p>Adresse : 3 rue Corneille, 92120 Montrouge.</p>
+        <p>Téléphone : <a href="tel:0188750555">01 88 75 05 55</a> • Email : <a href="mailto:montrouge@ecolet3p.fr">montrouge@ecolet3p.fr</a></p>
+        <p>Horaires : du lundi au vendredi, de 9h30 à 12h30 puis de 13h30 à 18h00.</p>`;
+}
+
+function renderRouteMain(route) {
+  if (route.path === '/contact') {
+    return `
+        <section>
+          <h2>Par téléphone, email ou WhatsApp</h2>
+          <p>${escapeHtml(route.description)}</p>
+          ${renderContactDetails()}
+        </section>
+        <section>
+          <h2>Venir au centre</h2>
+          <p>Le centre ECOLE T3P se trouve à deux minutes à pied de la station Mairie de Montrouge, ligne 4. Un conseiller peut vous orienter vers la formation Taxi, VTC, VMDTR ou continue la plus adaptée.</p>
+          <p>${renderLink('/formations', 'Voir toutes les formations')} • ${renderLink('/paiement', 'Découvrir le paiement en plusieurs fois')}</p>
+        </section>
+        <section>
+          <h2>Après votre demande</h2>
+          <p>Après votre message, notre équipe revient vers vous pour vérifier votre situation, recommander la bonne formule et proposer la prochaine session disponible.</p>
+        </section>`;
+  }
+
+  if (route.path === '/blog') {
+    const featured = blogArticles.slice(0, 6).map((article) =>
+      renderLink(`/blog/${article.slug}`, article.title)
+    );
+
+    return `
+        <section>
+          <h2>Guides, comparatifs et actualités métier</h2>
+          <p>${escapeHtml(route.description)}</p>
+          ${renderList(featured)}
+        </section>
+        <section>
+          <h2>Articles clés à consulter</h2>
+          <p>Vous y trouverez des contenus sur la formation initiale, la réglementation 2026, le renouvellement de carte professionnelle, le financement et la création d'activité.</p>
+          <p>${renderLink('/formations/taxi', 'Formation Taxi')} • ${renderLink('/formations/vtc', 'Formation VTC')} • ${renderLink('/formations/vmdtr', 'Formation VMDTR')}</p>
+        </section>`;
+  }
+
+  if (route.path.startsWith('/blog/')) {
+    return `
+        <section>
+          <h2>Résumé de l'article</h2>
+          <p>${escapeHtml(route.description)}</p>
+        </section>
+        <section>
+          <h2>Pour aller plus loin</h2>
+          <p>Cet article s'inscrit dans notre centre de ressources sur les métiers Taxi, VTC et VMDTR, la préparation à l'examen CMA et les démarches pour obtenir ou renouveler une carte professionnelle.</p>
+          <p>${renderLink('/blog', 'Voir tous les articles')} • ${renderLink(getPrimaryFormationPath(route), getPrimaryFormationLabel(route))} • ${renderLink('/contact', 'Poser une question à un conseiller')}</p>
+        </section>`;
+  }
+
+  if (route.path === '/formations') {
+    return `
+        <section>
+          <h2>Trois métiers, plusieurs formats de préparation</h2>
+          <p>${escapeHtml(route.description)}</p>
+          ${renderList([
+            `${renderLink('/formations/taxi', 'Formation Taxi')} : préparation à l'examen, topographie et réglementation.`,
+            `${renderLink('/formations/vtc', 'Formation VTC')} : relation client, réglementation T3P et création d'activité.`,
+            `${renderLink('/formations/vmdtr', 'Formation VMDTR')} : cadre réglementaire, sécurité et activité moto-taxi.`,
+          ])}
+        </section>
+        <section>
+          <h2>Compléter votre parcours</h2>
+          <p>${renderLink('/formations/renouvellement', 'Renouveler une carte professionnelle')} • ${renderLink('/passerelle-vtc-taxi', 'Préparer une passerelle')} • ${renderLink('/paiement', 'Étaler le paiement')}</p>
+        </section>`;
+  }
+
+  if (route.path === '/formations/villes') {
+    return `
+        <section>
+          <h2>Formation Taxi VTC VMDTR dans toute l'Île-de-France</h2>
+          <p>${escapeHtml(route.description)}</p>
+          <p>${getSampleCityLinks()}</p>
+        </section>
+        <section>
+          <h2>Pourquoi passer par Montrouge</h2>
+          <p>ECOLE T3P centralise les formations initiales, continues et les services complémentaires dans un même centre facilement accessible en métro.</p>
+        </section>`;
+  }
+
+  if (route.path.startsWith('/formations/') && citySlugs.includes(route.path.split('/').pop())) {
+    const cityName = slugToName(route.path.split('/').pop());
+    return `
+        <section>
+          <h2>Se former près de ${escapeHtml(cityName)}</h2>
+          <p>${escapeHtml(route.description)}</p>
+        </section>
+        <section>
+          <h2>Formations disponibles depuis ${escapeHtml(cityName)}</h2>
+          ${renderList([
+            renderLink('/formations/taxi', 'Formation Taxi initiale et passerelles'),
+            renderLink('/formations/vtc', 'Formation VTC initiale et création d\'activité'),
+            renderLink('/formations/vmdtr', 'Formation VMDTR moto-taxi'),
+            renderLink('/formations/renouvellement', 'Renouvellement de carte professionnelle'),
+          ])}
+        </section>
+        <section>
+          <h2>Accès au centre de Montrouge</h2>
+          <p>Notre centre au 3 rue Corneille accueille les candidats venant de ${escapeHtml(cityName)} et des communes voisines, avec accompagnement sur les démarches et les prochaines sessions.</p>
+        </section>`;
+  }
+
+  if (route.path === '/a-propos') {
+    return `
+        <section>
+          <h2>Un centre spécialisé dans les métiers T3P</h2>
+          <p>${escapeHtml(route.description)}</p>
+        </section>
+        <section>
+          <h2>Ce que propose ECOLE T3P</h2>
+          <p>Le centre accompagne les futurs chauffeurs et les professionnels en activité sur la préparation aux examens, le renouvellement de carte et l'organisation administrative de leur activité.</p>
+          <p>${renderLink('/formations', 'Découvrir les formations')} • ${renderLink('/contact', 'Contacter l\'équipe')}</p>
+        </section>`;
+  }
+
+  if (route.path === '/mentions-legales' || route.path === '/politique-de-confidentialite') {
+    return `
+        <section>
+          <h2>Informations utiles</h2>
+          <p>${escapeHtml(route.description)}</p>
+          ${renderContactDetails()}
+        </section>
+        <section>
+          <h2>Besoin d'une précision ?</h2>
+          <p>${renderLink('/contact', 'Écrire à ECOLE T3P')} • ${renderLink('/a-propos', 'En savoir plus sur le centre')}</p>
+        </section>`;
+  }
+
+  const primaryFormationPath = getPrimaryFormationPath(route);
+  const primaryFormationLabel = getPrimaryFormationLabel(route);
+
+  return `
+        <section>
+          <h2>Présentation</h2>
+          <p>${escapeHtml(route.description)}</p>
+        </section>
+        <section>
+          <h2>Liens utiles</h2>
+          ${renderList([
+            renderLink(primaryFormationPath, primaryFormationLabel),
+            renderLink('/contact', 'Contacter un conseiller'),
+            renderLink('/paiement', 'Découvrir les facilités de paiement'),
+            renderLink('/guide-formation', 'Consulter le guide de formation'),
+          ])}
+        </section>`;
+}
+
+function renderHiddenNav(route) {
+  const commonLinks = [
+    renderLink('/', 'Accueil'),
+    renderLink('/formations', 'Toutes les formations'),
+    renderLink('/contact', 'Contact'),
+    renderLink('/blog', 'Blog'),
+    renderLink('/paiement', 'Paiement en plusieurs fois'),
+  ];
+
+  const contextualLinks = route.path.startsWith('/blog/')
+    ? [
+        renderLink('/blog', 'Autres articles'),
+        renderLink(getPrimaryFormationPath(route), getPrimaryFormationLabel(route)),
+      ]
+    : route.path === '/contact'
+      ? [
+          renderLink('/formations', 'Catalogue des formations'),
+          renderLink('/formations/villes', 'Formation par ville'),
+        ]
+      : route.path.startsWith('/formations/')
+        ? [
+            renderLink('/formations/taxi', 'Formation Taxi'),
+            renderLink('/formations/vtc', 'Formation VTC'),
+            renderLink('/formations/vmdtr', 'Formation VMDTR'),
+          ]
+        : [renderLink('/formations/villes', 'Formations par ville')];
+
+  return `
+      <nav style="display:none" aria-hidden="true">
+        <h2>Navigation interne</h2>
+        ${renderList([...commonLinks, ...contextualLinks])}
+      </nav>`;
+}
+
+function renderSeoFallback(route) {
+  const h1 = route.h1 || route.title.split('|')[0].trim();
+
+  return `    <!-- SEO Fallback Content — Visible pour les bots qui n'exécutent pas JS, masqué dès que React charge -->
+    <div class="seo-fallback" role="complementary" aria-label="Contenu pour moteurs de recherche">
+      <header>
+        <h1>${escapeHtml(h1)}</h1>
+        <p><strong>Centre de formation agréé depuis 2014</strong> • 94% de réussite • +2 000 chauffeurs formés • 5.0/5 sur Google</p>
+        <p>${escapeHtml(route.description)}</p>
+        <p>📍 3 rue Corneille, 92120 Montrouge — Métro Mairie de Montrouge (Ligne 4)</p>
+        <p>📞 <a href="tel:0188750555">01 88 75 05 55</a> • ✉️ <a href="mailto:montrouge@ecolet3p.fr">montrouge@ecolet3p.fr</a></p>
+      </header>
+
+      <main>
+${renderRouteMain(route)}
+      </main>
+
+${renderHiddenNav(route)}
+
+      <footer style="display:none" aria-hidden="true">
+        <p>© 2026 ECOLE T3P — Centre de formation Taxi VTC VMDTR — SIRET : 94856480200023</p>
+        <p>3 rue Corneille, 92120 Montrouge — <a href="tel:0188750555">01 88 75 05 55</a></p>
+      </footer>
+    </div>`;
+}
+
+function replaceSeoFallback(html, route) {
+  return html.replace(
+    /<!-- SEO_FALLBACK_START -->[\s\S]*?<!-- SEO_FALLBACK_END -->/,
+    `<!-- SEO_FALLBACK_START -->\n${renderSeoFallback(route)}\n    <!-- SEO_FALLBACK_END -->`
+  );
+}
+
+function getPriority(path) {
+  if (path === '/') return '1.0';
+  if (['/formations', '/formations/taxi', '/formations/vtc', '/formations/vmdtr', '/formations/renouvellement', '/formations/montrouge'].includes(path)) {
+    return '0.9';
+  }
+  if (path === '/blog' || path.startsWith('/blog/')) return '0.8';
+  if (path.startsWith('/formations/')) return '0.7';
+  if (['/contact', '/passerelle-vtc-taxi', '/stage-recuperation-points', '/renouvellement-carte-professionnelle'].includes(path)) {
+    return '0.8';
+  }
+  return '0.6';
+}
+
+function getChangefreq(path) {
+  if (path === '/' || path === '/formations' || path === '/blog') return 'weekly';
+  if (path.startsWith('/blog/')) return 'monthly';
+  if (path.startsWith('/formations/')) return 'monthly';
+  return 'monthly';
+}
+
+function generateSitemapXml(routeList) {
+  const urls = routeList.map((route) => {
+    const imageTag = route.path === '/'
+      ? `\n    <image:image>\n      <image:loc>${OG_IMAGE}</image:loc>\n      <image:title>ECOLE T3P - Formation Taxi VTC VMDTR Paris Montrouge</image:title>\n    </image:image>`
+      : '';
+
+    return `  <url>\n    <loc>${getCanonical(route.path)}</loc>\n    <lastmod>${BUILD_DATE}</lastmod>\n    <changefreq>${getChangefreq(route.path)}</changefreq>\n    <priority>${getPriority(route.path)}</priority>${imageTag}\n  </url>`;
+  });
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.join('\n')}\n</urlset>\n`;
+}
+
+function writeSitemap(routeList) {
+  const sitemapXml = generateSitemapXml(routeList);
+  writeFileSync(join(DIST, 'sitemap.xml'), sitemapXml, 'utf-8');
+
+  if (SYNC_PUBLIC_SITEMAP) {
+    writeFileSync(join(process.cwd(), 'public', 'sitemap.xml'), sitemapXml, 'utf-8');
+  }
 }
 
 function transformHtml(template, route) {
@@ -354,13 +662,7 @@ function transformHtml(template, route) {
     `<meta name="twitter:description" content="${escapeHtml(ogDesc)}"`
   );
 
-  // Replace H1 in seo-fallback
-  html = html.replace(
-    /(<div class="seo-fallback"[^>]*>\s*<header>\s*)<h1>[^<]*<\/h1>/,
-    `$1<h1>${escapeHtml(h1)}</h1>`
-  );
-
-  return html;
+  return replaceSeoFallback(html, { ...route, h1 });
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
@@ -374,12 +676,9 @@ function main() {
 
   const template = readFileSync(indexPath, 'utf-8');
   let generated = 0;
-  let skipped = 0;
 
   for (const route of routes) {
-    // Skip homepage — already correct
     if (route.path === '/') {
-      skipped++;
       continue;
     }
 
@@ -394,8 +693,11 @@ function main() {
     generated++;
   }
 
-  console.log(`✅ Prerender complete: ${generated} pages generated, ${skipped} skipped (homepage).`);
+  writeSitemap(routes);
+
+  console.log(`✅ Prerender complete: ${generated} pages generated, 1 skipped (homepage).`);
   console.log(`   Total routes: ${routes.length}`);
+  console.log(`   Sitemap synced to dist/sitemap.xml${SYNC_PUBLIC_SITEMAP ? ' and public/sitemap.xml' : ''}.`);
 }
 
 main();

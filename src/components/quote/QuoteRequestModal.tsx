@@ -88,9 +88,11 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
     try {
       const formationLabel = formations.find((f) => f.value === formation)?.label || formation;
+      const preregistrationId = crypto.randomUUID();
       const { error: dbError } = await supabase
         .from("pre_registrations")
         .insert({
+          id: preregistrationId,
           first_name: result.data.firstName,
           last_name: result.data.lastName,
           email: result.data.email,
@@ -103,14 +105,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
       try {
         await supabase.functions.invoke("notify-new-registration", {
-          body: {
-            firstName: result.data.firstName,
-            lastName: result.data.lastName,
-            email: result.data.email,
-            phone: result.data.phone,
-            formationTitle: formationLabel,
-            message,
-          },
+          body: { preregistrationId },
         });
       } catch { /* non-blocking */ }
 

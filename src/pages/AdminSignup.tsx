@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Mail, Lock, Eye, EyeOff, Key, UserPlus, AlertCircle, CheckCircle } from "lucide-react";
+import { Shield, Mail, Lock, Eye, EyeOff, Key, UserPlus, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,8 +31,6 @@ const AdminSignup = () => {
   const [showSecretKey, setShowSecretKey] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isVerifyingSecret, setIsVerifyingSecret] = useState(false);
-  const [secretVerified, setSecretVerified] = useState(false);
   
   const navigate = useNavigate();
   const { user, isAdmin, isLoading } = useAuth();
@@ -42,38 +40,6 @@ const AdminSignup = () => {
       navigate("/admin");
     }
   }, [user, isAdmin, isLoading, navigate]);
-
-  const verifySecretKey = async () => {
-    if (!secretKey.trim()) {
-      setErrors({ secretKey: "La clé secrète est requise" });
-      return;
-    }
-
-    setIsVerifyingSecret(true);
-    setErrors({});
-
-    try {
-      const { data, error } = await supabase.functions.invoke("verify-admin-secret", {
-        body: { secret: secretKey },
-      });
-
-      if (error) throw error;
-
-      if (data.valid) {
-        setSecretVerified(true);
-        toast.success("Clé secrète validée !");
-      } else {
-        setErrors({ secretKey: "Clé secrète invalide" });
-        toast.error("Clé secrète invalide");
-      }
-    } catch (error) {
-      console.error("Error verifying secret:", error);
-      setErrors({ secretKey: "Erreur lors de la vérification" });
-      toast.error("Erreur lors de la vérification de la clé");
-    } finally {
-      setIsVerifyingSecret(false);
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,45 +60,50 @@ const AdminSignup = () => {
       }
     }
 
-    if (!secretVerified) {
-      setErrors({ secretKey: "Veuillez d'abord vérifier la clé secrète" });
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
-      const { data: authData, error: signUpError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: `${window.location.origin}/admin`,
+      const { data, error } = await supabase.functions.invoke("create-admin-user", {
+        body: {
+          email,
+          password,
+          secret: secretKey,
         },
       });
 
-      if (signUpError) throw signUpError;
+      if (error) throw error;
 
-      if (authData.user) {
-        // Assign admin role server-side via edge function (uses service_role)
-        const { data: roleData, error: roleError } = await supabase.functions.invoke("create-admin-user", {
-          body: { secret: secretKey, userId: authData.user.id },
-        });
-
-        if (roleError || !roleData?.success) {
-          console.error("Error adding admin role:", roleError || roleData?.error);
-          toast.error("Compte créé mais erreur lors de l'attribution du rôle admin");
-        } else {
-          toast.success("Compte administrateur créé avec succès !");
-          navigate("/admin-login");
+      if (!data?.success) {
+        if (data?.code === "invalid_secret") {
+          setErrors({ secretKey: "Clé secrète invalide" });
+          return;
         }
+
+        if (data?.code === "email_exists") {
+          setErrors({ email: "Cet email est déjà utilisé" });
+          return;
+        }
+
+        if (data?.code === "invalid_email") {
+          setErrors({ email: "Email invalide" });
+          return;
+        }
+
+        if (data?.code === "weak_password") {
+          setErrors({ password: "Le mot de passe doit contenir au moins 8 caractères" });
+          return;
+        }
+
+        toast.error(data?.error || "Erreur lors de la création du compte");
+        return;
       }
-    } catch (error: any) {
+
+      toast.success("Compte administrateur créé avec succès !");
+      navigate("/admin-login");
+    } catch (error: unknown) {
       console.error("Signup error:", error);
-      if (error.message?.includes("already registered")) {
-        setErrors({ email: "Cet email est déjà utilisé" });
-      } else {
-        toast.error(error.message || "Erreur lors de la création du compte");
-      }
+      const message = error instanceof Error ? error.message : "Erreur lors de la création du compte";
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -162,7 +133,7 @@ const AdminSignup = () => {
             </div>
             <h1 className="text-2xl font-bold text-foreground">Créer un compte Admin</h1>
             <p className="text-muted-foreground text-center mt-2">
-              Une clé secrète est requise pour créer un compte administrateur
+              La validation de la clé et la création du compte se font en une seule étape sécurisée
             </p>
           </div>
 
@@ -173,43 +144,22 @@ const AdminSignup = () => {
                 <Key className="h-4 w-4" />
                 Clé secrète d'administration
               </Label>
-              <div className="relative flex gap-2">
-                <div className="relative flex-1">
-                  <Input
-                    id="secretKey"
-                    type={showSecretKey ? "text" : "password"}
-                    value={secretKey}
-                    onChange={(e) => {
-                      setSecretKey(e.target.value);
-                      setSecretVerified(false);
-                    }}
-                    placeholder="Entrez la clé secrète"
-                    className={`pr-10 ${errors.secretKey ? "border-destructive" : ""} ${secretVerified ? "border-green-500" : ""}`}
-                    disabled={secretVerified}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowSecretKey(!showSecretKey)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                  >
-                    {showSecretKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                </div>
-                <Button
+              <div className="relative">
+                <Input
+                  id="secretKey"
+                  type={showSecretKey ? "text" : "password"}
+                  value={secretKey}
+                  onChange={(e) => setSecretKey(e.target.value)}
+                  placeholder="Entrez la clé secrète"
+                  className={`pr-10 ${errors.secretKey ? "border-destructive" : ""}`}
+                />
+                <button
                   type="button"
-                  onClick={verifySecretKey}
-                  disabled={isVerifyingSecret || secretVerified}
-                  variant={secretVerified ? "outline" : "secondary"}
-                  className="shrink-0"
+                  onClick={() => setShowSecretKey(!showSecretKey)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {isVerifyingSecret ? (
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current" />
-                  ) : secretVerified ? (
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                  ) : (
-                    "Vérifier"
-                  )}
-                </Button>
+                  {showSecretKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
               </div>
               {errors.secretKey && (
                 <p className="text-sm text-destructive flex items-center gap-1">
@@ -217,20 +167,10 @@ const AdminSignup = () => {
                   {errors.secretKey}
                 </p>
               )}
-              {secretVerified && (
-                <p className="text-sm text-green-600 flex items-center gap-1">
-                  <CheckCircle className="h-3 w-3" />
-                  Clé secrète validée
-                </p>
-              )}
             </div>
 
             {/* Email */}
-            <motion.div
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: secretVerified ? 1 : 0.5 }}
-              className="space-y-2"
-            >
+            <div className="space-y-2">
               <Label htmlFor="email" className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 Email
@@ -242,7 +182,6 @@ const AdminSignup = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@example.com"
                 className={errors.email ? "border-destructive" : ""}
-                disabled={!secretVerified}
               />
               {errors.email && (
                 <p className="text-sm text-destructive flex items-center gap-1">
@@ -250,14 +189,10 @@ const AdminSignup = () => {
                   {errors.email}
                 </p>
               )}
-            </motion.div>
+            </div>
 
             {/* Password */}
-            <motion.div
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: secretVerified ? 1 : 0.5 }}
-              className="space-y-2"
-            >
+            <div className="space-y-2">
               <Label htmlFor="password" className="flex items-center gap-2">
                 <Lock className="h-4 w-4" />
                 Mot de passe
@@ -270,7 +205,6 @@ const AdminSignup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   className={`pr-10 ${errors.password ? "border-destructive" : ""}`}
-                  disabled={!secretVerified}
                 />
                 <button
                   type="button"
@@ -286,14 +220,10 @@ const AdminSignup = () => {
                   {errors.password}
                 </p>
               )}
-            </motion.div>
+            </div>
 
             {/* Confirm Password */}
-            <motion.div
-              initial={{ opacity: 0.5 }}
-              animate={{ opacity: secretVerified ? 1 : 0.5 }}
-              className="space-y-2"
-            >
+            <div className="space-y-2">
               <Label htmlFor="confirmPassword" className="flex items-center gap-2">
                 <Lock className="h-4 w-4" />
                 Confirmer le mot de passe
@@ -306,7 +236,6 @@ const AdminSignup = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="••••••••"
                   className={`pr-10 ${errors.confirmPassword ? "border-destructive" : ""}`}
-                  disabled={!secretVerified}
                 />
                 <button
                   type="button"
@@ -322,12 +251,12 @@ const AdminSignup = () => {
                   {errors.confirmPassword}
                 </p>
               )}
-            </motion.div>
+            </div>
 
             <Button
               type="submit"
               className="w-full"
-              disabled={isSubmitting || !secretVerified}
+              disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">

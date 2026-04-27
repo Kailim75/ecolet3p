@@ -89,10 +89,12 @@ const PreRegistrationForm = ({
     setIsSubmitting(true);
 
     try {
+      const preregistrationId = crypto.randomUUID();
       // Insert into database
-      const { data: insertedData, error: dbError } = await supabase
+      const { error: dbError } = await supabase
         .from('pre_registrations')
         .insert({
+          id: preregistrationId,
           first_name: result.data.firstName,
           last_name: result.data.lastName,
           email: result.data.email,
@@ -100,8 +102,6 @@ const PreRegistrationForm = ({
           formation_title: formationTitle,
           formation_duration: formationDuration,
         })
-        .select()
-        .single();
 
       if (dbError) {
         console.error('Database error:', dbError);
@@ -117,11 +117,7 @@ const PreRegistrationForm = ({
       // Send notification to admin
       try {
         await supabase.functions.invoke('notify-new-registration', {
-          body: {
-            type: "INSERT",
-            table: "pre_registrations",
-            record: insertedData
-          }
+          body: { preregistrationId },
         });
         console.log('Admin notification sent');
       } catch (notifyError) {

@@ -5,49 +5,113 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const DEFAULT_ALLOWED_ORIGINS = [
+  "https://ecolet3p.fr",
+  "https://www.ecolet3p.fr",
+  "http://localhost:3000",
+  "http://localhost:4173",
+  "http://127.0.0.1:3000",
+  "http://127.0.0.1:4173",
+];
 
-interface PreRegistrationPayload {
-  type: "INSERT";
-  table: "pre_registrations";
-  record: {
-    id: string;
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone: string;
-    formation_title: string;
-    formation_duration: string;
-    status: string;
-    created_at: string;
-  };
-}
+const ALLOWED_ORIGINS = new Set(
+  [
+    ...DEFAULT_ALLOWED_ORIGINS,
+    ...String(Deno.env.get("ALLOWED_ORIGINS") || "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean),
+  ],
+);
+
+const resolveCorsOrigin = (origin: string | null) =>
+  origin && ALLOWED_ORIGINS.has(origin) ? origin : DEFAULT_ALLOWED_ORIGINS[0];
+
+const buildCorsHeaders = (origin: string | null) => ({
+  "Access-Control-Allow-Origin": resolveCorsOrigin(origin),
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Vary": "Origin",
+});
+
+const isAllowedOrigin = (origin: string | null) => !origin || ALLOWED_ORIGINS.has(origin);
+
+const escapeHtml = (value: string | null | undefined) =>
+  String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 
 const handler = async (req: Request): Promise<Response> => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = buildCorsHeaders(origin);
+
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const payload: PreRegistrationPayload = await req.json();
-    
-    console.log("Received new registration webhook:", payload);
-
-    // Validate payload
-    if (payload.type !== "INSERT" || payload.table !== "pre_registrations") {
-      console.log("Ignoring non-insert or wrong table event");
-      return new Response(JSON.stringify({ message: "Ignored" }), {
-        status: 200,
+    if (!isAllowedOrigin(origin)) {
+      return new Response(JSON.stringify({ error: "Origin not allowed" }), {
+        status: 403,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
     }
 
-    const { record } = payload;
+    if (!RESEND_API_KEY || !SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
+      return new Response(JSON.stringify({ error: "Notification service not configured" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    const payload = await req.json().catch(() => ({}));
+    const preregistrationId =
+      typeof payload?.preregistrationId === "string"
+        ? payload.preregistrationId
+        : typeof payload?.record?.id === "string"
+          ? payload.record.id
+          : null;
+
+    if (!preregistrationId) {
+      return new Response(JSON.stringify({ error: "Missing preregistrationId" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
     const adminEmail = "montrouge@ecolet3p.fr";
+    const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+    const { data: record, error: preregistrationError } = await supabase
+      .from("pre_registrations")
+      .select("id, first_name, last_name, email, phone, formation_title, formation_duration, status, created_at, admin_notification_sent_at")
+      .eq("id", preregistrationId)
+      .maybeSingle();
+
+    if (preregistrationError) {
+      console.error("Failed to load pre-registration:", preregistrationError);
+      return new Response(JSON.stringify({ error: "Unable to load pre-registration" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    if (!record) {
+      return new Response(JSON.stringify({ error: "Pre-registration not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    if (record.admin_notification_sent_at) {
+      return new Response(JSON.stringify({ success: true, status: "already_sent" }), {
+        status: 200,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
 
     // Format date
     const createdDate = new Date(record.created_at).toLocaleDateString("fr-FR", {
@@ -58,6 +122,12 @@ const handler = async (req: Request): Promise<Response> => {
       minute: "2-digit",
     });
 
+    const safeFirstName = escapeHtml(record.first_name);
+    const safeLastName = escapeHtml(record.last_name);
+    const safeEmail = escapeHtml(record.email);
+    const safePhone = escapeHtml(record.phone);
+    const safeFormationTitle = escapeHtml(record.formation_title);
+    const safeFormationDuration = escapeHtml(record.formation_duration);
     const emailSubject = `🎓 Nouvelle pré-inscription : ${record.first_name} ${record.last_name}`;
 
     // Send notification email to admin using Resend API directly
@@ -96,27 +166,27 @@ const handler = async (req: Request): Promise<Response> => {
               <div class="content">
                 <div class="info-row">
                   <span class="label">👤 Nom complet :</span><br>
-                  ${record.first_name} ${record.last_name}
+                  ${safeFirstName} ${safeLastName}
                 </div>
                 <div class="info-row">
                   <span class="label">📧 Email :</span><br>
-                  <a href="mailto:${record.email}">${record.email}</a>
+                  <a href="mailto:${safeEmail}">${safeEmail}</a>
                 </div>
                 <div class="info-row">
                   <span class="label">📱 Téléphone :</span><br>
-                  <a href="tel:${record.phone}">${record.phone}</a>
+                  <a href="tel:${safePhone}">${safePhone}</a>
                 </div>
                 <div class="info-row">
                   <span class="label">📚 Formation souhaitée :</span><br>
-                  ${record.formation_title}
+                  ${safeFormationTitle}
                 </div>
                 <div class="info-row">
                   <span class="label">⏱️ Durée :</span><br>
-                  ${record.formation_duration}
+                  ${safeFormationDuration}
                 </div>
                 <div class="info-row">
                   <span class="label">📅 Date d'inscription :</span><br>
-                  ${createdDate}
+                  ${escapeHtml(createdDate)}
                 </div>
                 
                 <a href="https://ecolet3p.fr/admin" class="cta">
@@ -136,8 +206,6 @@ const handler = async (req: Request): Promise<Response> => {
     const emailData = await emailResponse.json();
     console.log("Notification email sent successfully:", emailData);
 
-    // Log email to database
-    const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
     await supabase.from("email_logs").insert({
       email_type: "admin_notification_registration",
       recipient_email: adminEmail,
@@ -154,6 +222,21 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
 
+    if (!emailResponse.ok) {
+      return new Response(
+        JSON.stringify({ error: emailData?.error?.message || "Failed to send notification" }),
+        {
+          status: 502,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    await supabase
+      .from("pre_registrations")
+      .update({ admin_notification_sent_at: new Date().toISOString() })
+      .eq("id", record.id);
+
     return new Response(
       JSON.stringify({ 
         success: true, 
@@ -165,10 +248,11 @@ const handler = async (req: Request): Promise<Response> => {
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in notify-new-registration function:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: message }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

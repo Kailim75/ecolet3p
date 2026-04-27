@@ -6,9 +6,6 @@ verify_jwt = false
 [functions.unsubscribe-newsletter]
 verify_jwt = false
 
-[functions.verify-admin-secret]
-verify_jwt = false
-
 [functions.notify-new-registration]
 verify_jwt = false
 
