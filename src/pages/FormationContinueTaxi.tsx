@@ -5,15 +5,15 @@ import carteProfessionnelle from "@/assets/carte-professionnelle-taxi.png";
 const FormationContinueTaxi = () => (
   <ContinueFormationTemplate
     heroBackground={carteProfessionnelle}
-    title="Formation Continue Taxi 14h Montrouge — 239€ | ECOLE T3P"
-    description="Formation continue obligatoire Taxi 14h à Montrouge (92). Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture. Attestation immédiate."
+    title="Renouvellement Carte Taxi : Formation Continue 14h Montrouge | 239€"
+    description="Formation continue Taxi 14h (FCO) pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 239€ tout compris, attestation de stage remise le jour même."
     canonical="https://ecolet3p.fr/formations/continue-taxi"
-    ogTitle="Formation Continue Taxi 14h — ECOLE T3P Montrouge"
-    ogDescription="Renouvelez votre carte Taxi. Formation continue 14h à 239€. Centre agréé Préfecture 92. Attestation le jour même."
-    badge="Formation Continue Taxi"
+    ogTitle="Renouvellement Carte Taxi — Formation Continue 14h | ECOLE T3P"
+    ogDescription="Renouvelez votre carte professionnelle Taxi. Formation continue obligatoire 14h à 239€ à Montrouge (92). Centre agréé, attestation le jour même."
+    badge="Formation Continue Taxi (FCO)"
     badgeIcon={RefreshCw}
-    heading="Formation Continue Taxi — 14h"
-    subheading="Formation obligatoire de 14 heures pour le renouvellement de votre carte professionnelle Taxi. Attestation délivrée le jour même. Sessions chaque semaine à Montrouge (92)."
+    heading="Renouvellement Carte Taxi — Formation Continue 14h"
+    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle Taxi (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
     price={239}
     format="2 jours"

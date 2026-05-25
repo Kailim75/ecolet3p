@@ -5,15 +5,15 @@ import carteVtc from "@/assets/carte-professionnelle-vtc.jpg";
 const FormationContinueVTC = () => (
   <ContinueFormationTemplate
     heroBackground={carteVtc}
-    title="Formation Continue VTC 14h Montrouge — 170€ | ECOLE T3P"
-    description="Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation délivrée le jour même. Sessions chaque semaine."
+    title="Renouvellement Carte VTC : Formation Continue 14h Montrouge | 170€"
+    description="Renouvelez votre carte professionnelle VTC avec la formation continue obligatoire 14h (FCO). Centre agréé Préfecture à Montrouge (92). 170€ tout compris, attestation de stage remise le jour même."
     canonical="https://ecolet3p.fr/formations/continue-vtc"
-    ogTitle="Formation Continue VTC 14h — ECOLE T3P Montrouge"
-    ogDescription="Renouvelez votre carte VTC. Formation continue 14h à 170€. Centre agréé Préfecture 92. Attestation immédiate."
-    badge="Formation Continue VTC"
+    ogTitle="Renouvellement Carte VTC — Formation Continue 14h | ECOLE T3P"
+    ogDescription="Renouvelez votre carte VTC. Formation continue obligatoire 14h à 170€ à Montrouge (92). Centre agréé Préfecture, attestation le jour même."
+    badge="Formation Continue VTC (FCO)"
     badgeIcon={RefreshCw}
-    heading="Formation Continue VTC — 14h"
-    subheading="Formation obligatoire de 14 heures pour le renouvellement de votre carte professionnelle VTC. Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92)."
+    heading="Renouvellement Carte VTC — Formation Continue 14h"
+    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VTC (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
     price={170}
     format="2 jours"

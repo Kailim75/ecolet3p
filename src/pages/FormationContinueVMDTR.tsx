@@ -37,15 +37,15 @@ const CrossSellSection = () => (
 const FormationContinueVMDTR = () => (
   <ContinueFormationTemplate
     heroBackground={carteVmdtr}
-    title="Formation Continue VMDTR 14h Montrouge — 239€ | ECOLE T3P"
-    description="Formation continue obligatoire VMDTR (moto-taxi) 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation immédiate."
+    title="Renouvellement Carte VMDTR (Taxi Moto) : Formation Continue 14h | 239€"
+    description="Formation continue obligatoire VMDTR (taxi moto) 14h pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 239€, attestation remise le jour même."
     canonical="https://ecolet3p.fr/formations/continue-vmdtr"
-    ogTitle="Formation Continue VMDTR 14h — ECOLE T3P Montrouge"
-    ogDescription="Renouvelez votre carte VMDTR moto-taxi. Formation continue 14h à 239€. Centre agréé Préfecture 92. Attestation le jour même."
-    badge="Formation Continue VMDTR"
+    ogTitle="Renouvellement Carte VMDTR Taxi Moto — Formation Continue 14h"
+    ogDescription="Renouvelez votre carte VMDTR (taxi moto). Formation continue obligatoire 14h à 239€ à Montrouge (92). Centre agréé Préfecture, attestation le jour même."
+    badge="Formation Continue VMDTR (FCO)"
     badgeIcon={RefreshCw}
-    heading="Formation Continue VMDTR — 14h"
-    subheading="Formation obligatoire de 14 heures pour le renouvellement de votre carte professionnelle VMDTR (taxi moto). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92)."
+    heading="Renouvellement Carte VMDTR (Taxi Moto) — Formation Continue 14h"
+    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VMDTR taxi moto (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
     price={239}
     format="2 jours"
