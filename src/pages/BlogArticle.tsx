@@ -276,7 +276,7 @@ const BlogArticle = () => {
                 return (
                   <article
                     className="article-content animate-fade-in"
-                    dangerouslySetInnerHTML={{ __html: fullHtml }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(fullHtml) }}
                   />
                 );
               }
@@ -286,7 +286,7 @@ const BlogArticle = () => {
                 <>
                   <article
                     className="article-content animate-fade-in"
-                    dangerouslySetInnerHTML={{ __html: before }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(before) }}
                   />
                   {/* Lead Magnet CTA */}
                   <div
