@@ -356,7 +356,7 @@ const BlogArticle = () => {
                   <article
                     className="article-content animate-fade-in"
                     style={{ animationDelay: "300ms", animationFillMode: "both" }}
-                    dangerouslySetInnerHTML={{ __html: after }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(after) }}
                   />
                 </>
               );
