@@ -6,6 +6,12 @@ import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2, User, Tag, Home } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import DOMPurify from "dompurify";
+
+// Defense-in-depth: sanitize all HTML rendered via dangerouslySetInnerHTML,
+// even though blog content is currently static developer-authored data.
+const sanitize = (html: string) =>
+  DOMPurify.sanitize(html, { USE_PROFILES: { html: true } });
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -270,7 +276,7 @@ const BlogArticle = () => {
                 return (
                   <article
                     className="article-content animate-fade-in"
-                    dangerouslySetInnerHTML={{ __html: fullHtml }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(fullHtml) }}
                   />
                 );
               }
@@ -280,7 +286,7 @@ const BlogArticle = () => {
                 <>
                   <article
                     className="article-content animate-fade-in"
-                    dangerouslySetInnerHTML={{ __html: before }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(before) }}
                   />
                   {/* Lead Magnet CTA */}
                   <div
@@ -350,7 +356,7 @@ const BlogArticle = () => {
                   <article
                     className="article-content animate-fade-in"
                     style={{ animationDelay: "300ms", animationFillMode: "both" }}
-                    dangerouslySetInnerHTML={{ __html: after }}
+                    dangerouslySetInnerHTML={{ __html: sanitize(after) }}
                   />
                 </>
               );
