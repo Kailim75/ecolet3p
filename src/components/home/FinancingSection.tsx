@@ -51,8 +51,8 @@ const FinancingSection = () => {
                 key={adv.title}
                 className="flex flex-col items-center text-center p-5 rounded-xl border border-border/40 bg-white"
               >
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "rgba(250,80,34,0.08)" }}>
-                  <Icon className="w-6 h-6" style={{ color: "#FA5022" }} />
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-3 bg-alma/10">
+                  <Icon className="w-6 h-6 text-alma" />
                 </div>
                 <p className="font-bold text-sm" style={{ color: "#1A1A1A" }}>{adv.title}</p>
                 <p className="text-xs mt-1" style={{ color: "#6B7280" }}>{adv.description}</p>
