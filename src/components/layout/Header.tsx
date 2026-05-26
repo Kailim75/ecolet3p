@@ -139,14 +139,16 @@ const Header = () => {
                       {link.name}
                       <ChevronDownIcon className={`w-4 h-4 transition-transform ${hoverSubmenu === link.name ? "rotate-180" : ""}`} />
                     </button>
-                    {/* CSS-only dropdown — no framer-motion */}
+                    {/* CSS-only dropdown — pt-2 acts as invisible hover-bridge to button */}
                     <div
-                      className={`absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-card-hover py-2 min-w-[220px] z-50 transition-all duration-150 origin-top ${
+                      className={`absolute top-full left-0 pt-2 min-w-[220px] z-50 transition-all duration-150 origin-top ${
                         hoverSubmenu === link.name
                           ? "opacity-100 scale-y-100 pointer-events-auto"
                           : "opacity-0 scale-y-95 pointer-events-none"
                       }`}
                     >
+                      <div className="bg-card border border-border rounded-xl shadow-card-hover py-2">
+
                       {link.children?.map((child) => (
                         <Link
                           key={child.path}
