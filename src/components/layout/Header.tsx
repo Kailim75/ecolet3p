@@ -158,8 +158,10 @@ const Header = () => {
                           {child.name}
                         </Link>
                       ))}
+                      </div>
                     </div>
                   </div>
+
                 ) : (
                   <Link
                     key={link.path}
