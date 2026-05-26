@@ -11,6 +11,8 @@ import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 import { QuoteModalProvider } from "./components/quote/QuoteModalContext";
 import DeferredRender from "./components/performance/DeferredRender";
+import PageTransition from "./components/layout/PageTransition";
+
 
 // Lazy load non-critical global components
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
@@ -95,7 +97,9 @@ const App = () => {
                 <AnalyticsProvider>
                   <RedirectHandler />
                   <Suspense fallback={<PageFallback />}>
-                    <Routes>
+                    <PageTransition>
+                      <Routes>
+
                       <Route path="/" element={<Index />} />
                       <Route path="/formations" element={<Formations />} />
                       <Route path="/formations/taxi" element={<FormationTaxi />} />
@@ -153,8 +157,10 @@ const App = () => {
                       <Route path="/formations/gestion-entreprise" element={<Navigate to="/accompagnement-gestion-activite" replace />} />
                       <Route path="/formations/accompagnement-administratif" element={<Navigate to="/aide-administrative-creation-entreprise" replace />} />
                       <Route path="*" element={<NotFound />} />
-                    </Routes>
+                      </Routes>
+                    </PageTransition>
                   </Suspense>
+
                   <DeferredRender strategy="idle" timeoutMs={1400}>
                     <Suspense fallback={null}>
                       <CookieConsent />
