@@ -75,8 +75,7 @@ const FinancingSection = () => {
           </p>
           <PrefetchLink
             to="/paiement"
-            className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:underline"
-            style={{ color: "#FA5022" }}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-alma transition-colors hover:underline"
           >
             En savoir plus sur le paiement <ArrowRight className="w-4 h-4" />
           </PrefetchLink>
