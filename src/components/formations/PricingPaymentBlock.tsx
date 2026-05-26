@@ -228,9 +228,9 @@ const PricingPaymentBlock = ({
               >
                 {opt.count === 4 && (
                   <span
-                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: "#FA5022" }}
+                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-alma"
                   />
+
                 )}
                 {opt.label}
               </button>
