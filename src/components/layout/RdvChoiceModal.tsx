@@ -79,7 +79,7 @@ const RdvChoiceModal = ({ isOpen, onClose }: RdvChoiceModalProps) => {
         </>
       )}
     </AnimatePresence>
-  );
+  ), document.body);
 };
 
 export default RdvChoiceModal;
