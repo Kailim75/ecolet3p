@@ -165,8 +165,8 @@ const Index = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl="/"
-        defaultTitle="Formation Taxi VTC VMDTR Montrouge - 94% Réussite, dès 990€"
-        defaultDescription="Centre agréé Préfecture à Montrouge (92). Carte Pro Taxi, VTC ou VMDTR en 1 semaine. 94% de réussite, +2000 chauffeurs formés, paiement 4x sans frais."
+        defaultTitle="Formation Taxi VTC VMDTR Montrouge | 94% Réussite, 990€"
+        defaultDescription="Centre agréé Préfecture à Montrouge (92) — Carte Pro Taxi, VTC ou VMDTR en 1 semaine. 94% de réussite, +2000 chauffeurs formés, dès 990€ en 4x sans frais."
         canonicalUrl="https://ecolet3p.fr/"
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >
