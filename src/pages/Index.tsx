@@ -68,8 +68,8 @@ const Index = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl="/"
-        defaultTitle="ECOLE T3P — Formation Taxi VTC VMDTR Montrouge | 990€"
-        defaultDescription="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 formés, paiement en 4x sans frais. Inscription ouverte."
+        defaultTitle="Formation Taxi VTC VMDTR Montrouge - 94% Réussite, dès 990€"
+        defaultDescription="Centre agréé Préfecture à Montrouge (92). Carte Pro Taxi, VTC ou VMDTR en 1 semaine. 94% de réussite, +2000 chauffeurs formés, paiement 4x sans frais."
         canonicalUrl="https://ecolet3p.fr/"
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >
