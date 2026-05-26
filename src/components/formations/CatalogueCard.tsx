@@ -25,9 +25,10 @@ const CatalogueCard = ({ formation, onRegister, compact = false }: CatalogueCard
   return (
     <motion.div
       variants={staggerItem}
-      whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(27, 77, 62, 0.12)" }}
-      className="group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-300"
+      whileHover={{ y: -6, boxShadow: "0 24px 50px -12px hsl(var(--primary) / 0.22)" }}
+      className="card-premium group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30"
     >
+
       {/* Top color band */}
       <div className={`h-1.5 w-full ${isSoiree ? 'bg-indigo-500' : 'bg-primary'}`} />
 
