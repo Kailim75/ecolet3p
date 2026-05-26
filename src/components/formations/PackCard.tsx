@@ -24,9 +24,10 @@ const PackCard = ({ pack, onRegister }: PackCardProps) => {
   return (
     <motion.div
       variants={staggerItem}
-      whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(27, 77, 62, 0.12)" }}
-      className="group relative bg-card rounded-2xl overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
+      whileHover={{ y: -6, boxShadow: "0 24px 50px -12px hsl(var(--primary) / 0.25)" }}
+      className="card-premium group relative bg-card rounded-2xl overflow-hidden border-2 border-primary/20 hover:border-primary/40"
     >
+
       {/* Pack badge */}
       <div className="absolute -top-0 left-0 right-0 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground text-center py-1.5 text-xs font-bold uppercase tracking-wider">
         {pack.emoji} PACK — Économisez {variant.economie}€
