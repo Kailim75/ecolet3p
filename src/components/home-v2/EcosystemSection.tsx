@@ -67,9 +67,10 @@ const EcosystemSection = () => {
               </div>
               <h3 className="text-base font-semibold text-primary">{s.title}</h3>
               <p className="text-sm text-muted-foreground flex-1">{s.desc}</p>
-              <span className="text-sm font-semibold text-accent inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                En savoir plus <ArrowRight className="w-4 h-4" />
+              <span className="text-sm font-semibold text-accent inline-flex items-center gap-1">
+                En savoir plus <ArrowRight className="w-4 h-4 arrow-nudge" />
               </span>
+
             </Link>
           ))}
         </div>
