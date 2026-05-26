@@ -254,8 +254,8 @@ const Contact = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl="/contact"
-        defaultTitle="Contact ECOLE T3P Montrouge (92) | Taxi VTC"
-        defaultDescription="Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55."
+        defaultTitle="Contact ECOLE T3P Montrouge - 01 88 75 05 55 | WhatsApp"
+        defaultDescription="Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR à Montrouge (92). Téléphone 01 88 75 05 55, WhatsApp 07 83 78 76 63, RDV en ligne. Réponse sous 24h."
         canonicalUrl="https://ecolet3p.fr/contact"
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >

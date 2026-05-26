@@ -5,11 +5,11 @@ import heroImageVTCWebp from "@/assets/formations/hero-vtc.jpg?w=640;1024;1920&f
 
 const FormationVTC = () => (
   <FormationPageTemplate
-    title="Formation VTC Montrouge (92) — 94% Réussite | 990€"
-    description="Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais. Uber, Bolt, Heetch."
+    title="Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x"
+    description="Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro en 1 semaine pour Uber, Bolt, Heetch. À partir de 990€ en 4x sans frais."
     canonical="https://ecolet3p.fr/formations/vtc"
-    ogTitle="Formation VTC Initiale à Montrouge — ECOLE T3P"
-    ogDescription="Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais."
+    ogTitle="Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€"
+    ogDescription="Centre agréé Préfecture à Montrouge. 94% de réussite, carte VTC en 1 semaine. Paiement 4x sans frais."
     heroImage={heroImageVTC}
     heroImageWebp={heroImageVTCWebp}
     badge="Formation VTC"

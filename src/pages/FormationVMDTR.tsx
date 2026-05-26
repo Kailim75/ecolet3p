@@ -5,11 +5,11 @@ import heroImageVMDTRWebp from "@/assets/formations/hero-vmdtr.jpg?w=640;1024;19
 
 const FormationVMDTR = () => (
   <FormationPageTemplate
-    title="Formation VMDTR Moto-Taxi Montrouge (92) | 990€"
-    description="Formation VMDTR moto-taxi agréée à Montrouge (92). 94% de réussite, 990€ en 4x sans frais. Permis A requis."
+    title="Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€"
+    description="Formation VMDTR (taxi moto) agréée Préfecture à Montrouge (92). 94% de réussite, carte pro moto-taxi en 1 semaine. À partir de 990€, paiement 4x sans frais."
     canonical="https://ecolet3p.fr/formations/vmdtr"
-    ogTitle="Formation VMDTR Moto-Taxi à Montrouge — ECOLE T3P"
-    ogDescription="Formation VMDTR à Montrouge. Centre agréé Préfecture, 94% de réussite."
+    ogTitle="Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€"
+    ogDescription="Centre agréé Préfecture à Montrouge. 94% de réussite, carte VMDTR en 1 semaine. Paiement 4x sans frais."
     heroImage={heroImageVMDTR}
     heroImageWebp={heroImageVMDTRWebp}
     badge="Formation VMDTR"

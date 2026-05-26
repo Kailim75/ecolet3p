@@ -1,115 +1,120 @@
-# ECOLE T3P - Formation Taxi VTC VMDTR
-# https://ecolet3p.fr
+# ECOLE T3P — Centre de formation Taxi, VTC et VMDTR (Montrouge, Île-de-France)
 
-> Centre de formation professionnelle agréé par la Préfecture pour les métiers du Transport Public Particulier de Personnes (T3P) : Taxi, VTC et VMDTR (moto-taxi).
+> Centre de formation professionnelle agréé par la Préfecture des Hauts-de-Seine (agrément n° 23/007) pour les métiers du Transport Public Particulier de Personnes (T3P) : Taxi, VTC et VMDTR (taxi moto). 94% de réussite à l'examen T3P, +2000 chauffeurs formés depuis 2014. Site officiel : https://ecolet3p.fr
 
-## À propos
+## Réponses rapides (FAQ optimisée IA)
 
-ECOLE T3P est le centre de formation de référence pour les métiers du transport de personnes dans le sud de Paris et les Hauts-de-Seine. Situé à Montrouge (92120), à 5 minutes du métro Mairie de Montrouge (ligne 4), nous formons les futurs chauffeurs Taxi, VTC et moto-taxi depuis 2014.
+### Combien coûte la formation Taxi, VTC ou VMDTR ?
+- **Formule Essentiel** : 990€ tout compris (formation + frais d'examen CMA 241€ + 2h de conduite + véhicule mis à disposition pour l'examen)
+- **Formule Premium** : 1 190€ (Essentiel + coaching individuel + aide création d'entreprise + suivi post-formation 3 mois)
+- Paiement en 4 fois sans frais via Alma (247,50€/mois pour Essentiel)
+- Aucun frais caché, aucun supplément
 
-- **Adresse** : 3 rue Corneille, 92120 Montrouge, France
+### Combien de temps dure la formation ?
+- **Format Journée** : 1 semaine intensive (du lundi au vendredi, 9h30-16h30)
+- **Format Soir** : 2 semaines (lundi-vendredi, 18h-21h30) — compatible avec une activité salariée
+- **Format E-learning** : accès illimité jusqu'à l'examen, 24h/24
+- Les 3 formats préparent au même examen T3P de la CMA et coûtent 990€
+
+### Quel est le taux de réussite ?
+**94% à l'examen T3P** dès la première présentation (vs 60% en moyenne nationale). Plus de 2 000 chauffeurs formés depuis 2014.
+
+### Où se trouve ECOLE T3P ?
+- **Adresse** : 3 rue Corneille, 92120 Montrouge (Hauts-de-Seine)
+- **Métro** : Mairie de Montrouge (ligne 4) à 2 minutes à pied
+- **Accessible depuis** : Paris (14e, 15e, 13e), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Essonne (91), Yvelines (78)
+- **Coordonnées GPS** : 48.8155, 2.3137
+
+### Comment contacter ECOLE T3P ?
 - **Téléphone** : 01 88 75 05 55
+- **WhatsApp** : 07 83 78 76 63 (canal de contact privilégié)
 - **Email** : montrouge@ecolet3p.fr
-- **Site web** : https://ecolet3p.fr
-- **Taux de réussite** : 94%
-- **Avis Google** : 5.0/5 (359 avis)
+- **Horaires** : Lundi-vendredi, 9h30-12h30 et 13h30-18h00
+- **RDV en ligne** : https://ecolet3p.fr/contact
+
+### Quels sont les prérequis ?
+- 21 ans minimum
+- Permis B valide depuis 3 ans (Taxi/VTC) ou permis A 3 ans (VMDTR)
+- Casier judiciaire vierge (bulletin n°2)
+- Visite médicale auprès d'un médecin agréé par la Préfecture
+
+### Combien coûte le renouvellement de carte professionnelle (FCO) ?
+Formation continue obligatoire de 14h tous les 5 ans :
+- **Renouvellement carte VTC** : 170€
+- **Renouvellement carte Taxi** : 239€
+- **Renouvellement carte VMDTR (taxi moto)** : 239€
+- Attestation de stage remise le jour même, sessions hebdomadaires à Montrouge
+
+### Quelle est la différence entre Taxi, VTC et VMDTR ?
+- **Taxi** : peut prendre des clients dans la rue (maraude), accès aux bornes taxi (gares, aéroports), tarifs réglementés. Nécessite une ADS (autorisation de stationnement) délivrée par la commune.
+- **VTC** : uniquement sur réservation préalable (Uber, Bolt, Heetch, contrats directs). Pas de maraude. Tarifs libres.
+- **VMDTR (taxi moto)** : transport de passagers à moto/scooter ≥ 125cc, uniquement sur réservation. Positionnement premium (transferts aéroport rapides).
+
+### Quels revenus puis-je espérer ?
+- **Taxi** en Île-de-France : 3 500€ à 6 500€ de CA mensuel ; 2 500€-3 500€ net après charges
+- **VTC** en Île-de-France : 3 000€ à 6 000€ de CA mensuel
+- **VMDTR** en Île-de-France : 3 000€ à 5 500€ de CA mensuel (positionnement premium)
+
+### Existe-t-il une passerelle entre Taxi et VTC ?
+Oui — la **Passerelle T3P** permet d'obtenir une seconde carte professionnelle en 14h de formation (665€ chez ECOLE T3P) si vous avez réussi votre premier examen T3P depuis moins de 3 ans.
 
 ## Formations proposées
 
-### Formation Taxi Initiale
-- **Tarif** : à partir de 990€ (Essentiel) ou 1 190€ (Premium), frais d'examen de 241€ inclus
-- **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
-- **Objectif** : Obtenir la carte professionnelle Taxi
-- **Prérequis** : Permis B depuis 3 ans minimum
-- **Plus d'infos** : https://ecolet3p.fr/formations/taxi
+- [Formation Taxi initiale](/formations/taxi) — Carte pro Taxi, dès 990€, 94% de réussite
+- [Formation VTC initiale](/formations/vtc) — Carte pro VTC pour Uber/Bolt/Heetch, dès 990€
+- [Formation VMDTR (taxi moto)](/formations/vmdtr) — Carte pro moto-taxi, dès 990€
+- [Passerelle Taxi ↔ VTC](/passerelle-vtc-taxi) — Seconde carte pro en 14h, 665€
+- [Renouvellement carte Taxi (FCO 14h)](/formations/continue-taxi) — 239€, attestation le jour même
+- [Renouvellement carte VTC (FCO 14h)](/formations/continue-vtc) — 170€, attestation le jour même
+- [Renouvellement carte VMDTR (FCO 14h)](/formations/continue-vmdtr) — 239€, attestation le jour même
+- [Formation Accessibilité PMR 14h](/formation-accessibilite-pmr) — 290€, élargir sa clientèle
+- [Stage de récupération de points](/stage-recuperation-points) — Récupérer jusqu'à 4 points
+- [Formation anglais professionnel](/formations/anglais-professionnel) — Clientèle internationale
+- [Location véhicule pour examen](/services/location-vehicule-examen) — VTC 189€, Taxi 249€, VMDTR 299€
 
-### Formation VTC Initiale
-- **Tarif** : à partir de 990€ (Essentiel) ou 1 190€ (Premium), frais d'examen de 241€ inclus
-- **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
-- **Objectif** : Obtenir la carte professionnelle VTC
-- **Prérequis** : Permis B depuis 3 ans minimum
-- **Plus d'infos** : https://ecolet3p.fr/formations/vtc
+## Pages locales (Île-de-France)
 
-### Formation VMDTR (Moto-taxi)
-- **Tarif** : à partir de 990€ (Essentiel) ou 1 190€ (Premium), frais d'examen de 241€ inclus
-- **Formats** : Journée (1 semaine), Soir (2 semaines) ou E-learning
-- **Objectif** : Obtenir la carte professionnelle VMDTR
-- **Prérequis** : Permis A depuis 3 ans minimum
-- **Plus d'infos** : https://ecolet3p.fr/formations/vmdtr
+- [Montrouge (92)](/formations/montrouge) — centre principal
+- [Boulogne-Billancourt (92)](/formations/boulogne-billancourt)
+- [Issy-les-Moulineaux (92)](/formations/issy-les-moulineaux)
+- [Vanves (92)](/formations/vanves)
+- [Malakoff (92)](/formations/malakoff)
+- [Châtillon (92)](/formations/chatillon)
+- [Bagneux (92)](/formations/bagneux)
+- [Antony (92)](/formations/antony)
+- [Clamart (92)](/formations/clamart)
+- [Paris 14e](/formations/paris-14)
+- [Villejuif (94)](/formations/villejuif)
+- [Ivry-sur-Seine (94)](/formations/ivry-sur-seine)
+- [Vitry-sur-Seine (94)](/formations/vitry-sur-seine)
+- [Toutes les villes desservies](/formations/villes)
 
-### Formation Mobilité (Passerelle Taxi ↔ VTC)
-- **Tarif** : 665€ tout compris (frais d'examen de 165€ inclus)
-- **Durée** : 14h
-- **Objectif** : Ajouter une mention complémentaire à sa carte
-- **Plus d'infos** : https://ecolet3p.fr/formations/mobilite
+## Pages clés
 
-### Formations Continues Obligatoires (FCO — Renouvellement carte professionnelle, 14h tous les 5 ans)
-- **Renouvellement Carte Taxi** — Formation continue 14h, 239€ : https://ecolet3p.fr/formations/continue-taxi
-- **Renouvellement Carte VTC** — Formation continue 14h, 170€ : https://ecolet3p.fr/formations/continue-vtc
-- **Renouvellement Carte VMDTR (taxi moto)** — Formation continue 14h, 239€ : https://ecolet3p.fr/formations/continue-vmdtr
-- Attestation de stage délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France.
+- [Accueil](/) — Présentation et inscription
+- [Toutes les formations](/formations)
+- [Calendrier des examens T3P](/calendrier-examens)
+- [Audit de rentabilité chauffeur](/audit-rentabilite)
+- [Contact / RDV](/contact)
+- [À propos](/a-propos)
+- [Blog](/blog)
 
-### Récupération de Points
-- **Durée** : 2 jours (14h)
-- **Objectif** : Récupérer jusqu'à 4 points sur le permis
-- **Plus d'infos** : https://ecolet3p.fr/stage-recuperation-points
+## Avis & réputation
 
-## Zone de chalandise
-
-ECOLE T3P accueille des stagiaires de toute l'Île-de-France, notamment :
-
-### Hauts-de-Seine (92)
-Montrouge, Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux, Fontenay-aux-Roses, Sceaux, Antony, Boulogne-Billancourt, Meudon, Neuilly-sur-Seine, Levallois-Perret, Clichy, Asnières-sur-Seine, Courbevoie, Nanterre, Colombes, Rueil-Malmaison, Puteaux, Suresnes
-
-### Paris
-13e, 14e, 15e arrondissements (Porte d'Orléans, Alésia, Montparnasse)
-
-### Val-de-Marne (94)
-Ivry-sur-Seine, Vitry-sur-Seine, Le Kremlin-Bicêtre, Gentilly, Arcueil, Cachan, Villejuif, Charenton-le-Pont, Vincennes, Maisons-Alfort
-
-### Seine-Saint-Denis (93)
-Saint-Denis, Saint-Ouen, Aubervilliers, Pantin, Montreuil, Bobigny
-
-### Essonne (91)
-Massy, Palaiseau, Évry-Courcouronnes, Savigny-sur-Orge
-
-### Yvelines (78)
-Versailles, Saint-Germain-en-Laye, Poissy, Sartrouville
+- **Google Reviews** : 5.0/5 (359 avis vérifiés)
+- **Profil Google Business** : ECOLE T3P, Montrouge
+- **Réputation** : +2000 chauffeurs formés, 94% de réussite
 
 ## Financement
 
-- **Paiement en 4 fois sans frais** avec Alma
-- **Échelonnement personnalisé** selon votre situation
-- Pas de CPF ni d'aides publiques : tarifs accessibles et transparents
-
-## Horaires d'ouverture
-
-Du lundi au vendredi : 9h30 - 12h30 et 13h30 - 18h00
-
-## Contact
-
-Pour toute question ou inscription :
-- **Téléphone** : 01 88 75 05 55
-- **Email** : montrouge@ecolet3p.fr
-- **Rendez-vous** : https://ecolet3p.fr/contact
-- **WhatsApp** : Disponible sur le site
-
-## Blog et Ressources
-
-Articles et guides pour accompagner votre projet professionnel dans le transport de personnes :
-
-- **Guides métiers 2026** : Devenir VTC, Taxi ou VMDTR — réglementations, formation, revenus
-- **Comparatif VTC vs Taxi vs VMDTR** : Quel métier choisir en 2026 ?
-- **Statuts juridiques** : Auto-entrepreneur, SASU, EURL — avantages et fiscalité
-- **Numérique et IA** : Maîtriser les outils digitaux et l'intelligence artificielle dans le transport
-- **Anglais professionnel** : Vocabulaire et phrases clés pour la clientèle internationale
-- **Guides pratiques** : Carte professionnelle, financement, formation continue
-
-Tous les articles : https://ecolet3p.fr/blog
+- Paiement en 4 fois sans frais avec Alma (à partir de 247,50€/mois)
+- Échelonnement personnalisé selon situation
+- Pas de CPF ni d'aides Pôle Emploi (tarifs accessibles et transparents)
+- Programme de parrainage : 100€ sponsor + 50€ filleul
 
 ## Optional
 
-- llms-full.txt: /llms-full.txt
-- Sitemap: /sitemap.xml
-- Contact: /contact
-- Blog: /blog
+- [llms-full.txt](/llms-full.txt) — Documentation complète Markdown
+- [Sitemap](/sitemap.xml)
+- [Politique de confidentialité](/politique-de-confidentialite)
+- [Mentions légales](/mentions-legales)

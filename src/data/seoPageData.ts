@@ -16,16 +16,16 @@ export interface SEOPageInfo {
 const corePages: SEOPageInfo[] = [
   {
     url: "/",
-    title: "ECOLE T3P — Formation Taxi VTC VMDTR Montrouge | 990€",
-    description: "Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 formés, paiement en 4x sans frais. Inscription ouverte.",
+    title: "Formation Taxi VTC VMDTR Montrouge - 94% Réussite, dès 990€",
+    description: "Centre agréé Préfecture à Montrouge (92). Carte Pro Taxi, VTC ou VMDTR en 1 semaine. 94% de réussite, +2000 chauffeurs formés, paiement 4x sans frais.",
     h1: "Devenez chauffeur professionnel Taxi, VTC ou VMDTR",
     hasSchema: ["FAQPage", "LocalBusiness", "EducationalOrganization"],
     internalLinks: ["/formations/taxi", "/formations/vtc", "/formations/vmdtr", "/contact"],
   },
   {
     url: "/formations/taxi",
-    title: "Formation Taxi Montrouge — Carte Pro T3P | 990€",
-    description: "Formation initiale Taxi agréée Préfecture à Montrouge. 94% de réussite, 3 formats (jour/soir/e-learning). À partir de 990€, paiement en 4x.",
+    title: "Formation Taxi Paris 92 - Carte Pro en 1 semaine | dès 990€",
+    description: "Formation Taxi agréée Préfecture à Montrouge (92), accessible Paris sud, Hauts-de-Seine et Val-de-Marne. 94% de réussite, carte pro en 1 semaine, 990€ en 4x sans frais.",
     h1: "Formation Taxi — Obtenez votre carte professionnelle",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/vtc", "/formations/vmdtr", "/passerelle-vtc-taxi", "/contact"],
@@ -33,8 +33,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/vtc",
-    title: "Formation VTC Montrouge — Carte Pro T3P | 990€",
-    description: "Formation initiale VTC agréée Préfecture à Montrouge. 94% de réussite, 3 formats (jour/soir/e-learning). À partir de 990€, paiement en 4x.",
+    title: "Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x",
+    description: "Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro en 1 semaine pour Uber, Bolt, Heetch. À partir de 990€ en 4x sans frais.",
     h1: "Formation VTC — Obtenez votre carte professionnelle",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vmdtr", "/passerelle-vtc-taxi", "/contact"],
@@ -42,8 +42,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/vmdtr",
-    title: "Formation VMDTR Moto-Taxi Montrouge | 990€",
-    description: "Formation VMDTR (moto-taxi) agréée Préfecture à Montrouge. 94% de réussite, 3 formats. À partir de 990€, paiement en 4x sans frais.",
+    title: "Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€",
+    description: "Formation VMDTR (taxi moto) agréée Préfecture à Montrouge (92). 94% de réussite, carte pro moto-taxi en 1 semaine. À partir de 990€, paiement 4x sans frais.",
     h1: "Formation VMDTR — Devenez conducteur moto-taxi",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vtc", "/contact"],
@@ -100,8 +100,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/contact",
-    title: "Contact — ECOLE T3P Montrouge",
-    description: "Contactez ECOLE T3P à Montrouge. Téléphone : 01 88 75 05 55. Rendez-vous en ligne, WhatsApp disponible.",
+    title: "Contact ECOLE T3P Montrouge - 01 88 75 05 55 | WhatsApp",
+    description: "Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR à Montrouge (92). Téléphone 01 88 75 05 55, WhatsApp 07 83 78 76 63, RDV en ligne. Réponse sous 24h.",
     h1: "Contactez-nous",
     hasSchema: ["BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vtc", "/formations/vmdtr"],
