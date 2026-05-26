@@ -92,7 +92,7 @@ const PackCard = ({ pack, onRegister }: PackCardProps) => {
             className="w-full font-bold text-sm btn-cta-orange"
             onClick={() => onRegister?.(pack.title, format === "soiree" ? "Soirée" : "Journée")}
           >
-            Choisir ce pack <ArrowRight className="w-4 h-4 ml-1" />
+            Choisir ce pack <ArrowRight className="w-4 h-4 ml-1 arrow-nudge" />
           </Button>
           <AlmaPaymentButton
             formationTitle={`${pack.title} (${format === "soiree" ? "Soirée" : "Journée"})`}
