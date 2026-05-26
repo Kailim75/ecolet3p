@@ -77,7 +77,7 @@ const PackCard = ({ pack, onRegister }: PackCardProps) => {
               -{variant.economie}€
             </span>
             <div className="flex items-center gap-1">
-              <span className="text-xs font-semibold" style={{ color: "#FA5022" }}>
+              <span className="text-xs font-semibold text-alma">
                 ou 4× {variant.alma4x}
               </span>
               <AlmaLogo className="h-3.5" />
