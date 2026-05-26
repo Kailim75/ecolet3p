@@ -59,8 +59,9 @@ const EcosystemSection = () => {
             <Link
               key={s.title}
               to={s.link}
-              className="card-t3p group flex flex-col gap-3"
+              className="card-t3p card-premium group flex flex-col gap-3"
             >
+
               <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
                 <s.icon className="w-5 h-5 text-primary" />
               </div>
