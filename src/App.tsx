@@ -157,8 +157,10 @@ const App = () => {
                       <Route path="/formations/gestion-entreprise" element={<Navigate to="/accompagnement-gestion-activite" replace />} />
                       <Route path="/formations/accompagnement-administratif" element={<Navigate to="/aide-administrative-creation-entreprise" replace />} />
                       <Route path="*" element={<NotFound />} />
-                    </Routes>
+                      </Routes>
+                    </PageTransition>
                   </Suspense>
+
                   <DeferredRender strategy="idle" timeoutMs={1400}>
                     <Suspense fallback={null}>
                       <CookieConsent />
