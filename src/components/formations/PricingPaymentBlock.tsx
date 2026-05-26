@@ -136,7 +136,7 @@ const PricingPaymentBlock = ({
           background: isPremium
             ? "linear-gradient(180deg, #FFF9F7 0%, #FFFFFF 100%)"
             : "#FFFFFF",
-          border: isPremium ? "2px solid #FA5022" : "1px solid #E8E8E8",
+          border: isPremium ? "2px solid hsl(var(--alma))" : "1px solid #E8E8E8",
           boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
         }}
       >
@@ -145,8 +145,8 @@ const PricingPaymentBlock = ({
           <div
             className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-white text-xs font-bold tracking-wide px-5 py-1.5 rounded-full z-10 whitespace-nowrap"
             style={{
-              background: "linear-gradient(135deg, #FA5022, #E8451E)",
-              boxShadow: "0 4px 12px rgba(250, 80, 34, 0.3)",
+              background: "linear-gradient(135deg, hsl(var(--alma)), hsl(var(--alma-dark)))",
+              boxShadow: "0 4px 12px hsl(var(--alma) / 0.3)",
             }}
           >
             <Star className="w-3.5 h-3.5 fill-white" />
@@ -228,9 +228,9 @@ const PricingPaymentBlock = ({
               >
                 {opt.count === 4 && (
                   <span
-                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: "#FA5022" }}
+                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-alma"
                   />
+
                 )}
                 {opt.label}
               </button>

@@ -142,7 +142,7 @@ const FormationsOverviewSection = () => {
                     </div>
                     {monthly && (
                       <div className="flex items-center gap-1.5 mt-1">
-                        <span className="text-xs font-semibold" style={{ color: "#FA5022" }}>
+                        <span className="text-xs font-semibold text-alma">
                           ou 4× {monthly}€
                         </span>
                         <AlmaLogo className="h-3.5" />
