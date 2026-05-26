@@ -59,16 +59,18 @@ const EcosystemSection = () => {
             <Link
               key={s.title}
               to={s.link}
-              className="card-t3p group flex flex-col gap-3"
+              className="card-t3p card-premium group flex flex-col gap-3"
             >
+
               <div className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center">
                 <s.icon className="w-5 h-5 text-primary" />
               </div>
               <h3 className="text-base font-semibold text-primary">{s.title}</h3>
               <p className="text-sm text-muted-foreground flex-1">{s.desc}</p>
-              <span className="text-sm font-semibold text-accent inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                En savoir plus <ArrowRight className="w-4 h-4" />
+              <span className="text-sm font-semibold text-accent inline-flex items-center gap-1">
+                En savoir plus <ArrowRight className="w-4 h-4 arrow-nudge" />
               </span>
+
             </Link>
           ))}
         </div>

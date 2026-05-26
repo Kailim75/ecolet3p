@@ -25,9 +25,10 @@ const CatalogueCard = ({ formation, onRegister, compact = false }: CatalogueCard
   return (
     <motion.div
       variants={staggerItem}
-      whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(27, 77, 62, 0.12)" }}
-      className="group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-300"
+      whileHover={{ y: -6, boxShadow: "0 24px 50px -12px hsl(var(--primary) / 0.22)" }}
+      className="card-premium group relative bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30"
     >
+
       {/* Top color band */}
       <div className={`h-1.5 w-full ${isSoiree ? 'bg-indigo-500' : 'bg-primary'}`} />
 
@@ -114,7 +115,7 @@ const CatalogueCard = ({ formation, onRegister, compact = false }: CatalogueCard
             className="w-full font-bold text-sm btn-cta-orange"
             onClick={() => onRegister?.(formation)}
           >
-            Réserver ma place <ArrowRight className="w-4 h-4 ml-1" />
+            Réserver ma place <ArrowRight className="w-4 h-4 ml-1 arrow-nudge" />
           </Button>
           {hasAlma && (
             <AlmaPaymentButton formationTitle={formation.title} price={formation.price} />
