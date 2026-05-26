@@ -63,6 +63,10 @@ export default {
           light: "#E4BE73",
           dark: "#C49843",
         },
+        alma: {
+          DEFAULT: "hsl(var(--alma))",
+          dark: "hsl(var(--alma-dark))",
+        },
         "green-light": "#E8F5E9",
         "orange-light": "#FFF3E0",
         "gray-light": "#F5F5F5",
