@@ -145,8 +145,8 @@ const PricingPaymentBlock = ({
           <div
             className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-white text-xs font-bold tracking-wide px-5 py-1.5 rounded-full z-10 whitespace-nowrap"
             style={{
-              background: "linear-gradient(135deg, #FA5022, #E8451E)",
-              boxShadow: "0 4px 12px rgba(250, 80, 34, 0.3)",
+              background: "linear-gradient(135deg, hsl(var(--alma)), hsl(var(--alma-dark)))",
+              boxShadow: "0 4px 12px hsl(var(--alma) / 0.3)",
             }}
           >
             <Star className="w-3.5 h-3.5 fill-white" />
