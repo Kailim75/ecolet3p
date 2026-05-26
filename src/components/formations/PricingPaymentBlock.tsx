@@ -136,7 +136,7 @@ const PricingPaymentBlock = ({
           background: isPremium
             ? "linear-gradient(180deg, #FFF9F7 0%, #FFFFFF 100%)"
             : "#FFFFFF",
-          border: isPremium ? "2px solid #FA5022" : "1px solid #E8E8E8",
+          border: isPremium ? "2px solid hsl(var(--alma))" : "1px solid #E8E8E8",
           boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
         }}
       >
