@@ -11,6 +11,8 @@ import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 import { QuoteModalProvider } from "./components/quote/QuoteModalContext";
 import DeferredRender from "./components/performance/DeferredRender";
+import PageTransition from "./components/layout/PageTransition";
+
 
 // Lazy load non-critical global components
 const CookieConsent = lazy(() => import("./components/CookieConsent"));
