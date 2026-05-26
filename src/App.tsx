@@ -97,7 +97,9 @@ const App = () => {
                 <AnalyticsProvider>
                   <RedirectHandler />
                   <Suspense fallback={<PageFallback />}>
-                    <Routes>
+                    <PageTransition>
+                      <Routes>
+
                       <Route path="/" element={<Index />} />
                       <Route path="/formations" element={<Formations />} />
                       <Route path="/formations/taxi" element={<FormationTaxi />} />
