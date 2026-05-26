@@ -5,10 +5,10 @@ import heroImageTaxiWebp from "@/assets/formations/hero-taxi.jpg?w=640;1024;1920
 
 const FormationTaxi = () => (
   <FormationPageTemplate
-    title="Formation Taxi Paris 92 - Carte Pro en 1 semaine | dès 990€"
-    description="Formation Taxi agréée Préfecture à Montrouge (92), accessible Paris sud, Hauts-de-Seine et Val-de-Marne. 94% de réussite, carte pro en 1 semaine, 990€ en 4x sans frais."
+    title="Formation Taxi Montrouge 92 | 94% Réussite, dès 990€ en 4x"
+    description="Formation Taxi agréée Préfecture à Montrouge (92) — 94% de réussite, carte pro en 1 semaine, dès 990€ en 4x sans frais. Sessions chaque mois. Inscription en ligne sous 24h."
     canonical="https://ecolet3p.fr/formations/taxi"
-    ogTitle="Formation Taxi Paris 92 - Carte Pro en 1 semaine | dès 990€"
+    ogTitle="Formation Taxi Montrouge 92 | 94% Réussite, dès 990€ en 4x"
     ogDescription="Centre agréé Préfecture à Montrouge. 94% de réussite, carte pro Taxi en 1 semaine. Paiement 4x sans frais."
     heroImage={heroImageTaxi}
     heroImageWebp={heroImageTaxiWebp}
