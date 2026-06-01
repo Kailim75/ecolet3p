@@ -676,7 +676,11 @@ const FormationPageTemplate = ({
         </section>
       )}
 
+      {/* ── Maillage SEO : pages par département ── */}
+      <DepartementLinksBlock metier={profession} />
+
       <section className="py-16 bg-primary">
+
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{ctaTitle || "Prêt à vous lancer ?"}</h2>
           <p className="text-white/75 mb-3 max-w-xl mx-auto">
