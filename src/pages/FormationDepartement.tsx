@@ -46,7 +46,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
 
   const labels = METIER_LABELS[metier];
   const spLink = SERVICE_PUBLIC_LINKS[metier];
-  const pageUrl = `/formations/${metier}-${departement.code}`;
+  const pageUrl = `/formations/${metier}/${departement.code}`;
   const canonical = getCanonicalUrl(pageUrl);
   const prefectureUrl = metier === "taxi" ? departement.prefecture.urlTaxi : departement.prefecture.urlVtc;
 
