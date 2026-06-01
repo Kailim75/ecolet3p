@@ -34,7 +34,7 @@ const DepartementLinksBlock = ({ metier }: Props) => {
           {DEPARTEMENTS_IDF.map((dept) => (
             <Link
               key={dept.code}
-              to={`/formations/${metier}-${dept.code}`}
+              to={`/formations/${metier}/${dept.code}`}
               className="card-t3p group flex items-start gap-2 p-3"
             >
               <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
