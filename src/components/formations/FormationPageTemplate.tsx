@@ -24,6 +24,7 @@ import NextCMASessionBanner from "@/components/formations/NextCMASessionBanner";
 import AlmaLogo from "@/components/logo/AlmaLogo";
 import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 import { supabase } from "@/integrations/supabase/client";
+import DepartementLinksBlock from "@/components/formations/DepartementLinksBlock";
 
 interface ProgramModule {
   title: string;
