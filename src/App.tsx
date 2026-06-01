@@ -107,9 +107,9 @@ const App = () => {
                       <Route path="/formations/vtc" element={<FormationVTC />} />
                       <Route path="/formations/vmdtr" element={<FormationVMDTR />} />
                       {/* Pages géolocalisées par département IDF — SEO local */}
-                      <Route path="/formations/vtc-:dept" element={<FormationDepartement metier="vtc" />} />
-                      <Route path="/formations/taxi-:dept" element={<FormationDepartement metier="taxi" />} />
-                      <Route path="/formations/vmdtr-:dept" element={<FormationDepartement metier="vmdtr" />} />
+                      <Route path="/formations/vtc/:dept" element={<FormationDepartement metier="vtc" />} />
+                      <Route path="/formations/taxi/:dept" element={<FormationDepartement metier="taxi" />} />
+                      <Route path="/formations/vmdtr/:dept" element={<FormationDepartement metier="vmdtr" />} />
                       <Route path="/formations/mobilite" element={<Navigate to="/passerelle-vtc-taxi" replace />} />
                       <Route path="/formations/continue-taxi" element={<FormationContinueTaxi />} />
                       <Route path="/formations/continue-vtc" element={<FormationContinueVTC />} />
