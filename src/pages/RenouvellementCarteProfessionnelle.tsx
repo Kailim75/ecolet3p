@@ -510,7 +510,7 @@ const RenouvellementCarteProfessionnelle = () => {
             </h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto text-lg">
               Sessions disponibles chaque semaine. Attestation délivrée le jour même. 
-              350€ payable en 4× sans frais.
+              À partir de 170€ — payable en 4× sans frais.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
