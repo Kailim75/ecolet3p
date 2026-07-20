@@ -8,6 +8,7 @@ import {
   Shield, Car, Home, ChevronRight, CreditCard, Building2
 } from "lucide-react";
 import { getCityBySlug, cities, activeCities, RETIRED_CITY_SLUGS, getLocalFaqs, getTestimonialForCity } from "@/data/localSeoData";
+import cityTitles from "@/data/citySeoTitles.json";
 import {
   Accordion,
   AccordionContent,
@@ -99,7 +100,7 @@ const FormationVille = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl={`/formations/${city.slug}`}
-        defaultTitle={city.seoTitle}
+        defaultTitle={(cityTitles as Record<string, string>)[city.slug] ?? city.seoTitle}
         defaultDescription={city.seoDescription}
         canonicalUrl={`https://ecolet3p.fr/formations/${city.slug}`}
         ogImage="https://ecolet3p.fr/og-image.jpg"

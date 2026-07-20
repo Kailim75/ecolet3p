@@ -12,6 +12,13 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 
+// Source unique des titres de villes, partagée avec l'application (FormationVille.tsx).
+// Ne jamais recopier ces titres ici : toute divergence se traduit par un titre différent
+// dans le HTML livré et dans le rendu, donc par un titre imprévisible dans Google.
+const cityTitles = JSON.parse(
+  readFileSync(join(process.cwd(), 'src/data/citySeoTitles.json'), 'utf-8')
+);
+
 const DIST = join(process.cwd(), 'dist');
 const SITE_URL = 'https://ecolet3p.fr';
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -24,7 +31,7 @@ const routes = [
   // ── Pillar pages ──
   {
     path: '/',
-    title: 'ECOLE T3P — Formation Taxi VTC VMDTR Montrouge 92 | 990€',
+    title: 'Formation Taxi VTC VMDTR Montrouge | 94% Réussite, 990€',
     description: 'Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 chauffeurs formés. À partir de 990€ en 4x sans frais. Inscription ouverte toute l\'année.',
     h1: 'Devenez chauffeur professionnel à partir de 990€.',
   },
@@ -36,7 +43,7 @@ const routes = [
   },
   {
     path: '/formations/taxi',
-    title: 'Formation Taxi Montrouge (92) — 94% Réussite | 990€',
+    title: 'Formation Taxi Montrouge 92 | 94% Réussite, dès 990€ en 4x',
     description: 'Formation Taxi agréée Préfecture à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais. Carte professionnelle Taxi.',
     ogTitle: 'Formation Taxi Initiale à Montrouge — ECOLE T3P',
     ogDescription: 'Formation initiale Taxi à Montrouge. Centre agréé Préfecture, 94% de réussite.',
@@ -44,7 +51,7 @@ const routes = [
   },
   {
     path: '/formations/vtc',
-    title: 'Formation VTC Montrouge (92) — 94% Réussite | 990€',
+    title: 'Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x',
     description: 'Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais. Uber, Bolt, Heetch.',
     ogTitle: 'Formation VTC Initiale à Montrouge — ECOLE T3P',
     ogDescription: 'Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais.',
@@ -52,7 +59,7 @@ const routes = [
   },
   {
     path: '/formations/vmdtr',
-    title: 'Formation VMDTR Moto-Taxi Montrouge (92) | 990€',
+    title: 'Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€',
     description: 'Formation VMDTR moto-taxi agréée à Montrouge (92). 94% de réussite, 990€ en 4x sans frais. Permis A requis.',
     ogTitle: 'Formation VMDTR Moto-Taxi à Montrouge — ECOLE T3P',
     ogDescription: 'Formation VMDTR à Montrouge. Centre agréé Préfecture, 94% de réussite.',
@@ -186,7 +193,7 @@ const routes = [
   },
   {
     path: '/contact',
-    title: 'Contact ECOLE T3P Montrouge (92) | Taxi VTC',
+    title: 'Contact ECOLE T3P Montrouge - 01 88 75 05 55 | WhatsApp',
     description: 'Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55.',
     h1: 'Contactez-nous',
   },
@@ -276,7 +283,7 @@ for (const slug of citySlugs) {
   const name = slugToName(slug);
   routes.push({
     path: `/formations/${slug}`,
-    title: `Formation Taxi VTC ${name} | ECOLE T3P`,
+    title: cityTitles[slug],
     description: `Formation Taxi, VTC et VMDTR près de ${name}. ECOLE T3P à Montrouge (92), 94% de réussite, à partir de 990€.`,
     h1: `Formation Taxi VTC VMDTR ${name}`,
   });
