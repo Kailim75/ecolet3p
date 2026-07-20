@@ -27,8 +27,8 @@ const formationChoices = [
 ];
 
 const scheduleChoices = [
-  { value: "jour", label: "Journée (9h–17h)", icon: Sun },
-  { value: "soir", label: "Soirée (18h–22h)", icon: Moon },
+  { value: "jour", label: "Journée (9h30–16h30)", icon: Sun },
+  { value: "soir", label: "Soirée (18h–21h30)", icon: Moon },
 ];
 
 const contactSchema = z.object({
@@ -44,24 +44,44 @@ interface StepPreRegistrationFormProps {
   defaultFormation?: string;
 }
 
+/**
+ * Ramène la formation transmise par la page vers une des valeurs de formationChoices.
+ * Les pages passent « Formation VTC », « VTC », « Formation VMDTR »… : sans cette
+ * normalisation aucun bouton radio n'apparaît coché et le visiteur croit devoir tout ressaisir.
+ */
+const normalizeFormation = (value?: string): string => {
+  if (!value) return "";
+  const v = value.toLowerCase();
+  if (v.includes("vmdtr") || v.includes("moto")) return "vmdtr";
+  if (v.includes("vtc")) return "vtc";
+  if (v.includes("taxi")) return "taxi";
+  return value; // formation hors des 3 initiales (passerelle, PMR, récup. points…) : on garde le libellé tel quel
+};
+
 const StepPreRegistrationForm = ({
   isOpen,
   onClose,
   defaultFormation,
 }: StepPreRegistrationFormProps) => {
   const { toast } = useToast();
-  const [step, setStep] = useState(1);
+  const formationKnown = Boolean(defaultFormation);
+
+  const [step, setStep] = useState(formationKnown ? 2 : 1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const [formation, setFormation] = useState(defaultFormation || "");
+  const [formation, setFormation] = useState(normalizeFormation(defaultFormation));
   const [schedule, setSchedule] = useState("");
   const [preferredDate, setPreferredDate] = useState("");
   const [contact, setContact] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const totalSteps = 3;
-  const progress = (step / totalSteps) * 100;
+  const visibleSteps = formationKnown ? 2 : 3;
+  const visibleStep = formationKnown ? step - 1 : step;
+  const progress = (visibleStep / visibleSteps) * 100;
+
+  const minStep = formationKnown ? 2 : 1;
 
   const canNext = () => {
     if (step === 1) return !!formation;
@@ -125,8 +145,8 @@ const StepPreRegistrationForm = ({
   };
 
   const resetAndClose = () => {
-    setStep(1);
-    setFormation(defaultFormation || "");
+    setStep(formationKnown ? 2 : 1);
+    setFormation(normalizeFormation(defaultFormation));
     setSchedule("");
     setPreferredDate("");
     setContact({ firstName: "", lastName: "", email: "", phone: "" });
@@ -160,7 +180,7 @@ const StepPreRegistrationForm = ({
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-xl font-black text-primary">Inscription en 3 étapes</DialogTitle>
+              <DialogTitle className="text-xl font-black text-primary">Inscription en {visibleSteps} étapes</DialogTitle>
               <DialogDescription>Rapide et sans engagement</DialogDescription>
             </DialogHeader>
 
@@ -170,23 +190,38 @@ const StepPreRegistrationForm = ({
                 { num: 1, label: "Formation" },
                 { num: 2, label: "Horaires" },
                 { num: 3, label: "Coordonnées" },
-              ].map((s, i) => (
-                <div key={s.num} className="flex items-center gap-2 flex-1">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-colors ${
-                    step >= s.num 
-                      ? "bg-[hsl(var(--cta))] text-white" 
-                      : "bg-muted text-muted-foreground"
-                  }`}>
-                    {step > s.num ? <CheckCircle2 className="h-4 w-4" /> : s.num}
+              ].map((s, i) => {
+                const adjustedNum = formationKnown ? s.num - 1 : s.num;
+                return (
+                  <div key={s.num} className={`flex items-center gap-2 flex-1 ${formationKnown && s.num === 1 ? "hidden" : ""}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-colors ${
+                      visibleStep >= adjustedNum
+                        ? "bg-[hsl(var(--cta))] text-white"
+                        : "bg-muted text-muted-foreground"
+                    }`}>
+                      {visibleStep > adjustedNum ? <CheckCircle2 className="h-4 w-4" /> : adjustedNum}
+                    </div>
+                    <span className={`text-xs font-medium hidden sm:block ${visibleStep >= adjustedNum ? "text-foreground" : "text-muted-foreground"}`}>
+                      {s.label}
+                    </span>
+                    {i < 2 && <div className={`flex-1 h-0.5 ${visibleStep > adjustedNum ? "bg-[hsl(var(--cta))]" : "bg-muted"}`} />}
                   </div>
-                  <span className={`text-xs font-medium hidden sm:block ${step >= s.num ? "text-foreground" : "text-muted-foreground"}`}>
-                    {s.label}
-                  </span>
-                  {i < 2 && <div className={`flex-1 h-0.5 ${step > s.num ? "bg-[hsl(var(--cta))]" : "bg-muted"}`} />}
-                </div>
-              ))}
+                );
+              })}
             </div>
             <Progress value={progress} className="h-1.5 mb-4" />
+
+            {/* Formation reminder when known */}
+            {formationKnown && (
+              <div className="flex items-center justify-between gap-3 mb-4 p-3 rounded-lg bg-primary/5 border border-primary/20">
+                <span className="text-sm">
+                  Formation : <strong>{formationChoices.find((f) => f.value === formation)?.label ?? formation}</strong>
+                </span>
+                <button type="button" onClick={() => setStep(1)} className="text-xs font-semibold text-accent hover:underline">
+                  Modifier
+                </button>
+              </div>
+            )}
 
             <AnimatePresence mode="wait">
               {step === 1 && (
@@ -279,7 +314,7 @@ const StepPreRegistrationForm = ({
             </AnimatePresence>
 
             <div className="flex gap-3 mt-6">
-              {step > 1 && (
+              {step > minStep && (
                 <Button variant="outline" onClick={() => setStep((s) => s - 1)} disabled={isSubmitting}>
                   <ArrowLeft className="h-4 w-4 mr-1" /> Retour
                 </Button>
