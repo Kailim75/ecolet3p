@@ -52,9 +52,8 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-    // react-helmet-async passe par un contexte React : deux copies dans deux chunks
-    // donnent un contexte vide et Helmet cesse silencieusement de rendre ses balises
-    // (constaté en production sur la page 404, qui n'émettait aucun <meta robots>).
-    dedupe: ["react", "react-dom", "react-helmet-async"],
+    // NE PAS ajouter "react-helmet-async" ici : testé en production le 20/07/2026,
+    // cela casse le contexte Helmet et plus aucune balise n'est rendue sur tout le site.
+    dedupe: ["react", "react-dom"],
   },
 }));
