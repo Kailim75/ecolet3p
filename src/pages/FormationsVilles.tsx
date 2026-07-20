@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { MapPin, Train, Clock, ArrowRight, Building2 } from "lucide-react";
-import { cities } from "@/data/localSeoData";
+import { activeCities } from "@/data/localSeoData";
 
 // Group cities by department
 const getCitiesByDepartment = () => {
