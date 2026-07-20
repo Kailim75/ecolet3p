@@ -5,7 +5,7 @@ import Layout from "@/components/layout/Layout";
 import { MapPin, Train, Clock, ArrowRight, Building2 } from "lucide-react";
 import { activeCities } from "@/data/localSeoData";
 
-// Group cities by department
+// Group active cities by department
 const getCitiesByDepartment = () => {
   const grouped: Record<string, typeof activeCities> = {};
   
@@ -17,7 +17,7 @@ const getCitiesByDepartment = () => {
     grouped[key].push(city);
   });
 
-  // Sort cities within each department alphabetically
+  // Sort within each department alphabetically
   Object.keys(grouped).forEach(key => {
     grouped[key].sort((a, b) => a.name.localeCompare(b.name));
   });
