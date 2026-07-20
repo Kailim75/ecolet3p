@@ -381,11 +381,32 @@ function transformHtml(template, route) {
     `<meta name="twitter:description" content="${escapeHtml(ogDesc)}"`
   );
 
-  // Replace H1 in seo-fallback
-  html = html.replace(
-    /(<div class="seo-fallback"[^>]*>\s*<header>\s*)<h1>[^<]*<\/h1>/,
-    `$1<h1>${escapeHtml(h1)}</h1>`
-  );
+  // Remplace TOUT le bloc de repli par un contenu propre à la route.
+  //
+  // Ce bloc était auparavant recopié à l'identique sur les 105 pages (1441 mots, même
+  // empreinte md5), et seul le H1 changeait. Conséquence mesurée dans Search Console
+  // le 20/07/2026 : Google choisissait « https://ecolet3p.fr/ » comme canonique pour
+  // des pages qui déclaraient pourtant la leur, et refusait de les indexer — 13 pages
+  // indexées sur 105. Le contenu réel des pages vient du rendu React ; ce repli ne doit
+  // donc être qu'une courte carte d'identité, UNIQUE par route.
+  const fallback = `<div class="seo-fallback" role="complementary" aria-label="Contenu pour moteurs de recherche">
+      <header>
+        <h1>${escapeHtml(h1)}</h1>
+        <p>${escapeHtml(route.description)}</p>
+      </header>
+      <p>ECOLE T3P — centre de formation Taxi, VTC et VMDTR agréé Préfecture (agrément n° 23/007), 3 rue Corneille, 92120 Montrouge. Téléphone : <a href="tel:0188750555">01 88 75 05 55</a>.</p>
+      <nav aria-label="Formations principales">
+        <ul>
+          <li><a href="/formations/taxi">Formation Taxi</a></li>
+          <li><a href="/formations/vtc">Formation VTC</a></li>
+          <li><a href="/formations/vmdtr">Formation VMDTR</a></li>
+          <li><a href="/formations">Toutes les formations</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>`;
+  html = html.replace(/<div class="seo-fallback"[\s\S]*?<\/div>\s*<\/body>/, fallback);
 
   return html;
 }
