@@ -28,9 +28,9 @@ const results = [
 ];
 
 const formations = [
-  { title: "Formation Continue VTC", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VTC." },
-  { title: "Formation Continue TAXI", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle Taxi." },
-  { title: "Formation Continue VMDTR", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VMDTR." },
+  { title: "Formation Continue VTC", price: "170€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VTC." },
+  { title: "Formation Continue TAXI", price: "250€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle Taxi." },
+  { title: "Formation Continue VMDTR", price: "250€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VMDTR." },
 ];
 
 const programSteps = [
@@ -43,7 +43,7 @@ const programSteps = [
 const faqs = [
   { question: "Quand dois-je renouveler ma carte professionnelle ?", answer: "Votre carte professionnelle doit être renouvelée tous les 5 ans. La demande de renouvellement doit être effectuée dans les 3 mois précédant la date d'expiration. N'attendez pas le dernier moment — inscrivez-vous dès maintenant." },
   { question: "Que se passe-t-il si ma carte est expirée ?", answer: "Si votre carte est expirée, vous ne pouvez plus exercer légalement. Vous risquez une amende pouvant aller jusqu'à 1 500€ et la saisie de votre véhicule. Contactez-nous immédiatement — nous pouvons vous inscrire à la prochaine session disponible." },
-  { question: "La formation continue est-elle la même pour VTC et Taxi ?", answer: "Non, le contenu est adapté à chaque profession. Les modules réglementaires et pratiques sont spécifiques à votre activité (VTC, Taxi ou VMDTR). Le tarif est identique : 350€." },
+  { question: "La formation continue est-elle la même pour VTC et Taxi ?", answer: "Non, le contenu est adapté à chaque profession. Les modules réglementaires et pratiques sont spécifiques à votre activité (VTC, Taxi ou VMDTR). Le tarif varie selon la profession : 170€ pour le VTC, 250€ pour le Taxi et le VMDTR." },
   { question: "Quels documents sont nécessaires pour le renouvellement ?", answer: "Votre carte professionnelle en cours, l'attestation de formation continue (délivrée par ECOLE T3P), un justificatif de domicile, une photo d'identité et un extrait de casier judiciaire (bulletin n°3) de moins de 3 mois." },
   { question: "Combien de temps dure la procédure de renouvellement ?", answer: "Une fois votre dossier complet déposé en préfecture, le délai de traitement est généralement de 2 à 4 semaines. Nous vous accompagnons pour garantir que votre dossier est complet du premier coup." },
   { question: "Puis-je exercer pendant le renouvellement ?", answer: "Tant que votre carte n'est pas expirée et que vous avez entamé les démarches de renouvellement dans les délais, vous pouvez continuer à exercer. En revanche, exercer avec une carte expirée est strictement interdit et passible de sanctions." },
@@ -58,9 +58,9 @@ const RenouvellementCarteProfessionnelle = () => {
     "@context": "https://schema.org",
     "@type": "Course",
     name: "Renouvellement de carte professionnelle VTC, Taxi & VMDTR",
-    description: "Formation continue obligatoire 14h pour le renouvellement de carte professionnelle VTC, Taxi et VMDTR à Montrouge (92). 350€, attestation immédiate.",
+    description: "Formation continue obligatoire 14h pour le renouvellement de carte professionnelle VTC (170€), Taxi (250€) et VMDTR (250€) à Montrouge (92). Attestation immédiate.",
     provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
-    offers: { "@type": "Offer", price: 350, priceCurrency: "EUR" },
+    offers: { "@type": "Offer", price: 170, priceCurrency: "EUR" },
   };
 
   const faqSchema = {
@@ -85,10 +85,10 @@ const RenouvellementCarteProfessionnelle = () => {
     <Layout>
       <Helmet>
         <title>Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Renouvellement carte pro VTC, Taxi, VMDTR à Montrouge (92). Formation continue 14h, attestation immédiate. 350€. Sessions chaque semaine." />
+        <meta name="description" content="Renouvellement carte pro VTC (170€), Taxi (250€), VMDTR (250€) à Montrouge (92). Formation continue 14h, attestation immédiate. Sessions chaque semaine." />
         <link rel="canonical" href="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P" />
-        <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. 350€. Centre agréé Préfecture 92." />
+        <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. VTC 170€ · Taxi 250€ · VMDTR 250€. Centre agréé Préfecture 92." />
         <meta property="og:url" content="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -139,7 +139,7 @@ const RenouvellementCarteProfessionnelle = () => {
             >
               Formation continue obligatoire de 14h pour chauffeurs VTC, Taxi et VMDTR. 
               <strong className="text-white"> Attestation délivrée le jour même</strong>, sessions chaque semaine à Montrouge (92). 
-              350€ payable en 4× sans frais.
+              À partir de 170€ — payable en 4× sans frais.
             </motion.p>
 
             <motion.div
@@ -149,7 +149,7 @@ const RenouvellementCarteProfessionnelle = () => {
               className="flex flex-wrap gap-3 mb-8"
             >
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Euro className="w-4 h-4" /> 350€
+                <Euro className="w-4 h-4" /> À partir de 170€
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
                 <Clock className="w-4 h-4" /> 14h sur 2 jours
@@ -341,7 +341,7 @@ const RenouvellementCarteProfessionnelle = () => {
           </div>
 
           {/* Tarifs */}
-          <h3 className="section-title text-center mb-8">Tarifs par profession — 350€</h3>
+          <h3 className="section-title text-center mb-8">Tarifs par profession</h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {formations.map((f, i) => (
               <motion.div
@@ -510,7 +510,7 @@ const RenouvellementCarteProfessionnelle = () => {
             </h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto text-lg">
               Sessions disponibles chaque semaine. Attestation délivrée le jour même. 
-              350€ payable en 4× sans frais.
+              À partir de 170€ — payable en 4× sans frais.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button

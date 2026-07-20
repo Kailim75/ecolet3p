@@ -60,8 +60,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/continue-taxi",
-    title: "Renouvellement Carte Taxi : Formation Continue 14h Montrouge | 239€",
-    description: "Formation continue Taxi 14h (FCO) pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 239€, attestation remise le jour même.",
+    title: "Renouvellement Carte Taxi : Formation Continue 14h Montrouge | 250€",
+    description: "Formation continue Taxi 14h (FCO) pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 250€, attestation remise le jour même.",
     h1: "Renouvellement Carte Taxi — Formation Continue 14h",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/continue-vtc", "/contact"],
@@ -76,8 +76,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/continue-vmdtr",
-    title: "Renouvellement Carte VMDTR (Taxi Moto) : Formation Continue 14h | 239€",
-    description: "Formation continue obligatoire VMDTR taxi moto 14h pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 239€, attestation le jour même.",
+    title: "Renouvellement Carte VMDTR (Taxi Moto) : Formation Continue 14h | 250€",
+    description: "Formation continue obligatoire VMDTR taxi moto 14h pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 250€, attestation le jour même.",
     h1: "Renouvellement Carte VMDTR (Taxi Moto) — Formation Continue 14h",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/vmdtr", "/contact"],

@@ -37,17 +37,17 @@ const CrossSellSection = () => (
 const FormationContinueVMDTR = () => (
   <ContinueFormationTemplate
     heroBackground={carteVmdtr}
-    title="Renouvellement Carte VMDTR (Taxi Moto) : Formation Continue 14h | 239€"
-    description="Formation continue obligatoire VMDTR (taxi moto) 14h pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 239€, attestation remise le jour même."
+    title="Renouvellement Carte VMDTR (Taxi Moto) : Formation Continue 14h | 250€"
+    description="Formation continue obligatoire VMDTR (taxi moto) 14h pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 250€, attestation remise le jour même."
     canonical="https://ecolet3p.fr/formations/continue-vmdtr"
     ogTitle="Renouvellement Carte VMDTR Taxi Moto — Formation Continue 14h"
-    ogDescription="Renouvelez votre carte VMDTR (taxi moto). Formation continue obligatoire 14h à 239€ à Montrouge (92). Centre agréé Préfecture, attestation le jour même."
+    ogDescription="Renouvelez votre carte VMDTR (taxi moto). Formation continue obligatoire 14h à 250€ à Montrouge (92). Centre agréé Préfecture, attestation le jour même."
     badge="Formation Continue VMDTR (FCO)"
     badgeIcon={RefreshCw}
     heading="Renouvellement Carte VMDTR (Taxi Moto) — Formation Continue 14h"
     subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VMDTR taxi moto (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
-    price={239}
+    price={250}
     format="2 jours"
     category="continue-vmdtr"
     regulatoryText="La formation continue est requise tous les 5 ans pour le renouvellement de la carte professionnelle de conducteur VMDTR, conformément au décret n°2017-483 du 6 avril 2017. Les conducteurs VMDTR sont soumis aux mêmes obligations que les conducteurs VTC et Taxi en matière de formation continue. Les contrôles renforcés de 2026 ciblent particulièrement les équipements de sécurité et la validité des cartes professionnelles deux-roues."
@@ -127,7 +127,7 @@ const FormationContinueVMDTR = () => (
     ]}
     faqs={[
       { question: "La formation continue VMDTR est-elle obligatoire ?", answer: "Oui, la formation continue de 14 heures est obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VMDTR. C'est une obligation légale identique à celle des conducteurs VTC et Taxi. Sans attestation, votre demande de renouvellement sera refusée." },
-      { question: "Combien coûte la formation continue VMDTR ?", answer: "La formation continue VMDTR est à 239€ TTC tout compris chez ECOLE T3P. Ce tarif inclut les 14 heures de formation sur 2 jours, les supports pédagogiques et l'attestation de stage délivrée le jour même." },
+      { question: "Combien coûte la formation continue VMDTR ?", answer: "La formation continue VMDTR est à 250€ TTC tout compris chez ECOLE T3P. Ce tarif inclut les 14 heures de formation sur 2 jours, les supports pédagogiques et l'attestation de stage délivrée le jour même." },
       { question: "Les nouvelles normes d'équipement sont-elles abordées ?", answer: "Oui, un module complet traite des nouvelles obligations d'équipement 2026 : casque avec intercom intégré, gilet airbag, géolocalisation et contrôle technique annuel. Vous repartez avec une check-list complète de conformité." },
       { question: "Quand dois-je planifier ma formation continue VMDTR ?", answer: "Nous recommandons de planifier votre formation 3 à 6 mois avant l'expiration de votre carte professionnelle pour anticiper les délais de traitement de la préfecture (2 à 4 semaines)." },
       { question: "La formation aborde-t-elle la conduite inter-files ?", answer: "Oui, le module sécurité routière de 4 heures couvre en détail le cadre légal 2026 de l'inter-files, les bonnes pratiques de remontée de files et l'anticipation des dangers spécifiques aux deux-roues motorisés." },
@@ -142,7 +142,7 @@ const FormationContinueVMDTR = () => (
     ]}
     relatedLinks={[
       { title: "Formation VMDTR Initiale", desc: "Obtenez votre carte professionnelle VMDTR — 990€ tout compris", path: "/formations/vmdtr" },
-      { title: "Formation Continue Taxi", desc: "Renouvelez votre carte Taxi — 239€", path: "/formations/continue-taxi" },
+      { title: "Formation Continue Taxi", desc: "Renouvelez votre carte Taxi — 250€", path: "/formations/continue-taxi" },
       { title: "Formation Continue VTC", desc: "Renouvelez votre carte VTC — 170€", path: "/formations/continue-vtc" },
       { title: "Renouvellement carte pro", desc: "Tout savoir sur le renouvellement de carte", path: "/renouvellement-carte-professionnelle" },
     ]}

@@ -466,7 +466,7 @@ const RecuperationPoints = () => {
             {[
               { title: "Formation initiale VTC", desc: "Devenez chauffeur VTC — à partir de 990€.", path: "/formations/vtc" },
               { title: "Formation initiale Taxi", desc: "Obtenez votre carte professionnelle Taxi — à partir de 990€.", path: "/formations/taxi" },
-              { title: "Renouvellement carte pro", desc: "Formation continue obligatoire tous les 5 ans — 350€.", path: "/renouvellement-carte-professionnelle" },
+              { title: "Renouvellement carte pro", desc: "Formation continue obligatoire tous les 5 ans — à partir de 170€.", path: "/renouvellement-carte-professionnelle" },
               { title: "Passerelle VTC ↔ Taxi", desc: "Doublez vos opportunités — 665€ tout compris.", path: "/passerelle-vtc-taxi" },
               { title: "Formation VMDTR", desc: "Devenez chauffeur moto — à partir de 990€.", path: "/formations/vmdtr" },
               { title: "Contact", desc: "Réservez votre place au prochain stage.", path: "/contact" },

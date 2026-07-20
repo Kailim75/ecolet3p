@@ -1166,8 +1166,8 @@ Si le taxi vous attire mais le budget est contraignant :
 | Location examen Taxi | Véhicule équipé | 249€ |
 | Location examen VMDTR | Moto équipée | 299€ |
 | Formation continue VTC | Renouvellement 5 ans | 170€ |
-| Formation continue Taxi | Renouvellement 5 ans | 239€ |
-| Formation continue VMDTR | Renouvellement 5 ans | 239€ |
+| Formation continue Taxi | Renouvellement 5 ans | 250€ |
+| Formation continue VMDTR | Renouvellement 5 ans | 250€ |
 
 ### Nos atouts
 
@@ -1348,7 +1348,7 @@ La formation VMDTR dure **14 heures** réparties sur 2 jours :
 
 ### Formation continue obligatoire
 
-Tous les 5 ans, vous devez suivre une formation continue de **14 heures** (239€ chez ECOLE T3P) comprenant :
+Tous les 5 ans, vous devez suivre une formation continue de **14 heures** (250€ chez ECOLE T3P — Taxi/VMDTR ; 170€ VTC) comprenant :
 
 - Actualisation réglementaire
 - Évolution des techniques de sécurité
@@ -1569,7 +1569,7 @@ Le métier de conducteur moto-taxi représente une opportunité intéressante po
 - ✅ Formation VMDTR de 14h réglementaire
 - ✅ Accompagnement administratif complet
 - ✅ Location véhicule pour examen (299€)
-- ✅ Formation continue obligatoire (239€)
+- ✅ Formation continue obligatoire (170€ VTC · 250€ Taxi/VMDTR)
 
 **Intéressé ?** Prenez rendez-vous pour un entretien gratuit et personnalisé.
 
@@ -2633,7 +2633,7 @@ Une formation de chauffeur est un investissement qui se rentabilise rapidement :
 | Formation | Prix | Rentabilité estimée |
 |-----------|------|---------------------|
 | Formation Taxi/VTC | 990€ - 1190€ | 1-2 mois d'activité |
-| Formation Continue | 170€ - 239€ | 1 semaine |
+| Formation Continue | 170€ - 250€ | 1 semaine |
 | Mobilité | 390€ - 440€ | 2-3 semaines |
 
 ## Notre accompagnement
@@ -2945,9 +2945,9 @@ Programme sur 1 jour :
 
 | Formation | Durée | Tarif |
 |-----------|-------|-------|
-| Continue VTC | 14h (2 jours) | 350€ |
-| Continue Taxi | 14h (2 jours) | 350€ |
-| Continue VMDTR | 7h (1 jour) | 350€ |
+| Continue VTC | 14h (2 jours) | 170€ |
+| Continue Taxi | 14h (2 jours) | 250€ |
+| Continue VMDTR | 14h (2 jours) | 250€ |
 
 Les sessions ont lieu dans notre centre de Montrouge, à 5 minutes du métro Mairie de Montrouge (ligne 4).
 

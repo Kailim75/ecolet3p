@@ -5,17 +5,17 @@ import carteProfessionnelle from "@/assets/carte-professionnelle-taxi.png";
 const FormationContinueTaxi = () => (
   <ContinueFormationTemplate
     heroBackground={carteProfessionnelle}
-    title="Renouvellement Carte Taxi : Formation Continue 14h Montrouge | 239€"
-    description="Formation continue Taxi 14h (FCO) pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 239€ tout compris, attestation de stage remise le jour même."
+    title="Renouvellement Carte Taxi : Formation Continue 14h Montrouge | 250€"
+    description="Formation continue Taxi 14h (FCO) pour renouvellement de carte professionnelle. Centre agréé Préfecture à Montrouge (92). 250€ tout compris, attestation de stage remise le jour même."
     canonical="https://ecolet3p.fr/formations/continue-taxi"
     ogTitle="Renouvellement Carte Taxi — Formation Continue 14h | ECOLE T3P"
-    ogDescription="Renouvelez votre carte professionnelle Taxi. Formation continue obligatoire 14h à 239€ à Montrouge (92). Centre agréé, attestation le jour même."
+    ogDescription="Renouvelez votre carte professionnelle Taxi. Formation continue obligatoire 14h à 250€ à Montrouge (92). Centre agréé, attestation le jour même."
     badge="Formation Continue Taxi (FCO)"
     badgeIcon={RefreshCw}
     heading="Renouvellement Carte Taxi — Formation Continue 14h"
     subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle Taxi (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
-    price={239}
+    price={250}
     format="2 jours"
     category="continue-taxi"
     regulatoryText="La formation continue est requise tous les 5 ans pour le renouvellement de la carte professionnelle de conducteur de taxi, conformément au décret n°2017-483 du 6 avril 2017. Le non-respect de cette obligation entraîne le refus de renouvellement par la préfecture et l'interdiction d'exercer. Les contrôles routiers renforcés en 2026 ciblent spécifiquement la validité des cartes professionnelles."
@@ -94,7 +94,7 @@ const FormationContinueTaxi = () => (
     ]}
     faqs={[
       { question: "La formation continue Taxi est-elle obligatoire ?", answer: "Oui, la formation continue de 14 heures est obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle Taxi. C'est une obligation légale inscrite dans le décret n°2017-483. Sans attestation de stage, la préfecture refusera votre demande de renouvellement." },
-      { question: "Combien coûte la formation continue Taxi chez ECOLE T3P ?", answer: "La formation continue Taxi est à 239€ TTC tout compris. Ce tarif inclut les 14 heures de formation réparties sur 2 jours, les supports pédagogiques et l'attestation de stage délivrée le jour même." },
+      { question: "Combien coûte la formation continue Taxi chez ECOLE T3P ?", answer: "La formation continue Taxi est à 250€ TTC tout compris. Ce tarif inclut les 14 heures de formation réparties sur 2 jours, les supports pédagogiques et l'attestation de stage délivrée le jour même." },
       { question: "La réforme tarifaire 2026 est-elle abordée ?", answer: "Oui, un module complet de 4 heures est consacré aux évolutions réglementaires 2026, incluant la réforme tarifaire (revalorisation des tarifs de prise en charge et kilométriques), les obligations ZFE et les contrôles renforcés." },
       { question: "Quand dois-je faire ma formation continue Taxi ?", answer: "Votre formation continue doit être effectuée avant l'expiration de votre carte professionnelle (tous les 5 ans). Nous recommandons de la planifier 3 à 6 mois avant la date d'expiration pour anticiper les délais de traitement de la préfecture." },
       { question: "Puis-je continuer à conduire pendant le renouvellement ?", answer: "Tant que votre carte n'est pas expirée et que vous avez engagé les démarches dans les délais, vous pouvez continuer à exercer. Attention : exercer avec une carte expirée expose à une amende de 1 500€ et à la mise en fourrière du véhicule." },
