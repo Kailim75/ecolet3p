@@ -58,9 +58,9 @@ const RenouvellementCarteProfessionnelle = () => {
     "@context": "https://schema.org",
     "@type": "Course",
     name: "Renouvellement de carte professionnelle VTC, Taxi & VMDTR",
-    description: "Formation continue obligatoire 14h pour le renouvellement de carte professionnelle VTC, Taxi et VMDTR à Montrouge (92). 350€, attestation immédiate.",
+    description: "Formation continue obligatoire 14h pour le renouvellement de carte professionnelle VTC (170€), Taxi (250€) et VMDTR (250€) à Montrouge (92). Attestation immédiate.",
     provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
-    offers: { "@type": "Offer", price: 350, priceCurrency: "EUR" },
+    offers: { "@type": "Offer", price: 170, priceCurrency: "EUR" },
   };
 
   const faqSchema = {
