@@ -2,10 +2,12 @@ import { Calendar, Users, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
 
 interface Session {
   id: string;
   start_date: string;
+  end_date: string | null;
   start_time: string;
   end_time: string;
   max_participants: number;
@@ -20,12 +22,6 @@ interface FallbackSession {
   spots: number;
 }
 
-const formatDate = (dateString: string) =>
-  new Date(dateString).toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 
 interface UpcomingSessionsCardProps {
   sessions: Session[];
@@ -55,7 +51,7 @@ const SessionRow = ({
     <div className="border-l-4 border-[#D4A017] bg-white rounded-r-lg p-4 space-y-2">
       <div className="flex items-center justify-between">
         <div>
-          <p className="font-semibold capitalize">{label}</p>
+          <p className="font-semibold">{label}</p>
           <p className="text-sm text-muted-foreground">{time}</p>
         </div>
         <div>
@@ -118,7 +114,7 @@ const UpcomingSessionsCard = ({
                     </p>
                   )}
                   <SessionRow
-                    label={formatDate(session.start_date)}
+                    label={formatSessionPeriod(session.start_date, session.end_date)}
                     time={`${session.start_time} – ${session.end_time}`}
                     spots={spots}
                     onRegister={onRegister}
