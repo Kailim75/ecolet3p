@@ -40,7 +40,7 @@ const UpcomingSessionsSection = () => {
     const fetchSessions = async () => {
       const { data, error } = await supabase
         .from("formation_sessions")
-        .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, formations(title, category)")
+        .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, notes, formations(title, category)")
         .in("status", ["upcoming", "ongoing"])
         .order("start_date", { ascending: true })
         .limit(4);
@@ -55,6 +55,7 @@ const UpcomingSessionsSection = () => {
           max_participants: s.max_participants,
           current_participants: s.current_participants,
           status: s.status,
+          notes: s.notes,
           formation_title: s.formations?.title || "",
           formation_category: s.formations?.category || "",
         }));
