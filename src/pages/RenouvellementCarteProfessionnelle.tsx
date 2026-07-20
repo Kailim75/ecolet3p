@@ -341,7 +341,7 @@ const RenouvellementCarteProfessionnelle = () => {
           </div>
 
           {/* Tarifs */}
-          <h3 className="section-title text-center mb-8">Tarifs par profession — 350€</h3>
+          <h3 className="section-title text-center mb-8">Tarifs par profession</h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {formations.map((f, i) => (
               <motion.div
