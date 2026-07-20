@@ -254,19 +254,10 @@ const citySlugs = [
   'bagneux', 'vanves', 'malakoff', 'chatillon', 'clamart', 'issy-les-moulineaux',
   'paris-14', 'paris-15', 'paris-13', 'fontenay-aux-roses', 'sceaux', 'antony',
   'bourg-la-reine', 'le-plessis-robinson', 'boulogne-billancourt', 'meudon',
-  'nanterre', 'colombes', 'rueil-malmaison', 'puteaux', 'suresnes',
-  'la-garenne-colombes', 'bois-colombes', 'asnieres-sur-seine', 'levallois-perret',
-  'neuilly-sur-seine', 'courbevoie', 'clichy', 'ivry-sur-seine', 'vitry-sur-seine',
-  'le-kremlin-bicetre', 'gentilly', 'arcueil', 'cachan', 'villejuif',
-  'charenton-le-pont', 'saint-mande', 'vincennes', 'fontenay-sous-bois',
-  'maisons-alfort', 'creteil', 'alfortville', 'saint-denis', 'saint-ouen',
-  'aubervilliers', 'pantin', 'le-pre-saint-gervais', 'les-lilas', 'bagnolet',
-  'montreuil', 'bobigny', 'la-courneuve', 'romainville', 'massy', 'palaiseau',
-  'savigny-sur-orge', 'evry-courcouronnes', 'corbeil-essonnes', 'viry-chatillon',
-  'athis-mons', 'juvisy-sur-orge', 'longjumeau', 'chilly-mazarin', 'versailles',
-  'saint-germain-en-laye', 'poissy', 'sartrouville', 'le-chesnay-rocquencourt',
-  'velizy-villacoublay', 'chatou', 'le-vesinet', 'conflans-sainte-honorine',
-  'houilles', 'l-hay-les-roses', 'chevilly-larue',
+  'nanterre', 'colombes', 'ivry-sur-seine', 'vitry-sur-seine', 'le-kremlin-bicetre',
+  'gentilly', 'arcueil', 'cachan', 'villejuif', 'vincennes', 'creteil',
+  'la-courneuve', 'longjumeau', 'conflans-sainte-honorine', 'l-hay-les-roses',
+  'chevilly-larue',
 ];
 
 function slugToName(slug) {
