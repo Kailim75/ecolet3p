@@ -921,6 +921,17 @@ const SEODashboard = () => {
 
   return (
     <div className="p-6 space-y-6">
+      {/* Explanation banner — read-only mode */}
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
+        <p className="font-semibold mb-1">Ce tableau de bord est consultatif.</p>
+        <p>
+          Les suggestions ci-dessous ne sont plus appliquées automatiquement au site : elles servent de diagnostic.
+          Les titres, descriptions et redirections se modifient désormais dans le code (scripts/prerender.mjs,
+          src/data/citySeoTitles.json) ou, pour une redirection ponctuelle, dans l'onglet Redirections.
+          Décision du 20/07/2026, après que des contenus erronés eurent été appliqués automatiquement en production.
+        </p>
+      </div>
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
