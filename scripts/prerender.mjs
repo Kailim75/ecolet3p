@@ -12,6 +12,13 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 
+// Source unique des titres de villes, partagée avec l'application (FormationVille.tsx).
+// Ne jamais recopier ces titres ici : toute divergence se traduit par un titre différent
+// dans le HTML livré et dans le rendu, donc par un titre imprévisible dans Google.
+const cityTitles = JSON.parse(
+  readFileSync(join(process.cwd(), 'src/data/citySeoTitles.json'), 'utf-8')
+);
+
 const DIST = join(process.cwd(), 'dist');
 const SITE_URL = 'https://ecolet3p.fr';
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -276,7 +283,7 @@ for (const slug of citySlugs) {
   const name = slugToName(slug);
   routes.push({
     path: `/formations/${slug}`,
-    title: `Formation Taxi VTC ${name} | ECOLE T3P`,
+    title: cityTitles[slug],
     description: `Formation Taxi, VTC et VMDTR près de ${name}. ECOLE T3P à Montrouge (92), 94% de réussite, à partir de 990€.`,
     h1: `Formation Taxi VTC VMDTR ${name}`,
   });
