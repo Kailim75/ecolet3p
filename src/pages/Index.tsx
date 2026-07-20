@@ -63,7 +63,7 @@ const homeFaqSchema = {
       "name": "Combien coûte le renouvellement de carte professionnelle Taxi ou VTC ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le renouvellement de la carte professionnelle se fait via la formation continue obligatoire de 14h (FCO) tous les 5 ans. Tarifs ECOLE T3P : Renouvellement VTC 170€, Renouvellement Taxi 239€, Renouvellement VMDTR (taxi moto) 239€. Attestation remise le jour même."
+        "text": "Le renouvellement de la carte professionnelle se fait via la formation continue obligatoire de 14h (FCO) tous les 5 ans. Tarifs ECOLE T3P : Renouvellement VTC 170€, Renouvellement Taxi 250€, Renouvellement VMDTR (taxi moto) 250€. Attestation remise le jour même."
       }
     },
     {
