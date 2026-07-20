@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { CalendarDays, Users, ArrowRight, Clock } from "lucide-react";
+import { CalendarDays, Users, ArrowRight, Clock, Info } from "lucide-react";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
+import { getSessionFormat } from "@/lib/sessionFormat";
 
 interface SessionWithFormation {
   id: string;
@@ -14,6 +15,7 @@ interface SessionWithFormation {
   max_participants: number;
   current_participants: number;
   status: string;
+  notes: string | null;
   formation_title: string;
   formation_category: string;
 }
@@ -38,7 +40,7 @@ const UpcomingSessionsSection = () => {
     const fetchSessions = async () => {
       const { data, error } = await supabase
         .from("formation_sessions")
-        .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, formations(title, category)")
+        .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, notes, formations(title, category)")
         .in("status", ["upcoming", "ongoing"])
         .order("start_date", { ascending: true })
         .limit(4);
@@ -53,6 +55,7 @@ const UpcomingSessionsSection = () => {
           max_participants: s.max_participants,
           current_participants: s.current_participants,
           status: s.status,
+          notes: s.notes,
           formation_title: s.formations?.title || "",
           formation_category: s.formations?.category || "",
         }));
@@ -103,6 +106,8 @@ const UpcomingSessionsSection = () => {
             const full = spots <= 0;
             const urgent = spots > 0 && spots <= 3;
             const link = categoryLinks[session.formation_category] || "/formations";
+            const fmt = getSessionFormat(session.start_time);
+            const FmtIcon = fmt.Icon;
 
             return (
               <Link
@@ -110,10 +115,16 @@ const UpcomingSessionsSection = () => {
                 to={full ? "/contact" : link}
                 className="card-t3p flex flex-col gap-3 group relative overflow-hidden"
               >
-                {/* Category badge */}
-                <span className={`inline-block self-start text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${categoryColors[session.formation_category] || "bg-muted text-foreground"}`}>
-                  {session.formation_category?.toUpperCase() || "Formation"}
-                </span>
+                {/* Badges: category + format */}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className={`inline-block text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${categoryColors[session.formation_category] || "bg-muted text-foreground"}`}>
+                    {session.formation_category?.toUpperCase() || "Formation"}
+                  </span>
+                  <span className={`inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${fmt.className}`}>
+                    <FmtIcon className="w-3 h-3" />
+                    {fmt.label}
+                  </span>
+                </div>
 
                 {/* Title */}
                 <h3 className="text-base font-bold text-primary leading-snug">
@@ -134,6 +145,14 @@ const UpcomingSessionsSection = () => {
                   <span>{session.start_time.slice(0, 5)} – {session.end_time.slice(0, 5)}</span>
                 </div>
 
+                {/* Notes */}
+                {session.notes && (
+                  <div className="flex items-start gap-2 text-xs text-muted-foreground bg-muted/50 rounded-md px-2 py-1.5">
+                    <Info className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>{session.notes}</span>
+                  </div>
+                )}
+
                 {/* Places */}
                 <div className="mt-auto pt-3 border-t border-border">
                   {full ? (
@@ -145,12 +164,17 @@ const UpcomingSessionsSection = () => {
                         Liste d'attente →
                       </span>
                     </div>
+                  ) : session.current_participants === 0 ? (
+                    <div className="flex items-center gap-1.5">
+                      <Users className="w-4 h-4 text-primary" />
+                      <span className="text-sm font-bold text-primary">Places disponibles</span>
+                    </div>
                   ) : (
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
                         <Users className="w-4 h-4 text-primary" />
                         <span className={`text-sm font-bold ${urgent ? "text-accent" : "text-primary"}`}>
-                          {spots} place{spots > 1 ? "s" : ""} restante{spots > 1 ? "s" : ""}
+                          Plus que {spots} place{spots > 1 ? "s" : ""}
                         </span>
                       </div>
                       {urgent && (
