@@ -1,6 +1,21 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSEOOverrides } from "@/hooks/useSEOOverrides";
 import { getCanonicalUrl } from "@/lib/siteConfig";
+
+/**
+ * Supprime la canonique statique issue du prérendu une fois que Helmet a posé la sienne.
+ * Helmet ne gère que les balises qu'il a créées (marquées `data-rh`) : c'est à nous de
+ * retirer l'autre, sinon deux canoniques divergentes peuvent coexister.
+ */
+const useSingleCanonical = (canonical: string) => {
+  useEffect(() => {
+    const stale = document.querySelectorAll<HTMLLinkElement>(
+      'link[rel="canonical"]:not([data-rh])'
+    );
+    stale.forEach((tag) => tag.remove());
+  }, [canonical]);
+};
 
 interface DynamicSEOHeadProps {
   pageUrl: string; // e.g. "/formations/taxi"
@@ -38,6 +53,7 @@ const DynamicSEOHead = ({
 
   // Always compute canonical — either from explicit prop or from pageUrl
   const canonical = canonicalUrl || getCanonicalUrl(pageUrl);
+  useSingleCanonical(canonical);
 
   return (
     <Helmet>

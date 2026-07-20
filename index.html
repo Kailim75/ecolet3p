@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ECOLE T3P — Formation Taxi VTC VMDTR Montrouge 92 | 990€</title>
     <meta name="description" content="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 chauffeurs formés. À partir de 990€ en 4x sans frais. Inscription ouverte toute l'année." />
-    <!-- NO static canonical here: react-helmet-async (DynamicSEOHead) injects the per-route canonical client-side.
-         A static canonical pointing to "/" was telling Google every route was a duplicate of the homepage,
-         blocking indexation of all sub-pages. Helmet sets the correct canonical per route on hydration. -->
+    <!-- Canonique de la page d'accueil.
+         Historique : une canonique statique vers "/" avait été retirée parce qu'elle était servie
+         TELLE QUELLE sur toutes les routes, faisant passer chaque sous-page pour un doublon de l'accueil.
+         Ce n'est plus le cas : scripts/prerender.mjs réécrit cette balise route par route au build
+         (branche `else` de transformHtml), et saute volontairement "/" — qui reste donc sur cette valeur.
+         Sans cette ligne, l'accueil était la SEULE page du site dépourvue de canonique. -->
+    <link rel="canonical" href="https://ecolet3p.fr/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="48x48" href="/icon-192.png" />
     <link rel="manifest" href="/manifest.json" />

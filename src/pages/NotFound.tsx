@@ -11,6 +11,28 @@ const NotFound = () => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 
+  /**
+   * Pose le noindex et le titre SANS passer par Helmet, qui est inopérant sur cette route.
+   * L'hébergement renvoie un HTTP 200 (fallback SPA) et on ne peut pas le changer depuis le
+   * code : le noindex est notre seule protection, elle doit être posée sans intermédiaire.
+   */
+  useEffect(() => {
+    const titrePrecedent = document.title;
+    document.title = "Page introuvable — ECOLE T3P";
+    const balise = document.createElement("meta");
+    balise.setAttribute("name", "robots");
+    balise.setAttribute("content", "noindex, follow");
+    balise.setAttribute("data-notfound-robots", "");
+    document.head.appendChild(balise);
+    // Une canonique héritée du prérendu ferait passer cette 404 pour une vraie page.
+    const canoniques = [...document.querySelectorAll<HTMLLinkElement>('link[rel="canonical"]')];
+    canoniques.forEach((tag) => tag.remove());
+    return () => {
+      document.title = titrePrecedent;
+      balise.remove();
+    };
+  }, []);
+
   return (
     <Layout>
       <Helmet>

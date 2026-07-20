@@ -52,6 +52,9 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-    dedupe: ["react", "react-dom"],
+    // react-helmet-async passe par un contexte React : deux copies dans deux chunks
+    // donnent un contexte vide et Helmet cesse silencieusement de rendre ses balises
+    // (constaté en production sur la page 404, qui n'émettait aucun <meta robots>).
+    dedupe: ["react", "react-dom", "react-helmet-async"],
   },
 }));
