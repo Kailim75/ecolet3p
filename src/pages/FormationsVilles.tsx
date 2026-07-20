@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { MapPin, Train, Clock, ArrowRight, Building2 } from "lucide-react";
-import { cities } from "@/data/localSeoData";
+import { activeCities } from "@/data/localSeoData";
 
-// Group cities by department
+// Group active data by department
 const getCitiesByDepartment = () => {
-  const grouped: Record<string, typeof cities> = {};
+  const grouped: Record<string, typeof activeCities> = {};
   
-  cities.forEach(city => {
+  activeCities.forEach(city => {
     const key = `${city.departmentCode} - ${city.department}`;
     if (!grouped[key]) {
       grouped[key] = [];
@@ -17,7 +17,7 @@ const getCitiesByDepartment = () => {
     grouped[key].push(city);
   });
 
-  // Sort cities within each department alphabetically
+  // Sort within each department alphabetically
   Object.keys(grouped).forEach(key => {
     grouped[key].sort((a, b) => a.name.localeCompare(b.name));
   });
@@ -30,7 +30,7 @@ const departmentOrder = ["75 - Paris", "92 - Hauts-de-Seine", "93 - Seine-Saint-
 const FormationsVilles = () => {
   const dynamicH1 = useDynamicH1("/formations/villes", "Formations Taxi VTC VMDTR près de chez vous en Île-de-France");
   const citiesByDepartment = getCitiesByDepartment();
-  const totalCities = cities.length;
+  const totalCities = activeCities.length;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -79,7 +79,7 @@ const FormationsVilles = () => {
       "latitude": 48.8155,
       "longitude": 2.3137
     },
-    "areaServed": cities.map(city => ({
+    "areaServed": activeCities.map(city => ({
       "@type": "City",
       "name": city.name,
       "containedInPlace": {

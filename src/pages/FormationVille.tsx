@@ -7,7 +7,7 @@ import {
   GraduationCap, Phone, Calendar, Star, Trophy, Users,
   Shield, Car, Home, ChevronRight, CreditCard, Building2
 } from "lucide-react";
-import { getCityBySlug, cities, getLocalFaqs, getTestimonialForCity } from "@/data/localSeoData";
+import { getCityBySlug, cities, activeCities, RETIRED_CITY_SLUGS, getLocalFaqs, getTestimonialForCity } from "@/data/localSeoData";
 import {
   Accordion,
   AccordionContent,
@@ -22,15 +22,16 @@ const FormationVille = () => {
   const city = ville ? getCityBySlug(ville) : undefined;
   const dynamicH1 = useDynamicH1(`/formations/${ville || ""}`, city ? `Formation Taxi & VTC près de ${city.name}` : "");
 
-  if (!city) {
-    return <Navigate to="/formations" replace />;
+  // Ville retirée de l'index : on renvoie vers la page régionale, qui a du contenu réel.
+  if (!city || RETIRED_CITY_SLUGS.has(city.slug)) {
+    return <Navigate to="/formations/villes" replace />;
   }
 
   const testimonial = getTestimonialForCity(city);
   const localFaqs = getLocalFaqs(city);
 
   // Nearby cities (exclude current, max 8)
-  const nearbyCities = cities
+  const nearbyCities = activeCities
     .filter(c => c.slug !== city.slug)
     .slice(0, 8);
 

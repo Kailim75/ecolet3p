@@ -2090,3 +2090,27 @@ export const cities: CityData[] = [
 export const getCityBySlug = (slug: string): CityData | undefined => {
   return cities.find(city => city.slug === slug);
 };
+
+/**
+ * Villes retirées de l'index le 20/07/2026.
+ * Ces pages n'avaient qu'une trentaine de mots propres sur ~980 : aux yeux de Google
+ * ce sont des « pages satellites », un motif explicitement sanctionné. Toutes sont à
+ * plus de 5 km du centre, distance à laquelle un candidat choisit un organisme plus proche.
+ * Les données de ces villes sont VOLONTAIREMENT conservées dans `cities` : pour remettre
+ * une ville en ligne, il suffit de retirer son slug d'ici APRÈS lui avoir écrit un vrai
+ * contenu local (introText, detailedAccess, whyChoose, enrichedFaqs).
+ */
+export const RETIRED_CITY_SLUGS = new Set<string>([
+  "rueil-malmaison", "puteaux", "suresnes", "la-garenne-colombes", "bois-colombes",
+  "asnieres-sur-seine", "levallois-perret", "neuilly-sur-seine", "courbevoie", "clichy",
+  "charenton-le-pont", "saint-mande", "fontenay-sous-bois", "maisons-alfort", "alfortville",
+  "saint-denis", "saint-ouen", "aubervilliers", "pantin", "le-pre-saint-gervais",
+  "les-lilas", "bagnolet", "montreuil", "bobigny", "romainville", "massy", "palaiseau",
+  "savigny-sur-orge", "evry-courcouronnes", "corbeil-essonnes", "viry-chatillon",
+  "athis-mons", "juvisy-sur-orge", "chilly-mazarin", "versailles", "saint-germain-en-laye",
+  "poissy", "sartrouville", "le-chesnay-rocquencourt", "velizy-villacoublay", "chatou",
+  "le-vesinet", "houilles",
+]);
+
+/** Villes réellement publiées et indexables — à utiliser PARTOUT à la place de `cities`. */
+export const activeCities: CityData[] = cities.filter((c) => !RETIRED_CITY_SLUGS.has(c.slug));
