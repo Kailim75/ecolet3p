@@ -226,7 +226,6 @@ const Formations = () => {
                     { name: "VTC Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
                     { name: "VMDTR Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
                     { name: "Passerelle T3P", format: "14h · 2 jours", price: "665€", alma: "166,25€", highlight: false },
-                    { name: "Renouvellement", format: "14h · tous les 5 ans", price: "350€", alma: "87,50€", highlight: false },
                     { name: "Récup. de points", format: "14h · 2 jours", price: "250€", alma: "62,50€", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className={row.highlight ? "bg-gold/5" : "bg-card"}>
