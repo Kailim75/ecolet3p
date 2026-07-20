@@ -343,47 +343,7 @@ const FixesReviewPanel = ({ fixes }: { fixes: SEOFix[] }) => {
 
 // --- Cannibalization Panel ---
 const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) => {
-  const [creatingRedirect, setCreatingRedirect] = useState<string | null>(null);
-  const [createdRedirects, setCreatedRedirects] = useState<Set<string>>(new Set());
-
   if (!groups || groups.length === 0) return null;
-
-  const createRedirect = async (fromPath: string, toPath: string, keyword: string) => {
-    const key = `${fromPath}->${toPath}`;
-    setCreatingRedirect(key);
-    try {
-      const { error } = await supabase.from("seo_redirects").insert({
-        from_path: fromPath,
-        to_path: toPath,
-        source: "cannibalization",
-        cannibalization_keyword: keyword,
-        notes: `Auto-créé depuis audit cannibalisation — « ${keyword} »`,
-      });
-
-      if (error) {
-        if (error.code === "23505") {
-          toast.warning("Redirection déjà existante pour ce chemin");
-          setCreatedRedirects(prev => new Set(prev).add(key));
-        } else {
-          toast.error("Erreur lors de la création");
-        }
-      } else {
-        toast.success(`Redirection 301 créée : ${fromPath} → ${toPath}`);
-        setCreatedRedirects(prev => new Set(prev).add(key));
-      }
-    } catch {
-      toast.error("Erreur inattendue");
-    }
-    setCreatingRedirect(null);
-  };
-
-  const createAllRedirects = async (group: CannibalizationGroup) => {
-    if (group.pages.length < 2) return;
-    const targetPage = group.pages[0]; // Keep first page, redirect others
-    for (let i = 1; i < group.pages.length; i++) {
-      await createRedirect(group.pages[i].url, targetPage.url, group.keyword);
-    }
-  };
 
   const severityStyles: Record<string, string> = {
     high: "border-red-200 bg-red-50/40",
@@ -436,8 +396,6 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
             <div className="space-y-1.5">
               {group.pages.map((page, pIdx) => {
                 const isTarget = pIdx === 0;
-                const redirectKey = `${page.url}->${group.pages[0].url}`;
-                const alreadyCreated = createdRedirects.has(redirectKey);
 
                 return (
                   <div key={pIdx} className="flex items-center gap-2 text-xs">
@@ -453,23 +411,6 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
                       {isTarget && <span className="text-green-600 ml-1">(page cible)</span>}
                       <span className="text-muted-foreground"> — {page.overlap_reason}</span>
                     </div>
-                    {!isTarget && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => createRedirect(page.url, group.pages[0].url, group.keyword)}
-                        disabled={creatingRedirect === redirectKey || alreadyCreated}
-                        className="text-[10px] h-6 px-2 shrink-0"
-                      >
-                        {alreadyCreated ? (
-                          <><CheckCircle className="w-3 h-3 mr-1 text-green-600" /> Créé</>
-                        ) : creatingRedirect === redirectKey ? (
-                          <Loader2 className="w-3 h-3 animate-spin" />
-                        ) : (
-                          <><ArrowRightLeft className="w-3 h-3 mr-1" /> 301</>
-                        )}
-                      </Button>
-                    )}
                   </div>
                 );
               })}
@@ -480,17 +421,6 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
               <p className="text-xs text-foreground">{group.recommendation}</p>
             </div>
 
-            {group.pages.length > 2 && (
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => createAllRedirects(group)}
-                className="text-[10px] h-7 border-primary/30 text-primary hover:bg-primary/5"
-              >
-                <ArrowRightLeft className="w-3 h-3 mr-1" />
-                Créer toutes les redirections vers {group.pages[0].url}
-              </Button>
-            )}
           </div>
         ))}
       </div>
@@ -703,8 +633,6 @@ const SEODashboard = () => {
   const [showAlertSettings, setShowAlertSettings] = useState(false);
   const [fixes, setFixes] = useState<SEOFix[]>([]);
   const [generatingFix, setGeneratingFix] = useState<string | null>(null);
-  const [updatingFix, setUpdatingFix] = useState<string | null>(null);
-  const [bulkApproving, setBulkApproving] = useState(false);
   const [lastAuditId, setLastAuditId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -801,131 +729,6 @@ const SEODashboard = () => {
     }
   };
 
-  const updateFixStatus = async (fixId: string, status: "approved" | "rejected") => {
-    setUpdatingFix(fixId);
-    try {
-      const newStatus = status === "approved" ? "applied" : status;
-      const { error } = await supabase
-        .from("seo_fixes")
-        .update({ status: newStatus, reviewed_at: new Date().toISOString() })
-        .eq("id", fixId);
-
-      if (error) throw error;
-
-      // When approving a metadata fix, upsert the override into seo_overrides
-      if (status === "approved") {
-        const fix = fixes.find(f => f.id === fixId);
-        const isMetadataFix = fix && fix.fix_type === "metadata";
-        const isH1ContentFix = fix && fix.fix_type === "content" && fix.category === "h1";
-
-        if (fix && (isMetadataFix || isH1ContentFix)) {
-          // Map category to field name
-          const categoryToField: Record<string, string> = {
-            title: "title",
-            description: "description",
-            h1: "h1",
-            og_title: "og_title",
-            og_description: "og_description",
-            meta_title: "title",
-            meta_description: "description",
-          };
-          const field = categoryToField[fix.category] || fix.category;
-
-          const { error: upsertErr } = await supabase
-            .from("seo_overrides")
-            .upsert(
-              {
-                page_url: fix.page_url,
-                field,
-                value: fix.proposed_value,
-                source_fix_id: fix.id,
-              },
-              { onConflict: "page_url,field" }
-            );
-
-          if (upsertErr) {
-            console.error("Failed to apply override:", upsertErr);
-            toast.error("Correction approuvée mais erreur lors de l'application");
-          } else {
-            toast.success("Correction appliquée en production ! 🚀");
-          }
-        } else {
-          toast.success("Correction approuvée ✅ (application manuelle requise pour ce type)");
-        }
-      } else {
-        // If rejecting, also remove any existing override for this fix
-        const fix = fixes.find(f => f.id === fixId);
-        if (fix) {
-          await supabase
-            .from("seo_overrides")
-            .delete()
-            .eq("source_fix_id", fixId);
-        }
-        toast.success("Correction rejetée ❌");
-      }
-
-      setFixes(prev => prev.map(f => f.id === fixId ? { ...f, status: newStatus as any, reviewed_at: new Date().toISOString() } : f));
-    } catch (err: any) {
-      console.error("Fix update error:", err);
-      toast.error("Erreur lors de la mise à jour");
-    } finally {
-      setUpdatingFix(null);
-    }
-  };
-
-  const bulkApproveAll = async () => {
-    const pendingFixes = fixes.filter(f => f.status === "pending");
-    if (pendingFixes.length === 0) return;
-
-    setBulkApproving(true);
-    let successCount = 0;
-    let errorCount = 0;
-
-    for (const fix of pendingFixes) {
-      try {
-        const { error } = await supabase
-          .from("seo_fixes")
-          .update({ status: "applied", reviewed_at: new Date().toISOString() })
-          .eq("id", fix.id);
-
-        if (error) throw error;
-
-        // Apply metadata and H1 content overrides
-        if (fix.fix_type === "metadata" || (fix.fix_type === "content" && fix.category === "h1")) {
-          const categoryToField: Record<string, string> = {
-            title: "title", description: "description", h1: "h1",
-            og_title: "og_title", og_description: "og_description",
-            meta_title: "title", meta_description: "description",
-          };
-          const field = categoryToField[fix.category] || fix.category;
-
-          await supabase
-            .from("seo_overrides")
-            .upsert(
-              { page_url: fix.page_url, field, value: fix.proposed_value, source_fix_id: fix.id },
-              { onConflict: "page_url,field" }
-            );
-        }
-
-        successCount++;
-      } catch {
-        errorCount++;
-      }
-    }
-
-    // Refresh fixes state
-    setFixes(prev => prev.map(f =>
-      f.status === "pending" ? { ...f, status: "applied" as any, reviewed_at: new Date().toISOString() } : f
-    ));
-
-    setBulkApproving(false);
-
-    if (errorCount === 0) {
-      toast.success(`${successCount} corrections approuvées et appliquées ! 🚀`);
-    } else {
-      toast.warning(`${successCount} approuvées, ${errorCount} erreurs`);
-    }
-  };
 
   const exportPDF = async () => {
     if (!auditResult) {
@@ -1118,6 +921,17 @@ const SEODashboard = () => {
 
   return (
     <div className="p-6 space-y-6">
+      {/* Explanation banner — read-only mode */}
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
+        <p className="font-semibold mb-1">Ce tableau de bord est consultatif.</p>
+        <p>
+          Les suggestions ci-dessous ne sont plus appliquées automatiquement au site : elles servent de diagnostic.
+          Les titres, descriptions et redirections se modifient désormais dans le code (scripts/prerender.mjs,
+          src/data/citySeoTitles.json) ou, pour une redirection ponctuelle, dans l'onglet Redirections.
+          Décision du 20/07/2026, après que des contenus erronés eurent été appliqués automatiquement en production.
+        </p>
+      </div>
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
@@ -1184,11 +998,6 @@ const SEODashboard = () => {
       {/* Fixes Review Panel */}
       <FixesReviewPanel
         fixes={fixes}
-        onApprove={(id) => updateFixStatus(id, "approved")}
-        onReject={(id) => updateFixStatus(id, "rejected")}
-        onApproveAll={bulkApproveAll}
-        updating={updatingFix}
-        bulkApproving={bulkApproving}
       />
 
       {/* Cannibalization Panel */}
