@@ -275,14 +275,7 @@ const FixCard = ({ fix }: { fix: SEOFix }) => {
 };
 
 // --- Fixes Review Panel ---
-const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, bulkApproving }: {
-  fixes: SEOFix[];
-  onApprove: (id: string) => void;
-  onReject: (id: string) => void;
-  onApproveAll: () => void;
-  updating: string | null;
-  bulkApproving: boolean;
-}) => {
+const FixesReviewPanel = ({ fixes }: { fixes: SEOFix[] }) => {
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const pendingCount = fixes.filter(f => f.status === "pending").length;
   const approvedCount = fixes.filter(f => f.status === "approved").length;
@@ -307,7 +300,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
       <div className="flex items-center justify-between flex-wrap gap-2">
         <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
           <Wrench className="w-4 h-4 text-primary" />
-          Corrections IA à valider
+          Corrections IA proposées
           {pendingCount > 0 && (
             <Badge className="bg-yellow-100 text-yellow-700 border-yellow-200 text-[10px]">
               {pendingCount} en attente
@@ -319,37 +312,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
             </Badge>
           )}
         </h3>
-        <div className="flex items-center gap-2">
-          {pendingCount > 0 && (
-            <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <Button
-                  size="sm"
-                  disabled={bulkApproving}
-                  className="bg-green-600 hover:bg-green-700 text-white text-[10px] h-7 px-2.5"
-                >
-                  {bulkApproving ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
-                  Tout approuver ({pendingCount})
-                </Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Confirmer l'approbation en lot</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Vous êtes sur le point d'approuver et appliquer <strong>{pendingCount} correction{pendingCount > 1 ? "s" : ""}</strong> en attente.
-                    Les overrides metadata seront immédiatement actifs sur le site. Cette action est irréversible.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Annuler</AlertDialogCancel>
-                  <AlertDialogAction onClick={onApproveAll} className="bg-green-600 hover:bg-green-700">
-                    Tout approuver
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
-          )}
-          <div className="flex gap-1">
+        <div className="flex gap-1">
           {["all", "pending", "approved", "rejected"].map(s => (
             <button
               key={s}
@@ -363,7 +326,6 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
               {s === "all" ? "Tous" : s === "pending" ? "En attente" : s === "approved" ? "Approuvés" : "Rejetés"}
             </button>
           ))}
-          </div>
         </div>
       </div>
 
@@ -371,7 +333,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
         <div key={url} className="space-y-2">
           <p className="text-xs font-semibold text-foreground border-b border-border pb-1">{url}</p>
           {pageFixes.map(fix => (
-            <FixCard key={fix.id} fix={fix} onApprove={onApprove} onReject={onReject} updating={updating} />
+            <FixCard key={fix.id} fix={fix} />
           ))}
         </div>
       ))}
