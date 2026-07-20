@@ -42,7 +42,7 @@ const formations = [
     icon: Car,
     color: "#E8793A",
     bgColor: "rgba(232,121,58,0.08)",
-    price: 239,
+    price: 250,
     duration: "14h",
     format: "2 jours",
     path: "/formations/continue-taxi",
@@ -63,7 +63,7 @@ const formations = [
     icon: Bike,
     color: "#1B4332",
     bgColor: "rgba(27,67,50,0.08)",
-    price: 239,
+    price: 250,
     duration: "7h",
     format: "1 jour",
     path: "/formations/continue-vmdtr",
@@ -82,7 +82,7 @@ const formations = [
 
 const comparisonRows = [
   { label: "Durée", vtc: "14h (2 jours)", taxi: "14h (2 jours)", vmdtr: "7h (1 jour)" },
-  { label: "Prix TTC", vtc: "170€", taxi: "239€", vmdtr: "239€" },
+  { label: "Prix TTC", vtc: "170€", taxi: "250€", vmdtr: "250€" },
   { label: "Fréquence obligatoire", vtc: "Tous les 5 ans", taxi: "Tous les 5 ans", vmdtr: "Tous les 5 ans" },
   { label: "Attestation", vtc: "Le jour même", taxi: "Le jour même", vmdtr: "Le jour même" },
   { label: "Format", vtc: "Présentiel Montrouge", taxi: "Présentiel Montrouge", vmdtr: "Présentiel Montrouge" },
@@ -116,7 +116,7 @@ const faqs = [
   },
   {
     question: "Peut-on financer la formation continue ?",
-    answer: "La formation continue (170€ à 239€) n'est pas éligible au CPF en raison de son tarif inférieur aux seuils CPF. Son prix accessible permet un financement personnel direct. Pour les auto-entrepreneurs, cette dépense est déductible du chiffre d'affaires comme frais professionnel. Les salariés peuvent se tourner vers leur OPCO via une convention de formation.",
+    answer: "La formation continue (170€ à 250€) n'est pas éligible au CPF en raison de son tarif inférieur aux seuils CPF. Son prix accessible permet un financement personnel direct. Pour les auto-entrepreneurs, cette dépense est déductible du chiffre d'affaires comme frais professionnel. Les salariés peuvent se tourner vers leur OPCO via une convention de formation.",
   },
   {
     question: "ECOLE T3P est-il agréé pour la formation continue ?",
