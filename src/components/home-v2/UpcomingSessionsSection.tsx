@@ -3,8 +3,7 @@ import { CalendarDays, Users, ArrowRight, Clock } from "lucide-react";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
-import { format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
 
 interface SessionWithFormation {
   id: string;
