@@ -109,7 +109,7 @@ const FormationContinueVTC = () => (
     ]}
     relatedLinks={[
       { title: "Formation VTC Initiale", desc: "Obtenez votre carte professionnelle VTC — à partir de 990€", path: "/formations/vtc" },
-      { title: "Formation Continue Taxi", desc: "Renouvelez votre carte Taxi — 239€", path: "/formations/continue-taxi" },
+      { title: "Formation Continue Taxi", desc: "Renouvelez votre carte Taxi — 250€", path: "/formations/continue-taxi" },
       { title: "Passerelle VTC ↔ Taxi", desc: "Doublez vos revenus avec une seconde carte", path: "/passerelle-vtc-taxi" },
       { title: "Renouvellement carte pro", desc: "Tout savoir sur le renouvellement de carte", path: "/renouvellement-carte-professionnelle" },
     ]}

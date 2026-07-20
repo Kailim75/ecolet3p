@@ -69,7 +69,7 @@ const routes = [
   // ── Formations continues ──
   {
     path: '/formations/continue-taxi',
-    title: 'Formation Continue Taxi 14h Montrouge — 239€ | ECOLE T3P',
+    title: 'Formation Continue Taxi 14h Montrouge — 250€ | ECOLE T3P',
     description: 'Formation continue obligatoire Taxi 14h à Montrouge (92). Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture. Attestation immédiate.',
     h1: 'Formation Continue Taxi',
   },
@@ -81,7 +81,7 @@ const routes = [
   },
   {
     path: '/formations/continue-vmdtr',
-    title: 'Formation Continue VMDTR 14h Montrouge — 239€ | ECOLE T3P',
+    title: 'Formation Continue VMDTR 14h Montrouge — 250€ | ECOLE T3P',
     description: 'Formation continue obligatoire VMDTR (moto-taxi) 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation immédiate.',
     h1: 'Formation Continue VMDTR',
   },

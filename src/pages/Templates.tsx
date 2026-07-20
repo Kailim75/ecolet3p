@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 const templates = [
   {
      title: "Formation Continue (Générique)",
-     description: "Flyer A5 recto-verso regroupant toutes les formations continues (VTC 170€, Taxi/VMDTR 239€)",
+     description: "Flyer A5 recto-verso regroupant toutes les formations continues (VTC 170€, Taxi/VMDTR 250€)",
     path: "/templates/flyer-formation-continue.html",
     icon: FileText,
     category: "Flyer Continue"
   },
   {
      title: "Formation Continue TAXI",
-     description: "Flyer A5 recto-verso pour la formation continue Taxi - 239€",
+     description: "Flyer A5 recto-verso pour la formation continue Taxi - 250€",
      path: "/templates/flyer-continue-taxi.html",
      icon: Car,
      category: "Flyer Continue"
@@ -28,7 +28,7 @@ const templates = [
    },
    {
      title: "Formation Continue VMDTR",
-     description: "Flyer A5 recto-verso pour la formation continue Moto-Taxi - 239€",
+     description: "Flyer A5 recto-verso pour la formation continue Moto-Taxi - 250€",
      path: "/templates/flyer-continue-vmdtr.html",
      icon: Bike,
      category: "Flyer Continue"
