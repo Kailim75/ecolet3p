@@ -4,16 +4,19 @@ import { useSEOOverrides } from "@/hooks/useSEOOverrides";
 import { getCanonicalUrl } from "@/lib/siteConfig";
 
 /**
- * Supprime la canonique statique issue du prérendu une fois que Helmet a posé la sienne.
- * Helmet ne gère que les balises qu'il a créées (marquées `data-rh`) : c'est à nous de
- * retirer l'autre, sinon deux canoniques divergentes peuvent coexister.
+ * Retire la canonique statique du prérendu UNIQUEMENT si Helmet en a réellement posé une.
+ *
+ * Chaque page prérendue contient une canonique en dur, et Helmet en ajoute une seconde :
+ * deux canoniques divergentes seraient ignorées par Google. Mais si Helmet est inopérant,
+ * la statique est la SEULE que nous ayons — la retirer laisserait la page sans canonique,
+ * ce qui est pire que le doublon. On ne supprime donc jamais sans remplaçant confirmé.
  */
 const useSingleCanonical = (canonical: string) => {
   useEffect(() => {
-    const stale = document.querySelectorAll<HTMLLinkElement>(
-      'link[rel="canonical"]:not([data-rh])'
-    );
-    stale.forEach((tag) => tag.remove());
+    const toutes = [...document.querySelectorAll<HTMLLinkElement>('link[rel="canonical"]')];
+    const celleDeHelmet = toutes.find((tag) => tag.hasAttribute("data-rh"));
+    if (!celleDeHelmet) return;
+    toutes.filter((tag) => tag !== celleDeHelmet).forEach((tag) => tag.remove());
   }, [canonical]);
 };
 
