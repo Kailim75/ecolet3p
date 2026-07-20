@@ -104,8 +104,7 @@ const ContinueFormationTemplate = ({
       }
     },
     "offers": { "@type": "Offer", "price": price, "priceCurrency": "EUR" },
-    "timeRequired": `PT${duration.replace(/\D/g, "")}H`,
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "359" }
+    "timeRequired": `PT${duration.replace(/\D/g, "")}H`
   };
 
   const faqSchema = {

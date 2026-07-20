@@ -179,7 +179,6 @@ const FormationDetailTemplate = ({
     description,
     provider: { "@type": "EducationalOrganization", name: "ECOLE T3P", url: "https://ecolet3p.fr" },
     offers: { "@type": "Offer", price: 990, priceCurrency: "EUR" },
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "359" },
   };
 
   const faqSchema = {

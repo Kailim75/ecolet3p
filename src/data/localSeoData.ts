@@ -47,7 +47,12 @@ export interface CityData {
   enrichedFaqs?: LocalFaq[];
 }
 
-/** Pool of testimonials attributed by department */
+/**
+ * Témoignages de stagiaires, avec le département RÉEL de chaque personne.
+ * Ne jamais réécrire le champ `city` pour le faire correspondre à la page consultée :
+ * présenter un témoignage comme provenant d'une ville où son auteur n'habite pas
+ * est trompeur (art. L.111-7-2 du code de la consommation) et ne doit pas revenir.
+ */
 const testimonialPool: LocalTestimonial[] = [
   { name: "Moussa K.", role: "Chauffeur VTC diplômé en 2025", content: "J'ai hésité longtemps avant de me lancer. La formation à ECOLE T3P m'a donné confiance : les formateurs sont d'anciens chauffeurs qui comprennent nos questions. J'ai eu ma carte VTC du premier coup et je travaille aujourd'hui sur Uber et Bolt.", city: "Val-de-Marne" },
   { name: "Fatou D.", role: "Chauffeure Taxi diplômée en 2024", content: "Après 15 ans en restauration, j'ai voulu changer de vie. ECOLE T3P m'a accompagnée de A à Z : formation, examen, création d'entreprise. Le centre est bien situé, j'y allais en RER sans problème. Aujourd'hui je suis artisan taxi à mon compte.", city: "Essonne" },
@@ -57,13 +62,17 @@ const testimonialPool: LocalTestimonial[] = [
   { name: "Nadia M.", role: "Chauffeure VTC diplômée en 2025", content: "En tant que mère de famille, le e-learning a été parfait pour moi. J'ai pu réviser à mon rythme tout en gardant mes enfants. L'examen s'est très bien passé grâce à la préparation complète d'ECOLE T3P.", city: "Paris" },
 ];
 
-/** Get a testimonial matched to the city's department */
+/**
+ * Sélectionne un témoignage à afficher sur une page ville.
+ * On privilégie un stagiaire du même département, sinon on en prend un de façon
+ * déterministe. Dans tous les cas le témoignage est renvoyé TEL QUEL : son
+ * département d'origine est conservé et jamais remplacé par celui de la page.
+ */
 export const getTestimonialForCity = (city: CityData): LocalTestimonial => {
   const match = testimonialPool.find(t => t.city === city.department);
-  if (match) return { ...match, city: city.name };
+  if (match) return match;
   const hash = city.name.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-  const t = testimonialPool[hash % testimonialPool.length];
-  return { ...t, city: city.name };
+  return testimonialPool[hash % testimonialPool.length];
 };
 
 /** Generate local FAQs — uses enriched FAQs if available */
