@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
-  ArrowRight, ArrowRightLeft, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
+  ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
   Bell, BellOff, Settings2, FileDown, Wrench, Copy, ClipboardCheck,
 } from "lucide-react";
 import jsPDF from "jspdf";
@@ -343,47 +343,7 @@ const FixesReviewPanel = ({ fixes }: { fixes: SEOFix[] }) => {
 
 // --- Cannibalization Panel ---
 const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) => {
-  const [creatingRedirect, setCreatingRedirect] = useState<string | null>(null);
-  const [createdRedirects, setCreatedRedirects] = useState<Set<string>>(new Set());
-
   if (!groups || groups.length === 0) return null;
-
-  const createRedirect = async (fromPath: string, toPath: string, keyword: string) => {
-    const key = `${fromPath}->${toPath}`;
-    setCreatingRedirect(key);
-    try {
-      const { error } = await supabase.from("seo_redirects").insert({
-        from_path: fromPath,
-        to_path: toPath,
-        source: "cannibalization",
-        cannibalization_keyword: keyword,
-        notes: `Auto-créé depuis audit cannibalisation — « ${keyword} »`,
-      });
-
-      if (error) {
-        if (error.code === "23505") {
-          toast.warning("Redirection déjà existante pour ce chemin");
-          setCreatedRedirects(prev => new Set(prev).add(key));
-        } else {
-          toast.error("Erreur lors de la création");
-        }
-      } else {
-        toast.success(`Redirection 301 créée : ${fromPath} → ${toPath}`);
-        setCreatedRedirects(prev => new Set(prev).add(key));
-      }
-    } catch {
-      toast.error("Erreur inattendue");
-    }
-    setCreatingRedirect(null);
-  };
-
-  const createAllRedirects = async (group: CannibalizationGroup) => {
-    if (group.pages.length < 2) return;
-    const targetPage = group.pages[0]; // Keep first page, redirect others
-    for (let i = 1; i < group.pages.length; i++) {
-      await createRedirect(group.pages[i].url, targetPage.url, group.keyword);
-    }
-  };
 
   const severityStyles: Record<string, string> = {
     high: "border-red-200 bg-red-50/40",
@@ -436,8 +396,6 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
             <div className="space-y-1.5">
               {group.pages.map((page, pIdx) => {
                 const isTarget = pIdx === 0;
-                const redirectKey = `${page.url}->${group.pages[0].url}`;
-                const alreadyCreated = createdRedirects.has(redirectKey);
 
                 return (
                   <div key={pIdx} className="flex items-center gap-2 text-xs">
@@ -453,23 +411,6 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
                       {isTarget && <span className="text-green-600 ml-1">(page cible)</span>}
                       <span className="text-muted-foreground"> — {page.overlap_reason}</span>
                     </div>
-                    {!isTarget && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => createRedirect(page.url, group.pages[0].url, group.keyword)}
-                        disabled={creatingRedirect === redirectKey || alreadyCreated}
-                        className="text-[10px] h-6 px-2 shrink-0"
-                      >
-                        {alreadyCreated ? (
-                          <><CheckCircle className="w-3 h-3 mr-1 text-green-600" /> Créé</>
-                        ) : creatingRedirect === redirectKey ? (
-                          <Loader2 className="w-3 h-3 animate-spin" />
-                        ) : (
-                          <><ArrowRightLeft className="w-3 h-3 mr-1" /> 301</>
-                        )}
-                      </Button>
-                    )}
                   </div>
                 );
               })}
@@ -480,17 +421,6 @@ const CannibalizationPanel = ({ groups }: { groups: CannibalizationGroup[] }) =>
               <p className="text-xs text-foreground">{group.recommendation}</p>
             </div>
 
-            {group.pages.length > 2 && (
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => createAllRedirects(group)}
-                className="text-[10px] h-7 border-primary/30 text-primary hover:bg-primary/5"
-              >
-                <ArrowRightLeft className="w-3 h-3 mr-1" />
-                Créer toutes les redirections vers {group.pages[0].url}
-              </Button>
-            )}
           </div>
         ))}
       </div>
