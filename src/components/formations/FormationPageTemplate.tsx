@@ -4,9 +4,10 @@ import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
   Home, ChevronRight, GraduationCap, CalendarDays, Users,
-  Calendar, Trophy
+  Calendar, Trophy, Info
 } from "lucide-react";
 import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
+import { getSessionFormat } from "@/lib/sessionFormat";
 import type { LucideIcon } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import {
