@@ -149,7 +149,7 @@ const RenouvellementCarteProfessionnelle = () => {
               className="flex flex-wrap gap-3 mb-8"
             >
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Euro className="w-4 h-4" /> 350€
+                <Euro className="w-4 h-4" /> À partir de 170€
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
                 <Clock className="w-4 h-4" /> 14h sur 2 jours
