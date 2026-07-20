@@ -7,7 +7,7 @@ import {
   GraduationCap, Phone, Calendar, Star, Trophy, Users,
   Shield, Car, Home, ChevronRight, CreditCard, Building2
 } from "lucide-react";
-import { getCityBySlug, cities, getLocalFaqs, getTestimonialForCity } from "@/data/localSeoData";
+import { getCityBySlug, cities, activeCities, RETIRED_CITY_SLUGS, getLocalFaqs, getTestimonialForCity } from "@/data/localSeoData";
 import {
   Accordion,
   AccordionContent,
