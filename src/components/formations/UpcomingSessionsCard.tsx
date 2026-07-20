@@ -51,7 +51,7 @@ const SessionRow = ({
     <div className="border-l-4 border-[#D4A017] bg-white rounded-r-lg p-4 space-y-2">
       <div className="flex items-center justify-between">
         <div>
-          <p className="font-semibold capitalize">{label}</p>
+          <p className="font-semibold">{label}</p>
           <p className="text-sm text-muted-foreground">{time}</p>
         </div>
         <div>
