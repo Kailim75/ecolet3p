@@ -106,13 +106,7 @@ const educationalOrganizationSchema = {
     { "@type": "AdministrativeArea", "name": "Val-de-Marne" },
     { "@type": "AdministrativeArea", "name": "Seine-Saint-Denis" },
     { "@type": "AdministrativeArea", "name": "Île-de-France" }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "359",
-    "bestRating": "5"
-  }
+  ]
 };
 
 const coursesItemListSchema = {

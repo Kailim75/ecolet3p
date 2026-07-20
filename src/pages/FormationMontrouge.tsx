@@ -131,7 +131,6 @@ const localBusinessSchema = {
     addressCountry: "FR",
   },
   geo: { "@type": "GeoCoordinates", latitude: 48.8155, longitude: 2.3137 },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "359" },
   priceRange: "€€",
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "09:30", closes: "12:30" },

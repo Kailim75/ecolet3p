@@ -189,8 +189,7 @@ const FormationPageTemplate = ({
         "name": "ECOLE T3P - Campus Montrouge",
         "address": { "@type": "PostalAddress", "addressLocality": "Montrouge", "postalCode": "92120" }
       }
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "359" }
+    }
   };
 
   const faqSchema = {

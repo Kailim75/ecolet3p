@@ -57,7 +57,6 @@ const FormationVille = () => {
       "name": city.name,
       "containedInPlace": { "@type": "AdministrativeArea", "name": city.department }
     },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "359" },
     "priceRange": "€€"
   };
 
@@ -389,11 +388,10 @@ const FormationVille = () => {
         <section className="section-padding bg-background">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto card-t3p border-l-4 border-l-accent">
-              <div className="flex gap-0.5 mb-3">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                ))}
-                <span className="ml-2 text-xs text-muted-foreground">Avis vérifié Google</span>
+              <div className="mb-3">
+                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Témoignage de stagiaire
+                </span>
               </div>
               <p className="text-sm text-foreground italic mb-4 leading-relaxed">"{testimonial.content}"</p>
               <div>
