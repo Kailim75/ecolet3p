@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
-  ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
+  ArrowRight, ArrowRightLeft, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
   Bell, BellOff, Settings2, FileDown, Wrench, Copy, ClipboardCheck,
 } from "lucide-react";
 import jsPDF from "jspdf";
@@ -703,8 +703,6 @@ const SEODashboard = () => {
   const [showAlertSettings, setShowAlertSettings] = useState(false);
   const [fixes, setFixes] = useState<SEOFix[]>([]);
   const [generatingFix, setGeneratingFix] = useState<string | null>(null);
-  const [updatingFix, setUpdatingFix] = useState<string | null>(null);
-  const [bulkApproving, setBulkApproving] = useState(false);
   const [lastAuditId, setLastAuditId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -801,131 +799,6 @@ const SEODashboard = () => {
     }
   };
 
-  const updateFixStatus = async (fixId: string, status: "approved" | "rejected") => {
-    setUpdatingFix(fixId);
-    try {
-      const newStatus = status === "approved" ? "applied" : status;
-      const { error } = await supabase
-        .from("seo_fixes")
-        .update({ status: newStatus, reviewed_at: new Date().toISOString() })
-        .eq("id", fixId);
-
-      if (error) throw error;
-
-      // When approving a metadata fix, upsert the override into seo_overrides
-      if (status === "approved") {
-        const fix = fixes.find(f => f.id === fixId);
-        const isMetadataFix = fix && fix.fix_type === "metadata";
-        const isH1ContentFix = fix && fix.fix_type === "content" && fix.category === "h1";
-
-        if (fix && (isMetadataFix || isH1ContentFix)) {
-          // Map category to field name
-          const categoryToField: Record<string, string> = {
-            title: "title",
-            description: "description",
-            h1: "h1",
-            og_title: "og_title",
-            og_description: "og_description",
-            meta_title: "title",
-            meta_description: "description",
-          };
-          const field = categoryToField[fix.category] || fix.category;
-
-          const { error: upsertErr } = await supabase
-            .from("seo_overrides")
-            .upsert(
-              {
-                page_url: fix.page_url,
-                field,
-                value: fix.proposed_value,
-                source_fix_id: fix.id,
-              },
-              { onConflict: "page_url,field" }
-            );
-
-          if (upsertErr) {
-            console.error("Failed to apply override:", upsertErr);
-            toast.error("Correction approuvée mais erreur lors de l'application");
-          } else {
-            toast.success("Correction appliquée en production ! 🚀");
-          }
-        } else {
-          toast.success("Correction approuvée ✅ (application manuelle requise pour ce type)");
-        }
-      } else {
-        // If rejecting, also remove any existing override for this fix
-        const fix = fixes.find(f => f.id === fixId);
-        if (fix) {
-          await supabase
-            .from("seo_overrides")
-            .delete()
-            .eq("source_fix_id", fixId);
-        }
-        toast.success("Correction rejetée ❌");
-      }
-
-      setFixes(prev => prev.map(f => f.id === fixId ? { ...f, status: newStatus as any, reviewed_at: new Date().toISOString() } : f));
-    } catch (err: any) {
-      console.error("Fix update error:", err);
-      toast.error("Erreur lors de la mise à jour");
-    } finally {
-      setUpdatingFix(null);
-    }
-  };
-
-  const bulkApproveAll = async () => {
-    const pendingFixes = fixes.filter(f => f.status === "pending");
-    if (pendingFixes.length === 0) return;
-
-    setBulkApproving(true);
-    let successCount = 0;
-    let errorCount = 0;
-
-    for (const fix of pendingFixes) {
-      try {
-        const { error } = await supabase
-          .from("seo_fixes")
-          .update({ status: "applied", reviewed_at: new Date().toISOString() })
-          .eq("id", fix.id);
-
-        if (error) throw error;
-
-        // Apply metadata and H1 content overrides
-        if (fix.fix_type === "metadata" || (fix.fix_type === "content" && fix.category === "h1")) {
-          const categoryToField: Record<string, string> = {
-            title: "title", description: "description", h1: "h1",
-            og_title: "og_title", og_description: "og_description",
-            meta_title: "title", meta_description: "description",
-          };
-          const field = categoryToField[fix.category] || fix.category;
-
-          await supabase
-            .from("seo_overrides")
-            .upsert(
-              { page_url: fix.page_url, field, value: fix.proposed_value, source_fix_id: fix.id },
-              { onConflict: "page_url,field" }
-            );
-        }
-
-        successCount++;
-      } catch {
-        errorCount++;
-      }
-    }
-
-    // Refresh fixes state
-    setFixes(prev => prev.map(f =>
-      f.status === "pending" ? { ...f, status: "applied" as any, reviewed_at: new Date().toISOString() } : f
-    ));
-
-    setBulkApproving(false);
-
-    if (errorCount === 0) {
-      toast.success(`${successCount} corrections approuvées et appliquées ! 🚀`);
-    } else {
-      toast.warning(`${successCount} approuvées, ${errorCount} erreurs`);
-    }
-  };
 
   const exportPDF = async () => {
     if (!auditResult) {
@@ -1184,11 +1057,6 @@ const SEODashboard = () => {
       {/* Fixes Review Panel */}
       <FixesReviewPanel
         fixes={fixes}
-        onApprove={(id) => updateFixStatus(id, "approved")}
-        onReject={(id) => updateFixStatus(id, "rejected")}
-        onApproveAll={bulkApproveAll}
-        updating={updatingFix}
-        bulkApproving={bulkApproving}
       />
 
       {/* Cannibalization Panel */}
