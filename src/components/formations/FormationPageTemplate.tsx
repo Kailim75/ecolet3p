@@ -6,8 +6,7 @@ import {
   Home, ChevronRight, GraduationCap, CalendarDays, Users,
   Calendar, Trophy
 } from "lucide-react";
-import { format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
 import type { LucideIcon } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import {
@@ -318,13 +317,12 @@ const FormationPageTemplate = ({
                 const spots = session.max_participants - session.current_participants;
                 const full = spots <= 0;
                 const urgent = spots > 0 && spots <= 3;
-                const startDate = new Date(session.start_date);
                 return (
                   <div key={session.id} className="card-t3p flex flex-col gap-2">
                     <h3 className="text-sm font-bold text-primary">{session.formation_title || badge}</h3>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CalendarDays className="w-4 h-4 text-primary shrink-0" />
-                      <span className="capitalize">{format(startDate, "d MMMM yyyy", { locale: fr })}</span>
+                      <span>{formatSessionPeriod(session.start_date, session.end_date)}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Clock className="w-4 h-4 text-primary shrink-0" />
