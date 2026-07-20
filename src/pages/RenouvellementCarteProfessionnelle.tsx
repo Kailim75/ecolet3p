@@ -28,9 +28,9 @@ const results = [
 ];
 
 const formations = [
-  { title: "Formation Continue VTC", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VTC." },
-  { title: "Formation Continue TAXI", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle Taxi." },
-  { title: "Formation Continue VMDTR", price: "350€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VMDTR." },
+  { title: "Formation Continue VTC", price: "170€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VTC." },
+  { title: "Formation Continue TAXI", price: "250€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle Taxi." },
+  { title: "Formation Continue VMDTR", price: "250€", validity: "Tous les 5 ans", description: "Obligatoire pour renouveler votre carte professionnelle VMDTR." },
 ];
 
 const programSteps = [
