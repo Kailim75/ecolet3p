@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { CalendarDays, Users, ArrowRight, Clock } from "lucide-react";
+import { CalendarDays, Users, ArrowRight, Clock, Info } from "lucide-react";
 import { useFormationSessions, getAvailableSpots, isSessionFull } from "@/hooks/useFormationSessions";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
+import { getSessionFormat } from "@/lib/sessionFormat";
 
 interface SessionWithFormation {
   id: string;
@@ -14,6 +15,7 @@ interface SessionWithFormation {
   max_participants: number;
   current_participants: number;
   status: string;
+  notes: string | null;
   formation_title: string;
   formation_category: string;
 }
