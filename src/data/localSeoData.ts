@@ -547,6 +547,29 @@ export const cities: CityData[] = [
     localContext: "Antony, porte d'entrée vers l'aéroport d'Orly via l'Orlyval, est une ville stratégique pour les futurs chauffeurs. Nombreux sont les Antoniens qui choisissent notre centre pour leur formation TAXI ou VTC.",
     seoTitle: "Formation Taxi VTC Antony (92160) | ECOLE T3P - Centre à 18 min en RER",
     seoDescription: "Formation TAXI et VTC à Antony (92160). Centre ECOLE T3P à 18 min en RER B. Formation agréée Préfecture, 94% de réussite. Connexion Orlyval.",
+    introTitle: "Antony — Formation Taxi & VTC à 18 minutes en RER B",
+    introText: [
+      "Vous habitez Antony, du centre-ville au quartier du Noyer Doré, de la Croix de Berny au Parc Heller ? Notre centre de formation à Montrouge est à moins de vingt minutes. Depuis la gare d'Antony, le RER B vous conduit à Denfert-Rochereau, puis la ligne 4 dessert Mairie de Montrouge : le centre est à 200 mètres, au 3 rue Corneille.",
+
+      "Antony occupe une position rare en Île-de-France : la gare est directement reliée à l'aéroport d'Orly par l'Orlyval. Pour un chauffeur VTC ou taxi, c'est un avantage concret — les transferts aéroport comptent parmi les courses les mieux valorisées, et la proximité de l'A6 comme de l'A86 permet de basculer rapidement d'un secteur à l'autre.",
+
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €), 2 h de conduite et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Antony, prenez le RER B à la gare d'Antony direction Paris, descendez à Denfert-Rochereau, puis la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (quatre stations). À la sortie, le centre est au 3 rue Corneille, à 200 mètres. Les lignes de bus 286, 379, 395 et 396 desservent également le secteur. En voiture, comptez une vingtaine de minutes par la D920 ou l'A86, avec stationnement possible rue Gabriel Péri.",
+    whyChoose: [
+      { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "18 min en RER B", text: "Ligne directe depuis la gare d'Antony, puis une correspondance simple sur la ligne 4." },
+      { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) et 2 h de conduite inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
+      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir à ECOLE T3P depuis Antony ?", answer: "RER B depuis la gare d'Antony jusqu'à Denfert-Rochereau, puis ligne 4 direction Bagneux, quatre stations jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 200 mètres de la sortie. Comptez environ 18 minutes." },
+      { question: "La proximité d'Orly est-elle un avantage pour un chauffeur ?", answer: "Oui, et c'est même l'un des atouts d'Antony. La gare est reliée à Orly par l'Orlyval, et l'accès routier à l'aéroport est rapide. Les transferts aéroport sont parmi les courses les mieux valorisées : beaucoup de nos anciens stagiaires antoniens en ont fait leur activité principale." },
+      { question: "Quels horaires si je travaille déjà ?", answer: "Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) et e-learning en accès illimité. Le trajet de 18 minutes depuis Antony permet de suivre la formation du soir sans difficulté." },
+      { question: "Combien coûte la formation et comment la financer ?", answer: "990 € tout compris, frais d'examen CMA de 241 € inclus, avec 2 h de conduite et l'accompagnement à la création d'entreprise. Règlement en direct ou en 4× sans frais via Alma, soit 247,50 € par mois. Nous ne passons pas par le CPF." },
+      { question: "Dois-je passer l'examen dans les Hauts-de-Seine ?", answer: "Pour le VTC, la carte professionnelle est valable partout en France : le département d'examen n'a pas d'incidence sur votre zone de travail. Pour le taxi, l'examen est départemental et l'autorisation de stationnement dépend de la commune ; nous vous aidons à choisir en fonction de votre projet." },
+      { question: "Quel est le taux de réussite et que se passe-t-il après l'examen ?", answer: "94 % de nos stagiaires obtiennent leur carte. Après l'examen, nous vous accompagnons dans les démarches d'immatriculation et de création d'entreprise, jusqu'à votre première course." }
+    ],
     seoKeywords: ["formation taxi Antony", "formation VTC Antony", "centre formation 92160", "carte professionnelle taxi Antony", "formation chauffeur Antony", "ECOLE T3P Antony"],
     latitude: 48.7539,
     longitude: 2.2975
@@ -565,6 +588,29 @@ export const cities: CityData[] = [
     localContext: "Bourg-la-Reine, charmante ville résidentielle entre Sceaux et Montrouge, bénéficie d'un accès direct à notre centre via le RER B. Les Réginaburgiens souhaitant devenir chauffeur TAXI ou VTC rejoignent ECOLE T3P en seulement 12 minutes.",
     seoTitle: "Formation Taxi VTC Bourg-la-Reine (92340) | ECOLE T3P - Centre à 12 min en RER",
     seoDescription: "Formation TAXI et VTC à Bourg-la-Reine (92340). Centre ECOLE T3P à 12 min en RER B. Formation agréée Préfecture. Gare Bourg-la-Reine ligne directe.",
+    introTitle: "Bourg-la-Reine — Formation Taxi & VTC à 12 minutes du centre",
+    introText: [
+      "Vous habitez Bourg-la-Reine, du centre-ville au quartier de la Faïencerie, près du marché couvert ou du parc ? Notre centre de formation à Montrouge est à douze minutes. La ligne de bus 128 relie directement Bourg-la-Reine à Mairie de Montrouge, et le RER B constitue une alternative rapide via Denfert-Rochereau.",
+
+      "Bourg-la-Reine est l'une des communes les plus proches de notre centre, à trois kilomètres et demi seulement. Sa position entre Sceaux, Antony et Montrouge, à l'articulation de la D920 et de l'A86, en fait un point de départ commode pour un chauffeur : Paris intra-muros est accessible en quelques minutes, et Orly reste à portée par la D920.",
+
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €), 2 h de conduite et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Bourg-la-Reine, le plus simple est la ligne de bus 128, qui dessert directement l'arrêt Mairie de Montrouge, à 200 mètres du 3 rue Corneille — sans changement. En RER B, descendez à Denfert-Rochereau puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Les lignes 197 et 395 desservent également le secteur. En voiture, comptez une dizaine de minutes par la D920 puis l'avenue Aristide Briand, avec stationnement rue Gabriel Péri.",
+    whyChoose: [
+      { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "Bus 128 direct", text: "Une seule ligne, sans changement, jusqu'à l'arrêt Mairie de Montrouge. Le centre est à 200 mètres." },
+      { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) et 2 h de conduite inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
+      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir à ECOLE T3P depuis Bourg-la-Reine ?", answer: "La ligne de bus 128 vous emmène directement à l'arrêt Mairie de Montrouge, sans changement : le centre est à 200 mètres, au 3 rue Corneille. En RER B, descendez à Denfert-Rochereau puis prenez la ligne 4. Comptez environ 12 minutes." },
+      { question: "Bourg-la-Reine est-elle bien placée pour exercer ?", answer: "C'est l'une des communes les plus proches de Paris par le sud, à l'articulation de la D920 et de l'A86. Vous rejoignez Paris intra-muros en quelques minutes, Orly par la D920, et vous couvrez facilement Sceaux, Antony, Cachan et L'Haÿ-les-Roses." },
+      { question: "Quels horaires si je travaille déjà ?", answer: "Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) et e-learning en accès illimité. Avec douze minutes de trajet, la formule du soir est particulièrement adaptée aux Réginaburgiens en reconversion." },
+      { question: "Combien coûte la formation et comment la financer ?", answer: "990 € tout compris, frais d'examen CMA de 241 € inclus, avec 2 h de conduite et l'accompagnement à la création d'entreprise. Règlement en direct ou en 4× sans frais via Alma, soit 247,50 € par mois. Nous ne passons pas par le CPF." },
+      { question: "Puis-je travailler à Paris avec une carte obtenue dans le 92 ?", answer: "Pour le VTC, oui : la carte professionnelle est valable sur tout le territoire national. Pour le taxi, l'examen est départemental et l'autorisation de stationnement dépend de la commune ; nous vous aidons à choisir le département le plus cohérent avec votre projet." },
+      { question: "Quel est le taux de réussite ?", answer: "94 % de nos stagiaires obtiennent leur carte, un résultat très au-dessus de la moyenne nationale. Il s'explique par des formateurs anciens chauffeurs et une préparation intensive à l'examen CMA." }
+    ],
     seoKeywords: ["formation taxi Bourg-la-Reine", "formation VTC Bourg-la-Reine", "centre formation 92340", "carte professionnelle taxi Bourg-la-Reine", "formation chauffeur Bourg-la-Reine", "ECOLE T3P Bourg-la-Reine"],
     latitude: 48.7797,
     longitude: 2.3164
@@ -583,6 +629,29 @@ export const cities: CityData[] = [
     localContext: "Le Plessis-Robinson, ville célèbre pour sa cité-jardin et ses espaces verts, est bien desservie vers Montrouge. Les Robinsonnais souhaitant se former aux métiers du transport de personnes rejoignent notre centre facilement.",
     seoTitle: "Formation Taxi VTC Le Plessis-Robinson (92350) | ECOLE T3P - Centre à 18 min",
     seoDescription: "Formation TAXI et VTC au Plessis-Robinson (92350). Centre ECOLE T3P à 18 min en bus. Formation agréée Préfecture. Proche cité-jardin.",
+    introTitle: "Le Plessis-Robinson — Formation Taxi & VTC à 18 minutes",
+    introText: [
+      "Vous habitez Le Plessis-Robinson, de la cité-jardin au quartier du Pierrier, près du Parc Henri Sellier ou de la Forêt de Verrières ? Notre centre de formation à Montrouge est à moins de vingt minutes. Le tramway T6 vous rapproche de Châtillon-Montrouge, d'où plusieurs lignes de bus rejoignent le centre de Montrouge.",
+
+      "Le Plessis-Robinson a beaucoup changé en vingt ans : la reconstruction du centre-ville et l'arrivée du T6 ont désenclavé la commune et l'ont rapprochée du pôle d'affaires de Vélizy comme du sud parisien. Pour un chauffeur, c'est un secteur résidentiel aisé, où la demande de courses régulières — trajets domicile-travail, gares, aéroports — reste soutenue toute l'année.",
+
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €), 2 h de conduite et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Le Plessis-Robinson, rejoignez Châtillon-Montrouge par le tramway T6, puis empruntez l'une des lignes de bus qui desservent Montrouge (194, 290 ou 395 selon votre quartier) jusqu'aux abords de la mairie : le centre est au 3 rue Corneille. En voiture, comptez une quinzaine de minutes par la D906 puis l'avenue Aristide Briand, avec stationnement possible rue Gabriel Péri. La ligne 4 du métro, à Mairie de Montrouge, permet ensuite de rejoindre Paris en quelques minutes.",
+    whyChoose: [
+      { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "T6 puis bus", text: "Le tramway T6 jusqu'à Châtillon-Montrouge, puis un court trajet en bus vers le centre de Montrouge." },
+      { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) et 2 h de conduite inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
+      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir à ECOLE T3P depuis Le Plessis-Robinson ?", answer: "Prenez le tramway T6 jusqu'à Châtillon-Montrouge, puis une ligne de bus vers Montrouge (194, 290 ou 395 selon votre quartier). Le centre est au 3 rue Corneille. En voiture, comptez une quinzaine de minutes par la D906." },
+      { question: "Le Plessis-Robinson est-elle une bonne base pour un chauffeur ?", answer: "C'est un secteur résidentiel aisé, proche du pôle d'affaires de Vélizy et bien relié au sud parisien depuis l'arrivée du T6. La demande y est régulière toute l'année : trajets domicile-travail, gares et transferts aéroport." },
+      { question: "Quels horaires si je travaille déjà ?", answer: "Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) et e-learning en accès illimité. Le e-learning convient bien si vous préférez limiter les trajets et travailler à votre rythme." },
+      { question: "Combien coûte la formation et comment la financer ?", answer: "990 € tout compris, frais d'examen CMA de 241 € inclus, avec 2 h de conduite et l'accompagnement à la création d'entreprise. Règlement en direct ou en 4× sans frais via Alma, soit 247,50 € par mois. Nous ne passons pas par le CPF." },
+      { question: "Puis-je travailler à Paris avec une carte obtenue dans le 92 ?", answer: "Pour le VTC, oui : la carte professionnelle est valable partout en France. Pour le taxi, l'examen est départemental et l'autorisation de stationnement dépend de la commune ; nous vous aidons à choisir le département le plus cohérent avec votre projet." },
+      { question: "Quel est le taux de réussite et que se passe-t-il après ?", answer: "94 % de nos stagiaires obtiennent leur carte. Nous vous accompagnons ensuite dans les démarches d'immatriculation et de création d'entreprise, jusqu'à votre première course." }
+    ],
     seoKeywords: ["formation taxi Le Plessis-Robinson", "formation VTC Le Plessis-Robinson", "centre formation 92350", "carte professionnelle taxi Le Plessis-Robinson", "formation chauffeur Plessis-Robinson", "ECOLE T3P Le Plessis-Robinson"],
     latitude: 48.7811,
     longitude: 2.2639
