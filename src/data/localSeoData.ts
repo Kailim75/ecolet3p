@@ -403,6 +403,27 @@ export const cities: CityData[] = [
     localContext: "Le 15e arrondissement, le plus peuplé de Paris, compte de nombreux futurs chauffeurs TAXI et VTC. Notre centre à Montrouge est facilement accessible depuis Porte de Versailles ou Convention.",
     seoTitle: "Formation Taxi VTC Paris 15e (75015) | ECOLE T3P - Centre à 10 min",
     seoDescription: "Formation TAXI et VTC Paris 15e arrondissement (75015). Centre ECOLE T3P à 10 min en transport. Formation agréée Préfecture, 94% de réussite. Proche Porte de Versailles.",
+    introTitle: "Paris 15e — Formation Taxi & VTC à 10 minutes de Porte de Versailles",
+    introText: [
+      "Vous habitez le 15e arrondissement, de Convention à Vaugirard, de Beaugrenelle au Parc des Expositions ? Notre centre de formation à Montrouge est à une dizaine de minutes. Depuis Porte de Versailles, le tramway T3a vous dépose à Porte d'Orléans ; la ligne 4 dessert ensuite Mairie de Montrouge, à 200 mètres du 3 rue Corneille.",
+      "Le 15e est l'arrondissement le plus peuplé de Paris, et l'un de ceux où la demande de courses est la plus régulière : salons du Parc des Expositions, gare Montparnasse toute proche, hôpital Georges-Pompidou, quartier d'affaires du front de Seine. Les chauffeurs qui s'y installent combinent une clientèle professionnelle en semaine et une clientèle de loisirs le week-end, avec un accès direct au périphérique et à l'A6 vers Orly.",
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €), 2 h de conduite et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis le 15e, deux itinéraires simples. Par le tramway : T3a depuis Porte de Versailles jusqu'à Porte d'Orléans, puis ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Par le métro : ligne 12 ou 13 jusqu'à Montparnasse-Bienvenüe, puis ligne 4 direction Bagneux. À la sortie Mairie de Montrouge, le centre est au 3 rue Corneille, à 200 mètres. En voiture, comptez une quinzaine de minutes par la porte de Versailles puis l'avenue Aristide Briand ; stationnement possible rue Gabriel Péri.",
+    whyChoose: [
+      { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "10 min du 15e", text: "T3a jusqu'à Porte d'Orléans puis ligne 4 : le centre agréé le plus accessible depuis Convention et Porte de Versailles." },
+      { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) et 2 h de conduite inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
+      { icon: Shield, title: "Agrément Préfecture", text: "Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir à ECOLE T3P depuis le 15e arrondissement ?", answer: "Le plus simple : tramway T3a depuis Porte de Versailles jusqu'à Porte d'Orléans, puis ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 200 mètres de la sortie. Comptez une dizaine de minutes depuis Porte de Versailles." },
+      { question: "Puis-je exercer à Paris avec une carte obtenue à Montrouge ?", answer: "Oui pour le VTC : la carte professionnelle est valable sur tout le territoire national, quel que soit le département où vous avez passé l'examen. Pour le taxi, l'examen est départemental et l'autorisation de stationnement est délivrée par commune : nous vous aidons pendant la formation à choisir le département d'examen le plus cohérent avec votre projet." },
+      { question: "Quels horaires si je travaille déjà à Paris ?", answer: "Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) et e-learning en accès illimité. Le format soirée est le plus choisi par les Parisiens en reconversion, qui conservent leur emploi pendant la formation." },
+      { question: "Combien coûte la formation et comment la financer ?", answer: "990 € tout compris, frais d'examen CMA de 241 € inclus, ainsi que 2 h de conduite et l'accompagnement à la création d'entreprise. Le règlement se fait en direct ou en 4× sans frais via Alma, soit 247,50 € par mois. Nous ne passons pas par le CPF." },
+      { question: "Le 15e est-il un bon secteur pour démarrer ?", answer: "C'est un arrondissement dense et bien connecté, avec une demande régulière toute l'année : salons du Parc des Expositions, gare Montparnasse, pôle hospitalier Georges-Pompidou. L'accès rapide au périphérique et à l'A6 permet aussi de capter les trajets vers Orly, souvent les plus rentables." },
+      { question: "Combien de temps dure la formation et quel est le taux de réussite ?", answer: "94 % de nos stagiaires obtiennent leur carte, un résultat très au-dessus de la moyenne nationale. La durée dépend du format choisi et de votre rythme ; nous vous préparons jusqu'à l'examen CMA et nous vous accompagnons ensuite dans vos démarches d'immatriculation." }
+    ],
     seoKeywords: ["formation taxi Paris 15", "formation VTC Paris 15e", "centre formation 75015", "carte professionnelle taxi Paris 15", "formation chauffeur Paris 15e", "ECOLE T3P Paris 15"],
     latitude: 48.8400,
     longitude: 2.2900
@@ -422,6 +443,27 @@ export const cities: CityData[] = [
     localContext: "Le 13e arrondissement de Paris, en pleine transformation avec le quartier Paris Rive Gauche, attire de nombreux futurs chauffeurs professionnels. Notre centre à Montrouge est accessible via le métro ligne 4.",
     seoTitle: "Formation Taxi VTC Paris 13e (75013) | ECOLE T3P - Centre à 15 min",
     seoDescription: "Formation TAXI et VTC Paris 13e arrondissement (75013). Centre ECOLE T3P à 15 min en métro. Formation agréée Préfecture, 94% de réussite. Proche Place d'Italie.",
+    introTitle: "Paris 13e — Formation Taxi & VTC à 15 minutes de Place d'Italie",
+    introText: [
+      "Vous habitez le 13e arrondissement, de la Place d'Italie aux Olympiades, de la Butte-aux-Cailles au quartier Paris Rive Gauche ? Notre centre de formation à Montrouge est à un quart d'heure. Depuis Porte d'Italie ou Porte de Choisy, le tramway T3a rejoint Porte d'Orléans, d'où la ligne 4 dessert Mairie de Montrouge en une station.",
+      "Le 13e s'est profondément transformé avec Paris Rive Gauche : la Bibliothèque nationale de France, l'université, les nouveaux sièges d'entreprises et la gare d'Austerlitz y génèrent un flux constant. C'est aussi l'un des arrondissements où la reconversion vers les métiers du transport est la plus fréquente, portée par une population jeune et par la proximité immédiate du périphérique sud.",
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €), 2 h de conduite et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis le 13e, le trajet le plus direct passe par le tramway T3a : montez à Porte d'Italie ou Porte de Choisy, descendez à Porte d'Orléans, puis prenez la ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Depuis Place d'Italie, la ligne 6 puis la ligne 4 à Denfert-Rochereau constituent une alternative. À la sortie du métro, le centre est au 3 rue Corneille, à 200 mètres. En voiture, comptez une quinzaine de minutes par le boulevard périphérique, sortie Porte d'Orléans ; stationnement possible rue Gabriel Péri.",
+    whyChoose: [
+      { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "15 min du 13e", text: "T3a depuis Porte d'Italie puis ligne 4 : un trajet direct, sans changement compliqué." },
+      { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) et 2 h de conduite inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
+      { icon: Shield, title: "Agrément Préfecture", text: "Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir à ECOLE T3P depuis le 13e arrondissement ?", answer: "Prenez le tramway T3a à Porte d'Italie ou Porte de Choisy jusqu'à Porte d'Orléans, puis la ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 200 mètres de la sortie. Comptez environ 15 minutes." },
+      { question: "Puis-je exercer à Paris avec une carte obtenue à Montrouge ?", answer: "Oui pour le VTC : la carte professionnelle est valable partout en France, quel que soit le département d'examen. Pour le taxi, l'examen est départemental et l'autorisation de stationnement dépend de la commune : nous vous aidons à choisir le département le plus cohérent avec votre projet." },
+      { question: "Quels horaires si je travaille ou si j'étudie ?", answer: "Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) et e-learning en accès illimité. Le format soirée et le e-learning conviennent bien aux profils du 13e qui poursuivent une activité ou des études en parallèle." },
+      { question: "Combien coûte la formation et comment la financer ?", answer: "990 € tout compris, frais d'examen CMA de 241 € inclus, avec 2 h de conduite et l'accompagnement à la création d'entreprise. Règlement en direct ou en 4× sans frais via Alma, soit 247,50 € par mois. Nous ne passons pas par le CPF." },
+      { question: "Le 13e est-il un bon secteur pour démarrer ?", answer: "Le quartier Paris Rive Gauche, la BnF, la gare d'Austerlitz et le pôle universitaire alimentent une demande soutenue en semaine. La proximité immédiate du périphérique sud et de l'A6 facilite par ailleurs les trajets vers Orly, parmi les plus intéressants pour un chauffeur qui débute." },
+      { question: "Combien de temps dure la formation et quel est le taux de réussite ?", answer: "94 % de nos stagiaires obtiennent leur carte. La durée dépend du format retenu et de votre rythme ; nous vous préparons jusqu'à l'examen CMA puis nous vous accompagnons dans vos démarches d'immatriculation." }
+    ],
     seoKeywords: ["formation taxi Paris 13", "formation VTC Paris 13e", "centre formation 75013", "carte professionnelle taxi Paris 13", "formation chauffeur Paris 13e", "ECOLE T3P Paris 13"],
     latitude: 48.8322,
     longitude: 2.3561
