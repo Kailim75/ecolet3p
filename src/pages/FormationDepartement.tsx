@@ -50,8 +50,13 @@ const FormationDepartementPage = ({ metier }: Props) => {
   const canonical = getCanonicalUrl(pageUrl);
   const prefectureUrl = metier === "taxi" ? departement.prefecture.urlTaxi : departement.prefecture.urlVtc;
 
-  const title = `Formation ${labels.short} ${departement.nom} (${departement.code}) — Préfecture & Démarches | ECOLE T3P`;
-  const description = `Formation ${labels.short} pour le département ${departement.nom} (${departement.code}) : démarches officielles auprès de la Préfecture, médecins agréés, examen T3P. Centre agréé à Montrouge — 94% de réussite, dès 990€.`;
+  // Libellé court réservé aux balises SEO : METIER_LABELS.short vaut « VMDTR (taxi moto) »,
+  // ce qui fait déborder le titre au-delà de 60 caractères. Toute modification ici doit être
+  // répercutée à l'identique dans scripts/prerender.mjs (section pages départementales).
+  const metierTitre = { vtc: "VTC", taxi: "Taxi", vmdtr: "VMDTR" }[metier];
+
+  const title = `Formation ${metierTitre} ${departement.nom} (${departement.code}) — Préfecture & Examen`;
+  const description = `Formation ${metierTitre} — ${departement.nom} (${departement.code}) : démarches préfecture, médecins agréés et examen T3P. Centre agréé à Montrouge, 94 % de réussite, dès 990 €.`;
 
   // JSON-LD : Service + BreadcrumbList + LocalBusiness reference
   const jsonLd = {
