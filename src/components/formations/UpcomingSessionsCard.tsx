@@ -7,6 +7,7 @@ import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
 interface Session {
   id: string;
   start_date: string;
+  end_date: string | null;
   start_time: string;
   end_time: string;
   max_participants: number;
@@ -21,12 +22,6 @@ interface FallbackSession {
   spots: number;
 }
 
-const formatDate = (dateString: string) =>
-  new Date(dateString).toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 
 interface UpcomingSessionsCardProps {
   sessions: Session[];

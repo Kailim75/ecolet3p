@@ -102,7 +102,6 @@ const UpcomingSessionsSection = () => {
             const spots = session.max_participants - session.current_participants;
             const full = spots <= 0;
             const urgent = spots > 0 && spots <= 3;
-            const startDate = new Date(session.start_date);
             const link = categoryLinks[session.formation_category] || "/formations";
 
             return (
@@ -124,8 +123,8 @@ const UpcomingSessionsSection = () => {
                 {/* Date */}
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <CalendarDays className="w-4 h-4 text-primary shrink-0" />
-                  <span className="capitalize">
-                    {format(startDate, "d MMMM yyyy", { locale: fr })}
+                  <span>
+                    {formatSessionPeriod(session.start_date, session.end_date)}
                   </span>
                 </div>
 
