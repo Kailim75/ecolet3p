@@ -266,6 +266,7 @@ export type Database = {
           id: string
           last_name: string
           phone: string
+          session_id: string | null
           status: string
           updated_at: string
         }
@@ -278,6 +279,7 @@ export type Database = {
           id?: string
           last_name: string
           phone: string
+          session_id?: string | null
           status?: string
           updated_at?: string
         }
@@ -290,10 +292,19 @@ export type Database = {
           id?: string
           last_name?: string
           phone?: string
+          session_id?: string | null
           status?: string
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "pre_registrations_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "formation_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       seo_audits: {
         Row: {
