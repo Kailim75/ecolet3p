@@ -22,15 +22,16 @@ const FormationVille = () => {
   const city = ville ? getCityBySlug(ville) : undefined;
   const dynamicH1 = useDynamicH1(`/formations/${ville || ""}`, city ? `Formation Taxi & VTC près de ${city.name}` : "");
 
-  if (!city) {
-    return <Navigate to="/formations" replace />;
+  // Ville retirée de l'index : on renvoie vers la page régionale, qui a du contenu réel.
+  if (!city || RETIRED_CITY_SLUGS.has(city.slug)) {
+    return <Navigate to="/formations/villes" replace />;
   }
 
   const testimonial = getTestimonialForCity(city);
   const localFaqs = getLocalFaqs(city);
 
   // Nearby cities (exclude current, max 8)
-  const nearbyCities = cities
+  const nearbyCities = activeCities
     .filter(c => c.slug !== city.slug)
     .slice(0, 8);
 
