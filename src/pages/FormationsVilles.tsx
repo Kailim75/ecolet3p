@@ -5,7 +5,7 @@ import Layout from "@/components/layout/Layout";
 import { MapPin, Train, Clock, ArrowRight, Building2 } from "lucide-react";
 import { activeCities } from "@/data/localSeoData";
 
-// Group active cities by department
+// Group active data by department
 const getCitiesByDepartment = () => {
   const grouped: Record<string, typeof activeCities> = {};
   
