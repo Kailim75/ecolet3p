@@ -139,7 +139,7 @@ const RenouvellementCarteProfessionnelle = () => {
             >
               Formation continue obligatoire de 14h pour chauffeurs VTC, Taxi et VMDTR. 
               <strong className="text-white"> Attestation délivrée le jour même</strong>, sessions chaque semaine à Montrouge (92). 
-              350€ payable en 4× sans frais.
+              À partir de 170€ — payable en 4× sans frais.
             </motion.p>
 
             <motion.div
