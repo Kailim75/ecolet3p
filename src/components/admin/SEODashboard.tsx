@@ -207,12 +207,7 @@ const ScoreHistoryChart = ({ history, threshold }: { history: AuditHistory[]; th
 };
 
 // --- Fix Card ---
-const FixCard = ({ fix, onApprove, onReject, updating }: {
-  fix: SEOFix;
-  onApprove: (id: string) => void;
-  onReject: (id: string) => void;
-  updating: string | null;
-}) => {
+const FixCard = ({ fix }: { fix: SEOFix }) => {
   const [copied, setCopied] = useState(false);
 
   const copyValue = () => {
@@ -275,30 +270,6 @@ const FixCard = ({ fix, onApprove, onReject, updating }: {
           {fix.proposed_value}
         </div>
       </div>
-
-      {fix.status === "pending" && (
-        <div className="flex items-center gap-2 pt-1">
-          <Button
-            size="sm"
-            onClick={() => onApprove(fix.id)}
-            disabled={updating === fix.id}
-            className="bg-green-600 hover:bg-green-700 text-white text-xs h-8"
-          >
-            {updating === fix.id ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
-            Approuver
-          </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => onReject(fix.id)}
-            disabled={updating === fix.id}
-            className="text-xs h-8 border-red-200 text-red-600 hover:bg-red-50"
-          >
-            <X className="w-3 h-3 mr-1" />
-            Rejeter
-          </Button>
-        </div>
-      )}
     </motion.div>
   );
 };
