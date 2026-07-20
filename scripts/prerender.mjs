@@ -193,7 +193,7 @@ const routes = [
   },
   {
     path: '/contact',
-    title: 'Contact ECOLE T3P Montrouge (92) | Taxi VTC',
+    title: 'Contact ECOLE T3P Montrouge - 01 88 75 05 55 | WhatsApp',
     description: 'Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55.',
     h1: 'Contactez-nous',
   },
