@@ -94,14 +94,14 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
         <picture>
           <source
             type="image/webp"
-            srcSet="/images/hero-formation-session-768.webp 768w, /images/hero-formation-session-1200.webp 1200w, /images/hero-formation-session.webp 1920w"
+            srcSet="/images/hero-formation-session-768.webp 768w, /images/hero-formation-session-1200.webp 1200w, /images/hero-formation-session.webp 1344w"
             sizes="100vw"
           />
           <img
             src="/images/hero-formation-session.jpg"
             alt="Session de formation Taxi VTC en salle à l'ECOLE T3P Montrouge"
-            width={1920}
-            height={1080}
+            width={1344}
+            height={768}
             loading="eager"
             decoding="sync"
             className={`w-full h-full object-cover ${isMobile ? "" : "animate-ken-burns"}`}
