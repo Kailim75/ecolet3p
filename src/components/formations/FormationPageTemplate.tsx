@@ -6,8 +6,7 @@ import {
   Home, ChevronRight, GraduationCap, CalendarDays, Users,
   Calendar, Trophy
 } from "lucide-react";
-import { format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
 import type { LucideIcon } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import {
