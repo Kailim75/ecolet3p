@@ -114,7 +114,7 @@ const UpcomingSessionsCard = ({
                     </p>
                   )}
                   <SessionRow
-                    label={formatDate(session.start_date)}
+                    label={formatSessionPeriod(session.start_date, session.end_date)}
                     time={`${session.start_time} – ${session.end_time}`}
                     spots={spots}
                     onRegister={onRegister}
