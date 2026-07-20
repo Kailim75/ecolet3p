@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { seoPages, type SEOPageInfo } from "@/data/seoPageData";
-import { ArrowRightLeft } from "lucide-react";
 import {
   Loader2, Search as SearchIcon, AlertTriangle, CheckCircle, XCircle, Info,
   ArrowRight, Sparkles, RefreshCw, ChevronDown, ChevronUp, TrendingUp, History,
-  Bell, BellOff, Settings2, FileDown, Wrench, Check, X, Copy, ClipboardCheck,
+  Bell, BellOff, Settings2, FileDown, Wrench, Copy, ClipboardCheck,
 } from "lucide-react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { Button } from "@/components/ui/button";
-import {
-  AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
-  AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
@@ -212,12 +207,7 @@ const ScoreHistoryChart = ({ history, threshold }: { history: AuditHistory[]; th
 };
 
 // --- Fix Card ---
-const FixCard = ({ fix, onApprove, onReject, updating }: {
-  fix: SEOFix;
-  onApprove: (id: string) => void;
-  onReject: (id: string) => void;
-  updating: string | null;
-}) => {
+const FixCard = ({ fix }: { fix: SEOFix }) => {
   const [copied, setCopied] = useState(false);
 
   const copyValue = () => {
@@ -280,43 +270,12 @@ const FixCard = ({ fix, onApprove, onReject, updating }: {
           {fix.proposed_value}
         </div>
       </div>
-
-      {fix.status === "pending" && (
-        <div className="flex items-center gap-2 pt-1">
-          <Button
-            size="sm"
-            onClick={() => onApprove(fix.id)}
-            disabled={updating === fix.id}
-            className="bg-green-600 hover:bg-green-700 text-white text-xs h-8"
-          >
-            {updating === fix.id ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
-            Approuver
-          </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => onReject(fix.id)}
-            disabled={updating === fix.id}
-            className="text-xs h-8 border-red-200 text-red-600 hover:bg-red-50"
-          >
-            <X className="w-3 h-3 mr-1" />
-            Rejeter
-          </Button>
-        </div>
-      )}
     </motion.div>
   );
 };
 
 // --- Fixes Review Panel ---
-const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, bulkApproving }: {
-  fixes: SEOFix[];
-  onApprove: (id: string) => void;
-  onReject: (id: string) => void;
-  onApproveAll: () => void;
-  updating: string | null;
-  bulkApproving: boolean;
-}) => {
+const FixesReviewPanel = ({ fixes }: { fixes: SEOFix[] }) => {
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const pendingCount = fixes.filter(f => f.status === "pending").length;
   const approvedCount = fixes.filter(f => f.status === "approved").length;
@@ -341,7 +300,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
       <div className="flex items-center justify-between flex-wrap gap-2">
         <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
           <Wrench className="w-4 h-4 text-primary" />
-          Corrections IA à valider
+          Corrections IA proposées
           {pendingCount > 0 && (
             <Badge className="bg-yellow-100 text-yellow-700 border-yellow-200 text-[10px]">
               {pendingCount} en attente
@@ -353,37 +312,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
             </Badge>
           )}
         </h3>
-        <div className="flex items-center gap-2">
-          {pendingCount > 0 && (
-            <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <Button
-                  size="sm"
-                  disabled={bulkApproving}
-                  className="bg-green-600 hover:bg-green-700 text-white text-[10px] h-7 px-2.5"
-                >
-                  {bulkApproving ? <Loader2 className="w-3 h-3 animate-spin mr-1" /> : <Check className="w-3 h-3 mr-1" />}
-                  Tout approuver ({pendingCount})
-                </Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Confirmer l'approbation en lot</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Vous êtes sur le point d'approuver et appliquer <strong>{pendingCount} correction{pendingCount > 1 ? "s" : ""}</strong> en attente.
-                    Les overrides metadata seront immédiatement actifs sur le site. Cette action est irréversible.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Annuler</AlertDialogCancel>
-                  <AlertDialogAction onClick={onApproveAll} className="bg-green-600 hover:bg-green-700">
-                    Tout approuver
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
-          )}
-          <div className="flex gap-1">
+        <div className="flex gap-1">
           {["all", "pending", "approved", "rejected"].map(s => (
             <button
               key={s}
@@ -397,7 +326,6 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
               {s === "all" ? "Tous" : s === "pending" ? "En attente" : s === "approved" ? "Approuvés" : "Rejetés"}
             </button>
           ))}
-          </div>
         </div>
       </div>
 
@@ -405,7 +333,7 @@ const FixesReviewPanel = ({ fixes, onApprove, onReject, onApproveAll, updating, 
         <div key={url} className="space-y-2">
           <p className="text-xs font-semibold text-foreground border-b border-border pb-1">{url}</p>
           {pageFixes.map(fix => (
-            <FixCard key={fix.id} fix={fix} onApprove={onApprove} onReject={onReject} updating={updating} />
+            <FixCard key={fix.id} fix={fix} />
           ))}
         </div>
       ))}
