@@ -106,6 +106,8 @@ const UpcomingSessionsSection = () => {
             const full = spots <= 0;
             const urgent = spots > 0 && spots <= 3;
             const link = categoryLinks[session.formation_category] || "/formations";
+            const fmt = getSessionFormat(session.start_time);
+            const FmtIcon = fmt.Icon;
 
             return (
               <Link
@@ -113,10 +115,16 @@ const UpcomingSessionsSection = () => {
                 to={full ? "/contact" : link}
                 className="card-t3p flex flex-col gap-3 group relative overflow-hidden"
               >
-                {/* Category badge */}
-                <span className={`inline-block self-start text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${categoryColors[session.formation_category] || "bg-muted text-foreground"}`}>
-                  {session.formation_category?.toUpperCase() || "Formation"}
-                </span>
+                {/* Badges: category + format */}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className={`inline-block text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${categoryColors[session.formation_category] || "bg-muted text-foreground"}`}>
+                    {session.formation_category?.toUpperCase() || "Formation"}
+                  </span>
+                  <span className={`inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${fmt.className}`}>
+                    <FmtIcon className="w-3 h-3" />
+                    {fmt.label}
+                  </span>
+                </div>
 
                 {/* Title */}
                 <h3 className="text-base font-bold text-primary leading-snug">
@@ -137,6 +145,14 @@ const UpcomingSessionsSection = () => {
                   <span>{session.start_time.slice(0, 5)} – {session.end_time.slice(0, 5)}</span>
                 </div>
 
+                {/* Notes */}
+                {session.notes && (
+                  <div className="flex items-start gap-2 text-xs text-muted-foreground bg-muted/50 rounded-md px-2 py-1.5">
+                    <Info className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <span>{session.notes}</span>
+                  </div>
+                )}
+
                 {/* Places */}
                 <div className="mt-auto pt-3 border-t border-border">
                   {full ? (
@@ -148,12 +164,17 @@ const UpcomingSessionsSection = () => {
                         Liste d'attente →
                       </span>
                     </div>
+                  ) : session.current_participants === 0 ? (
+                    <div className="flex items-center gap-1.5">
+                      <Users className="w-4 h-4 text-primary" />
+                      <span className="text-sm font-bold text-primary">Places disponibles</span>
+                    </div>
                   ) : (
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
                         <Users className="w-4 h-4 text-primary" />
                         <span className={`text-sm font-bold ${urgent ? "text-accent" : "text-primary"}`}>
-                          {spots} place{spots > 1 ? "s" : ""} restante{spots > 1 ? "s" : ""}
+                          Plus que {spots} place{spots > 1 ? "s" : ""}
                         </span>
                       </div>
                       {urgent && (
