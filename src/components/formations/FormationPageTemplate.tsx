@@ -318,8 +318,14 @@ const FormationPageTemplate = ({
                 const spots = session.max_participants - session.current_participants;
                 const full = spots <= 0;
                 const urgent = spots > 0 && spots <= 3;
+                const fmt = getSessionFormat(session.start_time);
+                const FmtIcon = fmt.Icon;
                 return (
                   <div key={session.id} className="card-t3p flex flex-col gap-2">
+                    <span className={`inline-flex items-center gap-1 self-start text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide ${fmt.className}`}>
+                      <FmtIcon className="w-3 h-3" />
+                      {fmt.label}
+                    </span>
                     <h3 className="text-sm font-bold text-primary">{session.formation_title || badge}</h3>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CalendarDays className="w-4 h-4 text-primary shrink-0" />
@@ -329,14 +335,25 @@ const FormationPageTemplate = ({
                       <Clock className="w-4 h-4 text-primary shrink-0" />
                       <span>{session.start_time?.slice(0, 5)} – {session.end_time?.slice(0, 5)}</span>
                     </div>
+                    {session.notes && (
+                      <div className="flex items-start gap-2 text-xs text-muted-foreground bg-muted/50 rounded-md px-2 py-1.5">
+                        <Info className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                        <span>{session.notes}</span>
+                      </div>
+                    )}
                     <div className="mt-auto pt-2 border-t border-border">
                       {full ? (
                         <span className="text-xs font-bold text-destructive bg-destructive/10 px-2.5 py-1 rounded-full">Complet</span>
+                      ) : session.current_participants === 0 ? (
+                        <div className="flex items-center gap-1.5">
+                          <Users className="w-4 h-4 text-primary" />
+                          <span className="text-sm font-bold text-primary">Places disponibles</span>
+                        </div>
                       ) : (
                         <div className="flex items-center gap-1.5">
                           <Users className="w-4 h-4 text-primary" />
                           <span className={`text-sm font-bold ${urgent ? "text-accent" : "text-primary"}`}>
-                            {spots} place{spots > 1 ? "s" : ""} restante{spots > 1 ? "s" : ""}
+                            Plus que {spots} place{spots > 1 ? "s" : ""}
                           </span>
                           {urgent && (
                             <span className="text-[10px] font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-full animate-pulse ml-auto">
