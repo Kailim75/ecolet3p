@@ -282,6 +282,35 @@ for (const slug of citySlugs) {
   });
 }
 
+// ── Pages départementales ─────────────────────────────────────────────────────
+// Ces 24 routes existent dans App.tsx et dans le sitemap depuis juin 2026 mais
+// n'étaient pas prérendues : les crawlers sans JS recevaient le repli index.html.
+// Les formules de titre et de description doivent rester IDENTIQUES à celles de
+// src/pages/FormationDepartement.tsx, sinon le HTML livré et le rendu divergent.
+const departements = [
+  { code: '75', nom: 'Paris' },
+  { code: '77', nom: 'Seine-et-Marne' },
+  { code: '78', nom: 'Yvelines' },
+  { code: '91', nom: 'Essonne' },
+  { code: '92', nom: 'Hauts-de-Seine' },
+  { code: '93', nom: 'Seine-Saint-Denis' },
+  { code: '94', nom: 'Val-de-Marne' },
+  { code: '95', nom: "Val-d'Oise" },
+];
+const metiersTitre = { vtc: 'VTC', taxi: 'Taxi', vmdtr: 'VMDTR' };
+for (const metier of ['vtc', 'taxi', 'vmdtr']) {
+  const mt = metiersTitre[metier];
+  for (const d of departements) {
+    routes.push({
+      path: `/formations/${metier}/${d.code}`,
+      title: `Formation ${mt} ${d.nom} (${d.code}) — Préfecture & Examen`,
+      description: `Formation ${mt} — ${d.nom} (${d.code}) : démarches préfecture, médecins agréés et examen T3P. Centre agréé à Montrouge, 94 % de réussite, dès 990 €.`,
+      h1: `Formation ${mt} — ${d.nom} (${d.code})`,
+    });
+  }
+}
+
+
 // ─── HTML transformation ──────────────────────────────────────────────────────
 
 function escapeHtml(str) {
