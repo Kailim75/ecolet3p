@@ -1,5 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#0E3B2E"/>
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#D4A843" stroke-width="1.5" opacity="0.3"/>
-  <text x="32" y="44" text-anchor="middle" font-family="'Montserrat','Poppins',system-ui,sans-serif" font-size="26" font-weight="800" fill="#D4A843" letter-spacing="-0.5">T3P</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="13" fill="#0E3B2E"/>
+  <g fill="none" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#FFFFFF">
+      <path d="M8 22.5 H22"/>
+      <path d="M15 22.5 V44"/>
+    </g>
+    <g stroke="#D4A843">
+      <path d="M25.5 22.5 h4 a5.4 5.4 0 0 1 0 10.8 h-4"/>
+      <path d="M29.5 33.3 a5.4 5.4 0 0 1 0 10.8 h-4"/>
+    </g>
+    <g stroke="#FFFFFF">
+      <path d="M43 22.5 V44"/>
+      <path d="M43 22.5 h5 a5.4 5.4 0 0 1 0 10.8 h-5"/>
+    </g>
+  </g>
 </svg>
