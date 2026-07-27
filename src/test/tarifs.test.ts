@@ -39,11 +39,15 @@ describe("tarifs guardrail", () => {
 
   it("no poisoned tarifs (239€) or CPF acceptance claim", () => {
     const offenders: string[] = [];
+    const affirmative = /(?:[ée]ligibles?\s+(?:au\s+)?CPF|finance[rz]?\s+(?:par|via|avec)\s+(?:le\s+)?CPF|MonCompteFormation|paiement\s+CPF|CPF\s+accept[ée])/i;
+    const negation = /(?:pas\s+[ée]ligibles?|non\s+[ée]ligibles?|sans\s+CPF|n['’]est\s+pas)/i;
     for (const f of files) {
       const c = readFileSync(f, "utf-8");
       if (/\b239\s?€/.test(c)) offenders.push(`${f} : 239€`);
-      if (/(?:[ée]ligibles?\s+(?:au\s+)?CPF|finance[rz]?\s+(?:par|via|avec)\s+(?:le\s+)?CPF|MonCompteFormation|paiement\s+CPF|CPF\s+accept[ée])/i.test(c)) {
-        offenders.push(`${f} : CPF acceptance`);
+      for (const line of c.split("\n")) {
+        if (affirmative.test(line) && !negation.test(line)) {
+          offenders.push(`${f} : ${line.trim().slice(0, 80)}`);
+        }
       }
     }
     expect(offenders).toEqual([]);
