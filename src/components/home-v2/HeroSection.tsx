@@ -34,8 +34,14 @@ const useCountUp = (target: number, duration = 1600, startDelay = 800) => {
       rafId = requestAnimationFrame(step);
     }, startDelay);
 
+    // Filet de sécurité : requestAnimationFrame est suspendu quand l'onglet est en
+    // arrière-plan ou dans certains navigateurs intégrés. Sans ce minuteur, le compteur
+    // peut rester figé à 0 — c'est-à-dire afficher « 0% de réussite » aux visiteurs.
+    const finalize = window.setTimeout(() => setValue(target), startDelay + duration + 400);
+
     return () => {
       window.clearTimeout(timer);
+      window.clearTimeout(finalize);
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [target, duration, startDelay]);

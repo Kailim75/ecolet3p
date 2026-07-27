@@ -6,6 +6,12 @@ import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
 import DeferredRender from "@/components/performance/DeferredRender";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // Lazy-load below-fold heavy sections
 const FormatsTable = lazy(() => import("@/components/home-v2/FormatsTable"));
@@ -22,59 +28,50 @@ const SectionFallback = () => (
   </div>
 );
 
+const homeFaqs = [
+  {
+    question: "Combien coûte la formation Taxi ou VTC à Montrouge ?",
+    answer:
+      "La formation Taxi ou VTC chez ECOLE T3P est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium). Frais d'examen CMA de 241€ inclus. Paiement en 4x sans frais possible avec Alma.",
+  },
+  {
+    question: "Quel est le taux de réussite d'ECOLE T3P ?",
+    answer:
+      "ECOLE T3P affiche un taux de réussite de 94% à l'examen T3P de la CMA, bien supérieur à la moyenne nationale. Plus de 2000 chauffeurs formés depuis 2014.",
+  },
+  {
+    question: "Quels formats de formation proposez-vous ?",
+    answer:
+      "3 formats au même tarif : Formation Journée (1 semaine, 9h30-16h30), Formation Soir (2 semaines, 18h-21h30) et E-learning (accès illimité jusqu'à l'examen, 24h/24 7j/7). Formule Essentiel à 990€ ou Premium à 1 190€.",
+  },
+  {
+    question: "Où se trouve le centre de formation ECOLE T3P ?",
+    answer:
+      "ECOLE T3P est situé au 3 rue Corneille, 92120 Montrouge, à 2 minutes à pied de la station Mairie de Montrouge (ligne 4 du métro). Accessible facilement depuis Paris et toute l'Île-de-France.",
+  },
+  {
+    question: "Combien coûte le renouvellement de carte professionnelle Taxi ou VTC ?",
+    answer:
+      "Le renouvellement de la carte professionnelle se fait via la formation continue obligatoire de 14h (FCO) tous les 5 ans. Tarifs ECOLE T3P : Renouvellement VTC 170€, Renouvellement Taxi 250€, Renouvellement VMDTR (taxi moto) 250€. Attestation remise le jour même.",
+  },
+  {
+    question: "Existe-t-il une passerelle entre Taxi et VTC ?",
+    answer:
+      "Oui. La Passerelle T3P permet d'obtenir une seconde carte professionnelle (VTC ou Taxi) en seulement 14h de formation pour 665€, à condition d'avoir réussi l'examen T3P depuis moins de 3 ans.",
+  },
+];
+
 const homeFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Combien coûte la formation Taxi ou VTC à Montrouge ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La formation Taxi ou VTC chez ECOLE T3P est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium). Frais d'examen CMA de 241€ inclus. Paiement en 4x sans frais possible avec Alma."
-      }
+  "mainEntity": homeFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
     },
-    {
-      "@type": "Question",
-      "name": "Quel est le taux de réussite d'ECOLE T3P ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ECOLE T3P affiche un taux de réussite de 94% à l'examen T3P de la CMA, bien supérieur à la moyenne nationale. Plus de 2000 chauffeurs formés depuis 2014."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels formats de formation proposez-vous ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "3 formats au même tarif : Formation Journée (1 semaine, 9h30-16h30), Formation Soir (2 semaines, 18h-21h30) et E-learning (accès illimité jusqu'à l'examen, 24h/24 7j/7). Formule Essentiel à 990€ ou Premium à 1 190€."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Où se trouve le centre de formation ECOLE T3P ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ECOLE T3P est situé au 3 rue Corneille, 92120 Montrouge, à 2 minutes à pied de la station Mairie de Montrouge (ligne 4 du métro). Accessible facilement depuis Paris et toute l'Île-de-France."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Combien coûte le renouvellement de carte professionnelle Taxi ou VTC ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le renouvellement de la carte professionnelle se fait via la formation continue obligatoire de 14h (FCO) tous les 5 ans. Tarifs ECOLE T3P : Renouvellement VTC 170€, Renouvellement Taxi 250€, Renouvellement VMDTR (taxi moto) 250€. Attestation remise le jour même."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Existe-t-il une passerelle entre Taxi et VTC ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. La Passerelle T3P permet d'obtenir une seconde carte professionnelle (VTC ou Taxi) en seulement 14h de formation pour 665€, à condition d'avoir réussi l'examen T3P depuis moins de 3 ans."
-      }
-    }
-  ]
+  })),
 };
 
 const educationalOrganizationSchema = {
@@ -205,6 +202,29 @@ const Index = () => {
           <NoCPFSection />
         </Suspense>
       </DeferredRender>
+
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container-custom max-w-4xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary text-center mb-4">
+            Questions fréquentes
+          </h2>
+          <p className="text-center text-muted-foreground mb-10">
+            Tout ce qu'il faut savoir avant de vous lancer avec ECOLE T3P.
+          </p>
+          <Accordion type="single" collapsible className="w-full">
+            {homeFaqs.map((faq, i) => (
+              <AccordionItem key={i} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left text-base lg:text-lg font-semibold text-primary">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
 
       <DeferredRender fallback={<SectionFallback />} rootMargin="420px 0px">
         <Suspense fallback={<SectionFallback />}>
