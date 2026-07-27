@@ -40,7 +40,7 @@ describe("tarifs guardrail", () => {
   it("no poisoned tarifs (239€) or CPF acceptance claim", () => {
     const offenders: string[] = [];
     const affirmative = /(?:[ée]ligibles?\s+(?:au\s+)?CPF|finance[rz]?\s+(?:par|via|avec)\s+(?:le\s+)?CPF|MonCompteFormation|paiement\s+CPF|CPF\s+accept[ée])/i;
-    const negation = /(?:pas\s+[ée]ligibles?|non\s+[ée]ligibles?|sans\s+CPF|n['’]est\s+pas)/i;
+    const negation = /(?:pas\s+[ée]ligibles?|non\s+[ée]ligibles?|sans\s+CPF|n['’]est\s+pas|ind[ée]pendants?\s+du\s+CPF|\?)/i;
     for (const f of files) {
       const c = readFileSync(f, "utf-8");
       if (/\b239\s?€/.test(c)) offenders.push(`${f} : 239€`);
