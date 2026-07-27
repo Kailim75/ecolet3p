@@ -1,4 +1,7 @@
 import { useIsMobile } from "@/hooks/use-mobile";
+import tarifs from "@/data/tarifs.json";
+
+const priceLabel = `${tarifs.initiale}€`;
 
 const formats = [
   {
@@ -6,21 +9,21 @@ const formats = [
     duration: "1 semaine",
     hours: "9h30 – 16h30",
     ideal: "En reconversion, disponible",
-    price: "990€",
+    price: priceLabel,
   },
   {
     name: "Soir",
     duration: "2 semaines",
     hours: "18h – 21h30",
     ideal: "Salarié, temps partiel",
-    price: "990€",
+    price: priceLabel,
   },
   {
     name: "E-learning",
     duration: "Illimité jusqu'à l'examen",
     hours: "24h/24, 7j/7",
     ideal: "Autonome, flexible",
-    price: "990€",
+    price: priceLabel,
   },
 ];
 
@@ -31,7 +34,7 @@ const FormatsTable = () => {
     <section className="section-padding bg-muted">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="section-title mb-4">3 formats, un seul tarif : 990€</h2>
+          <h2 className="section-title mb-4">3 formats, un seul tarif : {priceLabel}</h2>
         </div>
 
         {isMobile ? (
@@ -94,9 +97,9 @@ const FormatsTable = () => {
                 </tr>
                 <tr>
                   <td className="px-4 py-4 font-semibold text-foreground">Prix</td>
-                  <td className="px-4 py-4 text-center font-bold text-accent">990€</td>
-                  <td className="px-4 py-4 text-center font-bold text-accent">990€</td>
-                  <td className="px-4 py-4 text-center font-bold text-accent">990€</td>
+                  <td className="px-4 py-4 text-center font-bold text-accent">{priceLabel}</td>
+                  <td className="px-4 py-4 text-center font-bold text-accent">{priceLabel}</td>
+                  <td className="px-4 py-4 text-center font-bold text-accent">{priceLabel}</td>
                 </tr>
               </tbody>
             </table>
@@ -105,7 +108,7 @@ const FormatsTable = () => {
 
         <div className="mt-6 text-center">
           <p className="text-muted-foreground text-sm md:text-base">
-            Paiement en 4x sans frais avec Alma — soit <span className="font-bold text-accent">247,50€/mois</span>
+            Paiement en 4x sans frais avec Alma — soit <span className="font-bold text-accent">{tarifs.almaInitiale4x}€/mois</span>
           </p>
         </div>
       </div>

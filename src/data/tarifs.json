@@ -1,0 +1,16 @@
+{
+  "initiale": 990,
+  "initialePremium": 1190,
+  "fraisExamenCMA": 241,
+  "almaInitiale4x": "247,50",
+  "continueVTC": 170,
+  "continueTaxi": 250,
+  "continueVMDTR": 250,
+  "passerelle": 665,
+  "fraisExamenPasserelle": 165,
+  "recuperationPoints": 250,
+  "pmr": 290,
+  "anglais": 350,
+  "gestionEntreprise": 390,
+  "accompagnementAdmin": 190
+}

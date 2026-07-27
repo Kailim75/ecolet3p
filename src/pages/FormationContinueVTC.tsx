@@ -1,6 +1,7 @@
 import { RefreshCw } from "lucide-react";
 import ContinueFormationTemplate from "@/components/formations/ContinueFormationTemplate";
 import carteVtc from "@/assets/carte-professionnelle-vtc.jpg";
+import tarifs from "@/data/tarifs.json";
 
 const FormationContinueVTC = () => (
   <ContinueFormationTemplate
@@ -15,7 +16,7 @@ const FormationContinueVTC = () => (
     heading="Renouvellement Carte VTC — Formation Continue 14h"
     subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VTC (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
-    price={170}
+    price={tarifs.continueVTC}
     format="2 jours"
     category="continue-vtc"
     regulatoryText="La formation continue est requise tous les 5 ans pour le renouvellement de la carte professionnelle de conducteur VTC, conformément au décret n°2017-483 du 6 avril 2017. Sans cette formation validée, votre carte ne peut être renouvelée et vous ne pouvez plus exercer légalement. Le délai de traitement par la préfecture des Hauts-de-Seine est généralement de 2 à 4 semaines après dépôt du dossier complet."

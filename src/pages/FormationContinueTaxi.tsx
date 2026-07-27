@@ -1,6 +1,7 @@
 import { RefreshCw } from "lucide-react";
 import ContinueFormationTemplate from "@/components/formations/ContinueFormationTemplate";
 import carteProfessionnelle from "@/assets/carte-professionnelle-taxi.png";
+import tarifs from "@/data/tarifs.json";
 
 const FormationContinueTaxi = () => (
   <ContinueFormationTemplate
@@ -15,7 +16,7 @@ const FormationContinueTaxi = () => (
     heading="Renouvellement Carte Taxi — Formation Continue 14h"
     subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle Taxi (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
-    price={250}
+    price={tarifs.continueTaxi}
     format="2 jours"
     category="continue-taxi"
     regulatoryText="La formation continue est requise tous les 5 ans pour le renouvellement de la carte professionnelle de conducteur de taxi, conformément au décret n°2017-483 du 6 avril 2017. Le non-respect de cette obligation entraîne le refus de renouvellement par la préfecture et l'interdiction d'exercer. Les contrôles routiers renforcés en 2026 ciblent spécifiquement la validité des cartes professionnelles."

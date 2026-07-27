@@ -1,5 +1,6 @@
 import { Briefcase } from "lucide-react";
 import ServicePageTemplate from "@/components/formations/ServicePageTemplate";
+import tarifs from "@/data/tarifs.json";
 
 const FormationGestionEntreprise = () => (
   <ServicePageTemplate
@@ -11,7 +12,7 @@ const FormationGestionEntreprise = () => (
     heading="Gestion & Création d'Entreprise"
     subheading="Lancez votre activité de chauffeur sur des bases solides. Statut juridique, comptabilité, fiscalité — tout ce qu'il faut savoir."
     duration="21h (3 jours)"
-    price={390}
+    price={tarifs.gestionEntreprise}
     formationTitle="Formation Gestion & Création d'Entreprise"
     features={[
       "Choix du statut juridique (micro-entreprise, SASU, etc.)",

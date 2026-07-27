@@ -2,6 +2,7 @@ import { RefreshCw, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContinueFormationTemplate from "@/components/formations/ContinueFormationTemplate";
 import carteVmdtr from "@/assets/carte-professionnelle-vmdtr.jpg";
+import tarifs from "@/data/tarifs.json";
 
 const CrossSellSection = () => (
   <section className="section-padding bg-muted">
@@ -47,7 +48,7 @@ const FormationContinueVMDTR = () => (
     heading="Renouvellement Carte VMDTR (Taxi Moto) — Formation Continue 14h"
     subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VMDTR taxi moto (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
-    price={250}
+    price={tarifs.continueVMDTR}
     format="2 jours"
     category="continue-vmdtr"
     regulatoryText="La formation continue est requise tous les 5 ans pour le renouvellement de la carte professionnelle de conducteur VMDTR, conformément au décret n°2017-483 du 6 avril 2017. Les conducteurs VMDTR sont soumis aux mêmes obligations que les conducteurs VTC et Taxi en matière de formation continue. Les contrôles renforcés de 2026 ciblent particulièrement les équipements de sécurité et la validité des cartes professionnelles deux-roues."

@@ -2,6 +2,7 @@ import { Bike, Users, FileText, CheckCircle, Target, Shield } from "lucide-react
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageVMDTR from "@/assets/formations/hero-vmdtr.jpg";
 import heroImageVMDTRWebp from "@/assets/formations/hero-vmdtr.jpg?w=640;1024;1920&format=webp&as=srcset";
+import tarifs from "@/data/tarifs.json";
 
 const FormationVMDTR = () => (
   <FormationPageTemplate
@@ -17,7 +18,7 @@ const FormationVMDTR = () => (
     heading="Formation VMDTR Moto-Taxi à Montrouge"
     subheading="Devenez moto-taxi professionnel avec notre formation complète. Maîtrisez la sécurité, la réglementation et lancez votre activité de transport deux-roues."
     duration="Journée, Soir ou E-learning"
-    price={990}
+    price={tarifs.initiale}
     thirdTag={{ icon: Shield, label: "Sécurité renforcée" }}
     category="vmdtr"
     profession="vmdtr"

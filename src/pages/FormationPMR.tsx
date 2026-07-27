@@ -1,5 +1,6 @@
 import { Accessibility } from "lucide-react";
 import ServicePageTemplate from "@/components/formations/ServicePageTemplate";
+import tarifs from "@/data/tarifs.json";
 
 const FormationPMR = () => (
   <ServicePageTemplate
@@ -11,7 +12,7 @@ const FormationPMR = () => (
     heading="Formation Accessibilité & Transport PMR"
     subheading="Élargissez votre clientèle et maîtrisez le transport de personnes à mobilité réduite. Formation pratique de 14 heures."
     duration="14h (2 jours)"
-    price={290}
+    price={tarifs.pmr}
     formationTitle="Formation Accessibilité / Transport PMR"
     features={[
       "Réglementation PMR applicable au transport",
