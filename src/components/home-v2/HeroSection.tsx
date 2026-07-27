@@ -3,6 +3,18 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Eye, Trophy, Star, FileSearch } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+// L'animation d'entrée (cascade de mots + compteur) ne doit jouer qu'à la
+// PREMIÈRE visite de la session : la voir rejouer à chaque retour sur l'accueil
+// donne l'impression d'un bug, pas d'un effet.
+const HERO_PLAYED_KEY = "t3p-hero-played";
+const heroAlreadyPlayed = (): boolean => {
+  try { return sessionStorage.getItem(HERO_PLAYED_KEY) === "1"; } catch { return false; }
+};
+const markHeroPlayed = (): void => {
+  try { sessionStorage.setItem(HERO_PLAYED_KEY, "1"); } catch { /* sans conséquence */ }
+};
+
+
 /**
  * Small CountUp hook — animates a number from 0 → target on mount.
  * Respects prefers-reduced-motion (jumps to target instantly).
