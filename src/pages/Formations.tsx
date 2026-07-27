@@ -318,7 +318,7 @@ const Formations = () => {
       <section id="passerelles" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🔀 Passerelles</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Passerelles</h2>
             <p className="text-muted-foreground max-w-2xl">Vous êtes déjà chauffeur ? Ajoutez une activité à votre carte professionnelle.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl">
