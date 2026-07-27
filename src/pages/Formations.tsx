@@ -344,7 +344,7 @@ const Formations = () => {
       <section id="recup-points" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🛡️ Stage de Récupération de Points</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Stage de récupération de points</h2>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 max-w-4xl"
