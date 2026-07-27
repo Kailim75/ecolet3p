@@ -122,7 +122,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               {siloFormationsInitiales.map(l => (
                 <li key={l.name}>
-                  <Link to={l.path} className="text-white/80 hover:text-white transition-colors text-sm">
+                  <Link to={l.path} className="inline-block py-1.5 text-white/80 hover:text-white transition-colors text-sm">
                     {l.name}
                   </Link>
                 </li>
@@ -135,7 +135,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               {siloServices.map(l => (
                 <li key={l.name}>
-                  <Link to={l.path} className="text-white/80 hover:text-white transition-colors text-sm">
+                  <Link to={l.path} className="inline-block py-1.5 text-white/80 hover:text-white transition-colors text-sm">
                     {l.name}
                   </Link>
                 </li>
@@ -148,7 +148,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               {siloBlog.map(l => (
                 <li key={l.name}>
-                  <Link to={l.path} className="text-white/80 hover:text-white transition-colors text-sm">
+                  <Link to={l.path} className="inline-block py-1.5 text-white/80 hover:text-white transition-colors text-sm">
                     {l.name}
                   </Link>
                 </li>
@@ -162,7 +162,7 @@ const Footer = () => {
             <ul className="space-y-2.5 mb-6">
               {siloInstitutionnel.map(l => (
                 <li key={l.name}>
-                  <Link to={l.path} className="text-white/80 hover:text-white transition-colors text-sm">
+                  <Link to={l.path} className="inline-block py-1.5 text-white/80 hover:text-white transition-colors text-sm">
                     {l.name}
                   </Link>
                 </li>
