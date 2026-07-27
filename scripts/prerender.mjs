@@ -9,7 +9,7 @@
  * Runs automatically after `vite build` via package.json postbuild script.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 
 // Source unique des titres de villes, partagée avec l'application (FormationVille.tsx).
