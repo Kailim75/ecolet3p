@@ -223,7 +223,7 @@ const FormationMobilite = () => {
           {/* Pricing */}
           <div className="mt-14 max-w-md mx-auto card-t3p text-center border-2 border-primary/20">
             <h3 className="text-lg font-bold text-foreground mb-2">Tarif formation Mobilité</h3>
-            <p className="text-4xl font-bold text-primary mb-1">390€</p>
+            <p className="text-4xl font-bold text-primary mb-1">{tarifs.passerelle}€</p>
             <p className="text-sm text-muted-foreground mb-6">TTC — Frais d'examen inclus</p>
             <button
               onClick={() => setShowPreRegistration(true)}
