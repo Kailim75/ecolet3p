@@ -201,7 +201,7 @@ const Formations = () => {
       <section id="tarifs" className="py-10 md:py-16 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">💰 Tarifs en un coup d'œil</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Tarifs en un coup d'œil</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">Tous nos tarifs sont <strong>tout compris</strong> — frais d'examen inclus. Paiement en 4× sans frais avec Alma.</p>
           </motion.div>
           <motion.div
