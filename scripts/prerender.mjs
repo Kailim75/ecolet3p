@@ -380,6 +380,20 @@ function transformHtml(template, route, ogImageUrl) {
     `<meta name="twitter:description" content="${escapeHtml(ogDesc)}"`
   );
 
+  // Per-route social image (blog articles). Fallback to the global og-image.jpg
+  // for routes without a dedicated cover so their preview logic is unchanged.
+  if (ogImageUrl) {
+    html = html.replace(
+      /<meta property="og:image" content="[^"]*"/,
+      `<meta property="og:image" content="${ogImageUrl}"`
+    );
+    html = html.replace(
+      /<meta name="twitter:image" content="[^"]*"/,
+      `<meta name="twitter:image" content="${ogImageUrl}"`
+    );
+  }
+
+
   // Remplace TOUT le bloc de repli par un contenu propre à la route.
   //
   // Ce bloc était auparavant recopié à l'identique sur les 105 pages (1441 mots, même
