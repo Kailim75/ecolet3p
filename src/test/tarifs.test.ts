@@ -63,4 +63,24 @@ describe("tarifs guardrail", () => {
     }
     expect(offenders).toEqual([]);
   });
+
+  it("no illegal result guarantee (organisme de formation)", () => {
+    const patterns = [
+      /r[ée]ussite\s+garantie/i,
+      /garanties?\s+de\s+r[ée]ussite/i,
+      /100\s?%\s+de\s+r[ée]ussite/i,
+    ];
+    const offenders: string[] = [];
+    for (const f of files) {
+      const c = readFileSync(f, "utf-8");
+      for (const line of c.split("\n")) {
+        for (const p of patterns) {
+          if (p.test(line)) {
+            offenders.push(`${f} : ${line.trim().slice(0, 100)}`);
+          }
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
 });
