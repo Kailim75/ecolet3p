@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import heroImageMobilite from "@/assets/formations/hero-mobilite.jpg";
 import heroImageMobiliteWebp from "@/assets/formations/hero-mobilite.jpg?w=640;1024;1920&format=webp&as=srcset";
+import tarifs from "@/data/tarifs.json";
 
 const programModules = [
   { title: "Réglementation spécifique", duration: "4h", topics: ["Différences Taxi/VTC", "Obligations réglementaires", "Zones d'exercice", "Sanctions"] },
@@ -45,7 +46,7 @@ const FormationMobilite = () => {
     "name": "Formation Mobilité - Passerelle Taxi ↔ VTC",
     "description": "Formation passerelle de 14 heures pour passer de Taxi à VTC ou inversement.",
     "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
-    "offers": { "@type": "Offer", "price": "390", "priceCurrency": "EUR" },
+    "offers": { "@type": "Offer", "price": String(tarifs.passerelle), "priceCurrency": "EUR" },
     "timeRequired": "PT14H"
   };
 
@@ -62,8 +63,8 @@ const FormationMobilite = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl="/formations/mobilite"
-        defaultTitle="Passerelle Taxi ↔ VTC 14h — 390€ | ECOLE T3P"
-        defaultDescription="Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours, 390€. Ajoutez une mention à votre carte pro."
+        defaultTitle={`Passerelle Taxi ↔ VTC 14h — ${tarifs.passerelle}€ | ECOLE T3P`}
+        defaultDescription={`Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours, ${tarifs.passerelle}€. Ajoutez une mention à votre carte pro.`}
       >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -119,7 +120,7 @@ const FormationMobilite = () => {
                 <Clock className="w-4 h-4" /> 14h
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Euro className="w-4 h-4" /> 390€
+                <Euro className="w-4 h-4" /> {tarifs.passerelle}€
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
                 <Zap className="w-4 h-4" /> 2 jours
@@ -222,7 +223,7 @@ const FormationMobilite = () => {
           {/* Pricing */}
           <div className="mt-14 max-w-md mx-auto card-t3p text-center border-2 border-primary/20">
             <h3 className="text-lg font-bold text-foreground mb-2">Tarif formation Mobilité</h3>
-            <p className="text-4xl font-bold text-primary mb-1">390€</p>
+            <p className="text-4xl font-bold text-primary mb-1">{tarifs.passerelle}€</p>
             <p className="text-sm text-muted-foreground mb-6">TTC — Frais d'examen inclus</p>
             <button
               onClick={() => setShowPreRegistration(true)}
