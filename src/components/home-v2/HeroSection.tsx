@@ -19,10 +19,15 @@ const markHeroPlayed = (): void => {
  * Small CountUp hook — animates a number from 0 → target on mount.
  * Respects prefers-reduced-motion (jumps to target instantly).
  */
-const useCountUp = (target: number, duration = 1600, startDelay = 800) => {
-  const [value, setValue] = useState(0);
+const useCountUp = (target: number, duration = 1600, startDelay = 800, skip = false) => {
+  const [value, setValue] = useState(skip ? target : 0);
 
   useEffect(() => {
+    if (skip) {
+      setValue(target);
+      return;
+    }
+
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -56,7 +61,8 @@ const useCountUp = (target: number, duration = 1600, startDelay = 800) => {
       window.clearTimeout(finalize);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [target, duration, startDelay]);
+  }, [target, duration, startDelay, skip]);
+
 
   return value;
 };
