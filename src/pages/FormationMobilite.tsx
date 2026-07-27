@@ -120,7 +120,7 @@ const FormationMobilite = () => {
                 <Clock className="w-4 h-4" /> 14h
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <Euro className="w-4 h-4" /> 390€
+                <Euro className="w-4 h-4" /> {tarifs.passerelle}€
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
                 <Zap className="w-4 h-4" /> 2 jours
