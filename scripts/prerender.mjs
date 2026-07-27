@@ -9,7 +9,7 @@
  * Runs automatically after `vite build` via package.json postbuild script.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 
 // Source unique des titres de villes, partagée avec l'application (FormationVille.tsx).
@@ -224,27 +224,25 @@ const routes = [
 ];
 
 // ── Blog articles ─────────────────────────────────────────────────────────────
+// Source de vérité : src/data/blogArticlesMeta.ts. `imageBase` correspond au nom
+// de fichier (sans extension) de l'import de couverture dans ce fichier.
+// Vite hache ces assets au build ; on retrouve le nom haché plus bas.
 const blogArticles = [
-  { slug: 'quel-statut-juridique-chauffeur-vtc-taxi-2026', title: 'Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?', description: 'Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.' },
-  { slug: 'maitrise-numerique-ia-chauffeur-vtc-taxi', title: 'Maîtrise du numérique et de l\'IA : un atout indispensable pour les chauffeurs VTC et Taxi', description: 'L\'importance de maîtriser les outils numériques et l\'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026.' },
-  { slug: 'anglais-chauffeur-vtc-taxi-clientele-internationale', title: 'L\'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale', description: 'Pourquoi l\'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils.' },
-  { slug: 'vtc-taxi-vmdtr-2026-quel-metier-choisir', title: 'VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?', description: 'Comparatif complet VTC, Taxi et VMDTR en 2026 : formation, revenus, investissement, avantages et inconvénients.' },
-  { slug: 'formation-vmdtr-2026-devenir-conducteur-moto-taxi', title: 'Formation VMDTR 2026 : Devenir conducteur moto-taxi', description: 'Guide complet 2026 pour devenir conducteur moto-taxi VMDTR : formation 14h, examen, carte professionnelle et réglementation.' },
-  { slug: 'comment-devenir-chauffeur-taxi-2026', title: 'Comment devenir chauffeur Taxi en 2026 : Le guide complet', description: 'Guide ultime 2026 pour devenir chauffeur Taxi : licence ADS, formation, examen, réglementation ZFE et revenus.' },
-  { slug: 'comment-devenir-chauffeur-vtc-2026', title: 'Comment devenir chauffeur VTC en 2026 : Le guide ultime', description: 'Guide complet 2026 pour devenir chauffeur VTC : nouvelles réglementations, ZFE, véhicules électriques, formation et revenus.' },
-  { slug: 'devenir-chauffeur-vtc-guide-complet-2025', title: 'Devenir chauffeur VTC en 2025 : démarches et conseils pratiques', description: 'Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l\'examen, choix du véhicule.' },
-  { slug: 'formation-taxi-carte-professionnelle-t3p', title: 'Carte professionnelle Taxi : formation, examen et obtention', description: 'Comment obtenir la carte professionnelle Taxi T3P : prérequis, programme de formation, épreuves de l\'examen CMA.' },
-  { slug: 'vtc-ou-taxi-quelle-formation-choisir', title: 'VTC ou Taxi : quelle formation choisir selon votre profil ?', description: 'VTC ou Taxi ? Comparez revenus, flexibilité, investissement initial et formation pour choisir le métier adapté.' },
-  { slug: 'etapes-obtenir-carte-professionnelle-vtc', title: 'Les 5 étapes pour obtenir sa carte professionnelle VTC', description: 'Découvrez les 5 étapes clés pour obtenir votre carte professionnelle VTC : formation, examen, dossier préfecture.' },
-  { slug: 'facilites-paiement-formation-taxi-vtc', title: 'Payer sa formation Taxi VTC en 4× sans frais avec Alma', description: 'Financez votre formation Taxi ou VTC à 990€ en 2, 3 ou 4 mensualités sans frais via Alma. ECOLE T3P Montrouge.' },
-  { slug: 'formation-vmdtr-moto-taxi-scooter', title: 'VMDTR : scooter ou moto pour le transport de passagers ?', description: 'Moto ou maxi-scooter pour exercer en VMDTR ? Comparatif des véhicules, équipements obligatoires et conseils.' },
-  { slug: 'formation-continue-renouvellement-carte-professionnelle', title: 'Renouvellement carte pro : formation continue obligatoire', description: 'Votre carte VTC, Taxi ou VMDTR expire bientôt ? Durée, programme et tarifs de la formation continue obligatoire.' },
-  { slug: 'renouvellement-carte-professionnelle-vtc-taxi-2026', title: 'Renouvellement carte professionnelle VTC Taxi 2026', description: 'Comment renouveler votre carte professionnelle VTC, Taxi ou VMDTR en 2026 ? Démarches, délais et formation continue obligatoire.' },
-  { slug: 'financement-formation-taxi-vtc', title: 'Financement formation Taxi et VTC sans CPF', description: 'Solutions de paiement et aides disponibles pour financer votre formation Taxi ou VTC. Alma 4× sans frais.' },
-  { slug: 'carte-professionnelle-vtc', title: 'Carte professionnelle VTC : obtention et renouvellement', description: 'Tout savoir sur la carte professionnelle VTC : obtention, examen, renouvellement et démarches administratives.' },
-  { slug: 'formation-continue-taxi-vtc', title: 'Formation continue Taxi VTC : tout savoir', description: 'Tout savoir sur la formation continue obligatoire pour le renouvellement de votre carte professionnelle Taxi ou VTC.' },
-  { slug: 'moto-taxi-vmdtr', title: 'Moto-taxi VMDTR : tout savoir sur le métier', description: 'Réglementation, équipements, revenus et perspectives du métier de moto-taxi VMDTR en Île-de-France.' },
-  { slug: 'devenir-chauffeur-vtc-2025', title: 'Devenir chauffeur VTC en 2025 : guide complet', description: 'Guide complet pour devenir chauffeur VTC en 2025 : formation, examen, carte professionnelle et création d\'entreprise.' },
+  { slug: 'quel-statut-juridique-chauffeur-vtc-taxi-2026', title: 'Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?', description: 'Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.', imageBase: 'statuts-juridiques-t3p' },
+  { slug: 'maitrise-numerique-ia-chauffeur-vtc-taxi', title: 'Maîtrise du numérique et de l\'IA : un atout indispensable pour les chauffeurs VTC et Taxi', description: 'L\'importance de maîtriser les outils numériques et l\'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026.', imageBase: 'technologie-ia-transport' },
+  { slug: 'anglais-chauffeur-vtc-taxi-clientele-internationale', title: 'L\'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale', description: 'Pourquoi l\'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils.', imageBase: 'anglais-chauffeur-t3p' },
+  { slug: 'vtc-taxi-vmdtr-2026-quel-metier-choisir', title: 'VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?', description: 'Comparatif complet VTC, Taxi et VMDTR en 2026 : formation, revenus, investissement, avantages et inconvénients.', imageBase: 'vtc-taxi-vmdtr-comparison-2026' },
+  { slug: 'formation-vmdtr-2026-devenir-conducteur-moto-taxi', title: 'Formation VMDTR 2026 : Devenir conducteur moto-taxi', description: 'Guide complet 2026 pour devenir conducteur moto-taxi VMDTR : formation 14h, examen, carte professionnelle et réglementation.', imageBase: 'vmdtr-driver-2026' },
+  { slug: 'comment-devenir-chauffeur-taxi-2026', title: 'Comment devenir chauffeur Taxi en 2026 : Le guide complet', description: 'Guide ultime 2026 pour devenir chauffeur Taxi : licence ADS, formation, examen, réglementation ZFE et revenus.', imageBase: 'taxi-driver-2026' },
+  { slug: 'comment-devenir-chauffeur-vtc-2026', title: 'Comment devenir chauffeur VTC en 2026 : Le guide ultime', description: 'Guide complet 2026 pour devenir chauffeur VTC : nouvelles réglementations, ZFE, véhicules électriques, formation et revenus.', imageBase: 'vtc-driver-2026' },
+  { slug: 'devenir-chauffeur-vtc-guide-complet-2025', title: 'Devenir chauffeur VTC en 2025 : démarches et conseils pratiques', description: 'Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l\'examen, choix du véhicule.', imageBase: 'vtc-driver-2025' },
+  { slug: 'formation-taxi-carte-professionnelle-t3p', title: 'Carte professionnelle Taxi : formation, examen et obtention', description: 'Comment obtenir la carte professionnelle Taxi T3P : prérequis, programme de formation, épreuves de l\'examen CMA.', imageBase: 'taxi-driver-formation' },
+  { slug: 'vtc-ou-taxi-quelle-formation-choisir', title: 'VTC ou Taxi : quelle formation choisir selon votre profil ?', description: 'VTC ou Taxi ? Comparez revenus, flexibilité, investissement initial et formation pour choisir le métier adapté.', imageBase: 'vtc-vs-taxi-comparison' },
+  { slug: 'etapes-obtenir-carte-professionnelle-vtc', title: 'Les 5 étapes pour obtenir sa carte professionnelle VTC', description: 'Découvrez les 5 étapes clés pour obtenir votre carte professionnelle VTC : formation, examen, dossier préfecture.', imageBase: 'carte-professionnelle-vtc' },
+  { slug: 'facilites-paiement-formation-taxi-vtc', title: 'Payer sa formation Taxi VTC en 4× sans frais avec Alma', description: 'Financez votre formation Taxi ou VTC à 990€ en 2, 3 ou 4 mensualités sans frais via Alma. ECOLE T3P Montrouge.', imageBase: 'financement-formation' },
+  { slug: 'formation-vmdtr-moto-taxi-scooter', title: 'VMDTR : scooter ou moto pour le transport de passagers ?', description: 'Moto ou maxi-scooter pour exercer en VMDTR ? Comparatif des véhicules, équipements obligatoires et conseils.', imageBase: 'moto-taxi-vmdtr' },
+  { slug: 'formation-continue-renouvellement-carte-professionnelle', title: 'Renouvellement carte pro : formation continue obligatoire', description: 'Votre carte VTC, Taxi ou VMDTR expire bientôt ? Durée, programme et tarifs de la formation continue obligatoire.', imageBase: 'formation-continue' },
+  { slug: 'renouvellement-carte-professionnelle-vtc-taxi-2026', title: 'Renouvellement carte professionnelle VTC Taxi 2026', description: 'Comment renouveler votre carte professionnelle VTC, Taxi ou VMDTR en 2026 ? Démarches, délais et formation continue obligatoire.', imageBase: 'renouvellement-carte-pro' },
 ];
 
 for (const article of blogArticles) {
@@ -253,6 +251,7 @@ for (const article of blogArticles) {
     title: `${article.title} | ECOLE T3P`,
     description: article.description,
     h1: article.title,
+    imageBase: article.imageBase,
   });
 }
 
@@ -329,7 +328,7 @@ function getCanonical(path) {
   return `${SITE_URL}${path}`;
 }
 
-function transformHtml(template, route) {
+function transformHtml(template, route, ogImageUrl) {
   let html = template;
   const canonical = getCanonical(route.path);
   const ogTitle = route.ogTitle || route.title;
@@ -381,6 +380,20 @@ function transformHtml(template, route) {
     `<meta name="twitter:description" content="${escapeHtml(ogDesc)}"`
   );
 
+  // Per-route social image (blog articles). Fallback to the global og-image.jpg
+  // for routes without a dedicated cover so their preview logic is unchanged.
+  if (ogImageUrl) {
+    html = html.replace(
+      /<meta property="og:image" content="[^"]*"/,
+      `<meta property="og:image" content="${ogImageUrl}"`
+    );
+    html = html.replace(
+      /<meta name="twitter:image" content="[^"]*"/,
+      `<meta name="twitter:image" content="${ogImageUrl}"`
+    );
+  }
+
+
   // Remplace TOUT le bloc de repli par un contenu propre à la route.
   //
   // Ce bloc était auparavant recopié à l'identique sur les 105 pages (1441 mots, même
@@ -421,6 +434,27 @@ function main() {
   }
 
   const template = readFileSync(indexPath, 'utf-8');
+
+  // Table de correspondance imageBase → nom haché produit par Vite.
+  // On préfère le .jpg (compatibilité universelle des scrapers sociaux) et on
+  // retombe sur .webp si aucun .jpg n'existe. Un article sans image trouvée
+  // fait échouer le prérendu : mieux vaut un build cassé qu'un og:image en 404.
+  const assetsDir = join(DIST, 'assets');
+  const assetFiles = existsSync(assetsDir) ? readdirSync(assetsDir) : [];
+  const imageBases = [...new Set(routes.map(r => r.imageBase).filter(Boolean))];
+  const imageMap = {};
+  for (const base of imageBases) {
+    const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`^${escaped}-[A-Za-z0-9_-]+\\.(jpg|webp)$`);
+    const matches = assetFiles.filter(f => re.test(f));
+    if (matches.length === 0) {
+      console.error(`❌ Aucun asset haché trouvé pour "${base}" dans dist/assets/. Prérendu interrompu.`);
+      process.exit(1);
+    }
+    const jpg = matches.find(f => f.endsWith('.jpg'));
+    imageMap[base] = jpg || matches[0];
+  }
+
   let generated = 0;
   let skipped = 0;
 
@@ -431,7 +465,10 @@ function main() {
       continue;
     }
 
-    const html = transformHtml(template, route);
+    const ogImageUrl = route.imageBase
+      ? `${SITE_URL}/assets/${imageMap[route.imageBase]}`
+      : null;
+    const html = transformHtml(template, route, ogImageUrl);
 
     // Determine output path
     const outDir = join(DIST, route.path);
