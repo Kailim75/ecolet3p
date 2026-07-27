@@ -6,6 +6,7 @@ import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
 import DeferredRender from "@/components/performance/DeferredRender";
+import tarifs from "@/data/tarifs.json";
 import {
   Accordion,
   AccordionContent,
