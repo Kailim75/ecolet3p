@@ -256,7 +256,7 @@ const Formations = () => {
       <section id="initiales" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🚀 Formations Initiales — Devenez Chauffeur</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Formations initiales</h2>
             <p className="text-muted-foreground max-w-2xl">Obtenez votre carte professionnelle Taxi, VTC ou VMDTR. Disponible en journée, soirée ou e-learning.</p>
           </motion.div>
 
