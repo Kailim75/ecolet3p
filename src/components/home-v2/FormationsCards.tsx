@@ -79,7 +79,7 @@ const FormationsCards = () => {
               </ul>
               <Link
                 to={f.link}
-                className="btn-cta-orange w-full py-3.5 text-center font-bold rounded-lg inline-flex items-center justify-center gap-2"
+                className="w-full py-3.5 text-center font-bold rounded-lg inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 {f.cta}
                 <ArrowRight className="w-4 h-4" />
