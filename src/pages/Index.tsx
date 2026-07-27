@@ -198,6 +198,8 @@ const Index = () => {
         </Suspense>
       </DeferredRender>
 
+      <RealProofSection />
+
       <DeferredRender fallback={<SectionFallback />} rootMargin="360px 0px">
         <Suspense fallback={<SectionFallback />}>
           <NoCPFSection />
