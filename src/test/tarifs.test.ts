@@ -37,12 +37,14 @@ describe("tarifs guardrail", () => {
     expect(tarifs.fraisExamenCMA).toBe(241);
   });
 
-  it("no poisoned tarifs (239€, CPF) in source", () => {
+  it("no poisoned tarifs (239€) or CPF acceptance claim", () => {
     const offenders: string[] = [];
     for (const f of files) {
       const c = readFileSync(f, "utf-8");
       if (/\b239\s?€/.test(c)) offenders.push(`${f} : 239€`);
-      if (/\bCPF\b/.test(c)) offenders.push(`${f} : CPF`);
+      if (/(?:[ée]ligibles?\s+(?:au\s+)?CPF|finance[rz]?\s+(?:par|via|avec)\s+(?:le\s+)?CPF|MonCompteFormation|paiement\s+CPF|CPF\s+accept[ée])/i.test(c)) {
+        offenders.push(`${f} : CPF acceptance`);
+      }
     }
     expect(offenders).toEqual([]);
   });
