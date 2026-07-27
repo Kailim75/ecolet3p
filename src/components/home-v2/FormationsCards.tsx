@@ -10,10 +10,10 @@ const formations = [
     badge: "Formation initiale",
     title: "Formation VTC",
     subtitle: "Carte professionnelle VTC",
-    price: "990€",
+    price: priceLabel,
     priceDetail: "tout compris",
     inclusions: [
-      "Frais d'examen (241€) inclus",
+      examLabel,
       "2 heures de conduite incluses",
       "Véhicule fourni le jour de l'examen",
       "3 formats : Jour, Soir, E-learning",
