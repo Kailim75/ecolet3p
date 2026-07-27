@@ -434,6 +434,27 @@ function main() {
   }
 
   const template = readFileSync(indexPath, 'utf-8');
+
+  // Table de correspondance imageBase → nom haché produit par Vite.
+  // On préfère le .jpg (compatibilité universelle des scrapers sociaux) et on
+  // retombe sur .webp si aucun .jpg n'existe. Un article sans image trouvée
+  // fait échouer le prérendu : mieux vaut un build cassé qu'un og:image en 404.
+  const assetsDir = join(DIST, 'assets');
+  const assetFiles = existsSync(assetsDir) ? readdirSync(assetsDir) : [];
+  const imageBases = [...new Set(routes.map(r => r.imageBase).filter(Boolean))];
+  const imageMap = {};
+  for (const base of imageBases) {
+    const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(`^${escaped}-[A-Za-z0-9_-]+\\.(jpg|webp)$`);
+    const matches = assetFiles.filter(f => re.test(f));
+    if (matches.length === 0) {
+      console.error(`❌ Aucun asset haché trouvé pour "${base}" dans dist/assets/. Prérendu interrompu.`);
+      process.exit(1);
+    }
+    const jpg = matches.find(f => f.endsWith('.jpg'));
+    imageMap[base] = jpg || matches[0];
+  }
+
   let generated = 0;
   let skipped = 0;
 
@@ -444,7 +465,10 @@ function main() {
       continue;
     }
 
-    const html = transformHtml(template, route);
+    const ogImageUrl = route.imageBase
+      ? `${SITE_URL}/assets/${imageMap[route.imageBase]}`
+      : null;
+    const html = transformHtml(template, route, ogImageUrl);
 
     // Determine output path
     const outDir = join(DIST, route.path);
