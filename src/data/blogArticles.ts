@@ -14,6 +14,7 @@ import motoTaxiVmdtr from "@/assets/blog/moto-taxi-vmdtr.jpg";
 import formationContinue from "@/assets/blog/formation-continue.jpg";
 import renouvellementCartePro from "@/assets/blog/renouvellement-carte-pro.jpg";
 import formationWhiteboard from "@/assets/center/formation-whiteboard.jpg";
+import salleFormationEquipee from "@/assets/center/salle-formation-equipee.jpg";
 export interface BlogArticle {
   slug: string;
   title: string;
