@@ -63,8 +63,8 @@ const FormationMobilite = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl="/formations/mobilite"
-        defaultTitle="Passerelle Taxi ↔ VTC 14h — 390€ | ECOLE T3P"
-        defaultDescription="Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours, 390€. Ajoutez une mention à votre carte pro."
+        defaultTitle={`Passerelle Taxi ↔ VTC 14h — ${tarifs.passerelle}€ | ECOLE T3P`}
+        defaultDescription={`Formation mobilité passerelle Taxi ↔ VTC à Montrouge (92). 14h en 2 jours, ${tarifs.passerelle}€. Ajoutez une mention à votre carte pro.`}
       >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
