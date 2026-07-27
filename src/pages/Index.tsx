@@ -34,7 +34,7 @@ const homeFaqs = [
   {
     question: "Combien coûte la formation Taxi ou VTC à Montrouge ?",
     answer:
-      "La formation Taxi ou VTC chez ECOLE T3P est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium). Frais d'examen CMA de 241€ inclus. Paiement en 4x sans frais possible avec Alma.",
+      `La formation Taxi ou VTC chez ECOLE T3P est à partir de ${tarifs.initiale}€ (formule Essentiel) ou ${tarifs.initialePremium}€ (formule Premium). Frais d'examen CMA de ${tarifs.fraisExamenCMA}€ inclus. Paiement en 4x sans frais possible avec Alma.`,
   },
   {
     question: "Quel est le taux de réussite d'ECOLE T3P ?",
@@ -44,7 +44,7 @@ const homeFaqs = [
   {
     question: "Quels formats de formation proposez-vous ?",
     answer:
-      "3 formats au même tarif : Formation Journée (1 semaine, 9h30-16h30), Formation Soir (2 semaines, 18h-21h30) et E-learning (accès illimité jusqu'à l'examen, 24h/24 7j/7). Formule Essentiel à 990€ ou Premium à 1 190€.",
+      `3 formats au même tarif : Formation Journée (1 semaine, 9h30-16h30), Formation Soir (2 semaines, 18h-21h30) et E-learning (accès illimité jusqu'à l'examen, 24h/24 7j/7). Formule Essentiel à ${tarifs.initiale}€ ou Premium à ${tarifs.initialePremium}€.`,
   },
   {
     question: "Où se trouve le centre de formation ECOLE T3P ?",
@@ -54,12 +54,12 @@ const homeFaqs = [
   {
     question: "Combien coûte le renouvellement de carte professionnelle Taxi ou VTC ?",
     answer:
-      "Le renouvellement de la carte professionnelle se fait via la formation continue obligatoire de 14h (FCO) tous les 5 ans. Tarifs ECOLE T3P : Renouvellement VTC 170€, Renouvellement Taxi 250€, Renouvellement VMDTR (taxi moto) 250€. Attestation remise le jour même.",
+      `Le renouvellement de la carte professionnelle se fait via la formation continue obligatoire de 14h (FCO) tous les 5 ans. Tarifs ECOLE T3P : Renouvellement VTC ${tarifs.continueVTC}€, Renouvellement Taxi ${tarifs.continueTaxi}€, Renouvellement VMDTR (taxi moto) ${tarifs.continueVMDTR}€. Attestation remise le jour même.`,
   },
   {
     question: "Existe-t-il une passerelle entre Taxi et VTC ?",
     answer:
-      "Oui. La Passerelle T3P permet d'obtenir une seconde carte professionnelle (VTC ou Taxi) en seulement 14h de formation pour 665€, à condition d'avoir réussi l'examen T3P depuis moins de 3 ans.",
+      `Oui. La Passerelle T3P permet d'obtenir une seconde carte professionnelle (VTC ou Taxi) en seulement 14h de formation pour ${tarifs.passerelle}€, à condition d'avoir réussi l'examen T3P depuis moins de 3 ans.`,
   },
 ];
 
