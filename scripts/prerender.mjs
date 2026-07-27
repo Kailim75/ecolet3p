@@ -328,7 +328,7 @@ function getCanonical(path) {
   return `${SITE_URL}${path}`;
 }
 
-function transformHtml(template, route) {
+function transformHtml(template, route, ogImageUrl) {
   let html = template;
   const canonical = getCanonical(route.path);
   const ogTitle = route.ogTitle || route.title;
