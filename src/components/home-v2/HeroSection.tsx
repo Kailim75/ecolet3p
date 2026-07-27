@@ -181,8 +181,8 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
         <div className="max-w-3xl lg:max-w-[55%]">
           {/* Pre-title eyebrow */}
           <div
-            className="hero-word inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-gold/40 bg-white/5 backdrop-blur-sm"
-            style={{ animationDelay: "0s" }}
+            className={`${shouldAnimate ? "hero-word" : ""} inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-gold/40 bg-white/5 backdrop-blur-sm`}
+            style={shouldAnimate ? { animationDelay: "0s" } : undefined}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
@@ -195,16 +195,16 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
           </h1>
 
           <p
-            className="hero-word text-white/85 text-base md:text-lg lg:text-xl mb-8 max-w-2xl leading-relaxed"
-            style={{ animationDelay: "1.1s" }}
+            className={`${shouldAnimate ? "hero-word" : ""} text-white/85 text-base md:text-lg lg:text-xl mb-8 max-w-2xl leading-relaxed`}
+            style={shouldAnimate ? { animationDelay: "1.1s" } : undefined}
           >
             Formation VTC, Taxi ou VMDTR. 3 formats au choix : Journée, Soir ou E-learning.
             Accompagnement de A à Z.
           </p>
 
           <div
-            className="hero-word flex flex-col sm:flex-row gap-4"
-            style={{ animationDelay: "1.3s" }}
+            className={`${shouldAnimate ? "hero-word" : ""} flex flex-col sm:flex-row gap-4`}
+            style={shouldAnimate ? { animationDelay: "1.3s" } : undefined}
           >
             <Link
               to="/contact"
@@ -224,8 +224,8 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
 
           <Link
             to="/audit-rentabilite"
-            className="hero-word inline-flex items-center gap-2 mt-4 text-accent font-semibold text-sm hover:underline transition-all"
-            style={{ animationDelay: "1.5s" }}
+            className={`${shouldAnimate ? "hero-word" : ""} inline-flex items-center gap-2 mt-4 text-accent font-semibold text-sm hover:underline transition-all`}
+            style={shouldAnimate ? { animationDelay: "1.5s" } : undefined}
           >
             <FileSearch className="w-4 h-4" />
             Audit de rentabilité gratuit →
