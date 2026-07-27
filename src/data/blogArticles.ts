@@ -14,6 +14,7 @@ import motoTaxiVmdtr from "@/assets/blog/moto-taxi-vmdtr.jpg";
 import formationContinue from "@/assets/blog/formation-continue.jpg";
 import renouvellementCartePro from "@/assets/blog/renouvellement-carte-pro.jpg";
 import formationWhiteboard from "@/assets/center/formation-whiteboard.jpg";
+import salleFormationEquipee from "@/assets/center/salle-formation-equipee.jpg";
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -126,6 +127,96 @@ Chez ECOLE T3P, la formation initiale Taxi, VTC ou VMDTR coûte **990 euros tout
 ---
 
 **Prêt à vous lancer ?** [Réservez votre place](/contact) ou appelez-nous au 01 88 75 05 55 — notre centre est à 200 m du métro Mairie de Montrouge (ligne 4).
+`,
+  },
+  {
+    slug: "prix-formation-taxi-2026",
+    title: "Formation Taxi : quel prix en 2026 ? Le vrai détail des coûts",
+    metaDescription: "Combien coûte une formation taxi en 2026 ? Prix du marché, frais d'examen CMA, coûts cachés et paiement en 4 fois : le détail complet, sans surprise.",
+    excerpt: "990 euros, 1 350 euros, davantage ? Les prix des formations taxi varient du simple au double, et les frais d'examen n'y sont pas toujours inclus. Voici comment lire les tarifs — et ce que vous paierez vraiment.",
+    category: "TAXI",
+    readTime: "9 min",
+    publishDate: "2026-07-27",
+    author: "ECOLE T3P",
+    image: salleFormationEquipee,
+    content: `
+## Combien coûte vraiment une formation taxi en 2026 ?
+
+Si vous comparez les centres de formation d'Île-de-France, vous verrez des prix allant de **990 euros à plus de 1 500 euros** pour une formation initiale taxi ou VTC. Un écart pareil mérite une explication — et surtout, il cache un piège de lecture : **tous les prix affichés ne couvrent pas la même chose**.
+
+Voici comment décoder les tarifs, poste par poste.
+
+## Le piège n° 1 : les frais d'examen
+
+L'examen T3P est organisé par la Chambre de Métiers et de l'Artisanat, et son inscription coûte **241 euros**. C'est un coût obligatoire, quel que soit votre centre de formation.
+
+La question à poser avant de signer : **ces 241 euros sont-ils inclus dans le prix affiché ?** Beaucoup de centres les facturent en supplément. Un « 1 200 euros » hors frais d'examen coûte en réalité 1 441 euros.
+
+Chez ECOLE T3P, la réponse est simple : **990 euros tout compris, frais d'examen CMA inclus**.
+
+## Le piège n° 2 : la pratique
+
+L'examen comporte une épreuve de conduite en conditions réelles. Deux questions à poser :
+
+- **Des heures de conduite sont-elles incluses ?** Chez nous, 2 heures de préparation pratique font partie du forfait.
+- **Qui fournit le véhicule le jour de l'examen ?** Un véhicule conforme aux exigences de la CMA se loue cher en supplément. Chez ECOLE T3P, **le véhicule est fourni le jour de l'examen**, sans surcoût.
+
+## Ce que comprennent nos 990 euros
+
+| Poste | Inclus ? |
+|---|---|
+| Formation complète (journée, soir ou e-learning) | Oui |
+| Frais d'examen CMA (241 euros) | Oui |
+| 2 heures de conduite | Oui |
+| Véhicule fourni le jour de l'examen | Oui |
+| Examen blanc en conditions réelles | Oui |
+| Accompagnement création d'entreprise | Oui |
+
+Une formule **Premium à 1 190 euros** existe pour ceux qui veulent un accompagnement renforcé. Et les trois formats — journée sur 1 semaine, soir sur 2 semaines, e-learning illimité — sont **au même prix** : votre emploi du temps ne doit pas vous coûter plus cher.
+
+## Payer en 4 fois sans frais
+
+La formation peut se régler en **4 mensualités de 247,50 euros, sans frais**, via notre partenaire Alma. Réponse immédiate, sans justificatif de revenus.
+
+**Et le CPF ?** Nous ne passons pas par le Compte Personnel de Formation, et nous préférons vous le dire clairement plutôt que de vous le faire découvrir au moment de l'inscription. Notre choix : un prix bas et direct plutôt qu'un prix gonflé remboursé par dossier. On vous explique tout dans notre article sur [le financement de la formation](/blog/facilites-paiement-formation-taxi-vtc).
+
+## Les coûts à prévoir APRÈS la formation
+
+Pour être complet — parce qu'un budget honnête va jusqu'au bout :
+
+- **La carte professionnelle** : délivrée par la préfecture après réussite ; des frais administratifs de délivrance peuvent s'appliquer selon votre département.
+- **Le renouvellement** : tous les 5 ans, un stage obligatoire de 14 heures — [250 euros chez ECOLE T3P](/formations/continue-taxi), attestation remise le jour même.
+- **Pour exercer en taxi** : il vous faudra une autorisation de stationnement (ADS) ou un contrat de location avec un titulaire — c'est un sujet en soi, que nous abordons pendant l'accompagnement création d'entreprise.
+- **L'envie de doubler vos revenus** : avec une carte de moins de 3 ans, la [passerelle vers le VTC](/passerelle-vtc-taxi) coûte 665 euros, frais d'examen inclus.
+
+## Les prochaines rentrées à Montrouge
+
+Nos sessions de fin 2026 sont ouvertes :
+
+- **Du 14 au 25 septembre** en soirée (18h-21h30), examen blanc le samedi 26
+- **Du 21 au 25 septembre** en journée (9h30-16h30)
+- **Du 12 au 23 octobre** en soirée, examen blanc le samedi 24
+- **Du 2 au 13 novembre** en soirée, examen blanc le samedi 14
+
+12 places par session. [Voir les disponibilités](/formations/taxi).
+
+## Questions fréquentes
+
+### Pourquoi certains centres affichent-ils 1 300 euros et plus ?
+
+Parfois pour un volume d'heures supérieur, parfois parce que les frais d'examen et le véhicule sont en supplément, parfois parce que le prix intègre le coût des dossiers de financement. Comparez toujours le **coût total jusqu'à la carte en main**.
+
+### Le prix est-il le même pour le taxi et le VTC ?
+
+Chez ECOLE T3P, oui : 990 euros tout compris pour l'une ou l'autre formation initiale, et le VMDTR (moto-taxi) est au même tarif.
+
+### Que se passe-t-il si j'échoue ?
+
+Avec 94 % de réussite et un examen blanc avant chaque session, le cas est rare. Si cela arrive, nous vous accompagnons pour la nouvelle tentative — seuls les frais de réinscription à l'examen CMA sont à prévoir.
+
+---
+
+**Une question sur votre budget ?** [Contactez-nous](/contact) ou appelez le 01 88 75 05 55 — devis clair, sans surprise, réponse sous 24 h.
 `,
   },
   {
