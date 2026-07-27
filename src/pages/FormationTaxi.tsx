@@ -2,6 +2,7 @@ import { CarTaxiFront, Users, FileText, CheckCircle, Target, Award } from "lucid
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
 import heroImageTaxiWebp from "@/assets/formations/hero-taxi.jpg?w=640;1024;1920&format=webp&as=srcset";
+import tarifs from "@/data/tarifs.json";
 
 const FormationTaxi = () => (
   <FormationPageTemplate
@@ -17,7 +18,7 @@ const FormationTaxi = () => (
     heading="Formation Taxi à Montrouge — Carte Professionnelle"
     subheading="Devenez chauffeur de taxi professionnel avec notre formation complète. Taux de réussite de 94% et accompagnement personnalisé jusqu'à l'obtention de votre carte pro."
     duration="Journée, Soir ou E-learning"
-    price={990}
+    price={tarifs.initiale}
     thirdTag={{ icon: Award, label: "94% réussite" }}
     category="taxi"
     profession="taxi"

@@ -1,5 +1,6 @@
 import { ClipboardList } from "lucide-react";
 import ServicePageTemplate from "@/components/formations/ServicePageTemplate";
+import tarifs from "@/data/tarifs.json";
 
 const FormationAccompagnementAdmin = () => (
   <ServicePageTemplate
@@ -11,7 +12,7 @@ const FormationAccompagnementAdmin = () => (
     heading="Accompagnement Administratif"
     subheading="On s'occupe de la paperasse pour vous — concentrez-vous sur votre réussite. Carte professionnelle, registre T3P, préfecture, plateformes."
     duration="7h (1 journée)"
-    price={190}
+    price={tarifs.accompagnementAdmin}
     formationTitle="Accompagnement Administratif"
     features={[
       "Création du dossier carte professionnelle",

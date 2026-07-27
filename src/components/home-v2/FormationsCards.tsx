@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
+import tarifs from "@/data/tarifs.json";
+
+const priceLabel = `${tarifs.initiale}€`;
+const examLabel = `Frais d'examen (${tarifs.fraisExamenCMA}€) inclus`;
 
 const formations = [
   {
     badge: "Formation initiale",
     title: "Formation VTC",
     subtitle: "Carte professionnelle VTC",
-    price: "990€",
+    price: priceLabel,
     priceDetail: "tout compris",
     inclusions: [
-      "Frais d'examen (241€) inclus",
+      examLabel,
       "2 heures de conduite incluses",
       "Véhicule fourni le jour de l'examen",
       "3 formats : Jour, Soir, E-learning",
@@ -21,10 +25,10 @@ const formations = [
     badge: "Formation initiale",
     title: "Formation Taxi",
     subtitle: "Carte professionnelle Taxi",
-    price: "990€",
+    price: priceLabel,
     priceDetail: "tout compris",
     inclusions: [
-      "Frais d'examen (241€) inclus",
+      examLabel,
       "2 heures de conduite incluses",
       "Véhicule fourni le jour de l'examen",
       "3 formats : Jour, Soir, E-learning",
@@ -36,10 +40,10 @@ const formations = [
     badge: "Formation initiale",
     title: "Formation VMDTR",
     subtitle: "Carte professionnelle VMDTR",
-    price: "990€",
+    price: priceLabel,
     priceDetail: "tout compris",
     inclusions: [
-      "Frais d'examen (241€) inclus",
+      examLabel,
       "Formation moto-taxi complète",
       "Accompagnement administratif",
       "Format : Soir ou E-learning",

@@ -13,6 +13,7 @@ import StepPreRegistrationForm from "@/components/formations/StepPreRegistration
 import PricingCard from "@/components/formations/PricingCard";
 import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import tarifs from "@/data/tarifs.json";
 
 const passerelleDirections = [
   "TAXI → VTC", "VTC → TAXI", "VTC → VMDTR",
@@ -364,7 +365,7 @@ const PasserelleVtcTaxi = () => {
           <div className="max-w-lg mx-auto mt-16">
             <PricingCard
               title="Passerelle VTC ↔ TAXI ↔ VMDTR"
-              price={665}
+              price={tarifs.passerelle}
               duration="Formation accélérée"
               features={[
                 "Préparation aux 2 modules spécifiques (Taxi, VTC ou VMDTR)",

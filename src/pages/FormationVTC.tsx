@@ -2,6 +2,7 @@ import { Car, Users, FileText, CheckCircle, Target, Smartphone } from "lucide-re
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageVTC from "@/assets/formations/hero-vtc.jpg";
 import heroImageVTCWebp from "@/assets/formations/hero-vtc.jpg?w=640;1024;1920&format=webp&as=srcset";
+import tarifs from "@/data/tarifs.json";
 
 const FormationVTC = () => (
   <FormationPageTemplate
@@ -17,7 +18,7 @@ const FormationVTC = () => (
     heading="Formation VTC Initiale à Montrouge — à partir de 990€"
     subheading="Devenez chauffeur VTC et travaillez avec Uber, Bolt, Heetch. Formation complète incluant gestion d'entreprise et relation client premium."
     duration="Journée, Soir ou E-learning"
-    price={990}
+    price={tarifs.initiale}
     thirdTag={{ icon: Smartphone, label: "Multi-apps" }}
     category="vtc"
     profession="vtc"
