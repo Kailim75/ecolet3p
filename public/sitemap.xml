@@ -423,35 +423,47 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/financement-formation-taxi-vtc</loc>
-    <lastmod>2026-02-16</lastmod>
+    <loc>https://ecolet3p.fr/blog/renouvellement-carte-professionnelle-vtc-taxi-2026</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ecolet3p.fr/blog/formation-continue-renouvellement-carte-professionnelle</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/carte-professionnelle-vtc</loc>
-    <lastmod>2026-02-16</lastmod>
+    <loc>https://ecolet3p.fr/blog/etapes-obtenir-carte-professionnelle-vtc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/formation-continue-taxi-vtc</loc>
-    <lastmod>2026-02-16</lastmod>
+    <loc>https://ecolet3p.fr/blog/facilites-paiement-formation-taxi-vtc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/moto-taxi-vmdtr</loc>
-    <lastmod>2026-02-16</lastmod>
+    <loc>https://ecolet3p.fr/blog/formation-vmdtr-moto-taxi-scooter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ecolet3p.fr/blog/devenir-chauffeur-vtc-2025</loc>
-    <lastmod>2026-02-16</lastmod>
+    <loc>https://ecolet3p.fr/blog/vtc-ou-taxi-quelle-formation-choisir</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecolet3p.fr/blog/formation-taxi-carte-professionnelle-t3p</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecolet3p.fr/blog/devenir-chauffeur-vtc-guide-complet-2025</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
 
   <!-- ══════════════════════════════════════════════ -->
   <!-- PAGES INSTITUTIONNELLES                       -->
