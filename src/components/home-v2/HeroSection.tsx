@@ -191,7 +191,7 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
           </div>
 
           <h1 className="text-[28px] md:text-[40px] lg:text-[56px] font-bold text-white leading-[1.08] mb-6 tracking-tight">
-            <SignatureTitle text={titleText} />
+            <SignatureTitle text={titleText} animate={shouldAnimate} />
           </h1>
 
           <p
