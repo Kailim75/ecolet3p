@@ -203,6 +203,29 @@ const Index = () => {
         </Suspense>
       </DeferredRender>
 
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container-custom max-w-4xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary text-center mb-4">
+            Questions fréquentes
+          </h2>
+          <p className="text-center text-muted-foreground mb-10">
+            Tout ce qu'il faut savoir avant de vous lancer avec ECOLE T3P.
+          </p>
+          <Accordion type="single" collapsible className="w-full">
+            {homeFaqs.map((faq, i) => (
+              <AccordionItem key={i} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left text-base lg:text-lg font-semibold text-primary">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       <DeferredRender fallback={<SectionFallback />} rootMargin="420px 0px">
         <Suspense fallback={<SectionFallback />}>
           <CTAFinalSection />
