@@ -72,7 +72,7 @@ const useCountUp = (target: number, duration = 1600, startDelay = 800, skip = fa
  * staggered animation-delay. Preserves the special "${price}€" token
  * so it can be highlighted with a gold underline.
  */
-const SignatureTitle = ({ text }: { text: string }) => {
+const SignatureTitle = ({ text, animate }: { text: string; animate: boolean }) => {
   const tokens = useMemo(() => text.split(/(\s+)/), [text]);
   let wordIndex = 0;
 
@@ -86,6 +86,15 @@ const SignatureTitle = ({ text }: { text: string }) => {
 
         // Highlight any price-like token (e.g. "990€", "1190€") in gold.
         const isPrice = /\d+€/.test(tok);
+        const inner = isPrice ? (
+          <span className="hero-gold-underline text-gold">{tok}</span>
+        ) : (
+          tok
+        );
+
+        if (!animate) {
+          return <span key={i}>{inner}</span>;
+        }
 
         return (
           <span
@@ -93,11 +102,7 @@ const SignatureTitle = ({ text }: { text: string }) => {
             className="hero-word"
             style={{ animationDelay: delay }}
           >
-            {isPrice ? (
-              <span className="hero-gold-underline text-gold">{tok}</span>
-            ) : (
-              tok
-            )}
+            {inner}
           </span>
         );
       })}
@@ -107,9 +112,17 @@ const SignatureTitle = ({ text }: { text: string }) => {
 
 const HeroSection = ({ h1Override }: { h1Override?: string }) => {
   const isMobile = useIsMobile();
-  const successRate = useCountUp(94, 1600, 900);
+  // Lecture UNIQUE au montage : le compteur et le titre doivent voir le même drapeau
+  // AVANT que markHeroPlayed n'écrive au premier passage.
+  const [shouldAnimate] = useState(() => !heroAlreadyPlayed());
+  const successRate = useCountUp(94, 1600, 900, !shouldAnimate);
+
+  useEffect(() => {
+    if (shouldAnimate) markHeroPlayed();
+  }, [shouldAnimate]);
 
   const titleText = h1Override || "Devenez chauffeur professionnel à partir de 990€.";
+
 
   return (
     <section className="relative min-h-screen lg:min-h-[70vh] flex items-center bg-primary pt-20 lg:pt-16 overflow-hidden isolate">
