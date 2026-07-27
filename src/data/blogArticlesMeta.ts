@@ -41,6 +41,17 @@ export const blogArticlesMeta: BlogArticleMeta[] = [
     image: formationWhiteboard,
   },
   {
+    slug: "prix-formation-taxi-2026",
+    title: "Formation Taxi : quel prix en 2026 ? Le vrai détail des coûts",
+    metaDescription: "Combien coûte une formation taxi en 2026 ? Prix du marché, frais d'examen CMA, coûts cachés et paiement en 4 fois : le détail complet, sans surprise.",
+    excerpt: "990 euros, 1 350 euros, davantage ? Les prix des formations taxi varient du simple au double, et les frais d'examen n'y sont pas toujours inclus. Voici comment lire les tarifs — et ce que vous paierez vraiment.",
+    category: "TAXI",
+    readTime: "9 min",
+    publishDate: "2026-07-27",
+    author: "ECOLE T3P",
+    image: salleFormationEquipee,
+  },
+  {
     slug: "quel-statut-juridique-chauffeur-vtc-taxi-2026",
     title: "Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?",
     metaDescription: "Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.",
