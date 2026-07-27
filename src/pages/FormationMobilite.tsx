@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import heroImageMobilite from "@/assets/formations/hero-mobilite.jpg";
 import heroImageMobiliteWebp from "@/assets/formations/hero-mobilite.jpg?w=640;1024;1920&format=webp&as=srcset";
+import tarifs from "@/data/tarifs.json";
 
 const programModules = [
   { title: "Réglementation spécifique", duration: "4h", topics: ["Différences Taxi/VTC", "Obligations réglementaires", "Zones d'exercice", "Sanctions"] },
