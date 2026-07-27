@@ -302,7 +302,7 @@ const Formations = () => {
       <section id="continues" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-3">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🔄 Formations Continues</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Formations Continues</h2>
             <p className="text-muted-foreground max-w-2xl">Renouvelez votre carte professionnelle — 14h obligatoires tous les 5 ans.</p>
           </motion.div>
           <p className="text-xs text-destructive font-bold mb-6 bg-destructive/5 inline-flex px-3 py-1.5 rounded-full border border-destructive/20">
