@@ -21,6 +21,7 @@ const EcosystemSection = lazy(() => import("@/components/home-v2/EcosystemSectio
 const TestimonialsSection = lazy(() => import("@/components/home-v2/TestimonialsSection"));
 const NoCPFSection = lazy(() => import("@/components/home-v2/NoCPFSection"));
 const CTAFinalSection = lazy(() => import("@/components/home-v2/CTAFinalSection"));
+import RealProofSection from "@/components/home-v2/RealProofSection";
 
 const SectionFallback = () => (
   <div className="py-16 flex justify-center">
@@ -196,6 +197,8 @@ const Index = () => {
           <TestimonialsSection />
         </Suspense>
       </DeferredRender>
+
+      <RealProofSection />
 
       <DeferredRender fallback={<SectionFallback />} rootMargin="360px 0px">
         <Suspense fallback={<SectionFallback />}>

@@ -201,7 +201,7 @@ const Formations = () => {
       <section id="tarifs" className="py-10 md:py-16 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">💰 Tarifs en un coup d'œil</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Tarifs en un coup d'œil</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">Tous nos tarifs sont <strong>tout compris</strong> — frais d'examen inclus. Paiement en 4× sans frais avec Alma.</p>
           </motion.div>
           <motion.div
@@ -256,7 +256,7 @@ const Formations = () => {
       <section id="initiales" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🚀 Formations Initiales — Devenez Chauffeur</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Formations initiales</h2>
             <p className="text-muted-foreground max-w-2xl">Obtenez votre carte professionnelle Taxi, VTC ou VMDTR. Disponible en journée, soirée ou e-learning.</p>
           </motion.div>
 
@@ -302,7 +302,7 @@ const Formations = () => {
       <section id="continues" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-3">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🔄 Formations Continues</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Formations Continues</h2>
             <p className="text-muted-foreground max-w-2xl">Renouvelez votre carte professionnelle — 14h obligatoires tous les 5 ans.</p>
           </motion.div>
           <p className="text-xs text-destructive font-bold mb-6 bg-destructive/5 inline-flex px-3 py-1.5 rounded-full border border-destructive/20">
@@ -318,7 +318,7 @@ const Formations = () => {
       <section id="passerelles" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🔀 Passerelles</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Passerelles</h2>
             <p className="text-muted-foreground max-w-2xl">Vous êtes déjà chauffeur ? Ajoutez une activité à votre carte professionnelle.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl">
@@ -331,7 +331,7 @@ const Formations = () => {
       <section id="mobilite" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-3">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">📍 Renouvellement & Mobilité Géographique</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Renouvellement & Mobilité géographique</h2>
             <p className="text-muted-foreground max-w-2xl">Étendez votre zone d'activité taxi à un nouveau département.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl">
@@ -344,7 +344,7 @@ const Formations = () => {
       <section id="recup-points" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🛡️ Stage de Récupération de Points</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Stage de récupération de points</h2>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="bg-card border border-border/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 max-w-4xl"
@@ -371,7 +371,7 @@ const Formations = () => {
       <section id="complementaires" className="py-10 md:py-20 bg-white scroll-mt-14">
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">🚀 Boostez votre carrière</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Développez votre activité</h2>
             <p className="text-muted-foreground max-w-2xl">Formations complémentaires pour vous démarquer et développer votre activité.</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl">
