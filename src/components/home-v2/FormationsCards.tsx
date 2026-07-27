@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
+import tarifs from "@/data/tarifs.json";
+
+const priceLabel = `${tarifs.initiale}€`;
+const examLabel = `Frais d'examen (${tarifs.fraisExamenCMA}€) inclus`;
 
 const formations = [
   {
