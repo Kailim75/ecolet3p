@@ -46,7 +46,7 @@ const FormationMobilite = () => {
     "name": "Formation Mobilité - Passerelle Taxi ↔ VTC",
     "description": "Formation passerelle de 14 heures pour passer de Taxi à VTC ou inversement.",
     "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
-    "offers": { "@type": "Offer", "price": "390", "priceCurrency": "EUR" },
+    "offers": { "@type": "Offer", "price": String(tarifs.passerelle), "priceCurrency": "EUR" },
     "timeRequired": "PT14H"
   };
 
