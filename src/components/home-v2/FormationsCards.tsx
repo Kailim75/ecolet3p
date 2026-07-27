@@ -40,10 +40,10 @@ const formations = [
     badge: "Formation initiale",
     title: "Formation VMDTR",
     subtitle: "Carte professionnelle VMDTR",
-    price: "990€",
+    price: priceLabel,
     priceDetail: "tout compris",
     inclusions: [
-      "Frais d'examen (241€) inclus",
+      examLabel,
       "Formation moto-taxi complète",
       "Accompagnement administratif",
       "Format : Soir ou E-learning",
