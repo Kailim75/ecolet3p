@@ -29,6 +29,17 @@ export interface BlogArticleMeta {
 
 export const blogArticlesMeta: BlogArticleMeta[] = [
   {
+    slug: "qu-est-ce-que-le-t3p",
+    title: "T3P : définition, examen, carte professionnelle — le guide 2026",
+    metaDescription: "T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.",
+    excerpt: "Taxi, VTC, moto-taxi : derrière le sigle T3P se cache la réglementation qui encadre ces trois métiers. Définition, examen, carte professionnelle : on vous explique tout simplement.",
+    category: "RÉGLEMENTATION",
+    readTime: "8 min",
+    publishDate: "2026-07-27",
+    author: "ECOLE T3P",
+    image: formationWhiteboard,
+  },
+  {
     slug: "quel-statut-juridique-chauffeur-vtc-taxi-2026",
     title: "Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?",
     metaDescription: "Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.",
