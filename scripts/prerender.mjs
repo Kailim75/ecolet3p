@@ -228,6 +228,7 @@ const routes = [
 // de fichier (sans extension) de l'import de couverture dans ce fichier.
 // Vite hache ces assets au build ; on retrouve le nom haché plus bas.
 const blogArticles = [
+  { slug: 'qu-est-ce-que-le-t3p', title: 'T3P : définition, examen, carte professionnelle — le guide 2026', description: 'T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.', imageBase: 'formation-whiteboard' },
   { slug: 'quel-statut-juridique-chauffeur-vtc-taxi-2026', title: 'Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?', description: 'Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.', imageBase: 'statuts-juridiques-t3p' },
   { slug: 'maitrise-numerique-ia-chauffeur-vtc-taxi', title: 'Maîtrise du numérique et de l\'IA : un atout indispensable pour les chauffeurs VTC et Taxi', description: 'L\'importance de maîtriser les outils numériques et l\'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026.', imageBase: 'technologie-ia-transport' },
   { slug: 'anglais-chauffeur-vtc-taxi-clientele-internationale', title: 'L\'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale', description: 'Pourquoi l\'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils.', imageBase: 'anglais-chauffeur-t3p' },

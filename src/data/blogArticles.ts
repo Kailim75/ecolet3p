@@ -13,6 +13,7 @@ import financementFormation from "@/assets/blog/financement-formation.jpg";
 import motoTaxiVmdtr from "@/assets/blog/moto-taxi-vmdtr.jpg";
 import formationContinue from "@/assets/blog/formation-continue.jpg";
 import renouvellementCartePro from "@/assets/blog/renouvellement-carte-pro.jpg";
+import formationWhiteboard from "@/assets/center/formation-whiteboard.jpg";
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -27,6 +28,106 @@ export interface BlogArticle {
 }
 
 export const blogArticles: BlogArticle[] = [
+  {
+    slug: "qu-est-ce-que-le-t3p",
+    title: "T3P : définition, examen, carte professionnelle — le guide 2026",
+    metaDescription: "T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.",
+    excerpt: "Taxi, VTC, moto-taxi : derrière le sigle T3P se cache la réglementation qui encadre ces trois métiers. Définition, examen, carte professionnelle : on vous explique tout simplement.",
+    category: "RÉGLEMENTATION",
+    readTime: "8 min",
+    publishDate: "2026-07-27",
+    author: "ECOLE T3P",
+    image: formationWhiteboard,
+    content: `
+## T3P : trois lettres qui encadrent trois métiers
+
+Si vous vous renseignez sur les métiers de chauffeur, vous croisez le sigle **T3P** partout : sur les sites des préfectures, dans les programmes de formation, sur votre future carte professionnelle. T3P signifie **Transport Public Particulier de Personnes**.
+
+Concrètement, le T3P regroupe les trois métiers où un professionnel transporte des passagers à titre onéreux dans un véhicule léger :
+
+- le **chauffeur de taxi**,
+- le **chauffeur VTC** (Voiture de Transport avec Chauffeur),
+- le **conducteur de VMDTR** (Véhicule Motorisé à Deux ou Trois Roues — le « moto-taxi »).
+
+Ces trois métiers partagent un socle commun : un examen national, une carte professionnelle, et des obligations de formation continue. C'est ce socle qu'on vous explique ici.
+
+## Taxi, VTC, VMDTR : les vraies différences
+
+| | Taxi | VTC | VMDTR |
+|---|---|---|---|
+| Prise en charge | En station, dans la rue ou sur réservation | Uniquement sur réservation préalable | Uniquement sur réservation préalable |
+| Prix de la course | Au compteur (tarifs réglementés) | Convenu à l'avance | Convenu à l'avance |
+| Véhicule | Voiture équipée (compteur, lumineux) | Voiture de tourisme | Moto ou scooter (permis A requis) |
+| Clientèle type | Flux urbain, gares, aéroports | Plateformes (Uber, Bolt...) et clientèle directe | Trajets rapides, aéroports |
+
+Le choix entre les trois dépend de votre projet : nous avons consacré un [comparatif complet des trois métiers](/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir) à cette question.
+
+## L'examen T3P : comment ça se passe
+
+L'examen est organisé par les **Chambres de Métiers et de l'Artisanat (CMA)**. Il comporte deux étapes.
+
+### 1. L'admissibilité (épreuves théoriques)
+
+Une série d'épreuves écrites qui portent sur :
+
+- la **réglementation du T3P** (obligations, sanctions, assurances),
+- la **gestion d'entreprise** (statuts, charges, facturation),
+- la **sécurité routière**,
+- le **français** (compréhension et expression),
+- l'**anglais** (accueil d'une clientèle internationale),
+- et une **épreuve spécifique** au métier choisi (taxi ou VTC).
+
+### 2. L'admission (épreuve pratique)
+
+Une mise en situation réelle de conduite avec un examinateur : accueil du client, itinéraire, conduite souple et sûre, facturation. C'est l'épreuve qui se prépare le mieux... en pratiquant. Chez ECOLE T3P, **2 heures de conduite** sont incluses dans la formation initiale et **le véhicule vous est fourni le jour de l'examen**.
+
+Les sessions d'examen ont lieu à dates fixes, département par département : consultez notre [calendrier des examens CMA](/calendrier-examens) pour planifier votre passage.
+
+## La carte professionnelle T3P
+
+Une fois l'examen réussi, vous demandez votre **carte professionnelle** à la préfecture. C'est elle qui vous autorise à exercer.
+
+Trois choses à savoir :
+
+- **Pour le VTC**, la carte est valable sur tout le territoire national, quel que soit le département où vous avez passé l'examen.
+- **Pour le taxi**, l'examen est départemental et il vous faudra en plus une autorisation de stationnement (ADS) ou un contrat avec un titulaire pour exercer.
+- **La carte se renouvelle tous les 5 ans**, en suivant un stage de formation continue obligatoire de 14 heures.
+
+Chez ECOLE T3P, ce stage de renouvellement coûte [170 euros pour le VTC](/formations/continue-vtc) et [250 euros pour le taxi](/formations/continue-taxi) comme pour le VMDTR, attestation remise le jour même.
+
+## Déjà une carte ? La passerelle vous ouvre le deuxième métier
+
+Si vous détenez une carte taxi ou VTC depuis moins de 3 ans, la **passerelle T3P** vous permet d'obtenir la seconde carte en 14 heures de formation seulement, sans repasser l'examen complet. Beaucoup de nos stagiaires doublent ainsi leurs sources de revenus. [Tout savoir sur la passerelle](/passerelle-vtc-taxi).
+
+## Comment mettre toutes les chances de votre côté
+
+L'examen T3P se prépare sérieusement : la moyenne nationale de réussite est nettement inférieure à ce qu'on imagine. Notre centre agréé Préfecture (agrément n° 23/007) affiche **94 % de réussite**, avec plus de **2 000 chauffeurs formés depuis 2014**. Trois formats au même tarif :
+
+- **Journée** : 1 semaine intensive, 9h30-16h30
+- **Soir** : 2 semaines, 18h-21h30 — idéal si vous travaillez déjà
+- **E-learning** : accès illimité jusqu'à l'examen
+
+Chaque session se termine par un **examen blanc en conditions réelles** le samedi suivant. Prochaines rentrées : consultez les dates directement sur nos pages [Taxi](/formations/taxi), [VTC](/formations/vtc) et [VMDTR](/formations/vmdtr).
+
+## Questions fréquentes
+
+### Que veut dire T3P exactement ?
+
+Transport Public Particulier de Personnes. Le sigle désigne l'ensemble réglementaire qui encadre les taxis, les VTC et les moto-taxis (VMDTR) en France.
+
+### L'examen T3P est-il difficile ?
+
+Il demande une vraie préparation, notamment en réglementation et en gestion. Avec une formation structurée et des examens blancs, nos stagiaires le réussissent à 94 %.
+
+### Combien coûte la formation T3P ?
+
+Chez ECOLE T3P, la formation initiale Taxi, VTC ou VMDTR coûte **990 euros tout compris** : frais d'examen CMA de 241 euros inclus, 2 heures de conduite et accompagnement à la création d'entreprise. Paiement possible en 4 fois sans frais.
+
+---
+
+**Prêt à vous lancer ?** [Réservez votre place](/contact) ou appelez-nous au 01 88 75 05 55 — notre centre est à 200 m du métro Mairie de Montrouge (ligne 4).
+`,
+  },
   {
     slug: "quel-statut-juridique-chauffeur-vtc-taxi-2026",
     title: "Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?",
