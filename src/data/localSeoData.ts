@@ -1720,6 +1720,27 @@ export const cities: CityData[] = [
     seoTitle: "Formation Taxi VTC Massy (91300) | ECOLE T3P - Centre à 25 min en RER",
     seoDescription: "Formation TAXI et VTC à Massy (91300). Centre ECOLE T3P à 25 min en RER B. Formation agréée Préfecture, 94% de réussite. Proche gare TGV Massy.",
     seoKeywords: ["formation taxi Massy", "formation VTC Massy", "centre formation 91300", "carte professionnelle taxi Massy", "ECOLE T3P Massy"],
+    introTitle: "Massy — Formation Taxi & VTC à 25 minutes en RER B",
+    introText: [
+      "Vous habitez Massy, le quartier d'Atlantis, Vilmorin ou près du Parc Georges Brassens ? Notre centre de formation à Montrouge est à 25 minutes. Depuis Massy-Palaiseau, le RER B vous conduit à Denfert-Rochereau, puis la ligne 4 dessert Mairie de Montrouge : le centre est au 3 rue Corneille, à 200 mètres de la sortie.",
+      "Massy occupe une position que peu de villes d'Île-de-France peuvent revendiquer : une gare TGV, deux lignes de RER (B et C) et un pôle d'affaires en pleine croissance. Pour un chauffeur VTC ou taxi, c'est un flux de clientèle rare — voyageurs d'affaires en correspondance TGV, transferts vers Orly à quinze minutes, et une zone d'activité qui commande des courses toute la semaine.",
+      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €), 2 h de conduite et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+    ],
+    detailedAccess: "Depuis Massy, prenez le RER B à Massy-Palaiseau direction Paris, descendez à Denfert-Rochereau, puis la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Le RER C depuis Massy-Verrières est une alternative via la ligne 4 également. À la sortie du métro, le centre est au 3 rue Corneille, à 200 mètres. Les lignes de bus 119, 199, 297 et 396 desservent le secteur. En voiture, comptez une trentaine de minutes par l'A10 puis l'A6, avec stationnement possible rue Gabriel Péri.",
+    whyChoose: [
+      { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
+      { icon: MapPin, title: "Gare TGV et 2 RER", text: "Massy cumule TGV, RER B et RER C : un flux de clientèle que peu de communes offrent à un chauffeur." },
+      { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) et 2 h de conduite inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
+      { icon: Shield, title: "Agrément Préfecture", text: "Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté 5.0/5 sur Google (359 avis)." }
+    ],
+    enrichedFaqs: [
+      { question: "Comment venir à ECOLE T3P depuis Massy ?", answer: "RER B depuis Massy-Palaiseau jusqu'à Denfert-Rochereau, puis ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 200 mètres de la sortie. Comptez environ 25 minutes. Le RER C depuis Massy-Verrières est une alternative." },
+      { question: "Massy est-elle une bonne base pour un chauffeur ?", answer: "C'est l'une des meilleures de l'Essonne. La gare TGV apporte une clientèle d'affaires en correspondance, Orly est à un quart d'heure, et le pôle d'activités d'Atlantis génère des courses régulières en semaine. Peu de communes cumulent TGV, RER B et RER C." },
+      { question: "Quels horaires si je travaille déjà ?", answer: "Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) et e-learning en accès illimité. La formule du soir permet de conserver son emploi pendant la formation, et le RER B circule tard." },
+      { question: "Combien coûte la formation et comment la financer ?", answer: "990 € tout compris, frais d'examen CMA de 241 € inclus, avec 2 h de conduite et l'accompagnement à la création d'entreprise. Règlement en direct ou en 4× sans frais via Alma, soit 247,50 € par mois. Nous ne passons pas par le CPF." },
+      { question: "Dois-je passer l'examen dans l'Essonne ?", answer: "Pour le VTC, la carte professionnelle est valable partout en France : le département d'examen n'a aucune incidence sur votre zone de travail. Pour le taxi, l'examen est départemental et l'autorisation de stationnement dépend de la commune ; nous vous aidons à choisir en fonction de votre projet." },
+      { question: "Quel est le taux de réussite ?", answer: "94 % de nos stagiaires obtiennent leur carte, bien au-dessus de la moyenne nationale. Chaque session se termine par un examen blanc en conditions réelles." }
+    ],
     latitude: 48.7262,
     longitude: 2.2714
   },
@@ -2216,7 +2237,7 @@ export const RETIRED_CITY_SLUGS = new Set<string>([
   "asnieres-sur-seine", "levallois-perret", "neuilly-sur-seine", "courbevoie", "clichy",
   "charenton-le-pont", "saint-mande", "fontenay-sous-bois", "maisons-alfort", "alfortville",
   "saint-denis", "saint-ouen", "aubervilliers", "pantin", "le-pre-saint-gervais",
-  "les-lilas", "bagnolet", "montreuil", "bobigny", "romainville", "massy", "palaiseau",
+  "les-lilas", "bagnolet", "montreuil", "bobigny", "romainville", "palaiseau",
   "savigny-sur-orge", "evry-courcouronnes", "corbeil-essonnes", "viry-chatillon",
   "athis-mons", "juvisy-sur-orge", "chilly-mazarin", "versailles", "saint-germain-en-laye",
   "poissy", "sartrouville", "le-chesnay-rocquencourt", "velizy-villacoublay", "chatou",

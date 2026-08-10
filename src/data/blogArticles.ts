@@ -31,7 +31,7 @@ export interface BlogArticle {
 export const blogArticles: BlogArticle[] = [
   {
     slug: "qu-est-ce-que-le-t3p",
-    title: "T3P : définition, examen, carte professionnelle — le guide 2026",
+    title: "T3P : définition, examen et carte professionnelle",
     metaDescription: "T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.",
     excerpt: "Taxi, VTC, moto-taxi : derrière le sigle T3P se cache la réglementation qui encadre ces trois métiers. Définition, examen, carte professionnelle : on vous explique tout simplement.",
     category: "RÉGLEMENTATION",
@@ -131,7 +131,7 @@ Chez ECOLE T3P, la formation initiale Taxi, VTC ou VMDTR coûte **990 euros tout
   },
   {
     slug: "prix-formation-taxi-2026",
-    title: "Formation Taxi : quel prix en 2026 ? Le vrai détail des coûts",
+    title: "Prix d'une formation Taxi en 2026 : le détail réel",
     metaDescription: "Combien coûte une formation taxi en 2026 ? Prix du marché, frais d'examen CMA, coûts cachés et paiement en 4 fois : le détail complet, sans surprise.",
     excerpt: "990 euros, 1 350 euros, davantage ? Les prix des formations taxi varient du simple au double, et les frais d'examen n'y sont pas toujours inclus. Voici comment lire les tarifs — et ce que vous paierez vraiment.",
     category: "TAXI",
@@ -221,7 +221,7 @@ Avec 94 % de réussite et un examen blanc avant chaque session, le cas est rare.
   },
   {
     slug: "quel-statut-juridique-chauffeur-vtc-taxi-2026",
-    title: "Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?",
+    title: "Statut juridique chauffeur VTC ou Taxi : le guide 2026",
     metaDescription: "Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.",
     excerpt: "Auto-entrepreneur, SASU, EURL ou SARL ? Découvrez le meilleur statut juridique pour lancer votre activité de chauffeur VTC ou Taxi en 2026.",
     category: "CRÉATION",
@@ -503,7 +503,7 @@ Chez **ECOLE T3P**, nous vous aidons à choisir et créer votre statut :
   },
   {
     slug: "maitrise-numerique-ia-chauffeur-vtc-taxi",
-    title: "Maîtrise du numérique et de l'IA : un atout indispensable pour les chauffeurs VTC et Taxi",
+    title: "Numérique et IA : compétences clés du chauffeur T3P",
     metaDescription: "L'importance de maîtriser les outils numériques et l'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026. Applications, GPS, gestion et IA.",
     excerpt: "Applications, GPS, comptabilité en ligne, intelligence artificielle... Découvrez pourquoi la maîtrise du numérique est devenue essentielle pour réussir comme chauffeur.",
     category: "COMPÉTENCES",
@@ -751,7 +751,7 @@ En 2026, la maîtrise des outils numériques et de l'IA n'est plus optionnelle p
   },
   {
     slug: "anglais-chauffeur-vtc-taxi-clientele-internationale",
-    title: "L'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale",
+    title: "L'anglais pour les chauffeurs VTC et Taxi",
     metaDescription: "Pourquoi l'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils pour accueillir la clientèle internationale.",
     excerpt: "Touristes, hommes d'affaires, expatriés... Découvrez pourquoi maîtriser l'anglais est un atout majeur pour développer votre clientèle et vos revenus et comment progresser rapidement.",
     category: "COMPÉTENCES",
@@ -2424,7 +2424,7 @@ Découvrez nos autres guides sur les métiers du transport :
   },
   {
     slug: "devenir-chauffeur-vtc-guide-complet-2025",
-    title: "Devenir chauffeur VTC en 2025 : démarches et conseils pratiques",
+    title: "Devenir chauffeur VTC : démarches et conseils",
     metaDescription: "Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l'examen, choix du véhicule et création de votre micro-entreprise.",
     excerpt: "Vous souhaitez devenir chauffeur VTC ? Découvrez notre guide complet avec toutes les étapes, de la formation à l'obtention de votre carte professionnelle.",
     category: "VTC",
