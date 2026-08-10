@@ -228,16 +228,16 @@ const routes = [
 // de fichier (sans extension) de l'import de couverture dans ce fichier.
 // Vite hache ces assets au build ; on retrouve le nom haché plus bas.
 const blogArticles = [
-  { slug: 'qu-est-ce-que-le-t3p', title: 'T3P : définition, examen, carte professionnelle — le guide 2026', description: 'T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.', imageBase: 'formation-whiteboard' },
-  { slug: 'prix-formation-taxi-2026', title: 'Formation Taxi : quel prix en 2026 ? Le vrai détail des coûts', description: 'Combien coûte une formation taxi en 2026 ? Prix du marché, frais d\'examen CMA, coûts cachés et paiement en 4 fois : le détail complet, sans surprise.', imageBase: 'salle-formation-equipee' },
-  { slug: 'quel-statut-juridique-chauffeur-vtc-taxi-2026', title: 'Quel statut juridique choisir pour devenir chauffeur VTC ou Taxi en 2026 ?', description: 'Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.', imageBase: 'statuts-juridiques-t3p' },
+  { slug: 'qu-est-ce-que-le-t3p', title: 'T3P : définition, examen et carte professionnelle', description: 'T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.', imageBase: 'formation-whiteboard' },
+  { slug: 'prix-formation-taxi-2026', title: 'Prix d'une formation Taxi en 2026 : le détail réel', description: 'Combien coûte une formation taxi en 2026 ? Prix du marché, frais d\'examen CMA, coûts cachés et paiement en 4 fois : le détail complet, sans surprise.', imageBase: 'salle-formation-equipee' },
+  { slug: 'quel-statut-juridique-chauffeur-vtc-taxi-2026', title: 'Statut juridique chauffeur VTC ou Taxi : le guide 2026', description: 'Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.', imageBase: 'statuts-juridiques-t3p' },
   { slug: 'maitrise-numerique-ia-chauffeur-vtc-taxi', title: 'Maîtrise du numérique et de l\'IA : un atout indispensable pour les chauffeurs VTC et Taxi', description: 'L\'importance de maîtriser les outils numériques et l\'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026.', imageBase: 'technologie-ia-transport' },
   { slug: 'anglais-chauffeur-vtc-taxi-clientele-internationale', title: 'L\'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale', description: 'Pourquoi l\'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils.', imageBase: 'anglais-chauffeur-t3p' },
   { slug: 'vtc-taxi-vmdtr-2026-quel-metier-choisir', title: 'VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?', description: 'Comparatif complet VTC, Taxi et VMDTR en 2026 : formation, revenus, investissement, avantages et inconvénients.', imageBase: 'vtc-taxi-vmdtr-comparison-2026' },
   { slug: 'formation-vmdtr-2026-devenir-conducteur-moto-taxi', title: 'Formation VMDTR 2026 : Devenir conducteur moto-taxi', description: 'Guide complet 2026 pour devenir conducteur moto-taxi VMDTR : formation 14h, examen, carte professionnelle et réglementation.', imageBase: 'vmdtr-driver-2026' },
   { slug: 'comment-devenir-chauffeur-taxi-2026', title: 'Comment devenir chauffeur Taxi en 2026 : Le guide complet', description: 'Guide ultime 2026 pour devenir chauffeur Taxi : licence ADS, formation, examen, réglementation ZFE et revenus.', imageBase: 'taxi-driver-2026' },
   { slug: 'comment-devenir-chauffeur-vtc-2026', title: 'Comment devenir chauffeur VTC en 2026 : Le guide ultime', description: 'Guide complet 2026 pour devenir chauffeur VTC : nouvelles réglementations, ZFE, véhicules électriques, formation et revenus.', imageBase: 'vtc-driver-2026' },
-  { slug: 'devenir-chauffeur-vtc-guide-complet-2025', title: 'Devenir chauffeur VTC en 2025 : démarches et conseils pratiques', description: 'Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l\'examen, choix du véhicule.', imageBase: 'vtc-driver-2025' },
+  { slug: 'devenir-chauffeur-vtc-guide-complet-2025', title: 'Devenir chauffeur VTC : démarches et conseils', description: 'Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l\'examen, choix du véhicule.', imageBase: 'vtc-driver-2025' },
   { slug: 'formation-taxi-carte-professionnelle-t3p', title: 'Carte professionnelle Taxi : formation, examen et obtention', description: 'Comment obtenir la carte professionnelle Taxi T3P : prérequis, programme de formation, épreuves de l\'examen CMA.', imageBase: 'taxi-driver-formation' },
   { slug: 'vtc-ou-taxi-quelle-formation-choisir', title: 'VTC ou Taxi : quelle formation choisir selon votre profil ?', description: 'VTC ou Taxi ? Comparez revenus, flexibilité, investissement initial et formation pour choisir le métier adapté.', imageBase: 'vtc-vs-taxi-comparison' },
   { slug: 'etapes-obtenir-carte-professionnelle-vtc', title: 'Les 5 étapes pour obtenir sa carte professionnelle VTC', description: 'Découvrez les 5 étapes clés pour obtenir votre carte professionnelle VTC : formation, examen, dossier préfecture.', imageBase: 'carte-professionnelle-vtc' },
@@ -250,7 +250,7 @@ const blogArticles = [
 for (const article of blogArticles) {
   routes.push({
     path: `/blog/${article.slug}`,
-    title: `${article.title} | ECOLE T3P`,
+    title: article.title,
     description: article.description,
     h1: article.title,
     imageBase: article.imageBase,
@@ -265,7 +265,7 @@ const citySlugs = [
   'nanterre', 'colombes', 'ivry-sur-seine', 'vitry-sur-seine', 'le-kremlin-bicetre',
   'gentilly', 'arcueil', 'cachan', 'villejuif', 'vincennes', 'creteil',
   'la-courneuve', 'longjumeau', 'conflans-sainte-honorine', 'l-hay-les-roses',
-  'chevilly-larue',
+  'chevilly-larue', 'massy',
 ];
 
 function slugToName(slug) {

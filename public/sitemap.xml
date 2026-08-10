@@ -363,6 +363,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ecolet3p.fr/formations/massy</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Hub des villes -->
   <url>
     <loc>https://ecolet3p.fr/formations/villes</loc>
