@@ -503,7 +503,7 @@ Chez **ECOLE T3P**, nous vous aidons à choisir et créer votre statut :
   },
   {
     slug: "maitrise-numerique-ia-chauffeur-vtc-taxi",
-    title: "Maîtrise du numérique et de l'IA : un atout indispensable pour les chauffeurs VTC et Taxi",
+    title: "Numérique et IA : compétences clés du chauffeur T3P",
     metaDescription: "L'importance de maîtriser les outils numériques et l'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026. Applications, GPS, gestion et IA.",
     excerpt: "Applications, GPS, comptabilité en ligne, intelligence artificielle... Découvrez pourquoi la maîtrise du numérique est devenue essentielle pour réussir comme chauffeur.",
     category: "COMPÉTENCES",
@@ -751,7 +751,7 @@ En 2026, la maîtrise des outils numériques et de l'IA n'est plus optionnelle p
   },
   {
     slug: "anglais-chauffeur-vtc-taxi-clientele-internationale",
-    title: "L'anglais pour les chauffeurs VTC et Taxi : un atout pour la clientèle internationale",
+    title: "L'anglais pour les chauffeurs VTC et Taxi",
     metaDescription: "Pourquoi l'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils pour accueillir la clientèle internationale.",
     excerpt: "Touristes, hommes d'affaires, expatriés... Découvrez pourquoi maîtriser l'anglais est un atout majeur pour développer votre clientèle et vos revenus et comment progresser rapidement.",
     category: "COMPÉTENCES",
