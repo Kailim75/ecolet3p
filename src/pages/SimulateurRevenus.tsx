@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -72,15 +73,15 @@ const AuditRentabilite = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Audit Rentabilité Chauffeur VTC Taxi VMDTR | ECOLE T3P</title>
-        <meta name="description" content="Audit stratégique gratuit : évaluez votre rentabilité en VTC, Taxi ou VMDTR. Pré-audit instantané + rapport détaillé 12 mois avec plan d'action personnalisé par ECOLE T3P." />
-        <link rel="canonical" href="https://ecolet3p.fr/audit-rentabilite" />
-        <meta property="og:title" content="Audit Rentabilité Chauffeur Professionnel | ECOLE T3P" />
-        <meta property="og:description" content="Évaluez votre rentabilité chauffeur VTC, Taxi ou VMDTR. Rapport stratégique 12 mois gratuit." />
-        <meta property="og:url" content="https://ecolet3p.fr/audit-rentabilite" />
+      <DynamicSEOHead
+        pageUrl="/audit-rentabilite"
+        defaultTitle="Audit Rentabilité Chauffeur VTC Taxi VMDTR | ECOLE T3P"
+        defaultDescription="Audit stratégique gratuit : évaluez votre rentabilité en VTC, Taxi ou VMDTR. Pré-audit instantané + rapport détaillé 12 mois avec plan d'action personnalisé par ECOLE T3P."
+        canonicalUrl="https://ecolet3p.fr/audit-rentabilite"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(auditSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
@@ -103,8 +104,7 @@ const AuditRentabilite = () => {
               <FileSearch className="w-4 h-4" /> Audit stratégique gratuit
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              Audit Rentabilité<br />
-              <span className="text-accent">Chauffeur Professionnel</span>
+              <SeoH1Text path="/audit-rentabilite" accentClassName="text-accent" />
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
               Évaluez votre potentiel de revenus en 30 secondes. Pré-audit instantané — puis débloquez votre <strong className="text-white">rapport stratégique 12 mois</strong> personnalisé.

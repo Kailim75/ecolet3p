@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { blogArticlesMeta, BlogArticleMeta } from "@/data/blogArticlesMeta";
@@ -67,9 +68,10 @@ const Blog = () => {
     });
   };
 
-  // Featured article = first one
-  const featuredArticle = blogArticlesMeta[0];
-  const otherArticles = blogArticlesMeta.slice(1);
+  // Article mis en avant = le plus récent ; du plus récent au plus ancien (à date égale, l'ordre du fichier est conservé).
+  const sortedArticles = [...blogArticlesMeta].sort((x, y) => y.publishDate.localeCompare(x.publishDate));
+  const featuredArticle = sortedArticles[0];
+  const otherArticles = sortedArticles.slice(1);
 
   const blogSchema = {
     "@context": "https://schema.org",
@@ -110,7 +112,6 @@ const Blog = () => {
         canonicalUrl="https://ecolet3p.fr/blog"
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >
-        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>
@@ -146,8 +147,7 @@ const Blog = () => {
             Blog & Ressources
           </span>
           <h1 className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4 animate-fade-in">
-            Actualités &<br />
-            <span className="text-gold">Conseils Pratiques</span>
+            <SeoH1Text path="/blog" accentClassName="text-gold" />
           </h1>
           <p className="text-cream/70 max-w-xl mx-auto text-lg animate-fade-in">
             Guides, conseils et actualités pour réussir votre reconversion 

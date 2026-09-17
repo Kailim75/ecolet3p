@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import {
   RefreshCw, Check, ArrowRight, Phone, Star, Home, ChevronRight,
@@ -207,8 +208,7 @@ const FormationRenouvellement = () => {
               <RefreshCw className="w-4 h-4" /> Formation continue obligatoire
             </span>
             <h1 className="text-[28px] md:text-[40px] lg:text-[52px] font-bold text-white leading-tight mb-5">
-              Renouvelez votre carte professionnelle<br />
-              <span className="text-accent">VTC, Taxi ou VMDTR</span>
+              <SeoH1Text path="/formations/renouvellement" accentClassName="text-accent" />
             </h1>
             <p className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">
               Formation continue obligatoire tous les 5 ans. Centre agréé préfecture des Hauts-de-Seine.

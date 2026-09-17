@@ -10,314 +10,15 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'fs';
-import { dirname, join } from 'path';
-
-// Source unique des titres de villes, partagée avec l'application (FormationVille.tsx).
-// Ne jamais recopier ces titres ici : toute divergence se traduit par un titre différent
-// dans le HTML livré et dans le rendu, donc par un titre imprévisible dans Google.
-const cityTitles = JSON.parse(
-  readFileSync(join(process.cwd(), 'src/data/citySeoTitles.json'), 'utf-8')
-);
+import { join } from 'path';
+import { buildRoutes } from './seoRoutes.mjs';
 
 const DIST = join(process.cwd(), 'dist');
 const SITE_URL = 'https://ecolet3p.fr';
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
-// ─── Route SEO data ───────────────────────────────────────────────────────────
-// Each route needs: path, title, description. Optional: ogTitle, ogDescription.
-// Homepage (/) is already correct in index.html — included for completeness.
-
-const routes = [
-  // ── Pillar pages ──
-  {
-    path: '/',
-    title: 'Formation Taxi VTC VMDTR Montrouge | 94% Réussite, 990€',
-    description: 'Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 chauffeurs formés. À partir de 990€ en 4x sans frais. Inscription ouverte toute l\'année.',
-    h1: 'Devenez chauffeur professionnel à partir de 990€.',
-  },
-  {
-    path: '/formations',
-    title: 'Formations Taxi VTC VMDTR | ECOLE T3P',
-    description: 'Catalogue complet : formations initiales Taxi VTC VMDTR dès 990€, continues, passerelles, packs économiques et programme parrainage. Paiement 4× sans frais.',
-    h1: 'Formations TAXI · VTC · VMDTR',
-  },
-  {
-    path: '/formations/taxi',
-    title: 'Formation Taxi Montrouge 92 | 94% Réussite, dès 990€ en 4x',
-    description: 'Formation Taxi agréée Préfecture à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais. Carte professionnelle Taxi.',
-    ogTitle: 'Formation Taxi Initiale à Montrouge — ECOLE T3P',
-    ogDescription: 'Formation initiale Taxi à Montrouge. Centre agréé Préfecture, 94% de réussite.',
-    h1: 'Formation Taxi à Montrouge — Carte Professionnelle',
-  },
-  {
-    path: '/formations/vtc',
-    title: 'Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x',
-    description: 'Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais. Uber, Bolt, Heetch.',
-    ogTitle: 'Formation VTC Initiale à Montrouge — ECOLE T3P',
-    ogDescription: 'Formation initiale VTC à Montrouge. 94% de réussite, 990€ en 4x sans frais.',
-    h1: 'Formation VTC Initiale à Montrouge — à partir de 990€',
-  },
-  {
-    path: '/formations/vmdtr',
-    title: 'Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€',
-    description: 'Formation VMDTR moto-taxi agréée à Montrouge (92). 94% de réussite, 990€ en 4x sans frais. Permis A requis.',
-    ogTitle: 'Formation VMDTR Moto-Taxi à Montrouge — ECOLE T3P',
-    ogDescription: 'Formation VMDTR à Montrouge. Centre agréé Préfecture, 94% de réussite.',
-    h1: 'Formation VMDTR Moto-Taxi à Montrouge',
-  },
-
-  // ── Formations continues ──
-  {
-    path: '/formations/continue-taxi',
-    title: 'Formation Continue Taxi 14h Montrouge — 250€ | ECOLE T3P',
-    description: 'Formation continue obligatoire Taxi 14h à Montrouge (92). Renouvelez votre carte professionnelle tous les 5 ans. Centre agréé Préfecture. Attestation immédiate.',
-    h1: 'Formation Continue Taxi',
-  },
-  {
-    path: '/formations/continue-vtc',
-    title: 'Formation Continue VTC 14h Montrouge — 170€ | ECOLE T3P',
-    description: 'Formation continue obligatoire VTC de 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation délivrée le jour même.',
-    h1: 'Formation Continue VTC',
-  },
-  {
-    path: '/formations/continue-vmdtr',
-    title: 'Formation Continue VMDTR 14h Montrouge — 250€ | ECOLE T3P',
-    description: 'Formation continue obligatoire VMDTR (moto-taxi) 14h pour renouveler votre carte professionnelle. Centre agréé Préfecture à Montrouge (92). Attestation immédiate.',
-    h1: 'Formation Continue VMDTR',
-  },
-  {
-    path: '/formations/renouvellement',
-    title: 'Renouvellement Carte Pro VTC Taxi VMDTR | T3P',
-    description: 'Renouvelez votre carte pro VTC, Taxi ou VMDTR à Montrouge (92). Formation continue agréée préfecture. Attestation le jour même. Dès 170€.',
-    h1: 'Renouvellement de Carte Professionnelle',
-  },
-
-  // ── Services ──
-  {
-    path: '/passerelle-vtc-taxi',
-    title: 'Passerelle VTC Taxi VMDTR — 665€ | ECOLE T3P',
-    description: 'Formation passerelle VTC ↔ Taxi ↔ VMDTR à Montrouge (92). 665€ tout compris, frais d\'examen inclus. 94% de réussite.',
-    h1: 'Passerelle VTC ↔ Taxi ↔ VMDTR',
-  },
-  {
-    path: '/stage-recuperation-points',
-    title: 'Stage Récupération de Points Montrouge 92 | ECOLE T3P',
-    description: 'Stage de récupération de points en 2 jours (14h) à Montrouge (92). Récupérez jusqu\'à 4 points. 250€. Attestation immédiate. Sessions mensuelles.',
-    h1: 'Stage de Récupération de Points',
-  },
-  {
-    path: '/renouvellement-carte-professionnelle',
-    title: 'Renouvellement Carte Professionnelle Taxi VTC | T3P',
-    description: 'Tout savoir sur le renouvellement de votre carte professionnelle Taxi, VTC ou VMDTR. Formation continue 14h obligatoire. ECOLE T3P Montrouge.',
-    h1: 'Renouvellement de Carte Professionnelle',
-  },
-  {
-    path: '/services/location-vehicule-examen',
-    title: 'Location Véhicule Examen Taxi VTC | ECOLE T3P',
-    description: 'Location de véhicule pour passer l\'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge.',
-    h1: 'Location de Véhicule pour l\'Examen',
-  },
-  {
-    path: '/formation-accessibilite-pmr',
-    title: 'Formation PMR 14h Montrouge (92) — 290€ | ECOLE T3P',
-    description: 'Formation transport de personnes à mobilité réduite (PMR) 14h à Montrouge (92). Attestation officielle. 290€ payable en 4× sans frais.',
-    h1: 'Formation Accessibilité PMR',
-  },
-  {
-    path: '/accompagnement-gestion-activite',
-    title: 'Accompagnement Gestion Activité Chauffeur | ECOLE T3P',
-    description: 'Accompagnement pour optimiser la gestion de votre activité de chauffeur VTC, Taxi ou VMDTR. Comptabilité, fiscalité, stratégie.',
-    h1: 'Accompagnement Gestion d\'Activité',
-  },
-  {
-    path: '/aide-administrative-creation-entreprise',
-    title: 'Aide Administrative Création Entreprise VTC Taxi | T3P',
-    description: 'Accompagnement administratif pour créer votre entreprise de transport VTC, Taxi ou VMDTR. De l\'immatriculation à la première course.',
-    h1: 'Aide Administrative — Création d\'Entreprise',
-  },
-  {
-    path: '/formations/anglais-professionnel',
-    title: 'Formation Anglais Chauffeur VTC Taxi | ECOLE T3P',
-    description: 'Formation anglais professionnel pour chauffeurs VTC et Taxi. Vocabulaire transport, accueil clientèle internationale.',
-    h1: 'Formation Anglais Professionnel',
-  },
-  {
-    path: '/formations/formule-soiree',
-    title: 'Formation Soirée Taxi VTC 990€ | ECOLE T3P',
-    description: 'Formez-vous le soir au métier de Taxi, VTC ou VMDTR. Sessions 18h-21h30 à Montrouge. 990€ tout compris, 4× sans frais.',
-    h1: 'Formation Soirée — Taxi VTC VMDTR',
-  },
-  {
-    path: '/formations/montrouge',
-    title: 'Formation Taxi VTC Montrouge (92) | ECOLE T3P',
-    description: 'Centre de formation Taxi VTC VMDTR à Montrouge (92120). Agrément Préfecture, 94% de réussite, à partir de 990€. Métro ligne 4.',
-    h1: 'Formation Taxi VTC VMDTR à Montrouge',
-  },
-  {
-    path: '/paiement',
-    title: 'Paiement en 4× sans Frais — Alma | ECOLE T3P',
-    description: 'Payez votre formation Taxi, VTC ou VMDTR en 2, 3 ou 4 fois sans frais avec Alma. Réponse immédiate, sans justificatif.',
-    h1: 'Paiement en 4× sans frais',
-  },
-  {
-    path: '/calendrier-examens',
-    title: 'Calendrier Examens CMA 2026 | ECOLE T3P',
-    description: 'Dates des examens CMA 2026 en Île-de-France : admissibilité et admission pour les cartes Taxi, VTC et VMDTR. Calendrier officiel.',
-    h1: 'Calendrier des Examens CMA 2026',
-  },
-  {
-    path: '/audit-rentabilite',
-    title: 'Audit Rentabilité Chauffeur VTC Taxi VMDTR | ECOLE T3P',
-    description: 'Audit stratégique gratuit : évaluez votre rentabilité en VTC, Taxi ou VMDTR. Pré-audit instantané + rapport détaillé 12 mois.',
-    h1: 'Audit de Rentabilité Chauffeur',
-  },
-  {
-    path: '/audit-rentabilite-chauffeur',
-    title: 'Audit Rentabilité Chauffeur Professionnel | ECOLE T3P',
-    description: 'Évaluez votre potentiel de revenus en tant que chauffeur VTC, Taxi ou VMDTR. Simulation gratuite et plan d\'action personnalisé.',
-    h1: 'Audit Rentabilité Chauffeur',
-  },
-  {
-    path: '/guide-formation',
-    title: 'Guide Formation Taxi VTC VMDTR | ECOLE T3P',
-    description: 'Programme détaillé de nos formations Taxi, VTC et VMDTR : modules, durée, examen CMA et accompagnement vers la carte professionnelle.',
-    h1: 'Guide des Formations',
-  },
-
-  // ── Institutionnel ──
-  {
-    path: '/blog',
-    title: 'Blog Formation Taxi VTC VMDTR | ECOLE T3P',
-    description: 'Articles, guides et conseils pour réussir votre examen Taxi, VTC ou VMDTR. Reconversion, réglementation 2026, astuces et retours d\'expérience.',
-    h1: 'Blog & Actualités',
-  },
-  {
-    path: '/contact',
-    title: 'Contact ECOLE T3P Montrouge - 01 88 75 05 55 | WhatsApp',
-    description: 'Contactez ECOLE T3P pour votre formation Taxi, VTC ou VMDTR. Réponse sous 24h. 3 rue Corneille, 92120 Montrouge. Appelez le 01 88 75 05 55.',
-    h1: 'Contactez-nous',
-  },
-  {
-    path: '/a-propos',
-    title: 'À Propos d\'ECOLE T3P — Formation Taxi VTC',
-    description: 'Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport.',
-    h1: 'À Propos d\'ECOLE T3P',
-  },
-  {
-    path: '/formations/villes',
-    title: 'Formations Taxi VTC près de chez vous | ECOLE T3P',
-    description: 'ECOLE T3P à Montrouge forme des chauffeurs Taxi, VTC et VMDTR de toute l\'Île-de-France. Trouvez votre ville : 92, 94, 93, 91, 78 et Paris.',
-    h1: 'Formations par ville en Île-de-France',
-  },
-  {
-    path: '/mentions-legales',
-    title: 'Mentions Légales — ECOLE T3P',
-    description: 'Mentions légales du site ecolet3p.fr. ECOLE T3P, centre de formation transport de personnes, Montrouge (92).',
-    h1: 'Mentions Légales',
-  },
-  {
-    path: '/politique-de-confidentialite',
-    title: 'Politique de Confidentialité — ECOLE T3P',
-    description: 'Politique de confidentialité et protection des données personnelles du site ecolet3p.fr. ECOLE T3P, Montrouge.',
-    h1: 'Politique de Confidentialité',
-  },
-];
-
-// ── Blog articles ─────────────────────────────────────────────────────────────
-// Source de vérité : src/data/blogArticlesMeta.ts. `imageBase` correspond au nom
-// de fichier (sans extension) de l'import de couverture dans ce fichier.
-// Vite hache ces assets au build ; on retrouve le nom haché plus bas.
-const blogArticles = [
-  { slug: 'qu-est-ce-que-le-t3p', title: 'T3P : définition, examen et carte professionnelle', description: 'T3P = Transport Public Particulier de Personnes : Taxi, VTC et VMDTR. Examen CMA, carte professionnelle, renouvellement : le guide complet par un centre agréé.', imageBase: 'formation-whiteboard' },
-  { slug: 'prix-formation-taxi-2026', title: 'Prix d\'une formation Taxi en 2026 : le détail réel', description: 'Combien coûte une formation taxi en 2026 ? Prix du marché, frais d\'examen CMA, coûts cachés et paiement en 4 fois : le détail complet, sans surprise.', imageBase: 'salle-formation-equipee' },
-  { slug: 'quel-statut-juridique-chauffeur-vtc-taxi-2026', title: 'Statut juridique chauffeur VTC ou Taxi : le guide 2026', description: 'Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.', imageBase: 'statuts-juridiques-t3p' },
-  { slug: 'maitrise-numerique-ia-chauffeur-vtc-taxi', title: 'Numérique et IA : compétences clés du chauffeur T3P', description: 'L\'importance de maîtriser les outils numériques et l\'intelligence artificielle pour les chauffeurs VTC et Taxi en 2026.', imageBase: 'technologie-ia-transport' },
-  { slug: 'anglais-chauffeur-vtc-taxi-clientele-internationale', title: 'L\'anglais pour les chauffeurs VTC et Taxi', description: 'Pourquoi l\'anglais est essentiel pour les chauffeurs VTC et Taxi en 2026. Vocabulaire, phrases clés et conseils.', imageBase: 'anglais-chauffeur-t3p' },
-  { slug: 'vtc-taxi-vmdtr-2026-quel-metier-choisir', title: 'VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?', description: 'Comparatif complet VTC, Taxi et VMDTR en 2026 : formation, revenus, investissement, avantages et inconvénients.', imageBase: 'vtc-taxi-vmdtr-comparison-2026' },
-  { slug: 'formation-vmdtr-2026-devenir-conducteur-moto-taxi', title: 'Formation VMDTR 2026 : Devenir conducteur moto-taxi', description: 'Guide complet 2026 pour devenir conducteur moto-taxi VMDTR : formation 14h, examen, carte professionnelle et réglementation.', imageBase: 'vmdtr-driver-2026' },
-  { slug: 'comment-devenir-chauffeur-taxi-2026', title: 'Comment devenir chauffeur Taxi en 2026 : Le guide complet', description: 'Guide ultime 2026 pour devenir chauffeur Taxi : licence ADS, formation, examen, réglementation ZFE et revenus.', imageBase: 'taxi-driver-2026' },
-  { slug: 'comment-devenir-chauffeur-vtc-2026', title: 'Comment devenir chauffeur VTC en 2026 : Le guide ultime', description: 'Guide complet 2026 pour devenir chauffeur VTC : nouvelles réglementations, ZFE, véhicules électriques, formation et revenus.', imageBase: 'vtc-driver-2026' },
-  { slug: 'devenir-chauffeur-vtc-guide-complet-2025', title: 'Devenir chauffeur VTC : démarches et conseils', description: 'Les étapes concrètes pour obtenir votre carte VTC en 2025 : prérequis, inscription à l\'examen, choix du véhicule.', imageBase: 'vtc-driver-2025' },
-  { slug: 'formation-taxi-carte-professionnelle-t3p', title: 'Carte professionnelle Taxi : formation, examen et obtention', description: 'Comment obtenir la carte professionnelle Taxi T3P : prérequis, programme de formation, épreuves de l\'examen CMA.', imageBase: 'taxi-driver-formation' },
-  { slug: 'vtc-ou-taxi-quelle-formation-choisir', title: 'VTC ou Taxi : quelle formation choisir selon votre profil ?', description: 'VTC ou Taxi ? Comparez revenus, flexibilité, investissement initial et formation pour choisir le métier adapté.', imageBase: 'vtc-vs-taxi-comparison' },
-  { slug: 'etapes-obtenir-carte-professionnelle-vtc', title: 'Les 5 étapes pour obtenir sa carte professionnelle VTC', description: 'Découvrez les 5 étapes clés pour obtenir votre carte professionnelle VTC : formation, examen, dossier préfecture.', imageBase: 'carte-professionnelle-vtc' },
-  { slug: 'facilites-paiement-formation-taxi-vtc', title: 'Payer sa formation Taxi VTC en 4× sans frais avec Alma', description: 'Financez votre formation Taxi ou VTC à 990€ en 2, 3 ou 4 mensualités sans frais via Alma. ECOLE T3P Montrouge.', imageBase: 'financement-formation' },
-  { slug: 'formation-vmdtr-moto-taxi-scooter', title: 'VMDTR : scooter ou moto pour le transport de passagers ?', description: 'Moto ou maxi-scooter pour exercer en VMDTR ? Comparatif des véhicules, équipements obligatoires et conseils.', imageBase: 'moto-taxi-vmdtr' },
-  { slug: 'formation-continue-renouvellement-carte-professionnelle', title: 'Renouvellement carte pro : formation continue obligatoire', description: 'Votre carte VTC, Taxi ou VMDTR expire bientôt ? Durée, programme et tarifs de la formation continue obligatoire.', imageBase: 'formation-continue' },
-  { slug: 'renouvellement-carte-professionnelle-vtc-taxi-2026', title: 'Renouvellement carte professionnelle VTC Taxi 2026', description: 'Comment renouveler votre carte professionnelle VTC, Taxi ou VMDTR en 2026 ? Démarches, délais et formation continue obligatoire.', imageBase: 'renouvellement-carte-pro' },
-];
-
-for (const article of blogArticles) {
-  routes.push({
-    path: `/blog/${article.slug}`,
-    title: article.title,
-    description: article.description,
-    h1: article.title,
-    imageBase: article.imageBase,
-  });
-}
-
-// ── City pages ────────────────────────────────────────────────────────────────
-const citySlugs = [
-  'bagneux', 'vanves', 'malakoff', 'chatillon', 'clamart', 'issy-les-moulineaux',
-  'paris-14', 'paris-15', 'paris-13', 'fontenay-aux-roses', 'sceaux', 'antony',
-  'bourg-la-reine', 'le-plessis-robinson', 'boulogne-billancourt', 'meudon',
-  'nanterre', 'colombes', 'ivry-sur-seine', 'vitry-sur-seine', 'le-kremlin-bicetre',
-  'gentilly', 'arcueil', 'cachan', 'villejuif', 'vincennes', 'creteil',
-  'la-courneuve', 'longjumeau', 'conflans-sainte-honorine', 'l-hay-les-roses',
-  'chevilly-larue', 'massy',
-];
-
-function slugToName(slug) {
-  return slug
-    .split('-')
-    .map(w => {
-      if (['sur', 'les', 'aux', 'sous', 'en', 'la', 'le', 'de', 'du', 'l'].includes(w)) return w;
-      return w.charAt(0).toUpperCase() + w.slice(1);
-    })
-    .join(' ')
-    .replace(/^l /, "L'")
-    .replace(/ l /, " l'");
-}
-
-for (const slug of citySlugs) {
-  const name = slugToName(slug);
-  routes.push({
-    path: `/formations/${slug}`,
-    title: cityTitles[slug],
-    description: `Formation Taxi, VTC et VMDTR près de ${name}. ECOLE T3P à Montrouge (92), 94% de réussite, à partir de 990€.`,
-    h1: `Formation Taxi VTC VMDTR ${name}`,
-  });
-}
-
-// ── Pages départementales ─────────────────────────────────────────────────────
-// Ces 24 routes existent dans App.tsx et dans le sitemap depuis juin 2026 mais
-// n'étaient pas prérendues : les crawlers sans JS recevaient le repli index.html.
-// Les formules de titre et de description doivent rester IDENTIQUES à celles de
-// src/pages/FormationDepartement.tsx, sinon le HTML livré et le rendu divergent.
-const departements = [
-  { code: '75', nom: 'Paris' },
-  { code: '77', nom: 'Seine-et-Marne' },
-  { code: '78', nom: 'Yvelines' },
-  { code: '91', nom: 'Essonne' },
-  { code: '92', nom: 'Hauts-de-Seine' },
-  { code: '93', nom: 'Seine-Saint-Denis' },
-  { code: '94', nom: 'Val-de-Marne' },
-  { code: '95', nom: "Val-d'Oise" },
-];
-const metiersTitre = { vtc: 'VTC', taxi: 'Taxi', vmdtr: 'VMDTR' };
-for (const metier of ['vtc', 'taxi', 'vmdtr']) {
-  const mt = metiersTitre[metier];
-  for (const d of departements) {
-    routes.push({
-      path: `/formations/${metier}/${d.code}`,
-      title: `Formation ${mt} ${d.nom} (${d.code}) — Préfecture & Examen`,
-      description: `Formation ${mt} — ${d.nom} (${d.code}) : démarches préfecture, médecins agréés et examen T3P. Centre agréé à Montrouge, 94 % de réussite, dès 990 €.`,
-      h1: `Formation ${mt} — ${d.nom} (${d.code})`,
-    });
-  }
-}
-
+// Titres, descriptions et H1 : src/data/seoPages.json (source unique partagée avec
+// l'application) + formule des pages départementales. Voir scripts/seoRoutes.mjs.
+const routes = buildRoutes();
 
 // ─── HTML transformation ──────────────────────────────────────────────────────
 
@@ -330,71 +31,60 @@ function getCanonical(path) {
   return `${SITE_URL}${path}`;
 }
 
+function replaceOrFail(html, pattern, replacement, what) {
+  if (!pattern.test(html)) {
+    console.error(`❌ Balise introuvable dans dist/index.html : ${what}. Prérendu interrompu.`);
+    process.exit(1);
+  }
+  return html.replace(pattern, () => replacement);
+}
+
+// Toutes les balises d'en-tête réécrites ici portent data-rh="true" dans index.html :
+// react-helmet-async les reconnaît comme siennes et les REMPLACE au lieu d'ajouter
+// une seconde série (constat du 15/09/2026 : deux descriptions et deux canoniques par
+// page une fois le JavaScript exécuté). Les expressions ci-dessous ne remplacent que
+// le début de la balise et conservent donc cet attribut.
 function transformHtml(template, route, ogImageUrl) {
   let html = template;
+  const isHome = route.path === '/';
   const canonical = getCanonical(route.path);
-  const ogTitle = route.ogTitle || route.title;
-  const ogDesc = route.ogDescription || route.description;
-  const h1 = route.h1 || route.title.split('|')[0].trim();
+  const title = escapeHtml(route.title);
+  const description = escapeHtml(route.description);
 
-  // Replace <title>
-  html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(route.title)}</title>`);
+  html = replaceOrFail(html, /<title>[^<]*<\/title>/, `<title>${title}</title>`, 'title');
+  html = replaceOrFail(html, /<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`, 'description');
+  html = replaceOrFail(html, /<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title}"`, 'og:title');
+  html = replaceOrFail(html, /<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${description}"`, 'og:description');
+  html = replaceOrFail(html, /<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${canonical}"`, 'og:url');
+  html = replaceOrFail(html, /<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${title}"`, 'twitter:title');
+  html = replaceOrFail(html, /<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${description}"`, 'twitter:description');
 
-  // Replace meta description
-  html = html.replace(
-    /<meta name="description" content="[^"]*"/,
-    `<meta name="description" content="${escapeHtml(route.description)}"`
-  );
-
-  // Remove meta keywords (useless for SEO)
-  html = html.replace(/<meta name="keywords" content="[^"]*"\s*\/?>\s*\n?/, '');
-
-  // Add canonical link (inject before </head> since helmet manages it client-side)
-  // We add it as a static tag; helmet will override on hydration
-  if (!html.includes('rel="canonical"')) {
-    html = html.replace('</head>', `    <link rel="canonical" href="${canonical}" />\n  </head>`);
-  } else {
-    // There might not be a canonical in the template, but if there were:
-    html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonical}"`);
-  }
-
-  // Replace OG tags
-  html = html.replace(
-    /<meta property="og:title" content="[^"]*"/,
-    `<meta property="og:title" content="${escapeHtml(ogTitle)}"`
-  );
-  html = html.replace(
-    /<meta property="og:description" content="[^"]*"/,
-    `<meta property="og:description" content="${escapeHtml(ogDesc)}"`
-  );
-  html = html.replace(
-    /<meta property="og:url" content="[^"]*"/,
-    `<meta property="og:url" content="${canonical}"`
-  );
-
-  // Replace Twitter tags
-  html = html.replace(
-    /<meta name="twitter:title" content="[^"]*"/,
-    `<meta name="twitter:title" content="${escapeHtml(ogTitle)}"`
-  );
-  html = html.replace(
-    /<meta name="twitter:description" content="[^"]*"/,
-    `<meta name="twitter:description" content="${escapeHtml(ogDesc)}"`
-  );
-
-  // Per-route social image (blog articles). Fallback to the global og-image.jpg
-  // for routes without a dedicated cover so their preview logic is unchanged.
+  // Image sociale propre à la route (articles de blog) ; sinon og-image.jpg du gabarit.
   if (ogImageUrl) {
-    html = html.replace(
-      /<meta property="og:image" content="[^"]*"/,
-      `<meta property="og:image" content="${ogImageUrl}"`
-    );
-    html = html.replace(
-      /<meta name="twitter:image" content="[^"]*"/,
-      `<meta name="twitter:image" content="${ogImageUrl}"`
-    );
+    html = replaceOrFail(html, /<meta property="og:image" content="[^"]*"/, `<meta property="og:image" content="${ogImageUrl}"`, 'og:image');
+    html = replaceOrFail(html, /<meta name="twitter:image" content="[^"]*"/, `<meta name="twitter:image" content="${ogImageUrl}"`, 'twitter:image');
   }
 
+  // Pas de canonique dans dist/index.html : ce fichier est aussi le repli SPA des URL
+  // non prérendues, qui se déclareraient sinon doublons de l'accueil. L'accueil reçoit
+  // la sienne de Helmet.
+  if (!isHome) {
+    if (/<link rel="canonical"/.test(html)) {
+      console.error('❌ Une canonique existe déjà dans le gabarit. Prérendu interrompu.');
+      process.exit(1);
+    }
+    html = html.replace('</head>', `    <link rel="canonical" href="${canonical}" data-rh="true" />\n  </head>`);
+  }
+
+  if (isHome) {
+    // L'accueil garde son bloc de repli détaillé ; seul son H1 suit la source unique.
+    const h1Re = /(<div class="seo-fallback"[\s\S]*?<h1>)[^<]*(<\/h1>)/;
+    if (!h1Re.test(html)) {
+      console.error('❌ H1 du bloc de repli introuvable dans dist/index.html. Prérendu interrompu.');
+      process.exit(1);
+    }
+    return html.replace(h1Re, (_, open, close) => `${open}${escapeHtml(route.h1)}${close}`);
+  }
 
   // Remplace TOUT le bloc de repli par un contenu propre à la route.
   //
@@ -406,8 +96,8 @@ function transformHtml(template, route, ogImageUrl) {
   // donc être qu'une courte carte d'identité, UNIQUE par route.
   const fallback = `<div class="seo-fallback" role="complementary" aria-label="Contenu pour moteurs de recherche">
       <header>
-        <h1>${escapeHtml(h1)}</h1>
-        <p>${escapeHtml(route.description)}</p>
+        <h1>${escapeHtml(route.h1)}</h1>
+        <p>${description}</p>
       </header>
       <p>ECOLE T3P — centre de formation Taxi, VTC et VMDTR agréé Préfecture (agrément n° 23/007), 3 rue Corneille, 92120 Montrouge. Téléphone : <a href="tel:0188750555">01 88 75 05 55</a>.</p>
       <nav aria-label="Formations principales">
@@ -421,9 +111,7 @@ function transformHtml(template, route, ogImageUrl) {
       </nav>
     </div>
   </body>`;
-  html = html.replace(/<div class="seo-fallback"[\s\S]*?<\/div>\s*<\/body>/, fallback);
-
-  return html;
+  return replaceOrFail(html, /<div class="seo-fallback"[\s\S]*?<\/div>\s*<\/body>/, fallback, 'bloc de repli');
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
@@ -458,31 +146,21 @@ function main() {
   }
 
   let generated = 0;
-  let skipped = 0;
 
   for (const route of routes) {
-    // Skip homepage — already correct
-    if (route.path === '/') {
-      skipped++;
-      continue;
-    }
-
     const ogImageUrl = route.imageBase
       ? `${SITE_URL}/assets/${imageMap[route.imageBase]}`
       : null;
     const html = transformHtml(template, route, ogImageUrl);
 
-    // Determine output path
+    // L'accueil réécrit dist/index.html lui-même (gabarit déjà lu en mémoire).
     const outDir = join(DIST, route.path);
-    const outFile = join(outDir, 'index.html');
-
     mkdirSync(outDir, { recursive: true });
-    writeFileSync(outFile, html, 'utf-8');
+    writeFileSync(join(outDir, 'index.html'), html, 'utf-8');
     generated++;
   }
 
-  console.log(`✅ Prerender complete: ${generated} pages generated, ${skipped} skipped (homepage).`);
-  console.log(`   Total routes: ${routes.length}`);
+  console.log(`✅ Prerender complete: ${generated} pages generated (accueil compris).`);
 }
 
 main();

@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Languages, ArrowRight, CheckCircle2, Clock, Euro, Phone } from "lucide-react";
@@ -21,11 +22,14 @@ const FormationAnglais = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Formation Anglais Professionnel | ECOLE T3P</title>
-        <meta name="description" content="Renforcement en anglais professionnel 20h à 350€. Accueillez vos clients internationaux avec professionnalisme. Paiement 4× sans frais." />
-        <link rel="canonical" href="https://ecolet3p.fr/formations/anglais-professionnel" />
-      </Helmet>
+      <DynamicSEOHead
+        pageUrl="/formations/anglais-professionnel"
+        defaultTitle="Formation Anglais Professionnel | ECOLE T3P"
+        defaultDescription="Renforcement en anglais professionnel 20h à 350€. Accueillez vos clients internationaux avec professionnalisme. Paiement 4× sans frais."
+        canonicalUrl="https://ecolet3p.fr/formations/anglais-professionnel"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
+      </DynamicSEOHead>
 
       <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%)' }}>
         <div className="container-custom relative z-10">
@@ -33,7 +37,7 @@ const FormationAnglais = () => {
             <span className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold mb-4">
               <Languages className="w-4 h-4" /> Formation complémentaire
             </span>
-            <h1 className="text-3xl md:text-5xl font-black text-white mb-4">Anglais Professionnel 🇬🇧</h1>
+            <h1 className="text-3xl md:text-5xl font-black text-white mb-4"><SeoH1Text path="/formations/anglais-professionnel" /></h1>
             <p className="text-lg text-white/80 mb-6">Accueillez vos clients internationaux avec professionnalisme.</p>
             <div className="flex flex-wrap gap-3 mb-8">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg text-white text-sm"><Clock className="w-4 h-4" /> 20 heures (5 demi-journées)</div>

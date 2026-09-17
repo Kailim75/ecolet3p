@@ -18,6 +18,12 @@ export interface DepartementInfo {
   code: string;
   /** Nom officiel du département */
   nom: string;
+  /** Locatif correct : « à Paris », « en Essonne », « dans les Yvelines »… */
+  dans: string;
+  /** Provenance correcte : « depuis Paris », « depuis l'Essonne »… */
+  depuis: string;
+  /** Nom court de la préfecture compétente pour le T3P, sans article */
+  prefectureCourte: string;
   /** Slug pour l'URL (paris, seine-et-marne, yvelines, essonne, hauts-de-seine, seine-saint-denis, val-de-marne, val-d-oise) */
   slug: string;
   /** Préfecture de rattachement */
@@ -49,6 +55,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "75",
     nom: "Paris",
+    dans: "à Paris",
+    depuis: "depuis Paris",
+    prefectureCourte: "Préfecture de Police de Paris",
     slug: "paris",
     prefecture: {
       nom: "Préfecture de Police de Paris (Bureau des Taxis et Transports Publics)",
@@ -69,6 +78,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "77",
     nom: "Seine-et-Marne",
+    dans: "en Seine-et-Marne",
+    depuis: "depuis la Seine-et-Marne",
+    prefectureCourte: "Préfecture de Seine-et-Marne",
     slug: "seine-et-marne",
     prefecture: {
       nom: "Préfecture de Seine-et-Marne — Direction de la citoyenneté et de la réglementation, Bureau de la circulation",
@@ -97,6 +109,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "78",
     nom: "Yvelines",
+    dans: "dans les Yvelines",
+    depuis: "depuis les Yvelines",
+    prefectureCourte: "Préfecture des Yvelines",
     slug: "yvelines",
     prefecture: {
       nom: "Préfecture des Yvelines — DRE, Bureau de la réglementation générale, Taxis et VTC",
@@ -127,6 +142,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "91",
     nom: "Essonne",
+    dans: "en Essonne",
+    depuis: "depuis l'Essonne",
+    prefectureCourte: "Préfecture de l'Essonne",
     slug: "essonne",
     prefecture: {
       nom: "Préfecture de l'Essonne — Direction de la Réglementation et de la Sécurité Routière, Pôle de gestion des personnels de la route",
@@ -157,6 +175,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "92",
     nom: "Hauts-de-Seine",
+    dans: "dans les Hauts-de-Seine",
+    depuis: "depuis les Hauts-de-Seine",
+    prefectureCourte: "Préfecture des Hauts-de-Seine",
     slug: "hauts-de-seine",
     prefecture: {
       nom: "Préfecture des Hauts-de-Seine — Direction de la Réglementation et de l'Environnement",
@@ -187,6 +208,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "93",
     nom: "Seine-Saint-Denis",
+    dans: "en Seine-Saint-Denis",
+    depuis: "depuis la Seine-Saint-Denis",
+    prefectureCourte: "Préfecture de la Seine-Saint-Denis",
     slug: "seine-saint-denis",
     prefecture: {
       nom: "Préfecture de la Seine-Saint-Denis",
@@ -217,6 +241,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "94",
     nom: "Val-de-Marne",
+    dans: "dans le Val-de-Marne",
+    depuis: "depuis le Val-de-Marne",
+    prefectureCourte: "Préfecture du Val-de-Marne",
     slug: "val-de-marne",
     prefecture: {
       nom: "Préfecture du Val-de-Marne",
@@ -246,6 +273,9 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
   {
     code: "95",
     nom: "Val-d'Oise",
+    dans: "dans le Val-d'Oise",
+    depuis: "depuis le Val-d'Oise",
+    prefectureCourte: "Préfecture du Val-d'Oise",
     slug: "val-d-oise",
     prefecture: {
       nom: "Préfecture du Val-d'Oise — Direction des Sécurités, Bureau de la sécurité intérieure",

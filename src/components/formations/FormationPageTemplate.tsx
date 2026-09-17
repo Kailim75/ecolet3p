@@ -60,8 +60,6 @@ interface FormationPageProps {
   title: string;
   description: string;
   canonical: string;
-  ogTitle: string;
-  ogDescription: string;
 
   // Hero
   heroImage: string;
@@ -96,7 +94,7 @@ interface FormationPageProps {
 }
 
 const FormationPageTemplate = ({
-  title, description, canonical, ogTitle, ogDescription,
+  title, description, canonical,
   heroImage, heroImageWebp, badge, badgeIcon: BadgeIcon, heading, subheading,
   duration, price, thirdTag,
   category, profession, programModules, prerequisites,
@@ -227,10 +225,6 @@ const FormationPageTemplate = ({
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="ECOLE T3P" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={ogTitle} />
-        <meta name="twitter:description" content={ogDescription} />
-        <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
@@ -426,7 +420,9 @@ const FormationPageTemplate = ({
       {/* Tableau 3 formats */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <h2 className="section-title text-center mb-8">3 formats, un seul tarif : {soireeFormation?.price || price}€</h2>
+          {/* Titre formulé comme les recherches « prix formation taxi » (Search Console, 09/2026) */}
+          <h2 className="section-title text-center mb-3">Prix de la {badge.toLowerCase()} : {soireeFormation?.price || price} € tout compris</h2>
+          <p className="text-center text-muted-foreground mb-8">3 formats au choix, un seul tarif, frais d'examen inclus.</p>
           <div className="overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm md:text-base">
               <thead>

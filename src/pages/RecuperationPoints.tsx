@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -124,8 +125,7 @@ const RecuperationPoints = () => {
               transition={{ delay: 0.1 }}
               className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4"
             >
-              Stage de Récupération de Points<br />
-              <span className="text-accent">à Montrouge (92) — 250€</span>
+              <SeoH1Text path="/stage-recuperation-points" accentClassName="text-accent" />
             </motion.h1>
 
             <motion.p

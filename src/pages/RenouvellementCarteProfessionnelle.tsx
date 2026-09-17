@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -83,17 +84,17 @@ const RenouvellementCarteProfessionnelle = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Renouvellement carte pro VTC (170€), Taxi (250€), VMDTR (250€) à Montrouge (92). Formation continue 14h, attestation immédiate. Nouvelles sessions régulièrement." />
-        <link rel="canonical" href="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
-        <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P" />
-        <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. VTC 170€ · Taxi 250€ · VMDTR 250€. Centre agréé Préfecture 92." />
-        <meta property="og:url" content="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
+      <DynamicSEOHead
+        pageUrl="/renouvellement-carte-professionnelle"
+        defaultTitle="Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P"
+        defaultDescription="Renouvellement carte pro VTC (170€), Taxi (250€), VMDTR (250€) à Montrouge (92). Formation continue 14h, attestation immédiate. Nouvelles sessions régulièrement."
+        canonicalUrl="https://ecolet3p.fr/renouvellement-carte-professionnelle"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
@@ -127,8 +128,7 @@ const RenouvellementCarteProfessionnelle = () => {
               transition={{ delay: 0.1 }}
               className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4"
             >
-              Renouvelez votre carte pro en<br />
-              <span className="text-accent">2 jours — Attestation immédiate</span>
+              <SeoH1Text path="/renouvellement-carte-professionnelle" accentClassName="text-accent" />
             </motion.h1>
 
             <motion.p

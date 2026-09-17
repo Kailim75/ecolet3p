@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -130,8 +131,7 @@ const PasserelleVtcTaxi = () => {
               transition={{ delay: 0.1 }}
               className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4"
             >
-              Doublez vos revenus avec une<br />
-              <span className="text-gold">seconde carte professionnelle</span>
+              <SeoH1Text path="/passerelle-vtc-taxi" accentClassName="text-gold" />
             </motion.h1>
 
             <motion.p

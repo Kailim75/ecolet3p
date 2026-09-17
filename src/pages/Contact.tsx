@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import TrustBar from "@/components/home/TrustBar";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -263,12 +264,6 @@ const Contact = () => {
           name="keywords"
           content="contact formation taxi Montrouge, centre VTC Bagneux, formation taxi Vanves, centre formation Malakoff, formation VTC Châtillon, ECOLE T3P contact, devis formation taxi 92, centre formation sud Paris"
         />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Contact ECOLE T3P Montrouge | Sud Paris 92" />
-        <meta
-          name="twitter:description"
-          content="01 88 75 05 55. 3 rue Corneille, Montrouge. Accessible depuis Bagneux, Vanves, Malakoff."
-        />
         <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>
@@ -302,7 +297,7 @@ const Contact = () => {
                 Contact ECOLE T3P
               </span>
               <h1 className="mt-4 text-4xl font-black uppercase tracking-tight text-primary md:text-5xl">
-                Parlons de votre projet
+                <SeoH1Text path="/contact" />
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Une question sur nos formations Taxi, VTC, VMDTR ou sur votre renouvellement de carte ?

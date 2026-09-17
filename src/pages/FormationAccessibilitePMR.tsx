@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -76,17 +77,17 @@ const FormationAccessibilitePMR = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Formation PMR Taxi VTC - Attestation 14h Montrouge | 290€</title>
-        <meta name="description" content="Élargissez votre clientèle au transport PMR (mobilité réduite). Formation 14h à 290€, attestation officielle remise le jour même. Centre agréé Montrouge (92), accessible toute l'Île-de-France." />
-        <link rel="canonical" href="https://ecolet3p.fr/formation-accessibilite-pmr" />
-        <meta property="og:title" content="Formation PMR Taxi VTC 14h Montrouge | 290€" />
-        <meta property="og:description" content="Devenez chauffeur PMR : 14h, 290€, attestation immédiate. Boostez vos revenus avec une nouvelle clientèle." />
-        <meta property="og:url" content="https://ecolet3p.fr/formation-accessibilite-pmr" />
+      <DynamicSEOHead
+        pageUrl="/formation-accessibilite-pmr"
+        defaultTitle="Formation PMR Taxi VTC - Attestation 14h Montrouge | 290€"
+        defaultDescription="Élargissez votre clientèle au transport PMR (mobilité réduite). Formation 14h à 290€, attestation officielle remise le jour même. Centre agréé Montrouge (92), accessible toute l'Île-de-France."
+        canonicalUrl="https://ecolet3p.fr/formation-accessibilite-pmr"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
@@ -112,8 +113,7 @@ const FormationAccessibilitePMR = () => {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              Boostez vos revenus avec le<br />
-              <span className="text-gold">transport PMR — Montrouge (92)</span>
+              <SeoH1Text path="/formation-accessibilite-pmr" accentClassName="text-gold" />
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">

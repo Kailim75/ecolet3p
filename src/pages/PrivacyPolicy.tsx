@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
@@ -66,7 +67,7 @@ const PrivacyPolicy = () => {
             animate="visible"
             variants={fadeUpVariants}
           >
-            Politique de Confidentialité
+            <SeoH1Text path="/politique-de-confidentialite" />
           </motion.h1>
           <motion.p 
             className="section-subtitle mx-auto"

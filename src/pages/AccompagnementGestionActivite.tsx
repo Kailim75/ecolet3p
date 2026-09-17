@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -76,17 +77,17 @@ const AccompagnementGestionActivite = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Gestion d'Activité Chauffeur 21h — 390€ | ECOLE T3P</title>
-        <meta name="description" content="Formation gestion d'entreprise 21h à 390€ à Montrouge (92). Statut juridique, comptabilité, fiscalité pour chauffeurs VTC et Taxi. 4× sans frais." />
-        <link rel="canonical" href="https://ecolet3p.fr/accompagnement-gestion-activite" />
-        <meta property="og:title" content="Gestion d'Activité Chauffeur — 390€ | ECOLE T3P Montrouge" />
-        <meta property="og:description" content="Lancez votre activité sur des bases solides. Statut juridique, comptabilité, fiscalité — ROI immédiat." />
-        <meta property="og:url" content="https://ecolet3p.fr/accompagnement-gestion-activite" />
+      <DynamicSEOHead
+        pageUrl="/accompagnement-gestion-activite"
+        defaultTitle="Gestion d'Activité Chauffeur 21h — 390€ | ECOLE T3P"
+        defaultDescription="Formation gestion d'entreprise 21h à 390€ à Montrouge (92). Statut juridique, comptabilité, fiscalité pour chauffeurs VTC et Taxi. 4× sans frais."
+        canonicalUrl="https://ecolet3p.fr/accompagnement-gestion-activite"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(courseSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
@@ -112,8 +113,7 @@ const AccompagnementGestionActivite = () => {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              Maximisez vos revenus avec<br />
-              <span className="text-gold">une gestion maîtrisée — Montrouge (92)</span>
+              <SeoH1Text path="/accompagnement-gestion-activite" accentClassName="text-gold" />
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">

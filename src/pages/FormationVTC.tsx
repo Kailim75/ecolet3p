@@ -9,8 +9,6 @@ const FormationVTC = () => (
     title="Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x"
     description="Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro en 1 semaine pour Uber, Bolt, Heetch. À partir de 990€ en 4x sans frais."
     canonical="https://ecolet3p.fr/formations/vtc"
-    ogTitle="Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€"
-    ogDescription="Centre agréé Préfecture à Montrouge. 94% de réussite, carte VTC en 1 semaine. Paiement 4x sans frais."
     heroImage={heroImageVTC}
     heroImageWebp={heroImageVTCWebp}
     badge="Formation VTC"

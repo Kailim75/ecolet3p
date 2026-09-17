@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -23,7 +24,7 @@ const whyChooseUs = [
 
 const results = [
   { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
-  { value: "100%", label: "de dossiers acceptés en préfecture" },
+  { value: "23/007", label: "agrément préfectoral du centre" },
   { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "1 jour", label: "pour lancer toutes vos démarches" },
 ];
@@ -79,17 +80,17 @@ const AideAdministrativeCreationEntreprise = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Aide Administrative Chauffeur Montrouge — Dès 190€ | ECOLE T3P</title>
-        <meta name="description" content="Accompagnement administratif complet pour chauffeurs VTC, Taxi, VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€." />
-        <link rel="canonical" href="https://ecolet3p.fr/aide-administrative-creation-entreprise" />
-        <meta property="og:title" content="Aide Administrative Chauffeur — Dès 190€ | ECOLE T3P" />
-        <meta property="og:description" content="On s'occupe de toute la paperasse. Carte pro, registre T3P, préfecture, plateformes VTC. Résultat en 1 journée." />
-        <meta property="og:url" content="https://ecolet3p.fr/aide-administrative-creation-entreprise" />
+      <DynamicSEOHead
+        pageUrl="/aide-administrative-creation-entreprise"
+        defaultTitle="Aide Administrative Chauffeur Montrouge — Dès 190€ | ECOLE T3P"
+        defaultDescription="Accompagnement administratif complet pour chauffeurs VTC, Taxi, VMDTR à Montrouge (92). Carte pro, registre T3P, préfecture, plateformes. Dès 190€."
+        canonicalUrl="https://ecolet3p.fr/aide-administrative-creation-entreprise"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted py-3 border-b border-border mt-16">
@@ -115,8 +116,7 @@ const AideAdministrativeCreationEntreprise = () => {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              Concentrez-vous sur la route,<br />
-              <span className="text-accent">on s'occupe de la paperasse</span>
+              <SeoH1Text path="/aide-administrative-creation-entreprise" accentClassName="text-accent" />
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">
@@ -133,7 +133,7 @@ const AideAdministrativeCreationEntreprise = () => {
                 <Euro className="w-4 h-4" /> Dès 190€
               </span>
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">
-                <FileCheck className="w-4 h-4" /> 100% dossiers acceptés
+                <FileCheck className="w-4 h-4" /> Dossier vérifié avant dépôt
               </span>
             </motion.div>
 
@@ -156,7 +156,7 @@ const AideAdministrativeCreationEntreprise = () => {
             {[
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs accompagnés" },
-              { icon: FileCheck, value: "100%", label: "Dossiers acceptés" },
+              { icon: FileCheck, value: "23/007", label: "Agrément préfectoral" },
               { icon: Star, value: "5.0/5", label: "359 avis Google" },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TrustBar from "@/components/home/TrustBar";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { 
@@ -184,7 +185,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl lg:text-5xl font-bold text-forest mb-6">
-                Pourquoi choisir ECOLE T3P ?
+                <SeoH1Text path="/a-propos" />
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Centre de formation agréé depuis 2014 pour les métiers du transport de personnes.

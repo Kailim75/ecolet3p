@@ -1,5 +1,6 @@
 import React from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -39,7 +40,7 @@ const CalendrierExamens = () => {
               </Badge>
             </div>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ color: "#1A1A1A" }}>
-              Calendrier des examens <span style={{ color: "#1A5276" }}>CMA 2026</span>
+              <SeoH1Text path="/calendrier-examens" accentStyle={{ color: "#1A5276" }} />
             </h1>
             <p className="text-base md:text-lg max-w-2xl mb-6" style={{ color: "#555" }}>
               Dates prévisionnelles des épreuves d'<strong>admissibilité</strong> (théorique) et d'<strong>admission</strong> (pratique) pour les cartes professionnelles Taxi, VTC et VMDTR en Île-de-France.

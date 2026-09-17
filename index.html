@@ -6,17 +6,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formation Taxi VTC VMDTR Montrouge | 94% Réussite, 990€</title>
-    <meta name="description" content="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 chauffeurs formés. À partir de 990€ en 4x sans frais. Inscription ouverte toute l'année." />
+    <meta name="description" content="Centre de formation agréé Taxi, VTC et VMDTR à Montrouge (92). 94% de réussite, +2000 chauffeurs formés. À partir de 990€ en 4x sans frais. Inscription ouverte toute l'année." data-rh="true" />
     <!-- Emplacement volontairement vide : aucune balise d'URL de référence en dur ici.
-         Deux raisons, toutes deux vérifiées en production le 20/07/2026 :
-         1. index.html est le repli SPA de TOUTE URL non prérendue (les 24 pages
-            departementales /formations/{vtc|taxi|vmdtr}/{dept}, les URL inconnues...).
-            Une balise en dur y est servie telle quelle et declare ces pages doublons de l'accueil.
-         2. scripts/prerender.mjs teste la presence de cette balise par simple recherche de
-            texte dans le HTML. Toute mention litterale de son nom d'attribut ici — meme en
-            commentaire — lui fait croire qu'elle existe deja et l'empeche de l'injecter,
-            ce qui supprime la balise de TOUTES les pages du site.
-         Les routes prerendues recoivent la leur via prerender.mjs ; l'accueil s'auto-canonise. -->
+         index.html est le repli SPA de toute URL non prérendue (URL inconnues, pages
+         hors sitemap) : une balise en dur y déclarerait ces pages doublons de l'accueil.
+         Les routes prérendues reçoivent la leur via scripts/prerender.mjs (qui échoue si
+         le gabarit en contient déjà une) ; l'accueil reçoit la sienne de Helmet. -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
@@ -29,20 +24,21 @@
     <link rel="preload" as="image" type="image/webp" imagesrcset="/images/hero-formation-session-768.webp 768w, /images/hero-formation-session-1200.webp 1200w, /images/hero-formation-session.webp 1344w" imagesizes="100vw" fetchpriority="high" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
 
-    <!-- Open Graph (fallback statique, écrasé par react-helmet-async) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="ECOLE T3P — Formation Taxi VTC VMDTR Montrouge" />
-    <meta property="og:description" content="Centre de formation agréé à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais." />
-    <meta property="og:url" content="https://ecolet3p.fr/" />
-    <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="ECOLE T3P" />
+    <!-- Open Graph. data-rh="true" : Helmet remplace ces balises au lieu de les doubler.
+         Valeurs réécrites par scripts/prerender.mjs depuis src/data/seoPages.json. -->
+    <meta property="og:type" content="website" data-rh="true" />
+    <meta property="og:title" content="ECOLE T3P — Formation Taxi VTC VMDTR Montrouge" data-rh="true" />
+    <meta property="og:description" content="Centre de formation agréé à Montrouge (92). 94% de réussite, à partir de 990€ en 4x sans frais." data-rh="true" />
+    <meta property="og:url" content="https://ecolet3p.fr/" data-rh="true" />
+    <meta property="og:image" content="https://ecolet3p.fr/og-image.jpg" data-rh="true" />
+    <meta property="og:locale" content="fr_FR" data-rh="true" />
+    <meta property="og:site_name" content="ECOLE T3P" data-rh="true" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ECOLE T3P — Formation Taxi VTC VMDTR Montrouge" />
-    <meta name="twitter:description" content="94% de réussite. Formation Taxi, VTC et VMDTR à 990€. Montrouge (92)." />
-    <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" data-rh="true" />
+    <meta name="twitter:title" content="ECOLE T3P — Formation Taxi VTC VMDTR Montrouge" data-rh="true" />
+    <meta name="twitter:description" content="94% de réussite. Formation Taxi, VTC et VMDTR à 990€. Montrouge (92)." data-rh="true" />
+    <meta name="twitter:image" content="https://ecolet3p.fr/og-image.jpg" data-rh="true" />
 
     <!-- JSON-LD LocalBusiness (statique, visible sans JS) -->
     <script type="application/ld+json">

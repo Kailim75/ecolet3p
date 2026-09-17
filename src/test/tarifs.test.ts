@@ -70,7 +70,9 @@ describe("tarifs guardrail", () => {
       /garanties?\s+de\s+r[ée]ussite/i,
       /100\s?%\s+de\s+r[ée]ussite/i,
       /r[ée]sultats?\s+garantis?/i,
-      /100\s?%\s+de\s+dossiers?(\s+accept[ée]s?)?/i,
+      /100\s?%\s+(de\s+)?dossiers?(\s+accept[ée]s?)?/i,
+      /value:\s*"100\s?%",\s*label:\s*"(de\s+)?dossiers/i,
+      /la plus comp[ée]titive/i,
     ];
     const offenders: string[] = [];
     for (const f of files) {
