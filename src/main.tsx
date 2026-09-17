@@ -47,7 +47,17 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
   });
 }
 
-createRoot(document.getElementById("root")!).render(
+// Le bloc de repli .seo-fallback (servi aux robots sans JavaScript) n'était que masqué
+// par CSS une fois l'application affichée : son H1 restait dans le DOM rendu, soit deux
+// H1 par page pour Google. On le retire dès que #root reçoit du contenu.
+const rootElement = document.getElementById("root")!;
+new MutationObserver((_, observer) => {
+  if (rootElement.childElementCount === 0) return;
+  document.querySelector(".seo-fallback")?.remove();
+  observer.disconnect();
+}).observe(rootElement, { childList: true });
+
+createRoot(rootElement).render(
   <React.StrictMode>
     <HelmetProvider>
       <App />

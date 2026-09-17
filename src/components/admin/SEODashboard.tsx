@@ -926,8 +926,8 @@ const SEODashboard = () => {
         <p className="font-semibold mb-1">Ce tableau de bord est consultatif.</p>
         <p>
           Les suggestions ci-dessous ne sont plus appliquées automatiquement au site : elles servent de diagnostic.
-          Les titres, descriptions et redirections se modifient désormais dans le code (scripts/prerender.mjs,
-          src/data/citySeoTitles.json) ou, pour une redirection ponctuelle, dans l'onglet Redirections.
+          Les titres, descriptions et H1 se modifient dans src/data/seoPages.json (source unique lue par le
+          prérendu et par le site), les redirections dans l'onglet Redirections. La table seo_overrides n'est plus lue.
           Décision du 20/07/2026, après que des contenus erronés eurent été appliqués automatiquement en production.
         </p>
       </div>

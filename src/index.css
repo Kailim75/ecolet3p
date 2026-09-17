@@ -471,8 +471,22 @@
   color: hsl(var(--foreground));
 }
 
+.article-content h4 {
+  @apply text-base md:text-lg font-semibold mt-6 mb-3;
+  color: hsl(var(--foreground));
+}
+
 .article-content p {
   @apply mb-5 leading-relaxed;
+}
+
+.article-content hr {
+  @apply my-10 border-border;
+}
+
+.article-content blockquote {
+  @apply my-6 pl-4 italic;
+  border-left: 3px solid hsl(var(--accent));
 }
 
 .article-content strong {

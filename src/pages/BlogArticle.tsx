@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import { getPageSeo } from "@/lib/seoPages";
 import Layout from "@/components/layout/Layout";
 import { getArticleBySlug, getRelatedArticles } from "@/data/blogArticles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2, User, Tag, Home } from "lucide-react";
@@ -57,6 +58,7 @@ const BlogArticle = () => {
 
   const wordCount = article.content.split(/\s+/).filter(word => word.length > 0).length;
   const articleUrl = `https://ecolet3p.fr/blog/${article.slug}`;
+  const h1 = getPageSeo(`/blog/${article.slug}`)?.h1 ?? article.title;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -108,32 +110,11 @@ const BlogArticle = () => {
     }
   };
 
-  // SEO title overrides to keep under 60 characters
-  const seoTitleMap: Record<string, string> = {
-    "formation-continue-renouvellement-carte-professionnelle": "Renouvellement Carte Pro : Formation Continue",
-    "facilites-paiement-formation-taxi-vtc": "Payer sa Formation en 4× sans Frais | T3P",
-    "formation-taxi-carte-professionnelle-t3p": "Carte Pro Taxi : Formation et Examen | T3P",
-    "etapes-obtenir-carte-professionnelle-vtc": "5 Étapes pour la Carte Pro VTC | ECOLE T3P",
-    "vtc-ou-taxi-quelle-formation-choisir": "VTC ou Taxi : Quelle Formation Choisir ?",
-    "devenir-chauffeur-vtc-guide-complet-2025": "Devenir VTC en 2025 : Démarches Pratiques",
-    "comment-devenir-chauffeur-vtc-2026": "Devenir Chauffeur VTC en 2026 — Guide Complet",
-    "comment-devenir-chauffeur-taxi-2026": "Devenir Chauffeur Taxi en 2026 — Guide Complet",
-    "vtc-taxi-vmdtr-2026-quel-metier-choisir": "VTC, Taxi ou VMDTR en 2026 : Quel Métier ?",
-    "formation-vmdtr-2026-devenir-conducteur-moto-taxi": "Formation VMDTR 2026 — Devenir Moto-Taxi",
-    "formation-vmdtr-moto-taxi-scooter": "VMDTR : Moto ou Scooter Professionnel ?",
-    "maitrise-numerique-ia-chauffeur-vtc-taxi": "Numérique et IA pour Chauffeurs VTC Taxi",
-    "anglais-chauffeur-vtc-taxi-clientele-internationale": "Anglais pour Chauffeurs VTC Taxi | T3P",
-    "quel-statut-juridique-chauffeur-vtc-taxi-2026": "Statut Juridique Chauffeur VTC Taxi 2026",
-    "financement-formation-taxi-vtc": "Financement Formation Taxi VTC | ECOLE T3P",
-  };
-
-  const seoTitle = slug && seoTitleMap[slug] ? seoTitleMap[slug] : `${article.title} | ECOLE T3P`;
-
   return (
     <Layout>
       <DynamicSEOHead
         pageUrl={`/blog/${article.slug}`}
-        defaultTitle={seoTitle}
+        defaultTitle={`${article.title} | ECOLE T3P`}
         defaultDescription={article.metaDescription}
         canonicalUrl={articleUrl}
         ogImage={typeof article.image === 'string' && article.image.startsWith('http') ? article.image : `https://ecolet3p.fr${article.image}`}
@@ -143,9 +124,6 @@ const BlogArticle = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="article:published_time" content={formatDateISO(article.publishDate)} />
         <meta property="article:section" content={article.category} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={article.title} />
-        <meta name="twitter:description" content={article.metaDescription} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>
@@ -218,7 +196,7 @@ const BlogArticle = () => {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-cream leading-tight mb-8">
-              {article.title}
+              {h1}
             </h1>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-cream/70 text-sm">
@@ -461,13 +439,18 @@ const BlogArticle = () => {
 
 // Enhanced content formatter
 function formatContent(content: string): string {
-  let html = content
+  const html = content
     .replace(/^## (.+)$/gm, (_match, title) => {
       const id = title.toLowerCase().replace(/[^a-zà-ÿ0-9]+/g, '-').replace(/^-|-$/g, '');
       return `<h2 id="${id}">${title}</h2>`;
     })
+    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^---$/gm, '<hr />')
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    // italique *texte* ; les astérisques de note (« Variable* », « *Selon… ») restent tels quels
+    .replace(/(^|[^*\w])\*(?!\s)([^*\n]+?)\*(?![*\w])/gm, '$1<em>$2</em>')
     .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
     .replace(/^✅ (.+)$/gm, '<li class="check-item"><span class="check-icon">✅</span> $1</li>')
     .replace(/^❌ (.+)$/gm, '<li class="cross-item"><span class="cross-icon">❌</span> $1</li>')
@@ -488,11 +471,11 @@ function formatContent(content: string): string {
       return tableHtml;
     })
     .replace(/\n\n/g, '</p><p>')
-    .replace(/^(?!<[hultd])/gm, '<p>')
+    .replace(/^(?!<[hultdb])/gm, '<p>')
     .replace(/(?<![>])$/gm, '</p>')
     .replace(/<p><\/p>/g, '')
-    .replace(/<p>(<[hultd])/g, '$1')
-    .replace(/(<\/[hultd][^>]*>)<\/p>/g, '$1');
+    .replace(/<p>(<[hultdb])/g, '$1')
+    .replace(/(<\/[hultdb][^>]*>)<\/p>/g, '$1');
 
   return html;
 }

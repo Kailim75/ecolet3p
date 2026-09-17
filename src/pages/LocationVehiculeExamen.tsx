@@ -1,5 +1,6 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
@@ -134,10 +135,13 @@ const LocationVehiculeExamen = () => {
 
   return (
     <Layout>
-      <Helmet>
-        <title>Location Véhicule Examen Taxi VTC | ECOLE T3P</title>
-        <meta name="description" content="Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge." />
-        <link rel="canonical" href="https://ecolet3p.fr/services/location-vehicule-examen" />
+      <DynamicSEOHead
+        pageUrl="/services/location-vehicule-examen"
+        defaultTitle="Location Véhicule Examen Taxi VTC | ECOLE T3P"
+        defaultDescription="Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge."
+        canonicalUrl="https://ecolet3p.fr/services/location-vehicule-examen"
+        ogImage="https://ecolet3p.fr/og-image.jpg"
+      >
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -149,7 +153,7 @@ const LocationVehiculeExamen = () => {
             { "@type": "ListItem", "position": 3, "name": "Location Véhicule Examen", "item": "https://ecolet3p.fr/services/location-vehicule-examen" }
           ]
         })}</script>
-      </Helmet>
+      </DynamicSEOHead>
 
       {/* Breadcrumb */}
       <div className="bg-muted/30 py-3 border-b">
@@ -188,7 +192,7 @@ const LocationVehiculeExamen = () => {
               </Badge>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-forest mb-6">
-                Location de véhicule double commande pour examen pratique
+                <SeoH1Text path="/services/location-vehicule-examen" />
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

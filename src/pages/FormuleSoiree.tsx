@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -109,7 +110,7 @@ const FormuleSoiree = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
             <p className="text-gold text-sm font-bold uppercase tracking-wider mb-3">Option Soirée</p>
             <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight">
-              Formation Taxi / VTC / VMDTR
+              <SeoH1Text path="/formations/formule-soiree" />
             </h1>
             <div className="text-5xl md:text-7xl font-black text-white mb-4">990€</div>
 

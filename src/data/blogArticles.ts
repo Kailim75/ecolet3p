@@ -2429,7 +2429,7 @@ Découvrez nos autres guides sur les métiers du transport :
     excerpt: "Vous souhaitez devenir chauffeur VTC ? Découvrez notre guide complet avec toutes les étapes, de la formation à l'obtention de votre carte professionnelle.",
     category: "VTC",
     readTime: "8 min",
-    publishDate: "2025-01-15",
+    publishDate: "2026-01-18",
     author: "ECOLE T3P",
     image: vtcDriver2025,
     content: `
@@ -2505,7 +2505,7 @@ Devenir chauffeur VTC est un projet accessible avec une bonne préparation. ECOL
     excerpt: "La carte professionnelle T3P est indispensable pour exercer le métier de taxi. Découvrez comment l'obtenir grâce à notre formation certifiante.",
     category: "TAXI",
     readTime: "7 min",
-    publishDate: "2025-01-10",
+    publishDate: "2026-01-18",
     author: "ECOLE T3P",
     image: taxiDriverFormation,
     content: `
@@ -2582,7 +2582,7 @@ La carte professionnelle taxi ouvre les portes d'un métier stable et recherché
     excerpt: "Hésitation entre VTC et Taxi ? Découvrez les différences clés entre ces deux métiers pour faire le bon choix de carrière.",
     category: "Guide",
     readTime: "10 min",
-    publishDate: "2025-01-08",
+    publishDate: "2026-01-18",
     author: "ECOLE T3P",
     image: vtcVsTaxiComparison,
     content: `
@@ -2672,7 +2672,7 @@ VTC et Taxi sont deux beaux métiers avec chacun leurs avantages. L'important es
     excerpt: "De la formation à la création de votre entreprise, suivez notre guide étape par étape pour devenir chauffeur VTC professionnel.",
     category: "VTC",
     readTime: "6 min",
-    publishDate: "2025-01-05",
+    publishDate: "2026-01-18",
     author: "ECOLE T3P",
     image: carteProfessionnelleVtc,
     content: `
@@ -2790,7 +2790,7 @@ Le parcours vers la carte VTC est structuré et accessible. Avec ECOLE T3P, vous
     excerpt: "Le paiement ne doit pas être un frein à votre projet. Découvrez nos facilités de paiement pour financer votre formation de chauffeur.",
     category: "Pratique",
     readTime: "3 min",
-    publishDate: "2025-01-02",
+    publishDate: "2026-01-29",
     author: "ECOLE T3P",
     image: financementFormation,
     content: `
@@ -2851,7 +2851,7 @@ Le paiement ne doit pas être un frein à votre projet professionnel. Avec nos f
     excerpt: "Découvrez comment devenir conducteur de moto-taxi ou de scooter professionnel grâce à la formation VMDTR et obtenir votre carte professionnelle.",
     category: "VMDTR",
     readTime: "7 min",
-    publishDate: "2025-01-18",
+    publishDate: "2026-01-18",
     author: "ECOLE T3P",
     image: motoTaxiVmdtr,
     content: `
@@ -2962,7 +2962,7 @@ La formation VMDTR ouvre les portes d'un métier passionnant pour les amateurs d
     excerpt: "Votre carte professionnelle VTC, Taxi ou VMDTR arrive à expiration ? Découvrez la formation continue obligatoire pour la renouveler et maintenir vos compétences à jour.",
     category: "Formation Continue",
     readTime: "6 min",
-    publishDate: "2025-01-16",
+    publishDate: "2026-01-18",
     author: "ECOLE T3P",
     image: formationContinue,
     content: `

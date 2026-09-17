@@ -1,5 +1,6 @@
 import React from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -147,8 +148,7 @@ const GuideFormation = () => {
                 Guide de l'apprenant
               </Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-forest mb-6 leading-tight">
-                Vous débutez votre formation ?<br />
-                <span className="text-gold">Cette page vous guide pas à pas.</span>
+                <SeoH1Text path="/guide-formation" accentClassName="text-gold" />
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                 La formation est accessible, structurée et accompagnée. Quel que soit votre parcours,

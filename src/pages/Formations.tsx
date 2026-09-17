@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
@@ -145,7 +146,7 @@ const Formations = () => {
                 Centre de formation agréé Préfecture • Montrouge (92)
               </motion.p>
               <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-2xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
-                Formations <span className="text-gold">TAXI · VTC · VMDTR</span>
+                <SeoH1Text path="/formations" accentClassName="text-gold" />
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-8 max-w-xl">
                 Rejoignez les 2000+ chauffeurs formés. Packs économiques, programme parrainage et paiement en 4× sans frais.

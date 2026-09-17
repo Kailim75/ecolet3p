@@ -8,7 +8,6 @@ import {
   Shield, Car, Home, ChevronRight, CreditCard, Building2
 } from "lucide-react";
 import { getCityBySlug, cities, activeCities, RETIRED_CITY_SLUGS, getLocalFaqs, getTestimonialForCity } from "@/data/localSeoData";
-import cityTitles from "@/data/citySeoTitles.json";
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
+import { DEPARTEMENT_CODES } from "@/data/departementsIdfData";
 import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
 
 const FormationVille = () => {
@@ -31,9 +31,14 @@ const FormationVille = () => {
   const testimonial = getTestimonialForCity(city);
   const localFaqs = getLocalFaqs(city);
 
-  // Nearby cities (exclude current, max 8)
+  // Les 8 villes les plus proches. L'ancienne sélection (les 8 premières du fichier)
+  // renvoyait partout vers les mêmes villes : celles de fin de liste (Massy, Chevilly-Larue…)
+  // ne recevaient de liens que depuis /formations/villes.
+  const distance = (a: typeof city, b: typeof city) =>
+    Math.hypot(a.latitude - b.latitude, (a.longitude - b.longitude) * Math.cos((a.latitude * Math.PI) / 180));
   const nearbyCities = activeCities
     .filter(c => c.slug !== city.slug)
+    .sort((a, b) => distance(city, a) - distance(city, b))
     .slice(0, 8);
 
   const localBusinessSchema = {
@@ -100,7 +105,7 @@ const FormationVille = () => {
     <Layout>
       <DynamicSEOHead
         pageUrl={`/formations/${city.slug}`}
-        defaultTitle={(cityTitles as Record<string, string>)[city.slug] ?? city.seoTitle}
+        defaultTitle={city.seoTitle}
         defaultDescription={city.seoDescription}
         canonicalUrl={`https://ecolet3p.fr/formations/${city.slug}`}
         ogImage="https://ecolet3p.fr/og-image.jpg"
@@ -482,6 +487,16 @@ const FormationVille = () => {
               Voir toutes les villes <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
+          {DEPARTEMENT_CODES.includes(city.departmentCode) && (
+            <p className="mt-6 text-center text-sm text-muted-foreground">
+              Démarches préfecture pour le {city.departmentCode} ({city.department}) :{" "}
+              <Link to={`/formations/vtc/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte VTC</Link>
+              {" · "}
+              <Link to={`/formations/taxi/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte Taxi</Link>
+              {" · "}
+              <Link to={`/formations/vmdtr/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte VMDTR</Link>
+            </p>
+          )}
         </div>
       </section>
     </Layout>

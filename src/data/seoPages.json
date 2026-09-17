@@ -1,0 +1,402 @@
+{
+  "/": {
+    "title": "ECOLE T3P : formation Taxi VTC VMDTR à Montrouge, 990€",
+    "description": "ECOLE T3P, centre agréé à Montrouge : formations initiales Taxi, VTC et VMDTR à 990 € tout compris, frais d'examen inclus. 94 % de réussite, 4× sans frais.",
+    "h1": "Formation Taxi, VTC et VMDTR à Montrouge, dès 990 €"
+  },
+  "/formations": {
+    "title": "Formations Taxi VTC VMDTR | ECOLE T3P",
+    "description": "Toutes nos formations Taxi, VTC et VMDTR à Montrouge : initiale à 990 € tout compris, continue dès 170 €, passerelle à 665 €. Paiement en 4× sans frais.",
+    "h1": "Nos formations Taxi, VTC et VMDTR à Montrouge"
+  },
+  "/formations/taxi": {
+    "title": "Formation Taxi Montrouge (92) : prix 990€ tout compris",
+    "description": "Prix de la formation Taxi à Montrouge : 990 € tout compris, frais d'examen CMA de 241 € inclus. 35 h en journée, soirée ou e-learning, 4× sans frais.",
+    "h1": "Formation Taxi à Montrouge : tarif de 990 €, frais d'examen inclus"
+  },
+  "/formations/vtc": {
+    "title": "Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x",
+    "description": "Formation VTC à Montrouge (92) pour préparer la carte pro et rouler sur Uber ou Bolt : 990 € tout compris, frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation VTC initiale à Montrouge (92), 990 € tout compris"
+  },
+  "/formations/vmdtr": {
+    "title": "Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€",
+    "description": "Formation VMDTR moto-taxi à Montrouge : 990 € tout compris, frais d'examen inclus, 94 % de réussite. Permis A requis, paiement en 4× sans frais.",
+    "h1": "Formation VMDTR moto-taxi à Montrouge : préparez votre carte pro"
+  },
+  "/formations/continue-taxi": {
+    "title": "Formation Continue Taxi 14h Montrouge — 250€ | ECOLE T3P",
+    "description": "Formation continue Taxi obligatoire de 14 h à Montrouge pour renouveler votre carte professionnelle. 250 €, attestation remise le jour même, centre agréé.",
+    "h1": "Formation continue Taxi à Montrouge pour renouveler votre carte pro"
+  },
+  "/formations/continue-vtc": {
+    "title": "Formation Continue VTC 14h Montrouge — 170€ | ECOLE T3P",
+    "description": "Formation continue VTC de 14 h à Montrouge, obligatoire pour renouveler votre carte professionnelle. 170 € tout compris, attestation remise le jour même.",
+    "h1": "Formation continue VTC à Montrouge : renouvelez votre carte pro"
+  },
+  "/formations/renouvellement": {
+    "title": "Formation continue Taxi VTC VMDTR à Montrouge, dès 170€",
+    "description": "Choisissez votre formation continue et réservez votre session à Montrouge : VTC 170 €, Taxi 250 €, VMDTR 250 €. 14 h, attestation remise le jour même.",
+    "h1": "Choisissez et réservez votre formation continue VTC, Taxi ou VMDTR"
+  },
+  "/formations/continue-vmdtr": {
+    "title": "Formation Continue VMDTR 14h Montrouge — 250€ | ECOLE T3P",
+    "description": "Formation continue VMDTR (moto-taxi) de 14 h à Montrouge pour renouveler votre carte professionnelle. 250 €, attestation remise le jour même, centre agréé.",
+    "h1": "Formation continue VMDTR (moto-taxi) pour renouveler votre carte pro"
+  },
+  "/passerelle-vtc-taxi": {
+    "title": "Passerelle VTC Taxi VMDTR — 665€ | ECOLE T3P",
+    "description": "Déjà chauffeur VTC, Taxi ou VMDTR ? Préparez l'examen d'une seconde carte professionnelle avec la passerelle à 665 €, frais d'examen inclus, à Montrouge.",
+    "h1": "Passerelle VTC, Taxi ou VMDTR : préparez une seconde carte pro"
+  },
+  "/stage-recuperation-points": {
+    "title": "Stage Récupération de Points Montrouge 92 | ECOLE T3P",
+    "description": "Récupérez jusqu'à 4 points sur votre permis avec notre stage de 2 jours (14 h) à Montrouge, métro ligne 4 Mairie de Montrouge. Tarif du stage : 250 €.",
+    "h1": "Stage de récupération de points à Montrouge (92) : 250 €"
+  },
+  "/renouvellement-carte-professionnelle": {
+    "title": "Renouvellement carte pro Taxi VTC VMDTR : démarches",
+    "description": "Renouvellement de la carte professionnelle Taxi, VTC ou VMDTR : obligations, formation continue de 14 h et étapes à suivre pour garder le droit d'exercer.",
+    "h1": "Renouveler sa carte professionnelle Taxi, VTC ou VMDTR : les démarches"
+  },
+  "/services/location-vehicule-examen": {
+    "title": "Location Véhicule Examen Taxi VTC | ECOLE T3P",
+    "description": "Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge.",
+    "h1": "Location d'un véhicule double commande pour l'examen Taxi ou VTC"
+  },
+  "/formation-accessibilite-pmr": {
+    "title": "Formation PMR 14h Montrouge (92) — 290€ | ECOLE T3P",
+    "description": "Formation au transport des personnes à mobilité réduite (PMR) pour chauffeurs Taxi et VTC : 14 h à Montrouge (92), 290 €, paiement en 4× sans frais.",
+    "h1": "Formation accessibilité PMR pour chauffeurs Taxi et VTC à Montrouge"
+  },
+  "/accompagnement-gestion-activite": {
+    "title": "Formation gestion d'entreprise chauffeur 21h — 390€ | T3P",
+    "description": "Formation gestion d'entreprise de 21 h pour chauffeurs VTC, Taxi et VMDTR à Montrouge : statut juridique, comptabilité, fiscalité. 390 €, 4× sans frais.",
+    "h1": "Formation gestion d'entreprise pour chauffeurs VTC, Taxi et VMDTR"
+  },
+  "/aide-administrative-creation-entreprise": {
+    "title": "Aide Administrative Création Entreprise VTC Taxi | T3P",
+    "description": "Accompagnement administratif dès 190 € pour créer votre entreprise de chauffeur VTC, Taxi ou VMDTR : carte pro, registre T3P, démarches en préfecture.",
+    "h1": "Aide administrative pour créer votre entreprise de chauffeur"
+  },
+  "/formations/anglais-professionnel": {
+    "title": "Formation Anglais Chauffeur VTC Taxi | ECOLE T3P",
+    "description": "Anglais professionnel en 20 h pour chauffeurs VTC et Taxi : vocabulaire du transport et accueil de la clientèle internationale. 350 €, 4× sans frais.",
+    "h1": "Anglais professionnel pour chauffeurs VTC et Taxi"
+  },
+  "/formations/formule-soiree": {
+    "title": "Formation Soirée Taxi VTC 990€ | ECOLE T3P",
+    "description": "Formez-vous le soir au métier de Taxi, VTC ou VMDTR : sessions de 18 h à 21 h 30 à Montrouge, 990 € tout compris, même prix qu'en journée, 4× sans frais.",
+    "h1": "Formation Taxi, VTC et VMDTR en soirée à Montrouge"
+  },
+  "/paiement": {
+    "title": "Paiement en 4× sans Frais — Alma | ECOLE T3P",
+    "description": "Payez votre formation Taxi, VTC ou VMDTR en 4× sans frais avec Alma : 990 € réglés en 4 mensualités de 247,50 €. Réponse immédiate lors de votre demande.",
+    "h1": "Payez votre formation en 4× sans frais avec Alma"
+  },
+  "/calendrier-examens": {
+    "title": "Calendrier Examens CMA 2026 | ECOLE T3P",
+    "description": "Dates des examens CMA 2026 en Île-de-France : admissibilité et admission pour les cartes Taxi, VTC et VMDTR. Calendrier officiel.",
+    "h1": "Calendrier des examens CMA 2026 Taxi, VTC et VMDTR en Île-de-France"
+  },
+  "/audit-rentabilite": {
+    "title": "Audit Rentabilité Chauffeur VTC Taxi VMDTR | ECOLE T3P",
+    "description": "Audit de rentabilité gratuit pour chauffeur VTC, Taxi ou VMDTR : pré-audit instantané, puis rapport détaillé avec plan d'action personnalisé par ECOLE T3P.",
+    "h1": "Audit de rentabilité gratuit pour chauffeur VTC, Taxi ou VMDTR"
+  },
+  "/audit-rentabilite-chauffeur": {
+    "title": "Simulateur revenu net chauffeur Taxi VTC VMDTR | ECOLE T3P",
+    "description": "Simulez votre revenu net mensuel de chauffeur Taxi, VTC ou VMDTR selon vos charges, votre statut et votre véhicule. Gratuit, audit à envoyer sur WhatsApp.",
+    "h1": "Simulateur de revenu net pour chauffeur Taxi, VTC ou VMDTR"
+  },
+  "/guide-formation": {
+    "title": "Guide Formation Taxi VTC VMDTR | ECOLE T3P",
+    "description": "Vous débutez votre formation Taxi, VTC ou VMDTR ? Programme de 35 h, modules, préparation à l'examen CMA et étapes jusqu'à la carte professionnelle.",
+    "h1": "Guide de votre formation Taxi, VTC ou VMDTR, étape par étape"
+  },
+  "/formations/montrouge": {
+    "title": "Formation Taxi VTC Montrouge (92) | ECOLE T3P",
+    "description": "Centre de formation Taxi, VTC et VMDTR au 3 rue Corneille à Montrouge, métro ligne 4 Mairie de Montrouge. Agrément n° 23/007, 990 € tout compris.",
+    "h1": "Centre de formation Taxi, VTC et VMDTR à Montrouge, métro ligne 4"
+  },
+  "/formations/villes": {
+    "title": "Formations Taxi VTC près de chez vous | ECOLE T3P",
+    "description": "ECOLE T3P forme à Montrouge des chauffeurs Taxi, VTC et VMDTR de toute l'Île-de-France. Trouvez votre ville et l'accès au métro Mairie de Montrouge.",
+    "h1": "Formations Taxi, VTC et VMDTR par ville en Île-de-France"
+  },
+  "/blog": {
+    "title": "Blog Formation Taxi VTC VMDTR | ECOLE T3P",
+    "description": "Articles, guides et conseils pour réussir votre examen Taxi, VTC ou VMDTR. Reconversion, réglementation 2026, astuces et retours d'expérience.",
+    "h1": "Blog : conseils et actualités pour chauffeurs Taxi, VTC et VMDTR"
+  },
+  "/a-propos": {
+    "title": "À Propos d'ECOLE T3P — Formation Taxi VTC",
+    "description": "ECOLE T3P forme des chauffeurs Taxi, VTC et VMDTR depuis 2014. Centre agréé n° 23/007 à Montrouge, 94 % de réussite, formateurs experts du transport.",
+    "h1": "À propos d'ECOLE T3P, formateur de chauffeurs depuis 2014"
+  },
+  "/contact": {
+    "title": "Contact ECOLE T3P Montrouge : téléphone, WhatsApp, accès",
+    "description": "Une question sur votre formation Taxi, VTC ou VMDTR ? Appelez-nous, écrivez sur WhatsApp ou venez au 3 rue Corneille à Montrouge, métro ligne 4.",
+    "h1": "Contacter ECOLE T3P à Montrouge"
+  },
+  "/mentions-legales": {
+    "title": "Mentions Légales — ECOLE T3P",
+    "description": "Mentions légales du site ecolet3p.fr, édité par ECOLE T3P, centre de formation Taxi, VTC et VMDTR situé 3 rue Corneille, 92120 Montrouge.",
+    "h1": "Mentions légales"
+  },
+  "/politique-de-confidentialite": {
+    "title": "Politique de Confidentialité — ECOLE T3P",
+    "description": "Comment ECOLE T3P, centre de formation Taxi, VTC et VMDTR à Montrouge, collecte et protège vos données personnelles sur le site ecolet3p.fr (RGPD).",
+    "h1": "Politique de confidentialité"
+  },
+  "/formations/bagneux": {
+    "title": "Formation Taxi VTC Bagneux (92220) — dès 990€",
+    "description": "Depuis Bagneux, rejoignez ECOLE T3P à Montrouge en 8 min de métro par la ligne 4. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Bagneux"
+  },
+  "/formations/malakoff": {
+    "title": "Formation Taxi VTC Malakoff (92240) — dès 990€",
+    "description": "Près de Malakoff, notre centre agréé de Montrouge est accessible à pied. Formation Taxi ou VTC à 990 € tout compris en 4× sans frais, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Malakoff"
+  },
+  "/formations/vanves": {
+    "title": "Formation Taxi VTC Vanves (92170) — dès 990€",
+    "description": "De Vanves, le bus 126 vous amène en 10 min chez ECOLE T3P à Montrouge. Formation Taxi ou VTC en journée, en soirée ou en e-learning, 990 € tout compris.",
+    "h1": "Formation Taxi & VTC près de Vanves"
+  },
+  "/formations/chatillon": {
+    "title": "Formation Taxi VTC Châtillon (92320) — dès 990€",
+    "description": "Depuis Châtillon, le bus 68 dépose à Mairie de Montrouge, à deux pas de notre centre agréé. Formation Taxi ou VTC de 35 h, 990 € frais d'examen inclus.",
+    "h1": "Formation Taxi & VTC près de Châtillon"
+  },
+  "/formations/issy-les-moulineaux": {
+    "title": "Formation Taxi VTC Issy-les-Moulineaux (92130) — dès 990€",
+    "description": "D'Issy-les-Moulineaux (92130), rejoignez en métro ou en bus notre centre agréé de Montrouge. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près d'Issy-les-Moulineaux"
+  },
+  "/formations/clamart": {
+    "title": "Formation Taxi VTC Clamart (92140) — dès 990€",
+    "description": "Habitants de Clamart, devenez chauffeur Taxi ou VTC avec ECOLE T3P, qui forme depuis 2014. Centre agréé à Montrouge, 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Clamart"
+  },
+  "/formations/antony": {
+    "title": "Formation Taxi VTC Antony (92160) — dès 990€",
+    "description": "Depuis Antony, prenez le RER B puis la ligne 4 à Denfert-Rochereau jusqu'à notre centre. Formation Taxi ou VTC à 990 € en 4× sans frais, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près d'Antony"
+  },
+  "/formations/boulogne-billancourt": {
+    "title": "Formation Taxi VTC Boulogne-Billancourt (92100) — dès 990€",
+    "description": "De Boulogne-Billancourt, le bus 126 va sans changement jusqu'à Montrouge : formation Taxi ou VTC en journée ou en soirée (18h-21h30), 990 € tout compris.",
+    "h1": "Formation Taxi & VTC près de Boulogne-Billancourt"
+  },
+  "/formations/paris-14": {
+    "title": "Formation Taxi VTC Paris 14e (75014) — dès 990€",
+    "description": "Formation Taxi et VTC à 3 min d'Alésia par la ligne 4, métro Mairie de Montrouge. Centre agréé ECOLE T3P : 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC aux portes de Paris 14e"
+  },
+  "/formations/longjumeau": {
+    "title": "Formation Taxi VTC Longjumeau (91160) — dès 990€",
+    "description": "À 15 km de Longjumeau, ECOLE T3P à Montrouge propose la formation Taxi ou VTC en présentiel ou en e-learning, au même prix : 990 € tout compris.",
+    "h1": "Formation Taxi & VTC accessible depuis Longjumeau"
+  },
+  "/formations/la-courneuve": {
+    "title": "Formation Taxi VTC La Courneuve (93120) — dès 990€",
+    "description": "De La Courneuve, rejoignez Montrouge par les métros 7 et 4 ou formez-vous en e-learning. Formation Taxi ou VTC à 990 € en 4× sans frais, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC accessible depuis La Courneuve"
+  },
+  "/formations/conflans-sainte-honorine": {
+    "title": "Formation Taxi VTC Conflans-Ste-Honorine (78700) — dès 990€",
+    "description": "À 55 min de Conflans-Sainte-Honorine en train et métro, ou à distance en e-learning : formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC accessible depuis Conflans-Sainte-Honorine"
+  },
+  "/formations/sceaux": {
+    "title": "Formation Taxi VTC Sceaux (92330) — dès 990€",
+    "description": "Depuis Sceaux, le bus 128 va directement au métro Mairie de Montrouge, près de notre centre. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Sceaux"
+  },
+  "/formations/creteil": {
+    "title": "Formation Taxi VTC Créteil (94000) — dès 990€",
+    "description": "De Créteil, préfecture du Val-de-Marne, les métros 8 et 4 mènent à ECOLE T3P. Formation Taxi ou VTC en journée, soirée ou e-learning, 990 € tout compris.",
+    "h1": "Formation Taxi & VTC accessible depuis Créteil"
+  },
+  "/formations/villejuif": {
+    "title": "Formation Taxi VTC Villejuif (94800) — dès 990€",
+    "description": "Formation Taxi et VTC près de Villejuif (94800) : centre ECOLE T3P à 4 km, à Montrouge. Agréé par la préfecture, 94 % de réussite, 990 € tout compris.",
+    "h1": "Formation Taxi & VTC près de Villejuif"
+  },
+  "/formations/gentilly": {
+    "title": "Formation Taxi VTC Gentilly (94250) — dès 990€",
+    "description": "Gentilly est à 2 km de notre centre agréé de Montrouge. Formation Taxi ou VTC en journée ou en soirée, 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Gentilly"
+  },
+  "/formations/ivry-sur-seine": {
+    "title": "Formation Taxi VTC Ivry-sur-Seine (94200) — dès 990€",
+    "description": "Formation Taxi et VTC près d'Ivry-sur-Seine (94200) : ECOLE T3P à Montrouge, 35 h de cours, 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près d'Ivry-sur-Seine"
+  },
+  "/formations/vitry-sur-seine": {
+    "title": "Formation Taxi VTC Vitry-sur-Seine (94400) — dès 990€",
+    "description": "Depuis Vitry-sur-Seine, rejoignez ECOLE T3P à Montrouge en 22 minutes. Formation Taxi, VTC ou VMDTR agréée, 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Vitry-sur-Seine"
+  },
+  "/formations/le-kremlin-bicetre": {
+    "title": "Formation Taxi VTC Le Kremlin-Bicêtre (94270) — dès 990€",
+    "description": "Le Kremlin-Bicêtre est à 12 minutes en métro de notre centre de Montrouge. Formation Taxi et VTC à 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près du Kremlin-Bicêtre"
+  },
+  "/formations/arcueil": {
+    "title": "Formation Taxi VTC Arcueil (94110) — dès 990€",
+    "description": "Arcueil est à 10 minutes en RER B de notre centre agréé de Montrouge. Formation Taxi ou VTC en 35 h, 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près d'Arcueil"
+  },
+  "/formations/cachan": {
+    "title": "Formation Taxi VTC Cachan (94230) — dès 990€",
+    "description": "Cachanais, notre centre de Montrouge est à 12 minutes en RER B. Formation Taxi et VTC en journée, en soirée ou en e-learning, 990 € frais d'examen inclus.",
+    "h1": "Formation Taxi & VTC près de Cachan"
+  },
+  "/formations/fontenay-aux-roses": {
+    "title": "Formation Taxi VTC Fontenay-aux-Roses (92260) — dès 990€",
+    "description": "De Fontenay-aux-Roses, 12 minutes en RER B et bus jusqu'à ECOLE T3P à Montrouge. Formation Taxi ou VTC à 990 € tout compris, en 4 fois sans frais.",
+    "h1": "Formation Taxi & VTC près de Fontenay-aux-Roses"
+  },
+  "/formations/meudon": {
+    "title": "Formation Taxi VTC Meudon (92190) — dès 990€",
+    "description": "Meudon est à 18 minutes en tramway T6 d'ECOLE T3P, centre agréé à Montrouge. Formation Taxi, VTC ou VMDTR à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Meudon"
+  },
+  "/formations/paris-13": {
+    "title": "Formation Taxi VTC Paris 13e (75013) — dès 990€",
+    "description": "Depuis Paris 13e, notre centre agréé de Montrouge est à 15 minutes en métro. Formation Taxi ou VTC en 35 h, 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de Paris 13e"
+  },
+  "/formations/paris-15": {
+    "title": "Formation Taxi VTC Paris 15e (75015) — dès 990€",
+    "description": "Paris 15e : notre centre de Montrouge est à 10 minutes de Porte de Versailles. Formation Taxi ou VTC à 990 € tout compris, de jour ou en soirée.",
+    "h1": "Formation Taxi & VTC près de Paris 15e"
+  },
+  "/formations/bourg-la-reine": {
+    "title": "Formation Taxi VTC Bourg-la-Reine (92340) — dès 990€",
+    "description": "Bourg-la-Reine et notre centre de Montrouge sont reliés en 12 minutes par le RER B. Taxi, VTC ou VMDTR à 990 € tout compris, en soirée ou en ligne.",
+    "h1": "Formation Taxi & VTC près de Bourg-la-Reine"
+  },
+  "/formations/le-plessis-robinson": {
+    "title": "Formation Taxi VTC Le Plessis-Robinson (92350) — dès 990€",
+    "description": "Du Plessis-Robinson, comptez 18 minutes en bus jusqu'à notre centre agréé de Montrouge. Formation Taxi ou VTC de 35 h à 990 €, frais d'examen CMA inclus.",
+    "h1": "Formation Taxi & VTC près du Plessis-Robinson"
+  },
+  "/formations/nanterre": {
+    "title": "Formation Taxi VTC Nanterre (92000) — dès 990€",
+    "description": "Formation VTC et Taxi depuis Nanterre : centre agréé à Montrouge, à 35 minutes en RER et métro. 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC à 35 minutes de Nanterre"
+  },
+  "/formations/colombes": {
+    "title": "Formation Taxi VTC Colombes (92700) — dès 990€",
+    "description": "Comptez 30 minutes en transport de Colombes à notre centre agréé de Montrouge. Formation Taxi ou VTC en soirée ou en e-learning, 990 € tout compris.",
+    "h1": "Formation Taxi & VTC à 30 minutes de Colombes"
+  },
+  "/formations/vincennes": {
+    "title": "Formation Taxi VTC Vincennes (94300) — dès 990€",
+    "description": "De Vincennes, métro ligne 1 puis ligne 4 à Châtelet : notre centre de Montrouge est à 30 minutes. Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC à 30 minutes de Vincennes"
+  },
+  "/formations/l-hay-les-roses": {
+    "title": "Formation Taxi VTC L'Haÿ-les-Roses (94240) — dès 990€",
+    "description": "L'Haÿ-les-Roses est reliée à notre centre de Montrouge par les bus 172 ou 184, en 18 minutes. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC près de L'Haÿ-les-Roses"
+  },
+  "/formations/chevilly-larue": {
+    "title": "Formation Taxi VTC Chevilly-Larue (94550) — dès 990€",
+    "description": "Près de Rungis et d'Orly, Chevilly-Larue est à 20 minutes de notre centre de Montrouge par le bus 172 ou 286. Formation Taxi et VTC à 990 € tout compris.",
+    "h1": "Formation Taxi & VTC près de Chevilly-Larue"
+  },
+  "/formations/massy": {
+    "title": "Formation Taxi VTC Massy (91300) — dès 990€",
+    "description": "Formation Taxi ou VTC à 25 minutes de Massy en RER B. 990 € frais d'examen inclus, en soirée de 18h à 21h30 ou en e-learning, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC à 25 minutes de Massy"
+  },
+  "/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir": {
+    "title": "VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?",
+    "description": "Comparatif VTC, Taxi et VMDTR en 2026 : prérequis, formation, examen, licence ADS, investissement, revenus estimés, avantages et inconvénients.",
+    "h1": "VTC, taxi ou VMDTR : comparatif des trois métiers en 2026"
+  },
+  "/blog/comment-devenir-chauffeur-vtc-2026": {
+    "title": "Comment devenir chauffeur VTC en 2026 : Le guide ultime",
+    "description": "Devenir chauffeur VTC en 2026 : prérequis, formation, examen CMA, carte pro, règles ZFE, véhicules propres, plateformes, statut et revenus.",
+    "h1": "Devenir chauffeur VTC en 2026 : étapes, règles ZFE et revenus"
+  },
+  "/blog/comment-devenir-chauffeur-taxi-2026": {
+    "title": "Comment devenir chauffeur Taxi en 2026 : Le guide complet",
+    "description": "Devenir chauffeur de taxi en 2026 : prérequis, formation, examen CMA, carte professionnelle, licence ADS, règles ZFE, création d'entreprise et revenus.",
+    "h1": "Devenir chauffeur de taxi en 2026 : toutes les étapes"
+  },
+  "/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi": {
+    "title": "Formation VMDTR 2026 : Devenir conducteur moto-taxi",
+    "description": "Devenir conducteur moto-taxi en 2026 : prérequis dont le permis A, formation VMDTR, examen, équipement obligatoire, choix du véhicule et revenus du métier.",
+    "h1": "Devenir conducteur moto-taxi VMDTR en 2026 : le guide pratique"
+  },
+  "/blog/qu-est-ce-que-le-t3p": {
+    "title": "T3P : définition, examen, formation et carte professionnelle",
+    "description": "T3P signifie Transport Public Particulier de Personnes : Taxi, VTC, VMDTR. Examen CMA, carte pro, renouvellement et formation à 990 € tout compris.",
+    "h1": "Qu'est-ce que le T3P ? Définition, examen et carte professionnelle"
+  },
+  "/blog/prix-formation-taxi-2026": {
+    "title": "Prix d'une formation Taxi en 2026 : le détail réel",
+    "description": "Combien coûte une formation taxi en 2026 ? Écarts entre centres, frais d'examen CMA de 241 €, véhicule d'examen, coûts après la formation : le décryptage.",
+    "h1": "Combien coûte une formation taxi en 2026 ? Le détail réel des prix"
+  },
+  "/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026": {
+    "title": "Statut juridique VTC ou taxi en 2026 : micro, SASU ou EURL ?",
+    "description": "Micro-entreprise, EURL, SASU, SARL ou salarié : quel statut choisir pour exercer en VTC ou taxi en 2026 ? Charges, fiscalité, avantages et limites.",
+    "h1": "Quel statut juridique choisir pour un chauffeur VTC ou taxi en 2026 ?"
+  },
+  "/blog/maitrise-numerique-ia-chauffeur-vtc-taxi": {
+    "title": "Numérique et IA : compétences clés du chauffeur T3P",
+    "description": "Applications de réservation, GPS, comptabilité en ligne, intelligence artificielle : les outils qu'un chauffeur VTC ou taxi doit maîtriser en 2026.",
+    "h1": "Outils numériques et IA : compétences clés du chauffeur VTC et taxi"
+  },
+  "/blog/anglais-chauffeur-vtc-taxi-clientele-internationale": {
+    "title": "L'anglais pour les chauffeurs VTC et Taxi",
+    "description": "Épreuve d'anglais de l'examen, vocabulaire et phrases clés pour l'accueil, le trajet et les aéroports : l'anglais utile au chauffeur VTC ou taxi à Paris.",
+    "h1": "L'anglais du chauffeur VTC et taxi face à la clientèle internationale"
+  },
+  "/blog/renouvellement-carte-professionnelle-vtc-taxi-2026": {
+    "title": "Renouveler sa carte VTC ou taxi en 2026 : pièces et délais",
+    "description": "Renouveler sa carte VTC, taxi ou VMDTR en 2026 : formation continue de 14 h, pièces à fournir, calendrier conseillé, dépôt en préfecture, carte expirée.",
+    "h1": "Renouvellement de carte VTC, taxi ou VMDTR : pièces et calendrier 2026"
+  },
+  "/blog/formation-continue-renouvellement-carte-professionnelle": {
+    "title": "Formation continue du chauffeur : obligation et programme",
+    "description": "Formation continue obligatoire de 14 h pour renouveler une carte VTC, taxi ou VMDTR : public concerné, programme détaillé, attestation, risques sans stage.",
+    "h1": "Formation continue : le stage obligatoire pour renouveler sa carte pro"
+  },
+  "/blog/etapes-obtenir-carte-professionnelle-vtc": {
+    "title": "Les 5 étapes pour obtenir sa carte professionnelle VTC",
+    "description": "Prérequis, formation, examen CMA, dossier en préfecture, lancement d'activité : les 5 étapes pour obtenir sa carte professionnelle VTC, calendrier compris.",
+    "h1": "Carte professionnelle VTC : les 5 étapes pour l'obtenir"
+  },
+  "/blog/facilites-paiement-formation-taxi-vtc": {
+    "title": "Payer sa formation Taxi VTC en 4× sans frais avec Alma",
+    "description": "Formation Taxi ou VTC à 990 € tout compris : comment fonctionne le paiement en 4 fois sans frais avec Alma, soit 247,50 € par mois.",
+    "h1": "Formation Taxi ou VTC : le paiement en 4 fois sans frais expliqué"
+  },
+  "/blog/formation-vmdtr-moto-taxi-scooter": {
+    "title": "Métier de moto-taxi VMDTR : avantages, prérequis, débouchés",
+    "description": "Pourquoi devenir moto-taxi ? Avantages du métier, prérequis dont le permis A, épreuves spécifiques de l'examen VMDTR, débouchés et revenus possibles.",
+    "h1": "Devenir moto-taxi : avantages, prérequis et débouchés du métier VMDTR"
+  },
+  "/blog/vtc-ou-taxi-quelle-formation-choisir": {
+    "title": "VTC ou Taxi : quelle formation choisir selon votre profil ?",
+    "description": "VTC ou taxi ? Réservation, tarification, zone d'activité, investissement initial : les différences clés, le profil adapté à chaque métier et la passerelle.",
+    "h1": "VTC ou taxi : quel métier et quelle formation selon votre profil ?"
+  },
+  "/blog/formation-taxi-carte-professionnelle-t3p": {
+    "title": "Carte professionnelle Taxi : formation, examen et obtention",
+    "description": "Obtenir sa carte professionnelle Taxi : programme de formation, épreuves écrites et épreuve pratique de l'examen CMA, dossier en préfecture, licence ADS.",
+    "h1": "Obtenir sa carte professionnelle Taxi : formation, examen, démarches"
+  },
+  "/blog/devenir-chauffeur-vtc-guide-complet-2025": {
+    "title": "Devenir chauffeur VTC : démarches et conseils",
+    "description": "Prérequis, formation, épreuves et coefficients de l'examen VTC, dossier en préfecture, choix du statut : les démarches clés pour devenir chauffeur VTC.",
+    "h1": "Devenir chauffeur VTC : les démarches, de l'examen à la carte"
+  }
+}

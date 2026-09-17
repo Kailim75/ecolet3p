@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -206,7 +207,7 @@ const FormationMontrouge = () => {
               <MapPin className="w-4 h-4" /> Montrouge (92120) — Métro ligne 4
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight mb-6">
-              Centre de formation <span className="text-gold">Taxi & VTC</span> à Montrouge
+              <SeoH1Text path="/formations/montrouge" accentClassName="text-gold" />
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
               Depuis 2014, ECOLE T3P forme les futurs chauffeurs Taxi, VTC et VMDTR au cœur de Montrouge.

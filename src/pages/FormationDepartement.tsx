@@ -142,14 +142,14 @@ const FormationDepartementPage = ({ metier }: Props) => {
             Département {departement.code} — {departement.nom}
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-            Formation {labels.short} dans le {departement.nom} ({departement.code})
+            Formation {labels.short} {departement.dans} ({departement.code})
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed">
-            Vous résidez dans le {departement.nom} et souhaitez obtenir votre carte
+            Vous résidez {departement.dans} et souhaitez obtenir votre carte
             professionnelle {labels.short} ? ECOLE T3P, centre agréé Préfecture situé à
             Montrouge (92), accueille les candidats du département {departement.code}.
             Retrouvez ci-dessous toutes les <strong>démarches officielles</strong> à
-            effectuer auprès de la Préfecture de {departement.nom}, vérifiées en
+            effectuer auprès de la {departement.prefectureCourte}, vérifiées en
             sources <code className="text-xs bg-muted px-1.5 py-0.5 rounded">*.gouv.fr</code>.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
@@ -170,10 +170,10 @@ const FormationDepartementPage = ({ metier }: Props) => {
         <div className="container mx-auto px-4 max-w-4xl space-y-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
-              Démarches officielles dans le {departement.nom}
+              Démarches officielles {departement.dans}
             </h2>
             <p className="text-muted-foreground">
-              Sources : Préfecture du {departement.nom}, service-public.fr et Légifrance.
+              Sources : {departement.prefectureCourte}, service-public.fr et Légifrance.
             </p>
           </div>
 
@@ -243,7 +243,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
                   La liste officielle est publiée et mise à jour régulièrement par la
-                  Préfecture du {departement.nom}.
+                  {departement.prefectureCourte}.
                 </p>
                 <Button asChild variant="outline" size="sm">
                   <a
@@ -291,15 +291,15 @@ const FormationDepartementPage = ({ metier }: Props) => {
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-8">
-            Les 6 étapes pour obtenir votre carte {labels.short} dans le {departement.nom}
+            Les 6 étapes pour obtenir votre carte {labels.short} {departement.dans}
           </h2>
           <ol className="space-y-4">
             {[
               `Vérifier les prérequis : 21 ans, permis B (3 ans, 2 ans si conduite accompagnée), casier judiciaire vierge (bulletin n°2).`,
-              `Effectuer la visite médicale auprès d'un médecin agréé par la Préfecture du ${departement.nom} (liens ci-dessus).`,
+              `Effectuer la visite médicale auprès d'un médecin agréé par la ${departement.prefectureCourte} (liens ci-dessus).`,
               `S'inscrire à la formation ${labels.short} chez ECOLE T3P à Montrouge (Journée, Soir ou E-learning, dès 990€).`,
               `Réussir l'examen T3P organisé par la Chambre de Métiers et de l'Artisanat (94% de réussite chez ECOLE T3P).`,
-              `Constituer et déposer votre dossier de carte professionnelle auprès de la Préfecture du ${departement.nom} (lien officiel ci-dessus).`,
+              `Constituer et déposer votre dossier de carte professionnelle auprès de la ${departement.prefectureCourte} (lien officiel ci-dessus).`,
               `Recevoir votre carte professionnelle (délai indicatif : 4 semaines à 4 mois selon le département) et lancer votre activité.`,
             ].map((step, i) => (
               <li key={i} className="flex gap-4 bg-card border rounded-xl p-4">
@@ -323,7 +323,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                  ECOLE T3P à Montrouge — accessible depuis le {departement.nom}
+                  ECOLE T3P à Montrouge — accessible {departement.depuis}
                 </h2>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   <strong>3 rue Corneille, 92120 Montrouge</strong> — à 2 minutes à pied
@@ -331,7 +331,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
                   <MapPin className="inline w-4 h-4 mr-1 text-primary" />
-                  <strong>Depuis le {departement.code} ({departement.nom}) :</strong>{" "}
+                  <strong>Accès {departement.depuis} ({departement.code}) :</strong>{" "}
                   {departement.accessibiliteDepuisMontrouge}
                 </p>
                 <p className="text-sm text-muted-foreground mb-6">
@@ -359,19 +359,19 @@ const FormationDepartementPage = ({ metier }: Props) => {
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">
-            Questions fréquentes — {labels.short} dans le {departement.nom}
+            Questions fréquentes — {labels.short} {departement.dans}
           </h2>
           <Accordion type="single" collapsible className="space-y-3">
             <AccordionItem value="q1" className="bg-card border rounded-xl px-4">
               <AccordionTrigger className="text-left">
-                Puis-je faire ma formation à Montrouge si je vis dans le {departement.nom} ?
+                Puis-je faire ma formation à Montrouge si je vis {departement.dans} ?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Oui. Aucune obligation de suivre la formation dans votre département de
                 résidence. L'attestation de formation délivrée par ECOLE T3P (centre
                 agréé Préfecture 23/007) est valable sur l'ensemble du territoire
-                national. Vous déposerez ensuite votre dossier auprès de la Préfecture
-                du {departement.nom} pour obtenir votre carte professionnelle.
+                national. Vous déposerez ensuite votre dossier auprès de la
+                {departement.prefectureCourte} pour obtenir votre carte professionnelle.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="q2" className="bg-card border rounded-xl px-4">
@@ -389,7 +389,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
             </AccordionItem>
             <AccordionItem value="q3" className="bg-card border rounded-xl px-4">
               <AccordionTrigger className="text-left">
-                Quel est le délai pour recevoir ma carte professionnelle dans le {departement.nom} ?
+                Quel est le délai pour recevoir ma carte professionnelle {departement.dans} ?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Le délai dépend du département. En Seine-Saint-Denis (93), la
@@ -417,7 +417,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
       <section className="py-12 md:py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Prêt à devenir chauffeur {labels.short} dans le {departement.nom} ?
+            Prêt à devenir chauffeur {labels.short} {departement.dans} ?
           </h2>
           <p className="mb-6 text-primary-foreground/90">
             Rejoignez les 94% de réussite ECOLE T3P. Formation agréée Préfecture,

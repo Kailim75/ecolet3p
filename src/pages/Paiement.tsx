@@ -1,5 +1,6 @@
 import React from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -186,8 +187,7 @@ const Paiement = () => {
             </div>
 
             <h1 className="text-3xl lg:text-5xl font-bold mb-6 leading-tight">
-              Payez votre formation en{" "}
-              <span className="text-primary">2×, 3× ou 4× sans frais</span>
+              <SeoH1Text path="/paiement" accentClassName="text-primary" />
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
