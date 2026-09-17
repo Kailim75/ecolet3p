@@ -133,7 +133,7 @@ const Formations = () => {
                 <SeoH1Text path="/formations" accentClassName="text-gold" />
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-8 max-w-xl">
-                Rejoignez les 2000+ chauffeurs formés. Packs économiques, programme parrainage et paiement en 4× sans frais.
+                Rejoignez les 2000+ chauffeurs formés. Packs économiques et paiement en 4× sans frais.
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="font-bold text-base btn-cta-orange">

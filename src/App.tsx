@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import RedirectHandler from "./components/seo/RedirectHandler";
+import ScrollToHash from "@/components/layout/ScrollToHash";
 import AnalyticsProvider from "./components/analytics/AnalyticsProvider";
 import { AuthProvider } from "./hooks/useAuth";
 import { QuoteModalProvider } from "./components/quote/QuoteModalContext";
@@ -96,6 +97,7 @@ const App = () => {
               <BrowserRouter>
                 <AnalyticsProvider>
                   <RedirectHandler />
+                  <ScrollToHash />
                   <Suspense fallback={<PageFallback />}>
                     <PageTransition>
                       <Routes>
