@@ -58,9 +58,9 @@ const faqItems = [
   { q: "Quel statut juridique choisir : micro-entreprise, SASU ou EURL ?", a: "La micro-entreprise est idéale pour démarrer (charges sociales ~22% du CA après commission). La SASU convient aux revenus élevés (IS à 15%). L'EURL (TNS) offre une couverture sociale complète avec des cotisations de ~45%." },
   { q: "Combien gagne un chauffeur VTC en moyenne par mois ?", a: "Avec 22 jours travaillés, 8h/jour et un revenu horaire de 25€, le CA mensuel est d'environ 4 400€. Après déduction des charges (commission, cotisations, frais fixes), le net se situe entre 1 500€ et 2 800€ selon le statut juridique." },
   { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: "La formation est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium), frais d'examen CMA de 241€ inclus. Paiement en 4× sans frais possible avec Alma." },
-  { q: "En combien de temps la formation est-elle rentabilisée ?", a: "Selon notre audit, la formation est généralement rentabilisée en 10 à 30 jours d'activité, selon votre rythme de travail et votre statut juridique." },
+  { q: "En combien de temps la formation est-elle rentabilisée ?", a: "Le délai d'amortissement dépend de votre rythme de travail, de vos charges et de votre statut juridique : utilisez le simulateur gratuit de cette page pour l'estimer à partir de vos propres paramètres." },
   { q: "Quels sont les formats de formation disponibles ?", a: "3 formats au même tarif : Journée (1 semaine intensive), Soir (2 semaines en soirée) et E-learning (accès illimité jusqu'à l'examen)." },
-  { q: "Quel est le taux de réussite à l'examen ?", a: "Notre taux de réussite est de 94%, très supérieur à la moyenne nationale. Plus de 2 000 chauffeurs ont été formés depuis 2014." },
+  { q: "Quel est le taux de réussite à l'examen ?", a: "Notre taux de réussite est de 94%. Plus de 2 000 chauffeurs ont été formés depuis 2014." },
   { q: "Comment financer ma formation sans le CPF ?", a: "Le CPF n'est pas éligible pour les formations T3P. Le financement se fait en direct avec paiement en 4× sans frais via Alma, soit ~247,50€/mois." },
   { q: "Où se trouve le centre de formation ?", a: "ECOLE T3P est située au 3 rue Corneille, 92120 Montrouge, à 2 minutes à pied du métro Mairie de Montrouge (Ligne 4). Nous sommes facilement accessibles depuis Paris et toute l'Île-de-France." },
   { q: "Comment obtenir un audit personnalisé ?", a: "Utilisez notre simulateur gratuit sur cette page puis envoyez vos résultats directement sur WhatsApp. Un conseiller vous recontactera sous 24h pour un accompagnement personnalisé." },
@@ -331,7 +331,7 @@ export default function AuditRentabiliteChauffeur() {
             <div className="grid gap-4 md:grid-cols-3 my-8">
               {[
                 { icon: GraduationCap, title: "À partir de 990€", desc: "Frais d'examen CMA inclus. 3 formats au choix." },
-                { icon: TrendingUp, title: "94% de réussite", desc: "Taux très supérieur à la moyenne nationale depuis 2014." },
+                { icon: TrendingUp, title: "94% de réussite", desc: "Taux de réussite à l'examen T3P constaté depuis 2014." },
                 { icon: Users, title: "+2 000 formés", desc: "Une communauté active de chauffeurs professionnels en IDF." },
               ].map((item) => (
                 <div key={item.title} className="bg-secondary/50 rounded-xl p-5 border border-border text-center">

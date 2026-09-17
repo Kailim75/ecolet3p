@@ -39,18 +39,18 @@ const indicators: Indicator[] = [
   {
     icon: Users,
     title: "Stagiaires formés (depuis 2014)",
-    value: "1 000+",
-    status: "published",
+    value: "Données en cours de consolidation",
+    status: "pending",
     description: "Nombre de stagiaires ayant suivi une formation Taxi, VTC ou VMDTR au sein du centre.",
     source: "Données internes ECOLE T3P",
   },
   {
     icon: CheckCircle2,
     title: "Taux de réussite à l'examen T3P",
-    value: "Données en cours de consolidation",
-    status: "pending",
-    description: "Pourcentage de stagiaires ayant obtenu leur carte professionnelle à l'issue de la formation. Indicateur calculé sur 12 mois glissants conformément aux exigences Qualiopi.",
-    source: "Publication lors de la certification Qualiopi initiale",
+    value: "94 %",
+    status: "published",
+    description: "Pourcentage de stagiaires ayant réussi l'examen T3P à l'issue de la formation.",
+    source: "Données internes ECOLE T3P",
   },
   {
     icon: TrendingUp,
@@ -73,7 +73,7 @@ const indicators: Indicator[] = [
     title: "Délai moyen d'accès à la formation",
     value: "< 15 jours ouvrés",
     status: "published",
-    description: "Délai médian entre la première prise de contact et l'entrée effective en formation, hors contraintes de financement externe (OPCO, CPF).",
+    description: "Délai médian entre la première prise de contact et l'entrée effective en formation, hors contraintes de financement externe (OPCO).",
     source: "Données internes ECOLE T3P",
   },
   {

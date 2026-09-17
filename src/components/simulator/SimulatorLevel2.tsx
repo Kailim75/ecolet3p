@@ -172,7 +172,6 @@ export default function SimulatorLevel2({ inputs, basicResults }: SimulatorLevel
             </thead>
             <tbody>
               {[
-                { label: "Taux de réussite examen", standard: "~60%", optimized: "94%" },
                 { label: "Courses/heure", standard: `${inputs.ridesPerHour}`, optimized: `${Math.min(inputs.ridesPerHour * 1.2, 4).toFixed(1)}` },
                 { label: "Tarif moyen course", standard: `${inputs.avgFare}€`, optimized: `${(inputs.avgFare * 1.15).toFixed(0)}€` },
                 { label: "Net mensuel (M6)", standard: `${projection[5].standard.toLocaleString("fr-FR")}€`, optimized: `${projection[5].optimized.toLocaleString("fr-FR")}€` },

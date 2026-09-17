@@ -2,6 +2,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
+import tarifs from "@/data/tarifs.json";
 import {
   MapPin, Clock, Train, Bus, CheckCircle2, ArrowRight,
   GraduationCap, Phone, Calendar, Star, Trophy, Users,
@@ -91,7 +92,7 @@ const FormationVille = () => {
     { title: "Formation Taxi", price: "990€", duration: "Journée, Soir ou E-learning", desc: "Carte professionnelle Taxi — Examen CMA inclus", link: "/formations/taxi" },
     { title: "Formation VTC", price: "990€", duration: "Journée, Soir ou E-learning", desc: "Carte professionnelle VTC — Uber, Bolt, Heetch", link: "/formations/vtc" },
     { title: "Formation VMDTR", price: "990€", duration: "Journée, Soir ou E-learning", desc: "Carte professionnelle moto-taxi", link: "/formations/vmdtr" },
-    { title: "Passerelle VTC ↔ Taxi", price: "665€", duration: "14h — 2 jours", desc: "Double carte pour doubler vos revenus", link: "/passerelle-vtc-taxi" },
+    { title: "Passerelle VTC ↔ Taxi", price: "665€", duration: `${tarifs.dureePasserelleHeures}h ou ${tarifs.dureePasserelleTaxiHeures}h selon la formation visée`, desc: "Double carte pour doubler vos revenus", link: "/passerelle-vtc-taxi" },
   ];
 
   const whyChooseUs = city.whyChoose || [

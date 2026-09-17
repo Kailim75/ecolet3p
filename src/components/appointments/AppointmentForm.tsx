@@ -58,11 +58,11 @@ const appointmentSchema = z.object({
 type AppointmentData = z.infer<typeof appointmentSchema>;
 
 const formations = [
-  "Formation VTC (182h)",
-  "Formation TAXI (182h)", 
-  "Formation Passerelle TAXI → VTC (14h)",
+  "Formation VTC (35h)",
+  "Formation TAXI (35h)",
+  "Formation Passerelle TAXI → VTC (7h)",
   "Formation Passerelle VTC → TAXI (14h)",
-  "Formation Mobilité (35h)",
+  "Formation Mobilité géographique",
   "Formation Continue VTC (14h)",
   "Formation Continue TAXI (14h)",
 ];

@@ -24,7 +24,6 @@ const whyChooseUs = [
 
 const results = [
   { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
-  { value: "100%", label: "des participants lancent leur activité" },
   { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "3 jours", label: "pour maîtriser votre gestion" },
 ];
@@ -41,7 +40,7 @@ const faqs = [
   { question: "Quel statut juridique est recommandé pour un chauffeur ?", answer: "Cela dépend de votre situation personnelle, de vos revenus prévisionnels et de votre stratégie. En formation, nous analysons ensemble les avantages et inconvénients de chaque statut (micro-entreprise, SASU, EURL) pour trouver le plus adapté." },
   { question: "La formation couvre-t-elle les plateformes VTC ?", answer: "Oui, nous abordons l'inscription et l'optimisation de votre présence sur les principales plateformes (Uber, Bolt, Marcel, etc.) ainsi que la stratégie de développement d'une clientèle directe pour maximiser vos marges." },
   { question: "Un suivi post-formation est-il inclus ?", answer: "Nos formateurs restent disponibles par téléphone pour répondre à vos questions après la formation. Pour un accompagnement plus poussé, découvrez notre service d'aide administrative dédié." },
-  { question: "Comment financer cette formation ?", answer: "390€ payable en 4× 98€ sans frais via Alma. Pas de paperasse, inscription immédiate. L'investissement est rentabilisé dès le premier mois grâce aux optimisations apprises." },
+  { question: "Comment financer cette formation ?", answer: "390€ payable en 4× 97,50€ sans frais via Alma. Pas de paperasse, inscription immédiate." },
 ];
 
 const AccompagnementGestionActivite = () => {
@@ -175,7 +174,7 @@ const AccompagnementGestionActivite = () => {
           <div className="text-center mb-12">
             <h2 className="section-title">Pourquoi cette formation change tout</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              80% des chauffeurs perdent de l'argent par méconnaissance fiscale et juridique. 
+              Une méconnaissance fiscale et juridique peut coûter cher.
               Cette formation vous donne les clés pour l'éviter.
             </p>
           </div>
@@ -205,7 +204,7 @@ const AccompagnementGestionActivite = () => {
               Nos anciens stagiaires témoignent : cette formation est l'investissement le plus rentable de leur carrière.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {results.map((r, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="text-center p-6 bg-card rounded-xl border border-border">
@@ -301,7 +300,7 @@ const AccompagnementGestionActivite = () => {
             <h3 className="text-lg font-bold mb-2">Tarif — Gestion d'Activité</h3>
             <p className="text-4xl font-bold text-primary mb-1">390€</p>
             <div className="flex items-center justify-center gap-1.5 mb-6">
-              <span className="text-sm font-semibold text-accent">ou 4× 98€/mois</span>
+              <span className="text-sm font-semibold text-accent">ou 4× 97,50€/mois</span>
               <AlmaLogo className="h-4" />
             </div>
             <button onClick={() => setShowForm(true)} className="btn-cta-orange w-full px-6 py-3.5 font-bold rounded-lg inline-flex items-center justify-center gap-2">
@@ -366,7 +365,7 @@ const AccompagnementGestionActivite = () => {
               Investissez 390€ aujourd'hui pour maximiser vos revenus demain.
             </p>
             <p className="text-white font-semibold mb-8">
-              Paiement en 4× 98€ sans frais via Alma
+              Paiement en 4× 97,50€ sans frais via Alma
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button onClick={() => setShowForm(true)} className="btn-cta-orange px-10 py-4 text-lg font-bold rounded-lg inline-flex items-center gap-2">

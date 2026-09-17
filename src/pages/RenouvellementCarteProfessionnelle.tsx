@@ -45,7 +45,7 @@ const faqs = [
   { question: "Quand dois-je renouveler ma carte professionnelle ?", answer: "Votre carte professionnelle doit être renouvelée tous les 5 ans. La demande de renouvellement doit être effectuée dans les 3 mois précédant la date d'expiration. N'attendez pas le dernier moment — inscrivez-vous dès maintenant." },
   { question: "Que se passe-t-il si ma carte est expirée ?", answer: "Si votre carte est expirée, vous ne pouvez plus exercer légalement. Vous risquez une amende pouvant aller jusqu'à 1 500€ et la saisie de votre véhicule. Contactez-nous immédiatement — nous pouvons vous inscrire à la prochaine session disponible." },
   { question: "La formation continue est-elle la même pour VTC et Taxi ?", answer: "Non, le contenu est adapté à chaque profession. Les modules réglementaires et pratiques sont spécifiques à votre activité (VTC, Taxi ou VMDTR). Le tarif varie selon la profession : 170€ pour le VTC, 250€ pour le Taxi et le VMDTR." },
-  { question: "Quels documents sont nécessaires pour le renouvellement ?", answer: "Votre carte professionnelle en cours, l'attestation de formation continue (délivrée par ECOLE T3P), un justificatif de domicile, une photo d'identité et un extrait de casier judiciaire (bulletin n°3) de moins de 3 mois." },
+  { question: "Quels documents sont nécessaires pour le renouvellement ?", answer: "Votre carte professionnelle en cours, l'attestation de formation continue (délivrée par ECOLE T3P), un justificatif de domicile et une photo d'identité. L'extrait de casier judiciaire (bulletin n°2) est obtenu directement par la préfecture." },
   { question: "Combien de temps dure la procédure de renouvellement ?", answer: "Une fois votre dossier complet déposé en préfecture, le délai de traitement est généralement de 2 à 4 semaines. Nous vous accompagnons pour garantir que votre dossier est complet du premier coup." },
   { question: "Puis-je exercer pendant le renouvellement ?", answer: "Tant que votre carte n'est pas expirée et que vous avez entamé les démarches de renouvellement dans les délais, vous pouvez continuer à exercer. En revanche, exercer avec une carte expirée est strictement interdit et passible de sanctions." },
   { question: "La formation continue aborde-t-elle les évolutions réglementaires 2026 ?", answer: "Oui, le programme est mis à jour chaque année. En 2026, il intègre les évolutions sur les Zones à Faibles Émissions (ZFE), la réglementation tarifaire, les obligations environnementales et les nouveaux outils numériques pour les chauffeurs." },
@@ -382,8 +382,9 @@ const RenouvellementCarteProfessionnelle = () => {
               </p>
               <p className="text-muted-foreground mb-4">
                 La demande de renouvellement doit être effectuée auprès de la préfecture dans les 3 mois précédant la date 
-                d'expiration de la carte. Le dossier comprend l'attestation de formation continue, un justificatif de domicile, 
-                une photo d'identité et un extrait de casier judiciaire (bulletin n°3) de moins de 3 mois.
+                d'expiration de la carte. Le dossier comprend l'attestation de formation continue, un justificatif de domicile
+                et une photo d'identité, l'extrait de casier judiciaire (bulletin n°2) étant obtenu directement par la
+                préfecture.
               </p>
             </div>
 

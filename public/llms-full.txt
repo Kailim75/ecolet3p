@@ -48,7 +48,7 @@ ECOLE T3P propose une gamme complète de formations pour tous les métiers du tr
 | Taxi Initiale | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle Taxi |
 | VTC Initiale | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle VTC |
 | VMDTR | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle moto-taxi |
-| Mobilité (Passerelle) | 14h | 665€ tout compris | Passerelle Taxi ↔ VTC |
+| Mobilité (Passerelle) | 7 h (vers VTC/VMDTR) ou 14 h (vers Taxi) | 665€ tout compris | Passerelle Taxi ↔ VTC |
 | Renouvellement Taxi/VMDTR | 14h | 250€ | Maintien carte pro |
 | Continue VTC | 14h | 170€ | Renouvellement obligatoire |
 | Récupération points | 14h | — | Récupérer 4 points |
@@ -72,8 +72,8 @@ La formation Taxi vous prépare à l'examen de la carte professionnelle de condu
 **À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
 
 ### Formats disponibles
-- **Format journée** : 1 semaine intensive (9h-17h)
-- **Format soir** : 2 semaines (18h-21h)
+- **Format journée** : 1 semaine intensive (9h30-16h30)
+- **Format soir** : 2 semaines (18h-21h30)
 - **Format e-learning** : à votre rythme
 
 ### Prérequis
@@ -154,17 +154,17 @@ La formation VMDTR (Véhicule Motorisé à Deux ou Trois Roues) vous permet de d
 
 ## Formation Mobilité (Passerelle) {#formation-mobilite}
 
-La formation Mobilité permet aux chauffeurs titulaires d'une carte Taxi ou VTC d'obtenir la mention complémentaire.
+La passerelle T3P est réservée aux titulaires d'un résultat d'examen T3P de moins de 3 ans. Elle permet d'obtenir une seconde carte professionnelle.
 
 ### Types de passerelles
-- **Taxi → VTC** : ajouter la mention VTC à votre carte
-- **VTC → Taxi** : ajouter la mention Taxi à votre carte
+- **Vers VTC ou VMDTR** : 7 heures
+- **Vers Taxi** : 14 heures
 
 ### Tarif
 **665€ tout compris** (frais d'examen de 165€ inclus)
 
 ### Durée
-- 14h (2 jours)
+- 7 h vers VTC ou VMDTR, 14 h vers Taxi
 
 ### Avantages
 - Diversifier son activité
@@ -234,7 +234,7 @@ Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à **
 - Paiement en plusieurs fois
 
 ### 4. Localisation idéale
-- À 5 minutes du métro Mairie de Montrouge (ligne 4)
+- À 200 m du métro Mairie de Montrouge (ligne 4)
 - Accessible depuis tout le sud de Paris
 - Parking à proximité
 
@@ -255,7 +255,7 @@ Trois formats au choix pour les formations initiales Taxi et VTC :
 - **Journée** : 1 semaine intensive
 - **Soir** : 2 semaines
 - **E-learning** : à votre rythme
-- Formation Mobilité : 14h (2 jours)
+- Passerelle : 7 h vers VTC ou VMDTR, 14 h vers Taxi
 
 ### Quelles sont les options de financement ?
 Nous proposons :
@@ -290,9 +290,8 @@ France
 - Longitude : 2.3137
 
 ### Transports en commun
-- **Métro** : Mairie de Montrouge (ligne 4) - 5 min à pied
+- **Métro** : Mairie de Montrouge (ligne 4) - à 200 m
 - **Bus** : Lignes 68, 126, 128
-- **RER** : Bagneux-Lucie Aubrac (RER B) - 10 min à pied
 
 ### En voiture
 - Parking public à proximité

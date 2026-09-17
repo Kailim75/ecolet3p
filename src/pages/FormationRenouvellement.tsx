@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
+import tarifs from "@/data/tarifs.json";
 
 const formations = [
   {
@@ -117,15 +118,15 @@ const faqs = [
   },
   {
     question: "Peut-on financer la formation continue ?",
-    answer: "La formation continue (170€ à 250€) n'est pas éligible au CPF en raison de son tarif inférieur aux seuils CPF. Son prix accessible permet un financement personnel direct. Pour les auto-entrepreneurs, cette dépense est déductible du chiffre d'affaires comme frais professionnel. Les salariés peuvent se tourner vers leur OPCO via une convention de formation.",
+    answer: `La formation continue coûte ${tarifs.continueVTC}€ en VTC et ${tarifs.continueTaxi}€ en Taxi ou VMDTR. Nous ne passons pas par le CPF : le règlement se fait en direct auprès du centre.`,
   },
   {
     question: "ECOLE T3P est-il agréé pour la formation continue ?",
-    answer: "Oui, ECOLE T3P est un centre agréé par la préfecture des Hauts-de-Seine (numéro d'agrément 23/007) pour dispenser les formations continues VTC, Taxi et VMDTR. Nos attestations sont reconnues par toutes les préfectures d'Île-de-France. Nous sommes également certifiés Qualiopi.",
+    answer: "Oui, ECOLE T3P est un centre agréé par la préfecture des Hauts-de-Seine (numéro d'agrément 23/007) pour dispenser les formations continues VTC, Taxi et VMDTR. Nos attestations sont reconnues par toutes les préfectures d'Île-de-France.",
   },
   {
     question: "Faut-il être en région Île-de-France pour s'inscrire ?",
-    answer: "Non, notre centre de Montrouge accepte des chauffeurs de toute la France. La préfecture de délivrance de votre carte n'a pas d'importance : notre attestation de formation continue est valable sur tout le territoire national. Montrouge est facilement accessible depuis Paris (métro ligne 13, bus, RER).",
+    answer: "Non, notre centre de Montrouge accepte des chauffeurs de toute la France. La préfecture de délivrance de votre carte n'a pas d'importance : notre attestation de formation continue est valable sur tout le territoire national. Montrouge est facilement accessible depuis Paris (métro ligne 4, station Mairie de Montrouge, à 200 m du centre, et bus 68, 128, 323).",
   },
 ];
 
@@ -412,7 +413,7 @@ const FormationRenouvellement = () => {
                 La formation continue de maintien et de perfectionnement (FCMP) est une obligation légale pour tous les conducteurs de voiture de transport avec chauffeur (VTC), taxis et véhicules motorisés à deux ou trois roues (VMDTR). Instaurée par la loi Grandguillaume de 2016 et ses décrets d'application, elle impose à chaque chauffeur professionnel de suivre un stage de remise à niveau tous les 5 ans pour conserver leur carte professionnelle.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                ECOLE T3P est l'un des rares centres en Île-de-France à proposer les 3 formations continues dans un seul et même lieu, avec des sessions régulières. Notre agrément préfectoral n° 23/007 garantit la conformité de nos attestations pour toutes les démarches auprès des préfectures françaises.
+                ECOLE T3P propose les 3 formations continues (VTC, Taxi, VMDTR) dans un seul et même lieu, avec des sessions régulières. Notre agrément préfectoral n° 23/007 garantit la conformité de nos attestations pour toutes les démarches auprès des préfectures françaises.
               </p>
             </div>
 
@@ -420,7 +421,7 @@ const FormationRenouvellement = () => {
               <h2 className="text-xl font-bold text-primary mb-4">Pourquoi choisir ECOLE T3P pour votre renouvellement ?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { title: "+2 000 chauffeurs formés", desc: "Depuis 2019, nous avons accompagné plus de 2 000 chauffeurs dans le renouvellement de leur carte professionnelle." },
+                  { title: "Centre agréé depuis 2014", desc: "Depuis 2014, ECOLE T3P accompagne les chauffeurs T3P dans le renouvellement de leur carte professionnelle. Agrément préfectoral n° 23/007." },
                   { title: "Attestation le jour même", desc: "Vous repartez avec votre attestation officielle en fin de stage. Pas de délai d'attente pour engager vos démarches." },
                   { title: "Nouvelles sessions régulièrement", desc: "Nos sessions de formation continue reviennent régulièrement, y compris certains samedis pour les chauffeurs en activité." },
                   { title: "Accompagnement dossier", desc: "Nos équipes vous guident dans la constitution de votre dossier de renouvellement pour maximiser vos chances d'acceptation." },

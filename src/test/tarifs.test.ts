@@ -37,6 +37,35 @@ describe("tarifs guardrail", () => {
     expect(tarifs.fraisExamenCMA).toBe(241);
   });
 
+  it("durées officielles (décisions du directeur du 17/09/2026)", () => {
+    expect(tarifs.dureeInitialeHeures).toBe(35);
+    expect(tarifs.dureeContinueHeures).toBe(14);
+    expect(tarifs.dureePasserelleHeures).toBe(7);
+    expect(tarifs.dureePasserelleTaxiHeures).toBe(14);
+  });
+
+  it("aucune durée ou promesse contredisant ces décisions", () => {
+    const motifs: [RegExp, string][] = [
+      [/\b33\s?heures\b/i, "formation initiale VMDTR à 33 h"],
+      [/\b182\s?h\b/i, "formation initiale à 182 h"],
+      [/formation[^\n]{0,60}\b10\s?jours\b/i, "formation « 10 jours »"],
+      [/passerelle[^\n]{0,60}\b18\s?(h|heures)\b/i, "passerelle à 18 h"],
+      [/tarifs?\s+garantis?/i, "tarifs garantis"],
+      [/100\s?%\s+digital/i, "100 % digital"],
+      [/permis\s+A\s+ou\s+A2/i, "permis A ou A2"],
+    ];
+    const fautes: string[] = [];
+    for (const fichier of files) {
+      const contenu = readFileSync(fichier, "utf-8");
+      for (const ligne of contenu.split("\n")) {
+        for (const [re, nom] of motifs) {
+          if (re.test(ligne)) fautes.push(`${fichier} : ${nom} — ${ligne.trim().slice(0, 90)}`);
+        }
+      }
+    }
+    expect(fautes).toEqual([]);
+  });
+
   it("no poisoned tarifs (239€) or CPF acceptance claim", () => {
     const offenders: string[] = [];
     const affirmative = /(?:[ée]ligibles?\s+(?:au\s+)?CPF|finance[rz]?\s+(?:par|via|avec)\s+(?:le\s+)?CPF|MonCompteFormation|paiement\s+CPF|CPF\s+accept[ée])/i;

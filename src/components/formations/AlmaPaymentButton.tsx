@@ -31,7 +31,7 @@ const AlmaPaymentButton = ({ formationTitle, price }: AlmaPaymentButtonProps) =>
   });
   const { toast } = useToast();
 
-  const monthlyAmount = (price / selectedInstallments).toFixed(2);
+  const monthlyAmount = (price / selectedInstallments).toFixed(2).replace(".", ",");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -112,7 +112,7 @@ const AlmaPaymentButton = ({ formationTitle, price }: AlmaPaymentButtonProps) =>
               >
                 <span className="block text-lg font-bold">{opt.label}</span>
                 <span className="block text-xs">
-                  {(price / opt.count).toFixed(2)}€/mois
+                  {(price / opt.count).toFixed(2).replace(".", ",")}€/mois
                 </span>
               </button>
             ))}

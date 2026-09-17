@@ -73,7 +73,7 @@ const ReglementInterieur = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">Préambule</h2>
               <p className="text-muted-foreground">
-                Le présent règlement intérieur est établi conformément aux dispositions des articles L.6352-3 à L.6352-5 et R.6352-1 à R.6352-15 du Code du travail. Il s'applique à tous les stagiaires d'ECOLE T3P, quel que soit le dispositif de financement (individuel, employeur, OPCO, CPF, France Travail, Région) et le lieu de formation (présentiel ou distanciel).
+                Le présent règlement intérieur est établi conformément aux dispositions des articles L.6352-3 à L.6352-5 et R.6352-1 à R.6352-15 du Code du travail. Il s'applique à tous les stagiaires d'ECOLE T3P, quel que soit le dispositif de financement (individuel, employeur, OPCO, France Travail, Région) et le lieu de formation (présentiel ou distanciel).
               </p>
             </div>
 

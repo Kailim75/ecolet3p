@@ -96,9 +96,9 @@ Trois choses à savoir :
 
 Chez ECOLE T3P, ce stage de renouvellement coûte [170 euros pour le VTC](/formations/continue-vtc) et [250 euros pour le taxi](/formations/continue-taxi) comme pour le VMDTR, attestation remise le jour même.
 
-## Déjà une carte ? La passerelle vous ouvre le deuxième métier
+## Déjà un examen T3P réussi ? La passerelle vous ouvre le deuxième métier
 
-Si vous détenez une carte taxi ou VTC depuis moins de 3 ans, la **passerelle T3P** vous permet d'obtenir la seconde carte en 14 heures de formation seulement, sans repasser l'examen complet. Beaucoup de nos stagiaires doublent ainsi leurs sources de revenus. [Tout savoir sur la passerelle](/passerelle-vtc-taxi).
+Si votre résultat d'examen T3P a moins de 3 ans, la **passerelle T3P** vous permet d'obtenir la seconde carte en 7 heures de formation (14 heures pour la passerelle vers le taxi), sans repasser l'examen complet. Beaucoup de nos stagiaires doublent ainsi leurs sources de revenus. [Tout savoir sur la passerelle](/passerelle-vtc-taxi).
 
 ## Comment mettre toutes les chances de votre côté
 
@@ -187,18 +187,11 @@ Pour être complet — parce qu'un budget honnête va jusqu'au bout :
 - **La carte professionnelle** : délivrée par la préfecture après réussite ; des frais administratifs de délivrance peuvent s'appliquer selon votre département.
 - **Le renouvellement** : tous les 5 ans, un stage obligatoire de 14 heures — [250 euros chez ECOLE T3P](/formations/continue-taxi), attestation remise le jour même.
 - **Pour exercer en taxi** : il vous faudra une autorisation de stationnement (ADS) ou un contrat de location avec un titulaire — c'est un sujet en soi, que nous abordons pendant l'accompagnement création d'entreprise.
-- **L'envie de doubler vos revenus** : avec une carte de moins de 3 ans, la [passerelle vers le VTC](/passerelle-vtc-taxi) coûte 665 euros, frais d'examen inclus.
+- **L'envie de doubler vos revenus** : avec un résultat d'examen T3P de moins de 3 ans, la [passerelle vers le VTC](/passerelle-vtc-taxi) coûte 665 euros, frais d'examen inclus.
 
 ## Les prochaines rentrées à Montrouge
 
-Nos sessions de fin 2026 sont ouvertes :
-
-- **Du 14 au 25 septembre** en soirée (18h-21h30), examen blanc le samedi 26
-- **Du 21 au 25 septembre** en journée (9h30-16h30)
-- **Du 12 au 23 octobre** en soirée, examen blanc le samedi 24
-- **Du 2 au 13 novembre** en soirée, examen blanc le samedi 14
-
-12 places par session. [Voir les disponibilités](/formations/taxi).
+Trois formats au même prix : journée (1 semaine, 9h30-16h30), soirée (2 semaines, 18h-21h30) ou e-learning (accès illimité jusqu'à l'examen). Les dates des prochaines rentrées et les places restantes sont mises à jour sur notre [page Taxi](/formations/taxi).
 
 ## Questions fréquentes
 
@@ -223,7 +216,7 @@ Avec 94 % de réussite et un examen blanc avant chaque session, le cas est rare.
     slug: "quel-statut-juridique-chauffeur-vtc-taxi-2026",
     title: "Statut juridique chauffeur VTC ou Taxi : le guide 2026",
     metaDescription: "Comparatif complet des statuts juridiques pour chauffeurs VTC et Taxi : auto-entrepreneur, SASU, EURL, SARL. Avantages, inconvénients et fiscalité 2026.",
-    excerpt: "Auto-entrepreneur, SASU, EURL ou SARL ? Découvrez le meilleur statut juridique pour lancer votre activité de chauffeur VTC ou Taxi en 2026.",
+    excerpt: "Auto-entrepreneur, SASU, EURL ou SARL ? Découvrez quel statut juridique correspond à votre activité de chauffeur VTC ou Taxi en 2026.",
     category: "CRÉATION",
     readTime: "12 min",
     publishDate: "2026-02-03",
@@ -685,7 +678,7 @@ Dans nos formations VTC et Taxi, nous incluons :
 |--------------------------|---------------------|
 | 1 application utilisée | 3-4 apps simultanées |
 | GPS basique | Navigation IA prédictive |
-| Comptabilité papier | Gestion 100% digitale |
+| Comptabilité papier | Gestion entièrement en ligne |
 | Clients plateformes uniquement | 30% clients directs |
 | **Revenus moyens** | **Revenus potentiellement supérieurs** |
 
@@ -977,7 +970,7 @@ La maîtrise de l'anglais est un **investissement rentable** pour tout chauffeur
   {
     slug: "vtc-taxi-vmdtr-2026-quel-metier-choisir",
     title: "VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?",
-    metaDescription: "Comparatif complet VTC, Taxi et VMDTR en 2026 : formation, revenus, investissement, avantages et inconvénients. Guide pour choisir le meilleur métier.",
+    metaDescription: "Comparatif complet VTC, Taxi et VMDTR en 2026 : formation, revenus, investissement, avantages et inconvénients. Guide pour choisir le métier qui vous correspond.",
     excerpt: "VTC, Taxi ou Moto-taxi ? Découvrez notre comparatif détaillé des 3 métiers du transport de personnes en 2026 : formations, revenus, investissement et perspectives.",
     category: "COMPARATIF",
     readTime: "15 min",
@@ -997,10 +990,10 @@ Avant d'entrer dans les détails, voici une vue d'ensemble des trois métiers :
 
 | Critère | VTC | TAXI | VMDTR |
 |---------|-----|------|-------|
-| **Formation initiale** | Journée ou Soir | Journée ou Soir | 14h (si carte VTC/Taxi) ou Initiale+14h (sans carte) |
-| **Coût formation** | 990-1 190€ | 990-1 190€ | 990€ |
+| **Formation initiale** | Journée ou Soir | Journée ou Soir | Journée, soir ou e-learning (35 h) — ou passerelle de 7 h si votre résultat d'examen T3P a moins de 3 ans |
+| **Coût formation** | 990-1 190€ | 990-1 190€ | 665-1 190€ |
 | **Investissement véhicule** | 25 000-50 000€ | 30 000-60 000€ | 10 000-20 000€ |
-| **Licence/autorisation** | Non requise | ADS (15 000-300 000€) | Non requise |
+| **Licence/autorisation** | Non requise | ADS obligatoire (prix selon le département, voir le tableau plus bas) | Non requise |
 | **Revenus mensuels nets** | 1 800-4 500€ | 2 000-5 000€ | 1 800-3 800€ |
 | **Maraude** | Interdite | Autorisée | Interdite |
 | **Passagers max** | 4 à 8 (selon véhicule) | 4 | 2 |
@@ -1019,7 +1012,7 @@ Le VTC est un **chauffeur privé** qui transporte des clients sur réservation p
 
 #### Prérequis 2026
 
-- Permis B valide depuis **3 ans minimum**
+- Permis B valide depuis **3 ans minimum** (2 ans en cas de conduite accompagnée)
 - Casier judiciaire compatible
 - Aptitude médicale (visite préfectorale)
 - Carte professionnelle VTC
@@ -1038,7 +1031,7 @@ L'examen VTC comprend **7 épreuves écrites** (tronc commun A-E + spécifiques 
 Normes 2026 pour exercer en Île-de-France :
 - **4 portes + 4 places minimum** (hors conducteur)
 - **Moins de 7 ans** ou hybride/électrique
-- **Dimensions** : >4,50m longueur ou >1,65m largeur
+- **Dimensions** : longueur et largeur minimales fixées par arrêté (critères cumulatifs) — à vérifier avant tout achat
 - **Puissance** : >84 kW (≈115 ch)
 - **Crit'Air 1 ou 0** obligatoire en ZFE
 
@@ -1087,7 +1080,7 @@ Le taxi est le **seul professionnel autorisé à prendre des clients dans la rue
 
 #### Prérequis 2026
 
-- Permis B valide depuis **3 ans minimum**
+- Permis B valide depuis **3 ans minimum** (2 ans en cas de conduite accompagnée)
 - Casier judiciaire compatible
 - Aptitude médicale préfectorale
 - Carte professionnelle Taxi
@@ -1134,7 +1127,7 @@ Normes véhicule Taxi 2026 :
 | Électrique (avec aides) | 25 000-40 000€* | 15 000-30 000€ |
 | Équipement taxi | 2 000-4 000€ | - |
 
-*Après déduction des aides 2026 (jusqu'à 21 000€).
+*Après déduction des aides 2026, dont les montants varient (voir ecologie.gouv.fr).
 
 #### Revenus estimés 2026
 
@@ -1156,7 +1149,7 @@ Normes véhicule Taxi 2026 :
 ✅ **Clientèle fidèle** : Habitués, entreprises, médicaux
 ✅ **Revenus stables** : Moins dépendant des apps
 ✅ **Patrimoine** : La licence est revendable
-✅ **Aides 2026** : Jusqu'à 21 000€ pour l'électrique
+✅ **Aides 2026** : Aides à l'acquisition d'un véhicule électrique (montants variables, voir ecologie.gouv.fr)
 
 #### Inconvénients Taxi
 
@@ -1174,17 +1167,17 @@ Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) transporte un passager sur
 
 #### Prérequis 2026
 
-- **Permis A ou A2** valide depuis **3 ans minimum**
+- **Permis A** valide depuis **3 ans minimum**
 - Casier judiciaire compatible
 - Aptitude médicale préfectorale
-- **Carte VTC ou Taxi préalable** (pour formation courte)
+- **Résultat d'examen T3P de moins de 3 ans** pour la passerelle de 7h (sinon formation initiale de 35h)
 
 #### Formation
 
 | Situation | Formation | Durée | Tarif ECOLE T3P |
 |-----------|-----------|-------|-----------------|
-| Avec carte VTC/Taxi | VMDTR seule | 14h | 990€ |
-| Sans carte T3P | VTC + VMDTR | Initiale + 14h | 1 490€ |
+| Avec un résultat d'examen T3P de moins de 3 ans | Passerelle VMDTR | 7h | 665€ |
+| Sans carte T3P | Formation initiale VMDTR | 35h | 990€ |
 
 #### Investissement véhicule
 
@@ -1209,7 +1202,7 @@ Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) transporte un passager sur
 
 ✅ **Rapidité** : Imbattable en zone urbaine congestionnée
 ✅ **Investissement faible** : 10 000-20 000€ tout compris
-✅ **Formation courte** : 14h si déjà titulaire carte T3P
+✅ **Formation courte** : 7h de passerelle avec un résultat d'examen T3P de moins de 3 ans
 ✅ **Charges réduites** : Entretien, carburant, stationnement
 ✅ **Clientèle premium** : Cadres pressés, tarifs élevés
 ✅ **Plaisir de conduite** : Pour les passionnés moto
@@ -1229,11 +1222,11 @@ Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) transporte un passager sur
 
 | Poste | VTC | TAXI | VMDTR |
 |-------|-----|------|-------|
-| Formation | 990-1 190€ | 990-1 190€ | 299-1 490€ |
+| Formation | 990-1 190€ | 990-1 190€ | 665-1 190€ |
 | Licence/ADS | 0€ | 40 000-180 000€ | 0€ |
 | Véhicule | 20 000-50 000€ | 25 000-55 000€ | 8 000-20 000€ |
 | Équipement | 500-1 500€ | 2 000-4 000€ | 1 500-3 000€ |
-| **TOTAL** | **21 500-53 690€** | **68 000-240 190€** | **9 800-24 490€** |
+| **TOTAL** | **21 490-52 690€** | **67 990-240 190€** | **10 165-24 190€** |
 
 **Classement investissement** : VMDTR ★★★★★ > VTC ★★★☆☆ > TAXI ★☆☆☆☆
 
@@ -1302,7 +1295,7 @@ Le VMDTR (Véhicule Motorisé à Deux ou Trois Roues) transporte un passager sur
 Stratégie optimale pour **maximiser les revenus** :
 
 1. **Formation VTC** → Carte professionnelle VTC
-2. **Formation VMDTR** (14h) → Mention VMDTR ajoutée
+2. **Passerelle VMDTR** (7 h, si votre résultat d'examen T3P a moins de 3 ans) → Mention VMDTR ajoutée
 3. **Double activité** :
    - VMDTR le matin (rush, transferts aéroports)
    - VTC l'après-midi/soir (courses plus longues)
@@ -1313,28 +1306,28 @@ Stratégie optimale pour **maximiser les revenus** :
 - Meilleure couverture météo (VTC quand pluie)
 - Optimisation du temps
 
-### Le parcours VTC → Taxi (Mobilité)
+### Le parcours VTC → Taxi
 
 Si le taxi vous attire mais le budget est contraignant :
 
 1. **Démarrez en VTC** (investissement modéré)
 2. **Économisez** pendant 2-5 ans
-3. **Formation Mobilité** (14-35h) → Mention Taxi
+3. **Passerelle Taxi** (14 h, 665 € tout compris, frais d'examen de 165 € inclus) si votre résultat d'examen T3P a moins de 3 ans ; au-delà de 3 ans, formation initiale Taxi (35 h, 990 € tout compris) → présentation des modules Taxi de l'examen T3P
 4. **Acquisition ADS** (achat ou location-gérance)
 
-**Tarif Mobilité ECOLE T3P** : 390-440€ selon département
+**Tarif passerelle ECOLE T3P** : 665 € tout compris, frais d'examen de 165 € inclus
 
 ## Timeline comparatif : du projet à la première course
 
 | Étape | VTC | TAXI | VMDTR* |
 |-------|-----|------|--------|
-| Formation | 2-3 sem | 2-3 sem | 2 jours |
-| Examen | +1-2 mois | +1-2 mois | Aucun |
-| Carte pro | +2-3 mois | +2-3 mois | +1 mois |
+| Formation | 2-3 sem | 2-3 sem | 7 h |
+| Examen | +1-2 mois | +1-2 mois | Examen passerelle (2 épreuves spécifiques à la CMA) |
+| Carte pro | Variable | Variable | Variable |
 | Véhicule | +1-2 sem | +2-4 sem | +1 sem |
-| **TOTAL** | **4-6 mois** | **5-8 mois** | **1,5 mois** |
+| **TOTAL** | **Selon les délais CMA et préfecture** | **Selon les délais CMA et préfecture** | **Selon les délais CMA et préfecture** |
 
-*Si déjà titulaire d'une carte VTC ou Taxi.
+*Avec un résultat d'examen T3P de moins de 3 ans (passerelle).
 
 ## Formation chez ECOLE T3P : notre offre
 
@@ -1346,9 +1339,10 @@ Si le taxi vous attire mais le budget est contraignant :
 | VTC Initiale (soir) | 2 semaines | 990€ | Examens blancs |
 | Taxi Initiale (jour) | 1 semaine | 990€ | Examens blancs |
 | Taxi Initiale (soir) | 2 semaines | 990€ | Examens blancs |
-| VMDTR | 14h | 299€ | - |
-| Mobilité 92 | 14h | 390€ | - |
-| Mobilité 75 | 35h | 440€ | - |
+| VMDTR Initiale (journée, soirée ou e-learning) | 35h | 990€ | Examen CMA inclus (241€) |
+| Passerelle VMDTR (résultat d'examen T3P de moins de 3 ans) | 7h | 665€ | Frais d'examen inclus (165€) |
+| Mobilité 92 | 14h | Nous consulter | - |
+| Mobilité 75 | 35h | Nous consulter | - |
 
 ### Services complémentaires
 
@@ -1398,8 +1392,8 @@ Consultez nos guides complets pour chaque profession :
   {
     slug: "formation-vmdtr-2026-devenir-conducteur-moto-taxi",
     title: "Formation VMDTR 2026 : Devenir conducteur moto-taxi",
-    metaDescription: "Guide complet 2026 pour devenir conducteur moto-taxi VMDTR : formation 14h, examen, carte professionnelle, réglementation et équipement. Toutes les étapes.",
-    excerpt: "Découvrez comment devenir conducteur moto-taxi en 2026 : formation VMDTR de 14h, prérequis, examen et création d'activité. Le guide pratique pour se lancer.",
+    metaDescription: "Guide complet 2026 pour devenir conducteur moto-taxi VMDTR : formation 35h, examen, carte professionnelle, réglementation et équipement. Toutes les étapes.",
+    excerpt: "Découvrez comment devenir conducteur moto-taxi en 2026 : formation VMDTR de 35h, prérequis, examen et création d'activité. Le guide pratique pour se lancer.",
     category: "VMDTR",
     readTime: "11 min",
     publishDate: "2026-01-20",
@@ -1410,7 +1404,7 @@ Consultez nos guides complets pour chaque profession :
 
 Le transport de personnes à moto, encadré par le statut VMDTR (Véhicule Motorisé à Deux ou Trois Roues), connaît un essor significatif en 2026. Face aux embouteillages croissants des grandes métropoles, le moto-taxi s'impose comme une solution de mobilité rapide et prisée par une clientèle professionnelle.
 
-Chez **ECOLE T3P à Montrouge**, nous proposons la formation VMDTR réglementaire de **14 heures** pour obtenir votre carte professionnelle. Ce guide vous présente toutes les étapes pour exercer ce métier en 2026.
+Chez **ECOLE T3P à Montrouge**, nous proposons la formation VMDTR initiale de **35 heures** pour obtenir votre carte professionnelle. Ce guide vous présente toutes les étapes pour exercer ce métier en 2026.
 
 ## Qu'est-ce que le VMDTR ?
 
@@ -1434,7 +1428,7 @@ Le VMDTR désigne l'activité de **transport de personnes à titre onéreux** su
 | Véhicule | 2/3 roues | 4 roues | 4 roues |
 | Réservation | Obligatoire | Obligatoire | Facultative |
 | Nombre passagers | 1-2 max | 1-8 | 1-4 |
-| Formation initiale | 14h | Journée/Soir | Journée/Soir |
+| Formation initiale | 35 h | 35 h | 35 h |
 | Licence ADS | Non | Non | Oui |
 
 ## Les nouveautés 2026 pour les conducteurs VMDTR
@@ -1451,7 +1445,6 @@ Les Zones à Faibles Émissions impactent également les deux-roues en 2026 :
 
 Depuis janvier 2026 :
 
-- **Formation continue** : 14h obligatoires tous les 5 ans
 - **Assurance renforcée** : Garanties passagers revues à la hausse
 - **Équipement passager** : Homologation casque renforcée
 
@@ -1465,12 +1458,14 @@ Depuis janvier 2026 :
 
 *Montants des aides susceptibles d'évoluer. Consultez ecologie.gouv.fr pour les montants en vigueur.
 
+**Formation continue obligatoire** : 14 h tous les 5 ans pour renouveler votre carte professionnelle.
+
 ## Les prérequis pour devenir conducteur VMDTR
 
 ### Conditions administratives
 
 ✅ **Âge minimum** : 21 ans
-✅ **Permis A ou A2** : Valide depuis au moins 3 ans
+✅ **Permis A** : Valide depuis au moins 3 ans
 ✅ **Casier judiciaire** : Bulletin n°2 compatible
 ✅ **Aptitude médicale** : Visite médicale préfectorale
 
@@ -1483,7 +1478,7 @@ Depuis janvier 2026 :
 
 Le permis A2 peut suffire à condition d'avoir validé la formation passerelle vers le permis A.
 
-**Attention** : Le permis B avec formation 125cc ne suffit pas pour exercer en VMDTR professionnel. Le permis A ou A2 est obligatoire.
+**Attention** : Le permis B avec formation 125cc ne suffit pas pour exercer en VMDTR professionnel. Le permis A est obligatoire.
 
 ### Compétences requises
 
@@ -1497,16 +1492,11 @@ Le permis A2 peut suffire à condition d'avoir validé la formation passerelle v
 
 ### Durée et organisation
 
-La formation VMDTR dure **14 heures** réparties sur 2 jours :
-
-| Jour | Module | Durée |
-|------|--------|-------|
-| Jour 1 | Réglementation + Gestion | 7h |
-| Jour 2 | Sécurité + Relation client | 7h |
+La formation VMDTR initiale dure **35 heures**, en journée (1 semaine, 9h30-16h30), en soirée (2 semaines, 18h-21h30) ou en e-learning.
 
 ### Programme détaillé
 
-#### Module 1 : Réglementation T3P (4h)
+#### Module 1 : Réglementation T3P
 
 - Cadre juridique du transport de personnes
 - Statut VMDTR et obligations légales
@@ -1514,7 +1504,7 @@ La formation VMDTR dure **14 heures** réparties sur 2 jours :
 - Réglementation ZFE 2026
 - Responsabilités civiles et pénales
 
-#### Module 2 : Gestion d'activité (3h)
+#### Module 2 : Gestion d'activité
 
 - Choix du statut juridique
 - Obligations fiscales et sociales
@@ -1522,7 +1512,7 @@ La formation VMDTR dure **14 heures** réparties sur 2 jours :
 - Assurances obligatoires
 - Cotisations URSSAF
 
-#### Module 3 : Sécurité routière spécifique moto (4h)
+#### Module 3 : Sécurité routière spécifique moto
 
 - Conduite défensive en deux-roues
 - Anticipation des dangers urbains
@@ -1530,7 +1520,7 @@ La formation VMDTR dure **14 heures** réparties sur 2 jours :
 - Équipements de sécurité obligatoires
 - Conduite par conditions dégradées
 
-#### Module 4 : Relation client et qualité de service (3h)
+#### Module 4 : Relation client et qualité de service
 
 - Accueil du passager
 - Gestion du stress et des conflits
@@ -1551,7 +1541,7 @@ Tous les 5 ans, vous devez suivre une formation continue de **14 heures** (250�
 ### Modalités de l'examen
 
 **Cas 1 : Vous avez déjà une carte VTC ou Taxi**
-→ La formation de 14h suffit pour obtenir la mention VMDTR (pas d'examen supplémentaire).
+→ Si votre résultat d'examen T3P a moins de 3 ans, la passerelle VMDTR de 7 heures (665 € tout compris, frais d'examen de 165 € inclus) permet d'obtenir la mention VMDTR sans repasser l'intégralité de l'examen T3P : vous ne passez que les 2 épreuves spécifiques VMDTR à la CMA. Au-delà de 3 ans, c'est la formation initiale de 35 heures (990 €).
 
 **Cas 2 : Vous n'avez aucune carte T3P**
 → Vous devez passer l'examen T3P complet avec les épreuves spécifiques VMDTR :
@@ -1597,9 +1587,9 @@ Après la formation, déposez votre dossier en préfecture :
 📄 Justificatif de domicile
 📄 2 photos d'identité
 📄 Certificat médical préfectoral
-📄 Copie du permis A ou A2 recto-verso
+📄 Copie du permis A recto-verso
 
-**Délai** : 2 à 3 mois pour obtenir la carte
+**Délai** : variable selon la préfecture ; le délai en vigueur vous est indiqué au moment du dépôt du dossier.
 
 ## Créer son activité VMDTR en 2026
 
@@ -1617,7 +1607,6 @@ L'inscription au registre VTC est **obligatoire** pour exercer en VMDTR :
 
 - Inscription en ligne sur le portail national
 - Coût : 170€
-- Mise à jour annuelle
 
 ### Assurances obligatoires
 
@@ -1666,7 +1655,7 @@ L'inscription au registre VTC est **obligatoire** pour exercer en VMDTR :
 | Honda X-ADV | Scooter/Trail | Polyvalent, confortable | ~13 000€ |
 | BMW C 400 GT | Maxi-scooter | Premium, fiable | ~10 500€ |
 | Yamaha TMAX | Maxi-scooter | Sportif, puissant | ~14 000€ |
-| Kymco CV3 | Tricycle | Stable, permis B possible | ~13 000€ |
+| Kymco CV3 | Tricycle | Stable | ~13 000€ |
 | Zero SR/S | Électrique | ZFE, économies | ~20 000€ |
 
 ### Location ou achat ?
@@ -1726,12 +1715,12 @@ L'inscription au registre VTC est **obligatoire** pour exercer en VMDTR :
 | Étape | Durée | Cumul |
 |-------|-------|-------|
 | Vérification éligibilité | 1 jour | 1 jour |
-| Formation VMDTR (si carte VTC/Taxi) | 2 jours | 3 jours |
-| Formation VTC + VMDTR (si aucune carte) | 2-3 semaines | 3 sem |
-| Dossier préfecture | 2-3 mois | 3,5 mois |
-| Création entreprise | 1-2 semaines | 4 mois |
-| Équipement véhicule | 1-2 semaines | 4,5 mois |
-| Première course ! | - | **4-5 mois** |
+| Passerelle VMDTR (résultat d'examen T3P de moins de 3 ans) | 7 h | Variable |
+| Formation initiale VMDTR (sans résultat d'examen T3P de moins de 3 ans) | 35 h | 1 à 2 semaines |
+| Dossier préfecture | Variable | Variable |
+| Création entreprise | 1-2 semaines | Variable |
+| Équipement véhicule | 1-2 semaines | Variable |
+| Première course ! | - | **2 à 4 semaines après l'examen** |
 
 ## Avantages et inconvénients du métier VMDTR
 
@@ -1739,7 +1728,7 @@ L'inscription au registre VTC est **obligatoire** pour exercer en VMDTR :
 
 ✅ **Rapidité** : Imbattable en milieu urbain congestionné
 ✅ **Investissement modéré** : Moins cher qu'un VTC/Taxi
-✅ **Formation courte** : 14h seulement si déjà carte T3P
+✅ **Passerelle** : 7 heures si vous avez déjà un résultat d'examen T3P de moins de 3 ans
 ✅ **Tarifs attractifs** : Marge horaire intéressante
 ✅ **Clientèle premium** : Cadres, dirigeants, pressés
 ✅ **Plaisir de conduite** : Pour les passionnés de moto
@@ -1755,10 +1744,10 @@ L'inscription au registre VTC est **obligatoire** pour exercer en VMDTR :
 
 ## Conclusion : le VMDTR, une niche à exploiter en 2026
 
-Le métier de conducteur moto-taxi représente une opportunité intéressante pour les passionnés de deux-roues souhaitant exercer dans le transport de personnes. La formation courte (14h) et l'investissement modéré en font une activité accessible.
+Le métier de conducteur moto-taxi représente une opportunité intéressante pour les passionnés de deux-roues souhaitant exercer dans le transport de personnes. La formation de 35 heures et l'investissement modéré en font une activité accessible.
 
 **Chez ECOLE T3P**, nous vous accompagnons dans votre projet :
-- ✅ Formation VMDTR de 14h réglementaire
+- ✅ Formation VMDTR initiale de 35 heures
 - ✅ Accompagnement administratif complet
 - ✅ Location véhicule pour examen (299€)
 - ✅ Formation continue obligatoire (170€ VTC · 250€ Taxi/VMDTR)
@@ -1803,7 +1792,6 @@ En 2026, les ZFE concernent **de nombreuses agglomérations françaises**. Pour 
 
 - **Crit'Air 1** minimum (essence récent ou hybride)
 - **Crit'Air 0** (électrique ou hydrogène) recommandé pour anticiper 2030
-- Conforme aux nouvelles normes Euro 7
 
 **Avantage Taxi** : Les taxis Crit'Air 0 bénéficient d'un accès prioritaire aux stations de recharge et aux files d'attente aéroports.
 
@@ -1813,20 +1801,20 @@ Les chauffeurs de taxi bénéficient d'aides renforcées pour la transition éco
 
 | Aide | Montant | Conditions |
 |------|---------|------------|
-| Bonus écologique | Jusqu'à 5 000€ | Véhicule électrique neuf |
-| Prime taxi électrique | 10 000€ | Taxi parisien électrique |
-| Aide régionale IDF | 6 000€ | Véhicule pro électrique |
+| Bonus écologique | Variable | Véhicule électrique neuf (consulter ecologie.gouv.fr) |
+| Prime à la conversion | Variable | Remplacement d'un véhicule ancien (consulter ecologie.gouv.fr) |
+| Aide régionale IDF | Variable | Véhicule professionnel électrique (consulter iledefrance.fr) |
 | Aide à la licence | Variable | Jeunes artisans -35 ans |
-| **Total cumulable** | **Jusqu'à 21 000€** | Sous conditions |
+| **Total cumulable** | **Variable** | **Montants et cumul mis à jour chaque année, vérifiez les sites officiels** |
 
 ### Évolutions réglementaires 2026
 
 Depuis janvier 2026, de nouvelles obligations s'appliquent :
 
-- **Formation continue renforcée** : 14h tous les 5 ans (alignement VTC/Taxi)
 - **Terminal de paiement** : Obligation d'accepter le paiement par carte
-- **Application de réservation** : Intégration obligatoire à au moins une plateforme
-- **Registre T3P dématérialisé** : Mise à jour annuelle obligatoire
+- **Registre T3P dématérialisé** : démarche en ligne sur le portail national des transports
+
+**Formation continue obligatoire** : 14 h tous les 5 ans pour renouveler votre carte professionnelle.
 
 ## Les prérequis pour devenir chauffeur Taxi
 
@@ -1835,7 +1823,7 @@ Avant de vous lancer, vérifiez que vous remplissez ces conditions :
 ### Conditions administratives
 
 ✅ **Âge minimum** : 21 ans
-✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans
+✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans (2 ans en cas de conduite accompagnée)
 ✅ **Casier judiciaire** : Bulletin n°2 compatible (absence de certaines infractions)
 ✅ **Aptitude médicale** : Visite médicale préfectorale obligatoire
 ✅ **Formation aux premiers secours** : PSC1 recommandé
@@ -1858,52 +1846,52 @@ La formation n'est pas légalement obligatoire pour passer l'examen, mais elle e
 
 | | Avec formation | Candidat libre |
 |---|---|---|
-| Taux de réussite | **94%** | 20-25% |
-| Durée de préparation | 2 semaines | 4-8 mois |
+| Taux de réussite | **94% chez ECOLE T3P** | Non communiqué |
+| Durée de préparation | 35 heures (1 semaine en journée ou 2 semaines en soirée) | À organiser seul |
 | Accompagnement | Personnalisé | Aucun |
 | Connaissance locale | Enseignée | À acquérir seul |
 | Examens blancs | Inclus | À organiser seul |
 
 ### Le programme de formation ECOLE T3P
 
-Notre formation Taxi couvre tous les modules de l'examen, disponible en journée (1 semaine) ou en soirée (2 semaines) :
+Notre formation Taxi dure 35 heures et couvre tous les modules de l'examen, en journée (1 semaine), en soirée (2 semaines) ou en e-learning :
 
-#### Module 1 : Réglementation T3P (14h)
+#### Module 1 : Réglementation T3P
 - Loi sur les taxis et VTC
 - Statut du chauffeur de taxi
 - Droits et obligations
 - Réglementation ZFE 2026
 - Licence ADS et réglementation locale
 
-#### Module 2 : Gestion d'entreprise (10h)
+#### Module 2 : Gestion d'entreprise
 - Choix du statut (artisan, salarié, locataire-gérant)
 - Comptabilité taxi
 - Fiscalité et TVA
 - Charges sociales URSSAF
 - Business plan taxi
 
-#### Module 3 : Sécurité routière (10h)
+#### Module 3 : Sécurité routière
 - Code de la route approfondi
 - Conduite préventive en milieu urbain
 - Gestion des situations d'urgence
 - Spécificités véhicules électriques
 - Premiers secours (PSC1)
 
-#### Module 4 : Relation client (8h)
+#### Module 4 : Relation client
 - Accueil des passagers
 - Gestion des conflits
 - Communication interculturelle
 - Accueil des personnes à mobilité réduite
 - Protocole clientèle premium
 
-#### Module 5 : Connaissance du territoire (15h)
+#### Module 5 : Connaissance du territoire
 - **Spécifique à votre zone d'exercice**
 - Paris intra-muros : monuments, hôpitaux, gares
 - Aéroports : Roissy CDG, Orly, Le Bourget
 - Petite couronne : communes, axes principaux
 - Itinéraires optimisés selon le trafic
 
-#### Module 6 : Français et anglais (6h)
+#### Module 6 : Français et anglais
 - Expression orale professionnelle
 - Vocabulaire transport en anglais
 - Phrases types accueil clientèle internationale
@@ -1912,9 +1900,9 @@ Notre formation Taxi couvre tous les modules de l'examen, disponible en journée
 
 | Format | Durée | Horaires | Idéal pour |
 |--------|-------|----------|------------|
-| Intensif journée | 2 semaines | 9h-17h | Reconversion rapide |
-| Soir | 3 semaines | 18h-21h | Salariés en poste |
-| Week-end | 5 week-ends | Sam-Dim | Contraintes familiales |
+| Journée | 1 semaine | 9h30-16h30 | Reconversion rapide |
+| Soirée | 2 semaines | 18h-21h30 | Salariés en poste |
+| E-learning | Accès illimité jusqu'à l'examen | Libres | Contraintes familiales |
 
 ## L'examen Taxi en 2026
 
@@ -1981,7 +1969,7 @@ Une fois l'examen réussi, déposez votre dossier :
 
 ### Délai d'obtention
 
-Le délai moyen de délivrance de la carte professionnelle taxi est de **2 à 4 mois** selon les préfectures. La carte est valable **5 ans** et renouvelable après formation continue.
+Le délai de délivrance de la carte professionnelle taxi varie selon la préfecture ; le délai en vigueur vous est indiqué au moment du dépôt du dossier. La carte est valable **5 ans** et renouvelable après formation continue.
 
 ## L'Autorisation de Stationnement (ADS) : la fameuse licence
 
@@ -1993,7 +1981,7 @@ L'ADS (anciennement "licence taxi") est l'autorisation administrative permettant
 
 **Option 1 : ADS gratuite en mairie**
 
-Depuis la loi Grandguillaume, les communes délivrent des ADS gratuites et incessibles :
+Depuis la loi Thévenoud de 2014, les communes délivrent des ADS gratuites et incessibles :
 
 - Inscription sur liste d'attente
 - Délai variable (quelques mois à plusieurs années selon la commune)
@@ -2002,14 +1990,9 @@ Depuis la loi Grandguillaume, les communes délivrent des ADS gratuites et inces
 
 **Option 2 : Rachat d'une ADS ancienne**
 
-Les licences délivrées avant 2014 sont cessibles :
+Les licences délivrées avant 2014 sont cessibles.
 
-| Zone | Prix moyen ADS | Évolution 2026 |
-|------|----------------|----------------|
-| Paris | 120 000 - 180 000€ | Stable |
-| Petite couronne | 60 000 - 100 000€ | Légère baisse |
-| Grande couronne | 30 000 - 60 000€ | Stable |
-| Province | 10 000 - 50 000€ | Variable |
+Le prix d'une ADS cessible varie fortement selon le département et dans le temps ; renseignez-vous auprès de votre préfecture avant tout achat.
 
 **Option 3 : Location-gérance**
 
@@ -2051,7 +2034,6 @@ L'inscription au registre des transports est **obligatoire** :
 
 - Inscription en préfecture ou en ligne
 - Coût : 170€
-- Renouvellement annuel
 
 ### Équipement obligatoire du véhicule
 
@@ -2103,13 +2085,13 @@ Coût équipement : **1 500 - 3 000€**
 | Étape | Durée | Cumul |
 |-------|-------|-------|
 | Vérification éligibilité | 1 jour | 1 jour |
-| Formation ECOLE T3P | 2 semaines | 2,5 sem |
+| Formation ECOLE T3P | 1 semaine (journée) ou 2 semaines (soirée) | Variable |
 | Attente examen | 2-4 semaines | 6,5 sem |
 | Passage examen | 2 jours | 7 sem |
-| Dossier préfecture | 2-4 mois | 5 mois |
-| Recherche ADS (location) | 1-4 semaines | 5,5 mois |
-| Équipement véhicule | 1 semaine | 6 mois |
-| Première course ! | - | **6 mois** |
+| Dossier préfecture | Variable | Variable |
+| Recherche ADS (location) | 1-4 semaines | Variable |
+| Équipement véhicule | 1 semaine | Variable |
+| Première course ! | - | **2 à 4 semaines après l'examen** |
 
 ## Taxi vs VTC : le comparatif 2026
 
@@ -2154,7 +2136,7 @@ Découvrez nos autres guides sur les métiers du transport :
     slug: "comment-devenir-chauffeur-vtc-2026",
     title: "Comment devenir chauffeur VTC en 2026 : Le guide ultime",
     metaDescription: "Guide complet 2026 pour devenir chauffeur VTC : nouvelles réglementations, ZFE, véhicules électriques, formation, examen et revenus. Tout ce qu'il faut savoir.",
-    excerpt: "Découvrez les étapes clés pour devenir chauffeur VTC en 2026 : nouvelles règles ZFE, véhicules électriques obligatoires, et stratégies pour maximiser vos revenus.",
+    excerpt: "Découvrez les étapes clés pour devenir chauffeur VTC en 2026 : nouvelles règles ZFE et vignettes Crit'Air, et stratégies pour maximiser vos revenus.",
     category: "VTC",
     readTime: "12 min",
     publishDate: "2026-01-06",
@@ -2175,7 +2157,6 @@ En 2026, les **Zones à Faibles Émissions (ZFE)** sont en vigueur dans **de nom
 
 - **Crit'Air 1** minimum (essence récent ou hybride)
 - **Crit'Air 0** (électrique ou hydrogène) pour accéder aux zones les plus restrictives
-- Conforme aux nouvelles normes Euro 7
 
 **Conseil ECOLE T3P** : Optez dès maintenant pour un véhicule électrique ou hybride rechargeable. C'est un investissement rentabilisé par les économies de carburant et l'accès à toutes les zones.
 
@@ -2194,9 +2175,10 @@ En 2026, les chauffeurs VTC bénéficient d'aides renforcées :
 
 Depuis janvier 2026, de nouvelles obligations s'appliquent :
 
-- **Formation continue obligatoire** : 14h tous les 5 ans
 - **Assurance responsabilité civile** : Plafonds revus à la hausse
 - **Registre VTC dématérialisé** : Inscription obligatoire sur la plateforme nationale
+
+**Formation continue obligatoire** : 14 h tous les 5 ans pour renouveler votre carte professionnelle
 
 ## Les prérequis pour devenir chauffeur VTC en 2026
 
@@ -2205,7 +2187,7 @@ Avant de vous lancer, vérifiez que vous remplissez ces conditions :
 ### Conditions administratives
 
 ✅ **Âge minimum** : 21 ans
-✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans
+✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans (2 ans en cas de conduite accompagnée)
 ✅ **Casier judiciaire** : Bulletin n°2 compatible (absence de certaines infractions)
 ✅ **Aptitude médicale** : Visite médicale auprès d'un médecin agréé par la préfecture
 
@@ -2226,46 +2208,46 @@ La formation n'est pas légalement obligatoire pour passer l'examen, mais elle e
 
 | | Avec formation | Candidat libre |
 |---|---|---|
-| Taux de réussite | **94%** | 25-30% |
-| Durée de préparation | 2 semaines | 3-6 mois |
+| Taux de réussite | **94% chez ECOLE T3P** | Non communiqué |
+| Durée de préparation | 35 heures (1 semaine en journée ou 2 semaines en soirée) | À organiser seul |
 | Accompagnement | Personnalisé | Aucun |
 | Examens blancs | Inclus | À organiser seul |
 
 ### Le programme de formation ECOLE T3P
 
-Notre formation VTC couvre tous les modules de l'examen, disponible en journée (1 semaine) ou en soirée (2 semaines) :
+Notre formation VTC dure 35 heures et couvre tous les modules de l'examen, en journée (1 semaine), en soirée (2 semaines) ou en e-learning :
 
-#### Module 1 : Réglementation T3P (12h)
+#### Module 1 : Réglementation T3P
 - Loi Grandguillaume et évolutions 2026
 - Statut juridique du VTC
 - Droits et obligations du chauffeur
 - Réglementation ZFE actualisée
 
-#### Module 2 : Gestion d'entreprise (10h)
+#### Module 2 : Gestion d'entreprise
 - Choix du statut (auto-entrepreneur, SASU, EURL)
 - Comptabilité et fiscalité
 - Cotisations sociales
 - Business plan VTC
 
-#### Module 3 : Sécurité routière (8h)
+#### Module 3 : Sécurité routière
 - Conduite préventive et éco-conduite
 - Spécificités véhicules électriques
 - Gestion des situations d'urgence
 - Premiers secours (PSC1)
 
-#### Module 4 : Relation client premium (8h)
+#### Module 4 : Relation client premium
 - Accueil haut de gamme
 - Gestion des réclamations
 - Communication interculturelle
 - Accueil des personnes à mobilité réduite
 
-#### Module 5 : Applications et plateformes (6h)
+#### Module 5 : Applications et plateformes
 - Uber, Bolt, Heetch, Freenow
 - Optimisation des courses
 - Gestion multi-applications
 - Notation et fidélisation
 
-#### Module 6 : Anglais professionnel (6h)
+#### Module 6 : Anglais professionnel
 - Vocabulaire du transport
 - Phrases types accueil clients
 - Situations courantes
@@ -2274,9 +2256,9 @@ Notre formation VTC couvre tous les modules de l'examen, disponible en journée 
 
 | Format | Durée | Horaires | Idéal pour |
 |--------|-------|----------|------------|
-| Intensif journée | 2 semaines | 9h-17h | Reconversion rapide |
-| Soir | 3 semaines | 18h-21h | Salariés en poste |
-| Week-end | 5 week-ends | Sam-Dim | Contraintes familiales |
+| Journée | 1 semaine | 9h30-16h30 | Reconversion rapide |
+| Soirée | 2 semaines | 18h-21h30 | Salariés en poste |
+| E-learning | Accès illimité jusqu'à l'examen | Libres | Contraintes familiales |
 
 ## L'examen VTC en 2026
 
@@ -2343,7 +2325,7 @@ Une fois l'examen réussi, déposez votre dossier :
 
 ### Délai d'obtention
 
-Le délai moyen de délivrance de la carte VTC est de **2 à 3 mois** selon les préfectures. La carte est valable **5 ans**.
+Le délai de délivrance de la carte VTC varie selon la préfecture ; le délai en vigueur vous est indiqué au moment du dépôt du dossier. La carte est valable **5 ans**.
 
 ## Créer son entreprise VTC en 2026
 
@@ -2390,12 +2372,12 @@ Depuis 2026, l'inscription au registre VTC est **100% dématérialisée** sur le
 | Étape | Durée | Cumul |
 |-------|-------|-------|
 | Vérification éligibilité | 1 jour | 1 jour |
-| Formation ECOLE T3P | 2 semaines | 2,5 sem |
+| Formation ECOLE T3P | 1 semaine (journée) ou 2 semaines (soirée) | Variable |
 | Attente examen | 2-4 semaines | 6,5 sem |
 | Passage examen | 1 jour | 7 sem |
-| Dossier préfecture | 2-3 mois | 4 mois |
-| Création entreprise | 1-2 semaines | 4,5 mois |
-| Première course ! | - | **5 mois** |
+| Dossier préfecture | Variable | Variable |
+| Création entreprise | 1-2 semaines | Variable |
+| Première course ! | - | **2 à 4 semaines après l'examen** |
 
 ## Conclusion : lancez-vous en 2026 !
 
@@ -2435,20 +2417,20 @@ Découvrez nos autres guides sur les métiers du transport :
     content: `
 ## Introduction
 
-Le métier de chauffeur VTC (Voiture de Transport avec Chauffeur) attire de plus en plus de personnes en quête d'indépendance professionnelle. En 2025, ce secteur continue de croître avec l'essor des plateformes de réservation.
+Le métier de chauffeur VTC (Voiture de Transport avec Chauffeur) attire de plus en plus de personnes en quête d'indépendance professionnelle. Ce secteur continue de croître avec l'essor des plateformes de réservation.
 
 ## Les prérequis pour devenir chauffeur VTC
 
 Avant de vous lancer, assurez-vous de remplir ces conditions :
 
 - **Âge minimum** : 21 ans
-- **Permis de conduire** : Permis B valide depuis au moins 3 ans
+- **Permis de conduire** : Permis B valide depuis au moins 3 ans (2 ans en cas de conduite accompagnée)
 - **Casier judiciaire** : Bulletin n°2 vierge de certaines infractions
 - **Aptitude médicale** : Visite médicale préfectorale
 
 ## La formation VTC obligatoire
 
-La formation initiale VTC est **obligatoire** pour passer l'examen. Chez ECOLE T3P, notre formation de 10 jours couvre :
+La formation n'est pas obligatoire pour se présenter à l'examen, mais elle est **fortement recommandée**. Chez ECOLE T3P, notre formation de 35 heures couvre :
 
 ### Module théorique
 - Réglementation du transport public particulier de personnes
@@ -2484,7 +2466,7 @@ Admissibilité : moyenne ≥ 10/20 sans note éliminatoire (< 6/20, sauf anglais
 Après réussite à l'examen, vous devez :
 1. Déposer votre dossier en préfecture
 2. Fournir les pièces justificatives
-3. Recevoir votre carte VTC sous 3 mois
+3. Recevoir votre carte professionnelle VTC, délivrée par la préfecture (le délai de traitement dépend de la préfecture)
 
 ## Créer son entreprise VTC
 
@@ -2517,20 +2499,20 @@ La carte T3P (Transport Public Particulier de Personnes) est le sésame obligato
 
 La formation n'est pas obligatoire pour passer l'examen, mais elle est **fortement recommandée**. Voici pourquoi :
 
-- **Taux de réussite** : Les candidats formés réussissent à 94%
-- **Gain de temps** : Formation intensive de 10 jours
+- **Taux de réussite ECOLE T3P** : 94 %
+- **Gain de temps** : 35 heures de formation, en 1 semaine ou en 2 semaines de cours du soir
 - **Accompagnement** : Suivi personnalisé par des formateurs experts
 - **Préparation complète** : Théorie + pratique
 
 ## Le programme de formation taxi ECOLE T3P
 
-### Semaine 1 : Théorie
+### Bloc 1 : Théorie
 - Réglementation du transport de personnes
 - Code de la route approfondi
 - Gestion d'une activité de taxi
 - Notions de comptabilité
 
-### Semaine 2 : Pratique et révisions
+### Bloc 2 : Pratique et révisions
 - Conduite professionnelle
 - Relation client
 - Examens blancs
@@ -2598,7 +2580,7 @@ VTC ou Taxi ? C'est LA question que se posent tous les candidats au transport de
 | Tarification | Libre | Réglementée |
 | Zone d'activité | France entière | Zone géographique |
 | Investissement initial | Moyen | Élevé (licence) |
-| Revenus moyens | 2000-4000€ | 2500-5000€ |
+| Revenus | Très variables selon le volume d'activité et le statut | Très variables selon le volume d'activité et le statut |
 
 ## Les avantages du métier de VTC
 
@@ -2608,7 +2590,6 @@ VTC ou Taxi ? C'est LA question que se posent tous les candidats au transport de
 - Pas de licence à acheter
 
 ### Accessibilité
-- Formation plus courte
 - Démarrage rapide
 - Coûts initiaux réduits
 
@@ -2621,7 +2602,7 @@ VTC ou Taxi ? C'est LA question que se posent tous les candidats au transport de
 
 ### Stabilité
 - Clientèle fidèle
-- Tarifs garantis
+- Tarifs réglementés
 - Reconnaissance du métier
 
 ### Exclusivités
@@ -2650,9 +2631,9 @@ VTC ou Taxi ? C'est LA question que se posent tous les candidats au transport de
 
 ## La solution passerelle
 
-Saviez-vous qu'il existe une **formation passerelle** ? Si vous êtes déjà VTC, vous pouvez devenir taxi (et inversement) avec une formation complémentaire courte.
+Saviez-vous qu'il existe une **formation passerelle** ? Si vous êtes déjà VTC, vous pouvez devenir taxi (et inversement) avec une formation complémentaire courte, à condition d'avoir obtenu vos résultats d'examen T3P depuis moins de 3 ans.
 
-Chez ECOLE T3P, nous proposons cette formation passerelle de 2 jours (14 heures) pour les professionnels souhaitant élargir leur activité.
+Chez ECOLE T3P, nous proposons cette formation passerelle : 7 heures pour aller vers le VTC, 14 heures pour aller vers le Taxi.
 
 ## Notre recommandation
 
@@ -2685,7 +2666,7 @@ Obtenir sa carte professionnelle VTC peut sembler complexe. Nous avons simplifi�
 Avant tout, assurez-vous de remplir les conditions :
 
 ✅ Avoir 21 ans minimum
-✅ Posséder le permis B depuis 3 ans
+✅ Posséder le permis B depuis 3 ans (2 ans en cas de conduite accompagnée)
 ✅ Avoir un casier judiciaire compatible
 ✅ Être apte médicalement
 
@@ -2696,8 +2677,8 @@ Avant tout, assurez-vous de remplir les conditions :
 La formation initiale est votre meilleur atout pour réussir l'examen.
 
 ### Chez ECOLE T3P :
-- **Durée** : 10 jours intensifs
-- **Format** : Présentiel à Montrouge
+- **Durée** : 35 heures
+- **Format** : Journée, soirée ou e-learning
 - **Contenu** : Théorie + pratique
 - **Examens blancs** : Inclus
 
@@ -2748,7 +2729,7 @@ Après réussite à l'examen, vous devez déposer un dossier complet :
 📄 Extrait de casier judiciaire
 📄 Copie du permis de conduire
 
-**Délai** : 3 mois maximum pour recevoir votre carte
+**Délai** : variable selon la préfecture
 
 ## Étape 5 : Lancer votre activité
 
@@ -2761,7 +2742,6 @@ Avec votre carte en poche, vous pouvez exercer ! Mais il reste quelques démarch
 
 ### Équiper votre véhicule
 - Véhicule conforme (4-9 places, moins de 7 ans ou hybride/électrique)
-- Vignette verte obligatoire
 - Équipements de confort
 
 ### Rejoindre une plateforme
@@ -2772,11 +2752,11 @@ Avec votre carte en poche, vous pouvez exercer ! Mais il reste quelques démarch
 
 | Étape | Durée |
 |-------|-------|
-| Formation | 2 semaines |
+| Formation | 35 h : 1 semaine (journée), 2 semaines (soirée) ou e-learning |
 | Attente examen | 2-4 semaines |
 | Examen + résultats | 1 semaine |
-| Dossier préfecture | 1-3 mois |
-| **Total** | **3-5 mois** |
+| Dossier préfecture | 2 à 4 semaines |
+| **Total** | **2 à 4 semaines après l'examen** |
 
 ## Conclusion
 
@@ -2798,13 +2778,13 @@ Le parcours vers la carte VTC est structuré et accessible. Avec ECOLE T3P, vous
 
 Chez ECOLE T3P, nous comprenons que le coût d'une formation professionnelle représente un investissement important. C'est pourquoi nous proposons des solutions de paiement flexibles pour vous permettre de réaliser votre projet.
 
-## Paiement en 4x sans frais
+## Paiement en 2×, 3× ou 4× sans frais
 
-Notre solution phare : le **paiement en 4x sans frais** pour toutes nos formations.
+Notre solution phare : le **paiement en 2×, 3× ou 4× sans frais** via Alma (conditions d'éligibilité détaillées sur notre [page Paiement](/paiement)).
 
 ### Comment ça marche ?
 - 1er versement à l'inscription
-- 3 versements mensuels
+- Les versements suivants par mensualités
 - Aucun frais supplémentaire
 - Aucune condition de ressources
 
@@ -2818,15 +2798,13 @@ Selon votre situation, nous pouvons adapter l'échelonnement :
 - Ajustement des échéances selon vos revenus
 - Flexibilité sur les dates de prélèvement
 
-## Investissement rentabilisé rapidement
+## Le coût de nos formations
 
-Une formation de chauffeur est un investissement qui se rentabilise rapidement :
-
-| Formation | Prix | Rentabilité estimée |
-|-----------|------|---------------------|
-| Formation Taxi/VTC | 990€ - 1190€ | 1-2 mois d'activité |
-| Formation Continue | 170€ - 250€ | 1 semaine |
-| Mobilité | 390€ - 440€ | 2-3 semaines |
+| Formation | Prix |
+|-----------|------|
+| Formation Taxi/VTC | 990€ - 1190€ |
+| Formation Continue | 170€ - 250€ |
+| Mobilité | Nous consulter |
 
 ## Notre accompagnement
 
@@ -2865,7 +2843,6 @@ Ce secteur en pleine expansion offre de nombreuses opportunités, notamment dans
 
 ### Rapidité et efficacité
 - Circulation fluide même en cas de bouchons
-- Temps de trajet réduit de 30 à 50%
 - Clients pressés (hommes d'affaires, aéroports)
 
 ### Flexibilité
@@ -2891,33 +2868,33 @@ Pour vous inscrire à notre formation, vous devez :
 
 ## Le programme de formation ECOLE T3P
 
-Notre formation VMDTR dure **2 jours (14 heures)** pour les titulaires d'une carte VTC ou Taxi et couvre l'ensemble des compétences nécessaires.
+Notre passerelle vers VMDTR dure 7 heures et s'adresse aux titulaires d'un résultat d'examen T3P (VTC ou Taxi) de moins de 3 ans, à 665 € tout compris, frais d'examen de 165 € inclus.
 
-### Module 1 : Réglementation (4h)
+### Module 1 : Réglementation
 - Cadre légal du transport de personnes
 - Droits et obligations du conducteur VMDTR
 - Réglementation spécifique deux-roues
 - Assurances professionnelles
 
-### Module 2 : Gestion d'activité (3h)
+### Module 2 : Gestion d'activité
 - Création et gestion d'entreprise
 - Comptabilité simplifiée
 - Tarification et facturation
 
-### Module 3 : Sécurité routière moto (4h)
+### Module 3 : Sécurité routière moto
 - Conduite défensive
 - Anticipation des dangers
 - Transport de passager en sécurité
 - Équipements obligatoires
 
-### Module 4 : Relation client (3h)
+### Module 4 : Relation client
 - Accueil et service client premium
 - Gestion des réservations
 - Fidélisation de la clientèle
 
 ## L'examen VMDTR
 
-Pour les titulaires d'une carte VTC ou Taxi, la formation de 14h suffit pour obtenir la mention VMDTR (pas d'examen supplémentaire).
+Avec un résultat d'examen T3P de moins de 3 ans, la passerelle de 7 heures vous prépare aux 2 modules spécifiques VMDTR, que vous passez à la CMA (frais d'examen de 165 € inclus dans les 665 €).
 
 Sans carte T3P existante, vous devez passer l'examen T3P complet avec les **épreuves spécifiques VMDTR** :
 
@@ -2948,7 +2925,7 @@ Après votre formation, plusieurs options s'offrent à vous :
 
 ## Tarifs et revenus
 
-Les revenus mensuels estimés vont de 1500-2500€ en temps partiel à 3000-5000€ en temps plein.
+Les revenus dépendent du statut choisi, du nombre de courses réalisées, des commissions de plateforme et des charges (cotisations, assurance, carburant, entretien). Ils varient fortement d'un conducteur à l'autre : nous ne publions pas de moyenne, faute de donnée officielle.
 
 ## Conclusion
 
@@ -3088,7 +3065,7 @@ Tous les titulaires d'une carte professionnelle de transport public particulier 
 | Carte professionnelle Taxi | 5 ans | 14h obligatoires |
 | Carte professionnelle VMDTR | 5 ans | 14h obligatoires |
 
-**Important** : le renouvellement doit être demandé **au moins 3 mois avant l'expiration** de votre carte. Ne tardez pas — les délais administratifs peuvent être longs.
+**Important** : nous vous recommandons d'engager la démarche au moins 3 mois avant l'expiration de votre carte. Ne tardez pas — les délais administratifs peuvent être longs.
 
 ## La formation continue obligatoire : condition sine qua non
 
@@ -3181,7 +3158,7 @@ La demande de renouvellement se fait auprès de la **préfecture de votre dépar
 
 ### Étape 5 : Recevoir votre nouvelle carte
 
-Le délai de traitement varie de **2 à 8 semaines** selon la préfecture. Pendant ce délai, conservez le récépissé de dépôt qui fait office de justificatif temporaire.
+Le délai de traitement dépend de la préfecture. Pendant ce délai, conservez le récépissé de dépôt qui fait office de justificatif temporaire.
 
 ## Calendrier type pour un renouvellement serein
 
@@ -3190,8 +3167,7 @@ Le délai de traitement varie de **2 à 8 semaines** selon la préfecture. Penda
 | J-6 mois | Vérifier la date d'expiration de la carte |
 | J-4 mois | S'inscrire à la formation continue |
 | J-3 mois | Suivre la formation continue |
-| J-2 mois | Constituer le dossier complet |
-| J-6 semaines | Déposer la demande en préfecture |
+| J-2 mois | Constituer le dossier complet et déposer la demande en préfecture |
 | J-0 | Réception de la nouvelle carte |
 
 ## Que se passe-t-il en cas de retard ?
@@ -3247,7 +3223,7 @@ En cas de perte ou de vol, demandez un duplicata auprès de la préfecture. Vous
 
 - **[Devenir chauffeur VTC en 2026](/blog/comment-devenir-chauffeur-vtc-2026)** : Le guide complet de la formation initiale
 - **[Devenir chauffeur Taxi en 2026](/blog/comment-devenir-chauffeur-taxi-2026)** : Réglementation et formation
-- **[Formation continue obligatoire : ce qu'il faut savoir](/blog/formation-continue-obligatoire-vtc-taxi-vmdtr)** : Détail du programme
+- **[Formation continue obligatoire : ce qu'il faut savoir](/blog/formation-continue-renouvellement-carte-professionnelle)** : Détail du programme
 - **[Quel statut juridique choisir ?](/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026)** : Auto-entrepreneur, SASU, EURL
 
 ---

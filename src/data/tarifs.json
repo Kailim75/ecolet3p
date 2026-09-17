@@ -12,5 +12,9 @@
   "pmr": 290,
   "anglais": 350,
   "gestionEntreprise": 390,
-  "accompagnementAdmin": 190
+  "accompagnementAdmin": 190,
+  "dureeInitialeHeures": 35,
+  "dureeContinueHeures": 14,
+  "dureePasserelleHeures": 7,
+  "dureePasserelleTaxiHeures": 14
 }

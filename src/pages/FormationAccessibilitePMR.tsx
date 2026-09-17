@@ -26,7 +26,7 @@ const results = [
   { value: "+2 000", label: "chauffeurs formés depuis 2014" },
   { value: "100%", label: "attestations délivrées le jour même" },
   { value: "5.0/5", label: "sur 359 avis Google" },
-  { value: "+30%", label: "de revenus potentiels supplémentaires" },
+  { value: "14 h", label: "de formation pratique" },
 ];
 
 const programModules = [
@@ -41,7 +41,7 @@ const faqs = [
   { question: "Faut-il un véhicule spécifique pour le transport PMR ?", answer: "Non, la formation vous apprend à accueillir des personnes à mobilité réduite dans tout type de véhicule. Les techniques de manutention et d'assistance sont universelles et adaptables." },
   { question: "Qui peut s'inscrire à cette formation ?", answer: "Tout chauffeur VTC, Taxi ou VMDTR souhaitant élargir sa clientèle au transport de personnes à mobilité réduite. Aucun prérequis spécifique n'est nécessaire au-delà de votre carte professionnelle." },
   { question: "Y a-t-il une attestation en fin de formation ?", answer: "Oui, une attestation de formation officielle est délivrée immédiatement à la fin du stage. Elle peut être présentée aux plateformes et donneurs d'ordres comme preuve de votre qualification." },
-  { question: "Comment financer cette formation ?", answer: "Le tarif est de 290€, payable en 4× 73€ sans frais via Alma. Aucune paperasse, inscription immédiate." },
+  { question: "Comment financer cette formation ?", answer: "Le tarif est de 290€, payable en 4× 72,50€ sans frais via Alma. Aucune paperasse, inscription immédiate." },
 ];
 
 const FormationAccessibilitePMR = () => {
@@ -109,7 +109,7 @@ const FormationAccessibilitePMR = () => {
         <div className="container-custom">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-white/15 text-white border border-white/20 mb-6">
-              <Accessibility className="w-4 h-4" /> Formation complémentaire — +30% de revenus potentiels
+              <Accessibility className="w-4 h-4" /> Formation complémentaire — élargissez votre clientèle
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
@@ -219,21 +219,19 @@ const FormationAccessibilitePMR = () => {
       {/* AVANT / APRÈS */}
       <BeforeAfterBlock
         title="L'impact PMR sur leur activité"
-        subtitle="Nos stagiaires témoignent de l'effet concret de la spécialisation PMR sur leurs revenus et leur clientèle."
+        subtitle="Nos stagiaires témoignent de l'effet concret de la spécialisation PMR sur leur clientèle."
         transformations={[
           {
             name: "Oumar S.", initials: "OS", formation: "Formation PMR",
             before: [
               { label: "Clientèle", value: "Grand public uniquement" },
-              { label: "Revenus", value: "2 100€/mois" },
               { label: "Différenciation", value: "Aucune spécialisation" },
             ],
             after: [
               { label: "Clientèle", value: "Grand public + PMR fidèle" },
-              { label: "Revenus", value: "2 800€/mois" },
               { label: "Différenciation", value: "Référencé transport PMR" },
             ],
-            quote: "Mes clients PMR me rappellent systématiquement. C'est une clientèle fidèle qui recommande — mes revenus ont bondi de 30%.",
+            quote: "Mes clients PMR me rappellent systématiquement. C'est une clientèle fidèle qui recommande.",
           },
           {
             name: "Nadia K.", initials: "NK", formation: "Formation PMR",
@@ -300,7 +298,7 @@ const FormationAccessibilitePMR = () => {
             <h3 className="text-lg font-bold mb-2">Tarif — Formation PMR</h3>
             <p className="text-4xl font-bold text-primary mb-1">290€</p>
             <div className="flex items-center justify-center gap-1.5 mb-6">
-              <span className="text-sm font-semibold text-accent">ou 4× 73€/mois</span>
+              <span className="text-sm font-semibold text-accent">ou 4× 72,50€/mois</span>
               <AlmaLogo className="h-4" />
             </div>
             <button onClick={() => setShowForm(true)} className="btn-cta-orange w-full px-6 py-3.5 font-bold rounded-lg inline-flex items-center justify-center gap-2">
@@ -365,7 +363,7 @@ const FormationAccessibilitePMR = () => {
               Formez-vous en 2 jours et accédez à une clientèle fidèle et récurrente.
             </p>
             <p className="text-white font-semibold mb-8">
-              290€ — Paiement en 4× 73€ sans frais via Alma
+              290€ — Paiement en 4× 72,50€ sans frais via Alma
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button onClick={() => setShowForm(true)} className="btn-cta-orange px-10 py-4 text-lg font-bold rounded-lg inline-flex items-center gap-2">

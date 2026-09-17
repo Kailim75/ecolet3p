@@ -39,7 +39,7 @@ const homeFaqs = [
   {
     question: "Quel est le taux de réussite d'ECOLE T3P ?",
     answer:
-      "ECOLE T3P affiche un taux de réussite de 94% à l'examen T3P de la CMA, bien supérieur à la moyenne nationale. Plus de 2000 chauffeurs formés depuis 2014.",
+      "ECOLE T3P affiche un taux de réussite de 94% à l'examen T3P de la CMA. Plus de 2000 chauffeurs formés depuis 2014.",
   },
   {
     question: "Quels formats de formation proposez-vous ?",
@@ -59,7 +59,7 @@ const homeFaqs = [
   {
     question: "Existe-t-il une passerelle entre Taxi et VTC ?",
     answer:
-      `Oui. La Passerelle T3P permet d'obtenir une seconde carte professionnelle (VTC ou Taxi) en seulement 14h de formation pour ${tarifs.passerelle}€, à condition d'avoir réussi l'examen T3P depuis moins de 3 ans.`,
+      `Oui. La Passerelle T3P permet d'obtenir une seconde carte professionnelle (VTC, Taxi ou VMDTR) en ${tarifs.dureePasserelleHeures}h de formation vers VTC ou VMDTR et ${tarifs.dureePasserelleTaxiHeures}h vers Taxi, pour ${tarifs.passerelle}€, à condition d'avoir réussi l'examen T3P depuis moins de 3 ans.`,
   },
 ];
 
@@ -130,7 +130,7 @@ const coursesItemListSchema = {
       "item": {
         "@type": "Course",
         "name": "Formation VTC initiale",
-        "description": "Formation VTC pour Uber, Bolt, Heetch. Carte pro en 1 semaine. 94% de réussite.",
+        "description": "Formation VTC pour Uber, Bolt, Heetch. 35 heures, format journée en 1 semaine. 94% de réussite.",
         "url": "https://ecolet3p.fr/formations/vtc",
         "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
         "offers": { "@type": "Offer", "price": "990", "priceCurrency": "EUR", "category": "Formation professionnelle", "availability": "https://schema.org/InStock" }
@@ -142,7 +142,7 @@ const coursesItemListSchema = {
       "item": {
         "@type": "Course",
         "name": "Formation VMDTR (taxi moto)",
-        "description": "Formation conducteur moto-taxi. Carte professionnelle VMDTR en 1 semaine.",
+        "description": "Formation conducteur moto-taxi VMDTR. 35 heures, format journée en 1 semaine.",
         "url": "https://ecolet3p.fr/formations/vmdtr",
         "provider": { "@type": "EducationalOrganization", "name": "ECOLE T3P", "url": "https://ecolet3p.fr" },
         "offers": { "@type": "Offer", "price": "990", "priceCurrency": "EUR", "category": "Formation professionnelle", "availability": "https://schema.org/InStock" }

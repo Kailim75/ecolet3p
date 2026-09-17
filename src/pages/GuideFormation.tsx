@@ -479,9 +479,8 @@ const GuideFormation = () => {
                     </ul>
                   </div>
                   <div className="flex flex-col justify-center items-center bg-forest/5 rounded-xl p-6">
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground font-bold mb-2">Revenu net estimé / jour</p>
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground font-bold mb-2">Recette journalière estimée, hors commission de plateforme et cotisations sociales</p>
                     <p className="text-3xl font-black text-forest">~ 170 €</p>
-                    <p className="text-xs text-muted-foreground mt-1">soit ~ 3 700 € / mois</p>
                   </div>
                 </div>
 

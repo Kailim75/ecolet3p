@@ -8,7 +8,7 @@ const siloFormationsInitiales = [
   { name: "Formation VTC — 990€", path: "/formations/vtc" },
   { name: "Formation Taxi — 990€", path: "/formations/taxi" },
   { name: "Formation VMDTR Moto-Taxi", path: "/formations/vmdtr" },
-  { name: "Passerelle Taxi ↔ VTC (14h)", path: "/passerelle-vtc-taxi" },
+  { name: "Passerelle Taxi ↔ VTC", path: "/passerelle-vtc-taxi" },
   { name: "Toutes les formations", path: "/formations" },
 ];
 

@@ -52,7 +52,7 @@ const corePages: SEOPageInfo[] = [
   {
     url: "/passerelle-vtc-taxi",
     title: "Passerelle VTC ↔ Taxi — Formation Mobilité | 665€",
-    description: "Formation passerelle VTC vers Taxi ou Taxi vers VTC. 14h, 665€ tout compris. Ajoutez une mention complémentaire à votre carte pro.",
+    description: "Formation passerelle vers VTC, Taxi ou VMDTR : 7 h vers VTC ou VMDTR, 14 h vers Taxi. 665 € tout compris. Obtenez une seconde carte professionnelle.",
     h1: "Passerelle VTC ↔ Taxi — Élargissez vos compétences",
     hasSchema: ["Course", "BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vtc", "/contact"],
