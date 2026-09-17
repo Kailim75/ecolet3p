@@ -13,6 +13,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
+import tarifs from "@/data/tarifs.json";
 import accueilReception from "@/assets/center/accueil-reception.jpg";
 import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
 
@@ -20,30 +21,30 @@ const formations = [
   {
     title: "Formation TAXI Initiale",
     duration: "Journée, Soir ou E-learning",
-    price: "990€",
+    price: `${tarifs.initiale}€`,
     description: "Formation complète pour obtenir la carte professionnelle Taxi. Programme conforme à l'arrêté préfectoral, incluant la réglementation, la gestion et la sécurité routière.",
     link: "/formations/taxi",
   },
   {
     title: "Formation VTC",
     duration: "Journée, Soir ou E-learning",
-    price: "990€",
+    price: `${tarifs.initiale}€`,
     description: "Devenez chauffeur VTC professionnel. Formation intensive couvrant tous les modules de l'examen CMA, avec accompagnement à l'inscription sur les plateformes Uber et Bolt.",
     link: "/formations/vtc",
   },
   {
     title: "Formation VMDTR (Moto-taxi)",
-    duration: "14 heures",
-    price: "490€",
-    description: "Obtenez la carte professionnelle VMDTR pour exercer en tant que moto-taxi. Formation pratique et théorique sur 2 jours.",
+    duration: "Journée, Soir ou E-learning",
+    price: `${tarifs.initiale}€`,
+    description: "Préparez l'examen de la carte professionnelle VMDTR pour exercer en tant que moto-taxi. Permis A requis, frais d'examen inclus.",
     link: "/formations/vmdtr",
   },
   {
-    title: "Formation Mobilité",
-    duration: "14 heures",
-    price: "490€",
-    description: "Passerelle Taxi ↔ VTC pour les chauffeurs souhaitant diversifier leur activité. Formation rapide de 14h.",
-    link: "/formations/mobilite",
+    title: "Passerelle VTC ↔ Taxi ↔ VMDTR",
+    duration: "Frais d'examen inclus",
+    price: `${tarifs.passerelle}€`,
+    description: "Déjà titulaire d'une carte professionnelle ? Préparez l'examen d'une seconde carte pour diversifier votre activité.",
+    link: "/passerelle-vtc-taxi",
   },
 ];
 
@@ -219,7 +220,7 @@ const FormationMontrouge = () => {
                   <Phone className="w-5 h-5 mr-2" /> Nous contacter
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-bold">
+              <Button asChild variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-bold">
                 <Link to="/formations">
                   Voir les formations <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>

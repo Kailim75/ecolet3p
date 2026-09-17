@@ -116,7 +116,7 @@ const AideAdministrativeCreationEntreprise = () => {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              <SeoH1Text path="/aide-administrative-creation-entreprise" accentClassName="text-accent" />
+              <SeoH1Text path="/aide-administrative-creation-entreprise" accentClassName="text-gold" />
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">

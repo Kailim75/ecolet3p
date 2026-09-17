@@ -490,11 +490,11 @@ const FormationVille = () => {
           {DEPARTEMENT_CODES.includes(city.departmentCode) && (
             <p className="mt-6 text-center text-sm text-muted-foreground">
               Démarches préfecture pour le {city.departmentCode} ({city.department}) :{" "}
-              <Link to={`/formations/vtc/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte VTC</Link>
+              <Link to={`/formations/vtc/${city.departmentCode}`} className="font-semibold text-primary hover:underline whitespace-nowrap">carte VTC</Link>
               {" · "}
-              <Link to={`/formations/taxi/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte Taxi</Link>
+              <Link to={`/formations/taxi/${city.departmentCode}`} className="font-semibold text-primary hover:underline whitespace-nowrap">carte Taxi</Link>
               {" · "}
-              <Link to={`/formations/vmdtr/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte VMDTR</Link>
+              <Link to={`/formations/vmdtr/${city.departmentCode}`} className="font-semibold text-primary hover:underline whitespace-nowrap">carte VMDTR</Link>
             </p>
           )}
         </div>

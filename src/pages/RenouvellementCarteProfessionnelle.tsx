@@ -128,7 +128,7 @@ const RenouvellementCarteProfessionnelle = () => {
               transition={{ delay: 0.1 }}
               className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4"
             >
-              <SeoH1Text path="/renouvellement-carte-professionnelle" accentClassName="text-accent" />
+              <SeoH1Text path="/renouvellement-carte-professionnelle" accentClassName="text-gold" />
             </motion.h1>
 
             <motion.p

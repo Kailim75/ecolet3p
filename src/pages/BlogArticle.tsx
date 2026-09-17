@@ -66,7 +66,7 @@ const BlogArticle = () => {
     "@id": `${articleUrl}#article`,
     "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
     "headline": article.title,
-    "description": article.metaDescription,
+    "description": getPageSeo(`/blog/${article.slug}`)?.description ?? article.metaDescription,
     "image": {
       "@type": "ImageObject",
       "url": typeof article.image === 'string' && article.image.startsWith('http') 

@@ -90,6 +90,30 @@ describe("source unique SEO (src/data/seoPages.json)", () => {
     expect(chemins.filter((p) => !pages[p])).toEqual([]);
   });
 
+  it("aucun chemin SEO n'est déclaré par deux pages", () => {
+    // Défaut trouvé en production le 17/09/2026 : /formations/renouvellement passait le
+    // pageUrl de /renouvellement-carte-professionnelle et en prenait title, description et canonique.
+    const vus = new Map<string, string>();
+    const doublons: string[] = [];
+    for (const f of readdirSync("src/pages")) {
+      const source = readFileSync(`src/pages/${f}`, "utf-8");
+      const chemins = new Set([...source.matchAll(/pageUrl="([^"]+)"/g)].map((m) => m[1]));
+      for (const chemin of chemins) {
+        if (vus.has(chemin)) doublons.push(`${chemin} : ${vus.get(chemin)} et ${f}`);
+        else vus.set(chemin, f);
+      }
+    }
+    expect(doublons).toEqual([]);
+  });
+
+  it("chaque URL du sitemap a exactement une date lastmod", () => {
+    const sitemap = readFileSync("public/sitemap.xml", "utf-8");
+    const blocs = sitemap.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+    const fautifs = blocs.filter((b) => (b.match(/<lastmod>/g) ?? []).length !== 1).map((b) => b.match(/<loc>([^<]+)/)?.[1]);
+    expect(blocs.length).toBe(routes.length);
+    expect(fautifs).toEqual([]);
+  });
+
   it("le sitemap liste exactement les pages prérendues", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf-8");
     const locs = [...sitemap.matchAll(/<loc>https:\/\/ecolet3p\.fr([^<]*)<\/loc>/g)].map((m) => m[1] || "/");

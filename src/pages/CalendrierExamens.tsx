@@ -54,7 +54,7 @@ const CalendrierExamens = () => {
                 <Clock className="w-5 h-5 flex-shrink-0" style={{ color: "#D35400" }} />
                 <div>
                   <p className="text-sm font-semibold" style={{ color: "#1A1A1A" }}>
-                    Prochaine clôture : session de {nextSession.session}
+                    Prochaine clôture : session {/^[aeiouyàâéèêîô]/i.test(nextSession.session) ? "d'" : "de "}{nextSession.session.toLowerCase()}
                   </p>
                   <p className="text-xs" style={{ color: "#666" }}>
                     Date limite d'inscription : {nextSession.inscriptionDeadline}
@@ -70,11 +70,11 @@ const CalendrierExamens = () => {
       <section className="py-12 md:py-16">
         <div className="container-custom">
           <Tabs defaultValue="admissibilite" className="w-full">
-            <TabsList className="grid w-full max-w-lg grid-cols-2 mb-8">
-              <TabsTrigger value="admissibilite" className="text-sm font-semibold">
+            <TabsList className="grid w-full max-w-lg grid-cols-2 mb-8 h-auto">
+              <TabsTrigger value="admissibilite" className="text-xs sm:text-sm font-semibold whitespace-normal h-auto py-2">
                 📝 Admissibilité (théorique)
               </TabsTrigger>
-              <TabsTrigger value="admission" className="text-sm font-semibold">
+              <TabsTrigger value="admission" className="text-xs sm:text-sm font-semibold whitespace-normal h-auto py-2">
                 🚗 Admission (pratique)
               </TabsTrigger>
             </TabsList>

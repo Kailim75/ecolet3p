@@ -104,7 +104,7 @@ const AuditRentabilite = () => {
               <FileSearch className="w-4 h-4" /> Audit stratégique gratuit
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              <SeoH1Text path="/audit-rentabilite" accentClassName="text-accent" />
+              <SeoH1Text path="/audit-rentabilite" accentClassName="text-gold" />
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
               Évaluez votre potentiel de revenus en 30 secondes. Pré-audit instantané — puis débloquez votre <strong className="text-white">rapport stratégique 12 mois</strong> personnalisé.

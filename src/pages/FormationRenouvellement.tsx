@@ -65,8 +65,8 @@ const formations = [
     color: "#1B4332",
     bgColor: "rgba(27,67,50,0.08)",
     price: 250,
-    duration: "7h",
-    format: "1 jour",
+    duration: "14h",
+    format: "2 jours",
     path: "/formations/continue-vmdtr",
     badge: "Formation Continue VMDTR",
     highlights: [
@@ -82,7 +82,7 @@ const formations = [
 ];
 
 const comparisonRows = [
-  { label: "Durée", vtc: "14h (2 jours)", taxi: "14h (2 jours)", vmdtr: "7h (1 jour)" },
+  { label: "Durée", vtc: "14h (2 jours)", taxi: "14h (2 jours)", vmdtr: "14h (2 jours)" },
   { label: "Prix TTC", vtc: "170€", taxi: "250€", vmdtr: "250€" },
   { label: "Fréquence obligatoire", vtc: "Tous les 5 ans", taxi: "Tous les 5 ans", vmdtr: "Tous les 5 ans" },
   { label: "Attestation", vtc: "Le jour même", taxi: "Le jour même", vmdtr: "Le jour même" },
@@ -97,7 +97,7 @@ const faqs = [
   },
   {
     question: "Quelle est la différence entre formation initiale et formation continue ?",
-    answer: "La formation initiale est celle que vous suivez pour obtenir votre première carte professionnelle (à partir de 990€, plusieurs semaines). La formation continue est un stage de remise à niveau (7h à 14h selon le métier) obligatoire tous les 5 ans pour renouveler votre carte. Les deux sont distinctes et non interchangeables.",
+    answer: "La formation initiale est celle que vous suivez pour obtenir votre première carte professionnelle (à partir de 990€, plusieurs semaines). La formation continue est un stage de remise à niveau de 14h obligatoire tous les 5 ans pour renouveler votre carte. Les deux sont distinctes et non interchangeables.",
   },
   {
     question: "Que se passe-t-il si je ne fais pas ma formation continue à temps ?",
@@ -169,7 +169,7 @@ const FormationRenouvellement = () => {
   return (
     <Layout>
       <DynamicSEOHead
-        pageUrl="/renouvellement-carte-professionnelle"
+        pageUrl="/formations/renouvellement"
         defaultTitle="Renouvellement Carte Pro VTC Taxi VMDTR | T3P"
         defaultDescription="Renouvelez votre carte pro VTC, Taxi ou VMDTR à Montrouge (92). Formation continue agréée préfecture. Attestation le jour même. Dès 170€."
         ogImage="https://ecolet3p.fr/og-image.jpg"
@@ -208,7 +208,7 @@ const FormationRenouvellement = () => {
               <RefreshCw className="w-4 h-4" /> Formation continue obligatoire
             </span>
             <h1 className="text-[28px] md:text-[40px] lg:text-[52px] font-bold text-white leading-tight mb-5">
-              <SeoH1Text path="/formations/renouvellement" accentClassName="text-accent" />
+              <SeoH1Text path="/formations/renouvellement" accentClassName="text-gold" />
             </h1>
             <p className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">
               Formation continue obligatoire tous les 5 ans. Centre agréé préfecture des Hauts-de-Seine.
@@ -366,7 +366,7 @@ const FormationRenouvellement = () => {
             {[
               { step: "01", title: "Vérifiez la date", desc: "Consultez la date d'expiration de votre carte professionnelle. Planifiez la formation 3 à 6 mois avant." },
               { step: "02", title: "Choisissez votre formation", desc: "Sélectionnez la formation continue adaptée à votre carte (VTC, Taxi ou VMDTR) et inscrivez-vous." },
-              { step: "03", title: "Suivez le stage", desc: "Participez à votre stage de 7h à 14h dans notre centre de Montrouge. Attestation remise le jour même." },
+              { step: "03", title: "Suivez le stage", desc: "Participez à votre stage de 14h dans notre centre de Montrouge. Attestation remise le jour même." },
               { step: "04", title: "Déposez votre dossier", desc: "Déposez votre dossier complet à la préfecture. Délai de traitement : 2 à 4 semaines environ." },
             ].map(({ step, title, desc }) => (
               <div key={step} className="card-t3p text-center">

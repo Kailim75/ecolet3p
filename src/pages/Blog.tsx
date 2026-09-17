@@ -146,7 +146,7 @@ const Blog = () => {
             <BookOpen className="w-4 h-4" />
             Blog & Ressources
           </span>
-          <h1 className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4 animate-fade-in">
+          <h1 className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide leading-tight mb-4 animate-fade-in">
             <SeoH1Text path="/blog" accentClassName="text-gold" />
           </h1>
           <p className="text-cream/70 max-w-xl mx-auto text-lg animate-fade-in">

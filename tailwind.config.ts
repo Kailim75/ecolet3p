@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        cta: {
+          DEFAULT: "hsl(var(--cta) / <alpha-value>)",
+          hover: "hsl(var(--cta-hover) / <alpha-value>)",
+          foreground: "hsl(var(--cta-foreground))",
+        },
         // Brand colors
         forest: {
           DEFAULT: "#1B5E20",

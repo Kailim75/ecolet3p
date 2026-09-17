@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
+import { getPageSeo } from "@/lib/seoPages";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
   Home, ChevronRight, GraduationCap, CalendarDays, Users,
@@ -165,7 +166,7 @@ const FormationPageTemplate = ({
     "@context": "https://schema.org",
     "@type": "Course",
     "name": dynamicH1,
-    "description": description,
+    "description": getPageSeo(pageUrl)?.description ?? description,
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
@@ -423,6 +424,7 @@ const FormationPageTemplate = ({
           {/* Titre formulé comme les recherches « prix formation taxi » (Search Console, 09/2026) */}
           <h2 className="section-title text-center mb-3">Prix de la {badge.toLowerCase()} : {soireeFormation?.price || price} € tout compris</h2>
           <p className="text-center text-muted-foreground mb-8">3 formats au choix, un seul tarif, frais d'examen inclus.</p>
+          <p className="md:hidden text-xs text-muted-foreground text-right mb-2">Faites glisser le tableau pour voir les 3 formats →</p>
           <div className="overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm md:text-base">
               <thead>

@@ -416,7 +416,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
       {/* CTA final */}
       <section className="py-12 md:py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary-foreground">
             Prêt à devenir chauffeur {labels.short} {departement.dans} ?
           </h2>
           <p className="mb-6 text-primary-foreground/90">
