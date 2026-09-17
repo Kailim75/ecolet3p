@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "Puis-je financer via mon employeur ou un OPCO ?",
-    answer: "Oui, nous établissons des conventions de formation. Contactez-nous pour un devis adapté.",
+    answer: "Nous ne proposons pas de convention de financement à ce jour. Le règlement se fait en direct auprès du centre, avec le paiement en 4× sans frais via Alma (247,50€/mois pour 990€).",
     hasAlmaButton: false,
   },
 ];

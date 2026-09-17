@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import tarifs from "@/data/tarifs.json";
 import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -26,7 +27,7 @@ const services = [
     icon: ArrowLeftRight,
     step: "02",
     title: "Passerelle VTC ↔ Taxi",
-    desc: "Obtenez la double carte en seulement 14 heures de formation.",
+    desc: `Passerelle : ${tarifs.dureePasserelleHeures} h vers VTC ou VMDTR, ${tarifs.dureePasserelleTaxiHeures} h vers Taxi. Préparez votre seconde carte professionnelle.`,
     link: "/passerelle-vtc-taxi",
   },
   {

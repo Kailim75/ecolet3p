@@ -608,7 +608,7 @@ const Contact = () => {
 
                       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div className="text-sm text-muted-foreground">
-                          <p className="font-medium text-foreground">Réponse garantie sous 24h</p>
+                          <p className="font-medium text-foreground">Réponse sous 24h</p>
                           <p>Aucun spam, aucun engagement.</p>
                         </div>
                         <Button

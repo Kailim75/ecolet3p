@@ -273,9 +273,8 @@ const GuideFormationPDF = () => {
                     </ul>
                   </div>
                   <div className="flex flex-col justify-center items-center bg-[#1B4D3E]/5 rounded-xl p-5">
-                    <p className="text-[10px] uppercase tracking-wider text-[#6B6B6B] font-bold mb-1">Revenu net estimé / jour</p>
+                    <p className="text-[10px] uppercase tracking-wider text-[#6B6B6B] font-bold mb-1">Recette journalière estimée, hors commission de plateforme et cotisations sociales</p>
                     <p className="text-2xl font-black text-[#1B4D3E]">~ 170 €</p>
-                    <p className="text-[10px] text-[#6B6B6B] mt-1">soit ~ 3 700 € / mois</p>
                   </div>
                 </div>
                 <div className="mt-4 bg-[#D4A853]/10 border border-[#D4A853]/20 rounded-lg p-3 flex items-start gap-2">

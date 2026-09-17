@@ -111,7 +111,7 @@ const FormationsOverviewSection = () => {
         >
           {formations.map((f) => {
             const Icon = f.icon;
-            const monthly = f.price >= 150 ? (f.price / 4).toFixed(2) : null;
+            const monthly = f.price >= 150 ? (f.price / 4).toFixed(2).replace(".", ",") : null;
             return (
               <motion.div
                 key={f.id}

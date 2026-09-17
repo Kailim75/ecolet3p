@@ -21,15 +21,16 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
+import tarifs from "@/data/tarifs.json";
 
 // Context is in QuoteModalContext.tsx — import useQuoteModal/QuoteModalProvider from there
 
 // ── Data ──────────────────────────────────────────────
 const formations = [
-  { value: "taxi", label: "TAXI", desc: "Initiale · 182h", icon: CarTaxiFront, color: "from-amber-500/15 to-amber-600/5" },
-  { value: "vtc", label: "VTC", desc: "Initiale · 182h", icon: Car, color: "from-emerald-500/15 to-emerald-600/5" },
+  { value: "taxi", label: "TAXI", desc: `Initiale · ${tarifs.dureeInitialeHeures}h`, icon: CarTaxiFront, color: "from-amber-500/15 to-amber-600/5" },
+  { value: "vtc", label: "VTC", desc: `Initiale · ${tarifs.dureeInitialeHeures}h`, icon: Car, color: "from-emerald-500/15 to-emerald-600/5" },
   { value: "vmdtr", label: "VMDTR", desc: "Moto-Taxi", icon: Bike, color: "from-blue-500/15 to-blue-600/5" },
-  { value: "mobilite", label: "Mobilité", desc: "35h", icon: BookOpen, color: "from-violet-500/15 to-violet-600/5" },
+  { value: "mobilite", label: "Passerelle", desc: `${tarifs.dureePasserelleHeures}h ou ${tarifs.dureePasserelleTaxiHeures}h`, icon: BookOpen, color: "from-violet-500/15 to-violet-600/5" },
   { value: "continue", label: "Continue", desc: "14h · Renouvellement", icon: RefreshCw, color: "from-cyan-500/15 to-cyan-600/5" },
   { value: "recup-points", label: "Points", desc: "Stage agréé", icon: Shield, color: "from-rose-500/15 to-rose-600/5" },
 ];

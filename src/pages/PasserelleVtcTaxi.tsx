@@ -23,8 +23,8 @@ const passerelleDirections = [
 
 const whyChooseUs = [
   { icon: Shield, title: "Centre agréé Préfecture 92", desc: "Agrément n° 23/007 — formation reconnue par les autorités compétentes." },
-  { icon: Award, title: "94% de réussite à l'examen", desc: "Un taux parmi les plus élevés d'Île-de-France, grâce à une préparation ciblée." },
-  { icon: Euro, title: "665€ tout compris, sans surprise", desc: "Frais d'examen de 165€ inclus. Paiement en 4× 167€ sans frais via Alma." },
+  { icon: Award, title: "94% de réussite à l'examen", desc: "Grâce à une préparation ciblée sur les 2 modules spécifiques de la profession visée." },
+  { icon: Euro, title: "665€ tout compris, sans surprise", desc: "Frais d'examen de 165€ inclus. Paiement en 4× 166,25€ sans frais via Alma." },
   { icon: Zap, title: "Formation accélérée", desc: "Obtenez votre seconde carte professionnelle rapidement avec une préparation intensive." },
 ];
 
@@ -32,7 +32,7 @@ const results = [
   { value: "+2 000", label: "chauffeurs déjà formés depuis 2014" },
   { value: "94%", label: "de réussite dès la 1re présentation" },
   { value: "5.0/5", label: "sur 359 avis Google" },
-  { value: "100%", label: "accompagnement jusqu'à l'obtention de la carte" },
+  { value: `${tarifs.dureePasserelleHeures} h`, label: `de formation vers VTC ou VMDTR (${tarifs.dureePasserelleTaxiHeures} h vers Taxi)` },
 ];
 
 const programSteps = [
@@ -44,11 +44,12 @@ const programSteps = [
 
 const faqs = [
   { question: "Quelle est la différence entre passerelle et formation initiale ?", answer: "La passerelle est réservée aux titulaires d'un résultat d'examen T3P de moins de 3 ans. Elle permet de passer d'une profession à une autre (VTC, Taxi ou VMDTR) à 665€ tout compris, contre 990€ pour une formation initiale complète. Vous ne passez que les 2 modules spécifiques à la nouvelle profession." },
-  { question: "Que comprend le tarif de 665€ ?", answer: "Le tarif inclut la préparation aux 2 modules spécifiques de la profession visée, 2 heures de conduite pour la présentation à l'examen pratique, les frais d'examen de 165€ et la mise à disposition du véhicule le jour de l'examen. Paiement en 4× 167€ sans frais via Alma." },
+  { question: "Combien de temps dure la passerelle ?", answer: "La passerelle vers VTC ou vers VMDTR dure 7 heures ; la passerelle vers Taxi dure 14 heures, car elle ajoute les modules propres au taxi. Le tarif est le même dans les deux cas : 665€ tout compris, frais d'examen inclus." },
+  { question: "Que comprend le tarif de 665€ ?", answer: "Le tarif inclut la préparation aux 2 modules spécifiques de la profession visée, 2 heures de conduite pour la présentation à l'examen pratique, les frais d'examen de 165€ et la mise à disposition du véhicule le jour de l'examen. Paiement en 4× 166,25€ sans frais via Alma." },
   { question: "Quelles passerelles sont possibles ?", answer: "Toutes les directions sont possibles : Taxi vers VTC, VTC vers Taxi, VTC vers VMDTR, Taxi vers VMDTR, VMDTR vers VTC, VMDTR vers Taxi. La seule condition est d'avoir obtenu vos résultats d'examen T3P depuis moins de 3 ans." },
   { question: "Quels documents dois-je fournir ?", answer: "Vos résultats d'examen T3P datant de moins de 3 ans, une pièce d'identité en cours de validité, un justificatif de domicile de moins de 3 mois et une photo d'identité. Notre équipe vous accompagne pour le reste des démarches." },
   { question: "Combien de temps faut-il pour obtenir la seconde carte ?", answer: "La formation est accélérée. Après l'examen, les délais dépendent de la préfecture (généralement 2 à 4 semaines). Nous vous accompagnons dans toutes les démarches administratives jusqu'à l'obtention de votre carte." },
-  { question: "La passerelle permet-elle vraiment de doubler ses revenus ?", answer: "Oui, de nombreux chauffeurs constatent une augmentation de 50 à 80% de leur chiffre d'affaires après l'obtention d'une double carte. La diversification permet de capter plus de courses, de réduire les temps morts et de ne plus dépendre d'une seule plateforme." },
+  { question: "Que change concrètement la double carte pour mon activité ?", answer: "La double carte permet de basculer d'une activité à l'autre selon la demande, de capter des courses supplémentaires et de réduire les temps morts, sans dépendre d'une seule plateforme. Les gains dépendent de votre activité, de vos horaires et de votre secteur." },
   { question: "Que se passe-t-il si mes résultats T3P datent de plus de 3 ans ?", answer: "Si vos résultats d'examen T3P datent de plus de 3 ans, la passerelle n'est plus accessible. Vous devrez suivre une formation initiale complète à 990€ tout compris. Nous vous recommandons d'agir rapidement si vos résultats approchent de la limite de 3 ans." },
   { question: "Comment se passe l'examen passerelle à la CMA ?", answer: "L'examen passerelle se déroule à la Chambre des Métiers et de l'Artisanat (CMA). Vous passez uniquement les 2 épreuves spécifiques à la profession visée. L'épreuve de conduite se fait avec le véhicule fourni par ECOLE T3P. Les résultats sont communiqués sous 2 à 3 semaines." },
 ];
@@ -291,12 +292,10 @@ const PasserelleVtcTaxi = () => {
             name: "Karim M.", initials: "KM", formation: "Passerelle VTC → Taxi",
             before: [
               { label: "Activité", value: "Chauffeur VTC uniquement" },
-              { label: "Revenus", value: "2 200€/mois" },
               { label: "Situation", value: "Dépendant des plateformes" },
             ],
             after: [
               { label: "Activité", value: "Double carte VTC + Taxi" },
-              { label: "Revenus", value: "3 800€/mois" },
               { label: "Situation", value: "Diversification totale des revenus" },
             ],
             quote: "Avec les deux cartes, je choisis mes courses et je ne dépends plus d'une seule plateforme. Mon chiffre d'affaires a bondi.",
@@ -305,26 +304,22 @@ const PasserelleVtcTaxi = () => {
             name: "Sophie L.", initials: "SL", formation: "Passerelle Taxi → VTC",
             before: [
               { label: "Activité", value: "Taxi en zone calme" },
-              { label: "Revenus", value: "2 000€/mois" },
               { label: "Situation", value: "Peu de courses le soir" },
             ],
             after: [
               { label: "Activité", value: "Taxi + VTC le soir" },
-              { label: "Revenus", value: "3 200€/mois" },
               { label: "Situation", value: "Activité continue jour et soir" },
             ],
-            quote: "La passerelle m'a permis de combler les creux. Le soir, je fais du VTC et mes revenus ont augmenté de 60%.",
+            quote: "La passerelle m'a permis de combler les creux. Le soir, je fais du VTC.",
           },
           {
             name: "Youssef B.", initials: "YB", formation: "Passerelle VTC → VMDTR",
             before: [
               { label: "Activité", value: "Chauffeur VTC" },
-              { label: "Revenus", value: "2 400€/mois" },
               { label: "Situation", value: "Concurrence forte sur les plateformes" },
             ],
             after: [
               { label: "Activité", value: "VTC + Moto-taxi VMDTR" },
-              { label: "Revenus", value: "3 600€/mois" },
               { label: "Situation", value: "Niche premium moto-taxi en semaine" },
             ],
             quote: "Le moto-taxi complète parfaitement mon activité VTC. Les courses urgentes en semaine sont très bien payées.",
@@ -411,9 +406,8 @@ const PasserelleVtcTaxi = () => {
                 selon la demande, diversification des sources de revenus et indépendance vis-à-vis des plateformes.
               </p>
               <p className="text-muted-foreground">
-                Nos anciens stagiaires constatent en moyenne une augmentation de 50 à 80% de leur chiffre d'affaires 
-                dans les 6 mois suivant l'obtention de leur seconde carte. La passerelle à 665€ est un investissement 
-                qui se rentabilise généralement en moins d'un mois d'activité complémentaire.
+                La double carte permet de diversifier les sources de courses et de réduire les temps morts.
+                Le gain réel dépend de votre activité, de vos horaires et de votre secteur.
               </p>
             </div>
 
@@ -524,7 +518,7 @@ const PasserelleVtcTaxi = () => {
               Formation passerelle à 665€ tout compris — accompagnement jusqu'à l'obtention de votre carte.
             </p>
             <p className="text-white font-semibold mb-8">
-              Paiement en 4× 167€ sans frais via Alma
+              Paiement en 4× 166,25€ sans frais via Alma
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button

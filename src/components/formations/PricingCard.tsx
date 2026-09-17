@@ -30,7 +30,7 @@ const PricingCard = ({ title, price, duration, features, examFees, onRegister }:
           <span className="text-muted-foreground text-sm">TTC</span>
         </div>
         <p className="text-sm text-muted-foreground mt-1">
-          Soit <span className="font-semibold text-foreground">{monthly.toFixed(2)}€/mois</span> en 4× sans frais
+          Soit <span className="font-semibold text-foreground">{monthly.toFixed(2).replace(".", ",")}€/mois</span> en 4× sans frais
         </p>
         <div className="mt-3 px-3 py-2 bg-primary/10 border border-primary/20 rounded-lg">
           <p className="text-sm font-bold text-primary text-center">

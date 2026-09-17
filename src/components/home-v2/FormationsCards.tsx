@@ -46,7 +46,7 @@ const formations = [
       examLabel,
       "Formation moto-taxi complète",
       "Accompagnement administratif",
-      "Format : Soir ou E-learning",
+      "3 formats : Jour, Soir, E-learning",
     ],
     cta: "Je deviens moto-taxi",
     link: "/formations/vmdtr",

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
+import tarifs from "@/data/tarifs.json";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
   Moon, Calendar, Loader2, MapPin
@@ -210,7 +211,7 @@ const Formations = () => {
                     { name: "Taxi Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
                     { name: "VTC Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
                     { name: "VMDTR Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
-                    { name: "Passerelle T3P", format: "14h · 2 jours", price: "665€", alma: "166,25€", highlight: false },
+                    { name: "Passerelle T3P", format: `${tarifs.dureePasserelleHeures}h (VTC/VMDTR) · ${tarifs.dureePasserelleTaxiHeures}h (Taxi)`, price: "665€", alma: "166,25€", highlight: false },
                     { name: "Récup. de points", format: "14h · 2 jours", price: "250€", alma: "62,50€", highlight: false },
                   ].map((row, i) => (
                     <tr key={i} className={row.highlight ? "bg-gold/5" : "bg-card"}>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
+import tarifs from "@/data/tarifs.json";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 import {
@@ -104,7 +105,7 @@ const CGV = () => {
               <ul className="list-disc pl-6 text-muted-foreground space-y-1">
                 <li>Formations initiales Taxi, VTC et VMDTR (moto-taxi) — préparation à l'examen T3P</li>
                 <li>Formations continues obligatoires (renouvellement de carte professionnelle)</li>
-                <li>Passerelle Taxi ↔ VTC (14 heures)</li>
+                <li>Passerelle T3P ({tarifs.dureePasserelleHeures} heures vers VTC ou VMDTR, {tarifs.dureePasserelleTaxiHeures} heures vers Taxi)</li>
                 <li>Stage de récupération de points du permis de conduire</li>
                 <li>Formation accessibilité PMR</li>
                 <li>Accompagnement à la création et à la gestion d'activité</li>
@@ -141,7 +142,7 @@ const CGV = () => {
               <ul className="list-disc pl-6 text-muted-foreground space-y-1">
                 <li>Paiement intégral par carte bancaire, espèces (dans la limite légale) ou virement</li>
                 <li>Paiement en 4× sans frais via notre partenaire Alma (sous conditions d'éligibilité)</li>
-                <li>Prise en charge OPCO / France Travail / Région : sur justificatif, une fois la convention de financement signée (le CPF n'est pas accepté)</li>
+                <li>Le CPF n'est pas accepté. Les prises en charge par un OPCO, France Travail ou une Région ne sont pas proposées à ce jour : la déclaration d'activité (DREETS) et la certification Qualiopi sont en cours (voir mentions légales).</li>
               </ul>
               <p className="text-muted-foreground mt-3">
                 Un acompte de 30 % est requis à l'inscription. Le solde est dû au plus tard le premier jour de la formation. Tout retard de paiement entraîne, de plein droit et sans mise en demeure préalable, l'application de pénalités au taux de 3 fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40 € (articles L.441-10 et D.441-5 du Code de commerce).

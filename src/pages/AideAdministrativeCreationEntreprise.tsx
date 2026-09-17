@@ -204,9 +204,9 @@ const AideAdministrativeCreationEntreprise = () => {
       <section className="section-padding bg-primary/5">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="section-title">Un track record irréprochable</h2>
+            <h2 className="section-title">Notre accompagnement administratif</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              10 ans d'accompagnement administratif sans un seul dossier refusé.
+              Centre agréé Préfecture n° 23/007, actif depuis 2014 : nous montons votre dossier et le déposons pour vous.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">

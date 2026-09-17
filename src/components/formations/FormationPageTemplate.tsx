@@ -29,7 +29,8 @@ import DepartementLinksBlock from "@/components/formations/DepartementLinksBlock
 
 interface ProgramModule {
   title: string;
-  duration: string;
+  /** Absente tant que la répartition horaire réelle des modules n'est pas fournie */
+  duration?: string;
   topics: string[];
 }
 
@@ -82,6 +83,8 @@ interface FormationPageProps {
   faqs: FAQ[];
   relatedLinks: RelatedLink[];
   seoContent: { title: string; text: string }[];
+  /** Durée totale affichée au-dessus des modules, ex. « 35 heures de formation » */
+  programTotal?: string;
   includes?: string[];
   crossSellLinks?: { title: string; desc: string; path: string }[];
   blogLinks?: { title: string; desc: string; path: string }[];
@@ -99,7 +102,7 @@ const FormationPageTemplate = ({
   heroImage, heroImageWebp, badge, badgeIcon: BadgeIcon, heading, subheading,
   duration, price, thirdTag,
   category, profession, programModules, prerequisites,
-  testimonials, faqs, relatedLinks, seoContent,
+  testimonials, faqs, relatedLinks, seoContent, programTotal,
   includes, crossSellLinks, blogLinks, ctaTitle,
   premiumPrice, premiumLabel, premiumFeatures, essentielFeatures,
 }: FormationPageProps) => {
@@ -152,7 +155,7 @@ const FormationPageTemplate = ({
     taxi: [
       { label: "Formation VTC", path: "/formations/vtc", desc: "Uber, Bolt, Heetch — même tarif 990€" },
       { label: "Formation VMDTR", path: "/formations/vmdtr", desc: "Moto-taxi — diversifiez votre activité" },
-      { label: "Passerelle Taxi → VTC", path: "/passerelle-vtc-taxi", desc: "Double carte en 14h — 665€" },
+      { label: "Passerelle Taxi → VTC", path: "/passerelle-vtc-taxi", desc: "Double carte en 7h — 665€" },
     ],
     vmdtr: [
       { label: "Formation VTC", path: "/formations/vtc", desc: "Complémentaire avec le VMDTR" },
@@ -474,14 +477,16 @@ const FormationPageTemplate = ({
         <div className="container-custom">
           <div className="text-center mb-10">
             <h2 className="section-title mb-3">Programme de la formation</h2>
-            <p className="section-subtitle mx-auto">Tous les modules pour réussir votre examen</p>
+            <p className="section-subtitle mx-auto">{programTotal ? `${programTotal} — tous les modules pour réussir votre examen` : "Tous les modules pour réussir votre examen"}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {programModules.map((mod, i) => (
               <div key={i} className="card-t3p">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-base font-semibold text-primary">{mod.title}</h3>
-                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-secondary text-primary">{mod.duration}</span>
+                  {mod.duration && (
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-secondary text-primary">{mod.duration}</span>
+                  )}
                 </div>
                 <ul className="space-y-2">
                   {mod.topics.map((topic, j) => (
