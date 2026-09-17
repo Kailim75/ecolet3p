@@ -277,7 +277,7 @@ const LocationVehiculeExamen = () => {
                       <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
                         <item.icon className="w-6 h-6 text-gold" />
                       </div>
-                      <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Étape {item.step}</p>
+                      <p className="text-xs font-semibold text-gold-text uppercase tracking-wider mb-2">Étape {item.step}</p>
                       <h3 className="font-bold text-forest mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>
                     </CardContent>

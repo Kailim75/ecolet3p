@@ -96,7 +96,7 @@ const FormuleSoiree = () => {
   ];
 
   return (
-    <Layout hideMobileStickyBar>
+    <Layout>
       <DynamicSEOHead
         pageUrl="/formations/formule-soiree"
         defaultTitle="Formation Soirée Taxi VTC 990€ | ECOLE T3P"
@@ -126,7 +126,7 @@ const FormuleSoiree = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild size="lg" className="btn-cta-orange text-base px-8">
-                <PrefetchLink to="/formations#inscription">
+                <PrefetchLink to="/formations#initiales">
                   Réserver ma place <ArrowRight className="w-5 h-5 ml-2" />
                 </PrefetchLink>
               </Button>
@@ -308,7 +308,7 @@ const FormuleSoiree = () => {
             ].map((review) => (
               <div key={review.name} className="bg-card rounded-xl p-4 border border-border/50 flex gap-3">
                 <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                  <span className="text-sm font-bold text-gold">{review.name[0]}</span>
+                  <span className="text-sm font-bold text-gold-text">{review.name[0]}</span>
                 </div>
                 <div>
                   <div className="flex items-center gap-1 mb-1">
@@ -339,22 +339,6 @@ const FormuleSoiree = () => {
           </Accordion>
         </div>
       </section>
-
-      {/* BLOC 9 — Sticky mobile bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-forest border-t border-gold/20 py-2.5 px-4 md:hidden">
-        <div className="flex items-center justify-between gap-3">
-          <span className="text-lg font-black text-white">990€</span>
-          <div className="flex items-center gap-1.5">
-            <AlmaLogo className="h-3" />
-            <span className="text-xs text-cream/80">ou 4× 247,50€</span>
-          </div>
-          <Button asChild size="sm" className="btn-cta-orange text-xs px-4">
-            <PrefetchLink to="/formations#inscription">
-              Réserver <ArrowRight className="w-3 h-3 ml-1" />
-            </PrefetchLink>
-          </Button>
-        </div>
-      </div>
 
       <AlmaSimulationModal open={showAlmaSimulation} onClose={() => setShowAlmaSimulation(false)} />
     </Layout>

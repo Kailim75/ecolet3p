@@ -130,7 +130,7 @@ export default function AuditRentabiliteChauffeur() {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <div className="bg-muted py-3 border-b border-border mt-16">
+      <div className="bg-muted py-3 border-b border-border mt-[72px] lg:mt-20">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-primary transition-colors flex items-center gap-1">

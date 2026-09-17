@@ -38,7 +38,6 @@ const sections = [
   { id: "recup-points", label: "Récup. Points" },
   { id: "complementaires", label: "Complémentaires" },
   { id: "packs", label: "Nos Packs" },
-  { id: "parrainage", label: "Parrainage" },
 ];
 
 const staggerContainer = {
@@ -217,7 +216,7 @@ const Formations = () => {
                     <tr key={i} className={row.highlight ? "bg-gold/5" : "bg-card"}>
                       <td className="px-4 md:px-6 py-3.5">
                         <span className="font-bold text-sm text-foreground">{row.name}</span>
-                        {row.highlight && <span className="ml-2 text-[10px] font-bold text-gold-text bg-gold/15 px-1.5 py-0.5 rounded-full align-middle whitespace-nowrap">TOUT COMPRIS</span>}
+                        {row.highlight && <span className="mt-1 block w-fit md:ml-2 md:mt-0 md:inline text-[10px] font-bold text-gold-text bg-gold/15 px-1.5 py-0.5 rounded-full align-middle whitespace-nowrap">TOUT COMPRIS</span>}
                       </td>
                       <td className="px-4 md:px-6 py-3.5 text-sm text-muted-foreground">{row.format}</td>
                       <td className="px-4 md:px-6 py-3.5 text-right">

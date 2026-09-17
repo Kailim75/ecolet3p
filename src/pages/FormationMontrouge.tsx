@@ -178,7 +178,7 @@ const FormationMontrouge = () => {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <nav className="bg-muted border-b border-border mt-16" aria-label="Breadcrumb">
+      <nav className="bg-muted border-b border-border mt-[72px] lg:mt-20" aria-label="Breadcrumb">
         <div className="container-custom py-3">
           <ol className="flex items-center gap-2 text-sm text-muted-foreground">
             <li><Link to="/" className="hover:text-primary transition-colors flex items-center gap-1"><Home className="w-4 h-4" /> Accueil</Link></li>

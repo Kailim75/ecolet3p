@@ -350,7 +350,7 @@ const About = () => {
                           <IconComp className="w-8 h-8 text-gold" />
                         </div>
                         <h3 className="text-xl font-bold text-forest mb-2">{value.title}</h3>
-                        <p className="text-xs font-semibold text-gold mb-3">{value.highlight}</p>
+                        <p className="text-xs font-semibold text-gold-text mb-3">{value.highlight}</p>
                         <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
                       </CardContent>
                     </Card>
