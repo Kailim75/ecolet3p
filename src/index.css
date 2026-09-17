@@ -123,6 +123,9 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
+    /* clip coupe le débordement sans créer de conteneur de défilement (sticky fonctionnel) ;
+       hidden reste le repli des navigateurs qui ignorent clip. */
+    overflow-x: clip;
     max-width: 100vw;
   }
 
@@ -163,13 +166,15 @@
     @apply inline-flex items-center justify-center font-bold
            px-6 py-3 rounded-lg transition-all duration-300
            text-sm min-h-[48px];
-    background-color: hsl(var(--cta));
+    /* !important : sur un <Button>, la classe utilitaire bg-primary de la variante par défaut
+       passait devant et ces boutons « orange » s'affichaient en vert depuis la refonte. */
+    background-color: hsl(var(--cta)) !important;
     color: hsl(var(--cta-foreground));
     box-shadow: 0 4px 14px hsla(var(--cta) / 0.35);
   }
 
   .btn-cta-orange:hover {
-    background-color: hsl(var(--cta-hover));
+    background-color: hsl(var(--cta-hover)) !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px hsla(var(--cta) / 0.45);
   }
@@ -185,14 +190,37 @@
     @apply inline-flex items-center justify-center font-bold
            px-6 py-3 rounded-lg transition-all duration-300
            text-sm min-h-[48px];
-    background-color: hsl(var(--cta));
+    background-color: hsl(var(--cta)) !important;
     color: hsl(var(--cta-foreground));
     box-shadow: 0 4px 14px hsla(var(--cta) / 0.35);
   }
 
   .btn-accent:hover {
-    background-color: hsl(var(--cta-hover));
+    background-color: hsl(var(--cta-hover)) !important;
     transform: translateY(-2px);
+  }
+
+  /* Pastilles d'étapes et conteneurs d'icônes (guide de formation) : supprimés à la refonte, encore utilisés */
+  .step-number {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl text-white;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(125 55% 18%) 100%);
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+  }
+
+  .icon-container {
+    @apply flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-300;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+  }
+
+  /* Défilement horizontal sans barre visible (barre de raccourcis mobile, onglets) */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 
   /* Primary Button (forest) */

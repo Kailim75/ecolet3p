@@ -41,7 +41,7 @@ const formations = [
   },
   {
     title: "Passerelle VTC ↔ Taxi ↔ VMDTR",
-    duration: "Frais d'examen inclus",
+    duration: "",
     price: `${tarifs.passerelle}€`,
     description: "Déjà titulaire d'une carte professionnelle ? Préparez l'examen d'une seconde carte pour diversifier votre activité.",
     link: "/passerelle-vtc-taxi",
@@ -377,9 +377,11 @@ const FormationMontrouge = () => {
                   <h3 className="text-base font-bold text-foreground">{f.title}</h3>
                   <span className="text-sm font-bold text-accent shrink-0">{f.price}</span>
                 </div>
-                <p className="text-xs text-muted-foreground mb-1">
-                  <Clock className="w-3 h-3 inline mr-1" />{f.duration}
-                </p>
+                {f.duration && (
+                  <p className="text-xs text-muted-foreground mb-1">
+                    <Clock className="w-3 h-3 inline mr-1" />{f.duration}
+                  </p>
+                )}
                 <p className="text-sm text-muted-foreground mb-4">{f.description}</p>
                 <Link
                   to={f.link}

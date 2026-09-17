@@ -3,6 +3,7 @@ import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { de } from "@/lib/french";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, AlertTriangle, Info, ArrowRight, FileText, Download } from "lucide-react";
@@ -54,7 +55,7 @@ const CalendrierExamens = () => {
                 <Clock className="w-5 h-5 flex-shrink-0" style={{ color: "#D35400" }} />
                 <div>
                   <p className="text-sm font-semibold" style={{ color: "#1A1A1A" }}>
-                    Prochaine clôture : session {/^[aeiouyàâéèêîô]/i.test(nextSession.session) ? "d'" : "de "}{nextSession.session.toLowerCase()}
+                    Prochaine clôture : session {de(nextSession.session)}{nextSession.session.toLowerCase()}
                   </p>
                   <p className="text-xs" style={{ color: "#666" }}>
                     Date limite d'inscription : {nextSession.inscriptionDeadline}
@@ -70,7 +71,7 @@ const CalendrierExamens = () => {
       <section className="py-12 md:py-16">
         <div className="container-custom">
           <Tabs defaultValue="admissibilite" className="w-full">
-            <TabsList className="grid w-full max-w-lg grid-cols-2 mb-8 h-auto">
+            <TabsList className="grid w-full max-w-lg grid-cols-2 mb-8 h-auto items-stretch">
               <TabsTrigger value="admissibilite" className="text-xs sm:text-sm font-semibold whitespace-normal h-auto py-2">
                 📝 Admissibilité (théorique)
               </TabsTrigger>

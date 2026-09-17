@@ -448,7 +448,7 @@ const LocationVehiculeExamen = () => {
       <section className="py-16 bg-forest text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Réserver un véhicule pour l'examen</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">Réserver un véhicule pour l'examen</h2>
             <p className="text-white/80 mb-8">
               Contactez-nous dès réception de votre convocation CMA pour réserver votre véhicule 
               et convenir d'un créneau pour la conduite préparatoire.

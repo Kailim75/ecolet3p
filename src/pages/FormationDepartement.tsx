@@ -214,7 +214,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                     <strong>Bon à savoir :</strong> {departement.prefecture.notes}
                   </p>
                 )}
-                <Button asChild variant="outline" size="sm" className="mt-4">
+                <Button asChild variant="outline" size="sm" className="mt-4 h-auto min-h-9 whitespace-normal py-2 text-left">
                   <a href={prefectureUrl} target="_blank" rel="noopener noreferrer">
                     Page officielle {labels.short} — Préfecture {departement.code}
                     <ExternalLink className="ml-2 w-3.5 h-3.5" />
@@ -245,7 +245,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   La liste officielle est publiée et mise à jour régulièrement par la
                   {departement.prefectureCourte}.
                 </p>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="outline" size="sm" className="h-auto min-h-9 whitespace-normal py-2 text-left">
                   <a
                     href={departement.medecinsAgreesUrl}
                     target="_blank"
@@ -275,7 +275,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   l'ensemble des démarches, pièces justificatives, délais et recours
                   pour l'obtention de la carte professionnelle {labels.short}.
                 </p>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="outline" size="sm" className="h-auto min-h-9 whitespace-normal py-2 text-left">
                   <a href={spLink.fiche} target="_blank" rel="noopener noreferrer">
                     {spLink.titre} — service-public.fr
                     <ExternalLink className="ml-2 w-3.5 h-3.5" />
@@ -339,7 +339,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   {departement.communesPrincipales.join(", ")}.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Button asChild className="bg-cta hover:bg-cta/90 text-cta-foreground">
+                  <Button asChild className="bg-cta hover:bg-cta/90 text-cta-foreground h-auto min-h-10 whitespace-normal py-2">
                     <Link to={`/formations/${metier}`}>
                       Découvrir la formation {labels.short}
                       <ArrowRight className="ml-2 w-4 h-4" />

@@ -10,6 +10,15 @@ type Route = { path: string; title: string; description: string; h1: string };
 const routes: Route[] = buildRoutes();
 const pages = seoPages as Record<string, { title: string; description: string; h1: string }>;
 const len = (s: string) => [...s].length;
+// Pages réellement routées (importées par App.tsx) : src/pages contient aussi d'anciennes pages
+// non branchées (FormationPMR.tsx…) qui redéclarent les mêmes canoniques sans être servies.
+const pageFiles = () => {
+  const app = readFileSync("src/App.tsx", "utf-8");
+  const routees = new Set([...app.matchAll(/["']\.\/pages\/([A-Za-z0-9]+)["']/g)].map((m) => m[1]));
+  return readdirSync("src/pages", { withFileTypes: true })
+    .filter((d) => d.isFile() && d.name.endsWith(".tsx") && routees.has(d.name.replace(/\.tsx$/, "")))
+    .map((d) => `src/pages/${d.name}`);
+};
 
 describe("source unique SEO (src/data/seoPages.json)", () => {
   it("couvre chaque ville active et chaque article du blog", () => {
@@ -81,7 +90,7 @@ describe("source unique SEO (src/data/seoPages.json)", () => {
   });
 
   it("chaque H1 branché sur la source unique pointe vers une entrée existante", () => {
-    const sources = readdirSync("src/pages").map((f) => readFileSync(`src/pages/${f}`, "utf-8")).join("\n");
+    const sources = pageFiles().map((f) => readFileSync(f, "utf-8")).join("\n");
     const chemins = [
       ...[...sources.matchAll(/<SeoH1Text path="([^"]+)"/g)].map((m) => m[1]),
       ...[...sources.matchAll(/useDynamicH1\("([^"]+)"/g)].map((m) => m[1]),
@@ -95,9 +104,12 @@ describe("source unique SEO (src/data/seoPages.json)", () => {
     // pageUrl de /renouvellement-carte-professionnelle et en prenait title, description et canonique.
     const vus = new Map<string, string>();
     const doublons: string[] = [];
-    for (const f of readdirSync("src/pages")) {
-      const source = readFileSync(`src/pages/${f}`, "utf-8");
-      const chemins = new Set([...source.matchAll(/pageUrl="([^"]+)"/g)].map((m) => m[1]));
+    for (const f of pageFiles()) {
+      const source = readFileSync(f, "utf-8");
+      // pageUrl littéral, ou canonique passée à un gabarit (FormationPageTemplate, ContinueFormationTemplate…)
+      const chemins = new Set(
+        [...source.matchAll(/(?:pageUrl|canonical|canonicalUrl)="(?:https:\/\/ecolet3p\.fr)?([^"]*)"/g)].map((m) => m[1] || "/")
+      );
       for (const chemin of chemins) {
         if (vus.has(chemin)) doublons.push(`${chemin} : ${vus.get(chemin)} et ${f}`);
         else vus.set(chemin, f);

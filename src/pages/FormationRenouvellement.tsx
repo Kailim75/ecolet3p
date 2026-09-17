@@ -41,8 +41,8 @@ const formations = [
     id: "taxi",
     label: "Renouvellement Taxi",
     icon: Car,
-    color: "#E8793A",
-    bgColor: "rgba(232,121,58,0.08)",
+    color: "#C2410C",
+    bgColor: "rgba(194,65,12,0.08)",
     price: 250,
     duration: "14h",
     format: "2 jours",
@@ -329,6 +329,7 @@ const FormationRenouvellement = () => {
             <p className="section-subtitle mx-auto">VTC vs Taxi vs VMDTR — les différences en un coup d'œil</p>
           </div>
 
+          <p className="md:hidden max-w-4xl mx-auto text-xs text-muted-foreground text-right mb-2">Faites glisser le tableau pour voir la colonne VMDTR →</p>
           <div className="max-w-4xl mx-auto overflow-x-auto rounded-xl border border-border shadow-sm">
             <table className="w-full bg-card text-sm">
               <thead>

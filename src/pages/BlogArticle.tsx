@@ -374,7 +374,7 @@ const BlogArticle = () => {
               <div className="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2" />
               <div className="relative">
-                <h3 className="text-2xl font-black mb-3 uppercase">
+                <h3 className="text-2xl font-black text-cream mb-3 uppercase">
                   Prêt à devenir chauffeur professionnel ?
                 </h3>
                 <p className="text-cream/80 mb-8 max-w-lg mx-auto">

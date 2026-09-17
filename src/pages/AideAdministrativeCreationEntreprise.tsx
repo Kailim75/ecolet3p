@@ -388,7 +388,7 @@ const AideAdministrativeCreationEntreprise = () => {
               Dossiers vérifiés avant dépôt en préfecture. 
               Toutes vos démarches lancées en 1 journée.
             </p>
-            <p className="text-accent font-semibold mb-8">
+            <p className="text-white font-semibold mb-8">
               À partir de 190€ — Paiement en 4× sans frais via Alma
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

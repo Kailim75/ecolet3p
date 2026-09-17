@@ -428,7 +428,7 @@ export default function AuditRentabiliteChauffeur() {
             <p className="text-white/80 mb-4 max-w-2xl mx-auto">
               Envoyez votre audit de rentabilité sur WhatsApp et recevez un accompagnement personnalisé sous 24h.
             </p>
-            <p className="text-accent font-semibold mb-8">
+            <p className="text-white font-semibold mb-8">
               Formation à partir de 990€ • 94% de réussite • Paiement en 4× sans frais
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

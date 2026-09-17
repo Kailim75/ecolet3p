@@ -139,7 +139,7 @@ const Formations = () => {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.92) 0%, rgba(27,58,92,0.85) 100%)' }} />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-        <motion.div className="container-custom relative z-10 py-16 md:py-20" style={{ y: heroContentY, opacity: heroOpacity }}>
+        <motion.div className="container-custom relative z-10 pt-24 pb-16 md:py-20" style={{ y: heroContentY, opacity: heroOpacity }}>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
             <div className="lg:col-span-3">
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-semibold text-white/70 mb-3 tracking-wide uppercase">

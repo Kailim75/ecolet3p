@@ -109,7 +109,7 @@ const FormuleSoiree = () => {
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
             <p className="text-gold text-sm font-bold uppercase tracking-wider mb-3">Option Soirée</p>
-            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight text-white">
               <SeoH1Text path="/formations/formule-soiree" />
             </h1>
             <div className="text-5xl md:text-7xl font-black text-white mb-4">990€</div>
@@ -131,7 +131,7 @@ const FormuleSoiree = () => {
                 </PrefetchLink>
               </Button>
               <Button variant="outline" size="lg" onClick={() => openQuoteModal("t3p")}
-                className="border-white/40 text-white hover:bg-white/10 text-base px-8">
+                className="bg-transparent border-white/40 text-white hover:bg-white/10 text-base px-8">
                 Demander un devis
               </Button>
             </div>

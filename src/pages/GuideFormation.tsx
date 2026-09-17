@@ -463,7 +463,7 @@ const GuideFormation = () => {
 
             <Card className="border-forest/10 overflow-hidden">
               <div className="bg-forest text-primary-foreground px-6 py-4">
-                <h3 className="font-bold text-base flex items-center gap-2">
+                <h3 className="font-bold text-base flex items-center gap-2 text-primary-foreground">
                   <CircleDollarSign className="h-5 w-5" />
                   Simulation indicative — Chauffeur VTC
                 </h3>
@@ -504,7 +504,7 @@ const GuideFormation = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary-foreground">
                 Vous n'êtes pas seul.
               </h2>
               <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto">
