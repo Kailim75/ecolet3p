@@ -12,6 +12,9 @@ interface PageTransitionProps {
  * Wraps route content with a subtle fade + scale-in on every navigation.
  * Re-keyed by pathname so each new page replays the entrance.
  * Respects prefers-reduced-motion (no animation in that case).
+ *
+ * Ne pas ajouter will-change: transform ici : l'élément deviendrait le bloc conteneur des
+ * éléments position:fixed (en-tête, barre d'appel mobile), qui défileraient avec la page.
  */
 const PageTransition = ({ children }: PageTransitionProps) => {
   const { pathname } = useLocation();
@@ -25,7 +28,6 @@ const PageTransition = ({ children }: PageTransitionProps) => {
       initial={{ opacity: 0, y: 8, scale: 0.995 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.45, ease }}
-      style={{ willChange: "opacity, transform" }}
     >
       {children}
     </motion.div>

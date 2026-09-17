@@ -3,6 +3,7 @@ import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { de } from "@/lib/french";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, AlertTriangle, Info, ArrowRight, FileText, Download } from "lucide-react";
@@ -31,7 +32,7 @@ const CalendrierExamens = () => {
       ></DynamicSEOHead>
 
       {/* Hero */}
-      <section className="pt-12 pb-8 md:pt-16 md:pb-12" style={{ background: "linear-gradient(135deg, #FFFAF5 0%, #F5F7FF 100%)" }}>
+      <section className="pt-[120px] pb-8 md:pt-[136px] md:pb-12 lg:pt-[144px]" style={{ background: "linear-gradient(135deg, #FFFAF5 0%, #F5F7FF 100%)" }}>
         <div className="container-custom">
           <AnimatedSection>
             <div className="flex items-center gap-2 mb-4">
@@ -54,7 +55,7 @@ const CalendrierExamens = () => {
                 <Clock className="w-5 h-5 flex-shrink-0" style={{ color: "#D35400" }} />
                 <div>
                   <p className="text-sm font-semibold" style={{ color: "#1A1A1A" }}>
-                    Prochaine clôture : session de {nextSession.session}
+                    Prochaine clôture : session {de(nextSession.session)}{nextSession.session.toLowerCase()}
                   </p>
                   <p className="text-xs" style={{ color: "#666" }}>
                     Date limite d'inscription : {nextSession.inscriptionDeadline}
@@ -70,11 +71,11 @@ const CalendrierExamens = () => {
       <section className="py-12 md:py-16">
         <div className="container-custom">
           <Tabs defaultValue="admissibilite" className="w-full">
-            <TabsList className="grid w-full max-w-lg grid-cols-2 mb-8">
-              <TabsTrigger value="admissibilite" className="text-sm font-semibold">
+            <TabsList className="grid w-full max-w-lg grid-cols-2 mb-8 h-auto items-stretch">
+              <TabsTrigger value="admissibilite" className="text-xs sm:text-sm font-semibold whitespace-normal h-auto py-2">
                 📝 Admissibilité (théorique)
               </TabsTrigger>
-              <TabsTrigger value="admission" className="text-sm font-semibold">
+              <TabsTrigger value="admission" className="text-xs sm:text-sm font-semibold whitespace-normal h-auto py-2">
                 🚗 Admission (pratique)
               </TabsTrigger>
             </TabsList>
@@ -105,14 +106,13 @@ const CalendrierExamens = () => {
                               style={{
                                 borderColor: "hsl(var(--border))",
                                 ...(isNext ? { backgroundColor: "rgba(243,156,18,0.04)" } : {}),
-                                ...(passed ? { opacity: 0.5 } : {}),
                               }}
                             >
                               <td className="px-4 py-3 font-semibold" style={{ color: "#1A1A1A" }}>
                                 {isNext && <span className="mr-1">👉</span>}
                                 {s.session}
                               </td>
-                              <td className="px-4 py-3" style={{ color: passed ? "#999" : "#D35400", fontWeight: isNext ? 600 : 400 }}>
+                              <td className="px-4 py-3" style={{ color: passed ? "#767676" : "#D35400", fontWeight: isNext ? 600 : 400 }}>
                                 {s.inscriptionDeadline}
                               </td>
                               <td className="px-4 py-3 hidden md:table-cell" style={{ color: "#555" }}>{s.convocations}</td>
@@ -170,7 +170,6 @@ const CalendrierExamens = () => {
                               className="border-b transition-colors hover:bg-muted/30"
                               style={{
                                 borderColor: "hsl(var(--border))",
-                                ...(passed ? { opacity: 0.5 } : {}),
                               }}
                             >
                               <td className="px-4 py-3 font-semibold" style={{ color: "#1A1A1A" }}>{s.session}</td>
@@ -179,7 +178,7 @@ const CalendrierExamens = () => {
                                   {s.dates}
                                 </td>
                               ))}
-                              <td className="px-4 py-3 hidden md:table-cell" style={{ color: passed ? "#999" : "#D35400" }}>{s.inscriptionDeadline}</td>
+                              <td className="px-4 py-3 hidden md:table-cell" style={{ color: passed ? "#767676" : "#D35400" }}>{s.inscriptionDeadline}</td>
                               <td className="px-3 py-3 text-center">
                                 {passed ? (
                                   <Badge variant="secondary" className="text-[10px]">Clôturée</Badge>

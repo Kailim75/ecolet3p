@@ -224,7 +224,7 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
 
           <Link
             to="/audit-rentabilite"
-            className={`${shouldAnimate ? "hero-word" : ""} inline-flex items-center gap-2 mt-4 text-accent font-semibold text-sm hover:underline transition-all`}
+            className={`${shouldAnimate ? "hero-word" : ""} inline-flex items-center gap-2 mt-4 text-gold-light font-semibold text-sm hover:underline transition-all`}
             style={shouldAnimate ? { animationDelay: "1.5s" } : undefined}
           >
             <FileSearch className="w-4 h-4" />

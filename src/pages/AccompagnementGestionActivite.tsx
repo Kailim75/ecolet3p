@@ -90,7 +90,7 @@ const AccompagnementGestionActivite = () => {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <div className="bg-muted py-3 border-b border-border mt-16">
+      <div className="bg-muted py-3 border-b border-border mt-[72px] lg:mt-20">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-primary transition-colors flex items-center gap-1">
@@ -365,7 +365,7 @@ const AccompagnementGestionActivite = () => {
               Le bon statut et la bonne gestion peuvent représenter des milliers d'euros de différence par an. 
               Investissez 390€ aujourd'hui pour maximiser vos revenus demain.
             </p>
-            <p className="text-accent font-semibold mb-8">
+            <p className="text-white font-semibold mb-8">
               Paiement en 4× 98€ sans frais via Alma
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

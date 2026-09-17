@@ -66,7 +66,7 @@ const BlogArticle = () => {
     "@id": `${articleUrl}#article`,
     "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
     "headline": article.title,
-    "description": article.metaDescription,
+    "description": getPageSeo(`/blog/${article.slug}`)?.description ?? article.metaDescription,
     "image": {
       "@type": "ImageObject",
       "url": typeof article.image === 'string' && article.image.startsWith('http') 
@@ -136,8 +136,8 @@ const BlogArticle = () => {
         />
       </div>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -189,7 +189,7 @@ const BlogArticle = () => {
             </Link>
 
             <div className="mb-6">
-              <span className="inline-flex items-center gap-1.5 bg-gold/20 backdrop-blur-sm text-gold text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30">
+              <span className="inline-flex items-center gap-1.5 bg-gold/20 backdrop-blur-sm text-cream text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30">
                 <Tag className="w-3 h-3" />
                 {article.category}
               </span>
@@ -322,7 +322,7 @@ const BlogArticle = () => {
                       <button
                         type="submit"
                         className="px-6 py-3 rounded-lg text-sm font-bold text-white shrink-0 transition-opacity hover:opacity-90"
-                        style={{ backgroundColor: "#E8793A" }}
+                        style={{ backgroundColor: "#C2410C" }}
                       >
                         Recevoir le guide →
                       </button>
@@ -374,7 +374,7 @@ const BlogArticle = () => {
               <div className="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2" />
               <div className="relative">
-                <h3 className="text-2xl font-black mb-3 uppercase">
+                <h3 className="text-2xl font-black text-cream mb-3 uppercase">
                   Prêt à devenir chauffeur professionnel ?
                 </h3>
                 <p className="text-cream/80 mb-8 max-w-lg mx-auto">

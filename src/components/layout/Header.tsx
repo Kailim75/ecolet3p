@@ -100,7 +100,19 @@ const Header = () => {
     return () => { document.body.style.overflow = ""; };
   }, [isMenuOpen]);
 
-  const isTransparent = isHomePage && !isScrolled;
+  // Sous lg, la barre de raccourcis (MobileQuickBar) s'intercale entre l'en-tête et le héros :
+  // un en-tête transparent y laissait le logo blanc sur fond clair. Transparent sur grand écran seulement.
+  const [isLargeScreen, setIsLargeScreen] = useState(
+    () => typeof window !== "undefined" && typeof window.matchMedia === "function" && window.matchMedia("(min-width: 1024px)").matches
+  );
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => setIsLargeScreen(mql.matches);
+    mql.addEventListener?.("change", onChange);
+    return () => mql.removeEventListener?.("change", onChange);
+  }, []);
+  const isTransparent = isHomePage && !isScrolled && isLargeScreen;
 
   return (
     <>

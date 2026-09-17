@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
+import { getPageSeo } from "@/lib/seoPages";
 import {
   Clock, Euro, Check, ArrowRight, Phone, Star,
   Home, ChevronRight, RefreshCw, Calendar, MapPin,
@@ -89,7 +90,7 @@ const ContinueFormationTemplate = ({
     "@context": "https://schema.org",
     "@type": "Course",
     "name": dynamicH1,
-    "description": description,
+    "description": getPageSeo(pageUrl)?.description ?? description,
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
@@ -140,7 +141,7 @@ const ContinueFormationTemplate = ({
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <div className="bg-muted py-3 border-b border-border mt-16">
+      <div className="bg-muted py-3 border-b border-border mt-[72px] lg:mt-20">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-primary transition-colors flex items-center gap-1">

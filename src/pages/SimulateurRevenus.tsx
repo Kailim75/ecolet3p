@@ -84,7 +84,7 @@ const AuditRentabilite = () => {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <div className="bg-muted py-3 border-b border-border mt-16">
+      <div className="bg-muted py-3 border-b border-border mt-[72px] lg:mt-20">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-primary transition-colors flex items-center gap-1">
@@ -104,7 +104,7 @@ const AuditRentabilite = () => {
               <FileSearch className="w-4 h-4" /> Audit stratégique gratuit
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
-              <SeoH1Text path="/audit-rentabilite" accentClassName="text-accent" />
+              <SeoH1Text path="/audit-rentabilite" accentClassName="text-gold" />
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">
               Évaluez votre potentiel de revenus en 30 secondes. Pré-audit instantané — puis débloquez votre <strong className="text-white">rapport stratégique 12 mois</strong> personnalisé.
@@ -223,7 +223,7 @@ const AuditRentabilite = () => {
             <p className="text-white/80 mb-4 max-w-2xl mx-auto">
               Rejoignez les +2 000 chauffeurs formés par ECOLE T3P. Formation tout compris dès 990€.
             </p>
-            <p className="text-accent font-semibold mb-8">
+            <p className="text-white font-semibold mb-8">
               94% de taux de réussite • Paiement en 4× sans frais
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

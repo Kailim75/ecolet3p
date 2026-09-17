@@ -10,7 +10,7 @@ const quickLinks = [
 
 const MobileQuickBar = () => {
   return (
-    <div className="lg:hidden bg-card border-b border-border sticky top-16 z-40">
+    <div className="lg:hidden bg-card border-b border-border sticky top-[72px] z-40">
       <div className="flex gap-2 overflow-x-auto px-4 py-2.5 scrollbar-hide">
         {quickLinks.map((link) => (
           <Link

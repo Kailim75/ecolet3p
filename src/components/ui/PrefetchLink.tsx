@@ -37,7 +37,8 @@ const PrefetchLink = ({
   const prefetch = useCallback(() => {
     if (prefetched || !prefetchOnHover) return;
     
-    const path = typeof to === "string" ? to : to.pathname;
+    // sans ancre ni paramètres : "/formations#tarifs" précharge "/formations"
+    const path = (typeof to === "string" ? to : to.pathname)?.split(/[?#]/)[0];
     if (!path) return;
 
     // Find matching route import

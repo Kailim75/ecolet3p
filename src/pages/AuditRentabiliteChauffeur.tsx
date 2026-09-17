@@ -130,7 +130,7 @@ export default function AuditRentabiliteChauffeur() {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <div className="bg-muted py-3 border-b border-border mt-16">
+      <div className="bg-muted py-3 border-b border-border mt-[72px] lg:mt-20">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-primary transition-colors flex items-center gap-1">
@@ -428,7 +428,7 @@ export default function AuditRentabiliteChauffeur() {
             <p className="text-white/80 mb-4 max-w-2xl mx-auto">
               Envoyez votre audit de rentabilité sur WhatsApp et recevez un accompagnement personnalisé sous 24h.
             </p>
-            <p className="text-accent font-semibold mb-8">
+            <p className="text-white font-semibold mb-8">
               Formation à partir de 990€ • 94% de réussite • Paiement en 4× sans frais
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

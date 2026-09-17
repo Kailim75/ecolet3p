@@ -83,7 +83,7 @@ const LimitedGroupsSection = () => {
               transition={{ duration: 0.4, delay: 0.4 }}
             >
               <PrefetchLink to="/formations">
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 mt-2">
+                <Button variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 mt-2">
                   Découvrir nos formations <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </PrefetchLink>

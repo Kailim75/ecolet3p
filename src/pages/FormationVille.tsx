@@ -120,7 +120,7 @@ const FormationVille = () => {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <nav className="bg-muted border-b border-border mt-16" aria-label="Breadcrumb">
+      <nav className="bg-muted border-b border-border mt-[72px] lg:mt-20" aria-label="Breadcrumb">
         <div className="container-custom py-3">
           <ol className="flex items-center gap-2 text-sm text-muted-foreground">
             <li><Link to="/" className="hover:text-primary transition-colors flex items-center gap-1"><Home className="w-4 h-4" /> Accueil</Link></li>
@@ -490,11 +490,11 @@ const FormationVille = () => {
           {DEPARTEMENT_CODES.includes(city.departmentCode) && (
             <p className="mt-6 text-center text-sm text-muted-foreground">
               Démarches préfecture pour le {city.departmentCode} ({city.department}) :{" "}
-              <Link to={`/formations/vtc/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte VTC</Link>
+              <Link to={`/formations/vtc/${city.departmentCode}`} className="font-semibold text-primary hover:underline whitespace-nowrap">carte VTC</Link>
               {" · "}
-              <Link to={`/formations/taxi/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte Taxi</Link>
+              <Link to={`/formations/taxi/${city.departmentCode}`} className="font-semibold text-primary hover:underline whitespace-nowrap">carte Taxi</Link>
               {" · "}
-              <Link to={`/formations/vmdtr/${city.departmentCode}`} className="font-semibold text-primary hover:underline">carte VMDTR</Link>
+              <Link to={`/formations/vmdtr/${city.departmentCode}`} className="font-semibold text-primary hover:underline whitespace-nowrap">carte VMDTR</Link>
             </p>
           )}
         </div>

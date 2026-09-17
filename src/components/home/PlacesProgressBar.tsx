@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Flame } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
+import { de } from "@/lib/french";
 
 interface PlacesProgressBarProps {
   category?: string;
@@ -99,9 +100,9 @@ const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps)
       ref={ref}
       className={`bg-gradient-to-br from-orange/10 to-orange/5 border border-orange/20 rounded-xl p-4 ${className}`}
     >
-      <div className="flex justify-between items-center mb-2 gap-2">
+      <div className="flex flex-wrap justify-between items-center mb-2 gap-x-2 gap-y-1">
         <span className="text-xs font-semibold text-orange flex items-center gap-1 flex-shrink-0">
-          🔥 Session de {data.month}
+          🔥 Session {de(data.month)}{data.month}
         </span>
         <span className="text-xs font-bold flex-shrink-0" style={{ color: "#E74C3C", fontWeight: 700 }}>
           Plus que {data.placesLeft} places !

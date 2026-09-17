@@ -268,7 +268,7 @@ const Contact = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>
 
-      <div className="bg-muted/30 py-3 border-b">
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container-custom">
           <Breadcrumb>
             <BreadcrumbList>

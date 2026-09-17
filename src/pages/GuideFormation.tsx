@@ -119,8 +119,8 @@ const GuideFormation = () => {
         })}</script>
       </DynamicSEOHead>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -463,7 +463,7 @@ const GuideFormation = () => {
 
             <Card className="border-forest/10 overflow-hidden">
               <div className="bg-forest text-primary-foreground px-6 py-4">
-                <h3 className="font-bold text-base flex items-center gap-2">
+                <h3 className="font-bold text-base flex items-center gap-2 text-primary-foreground">
                   <CircleDollarSign className="h-5 w-5" />
                   Simulation indicative — Chauffeur VTC
                 </h3>
@@ -504,7 +504,7 @@ const GuideFormation = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary-foreground">
                 Vous n'êtes pas seul.
               </h2>
               <p className="text-primary-foreground/80 mb-10 max-w-xl mx-auto">
@@ -518,7 +518,7 @@ const GuideFormation = () => {
                     Découvrir le programme
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
                   <Link to="/contact">
                     <Phone className="mr-2 h-5 w-5" />
                     Nous contacter

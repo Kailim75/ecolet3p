@@ -116,8 +116,8 @@ const Blog = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </DynamicSEOHead>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -146,7 +146,7 @@ const Blog = () => {
             <BookOpen className="w-4 h-4" />
             Blog & Ressources
           </span>
-          <h1 className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide mb-4 animate-fade-in">
+          <h1 className="text-2xl md:text-5xl font-black text-cream uppercase tracking-wide leading-tight md:leading-tight mb-4 animate-fade-in">
             <SeoH1Text path="/blog" accentClassName="text-gold" />
           </h1>
           <p className="text-cream/70 max-w-xl mx-auto text-lg animate-fade-in">
@@ -286,7 +286,7 @@ const Blog = () => {
         <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2" />
         <div className="container-custom text-center relative">
           <div className="animate-fade-in">
-            <h2 className="text-2xl md:text-3xl font-black uppercase mb-4">
+            <h2 className="text-2xl md:text-3xl font-black text-cream uppercase mb-4">
               Prêt à démarrer votre formation ?
             </h2>
             <p className="text-cream/80 mb-8 max-w-xl mx-auto">

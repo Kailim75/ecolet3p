@@ -155,8 +155,8 @@ const LocationVehiculeExamen = () => {
         })}</script>
       </DynamicSEOHead>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -186,7 +186,7 @@ const LocationVehiculeExamen = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Badge className="mb-4 bg-gold/10 text-gold border-gold/20">
+              <Badge className="mb-4 bg-gold/10 text-gold-text border-gold/20">
                 <Car className="h-4 w-4 mr-2" />
                 Service d'accompagnement
               </Badge>
@@ -277,7 +277,7 @@ const LocationVehiculeExamen = () => {
                       <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
                         <item.icon className="w-6 h-6 text-gold" />
                       </div>
-                      <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Étape {item.step}</p>
+                      <p className="text-xs font-semibold text-gold-text uppercase tracking-wider mb-2">Étape {item.step}</p>
                       <h3 className="font-bold text-forest mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>
                     </CardContent>
@@ -415,7 +415,7 @@ const LocationVehiculeExamen = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <Badge className="mb-4 bg-gold/10 text-gold border-gold/20">
+              <Badge className="mb-4 bg-gold/10 text-gold-text border-gold/20">
                 <HelpCircle className="h-4 w-4 mr-2" />
                 Questions fréquentes
               </Badge>
@@ -448,7 +448,7 @@ const LocationVehiculeExamen = () => {
       <section className="py-16 bg-forest text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Réserver un véhicule pour l'examen</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">Réserver un véhicule pour l'examen</h2>
             <p className="text-white/80 mb-8">
               Contactez-nous dès réception de votre convocation CMA pour réserver votre véhicule 
               et convenir d'un créneau pour la conduite préparatoire.
@@ -460,7 +460,7 @@ const LocationVehiculeExamen = () => {
                   Nous contacter
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10">
                 <a href="tel:0188750555">
                   <Phone className="mr-2 h-5 w-5" />
                   01 88 75 05 55

@@ -153,8 +153,8 @@ const About = () => {
         })}</script>
       </DynamicSEOHead>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -350,7 +350,7 @@ const About = () => {
                           <IconComp className="w-8 h-8 text-gold" />
                         </div>
                         <h3 className="text-xl font-bold text-forest mb-2">{value.title}</h3>
-                        <p className="text-xs font-semibold text-gold mb-3">{value.highlight}</p>
+                        <p className="text-xs font-semibold text-gold-text mb-3">{value.highlight}</p>
                         <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
                       </CardContent>
                     </Card>
@@ -377,7 +377,7 @@ const About = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="text-center"
                 >
-                  <p className="text-3xl font-black text-gold mb-1">{stat.value}</p>
+                  <p className="text-3xl font-black text-gold-text mb-1">{stat.value}</p>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </motion.div>
               ))}

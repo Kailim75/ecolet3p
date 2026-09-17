@@ -156,7 +156,7 @@ const NewsletterForm = ({ source = "blog", variant = "card" }: NewsletterFormPro
           <Mail className="w-6 h-6 text-gold" />
         </div>
         <div>
-          <h3 className="text-xl font-bold">Restez informé</h3>
+          <h3 className="text-xl font-bold text-cream">Restez informé</h3>
           <p className="text-cream/70 text-sm">Conseils et actualités du secteur</p>
         </div>
       </div>

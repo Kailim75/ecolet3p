@@ -13,6 +13,7 @@ import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
+import tarifs from "@/data/tarifs.json";
 import accueilReception from "@/assets/center/accueil-reception.jpg";
 import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
 
@@ -20,30 +21,30 @@ const formations = [
   {
     title: "Formation TAXI Initiale",
     duration: "Journée, Soir ou E-learning",
-    price: "990€",
+    price: `${tarifs.initiale}€`,
     description: "Formation complète pour obtenir la carte professionnelle Taxi. Programme conforme à l'arrêté préfectoral, incluant la réglementation, la gestion et la sécurité routière.",
     link: "/formations/taxi",
   },
   {
     title: "Formation VTC",
     duration: "Journée, Soir ou E-learning",
-    price: "990€",
+    price: `${tarifs.initiale}€`,
     description: "Devenez chauffeur VTC professionnel. Formation intensive couvrant tous les modules de l'examen CMA, avec accompagnement à l'inscription sur les plateformes Uber et Bolt.",
     link: "/formations/vtc",
   },
   {
     title: "Formation VMDTR (Moto-taxi)",
-    duration: "14 heures",
-    price: "490€",
-    description: "Obtenez la carte professionnelle VMDTR pour exercer en tant que moto-taxi. Formation pratique et théorique sur 2 jours.",
+    duration: "Journée, Soir ou E-learning",
+    price: `${tarifs.initiale}€`,
+    description: "Préparez l'examen de la carte professionnelle VMDTR pour exercer en tant que moto-taxi. Permis A requis, frais d'examen inclus.",
     link: "/formations/vmdtr",
   },
   {
-    title: "Formation Mobilité",
-    duration: "14 heures",
-    price: "490€",
-    description: "Passerelle Taxi ↔ VTC pour les chauffeurs souhaitant diversifier leur activité. Formation rapide de 14h.",
-    link: "/formations/mobilite",
+    title: "Passerelle VTC ↔ Taxi ↔ VMDTR",
+    duration: "",
+    price: `${tarifs.passerelle}€`,
+    description: "Déjà titulaire d'une carte professionnelle ? Préparez l'examen d'une seconde carte pour diversifier votre activité.",
+    link: "/passerelle-vtc-taxi",
   },
 ];
 
@@ -177,7 +178,7 @@ const FormationMontrouge = () => {
       </DynamicSEOHead>
 
       {/* Breadcrumb */}
-      <nav className="bg-muted border-b border-border mt-16" aria-label="Breadcrumb">
+      <nav className="bg-muted border-b border-border mt-[72px] lg:mt-20" aria-label="Breadcrumb">
         <div className="container-custom py-3">
           <ol className="flex items-center gap-2 text-sm text-muted-foreground">
             <li><Link to="/" className="hover:text-primary transition-colors flex items-center gap-1"><Home className="w-4 h-4" /> Accueil</Link></li>
@@ -219,7 +220,7 @@ const FormationMontrouge = () => {
                   <Phone className="w-5 h-5 mr-2" /> Nous contacter
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-bold">
+              <Button asChild variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-bold">
                 <Link to="/formations">
                   Voir les formations <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
@@ -376,9 +377,11 @@ const FormationMontrouge = () => {
                   <h3 className="text-base font-bold text-foreground">{f.title}</h3>
                   <span className="text-sm font-bold text-accent shrink-0">{f.price}</span>
                 </div>
-                <p className="text-xs text-muted-foreground mb-1">
-                  <Clock className="w-3 h-3 inline mr-1" />{f.duration}
-                </p>
+                {f.duration && (
+                  <p className="text-xs text-muted-foreground mb-1">
+                    <Clock className="w-3 h-3 inline mr-1" />{f.duration}
+                  </p>
+                )}
                 <p className="text-sm text-muted-foreground mb-4">{f.description}</p>
                 <Link
                   to={f.link}

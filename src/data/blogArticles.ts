@@ -3086,7 +3086,7 @@ Tous les titulaires d'une carte professionnelle de transport public particulier 
 |-------|----------|---------------------------|
 | Carte professionnelle VTC | 5 ans | 14h obligatoires |
 | Carte professionnelle Taxi | 5 ans | 14h obligatoires |
-| Carte professionnelle VMDTR | 5 ans | 7h obligatoires |
+| Carte professionnelle VMDTR | 5 ans | 14h obligatoires |
 
 **Important** : le renouvellement doit être demandé **au moins 3 mois avant l'expiration** de votre carte. Ne tardez pas — les délais administratifs peuvent être longs.
 
@@ -3123,9 +3123,9 @@ Programme sur 2 jours :
 
 **[→ Voir la formation continue Taxi](/formations/continue-taxi)**
 
-#### Formation continue VMDTR — 7h
+#### Formation continue VMDTR — 14h
 
-Programme sur 1 jour :
+Programme sur 2 jours :
 - Réglementation spécifique VMDTR
 - Sécurité routière deux-roues motorisés
 - Équipements de protection obligatoires

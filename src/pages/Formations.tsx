@@ -4,7 +4,7 @@ import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
-  Moon, Calendar, Loader2, FileText, MapPin
+  Moon, Calendar, Loader2, MapPin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -14,7 +14,6 @@ import CatalogueCard from "@/components/formations/CatalogueCard";
 import PackCard from "@/components/formations/PackCard";
 
 import AlmaLogo from "@/components/logo/AlmaLogo";
-import { useIsMobile } from "@/hooks/use-mobile";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
 import {
   formationsInitiales,
@@ -39,7 +38,6 @@ const sections = [
   { id: "recup-points", label: "Récup. Points" },
   { id: "complementaires", label: "Complémentaires" },
   { id: "packs", label: "Nos Packs" },
-  { id: "parrainage", label: "Parrainage" },
 ];
 
 const staggerContainer = {
@@ -52,8 +50,6 @@ const Formations = () => {
   const [preRegTitle, setPreRegTitle] = useState("");
   const [preRegDuration, setPreRegDuration] = useState("");
   const [activeAnchor, setActiveAnchor] = useState("initiales");
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-  const isMobile = useIsMobile();
   const heroRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress: heroScrollProgress } = useScroll({
@@ -76,18 +72,6 @@ const Formations = () => {
     setPreRegDuration(format);
     setPreRegOpen(true);
   };
-
-  // Footer observer for mobile sticky bar
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsFooterVisible(entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(footer);
-    return () => observer.disconnect();
-  }, []);
 
   // Active anchor observer
   useEffect(() => {
@@ -139,7 +123,7 @@ const Formations = () => {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(13,33,55,0.92) 0%, rgba(27,58,92,0.85) 100%)' }} />
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-        <motion.div className="container-custom relative z-10 py-16 md:py-20" style={{ y: heroContentY, opacity: heroOpacity }}>
+        <motion.div className="container-custom relative z-10 pt-24 pb-16 md:py-20" style={{ y: heroContentY, opacity: heroOpacity }}>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
             <div className="lg:col-span-3">
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-semibold text-white/70 mb-3 tracking-wide uppercase">
@@ -149,13 +133,13 @@ const Formations = () => {
                 <SeoH1Text path="/formations" accentClassName="text-gold" />
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-base md:text-lg text-white/80 mb-8 max-w-xl">
-                Rejoignez les 2000+ chauffeurs formés. Packs économiques, programme parrainage et paiement en 4× sans frais.
+                Rejoignez les 2000+ chauffeurs formés. Packs économiques et paiement en 4× sans frais.
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-3">
                 <Button asChild size="lg" className="font-bold text-base btn-cta-orange">
                   <Link to="/contact">Demander un devis gratuit <ArrowRight className="w-4 h-4 ml-2" /></Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="font-bold text-base border-white/30 text-white hover:bg-white/10">
+                <Button asChild size="lg" variant="outline" className="font-bold text-base bg-transparent border-white/30 text-white hover:bg-white/10">
                   <a href="tel:0188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
                 </Button>
               </motion.div>
@@ -179,7 +163,7 @@ const Formations = () => {
       </section>
 
       {/* ============ STICKY NAV ============ */}
-      <nav className="sticky top-16 z-40 bg-white border-b border-border shadow-sm">
+      <nav className="sticky top-[72px] lg:top-20 z-40 bg-white border-b border-border shadow-sm">
         <div className="container-custom">
           <div className="flex gap-0.5 md:gap-1 overflow-x-auto scrollbar-hide py-0 -mx-2 px-2">
             {sections.map(s => (
@@ -232,7 +216,7 @@ const Formations = () => {
                     <tr key={i} className={row.highlight ? "bg-gold/5" : "bg-card"}>
                       <td className="px-4 md:px-6 py-3.5">
                         <span className="font-bold text-sm text-foreground">{row.name}</span>
-                        {row.highlight && <span className="ml-2 text-[10px] font-bold text-gold bg-gold/15 px-1.5 py-0.5 rounded-full align-middle">TOUT COMPRIS</span>}
+                        {row.highlight && <span className="mt-1 block w-fit md:ml-2 md:mt-0 md:inline text-[10px] font-bold text-gold-text bg-gold/15 px-1.5 py-0.5 rounded-full align-middle whitespace-nowrap">TOUT COMPRIS</span>}
                       </td>
                       <td className="px-4 md:px-6 py-3.5 text-sm text-muted-foreground">{row.format}</td>
                       <td className="px-4 md:px-6 py-3.5 text-right">
@@ -415,25 +399,13 @@ const Formations = () => {
               <Button asChild size="lg" className="font-bold btn-cta-orange">
                 <Link to="/contact">Demander un devis gratuit <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="font-bold border-white/30 text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="font-bold bg-transparent border-white/30 text-white hover:bg-white/10">
                 <a href="tel:0188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
-
-      {/* ============ MOBILE STICKY BAR ============ */}
-      {isMobile && !isFooterVisible && (
-        <div className="fixed bottom-0 left-0 right-0 lg:hidden flex items-center bg-white border-t border-border" style={{ zIndex: 1000, height: 56, boxShadow: '0 -4px 12px rgba(0,0,0,0.08)' }}>
-          <a href="tel:0188750555" className="flex-1 flex items-center justify-center gap-2 text-primary font-bold text-sm border-r border-border" style={{ height: '100%' }}>
-            <Phone className="w-4 h-4" /> Appeler
-          </a>
-          <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 font-bold text-sm text-white" style={{ height: '100%', background: 'hsl(var(--cta))' }}>
-            <FileText className="w-4 h-4" /> Devis gratuit
-          </Link>
-        </div>
-      )}
 
       {/* ============ PRE-REGISTRATION MODAL ============ */}
       <PreRegistrationForm

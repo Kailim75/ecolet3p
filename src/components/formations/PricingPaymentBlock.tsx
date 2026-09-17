@@ -257,8 +257,8 @@ const PricingPaymentBlock = ({
         <Button
           className="w-full rounded-[14px] text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
           style={{
-            background: "linear-gradient(135deg, #F39C12, #E67E22)",
-            boxShadow: "0 4px 16px rgba(243, 156, 18, 0.35)",
+            background: "linear-gradient(135deg, hsl(var(--cta)), hsl(var(--cta-hover)))",
+            boxShadow: "0 4px 16px hsla(var(--cta) / 0.35)",
             minHeight: "56px",
           }}
           onClick={handlePay}
@@ -266,7 +266,7 @@ const PricingPaymentBlock = ({
           <Lock className="h-4 w-4 mr-2 flex-shrink-0" />
           <span className="flex flex-col items-start leading-tight">
             <span className="text-base font-bold">{ctaLine1}</span>
-            <span className="text-[13px] font-normal opacity-90">{ctaLine2}</span>
+            <span className="text-[13px] font-normal">{ctaLine2}</span>
           </span>
         </Button>
 
@@ -282,7 +282,7 @@ const PricingPaymentBlock = ({
 
         {/* Alma branding */}
         <div className="flex items-center justify-center gap-2 mt-5 pt-4" style={{ borderTop: "1px solid #F0F0F0" }}>
-          <span className="text-xs" style={{ color: "#BBB" }}>Paiement sécurisé par</span>
+          <span className="text-xs" style={{ color: "#767676" }}>Paiement sécurisé par</span>
           <AlmaLogo className="h-[18px] opacity-70" />
         </div>
       </motion.div>

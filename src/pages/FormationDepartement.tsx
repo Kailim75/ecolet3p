@@ -118,7 +118,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
       </Helmet>
 
       {/* Breadcrumb */}
-      <nav aria-label="Fil d'Ariane" className="bg-muted/30 border-b">
+      <nav aria-label="Fil d'Ariane" className="bg-muted/30 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4 py-3 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
           <Link to="/" className="hover:text-primary flex items-center gap-1">
             <Home className="w-3.5 h-3.5" /> Accueil
@@ -214,7 +214,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                     <strong>Bon à savoir :</strong> {departement.prefecture.notes}
                   </p>
                 )}
-                <Button asChild variant="outline" size="sm" className="mt-4">
+                <Button asChild variant="outline" size="sm" className="mt-4 h-auto min-h-9 whitespace-normal py-2 text-left">
                   <a href={prefectureUrl} target="_blank" rel="noopener noreferrer">
                     Page officielle {labels.short} — Préfecture {departement.code}
                     <ExternalLink className="ml-2 w-3.5 h-3.5" />
@@ -245,7 +245,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   La liste officielle est publiée et mise à jour régulièrement par la
                   {departement.prefectureCourte}.
                 </p>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="outline" size="sm" className="h-auto min-h-9 whitespace-normal py-2 text-left">
                   <a
                     href={departement.medecinsAgreesUrl}
                     target="_blank"
@@ -275,7 +275,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   l'ensemble des démarches, pièces justificatives, délais et recours
                   pour l'obtention de la carte professionnelle {labels.short}.
                 </p>
-                <Button asChild variant="outline" size="sm">
+                <Button asChild variant="outline" size="sm" className="h-auto min-h-9 whitespace-normal py-2 text-left">
                   <a href={spLink.fiche} target="_blank" rel="noopener noreferrer">
                     {spLink.titre} — service-public.fr
                     <ExternalLink className="ml-2 w-3.5 h-3.5" />
@@ -339,7 +339,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   {departement.communesPrincipales.join(", ")}.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Button asChild className="bg-cta hover:bg-cta/90 text-cta-foreground">
+                  <Button asChild className="bg-cta hover:bg-cta/90 text-cta-foreground h-auto min-h-10 whitespace-normal py-2">
                     <Link to={`/formations/${metier}`}>
                       Découvrir la formation {labels.short}
                       <ArrowRight className="ml-2 w-4 h-4" />
@@ -416,7 +416,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
       {/* CTA final */}
       <section className="py-12 md:py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary-foreground">
             Prêt à devenir chauffeur {labels.short} {departement.dans} ?
           </h2>
           <p className="mb-6 text-primary-foreground/90">
