@@ -92,7 +92,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <ul style="color: #4a5568; font-size: 15px; line-height: 1.8; margin: 0 0 25px; padding-left: 20px;">
                         <li>✅ Les prérequis et conditions d'accès à l'examen</li>
                         <li>✅ Le programme détaillé de la formation T3P</li>
-                        <li>✅ Les solutions de financement (CPF, Pôle Emploi, OPCO…)</li>
+                        <li>✅ Les solutions de financement (paiement 4× sans frais avec Alma, OPCO, France Travail…)</li>
                         <li>✅ Les étapes de création d'entreprise</li>
                         <li>✅ Le déroulement de l'examen CMA</li>
                         <li>✅ Les revenus moyens d'un chauffeur (2 500 à 3 500 €/mois)</li>

@@ -48,7 +48,7 @@ const GuaranteeSection = () => {
             to="/contact"
             className="text-xs underline underline-offset-4 transition-colors hover:text-white"
             style={{ color: "rgba(255,255,255,0.6)" }}
-            aria-label="Voir les conditions de la garantie réussite"
+            aria-label="Voir les conditions de l'engagement réussite"
           >
             Voir les conditions →
           </Link>

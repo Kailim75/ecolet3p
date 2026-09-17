@@ -273,7 +273,7 @@ const Formations = () => {
           {/* Journée */}
           <div className="flex items-center gap-2 mb-4">
             <Calendar className="w-5 h-5 text-amber-500" />
-            <h3 className="text-lg font-bold text-foreground">Format Journée — 1 190€</h3>
+            <h3 className="text-lg font-bold text-foreground">Format Journée — 990€</h3>
             <span className="text-xs text-muted-foreground">Formation intensive</span>
           </div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-3 gap-5">

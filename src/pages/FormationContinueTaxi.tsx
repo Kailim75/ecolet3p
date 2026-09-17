@@ -14,7 +14,7 @@ const FormationContinueTaxi = () => (
     badge="Formation Continue Taxi (FCO)"
     badgeIcon={RefreshCw}
     heading="Renouvellement Carte Taxi — Formation Continue 14h"
-    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle Taxi (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
+    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle Taxi (FCO). Attestation délivrée le jour même, nouvelles sessions régulièrement à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
     price={tarifs.continueTaxi}
     format="2 jours"

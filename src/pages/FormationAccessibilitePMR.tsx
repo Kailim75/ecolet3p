@@ -24,7 +24,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "chauffeurs formés depuis 2014" },
   { value: "100%", label: "attestations délivrées le jour même" },
-  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "+30%", label: "de revenus potentiels supplémentaires" },
 ];
 

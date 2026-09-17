@@ -3,8 +3,8 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, extname } from "node:path";
 import tarifs from "@/data/tarifs.json";
 
-const ROOTS = ["src", "scripts/prerender.mjs"];
-const EXTS = new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".json", ".md"]);
+const ROOTS = ["src", "scripts/prerender.mjs", "public"];
+const EXTS = new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".json", ".md", ".txt"]);
 const IGNORE_DIRS = new Set(["node_modules", "dist", ".git", "test"]);
 // files intentionally allowed to mention historical values or the poison words themselves
 const ALLOW_FILES = new Set([
@@ -69,6 +69,8 @@ describe("tarifs guardrail", () => {
       /r[ée]ussite\s+garantie/i,
       /garanties?\s+de\s+r[ée]ussite/i,
       /100\s?%\s+de\s+r[ée]ussite/i,
+      /r[ée]sultats?\s+garantis?/i,
+      /100\s?%\s+de\s+dossiers?(\s+accept[ée]s?)?/i,
     ];
     const offenders: string[] = [];
     for (const f of files) {
@@ -78,6 +80,19 @@ describe("tarifs guardrail", () => {
           if (p.test(line)) {
             offenders.push(`${f} : ${line.trim().slice(0, 100)}`);
           }
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it("no self-declared 'avis vérifiés' claim (unverifiable reviews)", () => {
+    const offenders: string[] = [];
+    for (const f of files) {
+      const c = readFileSync(f, "utf-8");
+      for (const line of c.split("\n")) {
+        if (/avis(\s+google)?\s+v[ée]rifi[ée]s?/i.test(line)) {
+          offenders.push(`${f} : ${line.trim().slice(0, 100)}`);
         }
       }
     }

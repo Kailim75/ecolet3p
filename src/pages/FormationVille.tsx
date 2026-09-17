@@ -440,7 +440,7 @@ const FormationVille = () => {
           </h2>
           <p className="text-white/75 mb-8 max-w-xl mx-auto">
             990€ tout compris, frais d'examen inclus.
-            Paiement en 4× sans frais. Sessions chaque semaine.
+            Paiement en 4× sans frais. Nouvelles sessions régulièrement.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

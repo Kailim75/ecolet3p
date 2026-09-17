@@ -293,15 +293,6 @@ const CharteGraphique = () => {
                         <h3 className="font-bold text-forest">📄 Flyer A5/A4</h3>
                         <p className="text-warm-gray-600 text-sm">Présentation des formations</p>
                       </div>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-shrink-0"
-                        onClick={() => window.open('/templates/flyer-ecole-t3p.html', '_blank')}
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Ouvrir
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -338,15 +329,6 @@ const CharteGraphique = () => {
                         <h3 className="font-bold text-forest">🎓 Attestation de Formation</h3>
                         <p className="text-warm-gray-600 text-sm">Document officiel certifié</p>
                       </div>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-shrink-0"
-                        onClick={() => window.open('/templates/attestation-ecole-t3p.html', '_blank')}
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Ouvrir
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -381,15 +363,6 @@ const CharteGraphique = () => {
                         <h3 className="font-bold text-forest">📝 Contrat de Formation</h3>
                         <p className="text-warm-gray-600 text-sm">Accord stagiaire/organisme</p>
                       </div>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-shrink-0"
-                        onClick={() => window.open('/templates/contrat-ecole-t3p.html', '_blank')}
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Ouvrir
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -418,15 +391,6 @@ const CharteGraphique = () => {
                         <h3 className="font-bold text-forest">💳 Carte de Visite</h3>
                         <p className="text-warm-gray-600 text-sm">Format 85×55mm</p>
                       </div>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-shrink-0"
-                        onClick={() => window.open('/templates/carte-visite-ecole-t3p.html', '_blank')}
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Ouvrir
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>

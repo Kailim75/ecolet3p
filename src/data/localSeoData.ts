@@ -378,7 +378,7 @@ export const cities: CityData[] = [
       { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-250€). Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) ou e-learning illimité." },
       { question: "Le format soirée convient-il aux actifs du 14e ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) sont idéales : à 3 minutes d'Alésia en métro, vous êtes rentré chez vous en quelques minutes après les cours. De nombreux habitants du 14e en reconversion choisissent ce format." },
       { question: "Combien coûte la formation tout compris ?", answer: "990€ TTC, incluant les frais d'examen CMA (241€), 2h de conduite et l'accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun frais caché." },
-      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: "Oui, agrément n° 23/007 de la Préfecture des Hauts-de-Seine. Centre actif depuis 2014, +2 000 chauffeurs formés, 94% de réussite et 5.0/5 sur Google (359 avis vérifiés)." },
+      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: "Oui, agrément n° 23/007 de la Préfecture des Hauts-de-Seine. Centre actif depuis 2014, +2 000 chauffeurs formés, 94% de réussite et 5.0/5 sur Google (359 avis Google)." },
       { question: "Peut-on passer la double carte Taxi + VTC ?", answer: "Oui. Passez d'abord votre carte VTC ou Taxi (990€), puis la Passerelle (665€, 14h sur 2 jours) pour obtenir la seconde carte. La double carte permet de maximiser vos revenus en alternant les deux activités." },
       { question: "Y a-t-il un accompagnement après l'examen ?", answer: "Oui : aide à la création d'entreprise (choix du statut juridique), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." }
     ],
@@ -1123,7 +1123,7 @@ export const cities: CityData[] = [
       { question: "Quel est le marché VTC/Taxi depuis Le Kremlin-Bicêtre ?", answer: "Très porteur. La proximité de Paris 13e, de la Porte d'Italie et du CHU de Bicêtre crée une forte demande. Les chauffeurs du sud-est parisien réalisent 3 500 à 5 500€ de CA mensuel." },
       { question: "La formation Taxi ou VTC, laquelle choisir depuis Le Kremlin ?", answer: "Les deux sont rentables. Le Taxi offre un accès aux stations et bornes d'appel (gares, hôpitaux). Le VTC est idéal via les plateformes (Uber, Bolt). La Passerelle VTC↔Taxi (665€) permet de cumuler les deux cartes." },
       { question: "Le format e-learning est-il efficace ?", answer: "Oui. Notre plateforme est accessible 24h/24 avec cours, QCM et examens blancs. Vous ne vous déplacez à Montrouge que pour les 2h de conduite pratique. Même taux de réussite de 94%." },
-      { question: "Comment se déroule l'inscription ?", answer: "Appelez le 01 88 75 05 55 ou inscrivez-vous en ligne. Nous constituons votre dossier CMA complet. La prochaine session démarre chaque semaine." },
+      { question: "Comment se déroule l'inscription ?", answer: "Appelez le 01 88 75 05 55 ou inscrivez-vous en ligne. Nous constituons votre dossier CMA complet. Consultez les prochaines sessions sur la page formation." },
       { question: "Le Grand Paris Express changera-t-il le métier au Kremlin ?", answer: "Oui. La future ligne 15 (Métro Grand Paris) passera à proximité et connectera le sud du 94 à La Défense, Saint-Denis et les aéroports. Cela créera de nouveaux flux de clientèle pour les chauffeurs." },
       { question: "ECOLE T3P accompagne-t-elle après la formation ?", answer: "Oui : aide à la création d'entreprise (micro-entreprise, SASU), inscription Uber/Bolt/Heetch, conseils fiscaux et préparation au renouvellement de carte tous les 5 ans." }
     ],
@@ -2099,7 +2099,7 @@ export const cities: CityData[] = [
       { icon: Trophy, title: "94% de réussite", text: "Un taux supérieur à la moyenne nationale, grâce à des formateurs experts et une préparation intensive à l'examen CMA." },
       { icon: Users, title: "E-learning adapté", text: "Le format e-learning 24h/24 est idéal depuis Conflans : révisez à votre rythme et déplacez-vous uniquement pour les sessions pratiques." },
       { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Frais d'examen CMA (241€), 2h de conduite et accompagnement création d'entreprise inclus." },
-      { icon: Shield, title: "Centre agréé depuis 2014", text: "Agrément Préfecture n° 23/007. +2 000 chauffeurs formés. 5.0/5 sur Google avec 359 avis vérifiés." }
+      { icon: Shield, title: "Centre agréé depuis 2014", text: "Agrément Préfecture n° 23/007. +2 000 chauffeurs formés. 5.0/5 sur Google avec 359 avis Google." }
     ],
     enrichedFaqs: [
       { question: "Comment aller de Conflans-Sainte-Honorine à ECOLE T3P ?", answer: "Prenez le Transilien J à Conflans–Fin d'Oise direction Saint-Lazare (30 min). À Saint-Lazare, métro 13 jusqu'à Montparnasse, puis ligne 4 jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 200m. Temps total : environ 55 minutes." },

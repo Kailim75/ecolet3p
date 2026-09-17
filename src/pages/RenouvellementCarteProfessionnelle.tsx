@@ -15,7 +15,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const whyChooseUs = [
   { icon: Shield, title: "Centre agréé Préfecture 92", desc: "Agrément officiel — votre attestation est reconnue par toutes les préfectures d'Île-de-France." },
-  { icon: Calendar, title: "Sessions chaque semaine", desc: "Pas d'attente : inscrivez-vous aujourd'hui, commencez dès la semaine prochaine." },
+  { icon: Calendar, title: "Nouvelles sessions régulièrement", desc: "Pas d'attente : inscrivez-vous, nous vous proposons la prochaine session disponible." },
   { icon: FileCheck, title: "Attestation immédiate", desc: "Votre attestation de formation continue est délivrée le jour même, en fin de stage." },
   { icon: HeartHandshake, title: "Accompagnement préfecture", desc: "Nous vous guidons dans toutes les démarches de dépôt de dossier de renouvellement." },
 ];
@@ -23,7 +23,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "cartes renouvelées depuis 2014" },
   { value: "100%", label: "attestations délivrées le jour même" },
-  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "48h", label: "délai moyen pour obtenir votre session" },
 ];
 
@@ -35,7 +35,7 @@ const formations = [
 
 const programSteps = [
   { step: "1", title: "Vérifiez votre date d'expiration", desc: "Consultez votre carte professionnelle. La demande doit être faite dans les 3 mois précédant l'expiration." },
-  { step: "2", title: "Inscrivez-vous à la formation continue", desc: "14h de formation sur 2 jours dans notre centre agréé à Montrouge. Sessions chaque semaine." },
+  { step: "2", title: "Inscrivez-vous à la formation continue", desc: "14h de formation sur 2 jours dans notre centre agréé à Montrouge. Nouvelles sessions régulièrement." },
   { step: "3", title: "Recevez votre attestation", desc: "Attestation de formation continue délivrée immédiatement en fin de stage — le jour même." },
   { step: "4", title: "Déposez votre dossier préfecture", desc: "Nous vous accompagnons dans le montage du dossier et les démarches auprès de la préfecture." },
 ];
@@ -85,7 +85,7 @@ const RenouvellementCarteProfessionnelle = () => {
     <Layout>
       <Helmet>
         <title>Renouvellement Carte Pro VTC Taxi Montrouge | ECOLE T3P</title>
-        <meta name="description" content="Renouvellement carte pro VTC (170€), Taxi (250€), VMDTR (250€) à Montrouge (92). Formation continue 14h, attestation immédiate. Sessions chaque semaine." />
+        <meta name="description" content="Renouvellement carte pro VTC (170€), Taxi (250€), VMDTR (250€) à Montrouge (92). Formation continue 14h, attestation immédiate. Nouvelles sessions régulièrement." />
         <link rel="canonical" href="https://ecolet3p.fr/renouvellement-carte-professionnelle" />
         <meta property="og:title" content="Renouvellement Carte Pro VTC Taxi VMDTR | ECOLE T3P" />
         <meta property="og:description" content="Formation continue obligatoire 14h. Attestation immédiate. VTC 170€ · Taxi 250€ · VMDTR 250€. Centre agréé Préfecture 92." />
@@ -138,7 +138,7 @@ const RenouvellementCarteProfessionnelle = () => {
               className="text-white/80 text-base md:text-lg mb-8 max-w-2xl"
             >
               Formation continue obligatoire de 14h pour chauffeurs VTC, Taxi et VMDTR. 
-              <strong className="text-white"> Attestation délivrée le jour même</strong>, sessions chaque semaine à Montrouge (92). 
+              <strong className="text-white"> Attestation délivrée le jour même</strong>, nouvelles sessions régulièrement à Montrouge (92). 
               À partir de 170€ — payable en 4× sans frais.
             </motion.p>
 
@@ -509,7 +509,7 @@ const RenouvellementCarteProfessionnelle = () => {
               Renouvelez votre carte dès cette semaine
             </h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto text-lg">
-              Sessions disponibles chaque semaine. Attestation délivrée le jour même. 
+              Nouvelles sessions régulièrement. Attestation délivrée le jour même. 
               À partir de 170€ — payable en 4× sans frais.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

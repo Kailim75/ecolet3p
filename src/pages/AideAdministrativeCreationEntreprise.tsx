@@ -24,7 +24,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
   { value: "100%", label: "de dossiers acceptés en préfecture" },
-  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "1 jour", label: "pour lancer toutes vos démarches" },
 ];
 
@@ -111,7 +111,7 @@ const AideAdministrativeCreationEntreprise = () => {
         <div className="container-custom">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-white/15 text-white border border-white/20 mb-6">
-              <ClipboardList className="w-4 h-4" /> Service exclusif — 100% de dossiers acceptés
+              <ClipboardList className="w-4 h-4" /> Service exclusif — dossiers vérifiés avant dépôt
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-[24px] md:text-[34px] lg:text-[44px] font-bold text-white leading-tight mb-4">
@@ -122,7 +122,7 @@ const AideAdministrativeCreationEntreprise = () => {
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-white/80 text-base md:text-lg mb-8 max-w-2xl">
               Carte professionnelle, registre T3P, préfecture, URSSAF, plateformes — 
               <strong className="text-white"> toutes vos démarches réalisées en 1 journée</strong>. 
-              Zéro stress, zéro erreur, résultat garanti.
+              Zéro stress, zéro erreur de dossier.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap gap-3 mb-8">
@@ -385,8 +385,8 @@ const AideAdministrativeCreationEntreprise = () => {
               Arrêtez de perdre du temps en paperasse
             </h2>
             <p className="text-white/80 mb-4 max-w-2xl mx-auto text-lg">
-              100% de dossiers acceptés en préfecture. 
-              Toutes vos démarches lancées en 1 journée. Résultat garanti.
+              Dossiers vérifiés avant dépôt en préfecture. 
+              Toutes vos démarches lancées en 1 journée.
             </p>
             <p className="text-accent font-semibold mb-8">
               À partir de 190€ — Paiement en 4× sans frais via Alma

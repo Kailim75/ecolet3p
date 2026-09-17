@@ -86,8 +86,8 @@ const advantages = [
 ];
 
 const pricingExamples = [
-  { formation: "Formation Soirée (33 h)", price: 990, installments: 4 },
-  { formation: "Formation Journée (63 h)", price: 1190, installments: 4 },
+  { formation: "Formation initiale (35 h)", price: 990, installments: 4 },
+  { formation: "Formation continue (14 h)", price: 250, installments: 4 },
 ];
 
 const faqs = [

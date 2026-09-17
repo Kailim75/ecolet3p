@@ -30,7 +30,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "chauffeurs déjà formés depuis 2014" },
   { value: "94%", label: "de réussite dès la 1re présentation" },
-  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "100%", label: "accompagnement jusqu'à l'obtention de la carte" },
 ];
 
@@ -521,7 +521,7 @@ const PasserelleVtcTaxi = () => {
             </h2>
             <p className="text-white/80 mb-4 max-w-2xl mx-auto text-lg">
               Rejoignez les +2 000 chauffeurs formés par ECOLE T3P. 
-              Formation passerelle à 665€ tout compris — résultats garantis.
+              Formation passerelle à 665€ tout compris — accompagnement jusqu'à l'obtention de votre carte.
             </p>
             <p className="text-accent font-semibold mb-8">
               Paiement en 4× 167€ sans frais via Alma

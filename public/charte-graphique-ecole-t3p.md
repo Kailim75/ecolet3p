@@ -67,7 +67,7 @@
 - Formation agréée
 - Carte professionnelle
 - Réglementation T3P
-- Réussite garantie
+- 94% de réussite
 - Accompagnement personnalisé
 - Centre certifié
 - Paiement flexible

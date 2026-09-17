@@ -24,7 +24,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
   { value: "100%", label: "des participants lancent leur activité" },
-  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "3 jours", label: "pour maîtriser votre gestion" },
 ];
 
