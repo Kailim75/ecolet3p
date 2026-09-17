@@ -100,7 +100,7 @@ const PlacesProgressBar = ({ category, className = "" }: PlacesProgressBarProps)
       ref={ref}
       className={`bg-gradient-to-br from-orange/10 to-orange/5 border border-orange/20 rounded-xl p-4 ${className}`}
     >
-      <div className="flex justify-between items-center mb-2 gap-2">
+      <div className="flex flex-wrap justify-between items-center mb-2 gap-x-2 gap-y-1">
         <span className="text-xs font-semibold text-orange flex items-center gap-1 flex-shrink-0">
           🔥 Session {de(data.month)}{data.month}
         </span>

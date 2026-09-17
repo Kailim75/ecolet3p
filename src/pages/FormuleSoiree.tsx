@@ -96,7 +96,7 @@ const FormuleSoiree = () => {
   ];
 
   return (
-    <Layout>
+    <Layout hideMobileStickyBar>
       <DynamicSEOHead
         pageUrl="/formations/formule-soiree"
         defaultTitle="Formation Soirée Taxi VTC 990€ | ECOLE T3P"

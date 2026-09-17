@@ -89,6 +89,11 @@ describe("source unique SEO (src/data/seoPages.json)", () => {
     expect(departements).toHaveLength(DEPARTEMENTS_IDF.length);
   });
 
+  it("repère les pages routées par App.tsx", () => {
+    // Si App.tsx change sa façon d'importer les pages, les tests suivants passeraient à vide.
+    expect(pageFiles().length).toBeGreaterThan(40);
+  });
+
   it("chaque H1 branché sur la source unique pointe vers une entrée existante", () => {
     const sources = pageFiles().map((f) => readFileSync(f, "utf-8")).join("\n");
     const chemins = [

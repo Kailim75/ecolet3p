@@ -155,8 +155,8 @@ const LocationVehiculeExamen = () => {
         })}</script>
       </DynamicSEOHead>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -186,7 +186,7 @@ const LocationVehiculeExamen = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Badge className="mb-4 bg-gold/10 text-gold border-gold/20">
+              <Badge className="mb-4 bg-gold/10 text-gold-text border-gold/20">
                 <Car className="h-4 w-4 mr-2" />
                 Service d'accompagnement
               </Badge>
@@ -415,7 +415,7 @@ const LocationVehiculeExamen = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <Badge className="mb-4 bg-gold/10 text-gold border-gold/20">
+              <Badge className="mb-4 bg-gold/10 text-gold-text border-gold/20">
                 <HelpCircle className="h-4 w-4 mr-2" />
                 Questions fréquentes
               </Badge>

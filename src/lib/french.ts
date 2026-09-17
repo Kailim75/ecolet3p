@@ -1,6 +1,6 @@
 /**
- * Préposition « de » élidée devant une voyelle ou un h muet : « session d'octobre »,
- * « session de mars ». Les noms de mois venant des données ou de toLocaleDateString,
- * la règle doit être appliquée à l'affichage.
+ * Préposition « de » élidée devant une voyelle : « session d'octobre », « session de mars ».
+ * Le h n'est pas traité (muet ou aspiré selon le mot) : ne passer que des mots dont
+ * l'élision ne dépend que de la voyelle initiale, comme les noms de mois.
  */
-export const de = (mot: string): string => (/^[aeiouyhàâäéèêëîïôöûü]/i.test(mot.trim()) ? "d'" : "de ");
+export const de = (mot: string): string => (/^[aeiouàâäéèêëîïôöûü]/i.test(mot.trim()) ? "d'" : "de ");

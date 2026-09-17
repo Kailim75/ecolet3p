@@ -4,7 +4,7 @@ import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
-  Moon, Calendar, Loader2, FileText, MapPin
+  Moon, Calendar, Loader2, MapPin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -14,7 +14,6 @@ import CatalogueCard from "@/components/formations/CatalogueCard";
 import PackCard from "@/components/formations/PackCard";
 
 import AlmaLogo from "@/components/logo/AlmaLogo";
-import { useIsMobile } from "@/hooks/use-mobile";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
 import {
   formationsInitiales,
@@ -52,8 +51,6 @@ const Formations = () => {
   const [preRegTitle, setPreRegTitle] = useState("");
   const [preRegDuration, setPreRegDuration] = useState("");
   const [activeAnchor, setActiveAnchor] = useState("initiales");
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-  const isMobile = useIsMobile();
   const heroRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress: heroScrollProgress } = useScroll({
@@ -76,18 +73,6 @@ const Formations = () => {
     setPreRegDuration(format);
     setPreRegOpen(true);
   };
-
-  // Footer observer for mobile sticky bar
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsFooterVisible(entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(footer);
-    return () => observer.disconnect();
-  }, []);
 
   // Active anchor observer
   useEffect(() => {
@@ -179,7 +164,7 @@ const Formations = () => {
       </section>
 
       {/* ============ STICKY NAV ============ */}
-      <nav className="sticky top-16 z-40 bg-white border-b border-border shadow-sm">
+      <nav className="sticky top-[72px] lg:top-20 z-40 bg-white border-b border-border shadow-sm">
         <div className="container-custom">
           <div className="flex gap-0.5 md:gap-1 overflow-x-auto scrollbar-hide py-0 -mx-2 px-2">
             {sections.map(s => (
@@ -232,7 +217,7 @@ const Formations = () => {
                     <tr key={i} className={row.highlight ? "bg-gold/5" : "bg-card"}>
                       <td className="px-4 md:px-6 py-3.5">
                         <span className="font-bold text-sm text-foreground">{row.name}</span>
-                        {row.highlight && <span className="ml-2 text-[10px] font-bold text-gold bg-gold/15 px-1.5 py-0.5 rounded-full align-middle">TOUT COMPRIS</span>}
+                        {row.highlight && <span className="ml-2 text-[10px] font-bold text-gold-text bg-gold/15 px-1.5 py-0.5 rounded-full align-middle whitespace-nowrap">TOUT COMPRIS</span>}
                       </td>
                       <td className="px-4 md:px-6 py-3.5 text-sm text-muted-foreground">{row.format}</td>
                       <td className="px-4 md:px-6 py-3.5 text-right">
@@ -422,18 +407,6 @@ const Formations = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* ============ MOBILE STICKY BAR ============ */}
-      {isMobile && !isFooterVisible && (
-        <div className="fixed bottom-0 left-0 right-0 lg:hidden flex items-center bg-white border-t border-border" style={{ zIndex: 1000, height: 56, boxShadow: '0 -4px 12px rgba(0,0,0,0.08)' }}>
-          <a href="tel:0188750555" className="flex-1 flex items-center justify-center gap-2 text-primary font-bold text-sm border-r border-border" style={{ height: '100%' }}>
-            <Phone className="w-4 h-4" /> Appeler
-          </a>
-          <Link to="/contact" className="flex-1 flex items-center justify-center gap-2 font-bold text-sm text-white" style={{ height: '100%', background: 'hsl(var(--cta))' }}>
-            <FileText className="w-4 h-4" /> Devis gratuit
-          </Link>
-        </div>
-      )}
 
       {/* ============ PRE-REGISTRATION MODAL ============ */}
       <PreRegistrationForm

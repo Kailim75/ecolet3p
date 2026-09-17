@@ -584,6 +584,12 @@
     width: 100%;
   }
 
+  /* clip, pas hidden, sur body : sinon body devient conteneur de défilement et les éléments
+     sticky (barre de raccourcis de l'accueil, onglets de /formations) ne collent plus. */
+  body {
+    overflow-x: clip;
+  }
+
   img {
     max-width: 100%;
     height: auto;

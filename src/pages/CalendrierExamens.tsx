@@ -32,7 +32,7 @@ const CalendrierExamens = () => {
       ></DynamicSEOHead>
 
       {/* Hero */}
-      <section className="pt-12 pb-8 md:pt-16 md:pb-12" style={{ background: "linear-gradient(135deg, #FFFAF5 0%, #F5F7FF 100%)" }}>
+      <section className="pt-[120px] pb-8 md:pt-[136px] md:pb-12 lg:pt-[144px]" style={{ background: "linear-gradient(135deg, #FFFAF5 0%, #F5F7FF 100%)" }}>
         <div className="container-custom">
           <AnimatedSection>
             <div className="flex items-center gap-2 mb-4">
@@ -106,14 +106,13 @@ const CalendrierExamens = () => {
                               style={{
                                 borderColor: "hsl(var(--border))",
                                 ...(isNext ? { backgroundColor: "rgba(243,156,18,0.04)" } : {}),
-                                ...(passed ? { opacity: 0.5 } : {}),
                               }}
                             >
                               <td className="px-4 py-3 font-semibold" style={{ color: "#1A1A1A" }}>
                                 {isNext && <span className="mr-1">👉</span>}
                                 {s.session}
                               </td>
-                              <td className="px-4 py-3" style={{ color: passed ? "#999" : "#D35400", fontWeight: isNext ? 600 : 400 }}>
+                              <td className="px-4 py-3" style={{ color: passed ? "#767676" : "#D35400", fontWeight: isNext ? 600 : 400 }}>
                                 {s.inscriptionDeadline}
                               </td>
                               <td className="px-4 py-3 hidden md:table-cell" style={{ color: "#555" }}>{s.convocations}</td>
@@ -171,7 +170,6 @@ const CalendrierExamens = () => {
                               className="border-b transition-colors hover:bg-muted/30"
                               style={{
                                 borderColor: "hsl(var(--border))",
-                                ...(passed ? { opacity: 0.5 } : {}),
                               }}
                             >
                               <td className="px-4 py-3 font-semibold" style={{ color: "#1A1A1A" }}>{s.session}</td>
@@ -180,7 +178,7 @@ const CalendrierExamens = () => {
                                   {s.dates}
                                 </td>
                               ))}
-                              <td className="px-4 py-3 hidden md:table-cell" style={{ color: passed ? "#999" : "#D35400" }}>{s.inscriptionDeadline}</td>
+                              <td className="px-4 py-3 hidden md:table-cell" style={{ color: passed ? "#767676" : "#D35400" }}>{s.inscriptionDeadline}</td>
                               <td className="px-3 py-3 text-center">
                                 {passed ? (
                                   <Badge variant="secondary" className="text-[10px]">Clôturée</Badge>

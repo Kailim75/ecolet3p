@@ -107,7 +107,7 @@ const FloatingWhatsAppButton: React.FC = () => {
               <MessageCircle className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-semibold">ECOLE T3P</h3>
+              <h3 className="font-semibold text-cream">ECOLE T3P</h3>
               <p className="text-xs text-white/80">Répond généralement en 1h</p>
             </div>
           </div>

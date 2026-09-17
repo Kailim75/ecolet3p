@@ -136,8 +136,8 @@ const BlogArticle = () => {
         />
       </div>
 
-      {/* Breadcrumb */}
-      <div className="bg-muted/30 py-3 border-b">
+      {/* Breadcrumb — décalé de la hauteur de l'en-tête fixe */}
+      <div className="bg-muted/30 py-3 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4">
           <Breadcrumb>
             <BreadcrumbList>
@@ -189,7 +189,7 @@ const BlogArticle = () => {
             </Link>
 
             <div className="mb-6">
-              <span className="inline-flex items-center gap-1.5 bg-gold/20 backdrop-blur-sm text-gold text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30">
+              <span className="inline-flex items-center gap-1.5 bg-gold/20 backdrop-blur-sm text-cream text-xs font-bold px-4 py-1.5 rounded-full border border-gold/30">
                 <Tag className="w-3 h-3" />
                 {article.category}
               </span>
@@ -322,7 +322,7 @@ const BlogArticle = () => {
                       <button
                         type="submit"
                         className="px-6 py-3 rounded-lg text-sm font-bold text-white shrink-0 transition-opacity hover:opacity-90"
-                        style={{ backgroundColor: "#E8793A" }}
+                        style={{ backgroundColor: "#C2410C" }}
                       >
                         Recevoir le guide →
                       </button>

@@ -67,6 +67,8 @@ export default {
           DEFAULT: "#D4A843",
           light: "#E4BE73",
           dark: "#C49843",
+          // or foncé réservé au texte sur fond clair (#D4A843 ne donne que 1,9:1 sur crème)
+          text: "#8C6718",
         },
         alma: {
           DEFAULT: "hsl(var(--alma))",

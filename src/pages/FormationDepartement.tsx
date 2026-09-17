@@ -118,7 +118,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
       </Helmet>
 
       {/* Breadcrumb */}
-      <nav aria-label="Fil d'Ariane" className="bg-muted/30 border-b">
+      <nav aria-label="Fil d'Ariane" className="bg-muted/30 border-b mt-[72px] lg:mt-20">
         <div className="container mx-auto px-4 py-3 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
           <Link to="/" className="hover:text-primary flex items-center gap-1">
             <Home className="w-3.5 h-3.5" /> Accueil
