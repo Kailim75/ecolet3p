@@ -110,7 +110,7 @@ const TestimonialsCarousel = () => {
             Ils nous ont fait confiance
           </h2>
           <p className="text-base" style={{ color: "#666" }}>
-            5.0/5 sur Google — 359 avis vérifiés
+            5.0/5 sur Google — 359 avis Google
           </p>
         </motion.div>
 

@@ -1,6 +1,9 @@
 // Routes définies dans App.tsx — ne jamais rediriger depuis ces chemins
 export const PROTECTED_ROUTES = new Set([
   "/",
+  "/cgv",
+  "/reglement-interieur",
+  "/nos-chiffres",
   "/formations",
   "/formations/taxi",
   "/formations/vtc",
@@ -42,5 +45,4 @@ export const PROTECTED_ROUTES = new Set([
   "/logo-institutionnel",
   "/logo-showcase",
   "/logo-download",
-  "/templates",
 ]);

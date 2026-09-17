@@ -105,7 +105,7 @@ const Footer = () => {
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}
                 <span className="text-white font-bold text-sm">5.0/5</span>
               </div>
-              <p className="text-white/80 text-xs">359 avis Google vérifiés</p>
+              <p className="text-white/80 text-xs">359 avis Google</p>
               <a
                 href="https://www.google.com/maps/place/ECOLE+T3P"
                 target="_blank"

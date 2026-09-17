@@ -46,7 +46,7 @@ const FormationContinueVMDTR = () => (
     badge="Formation Continue VMDTR (FCO)"
     badgeIcon={RefreshCw}
     heading="Renouvellement Carte VMDTR (Taxi Moto) — Formation Continue 14h"
-    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VMDTR taxi moto (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
+    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VMDTR taxi moto (FCO). Attestation délivrée le jour même, nouvelles sessions régulièrement à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
     price={tarifs.continueVMDTR}
     format="2 jours"

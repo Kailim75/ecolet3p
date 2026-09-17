@@ -52,7 +52,6 @@ const LogoShowcase = lazy(() => import("./pages/LogoShowcase"));
 const LogoDownload = lazy(() => import("./pages/LogoDownload"));
 const RecuperationPoints = lazy(() => import("./pages/RecuperationPoints"));
 const RenouvellementCarteProfessionnelle = lazy(() => import("./pages/RenouvellementCarteProfessionnelle"));
-const Templates = lazy(() => import("./pages/Templates"));
 const FormationVille = lazy(() => import("./pages/FormationVille"));
 const FormationsVilles = lazy(() => import("./pages/FormationsVilles"));
 const GuideFormation = lazy(() => import("./pages/GuideFormation"));
@@ -156,7 +155,6 @@ const App = () => {
                       <Route path="/logo-institutionnel" element={<LogoInstitutional />} />
                       <Route path="/logo-showcase" element={<LogoShowcase />} />
                       <Route path="/logo-download" element={<LogoDownload />} />
-                      <Route path="/templates" element={<Templates />} />
                       <Route path="/formations/recuperation-points" element={<Navigate to="/stage-recuperation-points" replace />} />
                       <Route path="/formations/accessibilite-pmr" element={<Navigate to="/formation-accessibilite-pmr" replace />} />
                       <Route path="/formations/gestion-entreprise" element={<Navigate to="/accompagnement-gestion-activite" replace />} />

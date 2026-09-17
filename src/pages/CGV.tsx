@@ -141,7 +141,7 @@ const CGV = () => {
               <ul className="list-disc pl-6 text-muted-foreground space-y-1">
                 <li>Paiement intégral par carte bancaire, espèces (dans la limite légale) ou virement</li>
                 <li>Paiement en 4× sans frais via notre partenaire Alma (sous conditions d'éligibilité)</li>
-                <li>Prise en charge OPCO / CPF / France Travail / Région : sur justificatif, une fois la convention de financement signée</li>
+                <li>Prise en charge OPCO / France Travail / Région : sur justificatif, une fois la convention de financement signée (le CPF n'est pas accepté)</li>
               </ul>
               <p className="text-muted-foreground mt-3">
                 Un acompte de 30 % est requis à l'inscription. Le solde est dû au plus tard le premier jour de la formation. Tout retard de paiement entraîne, de plein droit et sans mise en demeure préalable, l'application de pénalités au taux de 3 fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40 € (articles L.441-10 et D.441-5 du Code de commerce).

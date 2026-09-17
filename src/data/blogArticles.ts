@@ -1028,7 +1028,7 @@ Le VTC est un **chauffeur privé** qui transporte des clients sur réservation p
 
 | Format | Durée | Tarif ECOLE T3P |
 |--------|-------|-----------------|
-| Journée | 1 semaine | 1 190€ |
+| Journée | 1 semaine | 990€ |
 | Soir | 2 semaines | 990€ |
 
 L'examen VTC comprend **7 épreuves écrites** (tronc commun A-E + spécifiques F(V) Développement commercial et G(V) Réglementation VTC), composées de QCM et QRC. Admissibilité ≥ 10/20, puis épreuve pratique (45 min, admission ≥ 12/20).
@@ -1097,7 +1097,7 @@ Le taxi est le **seul professionnel autorisé à prendre des clients dans la rue
 
 | Format | Durée | Tarif ECOLE T3P |
 |--------|-------|-----------------|
-| Journée | 1 semaine | 1 190€ |
+| Journée | 1 semaine | 990€ |
 | Soir | 2 semaines | 990€ |
 
 L'examen Taxi comprend **7 épreuves écrites** (tronc commun A-E + spécifiques F(T) Connaissance du territoire et G(T) Réglementation nationale Taxi), composées de QCM et QRC. Admissibilité ≥ 10/20, puis épreuve pratique (45 min, admission ≥ 12/20).
@@ -1342,9 +1342,9 @@ Si le taxi vous attire mais le budget est contraignant :
 
 | Formation | Durée | Tarif | Inclus |
 |-----------|-------|-------|--------|
-| VTC Initiale (jour) | 1 semaine | 1 190€ | Examens blancs |
+| VTC Initiale (jour) | 1 semaine | 990€ | Examens blancs |
 | VTC Initiale (soir) | 2 semaines | 990€ | Examens blancs |
-| Taxi Initiale (jour) | 1 semaine | 1 190€ | Examens blancs |
+| Taxi Initiale (jour) | 1 semaine | 990€ | Examens blancs |
 | Taxi Initiale (soir) | 2 semaines | 990€ | Examens blancs |
 | VMDTR | 14h | 299€ | - |
 | Mobilité 92 | 14h | 390€ | - |

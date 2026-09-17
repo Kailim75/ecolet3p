@@ -411,7 +411,7 @@ const FormationRenouvellement = () => {
                 La formation continue de maintien et de perfectionnement (FCMP) est une obligation légale pour tous les conducteurs de voiture de transport avec chauffeur (VTC), taxis et véhicules motorisés à deux ou trois roues (VMDTR). Instaurée par la loi Grandguillaume de 2016 et ses décrets d'application, elle impose à chaque chauffeur professionnel de suivre un stage de remise à niveau tous les 5 ans pour conserver leur carte professionnelle.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                ECOLE T3P est l'un des rares centres en Île-de-France à proposer les 3 formations continues dans un seul et même lieu, avec des sessions chaque semaine. Notre agrément préfectoral n° 23/007 garantit la conformité de nos attestations pour toutes les démarches auprès des préfectures françaises.
+                ECOLE T3P est l'un des rares centres en Île-de-France à proposer les 3 formations continues dans un seul et même lieu, avec des sessions régulières. Notre agrément préfectoral n° 23/007 garantit la conformité de nos attestations pour toutes les démarches auprès des préfectures françaises.
               </p>
             </div>
 
@@ -421,7 +421,7 @@ const FormationRenouvellement = () => {
                 {[
                   { title: "+2 000 chauffeurs formés", desc: "Depuis 2019, nous avons accompagné plus de 2 000 chauffeurs dans le renouvellement de leur carte professionnelle." },
                   { title: "Attestation le jour même", desc: "Vous repartez avec votre attestation officielle en fin de stage. Pas de délai d'attente pour engager vos démarches." },
-                  { title: "Sessions chaque semaine", desc: "Nos sessions de formation continue se tiennent chaque semaine, y compris certains samedis pour les chauffeurs en activité." },
+                  { title: "Nouvelles sessions régulièrement", desc: "Nos sessions de formation continue reviennent régulièrement, y compris certains samedis pour les chauffeurs en activité." },
                   { title: "Accompagnement dossier", desc: "Nos équipes vous guident dans la constitution de votre dossier de renouvellement pour maximiser vos chances d'acceptation." },
                 ].map(({ title, desc }) => (
                   <div key={title} className="card-t3p">

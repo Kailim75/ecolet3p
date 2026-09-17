@@ -14,7 +14,7 @@ const FormationContinueVTC = () => (
     badge="Formation Continue VTC (FCO)"
     badgeIcon={RefreshCw}
     heading="Renouvellement Carte VTC — Formation Continue 14h"
-    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VTC (FCO). Attestation délivrée le jour même, sessions chaque semaine à Montrouge (92), accessible toute l'Île-de-France."
+    subheading="Stage de 14h obligatoire tous les 5 ans pour le renouvellement de votre carte professionnelle VTC (FCO). Attestation délivrée le jour même, nouvelles sessions régulièrement à Montrouge (92), accessible toute l'Île-de-France."
     duration="14h"
     price={tarifs.continueVTC}
     format="2 jours"

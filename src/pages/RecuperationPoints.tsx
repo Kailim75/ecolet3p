@@ -24,7 +24,7 @@ const whyChooseUs = [
 const results = [
   { value: "4 pts", label: "récupérables en un seul stage" },
   { value: "14h", label: "sur 2 jours consécutifs" },
-  { value: "5.0/5", label: "sur 359 avis Google vérifiés" },
+  { value: "5.0/5", label: "sur 359 avis Google" },
   { value: "250€", label: "tarif tout compris" },
 ];
 

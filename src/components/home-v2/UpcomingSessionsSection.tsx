@@ -41,7 +41,8 @@ const UpcomingSessionsSection = () => {
       const { data, error } = await supabase
         .from("formation_sessions")
         .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, notes, formations(title, category)")
-        .in("status", ["upcoming", "ongoing"])
+        .eq("status", "upcoming")
+        .gte("start_date", new Date().toISOString().slice(0, 10))
         .order("start_date", { ascending: true })
         .limit(4);
 

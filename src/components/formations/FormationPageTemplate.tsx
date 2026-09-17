@@ -129,7 +129,8 @@ const FormationPageTemplate = ({
           .from("formation_sessions")
           .select("*, formations(title)")
           .in("formation_id", formationIds)
-          .in("status", ["upcoming", "ongoing"])
+          .eq("status", "upcoming")
+          .gte("start_date", new Date().toISOString().slice(0, 10))
           .order("start_date")
           .limit(6);
 

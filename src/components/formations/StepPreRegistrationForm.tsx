@@ -112,7 +112,8 @@ const StepPreRegistrationForm = ({
       const { data } = await supabase
         .from("formation_sessions")
         .select("id, start_date, end_date, start_time, end_time, notes, formations!inner(title, category)")
-        .in("status", ["upcoming", "ongoing"])
+        .eq("status", "upcoming")
+        .gte("start_date", new Date().toISOString().slice(0, 10))
         .eq("formations.category", cat)
         .order("start_date", { ascending: true });
       if (cancelled) return;

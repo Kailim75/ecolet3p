@@ -41,8 +41,8 @@
 ### Combien coûte le renouvellement de carte professionnelle (FCO) ?
 Formation continue obligatoire de 14h tous les 5 ans :
 - **Renouvellement carte VTC** : 170€
-- **Renouvellement carte Taxi** : 239€
-- **Renouvellement carte VMDTR (taxi moto)** : 239€
+- **Renouvellement carte Taxi** : 250€
+- **Renouvellement carte VMDTR (taxi moto)** : 250€
 - Attestation de stage remise le jour même, sessions hebdomadaires à Montrouge
 
 ### Quelle est la différence entre Taxi, VTC et VMDTR ?
@@ -64,9 +64,9 @@ Oui — la **Passerelle T3P** permet d'obtenir une seconde carte professionnelle
 - [Formation VTC initiale](/formations/vtc) — Carte pro VTC pour Uber/Bolt/Heetch, dès 990€
 - [Formation VMDTR (taxi moto)](/formations/vmdtr) — Carte pro moto-taxi, dès 990€
 - [Passerelle Taxi ↔ VTC](/passerelle-vtc-taxi) — Seconde carte pro en 14h, 665€
-- [Renouvellement carte Taxi (FCO 14h)](/formations/continue-taxi) — 239€, attestation le jour même
+- [Renouvellement carte Taxi (FCO 14h)](/formations/continue-taxi) — 250€, attestation le jour même
 - [Renouvellement carte VTC (FCO 14h)](/formations/continue-vtc) — 170€, attestation le jour même
-- [Renouvellement carte VMDTR (FCO 14h)](/formations/continue-vmdtr) — 239€, attestation le jour même
+- [Renouvellement carte VMDTR (FCO 14h)](/formations/continue-vmdtr) — 250€, attestation le jour même
 - [Formation Accessibilité PMR 14h](/formation-accessibilite-pmr) — 290€, élargir sa clientèle
 - [Stage de récupération de points](/stage-recuperation-points) — Récupérer jusqu'à 4 points
 - [Formation anglais professionnel](/formations/anglais-professionnel) — Clientèle internationale
@@ -101,7 +101,7 @@ Oui — la **Passerelle T3P** permet d'obtenir une seconde carte professionnelle
 
 ## Avis & réputation
 
-- **Google Reviews** : 5.0/5 (359 avis vérifiés)
+- **Google Reviews** : 5.0/5 (359 avis)
 - **Profil Google Business** : ECOLE T3P, Montrouge
 - **Réputation** : +2000 chauffeurs formés, 94% de réussite
 

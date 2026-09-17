@@ -33,7 +33,7 @@ const indicators: Indicator[] = [
     title: "Satisfaction stagiaires",
     value: "5,0 / 5",
     status: "published",
-    description: "Note moyenne des avis Google vérifiés recueillis sur l'ensemble des stagiaires depuis 2014.",
+    description: "Note moyenne des avis Google recueillis sur l'ensemble des stagiaires depuis 2014.",
     source: "359 avis Google — actualisé en continu",
   },
   {
