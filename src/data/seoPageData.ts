@@ -109,7 +109,7 @@ const corePages: SEOPageInfo[] = [
   {
     url: "/a-propos",
     title: "À propos — ECOLE T3P Centre de Formation",
-    description: "Découvrez ECOLE T3P, centre de formation agréé Taxi VTC VMDTR à Montrouge depuis 2014. 94% de réussite, +2000 chauffeurs formés.",
+    description: "Découvrez ECOLE T3P, centre de formation agréé Taxi VTC VMDTR à Montrouge, des formateurs en activité depuis 2014. 94% de réussite, +2000 chauffeurs formés.",
     h1: "À propos d'ECOLE T3P",
     hasSchema: ["BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vtc", "/contact"],

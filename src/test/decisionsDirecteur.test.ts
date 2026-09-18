@@ -97,6 +97,11 @@ describe("décisions du directeur — contenus", () => {
       [/permis\s+A2?\s[^\n]{0,40}2\s?ans\s+si\s+[^\n]{0,30}passerelle/i, "permis A « 2 ans si passerelle »"],
       [/12\s+mois\s+pr[ée]c[ée]dant\s+l['’]expiration/i, "fenêtre réglementaire des 12 mois non étayée"],
       [/certifi[ée]s?\s+Qualiopi/i, "certification Qualiopi (en cours, pas acquise)"],
+      // Le centre de Montrouge est agréé depuis 2023 (agréments 23/005 et 23/006) ; ce sont les
+      // formateurs qui exercent depuis 2014. Ne jamais rattacher 2014 à l'agrément ou au centre.
+      [/agréée?\s[^.]{0,25}depuis\s+2014/i, "agrément présenté comme datant de 2014"],
+      [/centre\s+actif\s+depuis\s+2014/i, "centre présenté comme actif depuis 2014"],
+      [/"foundingDate":\s*"201/i, "date de création de l'entreprise antérieure à 2023"],
     ];
     const fautes: string[] = [];
     for (const { f, n, ligne } of lignes) {
