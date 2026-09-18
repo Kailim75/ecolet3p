@@ -3,6 +3,7 @@ import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 import {
   MapPin, Clock, Train, Bus, CheckCircle2, ArrowRight,
   GraduationCap, Phone, Calendar, Star, Trophy, Users,
@@ -99,7 +100,7 @@ const FormationVille = () => {
     { icon: Trophy, title: "94% de réussite", text: `Un taux de réussite exceptionnel pour les stagiaires venant de ${city.name} et des communes voisines.` },
     { icon: MapPin, title: `À ${city.travelTime}`, text: `Notre centre à Montrouge est directement accessible depuis ${city.name}. Trajet simple et rapide.` },
     { icon: Shield, title: "Centre agréé Préfecture", text: "Agrément n° 23/007 délivré par la Préfecture des Hauts-de-Seine. Formation conforme aux exigences réglementaires." },
-    { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA de 241€ inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
+    { icon: CreditCard, title: "990€ tout compris", text: `Frais d'examen CMA de ${tarifs.fraisExamenCMA}€ inclus. Paiement en 4× sans frais via Alma (247,50€/mois).` },
   ];
 
   return (
@@ -194,7 +195,7 @@ const FormationVille = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs formés" },
               { icon: Trophy, value: "94%", label: "Taux de réussite" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis Google` },
             ].map((s) => (
               <div key={s.value} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -226,9 +227,9 @@ const FormationVille = () => {
                     <p>{city.localContext}</p>
                     <p>
                       Situé au <strong className="text-foreground">3 rue Corneille à Montrouge (92120)</strong>,
-                      à seulement 200m du métro <strong className="text-foreground">Mairie de Montrouge (ligne 4)</strong>,
+                      à 8 minutes à pied du métro <strong className="text-foreground">Mairie de Montrouge (ligne 4)</strong>,
                       notre centre est accessible en <strong className="text-foreground">{city.travelTime}</strong> depuis {city.name}.
-                      Nos formations à 990€ tout compris incluent les frais d'examen CMA de 241€ et un accompagnement
+                      Nos formations à 990€ tout compris incluent les frais d'examen CMA de {tarifs.fraisExamenCMA}€ et un accompagnement
                       personnalisé jusqu'à l'obtention de votre carte professionnelle.
                     </p>
                   </>

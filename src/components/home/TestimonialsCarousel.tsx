@@ -2,8 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { nbAvisGoogle, noteGoogle, libelleAvisGoogle, urlAvisGoogle } from "@/lib/avis";
 
-// Extraits de vrais avis Google — profil ECOLE T3P (359 avis, 5.0/5)
+// Extraits de vrais avis Google — profil ECOLE T3P
 const testimonials = [
   {
     name: "Abdel B.",
@@ -110,7 +111,7 @@ const TestimonialsCarousel = () => {
             Ils nous ont fait confiance
           </h2>
           <p className="text-base" style={{ color: "#666" }}>
-            5.0/5 sur Google — 359 avis Google
+            {noteGoogle}/5 sur Google — {libelleAvisGoogle}
           </p>
         </motion.div>
 
@@ -215,13 +216,13 @@ const TestimonialsCarousel = () => {
           {/* Google link */}
           <div className="text-center mt-6">
             <a
-              href="https://www.google.com/maps/place/ECOLE+T3P"
+              href={urlAvisGoogle}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline transition-colors"
               style={{ color: "#4B5563" }}
             >
-              Voir les 359 avis sur Google <ExternalLink className="w-3.5 h-3.5" />
+              Voir les {nbAvisGoogle} avis sur Google <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

@@ -27,7 +27,7 @@
 
 ### Nos chiffres clés
 - **94%** de taux de réussite aux examens
-- **359** avis Google avec une note de **5.0/5**
+- **367** avis Google avec une note de **5,0/5**
 - **+10 ans** d'expérience dans la formation T3P
 - **70+** communes desservies en Île-de-France
 
@@ -51,7 +51,8 @@ ECOLE T3P propose une gamme complète de formations pour tous les métiers du tr
 | Mobilité (Passerelle) | 7 h (vers VTC/VMDTR) ou 14 h (vers Taxi) | 665€ tout compris | Passerelle Taxi ↔ VTC |
 | Renouvellement Taxi/VMDTR | 14h | 250€ | Maintien carte pro |
 | Continue VTC | 14h | 170€ | Renouvellement obligatoire |
-| Récupération points | 14h | — | Récupérer 4 points |
+| Récupération points | 14h | 250€ | Récupérer 4 points |
+| Mobilité géographique | 14 h (92) ou 35 h (75) | 440€ | Étendre sa zone d'activité taxi |
 
 ---
 
@@ -77,7 +78,7 @@ La formation Taxi vous prépare à l'examen de la carte professionnelle de condu
 - **Format e-learning** : à votre rythme
 
 ### Prérequis
-- Permis B valide depuis au moins 3 ans
+- Permis B depuis au moins 3 ans (2 ans en conduite accompagnée)
 - Aptitude médicale
 - Casier judiciaire compatible
 
@@ -112,7 +113,7 @@ La formation VTC (Voiture de Transport avec Chauffeur) vous prépare à devenir 
 - **Format e-learning** : à votre rythme
 
 ### Prérequis
-- Permis B valide depuis au moins 3 ans
+- Permis B depuis au moins 3 ans (2 ans en conduite accompagnée)
 - Aptitude médicale
 - Casier judiciaire compatible
 
@@ -144,7 +145,7 @@ La formation VMDTR (Véhicule Motorisé à Deux ou Trois Roues) vous permet de d
 - **Format e-learning** : à votre rythme
 
 ### Prérequis
-- Permis A valide depuis au moins 3 ans
+- Permis A depuis au moins 3 ans
 - Véhicule 2 ou 3 roues adapté
 - Aptitude médicale
 
@@ -234,12 +235,12 @@ Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à **
 - Paiement en plusieurs fois
 
 ### 4. Localisation idéale
-- À 200 m du métro Mairie de Montrouge (ligne 4)
+- À 8 minutes à pied du métro Mairie de Montrouge (ligne 4)
 - Accessible depuis tout le sud de Paris
 - Parking à proximité
 
 ### 5. Réputation
-- 359 avis Google 5 étoiles
+- 367 avis Google 5 étoiles
 - Recommandé par nos anciens stagiaires
 - Centre agréé Préfecture
 
@@ -259,7 +260,7 @@ Trois formats au choix pour les formations initiales Taxi et VTC :
 
 ### Quelles sont les options de financement ?
 Nous proposons :
-- Paiement en 4 fois sans frais avec Alma
+- Paiement en 4 fois sans frais avec Alma, sous conditions d'éligibilité
 - Échelonnement personnalisé selon votre situation
 - Pas de CPF ni d'aides publiques : tarifs accessibles et transparents
 
@@ -290,14 +291,14 @@ France
 - Longitude : 2.3137
 
 ### Transports en commun
-- **Métro** : Mairie de Montrouge (ligne 4) - à 200 m
+- **Métro** : Mairie de Montrouge (ligne 4) - à 8 minutes à pied
 - **Bus** : Lignes 68, 126, 128
 
 ### En voiture
 - Parking public à proximité
 - Accès périphérique Porte d'Orléans
 
-### Communes à proximité (moins de 15 min)
+### Communes à proximité
 Bagneux, Vanves, Malakoff, Châtillon, Clamart, Issy-les-Moulineaux, Fontenay-aux-Roses, Arcueil, Cachan, Gentilly, Paris 14e, Paris 13e, Paris 15e
 
 ---
@@ -348,7 +349,7 @@ ECOLE T3P publie régulièrement des guides et articles pour accompagner les fut
 - **Formation Taxi : Tout savoir sur la carte professionnelle T3P** : prérequis, examen, durée et coût. https://ecolet3p.fr/blog/formation-taxi-carte-professionnelle-t3p
 - **VTC vs Taxi : Quelle formation choisir en 2025 ?** : comparatif des métiers et formations. https://ecolet3p.fr/blog/vtc-ou-taxi-quelle-formation-choisir
 - **Les 5 étapes pour obtenir sa carte professionnelle VTC** : formation, examen, dossier préfecture. https://ecolet3p.fr/blog/etapes-obtenir-carte-professionnelle-vtc
-- **Facilités de paiement pour votre formation Taxi/VTC** : paiement en 4x sans frais, échelonnement personnalisé. https://ecolet3p.fr/blog/facilites-paiement-formation-taxi-vtc
+- **Facilités de paiement pour votre formation Taxi/VTC** : paiement en 4x sans frais (sous conditions d'éligibilité), échelonnement personnalisé. https://ecolet3p.fr/blog/facilites-paiement-formation-taxi-vtc
 - **Formation VMDTR : Devenir conducteur moto-taxi ou scooter** : programme, examen et débouchés. https://ecolet3p.fr/blog/formation-vmdtr-moto-taxi-scooter
 - **Formation Continue : Renouveler sa carte professionnelle VTC/Taxi** : obligations, durée et programme. https://ecolet3p.fr/blog/formation-continue-renouvellement-carte-professionnelle
 
@@ -369,5 +370,5 @@ ECOLE T3P publie régulièrement des guides et articles pour accompagner les fut
 
 ---
 
-*Dernière mise à jour : Février 2026*
+*Dernière mise à jour : Septembre 2026*
 *ECOLE T3P - Centre agréé Préfecture - Montrouge (92)*

@@ -15,6 +15,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
 import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
+import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
 /* ─── sub-components ─── */
 
@@ -23,7 +25,7 @@ const ReassuranceBarCompact = () => {
     { icon: Calendar, value: "Depuis 2014", label: "+10 ans" },
     { icon: Users, value: "+2 000", label: "Chauffeurs" },
     { icon: Trophy, value: "94%", label: "Réussite" },
-    { icon: Star, value: "5.0/5", label: "359 avis" },
+    { icon: Star, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis` },
   ];
   return (
     <section className="bg-muted py-6 border-b border-border">
@@ -107,7 +109,7 @@ const FormatsTableSection = () => (
         </table>
       </div>
       <p className="mt-4 text-center text-muted-foreground text-sm">
-        Frais d'examen T3P (241€) inclus dans tous les formats — Paiement en 4x sans frais avec Alma
+        Frais d'examen T3P ({tarifs.fraisExamenCMA}€) inclus dans tous les formats — Paiement en 4x sans frais avec Alma
       </p>
     </div>
   </section>
@@ -325,8 +327,8 @@ const FormationDetailTemplate = ({
                   <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                 ))}
               </div>
-              <span className="font-bold text-sm">5.0/5</span>
-              <span className="text-muted-foreground text-sm">— 359 avis</span>
+              <span className="font-bold text-sm">{noteGoogle}/5</span>
+              <span className="text-muted-foreground text-sm">— {nbAvisGoogle} avis</span>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

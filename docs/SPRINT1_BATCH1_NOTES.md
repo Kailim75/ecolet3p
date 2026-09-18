@@ -96,7 +96,7 @@
 - **Délai de rétractation** : double mention (L.221-18 Code conso pour particulier + L.6353-5 Code travail pour formation pro continue).
 - **Juridiction compétente** : Tribunaux de Nanterre (siège à Montrouge 92).
 - **Date d'entrée en vigueur** : 16 avril 2026 (hier, cohérent).
-- **Nos Chiffres — valeurs publiées** : "1 000+ stagiaires formés depuis 2014" et "5,0/5 sur 359 avis" — extrapolées depuis le JSON-LD d'`index.html`. À vérifier.
+- **Nos Chiffres — valeurs publiées** : "1 000+ stagiaires formés depuis 2014" et "5,0/5 sur 359 avis" — extrapolées depuis le JSON-LD d'`index.html`. Depuis le 18/09/2026, la note et le nombre d'avis ont une source unique : `src/data/avisGoogle.json`.
 
 ---
 

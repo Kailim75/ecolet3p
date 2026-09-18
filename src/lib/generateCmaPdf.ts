@@ -166,7 +166,7 @@ export function generateAdmissibilitePdf() {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(...COLORS.grey);
-  doc.text("94% de réussite dès le 1er passage — Formations Taxi, VTC et VMDTR", pageWidth / 2, finalY + 17, { align: "center" });
+  doc.text("94 % de réussite — Formations Taxi, VTC et VMDTR", pageWidth / 2, finalY + 17, { align: "center" });
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);
@@ -248,7 +248,7 @@ export function generateAdmissionPdf() {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(...COLORS.grey);
-  doc.text("94% de réussite dès le 1er passage — Formations Taxi, VTC et VMDTR", pageWidth / 2, finalY + 17, { align: "center" });
+  doc.text("94 % de réussite — Formations Taxi, VTC et VMDTR", pageWidth / 2, finalY + 17, { align: "center" });
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);

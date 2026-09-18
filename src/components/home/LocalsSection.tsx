@@ -42,7 +42,7 @@ const images = [
 
 const features = [
   { icon: MapPin, label: "Montrouge (92)", desc: "Proche métro" },
-  { icon: Users, label: "15 places", desc: "Par session" },
+  { icon: Users, label: "15 personnes", desc: "Maximum par session" },
   { icon: Monitor, label: "Équipé", desc: "Matériel moderne" },
   { icon: Coffee, label: "Espace détente", desc: "Pause café" },
 ];

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteModal } from "@/components/quote/QuoteModalContext";
+import { urlAvisGoogle } from "@/lib/avis";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
@@ -44,7 +45,7 @@ const CTASection = () => {
                 <Mail className="w-5 h-5" /> Envoyer un email
               </a>
               <a
-                href="https://www.google.com/maps/place/ECOLE+T3P"
+                href={urlAvisGoogle}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full h-[52px] rounded-xl font-bold text-base bg-white"

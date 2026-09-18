@@ -34,7 +34,7 @@ const services = [
     icon: KeyRound,
     step: "03",
     title: "Location véhicule examen",
-    desc: "Véhicule conforme + 2h de conduite incluses pour réussir votre examen pratique.",
+    desc: `Pour les candidats libres : véhicule conforme + 2h de conduite. Le véhicule d'examen est déjà inclus dans nos formations à ${tarifs.initiale} €.`,
     link: "/services/location-vehicule-examen",
   },
   {

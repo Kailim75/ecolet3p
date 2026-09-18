@@ -18,17 +18,17 @@ const faqs = [
   },
   {
     question: "Comment fonctionne le paiement en 4× ?",
-    answer: "Grâce à notre partenaire Alma, vous réglez en 4 mensualités de 247,50€ sans aucun frais. La décision est immédiate, sans justificatif. Vous pouvez simuler votre échéancier directement sur cette page.",
+    answer: "Grâce à notre partenaire Alma, vous réglez en 4 mensualités de 247,50€ sans aucun frais, sous conditions d'éligibilité. Vous pouvez simuler votre échéancier directement sur cette page.",
     hasAlmaButton: true,
   },
   {
     question: "Que se passe-t-il si je rate l'examen ?",
-    answer: "Si vous ne réussissez pas l'examen, nous vous réaccompagnons gratuitement jusqu'à la prochaine session disponible. Aucun frais pédagogique supplémentaire. Cette garantie est valable pour tous nos candidats assidus.",
+    answer: "Si vous ne réussissez pas l'examen, nous vous réaccompagnons gratuitement jusqu'à la prochaine session disponible. Aucun frais pédagogique supplémentaire. Ce réaccompagnement est proposé à nos candidats assidus.",
     hasAlmaButton: false,
   },
   {
     question: "Combien de stagiaires par session ?",
-    answer: "12 maximum. C'est notre standard pédagogique pour garantir un suivi individuel.",
+    answer: "15 personnes maximum. C'est notre standard pédagogique pour garantir un suivi individuel.",
     hasAlmaButton: false,
   },
   {

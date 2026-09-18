@@ -109,7 +109,7 @@ const CGV = () => {
                 <li>Stage de récupération de points du permis de conduire</li>
                 <li>Formation accessibilité PMR</li>
                 <li>Accompagnement à la création et à la gestion d'activité</li>
-                <li>Location de véhicule d'examen</li>
+                <li>Location de véhicule d'examen pour les candidats libres (le véhicule d'examen est inclus dans les formations initiales à {tarifs.initiale} €)</li>
               </ul>
               <p className="text-muted-foreground mt-3">
                 Le contenu pédagogique, la durée, les modalités et les tarifs de chaque formation sont détaillés dans la fiche programme remise avant inscription et sur le site ecolet3p.fr.
@@ -134,7 +134,7 @@ const CGV = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">Article 4 — Prix et modalités de paiement</h2>
               <p className="text-muted-foreground mb-3">
-                Les prix sont indiqués en euros, TVA non applicable (article 293 B du CGI — franchise en base) ou TVA selon régime applicable. Ils incluent les supports pédagogiques remis au Stagiaire et l'accompagnement pédagogique. Ils n'incluent pas les frais d'inscription à l'examen, ni les frais de déplacement, ni la location de véhicule sauf mention expresse.
+                Les prix sont indiqués en euros, TVA non applicable (article 293 B du CGI — franchise en base) ou TVA selon régime applicable. Ils incluent les supports pédagogiques remis au Stagiaire et l'accompagnement pédagogique. Pour les formations initiales à {tarifs.initiale} €, ils incluent également les frais d'examen CMA ({tarifs.fraisExamenCMA} €) et la mise à disposition du véhicule d'examen. Ils n'incluent pas les frais de déplacement ni, pour les candidats libres, la location du véhicule d'examen, facturée séparément.
               </p>
               <p className="text-muted-foreground mb-3">
                 <strong>Modalités de paiement :</strong>

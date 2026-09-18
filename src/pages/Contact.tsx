@@ -4,6 +4,7 @@ import TrustBar from "@/components/home/TrustBar";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
+import { urlAvisGoogle } from "@/lib/avis";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -72,8 +73,8 @@ const actionCards = [
   },
   {
     title: "Voir le centre",
-    description: "Itinéraire Google Maps vers le centre de Montrouge.",
-    href: "https://www.google.com/maps/place/ECOLE+T3P",
+    description: "Fiche Google Maps du centre de Montrouge : avis et itinéraire.",
+    href: urlAvisGoogle,
     icon: MapPin,
   },
 ];
@@ -416,12 +417,12 @@ const Contact = () => {
               <div className="card-t3p">
                 <h2 className="text-xl font-bold text-primary">Venir au centre</h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  Le centre est à 2 minutes à pied du métro Mairie de Montrouge et facilement accessible depuis
+                  Le centre est à 8 minutes à pied du métro Mairie de Montrouge et facilement accessible depuis
                   Bagneux, Vanves, Malakoff et le sud de Paris.
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                   <a
-                    href="https://www.google.com/maps/place/ECOLE+T3P"
+                    href={urlAvisGoogle}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"

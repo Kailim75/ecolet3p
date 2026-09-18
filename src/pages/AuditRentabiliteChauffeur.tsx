@@ -9,6 +9,8 @@ import {
   Briefcase, TrendingUp, GraduationCap, Building2
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
+import tarifs from "@/data/tarifs.json";
 import auditBg from "@/assets/audit-rentabilite-bg.jpg";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -57,12 +59,12 @@ const faqItems = [
   { q: "Comment estimer ma rentabilité en tant que chauffeur VTC ou Taxi ?", a: "Notre audit gratuit en ligne calcule votre chiffre d'affaires, déduit les charges (commission plateforme, charges sociales, charges fixes) et affiche votre net mensuel estimé selon votre statut juridique." },
   { q: "Quel statut juridique choisir : micro-entreprise, SASU ou EURL ?", a: "La micro-entreprise est idéale pour démarrer (charges sociales ~22% du CA après commission). La SASU convient aux revenus élevés (IS à 15%). L'EURL (TNS) offre une couverture sociale complète avec des cotisations de ~45%." },
   { q: "Combien gagne un chauffeur VTC en moyenne par mois ?", a: "Avec 22 jours travaillés, 8h/jour et un revenu horaire de 25€, le CA mensuel est d'environ 4 400€. Après déduction des charges (commission, cotisations, frais fixes), le net se situe entre 1 500€ et 2 800€ selon le statut juridique." },
-  { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: "La formation est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium), frais d'examen CMA de 241€ inclus. Paiement en 4× sans frais possible avec Alma." },
+  { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: `La formation est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium), frais d'examen CMA de ${tarifs.fraisExamenCMA}€ inclus. Paiement en 4× sans frais possible avec Alma.` },
   { q: "En combien de temps la formation est-elle rentabilisée ?", a: "Le délai d'amortissement dépend de votre rythme de travail, de vos charges et de votre statut juridique : utilisez le simulateur gratuit de cette page pour l'estimer à partir de vos propres paramètres." },
   { q: "Quels sont les formats de formation disponibles ?", a: "3 formats au même tarif : Journée (1 semaine intensive), Soir (2 semaines en soirée) et E-learning (accès illimité jusqu'à l'examen)." },
   { q: "Quel est le taux de réussite à l'examen ?", a: "Notre taux de réussite est de 94%. Plus de 2 000 chauffeurs ont été formés depuis 2014." },
   { q: "Comment financer ma formation sans le CPF ?", a: "Le CPF n'est pas éligible pour les formations T3P. Le financement se fait en direct avec paiement en 4× sans frais via Alma, soit ~247,50€/mois." },
-  { q: "Où se trouve le centre de formation ?", a: "ECOLE T3P est située au 3 rue Corneille, 92120 Montrouge, à 2 minutes à pied du métro Mairie de Montrouge (Ligne 4). Nous sommes facilement accessibles depuis Paris et toute l'Île-de-France." },
+  { q: "Où se trouve le centre de formation ?", a: "ECOLE T3P est située au 3 rue Corneille, 92120 Montrouge, à 8 minutes à pied du métro Mairie de Montrouge (Ligne 4). Nous sommes facilement accessibles depuis Paris et toute l'Île-de-France." },
   { q: "Comment obtenir un audit personnalisé ?", a: "Utilisez notre simulateur gratuit sur cette page puis envoyez vos résultats directement sur WhatsApp. Un conseiller vous recontactera sous 24h pour un accompagnement personnalisé." },
   { q: "Puis-je exercer comme VTC et Taxi en même temps ?", a: "Oui, grâce à la passerelle VTC-Taxi. Si vous possédez déjà une carte professionnelle VTC, vous pouvez passer l'examen Taxi complémentaire (et inversement) via notre formation passerelle à 665€." },
   { q: "Quelles charges dois-je prévoir en tant que chauffeur indépendant ?", a: "Les principales charges sont : commission plateforme (10-25%), charges sociales (22% en micro, ~45% en TNS), assurance RC Pro, frais de véhicule (location/crédit, entretien, carburant) et frais administratifs (comptable, CFE)." },
@@ -187,7 +189,7 @@ export default function AuditRentabiliteChauffeur() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: Users, value: "+2 000", label: "chauffeurs formés" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
               { icon: Award, value: "94%", label: "taux de réussite" },
               { icon: Shield, value: "990€", label: "à partir de" },
             ].map((s) => (
@@ -215,7 +217,7 @@ export default function AuditRentabiliteChauffeur() {
             commission plateforme, charges sociales, statut juridique et charges fixes.
           </p>
           <p className="text-muted-foreground text-base leading-relaxed">
-            Basé à <strong>Montrouge (92)</strong>, à 2 minutes du métro Mairie de Montrouge (Ligne 4),
+            Basé à <strong>Montrouge (92)</strong>, à 8 minutes à pied du métro Mairie de Montrouge (Ligne 4),
             ECOLE T3P forme les futurs chauffeurs professionnels de <strong>Paris et Île-de-France</strong> depuis 2014.
             Plus de 2 000 chauffeurs formés avec un taux de réussite de 94%.
           </p>
@@ -344,8 +346,8 @@ export default function AuditRentabiliteChauffeur() {
               ))}
             </div>
             <p>
-              Le paiement en <strong>4× sans frais</strong> via Alma rend la formation accessible immédiatement (soit ~247,50€/mois).
-              Pas de CPF, pas de paperasse administrative — vous vous inscrivez et démarrez dès la prochaine session.
+              Le paiement en <strong>4× sans frais</strong> via Alma permet d'étaler le coût de la formation (soit ~247,50€/mois), sous conditions d'éligibilité.
+              Pas de CPF : vous vous inscrivez et démarrez dès la prochaine session.
             </p>
           </div>
         </div>
@@ -383,7 +385,7 @@ export default function AuditRentabiliteChauffeur() {
               <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-foreground">3 rue Corneille, 92120 Montrouge</p>
-                <p className="text-sm text-muted-foreground">Métro Mairie de Montrouge (Ligne 4) — 2 min à pied</p>
+                <p className="text-sm text-muted-foreground">Métro Mairie de Montrouge (Ligne 4) — 8 min à pied</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

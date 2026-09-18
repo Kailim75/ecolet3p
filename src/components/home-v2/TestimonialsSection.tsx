@@ -1,6 +1,5 @@
 import { Star, ExternalLink, BadgeCheck } from "lucide-react";
-
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Drop+Academy+Montrouge+-+Formations+TAXI+%2F+VTC+%2F+VMDTR+%2F+Stage+r%C3%A9cup%C3%A9ration+de+points/@48.8125825,2.3087391,17z/data=!4m8!3m7!1s0x47e671c5d7e0be99:0xe08551512248734c!8m2!3d48.812579!4d2.311314!9m1!1b1!16s%2Fg%2F11sv53bwx2?entry=ttu";
+import { libelleAvisGoogle, noteGoogle, urlAvisGoogle } from "@/lib/avis";
 
 const testimonials = [
   {
@@ -30,7 +29,7 @@ const TestimonialsSection = () => {
         <div className="text-center mb-12">
           <h2 className="section-title mb-4">Ils ont réussi avec T3P</h2>
           <a
-            href={GOOGLE_MAPS_URL}
+            href={urlAvisGoogle}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-card px-4 py-2 rounded-full border border-border hover:shadow-md transition-shadow"
@@ -40,8 +39,8 @@ const TestimonialsSection = () => {
                 <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
               ))}
             </div>
-            <span className="font-bold text-sm text-foreground">5.0/5</span>
-            <span className="text-muted-foreground text-sm">— 359 avis Google</span>
+            <span className="font-bold text-sm text-foreground">{noteGoogle}/5</span>
+            <span className="text-muted-foreground text-sm">— {libelleAvisGoogle}</span>
             <ExternalLink className="w-3.5 h-3.5 text-muted-foreground" />
           </a>
         </div>
@@ -50,7 +49,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t) => (
             <a
               key={t.name}
-              href={GOOGLE_MAPS_URL}
+              href={urlAvisGoogle}
               target="_blank"
               rel="noopener noreferrer"
               className="card-t3p block group"

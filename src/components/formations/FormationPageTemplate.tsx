@@ -26,6 +26,8 @@ import AlmaLogo from "@/components/logo/AlmaLogo";
 import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 import { supabase } from "@/integrations/supabase/client";
 import DepartementLinksBlock from "@/components/formations/DepartementLinksBlock";
+import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
 interface ProgramModule {
   title: string;
@@ -386,7 +388,7 @@ const FormationPageTemplate = ({
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans" },
               { icon: Users, value: "+2 000", label: "Chauffeurs" },
               { icon: Trophy, value: "94%", label: "Réussite" },
-              { icon: Star, value: "5.0/5", label: "359 avis" },
+              { icon: Star, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis` },
             ].map((s) => (
               <div key={s.value} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -467,7 +469,7 @@ const FormationPageTemplate = ({
             </table>
           </div>
           <p className="mt-4 text-center text-muted-foreground text-sm">
-            Frais d'examen T3P (241€) inclus dans tous les formats — Paiement en 4x sans frais avec Alma
+            Frais d'examen T3P ({tarifs.fraisExamenCMA}€) inclus dans tous les formats — Paiement en 4x sans frais avec Alma
           </p>
         </div>
       </section>

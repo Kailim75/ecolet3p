@@ -8,6 +8,7 @@ import {
   Phone, ArrowRight, Shield, Award, Clock, FileSearch, Briefcase
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import SimulatorLevel1 from "@/components/simulator/SimulatorLevel1";
 import SimulatorLevel2 from "@/components/simulator/SimulatorLevel2";
 import LeadCaptureForm from "@/components/simulator/LeadCaptureForm";
@@ -130,7 +131,7 @@ const AuditRentabilite = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: Users, value: "+2 000", label: "chauffeurs formés" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
               { icon: Award, value: "94%", label: "taux de réussite" },
               { icon: Clock, value: "30 sec", label: "pré-audit gratuit" },
             ].map((s) => (

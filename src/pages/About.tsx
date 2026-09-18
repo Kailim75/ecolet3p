@@ -3,6 +3,7 @@ import TrustBar from "@/components/home/TrustBar";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
+import { nbAvisGoogle, noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import { Link } from "react-router-dom";
 import { 
   Award, Users, FileCheck, MapPin, Phone, ArrowRight,
@@ -74,7 +75,7 @@ const stats = [
   { value: "94%", label: "Taux de réussite" },
   { value: "10 ans", label: "D'expérience" },
   { value: "2 000+", label: "Apprenants formés" },
-  { value: "359", label: "Avis Google" },
+  { value: `${nbAvisGoogle}`, label: "Avis Google" },
 ];
 
 const testimonials = [
@@ -139,7 +140,7 @@ const About = () => {
       <DynamicSEOHead
         pageUrl="/a-propos"
         defaultTitle="À Propos d'ECOLE T3P — Formation Taxi VTC"
-        defaultDescription="Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, 359 avis 5 étoiles. Formateurs experts du transport."
+        defaultDescription={`Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, note ${noteGoogle}/5 sur ${libelleAvisGoogle}. Formateurs experts du transport.`}
         canonicalUrl="https://ecolet3p.fr/a-propos"
       >
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
@@ -295,9 +296,8 @@ const About = () => {
                   Le centre a été créé pour combiner rigueur pédagogique et accompagnement humain.
                 </p>
                 <p>
-                  Avec plus de 2 000 élèves formés en 10 ans, ECOLE T3P s'est imposé comme une référence 
-                  en Île-de-France pour les formations Taxi, VTC et VMDTR. Notre taux de réussite de 94% 
-                  témoigne de la qualité de notre enseignement et de l'engagement de notre équipe.
+                  Avec plus de 2 000 élèves formés en 10 ans, ECOLE T3P forme en Île-de-France
+                  aux métiers de Taxi, VTC et VMDTR. Notre taux de réussite est de 94%.
                 </p>
                 <p>
                   Aujourd'hui, ECOLE T3P continue d'innover pour préparer les chauffeurs aux défis de demain : 
@@ -319,7 +319,7 @@ const About = () => {
                 {
                   icon: Target,
                   title: "Excellence",
-                  description: "Taux de réussite de 94% à l'examen préfectoral. Nos programmes sont actualisés chaque année pour intégrer les dernières évolutions réglementaires et les meilleures pratiques du secteur.",
+                  description: "Taux de réussite de 94% à l'examen préfectoral. Nos programmes sont actualisés chaque année pour intégrer les évolutions réglementaires et les pratiques du secteur.",
                   highlight: "94% de réussite",
                 },
                 {
@@ -502,7 +502,7 @@ const About = () => {
               ))}
             </div>
             <p className="text-center text-sm text-muted-foreground mt-6">
-              Note moyenne : 5.0/5 sur 359 avis Google
+              Note moyenne : {noteGoogle}/5 sur {libelleAvisGoogle}
             </p>
           </div>
         </div>

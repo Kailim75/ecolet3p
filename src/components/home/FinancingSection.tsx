@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Shield, Zap, FileX, ArrowRight } from "lucide-react";
+import { Shield, Zap, FileCheck, ArrowRight } from "lucide-react";
 import PrefetchLink from "@/components/ui/PrefetchLink";
 import AlmaLogo from "@/components/logo/AlmaLogo";
 
@@ -8,8 +8,8 @@ const smoothEase = [0.22, 1, 0.36, 1] as const;
 
 const advantages = [
   { icon: Shield, title: "100% sécurisé", description: "Paiement crypté et protégé" },
-  { icon: Zap, title: "Réponse immédiate", description: "Acceptation en quelques secondes" },
-  { icon: FileX, title: "Sans justificatif", description: "Aucun document à fournir" },
+  { icon: Zap, title: "Jusqu'à 4 mensualités", description: "Règlement étalé sur 4 mois avec Alma" },
+  { icon: FileCheck, title: "Sous conditions d'éligibilité", description: "Acceptation soumise à l'accord d'Alma" },
 ];
 
 const FinancingSection = () => {

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Eye, Trophy, Star, FileSearch } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
 // L'animation d'entrée (cascade de mots + compteur) ne doit jouer qu'à la
 // PREMIÈRE visite de la session : la voir rejouer à chaque retour sur l'accueil
@@ -260,10 +261,10 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
                     <Star key={i} className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                   ))}
                 </div>
-                <span className="text-base font-bold text-primary leading-none">5.0/5</span>
+                <span className="text-base font-bold text-primary leading-none">{noteGoogle}/5</span>
               </div>
               <div>
-                <p className="text-xs font-bold text-primary leading-tight">359 avis</p>
+                <p className="text-xs font-bold text-primary leading-tight">{nbAvisGoogle} avis</p>
                 <p className="text-[10px] text-muted-foreground font-medium">Google</p>
               </div>
             </div>
@@ -301,10 +302,10 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
                       <Star key={i} className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
                     ))}
                   </div>
-                  <span className="text-lg font-bold text-primary leading-none">5.0/5</span>
+                  <span className="text-lg font-bold text-primary leading-none">{noteGoogle}/5</span>
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-primary leading-tight">359 avis</p>
+                  <p className="text-sm font-bold text-primary leading-tight">{nbAvisGoogle} avis</p>
                   <p className="text-xs text-muted-foreground font-medium">Google</p>
                 </div>
               </div>

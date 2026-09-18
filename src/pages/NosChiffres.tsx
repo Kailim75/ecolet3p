@@ -2,6 +2,7 @@ import type { ElementType } from "react";
 import { motion } from "framer-motion";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import { Link } from "react-router-dom";
 import { Home, Star, Users, TrendingUp, CheckCircle2, Clock, Accessibility } from "lucide-react";
 import {
@@ -31,10 +32,10 @@ const indicators: Indicator[] = [
   {
     icon: Star,
     title: "Satisfaction stagiaires",
-    value: "5,0 / 5",
+    value: `${noteGoogle} / 5`,
     status: "published",
     description: "Note moyenne des avis Google recueillis sur l'ensemble des stagiaires depuis 2014.",
-    source: "359 avis Google — actualisé en continu",
+    source: libelleAvisGoogle,
   },
   {
     icon: Users,

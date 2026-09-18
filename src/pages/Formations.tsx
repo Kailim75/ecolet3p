@@ -3,6 +3,7 @@ import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
   Moon, Calendar, Loader2, MapPin
@@ -148,7 +149,7 @@ const Formations = () => {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="lg:col-span-2 grid grid-cols-2 gap-3">
               {[
                 { icon: <Award className="w-5 h-5 text-gold" />, value: "94%", label: "Taux de réussite" },
-                { icon: <Star className="w-5 h-5 text-gold fill-gold" />, value: "5.0/5", label: "359 avis Google" },
+                { icon: <Star className="w-5 h-5 text-gold fill-gold" />, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis Google` },
                 { icon: <Shield className="w-5 h-5 text-gold" />, value: "Agréé", label: "Préfecture 92" },
                 { icon: <CreditCard className="w-5 h-5 text-gold" />, value: "4×", label: "Sans frais Alma" },
               ].map((badge, i) => (
@@ -232,7 +233,7 @@ const Formations = () => {
               </table>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-4">
-              Frais d'examen CMA (241€) inclus dans les formations initiales • Frais d'examen (165€) inclus dans la passerelle • Pas de CPF — tarifs accessibles à tous
+              Frais d'examen CMA ({tarifs.fraisExamenCMA}€) inclus dans les formations initiales • Frais d'examen (165€) inclus dans la passerelle • Pas de CPF — tarifs accessibles à tous
             </p>
           </motion.div>
         </div>

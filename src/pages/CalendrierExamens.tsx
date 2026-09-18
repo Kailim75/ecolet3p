@@ -211,7 +211,7 @@ const CalendrierExamens = () => {
                 Préparez votre examen avec ECOLE T3P
               </h2>
               <p className="text-sm md:text-base mb-6 max-w-lg mx-auto" style={{ color: "#555" }}>
-                94% de réussite dès le 1er passage. Nos formations vous préparent efficacement aux épreuves théoriques et pratiques de la CMA.
+                94% de réussite. Nos formations vous préparent efficacement aux épreuves théoriques et pratiques de la CMA.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild className="btn-cta-orange px-8 py-3 rounded-xl">

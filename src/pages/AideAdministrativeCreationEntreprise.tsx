@@ -9,6 +9,7 @@ import {
   Shield, Zap, HeartHandshake, FileCheck, Headphones, Ban
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
@@ -25,7 +26,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
   { value: "23/007", label: "agrément préfectoral du centre" },
-  { value: "5.0/5", label: "sur 359 avis Google" },
+  { value: `${noteGoogle}/5`, label: `sur ${libelleAvisGoogle}` },
   { value: "1 jour", label: "pour lancer toutes vos démarches" },
 ];
 
@@ -157,7 +158,7 @@ const AideAdministrativeCreationEntreprise = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs accompagnés" },
               { icon: FileCheck, value: "23/007", label: "Agrément préfectoral" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -262,7 +263,7 @@ const AideAdministrativeCreationEntreprise = () => {
               { label: "Situation", value: "Carte pro obtenue mais inactif" },
             ],
             after: [
-              { label: "Assurance", value: "RC Pro au meilleur tarif" },
+              { label: "Assurance", value: "RC Pro souscrite" },
               { label: "Compte pro", value: "Ouvert et opérationnel" },
               { label: "Situation", value: "En activité, 100% en règle" },
             ],

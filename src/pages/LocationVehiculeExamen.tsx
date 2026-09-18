@@ -81,11 +81,11 @@ const faqItems = [
   },
   {
     question: "Puis-je réserver un véhicule si je n'ai pas suivi ma formation chez ECOLE T3P ?",
-    answer: "Absolument. Notre service de location de véhicule pour examen est ouvert à tous les candidats, qu'ils aient suivi leur formation chez nous ou dans un autre centre agréé. Il vous suffit de nous contacter avec votre date d'examen et le type de véhicule souhaité."
+    answer: "Oui : ce service s'adresse précisément aux candidats libres, qu'ils se présentent seuls à l'examen ou qu'ils aient été formés dans un autre centre agréé. Il vous suffit de nous contacter avec votre date d'examen et le type de véhicule souhaité. Si vous suivez votre formation à 990 € chez ECOLE T3P, le véhicule d'examen est déjà inclus : vous n'avez rien à louer."
   },
   {
     question: "Que se passe-t-il en cas d'échec à l'examen pratique ?",
-    answer: "En cas d'échec, vous pouvez repasser l'examen lors d'une session ultérieure. Nous proposons à nouveau la location du véhicule pour votre prochaine tentative. Un tarif préférentiel peut être appliqué pour les candidats ayant déjà utilisé notre service."
+    answer: "En cas d'échec, vous pouvez repasser l'examen lors d'une session ultérieure. Les candidats libres peuvent à nouveau louer le véhicule pour leur prochaine tentative. Un tarif préférentiel peut être appliqué pour les candidats ayant déjà utilisé notre service."
   },
   {
     question: "Quel est le délai de réservation minimum ?",
@@ -98,7 +98,7 @@ const LocationVehiculeExamen = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Location de véhicule pour examen T3P",
-    "description": "Location de véhicule double commande pour l'examen pratique VTC, Taxi ou VMDTR. Véhicule conforme, 2h de conduite incluses.",
+    "description": "Location de véhicule pour l'examen pratique VTC, Taxi ou VMDTR, réservée aux candidats libres. Véhicule conforme, 2h de conduite incluses.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "ECOLE T3P",
@@ -138,7 +138,7 @@ const LocationVehiculeExamen = () => {
       <DynamicSEOHead
         pageUrl="/services/location-vehicule-examen"
         defaultTitle="Location Véhicule Examen Taxi VTC | ECOLE T3P"
-        defaultDescription="Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge."
+        defaultDescription="Location de véhicule d'examen Taxi ou VTC pour les candidats libres : véhicule conforme aux exigences de la CMA, déjà inclus dans nos formations à 990 €."
         canonicalUrl="https://ecolet3p.fr/services/location-vehicule-examen"
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >
@@ -196,9 +196,10 @@ const LocationVehiculeExamen = () => {
               </h1>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Véhicule conforme aux exigences réglementaires de la CMA, mis à disposition le jour de votre examen 
-                avec 2 heures de conduite préparatoire incluses. Service disponible pour les examens VTC, Taxi et VMDTR 
-                en Île-de-France.
+                Véhicule conforme aux exigences réglementaires de la CMA, mis à disposition le jour de votre examen
+                avec 2 heures de conduite préparatoire incluses. Service réservé aux candidats libres, pour les examens
+                VTC, Taxi et VMDTR en Île-de-France. Si vous suivez votre formation à 990 € chez ECOLE T3P, le véhicule
+                d'examen est déjà inclus dans le tarif.
               </p>
             </motion.div>
           </div>
@@ -293,7 +294,7 @@ const LocationVehiculeExamen = () => {
       <section className="py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold text-forest mb-8 text-center">Nos offres de location</h2>
+            <h2 className="text-2xl font-bold text-forest mb-8 text-center">Nos offres de location pour les candidats libres</h2>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {vehicleServices.map((service) => {
@@ -349,9 +350,11 @@ const LocationVehiculeExamen = () => {
                 <div>
                   <p className="font-medium text-forest mb-1">Information importante</p>
                   <p className="text-sm text-muted-foreground">
-                    Ce service est un accompagnement logistique pour le passage de votre examen pratique. 
-                    Il ne constitue pas une formation et ne remplace pas la préparation théorique et pratique 
-                    nécessaire à l'obtention de votre carte professionnelle.
+                    Ces tarifs s'adressent aux candidats libres, c'est-à-dire aux candidats qui passent l'examen sans avoir
+                    suivi leur formation chez nous. Le véhicule d'examen est déjà inclus dans nos formations à 990 €.
+                    Ce service est un accompagnement logistique pour le passage de votre examen pratique : il ne constitue
+                    pas une formation et ne remplace pas la préparation théorique et pratique nécessaire à l'obtention de
+                    votre carte professionnelle.
                   </p>
                 </div>
               </CardContent>

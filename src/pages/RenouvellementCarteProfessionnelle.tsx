@@ -9,6 +9,7 @@ import {
   AlertTriangle, Users, Award, FileCheck, Zap, HeartHandshake
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
@@ -24,7 +25,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "cartes renouvelées depuis 2014" },
   { value: "100%", label: "attestations délivrées le jour même" },
-  { value: "5.0/5", label: "sur 359 avis Google" },
+  { value: `${noteGoogle}/5`, label: `sur ${libelleAvisGoogle}` },
   { value: "48h", label: "délai moyen pour obtenir votre session" },
 ];
 
@@ -35,18 +36,18 @@ const formations = [
 ];
 
 const programSteps = [
-  { step: "1", title: "Vérifiez votre date d'expiration", desc: "Consultez votre carte professionnelle. La demande doit être faite dans les 3 mois précédant l'expiration." },
+  { step: "1", title: "Vérifiez votre date d'expiration", desc: "Consultez votre carte professionnelle. La demande doit être faite avant la date d'expiration." },
   { step: "2", title: "Inscrivez-vous à la formation continue", desc: "14h de formation sur 2 jours dans notre centre agréé à Montrouge. Nouvelles sessions régulièrement." },
   { step: "3", title: "Recevez votre attestation", desc: "Attestation de formation continue délivrée immédiatement en fin de stage — le jour même." },
   { step: "4", title: "Déposez votre dossier préfecture", desc: "Nous vous accompagnons dans le montage du dossier et les démarches auprès de la préfecture." },
 ];
 
 const faqs = [
-  { question: "Quand dois-je renouveler ma carte professionnelle ?", answer: "Votre carte professionnelle doit être renouvelée tous les 5 ans. La demande de renouvellement doit être effectuée dans les 3 mois précédant la date d'expiration. N'attendez pas le dernier moment — inscrivez-vous dès maintenant." },
+  { question: "Quand dois-je renouveler ma carte professionnelle ?", answer: "Votre carte professionnelle est valable 5 ans. La demande de renouvellement doit être effectuée avant l'échéance de votre carte. N'attendez pas le dernier moment — inscrivez-vous dès maintenant." },
   { question: "Que se passe-t-il si ma carte est expirée ?", answer: "Si votre carte est expirée, vous ne pouvez plus exercer légalement. Vous risquez une amende pouvant aller jusqu'à 1 500€ et la saisie de votre véhicule. Contactez-nous immédiatement — nous pouvons vous inscrire à la prochaine session disponible." },
   { question: "La formation continue est-elle la même pour VTC et Taxi ?", answer: "Non, le contenu est adapté à chaque profession. Les modules réglementaires et pratiques sont spécifiques à votre activité (VTC, Taxi ou VMDTR). Le tarif varie selon la profession : 170€ pour le VTC, 250€ pour le Taxi et le VMDTR." },
   { question: "Quels documents sont nécessaires pour le renouvellement ?", answer: "Votre carte professionnelle en cours, l'attestation de formation continue (délivrée par ECOLE T3P), un justificatif de domicile et une photo d'identité. L'extrait de casier judiciaire (bulletin n°2) est obtenu directement par la préfecture." },
-  { question: "Combien de temps dure la procédure de renouvellement ?", answer: "Une fois votre dossier complet déposé en préfecture, le délai de traitement est généralement de 2 à 4 semaines. Nous vous accompagnons pour garantir que votre dossier est complet du premier coup." },
+  { question: "Combien de temps dure la procédure de renouvellement ?", answer: "Une fois votre dossier complet déposé en préfecture, le délai de traitement est généralement de 2 à 4 semaines. Nous vous accompagnons dans la vérification des pièces de votre dossier avant le dépôt." },
   { question: "Puis-je exercer pendant le renouvellement ?", answer: "Tant que votre carte n'est pas expirée et que vous avez entamé les démarches de renouvellement dans les délais, vous pouvez continuer à exercer. En revanche, exercer avec une carte expirée est strictement interdit et passible de sanctions." },
   { question: "La formation continue aborde-t-elle les évolutions réglementaires 2026 ?", answer: "Oui, le programme est mis à jour chaque année. En 2026, il intègre les évolutions sur les Zones à Faibles Émissions (ZFE), la réglementation tarifaire, les obligations environnementales et les nouveaux outils numériques pour les chauffeurs." },
   { question: "Quel est le contenu de la formation continue ?", answer: "La formation de 14h couvre la mise à jour réglementaire, la sécurité routière et l'éco-conduite, l'accueil et la relation client, la gestion financière de l'activité, ainsi que les évolutions du marché du transport de personnes." },
@@ -190,7 +191,7 @@ const RenouvellementCarteProfessionnelle = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Cartes renouvelées" },
               { icon: Clock, value: "14h", label: "Sur 2 jours" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -381,7 +382,7 @@ const RenouvellementCarteProfessionnelle = () => {
                 numéro 23/007, dispense cette formation continue dans son centre de Montrouge (92).
               </p>
               <p className="text-muted-foreground mb-4">
-                La demande de renouvellement doit être effectuée auprès de la préfecture dans les 3 mois précédant la date 
+                La demande de renouvellement doit être effectuée auprès de la préfecture avant la date
                 d'expiration de la carte. Le dossier comprend l'attestation de formation continue, un justificatif de domicile
                 et une photo d'identité, l'extrait de casier judiciaire (bulletin n°2) étant obtenu directement par la
                 préfecture.
