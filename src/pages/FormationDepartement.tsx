@@ -370,7 +370,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
               <AccordionContent className="text-muted-foreground">
                 Oui. Aucune obligation de suivre la formation dans votre département de
                 résidence. L'attestation de formation délivrée par ECOLE T3P (centre
-                agréé Préfecture 23/007) est valable sur l'ensemble du territoire
+                agréé Préfecture 23/005) est valable sur l'ensemble du territoire
                 national. Vous déposerez ensuite votre dossier auprès de la
                 {departement.prefectureCourte} pour obtenir votre carte professionnelle.
               </AccordionContent>

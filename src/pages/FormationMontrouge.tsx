@@ -104,7 +104,7 @@ const faqs = [
   },
   {
     question: "Le centre de Montrouge est-il agréé par la Préfecture ?",
-    answer: "Oui, ECOLE T3P dispose de l'agrément n° 23/007 délivré par la Préfecture des Hauts-de-Seine. Cet agrément est obligatoire pour dispenser les formations préparatoires aux examens Taxi, VTC et VMDTR.",
+    answer: "Oui, ECOLE T3P dispose de l'agrément n° 23/005 délivré par la Préfecture des Hauts-de-Seine. Cet agrément est obligatoire pour dispenser les formations préparatoires aux examens Taxi, VTC et VMDTR.",
   },
   {
     question: "Quelles villes sont desservies depuis le centre de Montrouge ?",
@@ -213,7 +213,7 @@ const FormationMontrouge = () => {
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
               Depuis 2014, ECOLE T3P forme les futurs chauffeurs Taxi, VTC et VMDTR au cœur de Montrouge.
-              Agrément Préfecture n° 23/007 — <strong className="text-white">94% de réussite</strong> — à partir de 990€.
+              Agrément Préfecture n° 23/005 — <strong className="text-white">94% de réussite</strong> — à partir de 990€.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild className="btn-cta-orange px-8 py-4 text-base font-bold">
@@ -463,7 +463,7 @@ const FormationMontrouge = () => {
             notre centre accueille chaque année des centaines de futurs chauffeurs professionnels venus de toute l'Île-de-France.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Notre agrément préfectoral n° 23/007, délivré par la Préfecture des Hauts-de-Seine, garantit la conformité de nos
+            Notre agrément préfectoral n° 23/005, délivré par la Préfecture des Hauts-de-Seine, garantit la conformité de nos
             programmes avec les exigences réglementaires. Avec un taux de réussite de 94% aux examens de la Chambre des Métiers
             et de l'Artisanat (CMA), ECOLE T3P s'impose comme l'un des centres les plus performants de la région parisienne.
           </p>

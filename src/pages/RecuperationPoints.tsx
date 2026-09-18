@@ -373,7 +373,7 @@ const RecuperationPoints = () => {
               </p>
               <p className="text-muted-foreground mb-4">
                 Le stage de récupération de points se déroule sur 2 jours consécutifs (14 heures au total) dans un centre agréé par la préfecture. 
-                À Montrouge, ECOLE T3P dispose de l'agrément préfectoral n° 23/007 pour dispenser ces stages permis à points. 
+                À Montrouge, ECOLE T3P dispose de l'agrément préfectoral n° 23/005 pour dispenser ces stages permis à points. 
                 L'attestation de stage est transmise automatiquement à la préfecture, et les points sont crédités 
                 dès le lendemain du dernier jour de formation. Notre stage est accessible depuis le 92 (Hauts-de-Seine) et le 94 (Val-de-Marne).
               </p>
