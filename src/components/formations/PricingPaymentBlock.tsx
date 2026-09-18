@@ -44,7 +44,7 @@ const installmentOptions = [
   { count: 4, label: "4×" },
 ];
 
-const reassuranceItems = ["0€ de frais", "Sans justificatif", "100% sécurisé", "Réponse immédiate"];
+const reassuranceItems = ["0€ de frais", "100% sécurisé", "Sous conditions d'éligibilité"];
 
 const PricingPaymentBlock = ({
   formationTitle,

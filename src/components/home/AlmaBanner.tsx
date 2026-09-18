@@ -86,7 +86,7 @@ const AlmaBanner = () => {
 
         {/* Trust line */}
         <div className="flex items-center justify-center gap-3 md:gap-6 mt-4 flex-wrap px-4">
-          {["Aucun frais supplémentaire", "Décision immédiate", "Sans engagement"].map((text) => (
+          {["Aucun frais supplémentaire", "Sous conditions d'éligibilité", "Sans engagement"].map((text) => (
             <span key={text} className="inline-flex items-center gap-1 md:gap-1.5 text-[11px] md:text-xs text-muted-foreground">
               <CheckCircle className="w-3.5 h-3.5" style={{ color: "#1B4332" }} />
               {text}

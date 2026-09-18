@@ -224,7 +224,8 @@ const FormationMobilite = () => {
           <div className="mt-14 max-w-md mx-auto card-t3p text-center border-2 border-primary/20">
             <h3 className="text-lg font-bold text-foreground mb-2">Tarif formation Mobilité</h3>
             <p className="text-4xl font-bold text-primary mb-1">{tarifs.passerelle}€</p>
-            <p className="text-sm text-muted-foreground mb-6">TTC — Frais d'examen inclus</p>
+            <p className="text-sm text-muted-foreground mb-3">TTC — Frais d'examen inclus</p>
+            <p className="text-xs text-muted-foreground mb-6">À ne pas confondre avec la mobilité géographique (extension de votre zone d'activité taxi à un nouveau département) : {tarifs.mobiliteGeographique}€, {tarifs.dureeMobilite92Heures} h pour les Hauts-de-Seine (92) et {tarifs.dureeMobilite75Heures} h pour Paris (75).</p>
             <button
               onClick={() => setShowPreRegistration(true)}
               className="btn-cta-orange w-full px-6 py-3.5 font-bold rounded-lg inline-flex items-center justify-center gap-2"

@@ -49,7 +49,7 @@ const homeFaqs = [
   {
     question: "Où se trouve le centre de formation ECOLE T3P ?",
     answer:
-      "ECOLE T3P est situé au 3 rue Corneille, 92120 Montrouge, à 2 minutes à pied de la station Mairie de Montrouge (ligne 4 du métro). Accessible facilement depuis Paris et toute l'Île-de-France.",
+      "ECOLE T3P est situé au 3 rue Corneille, 92120 Montrouge, à 8 minutes à pied de la station Mairie de Montrouge (ligne 4 du métro). Accessible facilement depuis Paris et toute l'Île-de-France.",
   },
   {
     question: "Combien coûte le renouvellement de carte professionnelle Taxi ou VTC ?",

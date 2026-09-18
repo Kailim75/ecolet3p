@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "@/components/layout/Footer";
+import { nbAvisGoogle } from "@/lib/avis";
 
 const renderWithRouter = (ui: React.ReactElement) =>
   render(<BrowserRouter>{ui}</BrowserRouter>);
@@ -44,6 +45,6 @@ describe("Footer", () => {
 
   it("renders Google reviews badge", () => {
     renderWithRouter(<Footer />);
-    expect(screen.getByText(/359 avis Google/)).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`${nbAvisGoogle} avis Google`))).toBeInTheDocument();
   });
 });

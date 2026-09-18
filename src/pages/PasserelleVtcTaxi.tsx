@@ -15,6 +15,7 @@ import PricingCard from "@/components/formations/PricingCard";
 import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
 const passerelleDirections = [
   "TAXI → VTC", "VTC → TAXI", "VTC → VMDTR",
@@ -30,8 +31,8 @@ const whyChooseUs = [
 
 const results = [
   { value: "+2 000", label: "chauffeurs déjà formés depuis 2014" },
-  { value: "94%", label: "de réussite dès la 1re présentation" },
-  { value: "5.0/5", label: "sur 359 avis Google" },
+  { value: "94%", label: "de réussite" },
+  { value: `${noteGoogle}/5`, label: `sur ${nbAvisGoogle} avis Google` },
   { value: `${tarifs.dureePasserelleHeures} h`, label: `de formation vers VTC ou VMDTR (${tarifs.dureePasserelleTaxiHeures} h vers Taxi)` },
 ];
 
@@ -206,7 +207,7 @@ const PasserelleVtcTaxi = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs formés" },
               { icon: Award, value: "94%", label: "Taux de réussite" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis Google` },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">

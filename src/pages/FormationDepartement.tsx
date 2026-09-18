@@ -2,6 +2,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
+import tarifs from "@/data/tarifs.json";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -295,7 +296,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
           </h2>
           <ol className="space-y-4">
             {[
-              `Vérifier les prérequis : 21 ans, permis B (3 ans, 2 ans si conduite accompagnée), casier judiciaire vierge (bulletin n°2).`,
+              `Vérifier les prérequis : permis B (3 ans, 2 ans si conduite accompagnée), casier judiciaire vierge (bulletin n°2).`,
               `Effectuer la visite médicale auprès d'un médecin agréé par la ${departement.prefectureCourte} (liens ci-dessus).`,
               `S'inscrire à la formation ${labels.short} chez ECOLE T3P à Montrouge (Journée, Soir ou E-learning, dès 990€).`,
               `Réussir l'examen T3P organisé par la Chambre de Métiers et de l'Artisanat (94% de réussite chez ECOLE T3P).`,
@@ -326,7 +327,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
                   ECOLE T3P à Montrouge — accessible {departement.depuis}
                 </h2>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  <strong>3 rue Corneille, 92120 Montrouge</strong> — à 2 minutes à pied
+                  <strong>3 rue Corneille, 92120 Montrouge</strong> — à 8 minutes à pied
                   du métro Mairie de Montrouge (ligne 4).
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">
@@ -405,7 +406,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
               <AccordionContent className="text-muted-foreground">
                 La formation {labels.short} chez ECOLE T3P démarre à{" "}
                 <strong>990€</strong> (formule Essentiel) ou 1 190€ (formule Premium
-                avec accompagnement post-formation). Frais d'examen T3P (241€) inclus.
+                avec accompagnement post-formation). Frais d'examen T3P ({tarifs.fraisExamenCMA}€) inclus.
                 Paiement en 4 fois sans frais via Alma disponible.
               </AccordionContent>
             </AccordionItem>

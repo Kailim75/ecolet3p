@@ -50,7 +50,7 @@ const RealProofSection = () => (
       <div className="max-w-2xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-6 text-center sm:text-left">
         <span className="inline-flex items-center gap-2 text-sm text-foreground font-semibold">
           <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold">4</span>
-          Métro Mairie de Montrouge — à 200 m du centre
+          Métro Mairie de Montrouge — à 8 minutes à pied du centre
         </span>
         <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
           <MapPin className="w-4 h-4 text-primary" />

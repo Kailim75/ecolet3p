@@ -15,6 +15,7 @@ import formationContinue from "@/assets/blog/formation-continue.jpg";
 import renouvellementCartePro from "@/assets/blog/renouvellement-carte-pro.jpg";
 import formationWhiteboard from "@/assets/center/formation-whiteboard.jpg";
 import salleFormationEquipee from "@/assets/center/salle-formation-equipee.jpg";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 export interface BlogArticle {
   slug: string;
   title: string;
@@ -126,7 +127,7 @@ Chez ECOLE T3P, la formation initiale Taxi, VTC ou VMDTR coûte **990 euros tout
 
 ---
 
-**Prêt à vous lancer ?** [Réservez votre place](/contact) ou appelez-nous au 01 88 75 05 55 — notre centre est à 200 m du métro Mairie de Montrouge (ligne 4).
+**Prêt à vous lancer ?** [Réservez votre place](/contact) ou appelez-nous au 01 88 75 05 55 — notre centre est à 8 minutes à pied du métro Mairie de Montrouge (ligne 4).
 `,
   },
   {
@@ -176,7 +177,7 @@ Une formule **Premium à 1 190 euros** existe pour ceux qui veulent un accompagn
 
 ## Payer en 4 fois sans frais
 
-La formation peut se régler en **4 mensualités de 247,50 euros, sans frais**, via notre partenaire Alma. Réponse immédiate, sans justificatif de revenus.
+La formation peut se régler en **4 mensualités de 247,50 euros, sans frais**, via notre partenaire Alma, sous conditions d'éligibilité.
 
 **Et le CPF ?** Nous ne passons pas par le Compte Personnel de Formation, et nous préférons vous le dire clairement plutôt que de vous le faire découvrir au moment de l'inscription. Notre choix : un prix bas et direct plutôt qu'un prix gonflé remboursé par dossier. On vous explique tout dans notre article sur [le financement de la formation](/blog/facilites-paiement-formation-taxi-vtc).
 
@@ -1341,24 +1342,26 @@ Si le taxi vous attire mais le budget est contraignant :
 | Taxi Initiale (soir) | 2 semaines | 990€ | Examens blancs |
 | VMDTR Initiale (journée, soirée ou e-learning) | 35h | 990€ | Examen CMA inclus (241€) |
 | Passerelle VMDTR (résultat d'examen T3P de moins de 3 ans) | 7h | 665€ | Frais d'examen inclus (165€) |
-| Mobilité 92 | 14h | Nous consulter | - |
-| Mobilité 75 | 35h | Nous consulter | - |
+| Mobilité 92 | 14h | 440 € | - |
+| Mobilité 75 | 35h | 440 € | - |
 
 ### Services complémentaires
 
 | Service | Description | Tarif |
 |---------|-------------|-------|
-| Location examen VTC | Véhicule double commande | 189€ |
-| Location examen Taxi | Véhicule équipé | 249€ |
-| Location examen VMDTR | Moto équipée | 299€ |
+| Location examen VTC | Véhicule double commande — candidats libres | 189€ |
+| Location examen Taxi | Véhicule équipé — candidats libres | 249€ |
+| Location examen VMDTR | Moto équipée — candidats libres | 299€ |
 | Formation continue VTC | Renouvellement 5 ans | 170€ |
 | Formation continue Taxi | Renouvellement 5 ans | 250€ |
 | Formation continue VMDTR | Renouvellement 5 ans | 250€ |
 
+*La location du véhicule d'examen s'adresse aux candidats libres, qui passent l'examen sans avoir suivi la formation chez nous : le véhicule est déjà inclus dans nos formations à 990 €.
+
 ### Nos atouts
 
 - ✅ **94% de taux de réussite** aux examens
-- ✅ **359 avis Google** avec note 5.0/5
+- ✅ **${nbAvisGoogle} avis Google** avec note ${noteGoogle}/5
 - ✅ **10+ ans d'expérience** dans la formation T3P
 - ✅ **Formateurs professionnels** issus du métier
 - ✅ **Accompagnement complet** : administratif + création entreprise
@@ -1464,7 +1467,6 @@ Depuis janvier 2026 :
 
 ### Conditions administratives
 
-✅ **Âge minimum** : 21 ans
 ✅ **Permis A** : Valide depuis au moins 3 ans
 ✅ **Casier judiciaire** : Bulletin n°2 compatible
 ✅ **Aptitude médicale** : Visite médicale préfectorale
@@ -1473,10 +1475,7 @@ Depuis janvier 2026 :
 
 | Permis | Véhicules autorisés | Condition |
 |--------|---------------------|-----------|
-| A2 | Motos ≤35 kW (47 ch) | 3 ans d'ancienneté + passerelle A validée |
 | A | Toutes motos | 3 ans d'ancienneté |
-
-Le permis A2 peut suffire à condition d'avoir validé la formation passerelle vers le permis A.
 
 **Attention** : Le permis B avec formation 125cc ne suffit pas pour exercer en VMDTR professionnel. Le permis A est obligatoire.
 
@@ -1749,7 +1748,7 @@ Le métier de conducteur moto-taxi représente une opportunité intéressante po
 **Chez ECOLE T3P**, nous vous accompagnons dans votre projet :
 - ✅ Formation VMDTR initiale de 35 heures
 - ✅ Accompagnement administratif complet
-- ✅ Location véhicule pour examen (299€)
+- ✅ Location de la moto d'examen pour les candidats libres (299€) — la moto est déjà incluse dans notre formation à 990€
 - ✅ Formation continue obligatoire (170€ VTC · 250€ Taxi/VMDTR)
 
 **Intéressé ?** Prenez rendez-vous pour un entretien gratuit et personnalisé.
@@ -1822,7 +1821,6 @@ Avant de vous lancer, vérifiez que vous remplissez ces conditions :
 
 ### Conditions administratives
 
-✅ **Âge minimum** : 21 ans
 ✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans (2 ans en cas de conduite accompagnée)
 ✅ **Casier judiciaire** : Bulletin n°2 compatible (absence de certaines infractions)
 ✅ **Aptitude médicale** : Visite médicale préfectorale obligatoire
@@ -1950,7 +1948,7 @@ Mise en situation professionnelle de **45 minutes maximum** (dont 20 min de cond
 4. **Mémorisez les tarifs** et la réglementation
 5. **Dormez bien** la veille de l'examen
 
-**Taux de réussite ECOLE T3P : 94%** dès la première présentation.
+**Taux de réussite ECOLE T3P : 94%**
 
 ## Après l'examen : obtenir sa carte Taxi
 
@@ -2186,7 +2184,6 @@ Avant de vous lancer, vérifiez que vous remplissez ces conditions :
 
 ### Conditions administratives
 
-✅ **Âge minimum** : 21 ans
 ✅ **Permis de conduire** : Permis B valide depuis au moins 3 ans (2 ans en cas de conduite accompagnée)
 ✅ **Casier judiciaire** : Bulletin n°2 compatible (absence de certaines infractions)
 ✅ **Aptitude médicale** : Visite médicale auprès d'un médecin agréé par la préfecture
@@ -2306,7 +2303,7 @@ Mise en situation professionnelle de **45 minutes maximum** (dont 20 min de cond
 4. **Dormez bien** la veille de l'examen
 5. **Arrivez en avance** le jour J
 
-**Taux de réussite ECOLE T3P : 94%** dès la première présentation.
+**Taux de réussite ECOLE T3P : 94%**
 
 ## Après l'examen : obtenir sa carte VTC
 
@@ -2423,7 +2420,6 @@ Le métier de chauffeur VTC (Voiture de Transport avec Chauffeur) attire de plus
 
 Avant de vous lancer, assurez-vous de remplir ces conditions :
 
-- **Âge minimum** : 21 ans
 - **Permis de conduire** : Permis B valide depuis au moins 3 ans (2 ans en cas de conduite accompagnée)
 - **Casier judiciaire** : Bulletin n°2 vierge de certaines infractions
 - **Aptitude médicale** : Visite médicale préfectorale
@@ -2665,7 +2661,6 @@ Obtenir sa carte professionnelle VTC peut sembler complexe. Nous avons simplifi�
 
 Avant tout, assurez-vous de remplir les conditions :
 
-✅ Avoir 21 ans minimum
 ✅ Posséder le permis B depuis 3 ans (2 ans en cas de conduite accompagnée)
 ✅ Avoir un casier judiciaire compatible
 ✅ Être apte médicalement
@@ -2766,7 +2761,7 @@ Le parcours vers la carte VTC est structuré et accessible. Avec ECOLE T3P, vous
   {
     slug: "facilites-paiement-formation-taxi-vtc",
     title: "Payer sa formation Taxi VTC en 4× sans frais avec Alma",
-    metaDescription: "Financez votre formation Taxi ou VTC à 990€ en 2, 3 ou 4 mensualités sans frais via Alma. Réponse immédiate, sans justificatif. ECOLE T3P Montrouge.",
+    metaDescription: "Financez votre formation Taxi ou VTC à 990€ en 2, 3 ou 4 mensualités sans frais via Alma, sous conditions d'éligibilité. ECOLE T3P Montrouge.",
     excerpt: "Le paiement ne doit pas être un frein à votre projet. Découvrez nos facilités de paiement pour financer votre formation de chauffeur.",
     category: "Pratique",
     readTime: "3 min",
@@ -2786,7 +2781,6 @@ Notre solution phare : le **paiement en 2×, 3× ou 4× sans frais** via Alma (c
 - 1er versement à l'inscription
 - Les versements suivants par mensualités
 - Aucun frais supplémentaire
-- Aucune condition de ressources
 
 **Exemple** : Pour une formation à 1190€, vous payez 4x 297,50€.
 
@@ -2804,7 +2798,7 @@ Selon votre situation, nous pouvons adapter l'échelonnement :
 |-----------|------|
 | Formation Taxi/VTC | 990€ - 1190€ |
 | Formation Continue | 170€ - 250€ |
-| Mobilité | Nous consulter |
+| Mobilité (14h dans les Hauts-de-Seine, 35h à Paris) | 440 € |
 
 ## Notre accompagnement
 
@@ -2859,12 +2853,11 @@ Ce secteur en pleine expansion offre de nombreuses opportunités, notamment dans
 
 Pour vous inscrire à notre formation, vous devez :
 
-- Avoir 21 ans minimum
 - Être titulaire du permis A (moto) depuis 3 ans minimum
 - Avoir un casier judiciaire compatible
 - Passer la visite médicale préfectorale
 
-**Important** : Le permis A est requis. Le permis A2 peut suffire à condition d'avoir validé la formation passerelle vers le permis A.
+**Important** : Le permis A est requis.
 
 ## Le programme de formation ECOLE T3P
 
@@ -3007,8 +3000,8 @@ Notre formation continue dure **14 heures** réparties sur 2 jours, adaptée aux
 
 - **Durée** : 2 jours (14 heures)
 - **Lieu** : Montrouge (92)
-- **Horaires** : 9h00 - 17h00
-- **Effectif** : 10-15 personnes max
+- **Horaires** : 9h30-16h30
+- **Effectif** : 15 personnes maximum
 - **Paiement** : 4x sans frais possible
 - **Formations disponibles** : VTC, Taxi et VMDTR
 
@@ -3118,7 +3111,7 @@ Programme sur 2 jours :
 | Continue Taxi | 14h (2 jours) | 250€ |
 | Continue VMDTR | 14h (2 jours) | 250€ |
 
-Les sessions ont lieu dans notre centre de Montrouge, à 5 minutes du métro Mairie de Montrouge (ligne 4).
+Les sessions ont lieu dans notre centre de Montrouge, à 8 minutes à pied du métro Mairie de Montrouge (ligne 4).
 
 ## Les démarches de renouvellement étape par étape
 
@@ -3205,7 +3198,7 @@ La réglementation impose que la formation continue soit dispensée en **présen
 
 ### Combien de temps à l'avance puis-je suivre la formation continue ?
 
-La formation continue peut être suivie dans les **12 mois précédant l'expiration** de votre carte. Nous recommandons de la suivre 3 à 4 mois avant.
+La formation continue doit être suivie **avant l'échéance de votre carte professionnelle** (valable 5 ans). Nous recommandons de vous y prendre 3 à 4 mois à l'avance.
 
 ### Que faire si ma carte est perdue ou volée ?
 

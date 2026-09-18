@@ -10,6 +10,7 @@ import {
   FileCheck, HeartHandshake, Zap
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
@@ -25,7 +26,7 @@ const whyChooseUs = [
 const results = [
   { value: "4 pts", label: "récupérables en un seul stage" },
   { value: "14h", label: "sur 2 jours consécutifs" },
-  { value: "5.0/5", label: "sur 359 avis Google" },
+  { value: `${noteGoogle}/5`, label: `sur ${libelleAvisGoogle}` },
   { value: "250€", label: "tarif tout compris" },
 ];
 
@@ -38,7 +39,7 @@ const programSteps = [
 
 const faqs = [
   { question: "Combien de points puis-je récupérer avec un stage ?", answer: "Le stage de sensibilisation à la sécurité routière permet de récupérer jusqu'à 4 points, dans la limite du plafond de 12 points pour un permis classique (ou 6 points pour un permis probatoire). Les points sont crédités le lendemain du dernier jour de stage." },
-  { question: "Combien de temps dure le stage de récupération de points ?", answer: "Le stage dure 2 jours consécutifs, soit 14 heures au total. Les horaires sont généralement de 8h30 à 17h30, avec une pause déjeuner d'une heure. La présence est obligatoire pendant toute la durée du stage." },
+  { question: "Combien de temps dure le stage de récupération de points ?", answer: "Le stage dure 2 jours consécutifs, soit 14 heures de formation, pauses comprises. L'accueil se fait dès 8h30 : le centre ouvre exceptionnellement plus tôt pour les stages (ouverture habituelle du centre à 9h30). La présence est obligatoire pendant toute la durée du stage." },
   { question: "Puis-je faire un stage si j'ai reçu un courrier 48SI ?", answer: "Non, le courrier 48SI signifie que votre permis est invalidé pour solde de points nul. Le stage volontaire n'est plus possible après réception de ce courrier. Vous devez repasser le permis de conduire. Consultez-nous pour connaître vos options." },
   { question: "Quand mes points seront-ils crédités après le stage ?", answer: "Les points sont crédités dès le lendemain du dernier jour de stage, après transmission de l'attestation par notre centre à la préfecture. Vous pouvez vérifier votre solde de points sur le site Télépoints du gouvernement." },
   { question: "Combien de stages puis-je effectuer par an ?", answer: "La loi impose un délai minimum d'un an et un jour entre deux stages de récupération de points. Si vous avez effectué un stage il y a moins d'un an, vous devrez attendre avant de pouvoir vous réinscrire." },
@@ -187,7 +188,7 @@ const RecuperationPoints = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Shield, value: "Agréé", label: "Préfecture 92" },
               { icon: Clock, value: "14h", label: "Sur 2 jours" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { MapPin, Train, Clock, ArrowRight, Building2 } from "lucide-react";
 import { activeCities } from "@/data/localSeoData";
+import { nbAvisGoogle } from "@/lib/avis";
 
 // Group active data by department
 const getCitiesByDepartment = () => {
@@ -323,7 +324,7 @@ const FormationsVilles = () => {
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               ECOLE T3P est un centre de formation agréé par la Préfecture des Hauts-de-Seine, situé au 3 rue Corneille, 
-              92120 Montrouge, en plein cœur de l'Île-de-France. Notre emplacement stratégique, à seulement deux minutes 
+              92120 Montrouge, en plein cœur de l'Île-de-France. Notre emplacement stratégique, à 8 minutes 
               à pied de la station de métro Mairie de Montrouge (ligne 4), nous permet d'accueillir des stagiaires venus 
               de l'ensemble de la région parisienne : Paris intra-muros, Hauts-de-Seine (92), Val-de-Marne (94), 
               Seine-Saint-Denis (93), Essonne (91) et Yvelines (78).
@@ -336,7 +337,7 @@ const FormationsVilles = () => {
               en commun à emprunter pour rejoindre notre centre.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Avec un taux de réussite de 94 % et plus de 359 avis 5 étoiles sur Google, ECOLE T3P forme chaque année 
+              Avec un taux de réussite de 94 % et {nbAvisGoogle} avis 5 étoiles sur Google, ECOLE T3P forme chaque année 
               des dizaines de chauffeurs professionnels. Nos sessions de formation sont proposées en journée et en soirée, 
               pour s'adapter à toutes les contraintes. Consultez la page de votre ville pour connaître les détails d'accès 
               et inscrivez-vous à notre prochaine session.

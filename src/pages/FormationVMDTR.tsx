@@ -1,8 +1,9 @@
-import { Bike, Users, FileText, CheckCircle, Target, Shield } from "lucide-react";
+import { Bike, FileText, CheckCircle, Target, Shield } from "lucide-react";
 import FormationPageTemplate from "@/components/formations/FormationPageTemplate";
 import heroImageVMDTR from "@/assets/formations/hero-vmdtr.jpg";
 import heroImageVMDTRWebp from "@/assets/formations/hero-vmdtr.jpg?w=640;1024;1920&format=webp&as=srcset";
 import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle } from "@/lib/avis";
 
 const FormationVMDTR = () => (
   <FormationPageTemplate
@@ -21,8 +22,9 @@ const FormationVMDTR = () => (
     category="vmdtr"
     profession="vmdtr"
     includes={[
-      "Frais d'examen T3P (241€) inclus",
+      `Frais d'examen T3P (${tarifs.fraisExamenCMA}€) inclus`,
       "2 heures de conduite incluses",
+      "Moto mise à disposition le jour de l'examen",
       "Accompagnement personnalisé",
       "Accès aux ressources pédagogiques",
       "Équipement passager fourni pour l'examen",
@@ -30,7 +32,7 @@ const FormationVMDTR = () => (
     ]}
     ctaTitle="Prêt à devenir moto-taxi ? Réserver ma place"
     crossSellLinks={[
-      { title: "Location moto pour l'examen VMDTR", desc: "Moto conforme + équipement passager + 2h de conduite dès 299€", path: "/services/location-vehicule-examen" },
+      { title: "Location moto pour l'examen VMDTR", desc: "Pour les candidats libres : moto conforme + équipement passager + 2h de conduite dès 299€. La moto d'examen est déjà incluse dans nos formations à 990€.", path: "/services/location-vehicule-examen" },
       { title: "Accompagnement gestion d'activité moto-taxi", desc: "Apprenez à gérer et développer votre activité VMDTR", path: "/accompagnement-gestion-activite" },
       { title: "Formation VTC", desc: "Obtenez aussi votre carte VTC pour diversifier", path: "/formations/vtc" },
     ]}
@@ -63,7 +65,6 @@ const FormationVMDTR = () => (
       { title: "Examen et mise en situation", topics: ["QCM réglementaire", "Mise en situation pratique", "Correction", "Conseils finaux"] },
     ]}
     prerequisites={[
-      { icon: Users, text: "Avoir 21 ans minimum" },
       { icon: FileText, text: "Permis A depuis au moins 3 ans" },
       { icon: CheckCircle, text: "Casier judiciaire vierge (bulletin n°2)" },
       { icon: Target, text: "Aptitude médicale (visite médicale préfectorale)" },
@@ -75,7 +76,7 @@ const FormationVMDTR = () => (
     ]}
     faqs={[
       { question: "Qu'est-ce que le VMDTR exactement ?", answer: "VMDTR signifie Véhicule Motorisé à Deux ou Trois Roues. C'est le statut officiel des moto-taxis en France, réglementé par le Code des transports (articles L3123-1 et suivants). Le conducteur VMDTR transporte un passager à l'arrière de sa moto, scooter ou trike, exclusivement sur réservation préalable." },
-      { question: "Quels sont les prérequis pour devenir moto-taxi VMDTR ?", answer: "Vous devez avoir 21 ans minimum, être titulaire du permis A (moto) depuis au moins 3 ans, présenter un casier judiciaire vierge (bulletin n°2) et obtenir un certificat d'aptitude médicale délivré par un médecin agréé par la Préfecture. Une expérience significative de la conduite moto en milieu urbain est fortement recommandée." },
+      { question: "Quels sont les prérequis pour devenir moto-taxi VMDTR ?", answer: "Vous devez être titulaire du permis A (moto) depuis au moins 3 ans, présenter un casier judiciaire vierge (bulletin n°2) et obtenir un certificat d'aptitude médicale délivré par un médecin agréé par la Préfecture. Une expérience significative de la conduite moto en milieu urbain est fortement recommandée." },
       { question: "Combien de temps dure la formation VMDTR ?", answer: "La formation VMDTR initiale totalise 35 heures de formation théorique et pratique. Elle est disponible en 3 formats au tarif unique de 990€ : journée (1 semaine), soirée (2 semaines, 18h-21h30) ou e-learning (accès illimité). Les 3 formats préparent au même examen T3P à la CMA." },
       { question: "Quel type de moto ou scooter puis-je utiliser ?", answer: "Le véhicule doit être un deux-roues ou trois-roues motorisé d'une cylindrée minimale de 125cc, homologué pour le transport de passagers (place passager et poignées de maintien). Les modèles les plus utilisés sont les maxi-scooters (Yamaha TMAX, Honda Forza 750) et les motos touring. Le véhicule doit être équipé d'un système de communication pilote-passager." },
       { question: "Quels équipements sont obligatoires pour le moto-taxi ?", answer: "Le conducteur VMDTR doit fournir à chaque passager : un casque homologué à sa taille, des gants certifiés CE, un gilet réfléchissant et une protection dorsale. Le véhicule doit disposer de poignées de maintien, de repose-pieds passager et d'un top-case ou d'un espace pour un bagage. L'investissement initial en équipement représente environ 1 500€ à 2 500€." },
@@ -88,9 +89,9 @@ const FormationVMDTR = () => (
       { title: "Le cadre réglementaire du VMDTR en France", text: "L'activité de moto-taxi est strictement réglementée par le Code des transports (articles L3123-1 à L3123-3). Le conducteur VMDTR doit détenir un certificat VMDTR et une carte professionnelle délivrée par la Préfecture après réussite à l'examen T3P organisé par la Chambre de Métiers et de l'Artisanat (CMA). Comme le VTC, le moto-taxi ne peut exercer que sur réservation préalable — la maraude est interdite. Le véhicule doit être assuré spécifiquement pour le transport de personnes à titre onéreux. La carte professionnelle VMDTR est valable 5 ans et son renouvellement nécessite une formation continue de 14 heures." },
       { title: "Sécurité : la priorité absolue de la formation moto-taxi", text: "La sécurité est au cœur de la formation VMDTR chez ECOLE T3P. Notre programme consacre une part importante à la sécurité deux-roues spécifique au transport de passagers : conduite défensive, anticipation des dangers, gestion du passager (communication, positionnement, répartition du poids), premiers secours et procédures d'urgence. Nos formateurs, tous anciens professionnels du transport moto, insistent sur les spécificités de la conduite avec passager : changement du centre de gravité, distances de freinage allongées, communication pilote-passager." },
       { title: "Revenus et modèle économique du moto-taxi", text: "Le moto-taxi bénéficie d'un positionnement tarifaire premium par rapport au VTC classique. Le tarif moyen d'une course est d'environ 2€ à 2,50€/km, contre 1,50€/km pour un VTC. Les transferts aéroport (Paris → Roissy CDG en 35 minutes vs 1h30 en voiture) constituent une source de revenus majeure, avec des courses à 80€-120€. Un conducteur VMDTR à temps plein peut réaliser 4 à 8 courses par jour, pour un CA mensuel de 3 000€ à 5 500€. Les charges sont inférieures à celles d'un VTC : pas de location de véhicule coûteuse, carburant réduit, stationnement facilité." },
-      { title: "Centre de formation VMDTR agréé Préfecture à Montrouge (92)", text: "ECOLE T3P propose la formation VMDTR à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium) dans les Hauts-de-Seine : frais d'examen CMA (241€) inclus, 2 heures de conduite avec moniteur, équipement passager fourni pour l'examen et accompagnement administratif pour la création d'entreprise. Notre centre de formation moto-taxi au 3 rue Corneille, Montrouge (92120) est agréé par la Préfecture (agrément n° 23/007) et accessible par le métro ligne 4 (Mairie de Montrouge). Avec 359 avis Google 5 étoiles et plus de 2 000 chauffeurs T3P formés, nous accompagnons les futurs professionnels du transport de personnes en Île-de-France depuis 2014." },
-      { title: "Les étapes pour devenir conducteur VMDTR professionnel", text: "Le parcours pour devenir moto-taxi suit 6 étapes : 1) Vérifier les prérequis (21 ans, permis A 3 ans, casier vierge, visite médicale). 2) S'inscrire à la formation VMDTR chez ECOLE T3P (990€, 3 formats). 3) Suivre les 35 heures de formation théorique et pratique. 4) Réussir l'examen T3P à la CMA. 5) Obtenir la carte professionnelle VMDTR à la Préfecture (2 à 4 semaines). 6) Créer votre entreprise, acquérir votre véhicule et vos équipements, et lancer votre activité. Notre équipe vous guide à chaque étape." },
-      { title: "Formation VMDTR accessible depuis Paris sud, le 92 et le 94", text: "Notre centre de formation VMDTR à Montrouge est idéalement situé pour les motards d'Île-de-France. Facilement accessible depuis Paris sud (porte d'Orléans), le 92 (Bagneux, Malakoff, Châtillon, Vanves, Boulogne-Billancourt, Nanterre) et le 94 (Créteil, Ivry-sur-Seine, Vitry-sur-Seine). Métro ligne 4 (Mairie de Montrouge), parking moto gratuit à proximité. Le centre est à 15 minutes de moto depuis le périphérique parisien. Que vous cherchiez une formation moto-taxi en Île-de-France ou un centre de formation transport de personnes dans le sud de Paris, ECOLE T3P est votre référence." },
+      { title: "Centre de formation VMDTR agréé Préfecture à Montrouge (92)", text: `ECOLE T3P propose la formation VMDTR à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium) dans les Hauts-de-Seine : frais d'examen CMA (${tarifs.fraisExamenCMA}€) inclus, 2 heures de conduite avec moniteur, équipement passager fourni pour l'examen et accompagnement administratif pour la création d'entreprise. Notre centre de formation moto-taxi au 3 rue Corneille, Montrouge (92120) est agréé par la Préfecture (agrément n° 23/007) et accessible par le métro ligne 4 (Mairie de Montrouge). Avec ${nbAvisGoogle} avis Google 5 étoiles et plus de 2 000 chauffeurs T3P formés, nous accompagnons les futurs professionnels du transport de personnes en Île-de-France depuis 2014.` },
+      { title: "Les étapes pour devenir conducteur VMDTR professionnel", text: "Le parcours pour devenir moto-taxi suit 6 étapes : 1) Vérifier les prérequis (permis A 3 ans, casier vierge, visite médicale). 2) S'inscrire à la formation VMDTR chez ECOLE T3P (990€, 3 formats). 3) Suivre les 35 heures de formation théorique et pratique. 4) Réussir l'examen T3P à la CMA. 5) Obtenir la carte professionnelle VMDTR à la Préfecture (2 à 4 semaines). 6) Créer votre entreprise, acquérir votre véhicule et vos équipements, et lancer votre activité. Notre équipe vous guide à chaque étape." },
+      { title: "Formation VMDTR accessible depuis Paris sud, le 92 et le 94", text: "Notre centre de formation VMDTR à Montrouge est idéalement situé pour les motards d'Île-de-France. Facilement accessible depuis Paris sud (porte d'Orléans), le 92 (Bagneux, Malakoff, Châtillon, Vanves, Boulogne-Billancourt, Nanterre) et le 94 (Créteil, Ivry-sur-Seine, Vitry-sur-Seine). Métro ligne 4 (Mairie de Montrouge), parking moto gratuit à proximité. Le centre est à 15 minutes de moto depuis le périphérique parisien. Que vous cherchiez une formation moto-taxi en Île-de-France ou un centre de formation transport de personnes dans le sud de Paris, ECOLE T3P vous accueille." },
     ]}
     relatedLinks={[
       { title: "Formation VTC initiale à Montrouge", desc: "Obtenez votre carte professionnelle VTC — à partir de 990€", path: "/formations/vtc" },

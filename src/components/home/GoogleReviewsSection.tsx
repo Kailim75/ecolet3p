@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { nbAvisGoogle, noteGoogle, urlAvisGoogle } from "@/lib/avis";
 
-const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=T3P+Campus+Montrouge+avis";
+const GOOGLE_REVIEWS_URL = urlAvisGoogle;
 
 const GoogleReviewsSection = () => {
   const containerRef = useRef(null);
@@ -53,7 +54,7 @@ const GoogleReviewsSection = () => {
             {/* Rating info */}
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-4xl font-black text-cream">5.0</span>
+                <span className="text-4xl font-black text-cream">{noteGoogle}</span>
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <motion.div
@@ -69,7 +70,7 @@ const GoogleReviewsSection = () => {
                 </div>
               </div>
               <p className="text-cream/80 text-sm">
-                Basé sur <span className="font-bold text-cream">359 avis</span> Google
+                Basé sur <span className="font-bold text-cream">{nbAvisGoogle} avis</span> Google
               </p>
             </div>
           </div>

@@ -51,7 +51,7 @@ const AlmaSimulationModal = ({ open, onClose }: { open: boolean; onClose: () => 
           ))}
         </div>
         <div className="text-center space-y-3">
-          <p className="text-xs text-muted-foreground">✅ Aucun frais supplémentaire · Décision immédiate · Sans engagement</p>
+          <p className="text-xs text-muted-foreground">✅ Aucun frais supplémentaire · Sous conditions d'éligibilité · Sans engagement</p>
           <Button onClick={onClose} className="w-full btn-cta-orange">Fermer la simulation</Button>
         </div>
       </motion.div>
@@ -83,7 +83,7 @@ const FormuleSoiree = () => {
   const faqs = [
     {
       q: "Puis-je payer en plusieurs fois ?",
-      a: "Oui, Alma vous permet de régler en 4× sans frais (4× 247,50€), avec une décision immédiate en ligne. Aucun justificatif requis.",
+      a: "Oui, Alma vous permet de régler en 4× sans frais (4× 247,50€), sous conditions d'éligibilité.",
     },
     {
       q: "Puis-je changer d'option en cours de formation ?",
@@ -177,7 +177,7 @@ const FormuleSoiree = () => {
             </Button>
           </div>
           <p className="text-center text-xs text-muted-foreground mt-4">
-            ✅ Aucun frais supplémentaire — Décision immédiate — Sans engagement
+            ✅ Aucun frais supplémentaire — Sous conditions d'éligibilité — Sans engagement
           </p>
         </div>
       </section>
@@ -275,7 +275,7 @@ const FormuleSoiree = () => {
                 <AlmaLogo className="h-8 mx-auto" />
               </div>
               <h3 className="font-bold text-forest mb-2">Paiement en 4× sans frais</h3>
-              <p className="text-sm text-muted-foreground mb-3">4 mensualités de 247,50€ — décision immédiate en ligne.</p>
+              <p className="text-sm text-muted-foreground mb-3">4 mensualités de 247,50€ — sous conditions d'éligibilité.</p>
               <Button onClick={() => setShowAlmaSimulation(true)} className="btn-cta-orange">
                 Payer avec Alma <ArrowRight className="w-4 h-4 ml-1" />
               </Button>

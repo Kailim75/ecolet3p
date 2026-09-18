@@ -8,11 +8,11 @@ const reasons = [
   {
     icon: Target,
     title: "Méthode structurée",
-    description: "Programme intensif axé sur la réussite au premier passage, pas sur le remplissage de sessions.",
+    description: "Programme intensif axé sur la réussite à l'examen, pas sur le remplissage de sessions.",
   },
   {
     icon: Users,
-    title: "Groupes limités à 12 stagiaires",
+    title: "Groupes de 15 personnes maximum",
     description: "Chaque candidat bénéficie d'un suivi réel, pas d'une formation de masse.",
   },
   {

@@ -4,7 +4,7 @@ import SeoH1Text from "@/components/seo/SeoH1Text";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Shield, Zap, FileX, CreditCard, CheckCircle, Lock,
+  Shield, CreditCard, CheckCircle, Lock,
   ArrowRight, Clock, Smartphone, Home, BadgeCheck
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -42,7 +42,7 @@ const steps = [
     icon: Smartphone,
     title: "Remplissez le formulaire sécurisé",
     description:
-      "Entrez vos coordonnées (nom, e-mail, téléphone). Alma vérifie votre éligibilité en quelques secondes, sans justificatif ni paperasse.",
+      "Entrez vos coordonnées (nom, e-mail, téléphone). Alma étudie votre demande, sous conditions d'éligibilité.",
   },
   {
     number: "3",
@@ -60,14 +60,9 @@ const advantages = [
     description: "Aucun surcoût : le prix affiché est le prix payé. Pas de frais de dossier, pas d'intérêts.",
   },
   {
-    icon: Zap,
-    title: "Réponse immédiate",
-    description: "L'éligibilité est vérifiée en temps réel. Vous savez en quelques secondes si votre demande est acceptée.",
-  },
-  {
-    icon: FileX,
-    title: "Sans justificatif",
-    description: "Aucun document à fournir : ni fiche de paie, ni relevé bancaire, ni avis d'imposition.",
+    icon: BadgeCheck,
+    title: "Sous conditions d'éligibilité",
+    description: "Le paiement en plusieurs fois est accordé par Alma sous conditions d'éligibilité, vérifiées lors de votre demande.",
   },
   {
     icon: Lock,
@@ -81,8 +76,8 @@ const advantages = [
   },
   {
     icon: CheckCircle,
-    title: "Inscription garantie",
-    description: "Dès la première échéance validée, votre place est réservée. Pas d'attente, pas de risque de session complète.",
+    title: "Place réservée",
+    description: "Dès la première échéance validée, votre place est réservée pour la session choisie.",
   },
 ];
 
@@ -95,7 +90,7 @@ const faqs = [
   {
     question: "Qui peut bénéficier du paiement en plusieurs fois ?",
     answer:
-      "Toute personne majeure résidant en France métropolitaine et titulaire d'une carte bancaire Visa ou Mastercard peut utiliser le paiement Alma. Il n'y a aucun revenu minimum requis.",
+      "Le paiement en plusieurs fois s'adresse aux personnes majeures résidant en France métropolitaine et titulaires d'une carte bancaire Visa ou Mastercard. L'accord reste soumis aux conditions d'éligibilité d'Alma.",
   },
   {
     question: "Y a-t-il des frais supplémentaires ?",
@@ -140,7 +135,7 @@ const Paiement = () => {
       <DynamicSEOHead
         pageUrl="/paiement"
         defaultTitle="Paiement en 4× sans Frais — Alma | ECOLE T3P"
-        defaultDescription="Payez votre formation Taxi, VTC ou VMDTR en 2, 3 ou 4 fois sans frais avec Alma. Réponse immédiate, sans justificatif."
+        defaultDescription="Payez votre formation Taxi, VTC ou VMDTR en 2, 3 ou 4 fois sans frais avec Alma, sous conditions d'éligibilité."
       >
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </DynamicSEOHead>
@@ -192,7 +187,7 @@ const Paiement = () => {
 
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Grâce à notre partenariat avec Alma, financez votre formation Taxi, VTC ou VMDTR
-              en toute sérénité. Aucun frais supplémentaire, réponse immédiate, zéro paperasse.
+              en toute sérénité. Aucun frais supplémentaire, sous conditions d'éligibilité.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3">

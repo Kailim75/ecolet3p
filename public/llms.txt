@@ -7,7 +7,7 @@
 ### Combien coûte la formation Taxi, VTC ou VMDTR ?
 - **Formule Essentiel** : 990€ tout compris (formation + frais d'examen CMA 241€ inclus)
 - **Formule Premium** : 1 190€ (Essentiel + coaching individuel + aide création d'entreprise + suivi post-formation 3 mois)
-- Paiement en 4 fois sans frais via Alma (247,50€/mois pour Essentiel)
+- Paiement en 4 fois sans frais via Alma (247,50€/mois pour Essentiel), sous conditions d'éligibilité
 
 ### Combien de temps dure la formation ?
 - **Format Journée** : 1 semaine intensive (du lundi au vendredi, 9h30-16h30)
@@ -20,7 +20,7 @@
 
 ### Où se trouve ECOLE T3P ?
 - **Adresse** : 3 rue Corneille, 92120 Montrouge (Hauts-de-Seine)
-- **Métro** : Mairie de Montrouge (ligne 4), à 200 m du centre
+- **Métro** : Mairie de Montrouge (ligne 4), à 8 minutes à pied du centre
 - **Accessible depuis** : Paris (14e, 15e, 13e), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Essonne (91), Yvelines (78)
 - **Coordonnées GPS** : 48.8155, 2.3137
 
@@ -32,8 +32,7 @@
 - **RDV en ligne** : https://ecolet3p.fr/contact
 
 ### Quels sont les prérequis ?
-- 21 ans minimum
-- Permis B valide depuis 3 ans (Taxi/VTC) ou permis A 3 ans (VMDTR)
+- Permis B depuis au moins 3 ans (2 ans en conduite accompagnée) pour Taxi/VTC, ou permis A depuis au moins 3 ans pour VMDTR
 - Casier judiciaire vierge (bulletin n°2)
 - Visite médicale auprès d'un médecin agréé par la Préfecture
 
@@ -67,7 +66,7 @@ Oui — la **Passerelle T3P** permet d'obtenir une seconde carte professionnelle
 - [Formation Accessibilité PMR 14h](/formation-accessibilite-pmr) — 290€, élargir sa clientèle
 - [Stage de récupération de points](/stage-recuperation-points) — Récupérer jusqu'à 4 points
 - [Formation anglais professionnel](/formations/anglais-professionnel) — Clientèle internationale
-- [Location véhicule pour examen](/services/location-vehicule-examen) — VTC 189€, Taxi 249€, VMDTR 299€
+- [Location véhicule pour examen](/services/location-vehicule-examen) — pour les candidats libres uniquement : VTC 189€, Taxi 249€, VMDTR 299€ (le véhicule d'examen est déjà inclus dans nos formations initiales, à partir de 990€)
 
 ## Pages locales (Île-de-France)
 
@@ -98,13 +97,13 @@ Oui — la **Passerelle T3P** permet d'obtenir une seconde carte professionnelle
 
 ## Avis & réputation
 
-- **Google Reviews** : 5.0/5 (359 avis)
-- **Profil Google Business** : ECOLE T3P, Montrouge
+- **Google Reviews** : 5,0/5 (367 avis)
+- **Profil Google Business** : ECOLE T3P, Montrouge (anciennement Drop Academy Montrouge) — https://www.google.com/maps?cid=16178426645307749196
 - **Réputation** : +2000 chauffeurs formés, 94% de réussite
 
 ## Financement
 
-- Paiement en 4 fois sans frais avec Alma (à partir de 247,50€/mois)
+- Paiement en 4 fois sans frais avec Alma (à partir de 247,50€/mois), sous conditions d'éligibilité
 - Échelonnement personnalisé selon situation
 - Pas de CPF ni d'aides Pôle Emploi (tarifs accessibles et transparents)
 - Programme de parrainage : 100€ sponsor + 50€ filleul

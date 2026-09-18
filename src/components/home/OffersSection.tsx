@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import AlmaLogo from "@/components/logo/AlmaLogo";
 import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
+import tarifs from "@/data/tarifs.json";
 
 const smoothEase = [0.22, 1, 0.36, 1] as const;
 
@@ -19,7 +20,7 @@ const formationTabs: { key: FormationType; label: string; icon: React.ElementTyp
 
 const formatOptions: { key: FormatType; icon: React.ElementType; label: string; hours: string; schedule: string; duration: string }[] = [
   { key: "soiree", icon: Moon, label: "Option Soirée", hours: "2 semaines", schedule: "Lun–Ven 18h à 21h30", duration: "2 semaines" },
-  { key: "journee", icon: Sun, label: "Option Journée", hours: "40h", schedule: "9h30 à 17h00", duration: "2 semaines" },
+  { key: "journee", icon: Sun, label: "Option Journée", hours: `${tarifs.dureeInitialeHeures}h`, schedule: "9h30 à 16h30", duration: "2 semaines" },
   { key: "elearning", icon: Monitor, label: "Option E-learning", hours: "Illimité", schedule: "Quiz interactifs", duration: "À votre rythme" },
 ];
 
@@ -148,7 +149,7 @@ const OffersSection = () => {
                     ou 4× 247,50€ <AlmaLogo className="h-3.5" />
                   </span>
                   <span className="text-[11px]" style={{ color: "#999" }}>
-                    dont 241€ de frais d'examen inclus
+                    dont {tarifs.fraisExamenCMA}€ de frais d'examen inclus
                   </span>
                 </div>
               </div>

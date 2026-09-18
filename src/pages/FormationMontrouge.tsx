@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/accordion";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
 import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 import accueilReception from "@/assets/center/accueil-reception.jpg";
 import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
 
@@ -52,14 +53,14 @@ const stats = [
   { icon: Calendar, value: "Depuis 2014", label: "Centre historique" },
   { icon: Users, value: "+2 000", label: "Chauffeurs formés" },
   { icon: Trophy, value: "94%", label: "Taux de réussite" },
-  { icon: Star, value: "5.0/5", label: "359 avis Google" },
+  { icon: Star, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis Google` },
 ];
 
 const advantages = [
   {
     icon: MapPin,
     title: "Emplacement idéal",
-    text: "3 rue Corneille, Montrouge (92120) — à 200m du métro Mairie de Montrouge (ligne 4), en plein cœur de ville.",
+    text: "3 rue Corneille, Montrouge (92120) — à 8 minutes à pied du métro Mairie de Montrouge (ligne 4), en plein cœur de ville.",
   },
   {
     icon: Building2,
@@ -84,14 +85,14 @@ const advantages = [
   {
     icon: Car,
     title: "Location véhicule examen",
-    text: "Service exclusif de location de véhicule pour le jour de l'examen pratique. Vous vous concentrez sur l'épreuve, on s'occupe du reste.",
+    text: "Pour les candidats libres : location d'un véhicule pour le jour de l'examen pratique. Le véhicule d'examen est déjà inclus dans nos formations à 990€.",
   },
 ];
 
 const faqs = [
   {
     question: "Où se situe exactement le centre ECOLE T3P à Montrouge ?",
-    answer: "Notre centre est situé au 3 rue Corneille, 92120 Montrouge, à 200 mètres de la station de métro Mairie de Montrouge (ligne 4). En sortant du métro, prenez la rue Gabriel Péri puis tournez à droite dans la rue Corneille. Le centre est accessible aux personnes à mobilité réduite.",
+    answer: "Notre centre est situé au 3 rue Corneille, 92120 Montrouge, à 8 minutes à pied de la station de métro Mairie de Montrouge (ligne 4). En sortant du métro, prenez la rue Gabriel Péri puis tournez à droite dans la rue Corneille. Le centre est accessible aux personnes à mobilité réduite.",
   },
   {
     question: "Quels sont les horaires d'ouverture du centre de Montrouge ?",
@@ -268,13 +269,13 @@ const FormationMontrouge = () => {
               <h3 className="text-xl font-bold text-foreground mb-4">Un emplacement stratégique dans les Hauts-de-Seine</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Situé au <strong className="text-foreground">3 rue Corneille à Montrouge (92120)</strong>, notre centre de formation
-                bénéficie d'un emplacement privilégié dans les Hauts-de-Seine. À seulement 200 mètres de la station
+                bénéficie d'un emplacement privilégié dans les Hauts-de-Seine. À 8 minutes à pied de la station
                 <strong className="text-foreground"> Mairie de Montrouge</strong> sur la <strong className="text-foreground">ligne 4 du métro</strong>,
                 nous sommes directement accessibles depuis Paris et toute la banlieue sud.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Les habitants de Bagneux, Châtillon, Malakoff, Vanves, Clamart, Issy-les-Moulineaux
-                et des arrondissements sud de Paris (13e, 14e, 15e) rejoignent notre centre en moins de 20 minutes.
+                et des arrondissements sud de Paris (13e, 14e, 15e) rejoignent notre centre en 30 minutes ou moins en transports en commun.
                 Plusieurs lignes de bus (68, 128, 323, 126) complètent la desserte du quartier.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -312,7 +313,7 @@ const FormationMontrouge = () => {
           {/* Access cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: Train, title: "Métro ligne 4", desc: "Mairie de Montrouge — 200m à pied" },
+              { icon: Train, title: "Métro ligne 4", desc: "Mairie de Montrouge — 8 minutes à pied" },
               { icon: Bus, title: "Bus 68, 128, 323", desc: "Arrêt Mairie de Montrouge" },
               { icon: Car, title: "Parking", desc: "Parking public à proximité" },
               { icon: Clock, title: "Horaires", desc: "Lun–Ven : 9h30–12h30 / 13h30–18h" },
@@ -455,9 +456,9 @@ const FormationMontrouge = () => {
       {/* SEO content block */}
       <section className="section-padding bg-muted">
         <div className="container-custom max-w-4xl">
-          <h2 className="text-xl font-bold text-foreground mb-4">ECOLE T3P : votre centre de formation T3P de référence à Montrouge</h2>
+          <h2 className="text-xl font-bold text-foreground mb-4">ECOLE T3P : votre centre de formation T3P à Montrouge</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Fondée en 2014, l'ECOLE T3P est le centre de formation de référence pour les métiers du Transport Public Particulier
+            Fondée en 2014, l'ECOLE T3P forme aux métiers du Transport Public Particulier
             de Personnes dans les Hauts-de-Seine. Implanté au cœur de Montrouge, à deux pas du métro Mairie de Montrouge (ligne 4),
             notre centre accueille chaque année des centaines de futurs chauffeurs professionnels venus de toute l'Île-de-France.
           </p>
@@ -469,7 +470,7 @@ const FormationMontrouge = () => {
           <p className="text-muted-foreground leading-relaxed">
             Que vous souhaitiez devenir chauffeur de taxi, conducteur VTC ou moto-taxi VMDTR, nos formateurs
             vous accompagnent de l'inscription à l'obtention de votre carte professionnelle. Le tarif unique de 990€
-            inclut les frais d'examen CMA (241€) et l'accès à notre plateforme e-learning. Le paiement en 4× sans frais
+            inclut les frais d'examen CMA ({tarifs.fraisExamenCMA}€) et l'accès à notre plateforme e-learning. Le paiement en 4× sans frais
             via Alma rend la formation accessible à tous les budgets.
           </p>
         </div>

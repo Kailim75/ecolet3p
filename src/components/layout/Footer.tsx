@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Star, ChevronDown } from "lucide-react";
+import { noteGoogle, libelleAvisGoogle, urlAvisGoogle } from "@/lib/avis";
 
 
 // ── SILO 1 : Formations initiales ────────────────────────────────────────────
@@ -40,7 +41,7 @@ const siloBlog = [
 const siloInstitutionnel = [
   { name: "Paiement en plusieurs fois", path: "/paiement" },
   { name: "À propos d'ECOLE T3P", path: "/a-propos" },
-  { name: "Nos chiffres (Qualiopi)", path: "/nos-chiffres" },
+  { name: "Nos chiffres", path: "/nos-chiffres" },
   { name: "Contact", path: "/contact" },
   { name: "Mentions légales", path: "/mentions-legales" },
   { name: "CGV", path: "/cgv" },
@@ -103,11 +104,11 @@ const Footer = () => {
             <div className="bg-white/10 rounded-lg p-3 border border-white/10">
               <div className="flex items-center gap-2 mb-1">
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}
-                <span className="text-white font-bold text-sm">5.0/5</span>
+                <span className="text-white font-bold text-sm">{noteGoogle}/5</span>
               </div>
-              <p className="text-white/80 text-xs">359 avis Google</p>
+              <p className="text-white/80 text-xs">{libelleAvisGoogle}</p>
               <a
-                href="https://www.google.com/maps/place/ECOLE+T3P"
+                href={urlAvisGoogle}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white text-xs font-semibold hover:text-white/80 hover:underline mt-1 inline-block"

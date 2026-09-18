@@ -1,3 +1,5 @@
+import { libelleAvisGoogle, noteGoogle } from "@/lib/avis";
+
 // Icons inlined as SVG to avoid lucide-react bundle on initial load
 const CalendarIcon = () => (
   <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -38,7 +40,7 @@ const stats = [
   { Icon: CalendarIcon, value: "Depuis 2014", label: "Plus de 10 ans d'expertise" },
   { Icon: UsersIcon, value: "+2 000", label: "Chauffeurs formés" },
   { Icon: TrophyIcon, value: "94%", label: "Taux de réussite" },
-  { Icon: StarIcon, value: "5.0/5", label: "359 avis Google" },
+  { Icon: StarIcon, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
 ];
 
 const ReassuranceBar = () => {

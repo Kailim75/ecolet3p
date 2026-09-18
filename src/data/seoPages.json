@@ -61,8 +61,8 @@
   },
   "/services/location-vehicule-examen": {
     "title": "Location Véhicule Examen Taxi VTC | ECOLE T3P",
-    "description": "Location de véhicule pour passer l'examen pratique Taxi ou VTC. Véhicule conforme aux exigences de la CMA. Réservation facile chez ECOLE T3P Montrouge.",
-    "h1": "Location d'un véhicule double commande pour l'examen Taxi ou VTC"
+    "description": "Location de véhicule d'examen Taxi ou VTC à Montrouge, réservée aux candidats libres : le véhicule est déjà inclus dans nos formations à 990 €.",
+    "h1": "Véhicule double commande pour l'examen Taxi ou VTC : candidats libres"
   },
   "/formation-accessibilite-pmr": {
     "title": "Formation PMR 14h Montrouge (92) — 290€ | ECOLE T3P",
@@ -91,7 +91,7 @@
   },
   "/paiement": {
     "title": "Paiement en 4× sans Frais — Alma | ECOLE T3P",
-    "description": "Payez votre formation Taxi, VTC ou VMDTR en 4× sans frais avec Alma : 990 € réglés en 4 mensualités de 247,50 €. Réponse immédiate lors de votre demande.",
+    "description": "Payez votre formation Taxi, VTC ou VMDTR en 4× sans frais avec Alma : 990 € réglés en 4 mensualités de 247,50 €, sous conditions d'éligibilité.",
     "h1": "Payez votre formation en 4× sans frais avec Alma"
   },
   "/calendrier-examens": {
@@ -151,7 +151,7 @@
   },
   "/formations/bagneux": {
     "title": "Formation Taxi VTC Bagneux (92220) — dès 990€",
-    "description": "Depuis Bagneux, rejoignez ECOLE T3P à Montrouge en 8 min de métro par la ligne 4. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "description": "Depuis Bagneux, rejoignez ECOLE T3P à Montrouge en 15 minutes par le métro ligne 4. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
     "h1": "Formation Taxi & VTC près de Bagneux"
   },
   "/formations/malakoff": {
@@ -161,12 +161,12 @@
   },
   "/formations/vanves": {
     "title": "Formation Taxi VTC Vanves (92170) — dès 990€",
-    "description": "De Vanves, le bus 126 vous amène en 10 min chez ECOLE T3P à Montrouge. Formation Taxi ou VTC en journée, en soirée ou en e-learning, 990 € tout compris.",
+    "description": "De Vanves, le bus 126 puis la marche mènent à ECOLE T3P à Montrouge en 20 minutes. Formation Taxi ou VTC en journée, en soirée ou en e-learning, 990 €.",
     "h1": "Formation Taxi & VTC près de Vanves"
   },
   "/formations/chatillon": {
     "title": "Formation Taxi VTC Châtillon (92320) — dès 990€",
-    "description": "Depuis Châtillon-Montrouge, le bus 126 rejoint Mairie de Montrouge en 3 arrêts, près de notre centre agréé. Formation Taxi ou VTC à 990 € tout compris.",
+    "description": "Depuis Châtillon-Montrouge, le bus 126 puis une courte marche mènent à notre centre agréé en 15 minutes. Formation Taxi ou VTC à 990 € tout compris.",
     "h1": "Formation Taxi & VTC près de Châtillon"
   },
   "/formations/issy-les-moulineaux": {
@@ -186,12 +186,12 @@
   },
   "/formations/boulogne-billancourt": {
     "title": "Formation Taxi VTC Boulogne-Billancourt (92100) — dès 990€",
-    "description": "De Boulogne-Billancourt, le bus 126 va sans changement jusqu'à Montrouge : formation Taxi ou VTC en journée ou en soirée (18h-21h30), 990 € tout compris.",
+    "description": "De Boulogne-Billancourt, le métro 9 puis la ligne 4 mènent à ECOLE T3P en 30 minutes : formation Taxi ou VTC en journée ou en soirée, 990 € tout compris.",
     "h1": "Formation Taxi & VTC près de Boulogne-Billancourt"
   },
   "/formations/paris-14": {
     "title": "Formation Taxi VTC Paris 14e (75014) — dès 990€",
-    "description": "Formation Taxi et VTC à 3 min d'Alésia par la ligne 4, métro Mairie de Montrouge. Centre agréé ECOLE T3P : 990 € frais d'examen inclus, 94 % de réussite.",
+    "description": "Formation Taxi et VTC à 15 minutes d'Alésia par le métro ligne 4. Centre agréé ECOLE T3P à Montrouge : 990 € frais d'examen inclus, 94 % de réussite.",
     "h1": "Formation Taxi & VTC aux portes de Paris 14e"
   },
   "/formations/longjumeau": {
@@ -206,12 +206,12 @@
   },
   "/formations/conflans-sainte-honorine": {
     "title": "Formation Taxi VTC Conflans-Ste-Honorine (78700) — dès 990€",
-    "description": "À 55 min de Conflans-Sainte-Honorine en train et métro, ou à distance en e-learning : formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "description": "À 60 min de Conflans-Sainte-Honorine en train et métro, ou à distance en e-learning : formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
     "h1": "Formation Taxi & VTC accessible depuis Conflans-Sainte-Honorine"
   },
   "/formations/sceaux": {
     "title": "Formation Taxi VTC Sceaux (92330) — dès 990€",
-    "description": "Depuis Sceaux, le bus 128 va directement au métro Mairie de Montrouge, près de notre centre. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "description": "Depuis Sceaux, le RER B puis le bus 128 mènent à notre centre de Montrouge en 25 minutes. Formation Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
     "h1": "Formation Taxi & VTC près de Sceaux"
   },
   "/formations/creteil": {
@@ -236,12 +236,12 @@
   },
   "/formations/vitry-sur-seine": {
     "title": "Formation Taxi VTC Vitry-sur-Seine (94400) — dès 990€",
-    "description": "Depuis Vitry-sur-Seine, rejoignez ECOLE T3P à Montrouge en 22 minutes. Formation Taxi, VTC ou VMDTR agréée, 990 € frais d'examen inclus, 94 % de réussite.",
+    "description": "Depuis Vitry-sur-Seine, rejoignez ECOLE T3P à Montrouge en 30 minutes. Formation Taxi, VTC ou VMDTR agréée, 990 € frais d'examen inclus, 94 % de réussite.",
     "h1": "Formation Taxi & VTC près de Vitry-sur-Seine"
   },
   "/formations/le-kremlin-bicetre": {
     "title": "Formation Taxi VTC Le Kremlin-Bicêtre (94270) — dès 990€",
-    "description": "Le Kremlin-Bicêtre est à 12 minutes en métro de notre centre de Montrouge. Formation Taxi et VTC à 990 € frais d'examen inclus, 94 % de réussite.",
+    "description": "Le Kremlin-Bicêtre est à 25 minutes en métro ou en bus d'ECOLE T3P à Montrouge. Formation Taxi et VTC à 990 € frais d'examen inclus, 94 % de réussite.",
     "h1": "Formation Taxi & VTC près du Kremlin-Bicêtre"
   },
   "/formations/arcueil": {
@@ -256,7 +256,7 @@
   },
   "/formations/fontenay-aux-roses": {
     "title": "Formation Taxi VTC Fontenay-aux-Roses (92260) — dès 990€",
-    "description": "De Fontenay-aux-Roses, 12 minutes en RER B et bus jusqu'à ECOLE T3P à Montrouge. Formation Taxi ou VTC à 990 € tout compris, en 4 fois sans frais.",
+    "description": "De Fontenay-aux-Roses, 20 minutes en RER B et bus jusqu'à ECOLE T3P à Montrouge. Formation Taxi ou VTC à 990 € tout compris, en 4 fois sans frais.",
     "h1": "Formation Taxi & VTC près de Fontenay-aux-Roses"
   },
   "/formations/meudon": {
@@ -266,17 +266,17 @@
   },
   "/formations/paris-13": {
     "title": "Formation Taxi VTC Paris 13e (75013) — dès 990€",
-    "description": "Depuis Paris 13e, notre centre agréé de Montrouge est à 15 minutes en métro. Formation Taxi ou VTC en 35 h, 990 € frais d'examen inclus, 94 % de réussite.",
+    "description": "Depuis Paris 13e, notre centre agréé de Montrouge est à 20 minutes en métro. Formation Taxi ou VTC en 35 h, 990 € frais d'examen inclus, 94 % de réussite.",
     "h1": "Formation Taxi & VTC près de Paris 13e"
   },
   "/formations/paris-15": {
     "title": "Formation Taxi VTC Paris 15e (75015) — dès 990€",
-    "description": "Paris 15e : notre centre de Montrouge est à 10 minutes de Porte de Versailles. Formation Taxi ou VTC à 990 € tout compris, de jour ou en soirée.",
+    "description": "Paris 15e : notre centre de Montrouge est à 15 minutes en transport. Formation Taxi ou VTC à 990 € tout compris, de jour ou en soirée.",
     "h1": "Formation Taxi & VTC près de Paris 15e"
   },
   "/formations/bourg-la-reine": {
     "title": "Formation Taxi VTC Bourg-la-Reine (92340) — dès 990€",
-    "description": "Bourg-la-Reine et notre centre de Montrouge sont reliés en 12 minutes par le RER B. Taxi, VTC ou VMDTR à 990 € tout compris, en soirée ou en ligne.",
+    "description": "Bourg-la-Reine et notre centre de Montrouge sont reliés en 20 minutes par le RER B. Taxi, VTC ou VMDTR à 990 € tout compris, en soirée ou en ligne.",
     "h1": "Formation Taxi & VTC près de Bourg-la-Reine"
   },
   "/formations/le-plessis-robinson": {
@@ -286,18 +286,18 @@
   },
   "/formations/nanterre": {
     "title": "Formation Taxi VTC Nanterre (92000) — dès 990€",
-    "description": "Formation VTC et Taxi depuis Nanterre : centre agréé à Montrouge, à 35 minutes en RER et métro. 990 € frais d'examen inclus, 94 % de réussite.",
-    "h1": "Formation Taxi & VTC à 35 minutes de Nanterre"
+    "description": "Formation VTC et Taxi depuis Nanterre : centre agréé à Montrouge, à 40 minutes en RER et métro. 990 € frais d'examen inclus, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC à 40 minutes de Nanterre"
   },
   "/formations/colombes": {
     "title": "Formation Taxi VTC Colombes (92700) — dès 990€",
-    "description": "Comptez 30 minutes en transport de Colombes à notre centre agréé de Montrouge. Formation Taxi ou VTC en soirée ou en e-learning, 990 € tout compris.",
-    "h1": "Formation Taxi & VTC à 30 minutes de Colombes"
+    "description": "Comptez 35 minutes en transport de Colombes à notre centre agréé de Montrouge. Formation Taxi ou VTC en soirée ou en e-learning, 990 € tout compris.",
+    "h1": "Formation Taxi & VTC à 35 minutes de Colombes"
   },
   "/formations/vincennes": {
     "title": "Formation Taxi VTC Vincennes (94300) — dès 990€",
-    "description": "De Vincennes, métro ligne 1 puis ligne 4 à Châtelet : notre centre de Montrouge est à 30 minutes. Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
-    "h1": "Formation Taxi & VTC à 30 minutes de Vincennes"
+    "description": "De Vincennes, métro ligne 1 puis ligne 4 à Châtelet : notre centre de Montrouge est à 40 minutes. Taxi ou VTC à 990 € tout compris, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC à 40 minutes de Vincennes"
   },
   "/formations/l-hay-les-roses": {
     "title": "Formation Taxi VTC L'Haÿ-les-Roses (94240) — dès 990€",
@@ -311,8 +311,8 @@
   },
   "/formations/massy": {
     "title": "Formation Taxi VTC Massy (91300) — dès 990€",
-    "description": "Formation Taxi ou VTC à 25 minutes de Massy en RER B. 990 € frais d'examen inclus, en soirée de 18h à 21h30 ou en e-learning, 94 % de réussite.",
-    "h1": "Formation Taxi & VTC à 25 minutes de Massy"
+    "description": "Formation Taxi ou VTC à 30 minutes de Massy en RER B. 990 € frais d'examen inclus, en soirée de 18h à 21h30 ou en e-learning, 94 % de réussite.",
+    "h1": "Formation Taxi & VTC à 30 minutes de Massy"
   },
   "/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir": {
     "title": "VTC vs Taxi vs VMDTR en 2026 : Quel métier choisir ?",

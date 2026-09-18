@@ -9,6 +9,7 @@ import {
   Shield, TrendingUp, PiggyBank, Scale, FileText, Building
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { noteGoogle, libelleAvisGoogle } from "@/lib/avis";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
@@ -24,7 +25,7 @@ const whyChooseUs = [
 
 const results = [
   { value: "+2 000", label: "chauffeurs accompagnés depuis 2014" },
-  { value: "5.0/5", label: "sur 359 avis Google" },
+  { value: `${noteGoogle}/5`, label: `sur ${libelleAvisGoogle}` },
   { value: "3 jours", label: "pour maîtriser votre gestion" },
 ];
 
@@ -40,7 +41,7 @@ const faqs = [
   { question: "Quel statut juridique est recommandé pour un chauffeur ?", answer: "Cela dépend de votre situation personnelle, de vos revenus prévisionnels et de votre stratégie. En formation, nous analysons ensemble les avantages et inconvénients de chaque statut (micro-entreprise, SASU, EURL) pour trouver le plus adapté." },
   { question: "La formation couvre-t-elle les plateformes VTC ?", answer: "Oui, nous abordons l'inscription et l'optimisation de votre présence sur les principales plateformes (Uber, Bolt, Marcel, etc.) ainsi que la stratégie de développement d'une clientèle directe pour maximiser vos marges." },
   { question: "Un suivi post-formation est-il inclus ?", answer: "Nos formateurs restent disponibles par téléphone pour répondre à vos questions après la formation. Pour un accompagnement plus poussé, découvrez notre service d'aide administrative dédié." },
-  { question: "Comment financer cette formation ?", answer: "390€ payable en 4× 97,50€ sans frais via Alma. Pas de paperasse, inscription immédiate." },
+  { question: "Comment financer cette formation ?", answer: "390€ payable en 4× 97,50€ sans frais via Alma, sous conditions d'éligibilité." },
 ];
 
 const AccompagnementGestionActivite = () => {
@@ -152,7 +153,7 @@ const AccompagnementGestionActivite = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs accompagnés" },
               { icon: Briefcase, value: "21h", label: "3 jours intensifs" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: libelleAvisGoogle },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">
@@ -201,7 +202,7 @@ const AccompagnementGestionActivite = () => {
           <div className="text-center mb-12">
             <h2 className="section-title">Des résultats mesurables</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              Nos anciens stagiaires témoignent : cette formation est l'investissement le plus rentable de leur carrière.
+              Nos anciens stagiaires témoignent de l'apport de cette formation dans la gestion de leur activité.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">

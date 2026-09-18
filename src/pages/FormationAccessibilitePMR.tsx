@@ -12,6 +12,7 @@ import Layout from "@/components/layout/Layout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -25,7 +26,7 @@ const whyChooseUs = [
 const results = [
   { value: "+2 000", label: "chauffeurs formés depuis 2014" },
   { value: "100%", label: "attestations délivrées le jour même" },
-  { value: "5.0/5", label: "sur 359 avis Google" },
+  { value: `${noteGoogle}/5`, label: `sur ${nbAvisGoogle} avis Google` },
   { value: "14 h", label: "de formation pratique" },
 ];
 
@@ -41,7 +42,7 @@ const faqs = [
   { question: "Faut-il un véhicule spécifique pour le transport PMR ?", answer: "Non, la formation vous apprend à accueillir des personnes à mobilité réduite dans tout type de véhicule. Les techniques de manutention et d'assistance sont universelles et adaptables." },
   { question: "Qui peut s'inscrire à cette formation ?", answer: "Tout chauffeur VTC, Taxi ou VMDTR souhaitant élargir sa clientèle au transport de personnes à mobilité réduite. Aucun prérequis spécifique n'est nécessaire au-delà de votre carte professionnelle." },
   { question: "Y a-t-il une attestation en fin de formation ?", answer: "Oui, une attestation de formation officielle est délivrée immédiatement à la fin du stage. Elle peut être présentée aux plateformes et donneurs d'ordres comme preuve de votre qualification." },
-  { question: "Comment financer cette formation ?", answer: "Le tarif est de 290€, payable en 4× 72,50€ sans frais via Alma. Aucune paperasse, inscription immédiate." },
+  { question: "Comment financer cette formation ?", answer: "Le tarif est de 290€, payable en 4× 72,50€ sans frais via Alma, sous conditions d'éligibilité." },
 ];
 
 const FormationAccessibilitePMR = () => {
@@ -153,7 +154,7 @@ const FormationAccessibilitePMR = () => {
               { icon: Calendar, value: "Depuis 2014", label: "+10 ans d'expérience" },
               { icon: Users, value: "+2 000", label: "Chauffeurs formés" },
               { icon: Clock, value: "14h", label: "2 jours pratiques" },
-              { icon: Star, value: "5.0/5", label: "359 avis Google" },
+              { icon: Star, value: `${noteGoogle}/5`, label: `${nbAvisGoogle} avis Google` },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0">

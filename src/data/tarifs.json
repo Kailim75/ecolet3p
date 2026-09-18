@@ -16,5 +16,8 @@
   "dureeInitialeHeures": 35,
   "dureeContinueHeures": 14,
   "dureePasserelleHeures": 7,
-  "dureePasserelleTaxiHeures": 14
+  "dureePasserelleTaxiHeures": 14,
+  "mobiliteGeographique": 440,
+  "dureeMobilite92Heures": 14,
+  "dureeMobilite75Heures": 35
 }

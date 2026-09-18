@@ -15,6 +15,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import tarifs from "@/data/tarifs.json";
+import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
 const formations = [
   {
@@ -126,7 +127,7 @@ const faqs = [
   },
   {
     question: "Faut-il être en région Île-de-France pour s'inscrire ?",
-    answer: "Non, notre centre de Montrouge accepte des chauffeurs de toute la France. La préfecture de délivrance de votre carte n'a pas d'importance : notre attestation de formation continue est valable sur tout le territoire national. Montrouge est facilement accessible depuis Paris (métro ligne 4, station Mairie de Montrouge, à 200 m du centre, et bus 68, 128, 323).",
+    answer: "Non, notre centre de Montrouge accepte des chauffeurs de toute la France. La préfecture de délivrance de votre carte n'a pas d'importance : notre attestation de formation continue est valable sur tout le territoire national. Montrouge est facilement accessible depuis Paris (métro ligne 4, station Mairie de Montrouge, à 8 minutes à pied du centre, et bus 68, 128, 323).",
   },
 ];
 
@@ -219,7 +220,7 @@ const FormationRenouvellement = () => {
             <div className="flex flex-wrap gap-3 mb-8">
               {[
                 { icon: Shield, text: "Agréé préfecture 92" },
-                { icon: Star, text: "Note 5/5 — 359 avis" },
+                { icon: Star, text: `Note ${noteGoogle}/5 — ${nbAvisGoogle} avis` },
                 { icon: Clock, text: "Attestation le jour même" },
               ].map(({ icon: Icon, text }) => (
                 <span key={text} className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">

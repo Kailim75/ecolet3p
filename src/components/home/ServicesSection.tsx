@@ -3,6 +3,7 @@ import { motion, type Easing } from "framer-motion";
 import { ArrowRight, Car, Bike, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PrefetchLink from "@/components/ui/PrefetchLink";
+import tarifs from "@/data/tarifs.json";
 
 const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
@@ -56,7 +57,8 @@ const ServicesSection = () => {
             Location de véhicule pour examen
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Véhicule double commande conforme aux exigences réglementaires
+            Pour les candidats libres : véhicule double commande conforme aux exigences réglementaires.
+            Le véhicule d'examen est déjà inclus dans nos formations à {tarifs.initiale} €.
           </p>
         </motion.div>
 

@@ -19,7 +19,7 @@ const CrossSellSection = () => (
           </div>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" /> Préparation complète à l'examen CMA</li>
-            <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" /> Frais d'examen de 241€ inclus</li>
+            <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" /> Frais d'examen de {tarifs.fraisExamenCMA}€ inclus</li>
             <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" /> Taux de réussite 94%</li>
             <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" /> Paiement en 4x sans frais avec Alma</li>
           </ul>
@@ -132,7 +132,7 @@ const FormationContinueVMDTR = () => (
       { question: "Les nouvelles normes d'équipement sont-elles abordées ?", answer: "Oui, un module complet traite des nouvelles obligations d'équipement 2026 : casque avec intercom intégré, gilet airbag, géolocalisation et contrôle technique annuel. Vous repartez avec une check-list complète de conformité." },
       { question: "Quand dois-je planifier ma formation continue VMDTR ?", answer: "Nous recommandons de planifier votre formation 3 à 6 mois avant l'expiration de votre carte professionnelle pour anticiper les délais de traitement de la préfecture (2 à 4 semaines)." },
       { question: "La formation aborde-t-elle la conduite inter-files ?", answer: "Oui, le module sécurité routière de 4 heures couvre en détail le cadre légal 2026 de l'inter-files, les bonnes pratiques de remontée de files et l'anticipation des dangers spécifiques aux deux-roues motorisés." },
-      { question: "Faut-il un permis moto spécifique pour le VMDTR ?", answer: "Oui, l'exercice de l'activité VMDTR nécessite un permis moto de catégorie A (toutes cylindrées) de plus de 3 ans, ou de 2 ans si vous avez suivi la formation passerelle A2→A." },
+      { question: "Faut-il un permis moto spécifique pour le VMDTR ?", answer: "Oui, l'exercice de l'activité VMDTR nécessite un permis moto de catégorie A (toutes cylindrées) de plus de 3 ans." },
       { question: "Quels documents apporter le jour de la formation ?", answer: "Carte professionnelle VMDTR en cours de validité, permis moto (catégorie A), pièce d'identité et justificatif de domicile de moins de 3 mois." },
       { question: "Comment se déroule la formation VMDTR sur 2 jours ?", answer: "La formation se déroule sur 2 jours consécutifs dans notre centre de Montrouge. Les modules alternent théorie (réglementation, gestion) et ateliers pratiques (sécurité, relation client). L'attestation est remise en fin de deuxième journée." },
     ]}

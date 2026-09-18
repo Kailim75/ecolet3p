@@ -6,6 +6,8 @@ import { Star, Check, ArrowRight, Users, Moon, Sun, Monitor, Phone } from "lucid
 import formationSession from "@/assets/center/formation-session.jpg";
 import PlacesProgressBar from "@/components/home/PlacesProgressBar";
 import AlmaLogo from "@/components/logo/AlmaLogo";
+import { nbAvisGoogle, noteGoogle, urlAvisGoogle } from "@/lib/avis";
+import tarifs from "@/data/tarifs.json";
 
 const smoothEase = [0.16, 1, 0.3, 1] as const;
 
@@ -29,7 +31,7 @@ type ScheduleOption = "soiree" | "journee" | "elearning";
 
 const scheduleOptions: { key: ScheduleOption; emoji: React.ReactNode; label: string; detail: string }[] = [
   { key: "soiree", emoji: <Moon className="w-4 h-4" />, label: "Soirée", detail: "2 sem." },
-  { key: "journee", emoji: <Sun className="w-4 h-4" />, label: "Journée", detail: "40h" },
+  { key: "journee", emoji: <Sun className="w-4 h-4" />, label: "Journée", detail: `${tarifs.dureeInitialeHeures}h` },
   { key: "elearning", emoji: <Monitor className="w-4 h-4" />, label: "E-learning", detail: "À votre rythme" },
 ];
 
@@ -110,7 +112,7 @@ const HeroSection = () => {
             {/* Subtitle — New wording */}
             <motion.div {...heroAnim(160)} className="mb-4 md:mb-5 max-w-[600px]">
               <p className="text-[0.95rem] md:text-lg font-semibold mb-1" style={{ color: "#1B4332" }}>
-                94% de réussite au premier passage — +2000 conducteurs accompagnés depuis 2014
+                94% de réussite — +2000 conducteurs accompagnés depuis 2014
               </p>
               <p className="text-[0.8rem] md:text-[15px]" style={{ color: "#666" }}>
                 Formation agréée à Montrouge (92) · De l'inscription à votre carte professionnelle
@@ -119,7 +121,7 @@ const HeroSection = () => {
 
             {/* Google Reviews */}
             <motion.a
-              href="https://www.google.com/maps/place/ECOLE+T3P"
+              href={urlAvisGoogle}
               target="_blank"
               rel="noopener noreferrer"
               {...heroAnim(240)}
@@ -137,8 +139,8 @@ const HeroSection = () => {
                   <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#FBBC05] fill-[#FBBC05]" />
                 ))}
               </div>
-              <span className="font-bold text-xs md:text-sm" style={{ color: "#1A1A1A" }}>5.0/5</span>
-              <span className="text-xs md:text-sm hidden min-[400px]:inline" style={{ color: "#4B5563" }}>— 359 avis</span>
+              <span className="font-bold text-xs md:text-sm" style={{ color: "#1A1A1A" }}>{noteGoogle}/5</span>
+              <span className="text-xs md:text-sm hidden min-[400px]:inline" style={{ color: "#4B5563" }}>— {nbAvisGoogle} avis</span>
               <ArrowRight className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block" />
             </motion.a>
 

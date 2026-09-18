@@ -1,6 +1,7 @@
 import { Euro, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AlmaPaymentButton from "./AlmaPaymentButton";
+import tarifs from "@/data/tarifs.json";
 
 interface PricingCardProps {
   title: string;
@@ -13,7 +14,7 @@ interface PricingCardProps {
 
 const PricingCard = ({ title, price, duration, features, examFees, onRegister }: PricingCardProps) => {
   const monthly = Math.ceil((price / 4) * 100) / 100;
-  const examLabel = examFees || "Frais d'examen de 241€ inclus";
+  const examLabel = examFees || `Frais d'examen de ${tarifs.fraisExamenCMA}€ inclus`;
 
   return (
     <div className="rounded-2xl border-2 border-primary/20 bg-card p-8 shadow-lg relative overflow-hidden">
