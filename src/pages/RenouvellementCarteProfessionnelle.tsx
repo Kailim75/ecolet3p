@@ -379,7 +379,7 @@ const RenouvellementCarteProfessionnelle = () => {
                 Conformément à l'article R3120-7 du Code des transports, tout chauffeur VTC, Taxi ou VMDTR doit renouveler 
                 sa carte professionnelle tous les 5 ans. Le renouvellement est conditionné à la réalisation d'une formation 
                 continue de 14 heures auprès d'un centre de formation agréé par la préfecture. ECOLE T3P, agréé sous le 
-                numéro 23/007, dispense cette formation continue dans son centre de Montrouge (92).
+                numéro 23/005, dispense cette formation continue dans son centre de Montrouge (92).
               </p>
               <p className="text-muted-foreground mb-4">
                 La demande de renouvellement doit être effectuée auprès de la préfecture avant la date

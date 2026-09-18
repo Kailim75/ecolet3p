@@ -23,7 +23,7 @@ const passerelleDirections = [
 ];
 
 const whyChooseUs = [
-  { icon: Shield, title: "Centre agréé Préfecture 92", desc: "Agrément n° 23/007 — formation reconnue par les autorités compétentes." },
+  { icon: Shield, title: "Centre agréé Préfecture 92", desc: "Agrément n° 23/005 — formation reconnue par les autorités compétentes." },
   { icon: Award, title: "94% de réussite à l'examen", desc: "Grâce à une préparation ciblée sur les 2 modules spécifiques de la profession visée." },
   { icon: Euro, title: "665€ tout compris, sans surprise", desc: "Frais d'examen de 165€ inclus. Paiement en 4× 166,25€ sans frais via Alma." },
   { icon: Zap, title: "Formation accélérée", desc: "Obtenez votre seconde carte professionnelle rapidement avec une préparation intensive." },

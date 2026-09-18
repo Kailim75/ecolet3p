@@ -525,7 +525,7 @@ const About = () => {
                 <FileCheck className="w-8 h-8 text-forest" />
                 <div className="text-left">
                   <p className="font-semibold text-forest text-sm">Agréé Préfecture</p>
-                  <p className="text-xs text-muted-foreground">Agrément n° 23/007 — Hauts-de-Seine</p>
+                  <p className="text-xs text-muted-foreground">Agréments n° 23/005 et 23/006 — Hauts-de-Seine</p>
                 </div>
               </div>
             </div>

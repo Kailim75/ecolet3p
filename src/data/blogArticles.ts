@@ -103,7 +103,7 @@ Si votre résultat d'examen T3P a moins de 3 ans, la **passerelle T3P** vous per
 
 ## Comment mettre toutes les chances de votre côté
 
-L'examen T3P se prépare sérieusement : la moyenne nationale de réussite est nettement inférieure à ce qu'on imagine. Notre centre agréé Préfecture (agrément n° 23/007) affiche **94 % de réussite**, avec plus de **2 000 chauffeurs formés depuis 2014**. Trois formats au même tarif :
+L'examen T3P se prépare sérieusement : la moyenne nationale de réussite est nettement inférieure à ce qu'on imagine. Notre centre agréé Préfecture (agrément n° 23/005) affiche **94 % de réussite**, avec plus de **2 000 chauffeurs formés depuis 2014**. Trois formats au même tarif :
 
 - **Journée** : 1 semaine intensive, 9h30-16h30
 - **Soir** : 2 semaines, 18h-21h30 — idéal si vous travaillez déjà

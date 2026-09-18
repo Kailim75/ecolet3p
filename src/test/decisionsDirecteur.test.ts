@@ -3,6 +3,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, extname } from "node:path";
 import tarifs from "@/data/tarifs.json";
 import avisGoogle from "@/data/avisGoogle.json";
+import agrements from "@/data/agrements.json";
 
 /**
  * Garde-fous des décisions du directeur (18/09/2026).
@@ -121,6 +122,20 @@ describe("décisions du directeur — contenus", () => {
         }
       });
     }
+    expect(fautes).toEqual([]);
+  });
+
+  it("seuls les numéros d'agrément du centre sont publiés", () => {
+    // Le site a publié pendant des mois le n° 23/007, qui est celui d'un autre centre
+    // (REVOLYS, Antony) d'après les listes officielles de la préfecture des Hauts-de-Seine.
+    // Les numéros du centre sont ceux de src/data/agrements.json.
+    const autorises = new Set([agrements.taxiVtc, agrements.vmdtr]);
+    const fautes = lignes
+      .flatMap(({ f, n, ligne }) =>
+        (ligne.match(/\b\d{2}\/\d{3}\b/g) || []).map((num) => ({ f, n, num, ligne })),
+      )
+      .filter(({ num }) => !autorises.has(num))
+      .map(({ f, n, num, ligne }) => `${f}:${n} — n° ${num} — ${ligne.trim().slice(0, 80)}`);
     expect(fautes).toEqual([]);
   });
 

@@ -93,7 +93,7 @@ export const getLocalFaqs = (city: CityData): LocalFaq[] => {
     { question: `Quelles formations sont accessibles aux habitants de ${city.name} ?`, answer: `Les habitants de ${city.name} ont accès à toutes nos formations : Taxi (990€), VTC (990€), VMDTR (990€), Passerelle Taxi↔VTC (665€), et formations continues (170-250€). Centre agréé Préfecture à Montrouge. Formats : journée, soirée ou e-learning.` },
     { question: `Y a-t-il des horaires adaptés pour les stagiaires de ${city.name} ?`, answer: `Oui : sessions en journée (9h30-16h30), soirée (18h-21h30) et e-learning illimité. Le trajet de ${city.travelTime} depuis ${city.name} permet de suivre la formation sans difficulté. Même tarif pour les 3 formats.` },
     { question: `Combien coûte la formation Taxi ou VTC ?`, answer: `990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Paiement en 4× sans frais via Alma (247,50€/mois).` },
-    { question: `ECOLE T3P est-elle agréée par la Préfecture ?`, answer: `Oui, agrément n° 23/007 de la Préfecture des Hauts-de-Seine. Taux de réussite de 94%, +2 000 chauffeurs formés depuis 2014, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` },
+    { question: `ECOLE T3P est-elle agréée par la Préfecture ?`, answer: `Oui, agrément n° 23/005 de la Préfecture des Hauts-de-Seine. Taux de réussite de 94%, +2 000 chauffeurs formés depuis 2014, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` },
     { question: `Quel est le taux de réussite aux examens ?`, answer: `94% de réussite, bien au-dessus de la moyenne nationale. Ce résultat s'explique par nos formateurs experts (anciens chauffeurs professionnels) et notre préparation intensive à l'examen CMA.` },
   ];
 };
@@ -115,14 +115,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Bagneux, le quartier des Mathurins, du Pont Royal ou près du Parc François Mitterrand ? Grâce au prolongement de la ligne 4, notre centre de formation à Montrouge est désormais à seulement 15 minutes de chez vous. Depuis la station Barbara ou Bagneux-Lucie Aubrac, descendez à Mairie de Montrouge : le centre est à 8 minutes à pied.",
       "Bagneux connaît une transformation urbaine majeure avec l'arrivée du métro et de nouveaux quartiers. Cette dynamique génère une demande croissante de transport professionnel. Les chauffeurs VTC et Taxi basés à Bagneux profitent d'un accès rapide au périphérique sud, aux aéroports d'Orly (20 min) et de Roissy, ainsi qu'à une clientèle résidentielle en pleine expansion.",
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Avec 94 % de réussite, nous formons les chauffeurs du sud des Hauts-de-Seine depuis 2014."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Avec 94 % de réussite, nous formons les chauffeurs du sud des Hauts-de-Seine depuis 2014."
     ],
     detailedAccess: "Depuis Bagneux, prenez la ligne 4 à la station Barbara (quartier sud) ou Bagneux-Lucie Aubrac (quartier nord). Direction Porte de Clignancourt, descendez à Mairie de Montrouge (2 stations, 5 min). Sortie rue Corneille : le centre est au n°3, à 8 minutes à pied. Alternative bus : ligne 128 arrêt Mairie de Montrouge. En voiture : 5 min via l'avenue Aristide Briand, parking rue Gabriel Péri.",
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant depuis 2014, grâce à nos formateurs anciens chauffeurs professionnels." },
       { icon: MapPin, title: "15 min en ligne 4", text: "Accès direct depuis Barbara ou Bagneux-Lucie Aubrac." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/007. +2 000 chauffeurs diplômés depuis 2014, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005. +2 000 chauffeurs diplômés depuis 2014, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment se rendre à ECOLE T3P depuis Bagneux ?", answer: "Prenez la ligne 4 à Barbara ou Bagneux-Lucie Aubrac. Descendez à Mairie de Montrouge (2 stations, 5 min). Le centre est au 3 rue Corneille, à 8 minutes à pied de la sortie du métro. Trajet total : environ 15 minutes." },
@@ -157,7 +157,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Vanves, le quartier du Plateau, de la Gare ou près du Lycée Michelet ? Notre centre ECOLE T3P est à seulement 20 minutes depuis le cœur de Vanves. La station Malakoff-Plateau de Vanves (ligne 13) vous connecte directement à notre quartier.",
       "Vanves, avec ses 28 000 habitants et sa position stratégique entre Paris 15e et Malakoff, est un emplacement idéal pour les futurs chauffeurs professionnels. La proximité immédiate du périphérique sud, de la porte de Vanves et de la porte Brancion offre un accès privilégié à la clientèle parisienne et aux courses vers les gares Montparnasse et les aéroports.",
-      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre vous accompagne de la formation à la création de votre entreprise. Formation complète à 990€ tout compris : frais d'examen CMA (241€) et aide administrative inclus."
+      "Avec un agrément Préfecture n° 23/005 et 94% de réussite, notre centre vous accompagne de la formation à la création de votre entreprise. Formation complète à 990€ tout compris : frais d'examen CMA (241€) et aide administrative inclus."
     ],
     detailedAccess: "Depuis Vanves, le plus rapide : bus 126 direction Montrouge (arrêt Mairie de Montrouge, 10 min). Le centre est au 3 rue Corneille, à 8 minutes à pied de l'arrêt. Alternative : métro Malakoff-Plateau de Vanves (ligne 13), puis 12 min à pied direction Montrouge centre. Depuis la gare Vanves-Malakoff (Transilien N), comptez 15 min à pied via la rue de Châtillon. En voiture : 5 min via la D906, stationnement facile rue Corneille.",
     whyChoose: [
@@ -198,7 +198,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Malakoff, le quartier du Plateau de Vanves, de la Tour Malakoff ou près de la rue Étienne Dolet ? Notre centre est littéralement votre voisin ! Au 3 rue Corneille à Montrouge, ECOLE T3P est accessible en 5 minutes à pied depuis la limite communale. Aucun transport en commun nécessaire.",
       "Malakoff, avec ses 31 000 habitants et sa forte identité populaire, est un terreau fertile pour les reconversions professionnelles. La ville bénéficie d'une excellente desserte vers Paris (métro 13, bus) et d'un accès rapide au périphérique sud, un avantage décisif pour les chauffeurs VTC et Taxi qui ciblent la clientèle parisienne et les transferts aéroport.",
-      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre vous prépare efficacement à l'examen CMA. Formation complète à 990€ tout compris : frais d'examen (241€) et accompagnement jusqu'à la création de votre entreprise."
+      "Avec un agrément Préfecture n° 23/005 et 94% de réussite, notre centre vous prépare efficacement à l'examen CMA. Formation complète à 990€ tout compris : frais d'examen (241€) et accompagnement jusqu'à la création de votre entreprise."
     ],
     detailedAccess: "Depuis Malakoff, rejoignez notre centre à pied en 5 minutes : suivez l'avenue Pierre Larousse direction sud, tournez rue Corneille. Le centre est au n°3. Depuis le métro Malakoff-Plateau de Vanves (ligne 13), comptez 8 minutes à pied direction Montrouge. Alternative bus : ligne 126 arrêt Mairie de Montrouge (3 min). Le métro Mairie de Montrouge (ligne 4) est à 8 minutes à pied du centre.",
     whyChoose: [
@@ -323,7 +323,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Issy-les-Moulineaux, le quartier Val de Seine, des Épinettes ou du Fort d'Issy ? Notre centre ECOLE T3P est à seulement 20 minutes. Depuis la station Corentin Celton (ligne 12), prenez le bus 189 ou 126 direction Montrouge.",
       "Issy-les-Moulineaux, ville dynamique de 69 000 habitants, concentre de nombreuses entreprises (Canal+, Microsoft, Coca-Cola) et une clientèle business importante. Les Isséens qui se lancent comme chauffeur VTC ou Taxi bénéficient d'un bassin de clientèle premium : quartiers d'affaires, hôtels, transferts vers les gares et aéroports.",
-      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre forme efficacement à l'examen CMA. Formation à 990€ tout compris : frais d'examen (241€) et accompagnement jusqu'à la création de votre entreprise."
+      "Avec un agrément Préfecture n° 23/005 et 94% de réussite, notre centre forme efficacement à l'examen CMA. Formation à 990€ tout compris : frais d'examen (241€) et accompagnement jusqu'à la création de votre entreprise."
     ],
     detailedAccess: "Depuis Issy-les-Moulineaux, option 1 : métro Corentin Celton (ligne 12) jusqu'à Montparnasse, puis ligne 4 direction Mairie de Montrouge (12 min de métro). Option 2 : bus 189 ou 190 direction Montrouge, arrêt Mairie de Montrouge (15 min). Le centre est au 3 rue Corneille, à 8 minutes à pied du métro ligne 4. En voiture : 10 min via le boulevard des Frères Voisin et la D906.",
     whyChoose: [
@@ -364,7 +364,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez le 14e arrondissement — quartier Alésia, Mouton-Duvernet, Denfert-Rochereau ou Plaisance ? Notre centre est votre voisin immédiat. Depuis la station Alésia (ligne 4), une seule station vous sépare de Mairie de Montrouge. En 15 minutes, vous êtes devant notre porte au 3 rue Corneille.",
       "Le 14e arrondissement, avec ses 140 000 habitants et ses quartiers populaires comme la rue Daguerre ou la Butte-aux-Cailles (limitrophe 13e), est un vivier de futurs chauffeurs professionnels. La position centrale du 14e offre un avantage stratégique : accès direct au périphérique sud (porte d'Orléans), proximité des gares Montparnasse et Denfert-Rochereau (Orlybus), et desserte vers tous les arrondissements parisiens.",
-      "Avec un agrément Préfecture n° 23/007, 94% de réussite et +2 000 chauffeurs formés depuis 2014, ECOLE T3P forme les habitants du 14e. Formation à 990€ tout compris, paiement en 4× sans frais via Alma."
+      "Avec un agrément Préfecture n° 23/005, 94% de réussite et +2 000 chauffeurs formés depuis 2014, ECOLE T3P forme les habitants du 14e. Formation à 990€ tout compris, paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis le 14e arrondissement, prenez la ligne 4 à Alésia. Direction Bagneux, descendez à Mairie de Montrouge (1 station, 3 min). Sortie rue Corneille : le centre est au n°3, à 8 minutes à pied. Depuis Mouton-Duvernet : ligne 4 direction Bagneux, 2 stations. Depuis Denfert-Rochereau : ligne 4 direction Bagneux, 3 stations (5 min). À pied depuis Alésia : 12 min via l'avenue de la République. Bus 68 arrêt Mairie de Montrouge.",
     whyChoose: [
@@ -379,7 +379,7 @@ export const cities: CityData[] = [
       { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-250€). Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) ou e-learning illimité." },
       { question: "Le format soirée convient-il aux actifs du 14e ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) sont idéales : à 15 minutes d'Alésia, vous êtes rentré chez vous rapidement après les cours. De nombreux habitants du 14e en reconversion choisissent ce format." },
       { question: "Combien coûte la formation tout compris ?", answer: "990€ TTC, incluant les frais d'examen CMA (241€) et l'accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun frais caché." },
-      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: `Oui, agrément n° 23/007 de la Préfecture des Hauts-de-Seine. Centre actif depuis 2014, +2 000 chauffeurs formés, 94% de réussite et ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis Google).` },
+      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: `Oui, agrément n° 23/005 de la Préfecture des Hauts-de-Seine. Centre actif depuis 2014, +2 000 chauffeurs formés, 94% de réussite et ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis Google).` },
       { question: "Peut-on passer la double carte Taxi + VTC ?", answer: "Oui. Passez d'abord votre carte VTC ou Taxi (990€), puis la Passerelle (665€, 7h vers VTC, 14h vers Taxi) pour obtenir la seconde carte. La double carte permet de maximiser vos revenus en alternant les deux activités." },
       { question: "Y a-t-il un accompagnement après l'examen ?", answer: "Oui : aide à la création d'entreprise (choix du statut juridique), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." }
     ],
@@ -408,14 +408,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez le 15e arrondissement, de Convention à Vaugirard, de Beaugrenelle au Parc des Expositions ? Notre centre de formation à Montrouge est à un quart d'heure. Depuis Porte de Versailles, le tramway T3a vous dépose à Porte d'Orléans ; la ligne 4 dessert ensuite Mairie de Montrouge, à 8 minutes à pied du 3 rue Corneille.",
       "Le 15e est l'arrondissement le plus peuplé de Paris, et l'un de ceux où la demande de courses est la plus régulière : salons du Parc des Expositions, gare Montparnasse toute proche, hôpital Georges-Pompidou, quartier d'affaires du front de Seine. Les chauffeurs qui s'y installent combinent une clientèle professionnelle en semaine et une clientèle de loisirs le week-end, avec un accès direct au périphérique et à l'A6 vers Orly.",
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis le 15e, deux itinéraires simples. Par le tramway : T3a depuis Porte de Versailles jusqu'à Porte d'Orléans, puis ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Par le métro : ligne 12 ou 13 jusqu'à Montparnasse-Bienvenüe, puis ligne 4 direction Bagneux. À la sortie Mairie de Montrouge, le centre est au 3 rue Corneille, à 8 minutes à pied. En voiture, comptez une quinzaine de minutes par la porte de Versailles puis l'avenue Aristide Briand ; stationnement possible rue Gabriel Péri.",
     whyChoose: [
       { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
       { icon: MapPin, title: "15 min du 15e", text: "T3a jusqu'à Porte d'Orléans puis ligne 4 : accès direct depuis Convention et Porte de Versailles." },
       { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
-      { icon: Shield, title: "Agrément Préfecture", text: `Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture", text: `Centre agréé n° 23/005. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment venir à ECOLE T3P depuis le 15e arrondissement ?", answer: "Le plus simple : tramway T3a depuis Porte de Versailles jusqu'à Porte d'Orléans, puis ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 8 minutes à pied de la sortie. Comptez un quart d'heure depuis Porte de Versailles." },
@@ -448,14 +448,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez le 13e arrondissement, de la Place d'Italie aux Olympiades, de la Butte-aux-Cailles au quartier Paris Rive Gauche ? Notre centre de formation à Montrouge est à une vingtaine de minutes. Depuis Porte d'Italie ou Porte de Choisy, le tramway T3a rejoint Porte d'Orléans, d'où la ligne 4 dessert Mairie de Montrouge en une station.",
       "Le 13e s'est profondément transformé avec Paris Rive Gauche : la Bibliothèque nationale de France, l'université, les nouveaux sièges d'entreprises et la gare d'Austerlitz y génèrent un flux constant. C'est aussi l'un des arrondissements où la reconversion vers les métiers du transport est la plus fréquente, portée par une population jeune et par la proximité immédiate du périphérique sud.",
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis le 13e, le trajet le plus direct passe par le tramway T3a : montez à Porte d'Italie ou Porte de Choisy, descendez à Porte d'Orléans, puis prenez la ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Depuis Place d'Italie, la ligne 6 puis la ligne 4 à Denfert-Rochereau constituent une alternative. À la sortie du métro, le centre est au 3 rue Corneille, à 8 minutes à pied. En voiture, comptez une quinzaine de minutes par le boulevard périphérique, sortie Porte d'Orléans ; stationnement possible rue Gabriel Péri.",
     whyChoose: [
       { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
       { icon: MapPin, title: "20 min du 13e", text: "T3a depuis Porte d'Italie puis ligne 4 : un trajet direct, sans changement compliqué." },
       { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
-      { icon: Shield, title: "Agrément Préfecture", text: `Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture", text: `Centre agréé n° 23/005. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment venir à ECOLE T3P depuis le 13e arrondissement ?", answer: "Prenez le tramway T3a à Porte d'Italie ou Porte de Choisy jusqu'à Porte d'Orléans, puis la ligne 4 direction Bagneux, une station jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 8 minutes à pied de la sortie. Comptez environ 20 minutes." },
@@ -485,14 +485,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Fontenay-aux-Roses, le quartier de la Gare, des Blagis ou du Val Content ? Notre centre ECOLE T3P est à 20 minutes. Depuis la gare RER B Fontenay-aux-Roses, prenez le bus 194 direction Montrouge ou le bus 128 jusqu'à la Mairie de Montrouge.",
       "Fontenay-aux-Roses, ville résidentielle de 25 000 habitants nichée entre Sceaux et Bagneux, séduit par son cadre de vie verdoyant. Les Fontenaisiens en reconversion professionnelle bénéficient d'un accès rapide aux grands axes (A86, N20) et à Paris via le RER B, un atout majeur pour exercer comme chauffeur VTC ou Taxi.",
-      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre propose une formation complète à 990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma."
+      "Avec un agrément Préfecture n° 23/005 et 94% de réussite, notre centre propose une formation complète à 990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis la gare Fontenay-aux-Roses (RER B), prenez le bus 194 direction Montrouge centre (10 min, arrêt Mairie de Montrouge). Le centre est au 3 rue Corneille, à 8 minutes à pied. Alternative : bus 128 vers Montrouge (12 min). En voiture : 10 min via la D920 direction Bagneux puis Montrouge, stationnement facile rue Corneille et rues adjacentes.",
     whyChoose: [
       { icon: MapPin, title: "20 min en RER + bus", text: "RER B Fontenay-aux-Roses + bus 194 : un trajet direct vers le centre." },
       { icon: Trophy, title: "94% de réussite", text: "Des formateurs experts, anciens chauffeurs professionnels, pour une préparation intensive à l'examen CMA." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
-      { icon: Shield, title: "Centre agréé Préfecture", text: "Agrément n° 23/007 des Hauts-de-Seine. Formation conforme aux exigences réglementaires pour l'examen CMA." }
+      { icon: Shield, title: "Centre agréé Préfecture", text: "Agrément n° 23/005 des Hauts-de-Seine. Formation conforme aux exigences réglementaires pour l'examen CMA." }
     ],
     enrichedFaqs: [
       { question: "Comment se rendre à ECOLE T3P depuis Fontenay-aux-Roses ?", answer: "Depuis la gare RER B Fontenay-aux-Roses, prenez le bus 194 direction Montrouge (10 min) ou le bus 128 (12 min). Le centre est au 3 rue Corneille, à 8 minutes à pied de l'arrêt Mairie de Montrouge." },
@@ -554,14 +554,14 @@ export const cities: CityData[] = [
 
       "Antony occupe une position rare en Île-de-France : la gare est directement reliée à l'aéroport d'Orly par l'Orlyval. Pour un chauffeur VTC ou taxi, c'est un avantage concret — les transferts aéroport comptent parmi les courses les mieux valorisées, et la proximité de l'A6 comme de l'A86 permet de basculer rapidement d'un secteur à l'autre.",
 
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis Antony, prenez le RER B à la gare d'Antony direction Paris, descendez à Denfert-Rochereau, puis la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (quatre stations). À la sortie, le centre est au 3 rue Corneille, à 8 minutes à pied. Les lignes de bus 286, 379, 395 et 396 desservent également le secteur. En voiture, comptez une vingtaine de minutes par la D920 ou l'A86, avec stationnement possible rue Gabriel Péri.",
     whyChoose: [
       { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
       { icon: MapPin, title: "25 min en RER B", text: "Ligne directe depuis la gare d'Antony, puis une correspondance simple sur la ligne 4." },
       { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment venir à ECOLE T3P depuis Antony ?", answer: "RER B depuis la gare d'Antony jusqu'à Denfert-Rochereau, puis ligne 4 direction Bagneux, quatre stations jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 8 minutes à pied de la sortie. Comptez environ 25 minutes." },
@@ -595,14 +595,14 @@ export const cities: CityData[] = [
 
       "Bourg-la-Reine est l'une des communes les plus proches de notre centre, à trois kilomètres et demi seulement. Sa position entre Sceaux, Antony et Montrouge, à l'articulation de la D920 et de l'A86, en fait un point de départ commode pour un chauffeur : Paris intra-muros est accessible en quelques minutes, et Orly reste à portée par la D920.",
 
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis Bourg-la-Reine, le plus simple est la ligne de bus 128, qui dessert directement l'arrêt Mairie de Montrouge, à 8 minutes à pied du 3 rue Corneille — sans changement. En RER B, descendez à Denfert-Rochereau puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Les lignes 197 et 395 desservent également le secteur. En voiture, comptez une dizaine de minutes par la D920 puis l'avenue Aristide Briand, avec stationnement rue Gabriel Péri.",
     whyChoose: [
       { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
       { icon: MapPin, title: "Bus 128 direct", text: "Une seule ligne, sans changement, jusqu'à l'arrêt Mairie de Montrouge. Le centre est à 8 minutes à pied." },
       { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment venir à ECOLE T3P depuis Bourg-la-Reine ?", answer: "La ligne de bus 128 vous emmène directement à l'arrêt Mairie de Montrouge, sans changement : le centre est à 8 minutes à pied, au 3 rue Corneille. En RER B, descendez à Denfert-Rochereau puis prenez la ligne 4. Comptez environ 20 minutes." },
@@ -636,14 +636,14 @@ export const cities: CityData[] = [
 
       "Le Plessis-Robinson a beaucoup changé en vingt ans : la reconstruction du centre-ville et l'arrivée du T6 ont désenclavé la commune et l'ont rapprochée du pôle d'affaires de Vélizy comme du sud parisien. Pour un chauffeur, c'est un secteur résidentiel aisé, où la demande de courses régulières — trajets domicile-travail, gares, aéroports — reste soutenue toute l'année.",
 
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis Le Plessis-Robinson, rejoignez Châtillon-Montrouge par le tramway T6, puis empruntez l'une des lignes de bus qui desservent Montrouge (194, 290 ou 395 selon votre quartier) jusqu'aux abords de la mairie : le centre est au 3 rue Corneille. En voiture, comptez une quinzaine de minutes par la D906 puis l'avenue Aristide Briand, avec stationnement possible rue Gabriel Péri. La ligne 4 du métro, à Mairie de Montrouge, permet ensuite de rejoindre Paris en quelques minutes.",
     whyChoose: [
       { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
       { icon: MapPin, title: "T6 puis bus", text: "Le tramway T6 jusqu'à Châtillon-Montrouge, puis un court trajet en bus vers le centre de Montrouge." },
       { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment venir à ECOLE T3P depuis Le Plessis-Robinson ?", answer: "Prenez le tramway T6 jusqu'à Châtillon-Montrouge, puis une ligne de bus vers Montrouge (194, 290 ou 395 selon votre quartier). Le centre est au 3 rue Corneille. En voiture, comptez une quinzaine de minutes par la D906." },
@@ -673,14 +673,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Boulogne-Billancourt, le quartier du Pont de Sèvres, de Marcel Sembat ou des Princes-Marmottan ? ECOLE T3P à Montrouge est votre centre de formation. Depuis Marcel Sembat (ligne 9), rejoignez Montparnasse puis la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge en seulement 30 minutes.",
       "Boulogne-Billancourt est un territoire stratégique pour les chauffeurs VTC et Taxi. Avec ses sièges sociaux (TF1, Bouygues, nombreuses start-ups), la proximité du Parc des Princes et de Roland-Garros, et un tissu résidentiel aisé, la clientèle professionnelle et événementielle y est abondante. De nombreux Boulonnais se sont reconvertis avec succès après une formation chez nous.",
-      "Notre centre agréé Préfecture (n° 23/007) propose des formations à 990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Avec 94% de réussite et plus de 2 000 chauffeurs formés depuis 2014, nous formons des chauffeurs de toute l'Île-de-France."
+      "Notre centre agréé Préfecture (n° 23/005) propose des formations à 990€ tout compris : frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Avec 94% de réussite et plus de 2 000 chauffeurs formés depuis 2014, nous formons des chauffeurs de toute l'Île-de-France."
     ],
     detailedAccess: "Depuis Boulogne-Billancourt, prenez le métro ligne 9 à Marcel Sembat ou Boulogne-Jean Jaurès. Descendez à Montparnasse-Bienvenüe (10 min). Prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 8 minutes à pied. Total : environ 30 minutes. Alternative depuis Pont de Sèvres : ligne 9 directe. En voiture : 15 min via le boulevard périphérique, parking disponible à proximité.",
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant depuis 2014, grâce à des formateurs anciens chauffeurs professionnels." },
       { icon: MapPin, title: "30 min depuis Boulogne", text: "Métro ligne 9 puis ligne 4 : un trajet rapide depuis Marcel Sembat ou Pont de Sèvres." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) inclus. Paiement en 4× sans frais via Alma (247,50€/mois)." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/007 par la Préfecture des Hauts-de-Seine. +2 000 chauffeurs diplômés." }
+      { icon: Shield, title: "Agrément Préfecture 92", text: "Centre agréé n° 23/005 par la Préfecture des Hauts-de-Seine. +2 000 chauffeurs diplômés." }
     ],
     enrichedFaqs: [
       { question: "Comment se rendre à ECOLE T3P depuis Boulogne-Billancourt ?", answer: "Métro ligne 9 depuis Marcel Sembat jusqu'à Montparnasse (10 min), puis ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 8 minutes à pied du métro. Trajet total : environ 30 minutes." },
@@ -757,7 +757,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Nanterre, le quartier de la Préfecture, l'Université ou les bords de Seine ? ECOLE T3P à Montrouge est accessible en 40 minutes via le RER A. Depuis Nanterre-Préfecture, descendez à Châtelet-Les Halles puis prenez la ligne 4 jusqu'à Mairie de Montrouge.",
       "Nanterre bénéficie d'une position géographique exceptionnelle pour les chauffeurs VTC et Taxi. La proximité immédiate de La Défense génère une demande massive de transferts cadres, tandis que les autoroutes A14, A86 et le prolongement du RER E (Eole) renforcent la connectivité du secteur. Les Nanterriens qui se forment chez nous profitent d'un bassin de clientèle business parmi les plus importants d'Île-de-France.",
-      "Avec un agrément Préfecture n° 23/007 et 94% de réussite, notre centre vous prépare efficacement à l'examen CMA. Formation à 990€ tout compris : frais d'examen (241€) et accompagnement complet jusqu'à la création de votre entreprise."
+      "Avec un agrément Préfecture n° 23/005 et 94% de réussite, notre centre vous prépare efficacement à l'examen CMA. Formation à 990€ tout compris : frais d'examen (241€) et accompagnement complet jusqu'à la création de votre entreprise."
     ],
     detailedAccess: "Depuis Nanterre, prenez le RER A à Nanterre-Préfecture direction Paris. Descendez à Châtelet-Les Halles (15 min). Prenez le métro ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (15 min). Le centre est au 3 rue Corneille, à 8 minutes à pied. Total : environ 40 minutes. Alternative depuis Nanterre-Ville ou Nanterre-Université : même itinéraire via le RER A. En voiture : A86 puis A6b direction Montrouge, environ 25 min hors pointe.",
     whyChoose: [
@@ -799,7 +799,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Colombes, le quartier de la Marine, le centre-ville ou les Fossés-Jean ? Notre centre ECOLE T3P à Montrouge est accessible en 35 minutes. Depuis la gare de Colombes, prenez le Transilien J jusqu'à Paris Saint-Lazare, puis le métro ligne 13 et la ligne 4 jusqu'à Mairie de Montrouge.",
       "Colombes est idéalement située pour exercer comme chauffeur VTC ou Taxi : la proximité de La Défense (10 min), l'accès rapide à Roissy-CDG via l'A86 et la clientèle résidentielle du nord-ouest parisien garantissent un volume de courses régulier. Les Colombiens formés chez ECOLE T3P ont l'avantage de couvrir un secteur encore peu saturé en chauffeurs indépendants.",
-      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€) et un accompagnement personnalisé jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma. Agrément Préfecture n° 23/007, 94% de réussite."
+      "Notre formation à 990€ tout compris inclut les frais d'examen CMA (241€) et un accompagnement personnalisé jusqu'à la création de votre entreprise. Paiement en 4× sans frais via Alma. Agrément Préfecture n° 23/005, 94% de réussite."
     ],
     detailedAccess: "Depuis Colombes, prenez le Transilien J à la gare de Colombes direction Paris Saint-Lazare (12 min). À Saint-Lazare, prenez le métro ligne 13 direction Châtillon-Montrouge jusqu'à Montparnasse-Bienvenüe (8 min). Correspondance ligne 4 direction Bagneux, descendez à Mairie de Montrouge (5 min). Le centre est au 3 rue Corneille, à 8 minutes à pied. Total : environ 35 minutes. En voiture : A86 puis boulevard périphérique, environ 25 min hors pointe.",
     whyChoose: [
@@ -1026,14 +1026,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Ivry-sur-Seine, le quartier d'Ivry Port, la Manufacture ou les Cormailles ? ECOLE T3P à Montrouge est votre centre de formation. Depuis Mairie d'Ivry (ligne 7), descendez à Châtelet puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Trajet total : environ 30 minutes.",
       "Ivry-sur-Seine connaît une transformation majeure avec le projet Ivry Confluences (145 hectares) qui attire entreprises et nouveaux habitants. Cette dynamique renforce la demande de transport professionnel dans le sud-est parisien. Les chauffeurs VTC et Taxi basés à Ivry bénéficient d'une position stratégique entre Paris 13e, Vitry et Villejuif — un secteur en plein essor.",
-      "Notre centre agréé Préfecture (n° 23/007) vous prépare avec 94% de réussite à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€) et l'accompagnement à la création d'entreprise. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous prépare avec 94% de réussite à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€) et l'accompagnement à la création d'entreprise. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis Ivry-sur-Seine, prenez le métro ligne 7 à Mairie d'Ivry. Descendez à Châtelet (10 min). Prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 8 minutes à pied. Total : environ 30 minutes. Alternative depuis Pierre et Marie Curie : même itinéraire. En voiture : boulevard périphérique Porte d'Italie puis D920, environ 15 min.",
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant grâce à nos formateurs anciens chauffeurs professionnels et notre méthode pédagogique éprouvée." },
       { icon: MapPin, title: "30 min en direct", text: "Ligne 7 + ligne 4 : un trajet direct depuis le Val-de-Marne vers notre centre de Montrouge." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) et accompagnement création d'entreprise inclus. 4× sans frais via Alma." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/007 depuis 2014. +2 000 chauffeurs formés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005 depuis 2014. +2 000 chauffeurs formés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment se rendre à ECOLE T3P depuis Ivry-sur-Seine ?", answer: "Métro ligne 7 depuis Mairie d'Ivry jusqu'à Châtelet (10 min), puis ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 8 minutes à pied du métro. Total : environ 30 minutes." },
@@ -1157,7 +1157,7 @@ export const cities: CityData[] = [
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux bien supérieur à la moyenne nationale. Nos formateurs, anciens chauffeurs professionnels, préparent intensivement les Gentilléens à chaque épreuve CMA." },
       { icon: MapPin, title: "À 10 min seulement", text: "Gentilly est l'une des communes les plus proches de notre centre. Bus 125 ou 184 depuis la gare RER B : un trajet rapide et direct." },
-      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/007 délivré par la Préfecture des Hauts-de-Seine. Centre agréé depuis 2014, +2 000 chauffeurs formés." },
+      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/005 délivré par la Préfecture des Hauts-de-Seine. Centre agréé depuis 2014, +2 000 chauffeurs formés." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Paiement en 4× sans frais via Alma." }
     ],
     enrichedFaqs: [
@@ -1198,7 +1198,7 @@ export const cities: CityData[] = [
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux exceptionnel pour les stagiaires d'Arcueil, Cachan et Gentilly. Nos formateurs préparent intensivement à chaque épreuve CMA." },
       { icon: MapPin, title: "À 10 min en RER B", text: "Arcueil est l'une des communes les plus proches de notre centre. Un trajet simple et rapide via le bus 187 depuis la gare." },
-      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/007 délivré par la Préfecture des Hauts-de-Seine. Formation conforme aux exigences réglementaires pour l'examen CMA." },
+      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/005 délivré par la Préfecture des Hauts-de-Seine. Formation conforme aux exigences réglementaires pour l'examen CMA." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun coût caché." }
     ],
     enrichedFaqs: [
@@ -1352,14 +1352,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Vincennes, Saint-Mandé ou le quartier du Château ? ECOLE T3P vous forme pour obtenir votre carte professionnelle de chauffeur. Depuis la station Château de Vincennes (ligne 1), rejoignez-nous en 40 minutes via une correspondance à Châtelet (ligne 4, direction Bagneux).",
       "Vincennes, avec ses 50 000 habitants et sa proximité avec le Bois de Vincennes, le Parc Floral et l'Hippodrome, offre un cadre idéal pour débuter une carrière de chauffeur VTC ou Taxi. La demande de transport est forte dans l'est parisien, notamment pour les transferts vers les gares de Lyon et de l'Est, ainsi que les aéroports d'Orly et Roissy.",
-      "Notre centre agréé Préfecture (n° 23/007) vous propose des formations complètes à 990€ tout compris, incluant les frais d'examen CMA de 241€ et un accompagnement personnalisé jusqu'à l'obtention de votre carte. Avec 94% de réussite et plus de 2 000 chauffeurs formés depuis 2014, nous formons des chauffeurs de toute l'Île-de-France."
+      "Notre centre agréé Préfecture (n° 23/005) vous propose des formations complètes à 990€ tout compris, incluant les frais d'examen CMA de 241€ et un accompagnement personnalisé jusqu'à l'obtention de votre carte. Avec 94% de réussite et plus de 2 000 chauffeurs formés depuis 2014, nous formons des chauffeurs de toute l'Île-de-France."
     ],
     detailedAccess: "Depuis Vincennes centre, prenez le métro ligne 1 à la station Château de Vincennes (5 min à pied). Descendez à Châtelet (12 min), puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (15 min). Notre centre est à 8 minutes à pied de la sortie du métro, au 3 rue Corneille. Total : environ 40 minutes. Alternative : RER A depuis la gare de Vincennes jusqu'à Châtelet-Les Halles, puis ligne 4. Pour les stagiaires en voiture, un parking public est disponible à proximité du centre.",
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux de réussite exceptionnel, bien au-dessus de la moyenne nationale des centres de formation T3P." },
       { icon: MapPin, title: "40 min depuis Vincennes", text: "Métro ligne 1 + ligne 4 : un trajet direct et simple depuis Château de Vincennes." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) inclus. Paiement en 4× sans frais via Alma." },
-      { icon: Shield, title: "Agrément Préfecture", text: "Centre agréé n° 23/007. Formateurs experts, anciens chauffeurs professionnels." }
+      { icon: Shield, title: "Agrément Préfecture", text: "Centre agréé n° 23/005. Formateurs experts, anciens chauffeurs professionnels." }
     ],
     enrichedFaqs: [
       { question: "Comment aller de Vincennes à ECOLE T3P Montrouge ?", answer: "Prenez le métro ligne 1 à Château de Vincennes, descendez à Châtelet puis prenez la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Trajet total : 40 minutes. Le centre est au 3 rue Corneille, à 8 minutes à pied du métro." },
@@ -1430,7 +1430,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Créteil, le quartier du Lac, Mont-Mesly, l'Échat ou l'Université ? ECOLE T3P à Montrouge est accessible en 35 minutes via le métro ligne 8. Depuis Créteil-Préfecture, prenez la ligne 8 jusqu'à Concorde ou Opéra, puis correspondance vers la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge.",
       "En tant que préfecture du Val-de-Marne, Créteil concentre les administrations, l'université Paris-Est Créteil (40 000 étudiants), l'hôpital Henri Mondor et le centre commercial Créteil Soleil. Cette densité d'activités génère une demande importante de transport professionnel. Les chauffeurs VTC et Taxi basés à Créteil couvrent efficacement le sud-est francilien, avec un accès rapide à l'A86 et l'A4 vers les aéroports.",
-      "Notre centre agréé Préfecture (n° 23/007) affiche 94% de réussite à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€) et l'accompagnement à la création d'entreprise. Le format e-learning est particulièrement apprécié des Cristoliens souhaitant étudier à leur rythme."
+      "Notre centre agréé Préfecture (n° 23/005) affiche 94% de réussite à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€) et l'accompagnement à la création d'entreprise. Le format e-learning est particulièrement apprécié des Cristoliens souhaitant étudier à leur rythme."
     ],
     detailedAccess: "Depuis Créteil, prenez le métro ligne 8 à Créteil-Préfecture. Descendez à Opéra (25 min) ou Concorde, puis prenez la ligne correspondante vers Châtelet et la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Total : environ 35 minutes. Alternative rapide : ligne 8 jusqu'à Madeleine, puis ligne 14 jusqu'à Châtelet et ligne 4. En voiture : A86 puis A6b vers Montrouge, environ 25 min hors pointe.",
     whyChoose: [
@@ -1660,7 +1660,7 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez La Courneuve, le quartier des 4000, le centre-ville ou les abords du parc Georges-Valbon ? Notre centre de formation à Montrouge est accessible en 45 minutes depuis le terminus de la ligne 7 (La Courneuve–8 Mai 1945). La correspondance à Châtelet vous amène directement à Mairie de Montrouge sur la ligne 4.",
       "La Seine-Saint-Denis est le département francilien où la demande de chauffeurs VTC et Taxi croît le plus vite. Les plateformes Uber, Bolt et Heetch y enregistrent des temps d'attente parmi les plus longs d'Île-de-France — un signal clair d'opportunité pour les futurs chauffeurs. De nombreux Courneuviens ont déjà fait le choix d'ECOLE T3P pour leur reconversion professionnelle.",
-      "Avec un agrément Préfecture n° 23/007 et un taux de réussite de 94%, notre centre vous prépare efficacement à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€) et un accompagnement complet jusqu'à la création de votre entreprise."
+      "Avec un agrément Préfecture n° 23/005 et un taux de réussite de 94%, notre centre vous prépare efficacement à l'examen CMA. La formation à 990€ tout compris inclut les frais d'examen (241€) et un accompagnement complet jusqu'à la création de votre entreprise."
     ],
     detailedAccess: "Depuis La Courneuve, prenez le métro ligne 7 au terminus La Courneuve–8 Mai 1945. Descendez à Châtelet (25 min de trajet). Prenez la ligne 4 direction Bagneux et descendez à Mairie de Montrouge (12 min). Notre centre est au 3 rue Corneille, à 8 minutes à pied de la sortie. Total : environ 45 minutes. Alternative pour les quartiers sud de La Courneuve : tramway T1 jusqu'à Bobigny puis métro 5 jusqu'à Gare du Nord, correspondance ligne 4. En voiture : A86 puis A6b, environ 30 min hors heure de pointe.",
     whyChoose: [
@@ -1725,14 +1725,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Massy, le quartier d'Atlantis, Vilmorin ou près du Parc Georges Brassens ? Notre centre de formation à Montrouge est à 30 minutes. Depuis Massy-Palaiseau, le RER B vous conduit à Denfert-Rochereau, puis la ligne 4 dessert Mairie de Montrouge : le centre est au 3 rue Corneille, à 8 minutes à pied de la sortie.",
       "Massy occupe une position que peu de villes d'Île-de-France peuvent revendiquer : une gare TGV, deux lignes de RER (B et C) et un pôle d'affaires en pleine croissance. Pour un chauffeur VTC ou taxi, c'est un flux de clientèle rare — voyageurs d'affaires en correspondance TGV, transferts vers Orly à quinze minutes, et une zone d'activité qui commande des courses toute la semaine.",
-      "Notre centre agréé Préfecture (n° 23/007) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
+      "Notre centre agréé Préfecture (n° 23/005) vous forme à 990 € tout compris : frais d'examen CMA (241 €) et accompagnement à la création d'entreprise inclus. 94 % de réussite et plus de 2 000 chauffeurs formés depuis 2014. Paiement en 4× sans frais via Alma."
     ],
     detailedAccess: "Depuis Massy, prenez le RER B à Massy-Palaiseau direction Paris, descendez à Denfert-Rochereau, puis la ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Le RER C depuis Massy-Verrières est une alternative via la ligne 4 également. À la sortie du métro, le centre est au 3 rue Corneille, à 8 minutes à pied. Les lignes de bus 119, 199, 297 et 396 desservent le secteur. En voiture, comptez une trentaine de minutes par l'A10 puis l'A6, avec stationnement possible rue Gabriel Péri.",
     whyChoose: [
       { icon: Trophy, title: "94 % de réussite", text: "Un taux constant depuis 2014, porté par des formateurs qui sont d'anciens chauffeurs professionnels." },
       { icon: MapPin, title: "Gare TGV et 2 RER", text: "Massy cumule TGV, RER B et RER C : un flux de clientèle que peu de communes offrent à un chauffeur." },
       { icon: CreditCard, title: "990 € tout compris", text: "Frais CMA (241 €) inclus. Paiement en 4× sans frais via Alma (247,50 €/mois)." },
-      { icon: Shield, title: "Agrément Préfecture", text: `Centre agréé n° 23/007. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture", text: `Centre agréé n° 23/005. Plus de 2 000 chauffeurs diplômés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment venir à ECOLE T3P depuis Massy ?", answer: "RER B depuis Massy-Palaiseau jusqu'à Denfert-Rochereau, puis ligne 4 direction Bagneux jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 8 minutes à pied de la sortie. Comptez environ 30 minutes. Le RER C depuis Massy-Verrières est une alternative." },
@@ -1894,7 +1894,7 @@ export const cities: CityData[] = [
       { icon: Trophy, title: "94% de réussite", text: "Nos stagiaires essonniens obtiennent les mêmes résultats excellents. Une préparation intensive et ciblée sur l'examen CMA." },
       { icon: Car, title: "Proche aéroport d'Orly", text: "Depuis Longjumeau, vous êtes à 15 km d'Orly : un atout majeur pour les transferts aéroport en tant que chauffeur VTC ou Taxi." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) inclus. Paiement en 4× sans frais via Alma : 247,50€/mois." },
-      { icon: Shield, title: "Centre agréé Préfecture", text: `Agrément n° 23/007. Plus de 2 000 chauffeurs formés depuis 2014. ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Centre agréé Préfecture", text: `Agrément n° 23/005. Plus de 2 000 chauffeurs formés depuis 2014. ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment se rendre à ECOLE T3P depuis Longjumeau ?", answer: "Depuis la gare RER C de Longjumeau, prenez le train direction Paris. Descendez à Denfert-Rochereau (25 min) puis métro ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (10 min). Centre au 3 rue Corneille, à 8 minutes à pied. Total : 45 minutes environ." },
@@ -2093,14 +2093,14 @@ export const cities: CityData[] = [
     introText: [
       "Vous habitez Conflans-Sainte-Honorine, le quartier Chennevières, le Plateau ou les bords de Seine ? ECOLE T3P à Montrouge est votre centre de formation pour obtenir votre carte professionnelle de chauffeur. Depuis la gare de Conflans–Fin d'Oise, le Transilien J vous emmène à Saint-Lazare en 30 minutes, puis le métro vous conduit à Mairie de Montrouge.",
       "Les Yvelines nord (Conflans, Herblay, Cergy, Achères) représentent un bassin de recrutement important pour les métiers du transport. La proximité de l'A15, l'A14 et la Francilienne offre un maillage routier dense, idéal pour les chauffeurs VTC travaillant vers La Défense, les aéroports et le centre de Paris. Plusieurs Conflanais exercent déjà avec succès après leur formation chez nous.",
-      "Notre centre agréé par la Préfecture des Hauts-de-Seine (n° 23/007) affiche 94% de réussite à l'examen CMA. La formation complète à 990€ inclut les frais d'examen (241€) et un accompagnement à la création d'entreprise. Le format e-learning est particulièrement apprécié des stagiaires éloignés qui souhaitent limiter les déplacements."
+      "Notre centre agréé par la Préfecture des Hauts-de-Seine (n° 23/005) affiche 94% de réussite à l'examen CMA. La formation complète à 990€ inclut les frais d'examen (241€) et un accompagnement à la création d'entreprise. Le format e-learning est particulièrement apprécié des stagiaires éloignés qui souhaitent limiter les déplacements."
     ],
     detailedAccess: "Depuis Conflans-Sainte-Honorine, prenez le Transilien J à la gare Conflans–Fin d'Oise direction Paris Saint-Lazare (30 min). À Saint-Lazare, prenez le métro ligne 13 direction Châtillon-Montrouge et descendez à Montparnasse-Bienvenüe. Correspondance ligne 4 direction Bagneux, descendez à Mairie de Montrouge (environ 20 min). Le centre est au 3 rue Corneille, à 8 minutes à pied. Total : environ 60 minutes. Alternative : le format e-learning permet de ne se déplacer que pour les sessions pratiques et l'examen. En voiture : A15 puis A86, environ 40 min hors pointe.",
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux supérieur à la moyenne nationale, grâce à des formateurs experts et une préparation intensive à l'examen CMA." },
       { icon: Users, title: "E-learning adapté", text: "Le format e-learning 24h/24 est idéal depuis Conflans : révisez à votre rythme et déplacez-vous uniquement pour les sessions pratiques." },
       { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Frais d'examen CMA (241€) et accompagnement création d'entreprise inclus." },
-      { icon: Shield, title: "Centre agréé depuis 2014", text: `Agrément Préfecture n° 23/007. +2 000 chauffeurs formés. ${noteGoogle}/5 sur Google avec ${nbAvisGoogle} avis Google.` }
+      { icon: Shield, title: "Centre agréé depuis 2014", text: `Agrément Préfecture n° 23/005. +2 000 chauffeurs formés. ${noteGoogle}/5 sur Google avec ${nbAvisGoogle} avis Google.` }
     ],
     enrichedFaqs: [
       { question: "Comment aller de Conflans-Sainte-Honorine à ECOLE T3P ?", answer: "Prenez le Transilien J à Conflans–Fin d'Oise direction Saint-Lazare (30 min). À Saint-Lazare, métro 13 jusqu'à Montparnasse, puis ligne 4 jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 8 minutes à pied. Temps total : environ 60 minutes." },

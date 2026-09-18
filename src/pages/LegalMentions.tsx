@@ -108,7 +108,7 @@ const LegalMentions = () => {
             <div className="card-livementor mb-8">
               <h2 className="text-xl font-bold text-forest mb-4">1 bis. Organisme de formation</h2>
               <p className="text-muted-foreground mb-3">
-                <strong>Agrément préfectoral Taxi/VTC/VMDTR :</strong> n° 23/007 — Préfecture des Hauts-de-Seine<br />
+                <strong>Agréments préfectoraux :</strong> n° 23/005 (taxi et VTC, valable jusqu’au 12/06/2028) et n° 23/006 (VMDTR, valable jusqu’au 17/10/2028) — Préfecture des Hauts-de-Seine<br />
                 <strong>Numéro de déclaration d'activité (NDA/DREETS) :</strong> <em>en cours de demande auprès de la DREETS Île-de-France</em><br />
                 <strong>Certification Qualiopi :</strong> <em>en cours d'obtention — audit initial planifié</em>
               </p>

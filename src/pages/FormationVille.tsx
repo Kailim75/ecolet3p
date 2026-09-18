@@ -99,7 +99,7 @@ const FormationVille = () => {
   const whyChooseUs = city.whyChoose || [
     { icon: Trophy, title: "94% de réussite", text: `Un taux de réussite exceptionnel pour les stagiaires venant de ${city.name} et des communes voisines.` },
     { icon: MapPin, title: `À ${city.travelTime}`, text: `Notre centre à Montrouge est directement accessible depuis ${city.name}. Trajet simple et rapide.` },
-    { icon: Shield, title: "Centre agréé Préfecture", text: "Agrément n° 23/007 délivré par la Préfecture des Hauts-de-Seine. Formation conforme aux exigences réglementaires." },
+    { icon: Shield, title: "Centre agréé Préfecture", text: "Agrément n° 23/005 délivré par la Préfecture des Hauts-de-Seine. Formation conforme aux exigences réglementaires." },
     { icon: CreditCard, title: "990€ tout compris", text: `Frais d'examen CMA de ${tarifs.fraisExamenCMA}€ inclus. Paiement en 4× sans frais via Alma (247,50€/mois).` },
   ];
 
@@ -156,7 +156,7 @@ const FormationVille = () => {
             </h1>
             <p className="text-base md:text-lg text-white/80 max-w-2xl mb-6">
               Centre ECOLE T3P à <strong className="text-white">{city.travelTime}</strong> de {city.name}.
-              Agrément Préfecture n° 23/007 — <strong className="text-white">94% de réussite</strong> — 990€ tout compris.
+              Agrément Préfecture n° 23/005 — <strong className="text-white">94% de réussite</strong> — 990€ tout compris.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-lg text-white text-sm font-medium">

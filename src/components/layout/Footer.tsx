@@ -76,7 +76,7 @@ const Footer = () => {
             <img src="/images/ecole-t3p-logo-white.svg" alt="ÉCOLE T3P — Centre de Formation Agréé" width="168" height="56" className="h-14 w-auto mb-4 block" loading="lazy" decoding="async" />
             <p className="text-white/80 text-xs mb-4 leading-relaxed">
               Centre de formation agréé Préfecture des Hauts-de-Seine.<br />
-              Agrément n° 23/007 — Depuis 2014.
+              Agréments n° 23/005 et 23/006 — Depuis 2014.
             </p>
             <ul className="space-y-3 mb-5">
               <li className="flex items-start gap-3">
