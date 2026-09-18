@@ -140,7 +140,7 @@ const About = () => {
       <DynamicSEOHead
         pageUrl="/a-propos"
         defaultTitle="À Propos d'ECOLE T3P — Formation Taxi VTC"
-        defaultDescription={`Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge depuis 2014. Taux de réussite 94%, note ${noteGoogle}/5 sur ${libelleAvisGoogle}. Formateurs experts du transport.`}
+        defaultDescription={`Découvrez ECOLE T3P, centre de formation Taxi VTC VMDTR à Montrouge, des formateurs en activité depuis 2014. Taux de réussite 94%, note ${noteGoogle}/5 sur ${libelleAvisGoogle}. Formateurs experts du transport.`}
         canonicalUrl="https://ecolet3p.fr/a-propos"
       >
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
@@ -189,7 +189,7 @@ const About = () => {
                 <SeoH1Text path="/a-propos" />
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Centre de formation agréé depuis 2014 pour les métiers du transport de personnes.
+                Centre agréé par la préfecture des Hauts-de-Seine pour les métiers du transport de personnes, animé par des formateurs en activité depuis 2014.
               </p>
             </motion.div>
           </div>

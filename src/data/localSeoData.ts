@@ -379,7 +379,7 @@ export const cities: CityData[] = [
       { question: "Quelles formations sont proposées ?", answer: "Taxi (990€), VTC (990€), VMDTR moto-taxi (990€), Passerelle VTC↔Taxi (665€) et formations continues (170-250€). Trois formats au même tarif : journée (9h30-16h30), soirée (18h-21h30) ou e-learning illimité." },
       { question: "Le format soirée convient-il aux actifs du 14e ?", answer: "Parfaitement. Les sessions soirée (18h-21h30) sont idéales : à 15 minutes d'Alésia, vous êtes rentré chez vous rapidement après les cours. De nombreux habitants du 14e en reconversion choisissent ce format." },
       { question: "Combien coûte la formation tout compris ?", answer: "990€ TTC, incluant les frais d'examen CMA (241€) et l'accompagnement création d'entreprise. Paiement en 4× sans frais via Alma (247,50€/mois). Aucun frais caché." },
-      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: `Oui, agrément n° 23/005 de la Préfecture des Hauts-de-Seine. Centre actif depuis 2014, +2 000 chauffeurs formés, 94% de réussite et ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis Google).` },
+      { question: "ECOLE T3P est-elle agréée par la Préfecture ?", answer: `Oui, agrément n° 23/005 de la Préfecture des Hauts-de-Seine. Nos formateurs exercent depuis 2014 et ont formé plus de 2 000 chauffeurs, 94% de réussite et ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis Google).` },
       { question: "Peut-on passer la double carte Taxi + VTC ?", answer: "Oui. Passez d'abord votre carte VTC ou Taxi (990€), puis la Passerelle (665€, 7h vers VTC, 14h vers Taxi) pour obtenir la seconde carte. La double carte permet de maximiser vos revenus en alternant les deux activités." },
       { question: "Y a-t-il un accompagnement après l'examen ?", answer: "Oui : aide à la création d'entreprise (choix du statut juridique), inscription sur Uber, Bolt et Heetch, conseils fiscaux et préparation au renouvellement de la carte professionnelle tous les 5 ans." }
     ],
@@ -1033,7 +1033,7 @@ export const cities: CityData[] = [
       { icon: Trophy, title: "94% de réussite", text: "Un taux d'excellence constant grâce à nos formateurs anciens chauffeurs professionnels et notre méthode pédagogique éprouvée." },
       { icon: MapPin, title: "30 min en direct", text: "Ligne 7 + ligne 4 : un trajet direct depuis le Val-de-Marne vers notre centre de Montrouge." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais CMA (241€) et accompagnement création d'entreprise inclus. 4× sans frais via Alma." },
-      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005 depuis 2014. +2 000 chauffeurs formés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
+      { icon: Shield, title: "Agrément Préfecture 92", text: `Centre agréé n° 23/005. Des formateurs en activité depuis 2014, +2 000 chauffeurs formés, noté ${noteGoogle}/5 sur Google (${nbAvisGoogle} avis).` }
     ],
     enrichedFaqs: [
       { question: "Comment se rendre à ECOLE T3P depuis Ivry-sur-Seine ?", answer: "Métro ligne 7 depuis Mairie d'Ivry jusqu'à Châtelet (10 min), puis ligne 4 direction Bagneux jusqu'à Mairie de Montrouge (8 min). Le centre est au 3 rue Corneille, à 8 minutes à pied du métro. Total : environ 30 minutes." },
@@ -1157,7 +1157,7 @@ export const cities: CityData[] = [
     whyChoose: [
       { icon: Trophy, title: "94% de réussite", text: "Un taux bien supérieur à la moyenne nationale. Nos formateurs, anciens chauffeurs professionnels, préparent intensivement les Gentilléens à chaque épreuve CMA." },
       { icon: MapPin, title: "À 10 min seulement", text: "Gentilly est l'une des communes les plus proches de notre centre. Bus 125 ou 184 depuis la gare RER B : un trajet rapide et direct." },
-      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/005 délivré par la Préfecture des Hauts-de-Seine. Centre agréé depuis 2014, +2 000 chauffeurs formés." },
+      { icon: Shield, title: "Agrément Préfecture", text: "N° 23/005 délivré par la Préfecture des Hauts-de-Seine. Formateurs en activité depuis 2014, +2 000 chauffeurs formés." },
       { icon: CreditCard, title: "990€ tout compris", text: "Frais d'examen CMA (241€) et accompagnement création d'entreprise inclus. Paiement en 4× sans frais via Alma." }
     ],
     enrichedFaqs: [
@@ -2100,7 +2100,7 @@ export const cities: CityData[] = [
       { icon: Trophy, title: "94% de réussite", text: "Un taux supérieur à la moyenne nationale, grâce à des formateurs experts et une préparation intensive à l'examen CMA." },
       { icon: Users, title: "E-learning adapté", text: "Le format e-learning 24h/24 est idéal depuis Conflans : révisez à votre rythme et déplacez-vous uniquement pour les sessions pratiques." },
       { icon: CreditCard, title: "990€ — 4× sans frais", text: "247,50€/mois via Alma. Frais d'examen CMA (241€) et accompagnement création d'entreprise inclus." },
-      { icon: Shield, title: "Centre agréé depuis 2014", text: `Agrément Préfecture n° 23/005. +2 000 chauffeurs formés. ${noteGoogle}/5 sur Google avec ${nbAvisGoogle} avis Google.` }
+      { icon: Shield, title: "Centre agréé par la Préfecture", text: `Agrément Préfecture n° 23/005. +2 000 chauffeurs formés. ${noteGoogle}/5 sur Google avec ${nbAvisGoogle} avis Google.` }
     ],
     enrichedFaqs: [
       { question: "Comment aller de Conflans-Sainte-Honorine à ECOLE T3P ?", answer: "Prenez le Transilien J à Conflans–Fin d'Oise direction Saint-Lazare (30 min). À Saint-Lazare, métro 13 jusqu'à Montparnasse, puis ligne 4 jusqu'à Mairie de Montrouge. Le centre est au 3 rue Corneille, à 8 minutes à pied. Temps total : environ 60 minutes." },

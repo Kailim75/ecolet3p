@@ -422,7 +422,7 @@ const FormationRenouvellement = () => {
               <h2 className="text-xl font-bold text-primary mb-4">Pourquoi choisir ECOLE T3P pour votre renouvellement ?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { title: "Centre agréé depuis 2014", desc: "Depuis 2014, ECOLE T3P accompagne les chauffeurs T3P dans le renouvellement de leur carte professionnelle. Agrément préfectoral n° 23/005." },
+                  { title: "Une équipe en place depuis 2014", desc: "Depuis 2014, nos formateurs accompagnent les chauffeurs T3P dans le renouvellement de leur carte professionnelle. Agrément préfectoral n° 23/005." },
                   { title: "Attestation le jour même", desc: "Vous repartez avec votre attestation officielle en fin de stage. Pas de délai d'attente pour engager vos démarches." },
                   { title: "Nouvelles sessions régulièrement", desc: "Nos sessions de formation continue reviennent régulièrement, y compris certains samedis pour les chauffeurs en activité." },
                   { title: "Accompagnement dossier", desc: "Nos équipes vous guident dans la constitution de votre dossier de renouvellement pour maximiser vos chances d'acceptation." },
