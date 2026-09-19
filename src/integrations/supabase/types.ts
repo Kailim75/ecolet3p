@@ -582,13 +582,6 @@ export type Database = {
     }
     Functions: {
       get_simulation_count: { Args: never; Returns: number }
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
     }
     Enums: {
       app_role: "admin" | "user"
