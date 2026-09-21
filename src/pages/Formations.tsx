@@ -14,6 +14,7 @@ import { motion, useScroll, useTransform, type Easing } from "framer-motion";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import CatalogueCard from "@/components/formations/CatalogueCard";
 import PackCard from "@/components/formations/PackCard";
+import FormationsSessionsSection from "@/components/formations/FormationsSessionsSection";
 
 import AlmaLogo from "@/components/logo/AlmaLogo";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
@@ -33,6 +34,7 @@ const smoothEase: Easing = [0.22, 1, 0.36, 1];
 
 const sections = [
   { id: "tarifs", label: "Tarifs" },
+  { id: "sessions", label: "Sessions" },
   { id: "initiales", label: "Formations Initiales" },
   { id: "continues", label: "Continues" },
   { id: "passerelles", label: "Passerelles" },
