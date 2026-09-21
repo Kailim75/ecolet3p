@@ -241,6 +241,9 @@ const Formations = () => {
         </div>
       </section>
 
+      {/* ============ PROCHAINES SESSIONS ============ */}
+      <FormationsSessionsSection />
+
       {/* ============ 1. FORMATIONS INITIALES ============ */}
       <section id="initiales" className="py-10 md:py-20 bg-muted/30 scroll-mt-14">
         <div className="container-custom">
