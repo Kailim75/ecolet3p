@@ -47,6 +47,7 @@ const navLinks = [
       { name: "Formation TAXI", path: "/formations/taxi" },
       { name: "Formation VMDTR", path: "/formations/vmdtr" },
       { name: "Location véhicule examen", path: "/services/location-vehicule-examen" },
+      { name: "S’entraîner en ligne (T3P Campus)", path: "/preparation-examen-en-ligne" },
     ],
   },
   {

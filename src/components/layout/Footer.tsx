@@ -10,6 +10,10 @@ const siloFormationsInitiales = [
   { name: "Formation Taxi — 990€", path: "/formations/taxi" },
   { name: "Formation VMDTR Moto-Taxi", path: "/formations/vmdtr" },
   { name: "Passerelle Taxi ↔ VTC", path: "/passerelle-vtc-taxi" },
+  { name: "Préparation en ligne à l’examen", path: "/preparation-examen-en-ligne" },
+  // T3P Campus, l'autre site de l'école : un lien depuis chaque page, pour
+  // que les moteurs de recherche le connaissent (relevé du 01/10/2026 : aucun).
+  { name: "S’entraîner sur T3P Campus", path: "https://www.t3pcampus.com/" },
   { name: "Toutes les formations", path: "/formations" },
 ];
 

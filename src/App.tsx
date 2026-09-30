@@ -67,6 +67,7 @@ const FormationAnglais = lazy(() => import("./pages/FormationAnglais"));
 const FormationMontrouge = lazy(() => import("./pages/FormationMontrouge"));
 
 const FormuleSoiree = lazy(() => import("./pages/FormuleSoiree"));
+const PreparationExamenEnLigne = lazy(() => import("./pages/PreparationExamenEnLigne"));
 const FormationRenouvellement = lazy(() => import("./pages/FormationRenouvellement"));
 const AuditRentabilite = lazy(() => import("./pages/SimulateurRevenus"));
 const AuditRentabiliteChauffeur = lazy(() => import("./pages/AuditRentabiliteChauffeur"));
@@ -132,6 +133,7 @@ const App = () => {
                       <Route path="/aide-administrative-creation-entreprise" element={<AideAdministrativeCreationEntreprise />} />
                       <Route path="/formations/anglais-professionnel" element={<FormationAnglais />} />
                       <Route path="/formations/formule-soiree" element={<FormuleSoiree />} />
+                      <Route path="/preparation-examen-en-ligne" element={<PreparationExamenEnLigne />} />
                       <Route path="/audit-rentabilite" element={<AuditRentabilite />} />
                       <Route path="/audit-rentabilite-chauffeur" element={<AuditRentabiliteChauffeur />} />
                       <Route path="/simulateur-revenus" element={<Navigate to="/audit-rentabilite" replace />} />

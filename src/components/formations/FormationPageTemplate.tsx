@@ -26,6 +26,7 @@ import AlmaLogo from "@/components/logo/AlmaLogo";
 import AlmaPaymentButton from "@/components/formations/AlmaPaymentButton";
 import { supabase } from "@/integrations/supabase/client";
 import DepartementLinksBlock from "@/components/formations/DepartementLinksBlock";
+import BlocT3PCampus from "@/components/formations/BlocT3PCampus";
 import tarifs from "@/data/tarifs.json";
 import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
@@ -556,6 +557,9 @@ const FormationPageTemplate = ({
           </div>
         </div>
       </section>
+
+      {/* L'entraînement en ligne : T3P Campus, l'autre site de l'école */}
+      <BlocT3PCampus />
 
       {/* Témoignages */}
       <section className="section-padding bg-background">

@@ -11,7 +11,9 @@ import agrements from "@/data/agrements.json";
  * le test échoue si elle revient dans le dépôt.
  */
 
-const ROOTS = ["src", "public", "index.html"];
+// scripts/ aussi : prerender.mjs écrit le bloc de repli des 104 pages, et y a
+// porté le numéro d'agrément d'un autre centre jusqu'au 01/10/2026 sans qu'aucun test le voie.
+const ROOTS = ["src", "public", "scripts", "index.html"];
 // Fichiers qui ne peuvent pas importer la source unique : nombre d'avis en dur toléré,
 // mais vérifié contre src/data/avisGoogle.json par le test « fichiers statiques ».
 const STATIQUES = ["public/llms.txt", "public/llms-full.txt", "index.html"];
