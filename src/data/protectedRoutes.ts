@@ -17,6 +17,7 @@ export const PROTECTED_ROUTES = new Set([
   "/formations/montrouge",
   "/formations/anglais-professionnel",
   "/formations/formule-soiree",
+  "/preparation-examen-en-ligne",
   "/stage-recuperation-points",
   "/renouvellement-carte-professionnelle",
   "/guide-formation",

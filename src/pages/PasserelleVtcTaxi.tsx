@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 import PricingCard from "@/components/formations/PricingCard";
 import BeforeAfterBlock from "@/components/formations/BeforeAfterBlock";
+import BlocT3PCampus from "@/components/formations/BlocT3PCampus";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import tarifs from "@/data/tarifs.json";
 import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
@@ -376,6 +377,9 @@ const PasserelleVtcTaxi = () => {
           </div>
         </div>
       </section>
+
+      {/* L'entraînement en ligne : T3P Campus, l'autre site de l'école */}
+      <BlocT3PCampus variante="passerelle" />
 
       {/* 5. RÉGLEMENTATION & CONTENU SEO */}
       <section className="section-padding bg-muted/50">

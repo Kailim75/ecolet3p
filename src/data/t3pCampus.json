@@ -1,0 +1,14 @@
+{
+  "_note": "T3P Campus (www.t3pcampus.com), la préparation en ligne de l'école : même centre, autre site. Chiffres et prix recopiés de t3p-quest-guide/src/data/centre.ts le 01/10/2026 ; à mettre à jour quand ce fichier change. Aucune page ne doit recopier ces valeurs en dur.",
+  "url": "https://www.t3pcampus.com/",
+  "urlEssai": "https://www.t3pcampus.com/essai",
+  "questions": 1154,
+  "fiches": 89,
+  "examensBlancs": 4,
+  "questionsEssai": 10,
+  "prixFormationEnLigne": 596,
+  "mensualiteFormationEnLigne": 149,
+  "prixPasserelleEnLigne": 396,
+  "prixAcces": 149,
+  "dureeAccesMois": 6
+}

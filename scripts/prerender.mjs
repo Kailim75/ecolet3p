@@ -15,6 +15,14 @@ import { buildRoutes } from './seoRoutes.mjs';
 
 const DIST = join(process.cwd(), 'dist');
 const SITE_URL = 'https://ecolet3p.fr';
+// Les agréments du centre, source unique (src/data/agrements.json) : ce bloc
+// écrivait le numéro d'agrément d'un AUTRE centre dans le HTML brut des
+// 104 pages depuis le 20/07/2026 — hors de portée du test qui ne balayait
+// pas scripts/ (corrigé le 01/10/2026).
+const agrements = JSON.parse(readFileSync(join(process.cwd(), 'src/data/agrements.json'), 'utf-8'));
+// T3P Campus, la préparation en ligne de l'école : un lien dans le HTML brut
+// de chaque page, pour que les moteurs de recherche connaissent le site.
+const T3P_CAMPUS_URL = 'https://www.t3pcampus.com/';
 
 // Titres, descriptions et H1 : src/data/seoPages.json (source unique partagée avec
 // l'application) + formule des pages départementales. Voir scripts/seoRoutes.mjs.
@@ -99,13 +107,15 @@ function transformHtml(template, route, ogImageUrl) {
         <h1>${escapeHtml(route.h1)}</h1>
         <p>${description}</p>
       </header>
-      <p>ECOLE T3P — centre de formation Taxi, VTC et VMDTR agréé Préfecture (agrément n° 23/007), 3 rue Corneille, 92120 Montrouge. Téléphone : <a href="tel:0188750555">01 88 75 05 55</a>.</p>
+      <p>ECOLE T3P — centre de formation Taxi, VTC et VMDTR agréé Préfecture (agréments n° ${agrements.taxiVtc} et ${agrements.vmdtr}), 3 rue Corneille, 92120 Montrouge. Téléphone : <a href="tel:0188750555">01 88 75 05 55</a>.</p>
       <nav aria-label="Formations principales">
         <ul>
           <li><a href="/formations/taxi">Formation Taxi</a></li>
           <li><a href="/formations/vtc">Formation VTC</a></li>
           <li><a href="/formations/vmdtr">Formation VMDTR</a></li>
           <li><a href="/formations">Toutes les formations</a></li>
+          <li><a href="/preparation-examen-en-ligne">Préparation en ligne à l'examen</a></li>
+          <li><a href="${T3P_CAMPUS_URL}">S'entraîner sur T3P Campus</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
