@@ -103,13 +103,14 @@ Si votre résultat d'examen T3P a moins de 3 ans, la **passerelle T3P** vous per
 
 ## Comment mettre toutes les chances de votre côté
 
-L'examen T3P se prépare sérieusement : la moyenne nationale de réussite est nettement inférieure à ce qu'on imagine. Notre centre agréé Préfecture (agrément n° 23/005) affiche **94 % de réussite**, avec plus de **2 000 chauffeurs formés depuis 2014**. Trois formats au même tarif :
+L'examen T3P se prépare sérieusement : la moyenne nationale de réussite est nettement inférieure à ce qu'on imagine. Notre centre agréé Préfecture (agrément n° 23/005) affiche **94 % de réussite**, avec plus de **2 000 chauffeurs formés depuis 2014**. En salle, à Montrouge, deux formats au même tarif de 990 euros tout compris :
 
 - **Journée** : 1 semaine intensive, 9h30-16h30
 - **Soir** : 2 semaines, 18h-21h30 — idéal si vous travaillez déjà
-- **E-learning** : accès illimité jusqu'à l'examen
 
-Chaque session se termine par un **examen blanc en conditions réelles** le samedi suivant. Prochaines rentrées : consultez les dates directement sur nos pages [Taxi](/formations/taxi), [VTC](/formations/vtc) et [VMDTR](/formations/vmdtr).
+Vous habitez loin de Montrouge ? La [formation en ligne sur T3P Campus](/preparation-examen-en-ligne) coûte 596 euros, frais d'examen compris : vous avancez à votre rythme, depuis chez vous, et seul le véhicule de l'examen pratique est à louer.
+
+Chaque session en salle se termine par un **examen blanc en conditions réelles** le samedi suivant. Prochaines rentrées : consultez les dates directement sur nos pages [Taxi](/formations/taxi), [VTC](/formations/vtc) et [VMDTR](/formations/vmdtr).
 
 ## Questions fréquentes
 
@@ -123,7 +124,7 @@ Il demande une vraie préparation, notamment en réglementation et en gestion. A
 
 ### Combien coûte la formation T3P ?
 
-Chez ECOLE T3P, la formation initiale Taxi, VTC ou VMDTR coûte **990 euros tout compris** : frais d'examen CMA de 241 euros inclus, 2 heures de conduite et accompagnement à la création d'entreprise. Paiement possible en 4 fois sans frais.
+Chez ECOLE T3P, la formation initiale Taxi, VTC ou VMDTR en salle coûte **990 euros tout compris** : frais d'examen CMA de 241 euros inclus, 2 heures de conduite, véhicule d'examen fourni et accompagnement à la création d'entreprise. La formation en ligne sur T3P Campus coûte **596 euros**, frais d'examen compris (le véhicule d'examen est à louer). Paiement possible en 4 fois sans frais.
 
 ---
 
@@ -160,20 +161,22 @@ Chez ECOLE T3P, la réponse est simple : **990 euros tout compris, frais d'exame
 L'examen comporte une épreuve de conduite en conditions réelles. Deux questions à poser :
 
 - **Des heures de conduite sont-elles incluses ?** Chez nous, 2 heures de préparation pratique font partie du forfait.
-- **Qui fournit le véhicule le jour de l'examen ?** Un véhicule conforme aux exigences de la CMA se loue cher en supplément. Chez ECOLE T3P, **le véhicule est fourni le jour de l'examen**, sans surcoût.
+- **Qui fournit le véhicule le jour de l'examen ?** Un véhicule conforme aux exigences de la CMA se loue cher en supplément. Chez ECOLE T3P, en formation en salle, **le véhicule est fourni le jour de l'examen**, sans surcoût.
 
 ## Ce que comprennent nos 990 euros
 
 | Poste | Inclus ? |
 |---|---|
-| Formation complète (journée, soir ou e-learning) | Oui |
+| Formation complète en salle (35 h, en journée ou en soirée) | Oui |
 | Frais d'examen CMA (241 euros) | Oui |
 | 2 heures de conduite | Oui |
 | Véhicule fourni le jour de l'examen | Oui |
 | Examen blanc en conditions réelles | Oui |
 | Accompagnement création d'entreprise | Oui |
 
-Une formule **Premium à 1 190 euros** existe pour ceux qui veulent un accompagnement renforcé. Et les trois formats — journée sur 1 semaine, soir sur 2 semaines, e-learning illimité — sont **au même prix** : votre emploi du temps ne doit pas vous coûter plus cher.
+Une formule **Premium à 1 190 euros** existe pour ceux qui veulent un accompagnement renforcé. Et les deux formats en salle — journée sur 1 semaine, soir sur 2 semaines — sont **au même prix** : votre emploi du temps ne doit pas vous coûter plus cher.
+
+**Vous habitez loin de Montrouge ?** La [formation en ligne sur T3P Campus](/preparation-examen-en-ligne) coûte **596 euros**, frais d'examen compris. Vous avancez à votre rythme, depuis chez vous. En revanche, le véhicule de l'examen pratique n'est pas compris : il se loue à part.
 
 ## Payer en 4 fois sans frais
 
@@ -192,7 +195,7 @@ Pour être complet — parce qu'un budget honnête va jusqu'au bout :
 
 ## Les prochaines rentrées à Montrouge
 
-Trois formats au même prix : journée (1 semaine, 9h30-16h30), soirée (2 semaines, 18h-21h30) ou e-learning (accès illimité jusqu'à l'examen). Les dates des prochaines rentrées et les places restantes sont mises à jour sur notre [page Taxi](/formations/taxi).
+Deux formats en salle, au même prix de 990 euros : journée (1 semaine, 9h30-16h30) ou soirée (2 semaines, 18h-21h30). Les dates des prochaines rentrées et les places restantes sont mises à jour sur notre [page Taxi](/formations/taxi).
 
 ## Questions fréquentes
 
@@ -202,7 +205,7 @@ Parfois pour un volume d'heures supérieur, parfois parce que les frais d'examen
 
 ### Le prix est-il le même pour le taxi et le VTC ?
 
-Chez ECOLE T3P, oui : 990 euros tout compris pour l'une ou l'autre formation initiale, et le VMDTR (moto-taxi) est au même tarif.
+Chez ECOLE T3P, oui : 990 euros tout compris pour l'une ou l'autre formation initiale en salle, et le VMDTR (moto-taxi) est au même tarif. En ligne sur T3P Campus, la formation coûte 596 euros pour chacun des trois métiers, frais d'examen compris.
 
 ### Que se passe-t-il si j'échoue ?
 
@@ -991,7 +994,7 @@ Avant d'entrer dans les détails, voici une vue d'ensemble des trois métiers :
 
 | Critère | VTC | TAXI | VMDTR |
 |---------|-----|------|-------|
-| **Formation initiale** | Journée ou Soir | Journée ou Soir | Journée, soir ou e-learning (35 h) — ou passerelle de 7 h si votre résultat d'examen T3P a moins de 3 ans |
+| **Formation initiale** | Journée ou Soir | Journée ou Soir | Journée ou soir (35 h) — ou passerelle de 7 h si votre résultat d'examen T3P a moins de 3 ans |
 | **Coût formation** | 990-1 190€ | 990-1 190€ | 665-1 190€ |
 | **Investissement véhicule** | 25 000-50 000€ | 30 000-60 000€ | 10 000-20 000€ |
 | **Licence/autorisation** | Non requise | ADS obligatoire (prix selon le département, voir le tableau plus bas) | Non requise |
@@ -1340,7 +1343,8 @@ Si le taxi vous attire mais le budget est contraignant :
 | VTC Initiale (soir) | 2 semaines | 990€ | Examens blancs |
 | Taxi Initiale (jour) | 1 semaine | 990€ | Examens blancs |
 | Taxi Initiale (soir) | 2 semaines | 990€ | Examens blancs |
-| VMDTR Initiale (journée, soirée ou e-learning) | 35h | 990€ | Examen CMA inclus (241€) |
+| VMDTR Initiale (journée ou soirée) | 35h | 990€ | Examen CMA inclus (241€) |
+| [Formation en ligne T3P Campus](/preparation-examen-en-ligne) (VTC, Taxi ou VMDTR) | À votre rythme | 596€ | Frais d'examen inclus, véhicule d'examen en location |
 | Passerelle VMDTR (résultat d'examen T3P de moins de 3 ans) | 7h | 665€ | Frais d'examen inclus (165€) |
 | Mobilité 92 | 14h | 440 € | - |
 | Mobilité 75 | 35h | 440 € | - |
@@ -1349,14 +1353,14 @@ Si le taxi vous attire mais le budget est contraignant :
 
 | Service | Description | Tarif |
 |---------|-------------|-------|
-| Location examen VTC | Véhicule double commande — candidats libres | 189€ |
-| Location examen Taxi | Véhicule équipé — candidats libres | 249€ |
-| Location examen VMDTR | Moto équipée — candidats libres | 299€ |
+| Location examen VTC | Véhicule double commande — candidats libres et élèves de la formation en ligne | 189€ |
+| Location examen Taxi | Véhicule équipé — candidats libres et élèves de la formation en ligne | 249€ |
+| Location examen VMDTR | Moto équipée — candidats libres et élèves de la formation en ligne | 299€ |
 | Formation continue VTC | Renouvellement 5 ans | 170€ |
 | Formation continue Taxi | Renouvellement 5 ans | 250€ |
 | Formation continue VMDTR | Renouvellement 5 ans | 250€ |
 
-*La location du véhicule d'examen s'adresse aux candidats libres, qui passent l'examen sans avoir suivi la formation chez nous : le véhicule est déjà inclus dans nos formations à 990 €.
+*La location du véhicule d'examen s'adresse aux candidats libres, qui passent l'examen sans avoir suivi la formation chez nous, et aux élèves de la formation en ligne : le véhicule est déjà inclus dans nos formations en salle à 990 €.
 
 ### Nos atouts
 
@@ -1491,7 +1495,9 @@ Depuis janvier 2026 :
 
 ### Durée et organisation
 
-La formation VMDTR initiale dure **35 heures**, en journée (1 semaine, 9h30-16h30), en soirée (2 semaines, 18h-21h30) ou en e-learning.
+La formation VMDTR initiale dure **35 heures**, en salle à Montrouge : en journée (1 semaine, 9h30-16h30) ou en soirée (2 semaines, 18h-21h30), pour 990€ tout compris, moto d'examen fournie.
+
+Vous habitez loin de Montrouge ? La [formation en ligne sur T3P Campus](/preparation-examen-en-ligne) prépare au même examen, à votre rythme, pour 596€ frais d'examen compris ; la moto de l'examen pratique se loue alors à part.
 
 ### Programme détaillé
 
@@ -1748,7 +1754,8 @@ Le métier de conducteur moto-taxi représente une opportunité intéressante po
 **Chez ECOLE T3P**, nous vous accompagnons dans votre projet :
 - ✅ Formation VMDTR initiale de 35 heures
 - ✅ Accompagnement administratif complet
-- ✅ Location de la moto d'examen pour les candidats libres (299€) — la moto est déjà incluse dans notre formation à 990€
+- ✅ Formation en ligne sur T3P Campus, à votre rythme (596€, frais d'examen compris)
+- ✅ Location de la moto d'examen pour les candidats libres et les élèves de la formation en ligne (299€) — la moto est déjà incluse dans notre formation en salle à 990€
 - ✅ Formation continue obligatoire (170€ VTC · 250€ Taxi/VMDTR)
 
 **Intéressé ?** Prenez rendez-vous pour un entretien gratuit et personnalisé.
@@ -1852,7 +1859,7 @@ La formation n'est pas légalement obligatoire pour passer l'examen, mais elle e
 
 ### Le programme de formation ECOLE T3P
 
-Notre formation Taxi dure 35 heures et couvre tous les modules de l'examen, en journée (1 semaine), en soirée (2 semaines) ou en e-learning :
+Notre formation Taxi en salle dure 35 heures et couvre tous les modules de l'examen, en journée (1 semaine) ou en soirée (2 semaines) :
 
 #### Module 1 : Réglementation T3P
 - Loi sur les taxis et VTC
@@ -1900,7 +1907,9 @@ Notre formation Taxi dure 35 heures et couvre tous les modules de l'examen, en j
 |--------|-------|----------|------------|
 | Journée | 1 semaine | 9h30-16h30 | Reconversion rapide |
 | Soirée | 2 semaines | 18h-21h30 | Salariés en poste |
-| E-learning | Accès illimité jusqu'à l'examen | Libres | Contraintes familiales |
+| En ligne ([T3P Campus](/preparation-examen-en-ligne)) | À votre rythme | Libres | Candidats éloignés de Montrouge, contraintes familiales |
+
+En salle (journée ou soirée), la formation coûte 990€ tout compris, véhicule d'examen fourni. En ligne sur T3P Campus, elle coûte 596€, frais d'examen compris ; le véhicule de l'examen pratique se loue à part.
 
 ## L'examen Taxi en 2026
 
@@ -2212,7 +2221,7 @@ La formation n'est pas légalement obligatoire pour passer l'examen, mais elle e
 
 ### Le programme de formation ECOLE T3P
 
-Notre formation VTC dure 35 heures et couvre tous les modules de l'examen, en journée (1 semaine), en soirée (2 semaines) ou en e-learning :
+Notre formation VTC en salle dure 35 heures et couvre tous les modules de l'examen, en journée (1 semaine) ou en soirée (2 semaines) :
 
 #### Module 1 : Réglementation T3P
 - Loi Grandguillaume et évolutions 2026
@@ -2255,7 +2264,9 @@ Notre formation VTC dure 35 heures et couvre tous les modules de l'examen, en jo
 |--------|-------|----------|------------|
 | Journée | 1 semaine | 9h30-16h30 | Reconversion rapide |
 | Soirée | 2 semaines | 18h-21h30 | Salariés en poste |
-| E-learning | Accès illimité jusqu'à l'examen | Libres | Contraintes familiales |
+| En ligne ([T3P Campus](/preparation-examen-en-ligne)) | À votre rythme | Libres | Candidats éloignés de Montrouge, contraintes familiales |
+
+En salle (journée ou soirée), la formation coûte 990€ tout compris, véhicule d'examen fourni. En ligne sur T3P Campus, elle coûte 596€, frais d'examen compris ; le véhicule de l'examen pratique se loue à part.
 
 ## L'examen VTC en 2026
 
@@ -2672,8 +2683,8 @@ Avant tout, assurez-vous de remplir les conditions :
 La formation initiale est votre meilleur atout pour réussir l'examen.
 
 ### Chez ECOLE T3P :
-- **Durée** : 35 heures
-- **Format** : Journée, soirée ou e-learning
+- **Durée** : 35 heures en salle
+- **Format** : en salle à Montrouge, en journée ou en soirée (990€ tout compris) — ou [en ligne sur T3P Campus](/preparation-examen-en-ligne), à votre rythme (596€, frais d'examen compris, véhicule d'examen en location)
 - **Contenu** : Théorie + pratique
 - **Examens blancs** : Inclus
 
@@ -2747,7 +2758,7 @@ Avec votre carte en poche, vous pouvez exercer ! Mais il reste quelques démarch
 
 | Étape | Durée |
 |-------|-------|
-| Formation | 35 h : 1 semaine (journée), 2 semaines (soirée) ou e-learning |
+| Formation | 35 h en salle : 1 semaine (journée) ou 2 semaines (soirée) — ou en ligne, à votre rythme |
 | Attente examen | 2-4 semaines |
 | Examen + résultats | 1 semaine |
 | Dossier préfecture | 2 à 4 semaines |

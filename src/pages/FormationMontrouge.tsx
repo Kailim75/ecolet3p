@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/accordion";
 import salleFormation from "@/assets/center/salle-formation-equipee.jpg";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 import accueilReception from "@/assets/center/accueil-reception.jpg";
 import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
@@ -21,21 +22,21 @@ import groupePromotion from "@/assets/center/groupe-promotion-1.jpg";
 const formations = [
   {
     title: "Formation TAXI Initiale",
-    duration: "Journée, Soir ou E-learning",
+    duration: "Journée ou soir, en salle",
     price: `${tarifs.initiale}€`,
     description: "Formation complète pour obtenir la carte professionnelle Taxi. Programme conforme à l'arrêté préfectoral, incluant la réglementation, la gestion et la sécurité routière.",
     link: "/formations/taxi",
   },
   {
     title: "Formation VTC",
-    duration: "Journée, Soir ou E-learning",
+    duration: "Journée ou soir, en salle",
     price: `${tarifs.initiale}€`,
     description: "Devenez chauffeur VTC professionnel. Formation intensive couvrant tous les modules de l'examen CMA, avec accompagnement à l'inscription sur les plateformes Uber et Bolt.",
     link: "/formations/vtc",
   },
   {
     title: "Formation VMDTR (Moto-taxi)",
-    duration: "Journée, Soir ou E-learning",
+    duration: "Journée ou soir, en salle",
     price: `${tarifs.initiale}€`,
     description: "Préparez l'examen de la carte professionnelle VMDTR pour exercer en tant que moto-taxi. Permis A requis, frais d'examen inclus.",
     link: "/formations/vmdtr",
@@ -79,13 +80,13 @@ const advantages = [
   },
   {
     icon: Clock,
-    title: "3 formats flexibles",
-    text: "Formation en journée (1 semaine), en soirée (2 semaines) ou en e-learning illimité — même tarif, même qualité.",
+    title: "Journée ou soirée",
+    text: `Formation en salle en journée (1 semaine) ou en soirée (2 semaines), au même tarif. Vous ne pouvez pas venir ? Elle existe aussi en ligne sur T3P Campus, à ${t3pCampus.prixFormationEnLigne}€ frais d'examen compris.`,
   },
   {
     icon: Car,
     title: "Location véhicule examen",
-    text: "Pour les candidats libres : location d'un véhicule pour le jour de l'examen pratique. Le véhicule d'examen est déjà inclus dans nos formations à 990€.",
+    text: `Pour les candidats libres et les élèves de la formation en ligne : location d'un véhicule pour le jour de l'examen pratique. Le véhicule d'examen est déjà inclus dans nos formations en salle à ${tarifs.initiale}€.`,
   },
 ];
 
@@ -361,7 +362,7 @@ const FormationMontrouge = () => {
           <div className="text-center mb-10">
             <h2 className="section-title mb-3">Formations disponibles à Montrouge</h2>
             <p className="section-subtitle mx-auto">
-              Toutes nos formations sont dispensées dans notre centre agréé, en journée, soirée ou e-learning
+              Toutes nos formations sont dispensées dans notre centre agréé, en journée ou en soirée
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -469,8 +470,8 @@ const FormationMontrouge = () => {
           </p>
           <p className="text-muted-foreground leading-relaxed">
             Que vous souhaitiez devenir chauffeur de taxi, conducteur VTC ou moto-taxi VMDTR, nos formateurs
-            vous accompagnent de l'inscription à l'obtention de votre carte professionnelle. Le tarif unique de 990€
-            inclut les frais d'examen CMA ({tarifs.fraisExamenCMA}€) et l'accès à notre plateforme e-learning. Le paiement en 4× sans frais
+            vous accompagnent de l'inscription à l'obtention de votre carte professionnelle. La formation en salle, à {tarifs.initiale}€,
+            inclut les frais d'examen CMA ({tarifs.fraisExamenCMA}€), le véhicule d'examen et l'accès à T3P Campus pour réviser entre les cours. Le paiement en 4× sans frais
             via Alma rend la formation accessible à tous les budgets.
           </p>
         </div>

@@ -3,6 +3,7 @@ import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import SeoH1Text from "@/components/seo/SeoH1Text";
 import Layout from "@/components/layout/Layout";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 import { 
   Clock, ArrowRight, Phone, Star, Shield, CreditCard, Award,
@@ -191,7 +192,7 @@ const Formations = () => {
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 text-center">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Tarifs en un coup d'œil</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Tous nos tarifs sont <strong>tout compris</strong> — frais d'examen inclus. Paiement en 4× sans frais avec Alma.</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Nos formations en salle sont <strong>tout compris</strong> — frais d'examen inclus. Paiement en 4× sans frais avec Alma.</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -211,9 +212,11 @@ const Formations = () => {
                 </thead>
                 <tbody className="divide-y divide-border">
                   {[
-                    { name: "Taxi Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
-                    { name: "VTC Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
-                    { name: "VMDTR Initiale", format: "Journée · Soir · E-learning", price: "990€", alma: "247,50€", highlight: true },
+                    { name: "Taxi Initiale", format: "Journée · Soir", price: `${tarifs.initiale}€`, alma: `${tarifs.almaInitiale4x}€`, highlight: true },
+                    { name: "VTC Initiale", format: "Journée · Soir", price: `${tarifs.initiale}€`, alma: `${tarifs.almaInitiale4x}€`, highlight: true },
+                    { name: "VMDTR Initiale", format: "Journée · Soir", price: `${tarifs.initiale}€`, alma: `${tarifs.almaInitiale4x}€`, highlight: true },
+                    // Pas « tout compris » : le véhicule de l'examen pratique est loué à part (note sous le tableau).
+                    { name: "Formation en ligne (T3P Campus)", format: "En ligne · à votre rythme", price: `${t3pCampus.prixFormationEnLigne}€`, alma: `${t3pCampus.mensualiteFormationEnLigne}€`, highlight: false },
                     { name: "Passerelle T3P", format: `${tarifs.dureePasserelleHeures}h (VTC/VMDTR) · ${tarifs.dureePasserelleTaxiHeures}h (Taxi)`, price: "665€", alma: "166,25€", highlight: false },
                     { name: "Récup. de points", format: "14h · 2 jours", price: "250€", alma: "62,50€", highlight: false },
                   ].map((row, i) => (
@@ -235,7 +238,7 @@ const Formations = () => {
               </table>
             </div>
             <p className="text-xs text-muted-foreground text-center mt-4">
-              Frais d'examen CMA ({tarifs.fraisExamenCMA}€) inclus dans les formations initiales • Frais d'examen (165€) inclus dans la passerelle • Pas de CPF — tarifs accessibles à tous
+              Frais d'examen CMA ({tarifs.fraisExamenCMA}€) inclus dans les formations initiales • Formation en ligne : frais d'examen inclus, véhicule d'examen en location, <Link to="/preparation-examen-en-ligne" className="underline">voir le détail</Link> • Frais d'examen (165€) inclus dans la passerelle • Pas de CPF — tarifs accessibles à tous
             </p>
           </motion.div>
         </div>
@@ -249,7 +252,7 @@ const Formations = () => {
         <div className="container-custom">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">Formations initiales</h2>
-            <p className="text-muted-foreground max-w-2xl">Obtenez votre carte professionnelle Taxi, VTC ou VMDTR. Disponible en journée, soirée ou e-learning.</p>
+            <p className="text-muted-foreground max-w-2xl">Obtenez votre carte professionnelle Taxi, VTC ou VMDTR. En salle à Montrouge, en journée ou en soirée.</p>
           </motion.div>
 
           {/* Soirée */}

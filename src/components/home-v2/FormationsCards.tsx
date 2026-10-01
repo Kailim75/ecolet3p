@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 
 const priceLabel = `${tarifs.initiale}€`;
 const examLabel = `Frais d'examen (${tarifs.fraisExamenCMA}€) inclus`;
@@ -16,7 +17,7 @@ const formations = [
       examLabel,
       "2 heures de conduite incluses",
       "Véhicule fourni le jour de l'examen",
-      "3 formats : Jour, Soir, E-learning",
+      "En salle, en journée ou en soirée",
     ],
     cta: "Je deviens chauffeur VTC",
     link: "/formations/vtc",
@@ -31,22 +32,23 @@ const formations = [
       examLabel,
       "2 heures de conduite incluses",
       "Véhicule fourni le jour de l'examen",
-      "3 formats : Jour, Soir, E-learning",
+      "En salle, en journée ou en soirée",
     ],
     cta: "Je deviens chauffeur Taxi",
     link: "/formations/taxi",
   },
   {
-    badge: "Formation initiale",
+    badge: "Formation rare : 2 centres agréés dans le 92",
+    highlight: true,
     title: "Formation VMDTR",
-    subtitle: "Carte professionnelle VMDTR",
+    subtitle: "Carte professionnelle moto-taxi",
     price: priceLabel,
     priceDetail: "tout compris",
     inclusions: [
       examLabel,
-      "Formation moto-taxi complète",
+      "Agrément préfecture VMDTR n° 23/006",
       "Accompagnement administratif",
-      "3 formats : Jour, Soir, E-learning",
+      "En salle, en journée ou en soirée",
     ],
     cta: "Je deviens moto-taxi",
     link: "/formations/vmdtr",
@@ -64,7 +66,7 @@ const FormationsCards = () => {
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {formations.map((f) => (
             <div key={f.title} className="card-t3p flex flex-col">
-              <span className="inline-block self-start text-xs font-semibold px-3 py-1 rounded-full bg-secondary text-primary mb-4">
+              <span className={`inline-block self-start text-xs font-semibold px-3 py-1 rounded-full mb-4 ${f.highlight ? "bg-accent text-accent-foreground" : "bg-secondary text-primary"}`}>
                 {f.badge}
               </span>
               <h3 className="text-xl font-bold text-primary mb-1">{f.title}</h3>
@@ -90,6 +92,20 @@ const FormationsCards = () => {
               </Link>
             </div>
           ))}
+        </div>
+
+        <div className="mt-8 rounded-xl border border-border bg-muted px-5 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <p className="text-sm md:text-base text-foreground">
+            <span className="font-bold">Loin de Montrouge, ou pas disponible en semaine ?</span>{" "}
+            Les trois formations existent aussi en ligne, à {t3pCampus.prixFormationEnLigne} € frais d'examen compris.
+          </p>
+          <Link
+            to="/preparation-examen-en-ligne"
+            className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors shrink-0"
+          >
+            Se former en ligne
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="text-center mt-8">

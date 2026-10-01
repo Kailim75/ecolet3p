@@ -104,6 +104,16 @@ describe("décisions du directeur — contenus", () => {
       [/agréée?\s[^.]{0,25}depuis\s+2014/i, "agrément présenté comme datant de 2014"],
       [/centre\s+actif\s+depuis\s+2014/i, "centre présenté comme actif depuis 2014"],
       [/"foundingDate":\s*"201/i, "date de création de l'entreprise antérieure à 2023"],
+      // Décision du 01/10/2026 : la formation en ligne, c'est T3P Campus (596 €, véhicule d'examen
+      // à louer). Il n'existe pas d'e-learning au prix de la formation en salle (990 €).
+      [/journ[ée]e,?\s+soir(ée)?,?\s+(ou|et)\s+e-?learning/i, "e-learning présenté comme un 3ᵉ format de la salle"],
+      [/(3|trois)\s+formats\s+(au choix|flexibles|,\s*un seul tarif|au\s+m[êe]me\s+(prix|tarif))/i, "« 3 formats au même prix »"],
+      [/e-?learning[^\n]{0,60}(illimit|24\s?h\s?\/\s?24|jusqu'à l'examen)/i, "durée d'accès en ligne non confirmée"],
+      [/avis\s+v[ée]rifi/i, "« avis vérifiés » invérifiable"],
+      // Rareté du VMDTR : seule la liste des Hauts-de-Seine est vérifiable (2 centres agréés).
+      // Au 01/10/2026, 5 préfectures d'Île-de-France ne publient aucune liste VMDTR.
+      [/(seul|unique)s?\s+centres?\s+(agr[ée]{2}s?\s+)?(VMDTR\s+)?(d'|de\s+l'|en\s+)?(Île-de-France|France|IDF)/i, "rareté VMDTR invérifiable hors des Hauts-de-Seine"],
+      [/très\s+peu\s+de\s+centres/i, "« très peu de centres » non mesuré"],
     ];
     const fautes: string[] = [];
     for (const { f, n, ligne } of lignes) {

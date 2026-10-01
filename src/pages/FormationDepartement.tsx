@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import DynamicSEOHead from "@/components/seo/DynamicSEOHead";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -298,7 +299,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
             {[
               `Vérifier les prérequis : permis B (3 ans, 2 ans si conduite accompagnée), casier judiciaire vierge (bulletin n°2).`,
               `Effectuer la visite médicale auprès d'un médecin agréé par la ${departement.prefectureCourte} (liens ci-dessus).`,
-              `S'inscrire à la formation ${labels.short} chez ECOLE T3P à Montrouge (Journée, Soir ou E-learning, dès 990€).`,
+              `S'inscrire à la formation ${labels.short} chez ECOLE T3P : en salle à Montrouge, en journée ou en soirée (dès ${tarifs.initiale}€), ou en ligne sur T3P Campus (${t3pCampus.prixFormationEnLigne}€, frais d'examen compris).`,
               `Réussir l'examen T3P organisé par la Chambre de Métiers et de l'Artisanat (94% de réussite chez ECOLE T3P).`,
               `Constituer et déposer votre dossier de carte professionnelle auprès de la ${departement.prefectureCourte} (lien officiel ci-dessus).`,
               `Recevoir votre carte professionnelle (délai indicatif : 4 semaines à 4 mois selon le département) et lancer votre activité.`,

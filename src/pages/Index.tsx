@@ -4,9 +4,11 @@ import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
 import FormationsCards from "@/components/home-v2/FormationsCards";
+import VmdtrSection from "@/components/home-v2/VmdtrSection";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
 import DeferredRender from "@/components/performance/DeferredRender";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 import {
   Accordion,
   AccordionContent,
@@ -44,7 +46,7 @@ const homeFaqs = [
   {
     question: "Quels formats de formation proposez-vous ?",
     answer:
-      `3 formats au même tarif : Formation Journée (1 semaine, 9h30-16h30), Formation Soir (2 semaines, 18h-21h30) et E-learning (accès illimité jusqu'à l'examen, 24h/24 7j/7). Formule Essentiel à ${tarifs.initiale}€ ou Premium à ${tarifs.initialePremium}€.`,
+      `En salle, à Montrouge : Formation Journée (1 semaine, 9h30-16h30) ou Formation Soir (2 semaines, 18h-21h30), au même tarif, formule Essentiel à ${tarifs.initiale}€ ou Premium à ${tarifs.initialePremium}€, véhicule d'examen fourni. En ligne, sur T3P Campus : à votre rythme, partout en France, ${t3pCampus.prixFormationEnLigne}€ frais d'examen compris, véhicule d'examen en location.`,
   },
   {
     question: "Où se trouve le centre de formation ECOLE T3P ?",
@@ -174,6 +176,7 @@ const Index = () => {
 
 
       <FormationsCards />
+      <VmdtrSection />
 
       <DeferredRender fallback={<SectionFallback />} rootMargin="220px 0px">
         <Suspense fallback={<SectionFallback />}>
