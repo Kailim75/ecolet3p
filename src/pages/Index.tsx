@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import DynamicSEOHead, { useDynamicH1 } from "@/components/seo/DynamicSEOHead";
 import HeroSection from "@/components/home-v2/HeroSection";
 import ReassuranceBar from "@/components/home-v2/ReassuranceBar";
+import FormatsTable from "@/components/home-v2/FormatsTable";
 import FormationsCards from "@/components/home-v2/FormationsCards";
 import VmdtrSection from "@/components/home-v2/VmdtrSection";
 import MobileQuickBar from "@/components/home-v2/MobileQuickBar";
@@ -17,7 +18,6 @@ import {
 } from "@/components/ui/accordion";
 
 // Lazy-load below-fold heavy sections
-const FormatsTable = lazy(() => import("@/components/home-v2/FormatsTable"));
 const UpcomingSessionsSection = lazy(() => import("@/components/home-v2/UpcomingSessionsSection"));
 
 const EcosystemSection = lazy(() => import("@/components/home-v2/EcosystemSection"));
@@ -174,15 +174,9 @@ const Index = () => {
       <HeroSection h1Override={h1} />
       <ReassuranceBar />
 
-
+      <FormatsTable />
       <FormationsCards />
       <VmdtrSection />
-
-      <DeferredRender fallback={<SectionFallback />} rootMargin="220px 0px">
-        <Suspense fallback={<SectionFallback />}>
-          <FormatsTable />
-        </Suspense>
-      </DeferredRender>
 
       <DeferredRender fallback={<SectionFallback />} rootMargin="280px 0px">
         <Suspense fallback={<SectionFallback />}>
