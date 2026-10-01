@@ -34,17 +34,13 @@ if ("serviceWorker" in navigator && !import.meta.env.PROD) {
   })();
 }
 
-// Register Service Worker for caching and offline support
+// Ne plus enregistrer de Service Worker : /sw.js est un kill-switch qui recharge la page
+// à l'activation ; l'enregistrer à chaque visite provoquait un rechargement à l'ouverture.
+// On se contente de désinscrire les anciens SW encore présents chez les visiteurs.
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registered:', registration.scope);
-      })
-      .catch(error => {
-        console.log('SW registration failed:', error);
-      });
-  });
+  navigator.serviceWorker.getRegistrations()
+    .then((regs) => regs.forEach((r) => r.unregister()))
+    .catch(() => {});
 }
 
 // Le bloc de repli .seo-fallback (servi aux robots sans JavaScript) n'était que masqué
