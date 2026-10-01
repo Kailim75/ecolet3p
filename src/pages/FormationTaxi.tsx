@@ -3,6 +3,7 @@ import FormationPageTemplate from "@/components/formations/FormationPageTemplate
 import heroImageTaxi from "@/assets/formations/hero-taxi.jpg";
 import heroImageTaxiWebp from "@/assets/formations/hero-taxi.jpg?w=640;1024;1920&format=webp&as=srcset";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 
 const FormationTaxi = () => (
   <FormationPageTemplate
@@ -15,7 +16,7 @@ const FormationTaxi = () => (
     badgeIcon={CarTaxiFront}
     heading="Formation Taxi à Montrouge — Carte Professionnelle"
     subheading="Devenez chauffeur de taxi professionnel avec notre formation complète. Taux de réussite de 94% et accompagnement personnalisé jusqu'à l'obtention de votre carte pro."
-    duration="Journée, Soir ou E-learning"
+    duration="Journée ou soir, en salle"
     price={tarifs.initiale}
     thirdTag={{ icon: Award, label: "94% réussite" }}
     category="taxi"
@@ -30,7 +31,7 @@ const FormationTaxi = () => (
     ]}
     ctaTitle="Prêt à devenir chauffeur Taxi ? Réserver ma place"
     crossSellLinks={[
-      { title: "Location véhicule examen Taxi", desc: "Pour les candidats libres : taxi équipé lumineux + taximètre + 2h de conduite dès 249€. Le véhicule est déjà inclus dans nos formations à 990€.", path: "/services/location-vehicule-examen" },
+      { title: "Location véhicule examen Taxi", desc: `Pour les candidats libres et les élèves de la formation en ligne : taxi équipé lumineux + taximètre + 2h de conduite dès 249€. Le véhicule est déjà inclus dans nos formations en salle à ${tarifs.initiale}€.`, path: "/services/location-vehicule-examen" },
       { title: "Accompagnement gestion d'activité Taxi", desc: "Apprenez à gérer et optimiser votre entreprise de taxi", path: "/accompagnement-gestion-activite" },
       { title: "Passerelle Taxi → VTC", desc: "Obtenez aussi votre carte VTC en 7h — 665€", path: "/passerelle-vtc-taxi" },
     ]}
@@ -74,7 +75,7 @@ const FormationTaxi = () => (
     ]}
     faqs={[
       { question: "Quels sont les prérequis pour devenir chauffeur de taxi en 2026 ?", answer: "Pour devenir chauffeur de taxi, vous devez être titulaire du permis B depuis au moins 3 ans (2 ans en conduite accompagnée), disposer d'un casier judiciaire vierge (bulletin n°2) et obtenir un certificat d'aptitude médicale délivré par un médecin agréé par la Préfecture. Ces conditions sont fixées par le Code des transports (article L3121-1)." },
-      { question: "Combien de temps dure la formation taxi à ECOLE T3P ?", answer: "La formation Taxi est disponible en 3 formats au même tarif de 990€ : en journée (1 semaine intensive, du lundi au vendredi 9h30-16h30), en soirée (2 semaines, du lundi au vendredi 18h-21h30) pour ceux qui travaillent en parallèle, ou en e-learning (accès illimité à la plateforme jusqu'à l'examen avec suivi personnalisé)." },
+      { question: "Combien de temps dure la formation taxi à ECOLE T3P ?", answer: `En salle, à Montrouge, la formation Taxi dure ${tarifs.dureeInitialeHeures} heures, en deux formats au même tarif de ${tarifs.initiale}€ : en journée (1 semaine intensive, du lundi au vendredi 9h30-16h30) ou en soirée (2 semaines, du lundi au vendredi 18h-21h30) pour ceux qui travaillent en parallèle. Elle existe aussi en ligne, sur T3P Campus : vous avancez à votre rythme, avec un suivi pédagogique à distance, pour ${t3pCampus.prixFormationEnLigne}€ frais d'examen compris (véhicule d'examen en location).` },
       { question: "Quel est le taux de réussite à l'examen taxi chez ECOLE T3P ?", answer: "Notre taux de réussite à l'examen T3P est de 94%. Ce résultat s'explique par notre pédagogie intensive, nos QCM d'entraînement régulièrement mis à jour et l'accompagnement individuel de nos formateurs issus du métier." },
       { question: "Comment financer ma formation taxi sans CPF ?", answer: `La formation taxi n'est pas éligible au CPF. ECOLE T3P propose le paiement en 4 fois sans frais via Alma (${tarifs.almaInitiale4x}€/mois) et des facilités de paiement personnalisées. Le tarif de ${tarifs.initiale}€ est tout compris : frais d'examen CMA (${tarifs.fraisExamenCMA}€) inclus.` },
       { question: "Comment se déroule l'examen taxi à la CMA ?", answer: "L'examen T3P Taxi se compose de 7 épreuves QCM : réglementation T3P (coefficient 3), gestion d'entreprise (coefficient 2), sécurité routière (coefficient 3), français (coefficient 2), anglais (coefficient 1), développement commercial (coefficient 2), et réglementation locale + connaissance du territoire (coefficient 3). Il faut obtenir 10/20 de moyenne générale sans note éliminatoire inférieure à 6/20." },
@@ -90,7 +91,7 @@ const FormationTaxi = () => (
       { title: "Revenus et statuts du chauffeur de taxi", text: "Le chauffeur de taxi peut exercer sous plusieurs statuts : artisan taxi (indépendant propriétaire de l'ADS), locataire (location de l'ADS à un propriétaire), ou salarié d'une société de taxi. En Île-de-France, le chiffre d'affaires mensuel moyen d'un artisan taxi se situe entre 4 000€ et 6 500€. Les taxis bénéficient également des courses conventionnées (CPAM, mutuelles, hôpitaux) qui représentent un complément de revenu régulier. Le tarif est fixé par arrêté préfectoral et comprend une prise en charge, un tarif kilométrique et un tarif horaire." },
       { title: "Formation taxi pas cher à Montrouge : à partir de 990€", text: `ECOLE T3P accueille les candidats des Hauts-de-Seine (92) et du Val-de-Marne (94) pour sa formation taxi, à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium avec coaching et suivi post-formation). Le tarif Essentiel inclut l'ensemble de la formation théorique, les frais d'inscription à l'examen CMA (${tarifs.fraisExamenCMA}€), 2 heures de conduite avec un moniteur diplômé d'État et la mise à disposition d'un véhicule taxi équipé (lumineux, taximètre) le jour de l'examen. Avec le paiement en 4 fois sans frais via Alma, notre formation taxi agréée préfecture est accessible à tous les budgets.` },
       { title: "Centre de formation taxi agréé Préfecture à Montrouge", text: "ECOLE T3P est un centre de formation taxi agréé par la Préfecture des Hauts-de-Seine sous le numéro 23/005. Cet agrément garantit la conformité de notre programme avec les exigences réglementaires et la validité de notre attestation de formation pour le dépôt de dossier de carte professionnelle taxi. Situé au 3 rue Corneille à Montrouge (92120), à 8 minutes à pied du métro Mairie de Montrouge (ligne 4), notre centre accueille des candidats du 92 et du 94, ainsi que de tout le sud de Paris." },
-      { title: "Les étapes pour obtenir votre carte professionnelle Taxi", text: "Le parcours pour devenir chauffeur de taxi se déroule en 6 étapes : 1) Vérifier les prérequis légaux (permis B depuis 3 ans — 2 ans en conduite accompagnée, casier vierge, visite médicale préfectorale). 2) S'inscrire à la formation Taxi chez ECOLE T3P. 3) Suivre la formation (journée, soir ou e-learning). 4) Réussir l'examen T3P à la CMA. 5) Déposer le dossier de carte professionnelle à la Préfecture (délai : 2 à 4 semaines). 6) Demander une ADS auprès de votre commune et créer votre entreprise. Notre équipe administrative vous accompagne dans toutes ces démarches." },
+      { title: "Les étapes pour obtenir votre carte professionnelle Taxi", text: "Le parcours pour devenir chauffeur de taxi se déroule en 6 étapes : 1) Vérifier les prérequis légaux (permis B depuis 3 ans — 2 ans en conduite accompagnée, casier vierge, visite médicale préfectorale). 2) S'inscrire à la formation Taxi chez ECOLE T3P. 3) Suivre la formation, en salle (journée ou soir) ou en ligne sur T3P Campus. 4) Réussir l'examen T3P à la CMA. 5) Déposer le dossier de carte professionnelle à la Préfecture (délai : 2 à 4 semaines). 6) Demander une ADS auprès de votre commune et créer votre entreprise. Notre équipe administrative vous accompagne dans toutes ces démarches." },
       { title: "Formation Taxi accessible depuis Paris sud, le 92 et le 94", text: "Notre centre de formation taxi à Montrouge est idéalement situé à la frontière de Paris sud (porte d'Orléans) et des Hauts-de-Seine. Il est facilement accessible depuis le 92 (Bagneux, Malakoff, Châtillon, Vanves, Issy-les-Moulineaux, Clamart, Boulogne-Billancourt, Nanterre) et le 94 (Créteil, Ivry-sur-Seine, Vitry-sur-Seine, Villejuif, Arcueil, Cachan). Métro ligne 4 (Mairie de Montrouge), bus 68, 128 et N21. Que vous cherchiez une formation taxi dans le 92 ou dans le 94, ECOLE T3P accueille les candidats des deux départements." },
     ]}
     relatedLinks={[

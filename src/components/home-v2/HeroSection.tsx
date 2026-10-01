@@ -199,8 +199,8 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
             className={`${shouldAnimate ? "hero-word" : ""} text-white/85 text-base md:text-lg lg:text-xl mb-8 max-w-2xl leading-relaxed`}
             style={shouldAnimate ? { animationDelay: "1.1s" } : undefined}
           >
-            Formation VTC, Taxi ou VMDTR. 3 formats au choix : Journée, Soir ou E-learning.
-            Accompagnement de A à Z.
+            Formation VTC, Taxi ou moto-taxi VMDTR. En salle à Montrouge, en journée ou en soirée —
+            ou en ligne, partout en France. Accompagnement de A à Z.
           </p>
 
           <div

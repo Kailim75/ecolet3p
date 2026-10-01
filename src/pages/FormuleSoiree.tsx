@@ -221,7 +221,7 @@ const FormuleSoiree = () => {
                 <p>• Réglementation du transport public particulier de personnes</p>
                 <p>• Géographie et orientation professionnelle</p>
                 <p>• Modules théoriques : sécurité, gestion, relation client</p>
-                <p>• Accès plateforme e-learning pour révisions entre les séances</p>
+                <p>• Accès à T3P Campus pour réviser entre les séances</p>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="s2" className="border rounded-xl px-5 bg-background">

@@ -90,9 +90,9 @@ const FormationVille = () => {
   };
 
   const formations = [
-    { title: "Formation Taxi", price: "990€", duration: "Journée, Soir ou E-learning", desc: "Carte professionnelle Taxi — Examen CMA inclus", link: "/formations/taxi" },
-    { title: "Formation VTC", price: "990€", duration: "Journée, Soir ou E-learning", desc: "Carte professionnelle VTC — Uber, Bolt, Heetch", link: "/formations/vtc" },
-    { title: "Formation VMDTR", price: "990€", duration: "Journée, Soir ou E-learning", desc: "Carte professionnelle moto-taxi", link: "/formations/vmdtr" },
+    { title: "Formation Taxi", price: "990€", duration: "Journée ou soir, en salle", desc: "Carte professionnelle Taxi — Examen CMA inclus", link: "/formations/taxi" },
+    { title: "Formation VTC", price: "990€", duration: "Journée ou soir, en salle", desc: "Carte professionnelle VTC — Uber, Bolt, Heetch", link: "/formations/vtc" },
+    { title: "Formation VMDTR", price: "990€", duration: "Journée ou soir, en salle", desc: "Carte professionnelle moto-taxi", link: "/formations/vmdtr" },
     { title: "Passerelle VTC ↔ Taxi", price: "665€", duration: `${tarifs.dureePasserelleHeures}h ou ${tarifs.dureePasserelleTaxiHeures}h selon la formation visée`, desc: "Double carte pour doubler vos revenus", link: "/passerelle-vtc-taxi" },
   ];
 
@@ -290,7 +290,7 @@ const FormationVille = () => {
           <div className="text-center mb-10">
             <h2 className="section-title mb-3">Formations accessibles depuis {city.name}</h2>
             <p className="section-subtitle mx-auto">
-              Toutes nos formations sont dispensées dans notre centre agréé de Montrouge, en journée, soirée ou e-learning.
+              Toutes nos formations sont dispensées dans notre centre agréé de Montrouge, en journée ou en soirée.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">

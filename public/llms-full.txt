@@ -45,9 +45,10 @@ ECOLE T3P propose une gamme complète de formations pour tous les métiers du tr
 
 | Formation | Format / Durée | Tarif | Objectif |
 |-----------|---------------|-------|----------|
-| Taxi Initiale | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle Taxi |
-| VTC Initiale | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle VTC |
-| VMDTR | Journée / Soir / E-learning | à partir de 990€ | Carte professionnelle moto-taxi |
+| Taxi Initiale (en salle) | Journée ou soir, à Montrouge (35 h) | à partir de 990€ tout compris | Carte professionnelle Taxi |
+| VTC Initiale (en salle) | Journée ou soir, à Montrouge (35 h) | à partir de 990€ tout compris | Carte professionnelle VTC |
+| VMDTR (en salle) | Journée ou soir, à Montrouge (35 h) | à partir de 990€ tout compris | Carte professionnelle moto-taxi |
+| Taxi, VTC ou VMDTR ([en ligne, T3P Campus](https://ecolet3p.fr/preparation-examen-en-ligne)) | À votre rythme, depuis chez vous | 596€ (ou 4 × 149€), frais d'examen compris, véhicule d'examen en location | Carte professionnelle Taxi, VTC ou moto-taxi |
 | Mobilité (Passerelle) | 7 h (vers VTC/VMDTR) ou 14 h (vers Taxi) | 665€ tout compris | Passerelle Taxi ↔ VTC |
 | Renouvellement Taxi/VMDTR | 14h | 250€ | Maintien carte pro |
 | Continue VTC | 14h | 170€ | Renouvellement obligatoire |
@@ -70,12 +71,13 @@ La formation Taxi vous prépare à l'examen de la carte professionnelle de condu
 - **Connaissance du territoire** : géographie locale, itinéraires
 
 ### Tarif
-**À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
+- **En salle : à partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus, véhicule d'examen fourni
+- **En ligne, sur T3P Campus : 596€** (ou 4 × 149€), frais d'examen compris ; véhicule de l'examen pratique en location
 
 ### Formats disponibles
-- **Format journée** : 1 semaine intensive (9h30-16h30)
-- **Format soir** : 2 semaines (18h-21h30)
-- **Format e-learning** : à votre rythme
+- **En salle, format journée** : 1 semaine intensive (9h30-16h30)
+- **En salle, format soir** : 2 semaines (18h-21h30)
+- **En ligne, sur T3P Campus** : à votre rythme, depuis chez vous, partout en France — https://ecolet3p.fr/preparation-examen-en-ligne
 
 ### Prérequis
 - Permis B depuis au moins 3 ans (2 ans en conduite accompagnée)
@@ -105,12 +107,13 @@ La formation VTC (Voiture de Transport avec Chauffeur) vous prépare à devenir 
 - **Connaissance du territoire** : Paris et Île-de-France
 
 ### Tarif
-**À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
+- **En salle : à partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus, véhicule d'examen fourni
+- **En ligne, sur T3P Campus : 596€** (ou 4 × 149€), frais d'examen compris ; véhicule de l'examen pratique en location
 
 ### Formats disponibles
-- **Format journée** : 1 semaine intensive
-- **Format soir** : 2 semaines
-- **Format e-learning** : à votre rythme
+- **En salle, format journée** : 1 semaine intensive
+- **En salle, format soir** : 2 semaines
+- **En ligne, sur T3P Campus** : à votre rythme, depuis chez vous, partout en France — https://ecolet3p.fr/preparation-examen-en-ligne
 
 ### Prérequis
 - Permis B depuis au moins 3 ans (2 ans en conduite accompagnée)
@@ -137,12 +140,13 @@ La formation VMDTR (Véhicule Motorisé à Deux ou Trois Roues) vous permet de d
 - **Gestion d'activité** : tarification, planning
 
 ### Tarif
-**À partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus
+- **En salle : à partir de 990€** — Essentiel (990€) ou Premium (1 190€), frais d'examen CMA de 241€ inclus, moto d'examen fournie
+- **En ligne, sur T3P Campus : 596€** (ou 4 × 149€), frais d'examen compris ; moto de l'examen pratique en location
 
 ### Formats disponibles
-- **Format journée** : 1 semaine intensive
-- **Format soir** : 2 semaines
-- **Format e-learning** : à votre rythme
+- **En salle, format journée** : 1 semaine intensive
+- **En salle, format soir** : 2 semaines
+- **En ligne, sur T3P Campus** : à votre rythme, depuis chez vous, partout en France — https://ecolet3p.fr/preparation-examen-en-ligne
 
 ### Prérequis
 - Permis A depuis au moins 3 ans
@@ -230,7 +234,8 @@ Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à **
 - Aide aux démarches administratives
 
 ### 3. Flexibilité
-- Formations en journée ou en soirée
+- Formations en salle, en journée ou en soirée
+- Formation en ligne sur T3P Campus (596€), à votre rythme
 - Sessions régulières
 - Paiement en plusieurs fois
 
@@ -252,10 +257,10 @@ Stage de sensibilisation à la sécurité routière pour récupérer jusqu'à **
 La carte professionnelle T3P (Transport Public Particulier de Personnes) est un document obligatoire pour exercer les métiers de chauffeur VTC, taxi ou conducteur VMDTR. Elle atteste de vos compétences et de votre aptitude à exercer.
 
 ### Combien de temps dure la formation ?
-Trois formats au choix pour les formations initiales Taxi et VTC :
-- **Journée** : 1 semaine intensive
-- **Soir** : 2 semaines
-- **E-learning** : à votre rythme
+Pour les formations initiales Taxi, VTC et VMDTR :
+- **En salle, journée** : 1 semaine intensive (35 h, 990€ tout compris)
+- **En salle, soir** : 2 semaines (35 h, 990€ tout compris)
+- **En ligne, sur T3P Campus** : à votre rythme (596€, frais d'examen compris, véhicule d'examen en location)
 - Passerelle : 7 h vers VTC ou VMDTR, 14 h vers Taxi
 
 ### Quelles sont les options de financement ?
@@ -370,5 +375,5 @@ ECOLE T3P publie régulièrement des guides et articles pour accompagner les fut
 
 ---
 
-*Dernière mise à jour : Septembre 2026*
+*Dernière mise à jour : Octobre 2026*
 *ECOLE T3P - Centre agréé Préfecture - Montrouge (92)*

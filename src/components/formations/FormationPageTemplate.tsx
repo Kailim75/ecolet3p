@@ -28,6 +28,7 @@ import { supabase } from "@/integrations/supabase/client";
 import DepartementLinksBlock from "@/components/formations/DepartementLinksBlock";
 import BlocT3PCampus from "@/components/formations/BlocT3PCampus";
 import tarifs from "@/data/tarifs.json";
+import t3pCampus from "@/data/t3pCampus.json";
 import { nbAvisGoogle, noteGoogle } from "@/lib/avis";
 
 interface ProgramModule {
@@ -424,13 +425,16 @@ const FormationPageTemplate = ({
         </section>
       )}
 
-      {/* Tableau 3 formats */}
+      {/* Tableau des formats : en salle (990 €, véhicule fourni) ou en ligne (T3P Campus) */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
           {/* Titre formulé comme les recherches « prix formation taxi » (Search Console, 09/2026) */}
-          <h2 className="section-title text-center mb-3">Prix de la {badge.toLowerCase()} : {soireeFormation?.price || price} € tout compris</h2>
-          <p className="text-center text-muted-foreground mb-8">3 formats au choix, un seul tarif, frais d'examen inclus.</p>
-          <p className="md:hidden text-xs text-muted-foreground text-right mb-2">Faites glisser le tableau pour voir les 3 formats →</p>
+          <h2 className="section-title text-center mb-3">Prix de la {badge.split(" ").map((mot) => (mot === mot.toUpperCase() ? mot : mot.toLowerCase())).join(" ")} : {soireeFormation?.price || price} € tout compris</h2>
+          <p className="text-center text-muted-foreground mb-8">
+            En salle à Montrouge, en journée ou en soirée, frais d'examen et véhicule d'examen inclus.
+            Ou en ligne, à votre rythme, pour {t3pCampus.prixFormationEnLigne} € frais d'examen compris.
+          </p>
+          <p className="md:hidden text-xs text-muted-foreground text-right mb-2">Faites glisser le tableau pour voir les 3 formules →</p>
           <div className="overflow-x-auto rounded-xl border border-border bg-card">
             <table className="w-full text-sm md:text-base">
               <thead>
@@ -438,39 +442,56 @@ const FormationPageTemplate = ({
                   <th className="px-4 py-4 text-left font-semibold" />
                   <th className="px-4 py-4 text-center font-semibold">Journée</th>
                   <th className="px-4 py-4 text-center font-semibold">Soir</th>
-                  <th className="px-4 py-4 text-center font-semibold">E-learning</th>
+                  <th className="px-4 py-4 text-center font-semibold">En ligne</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-border">
+                  <td className="px-4 py-4 font-semibold text-foreground">Où</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">En salle à Montrouge</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">En salle à Montrouge</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Sur T3P Campus, partout en France</td>
+                </tr>
+                <tr className="border-b border-border">
                   <td className="px-4 py-4 font-semibold text-foreground">Durée</td>
                   <td className="px-4 py-4 text-center text-muted-foreground">1 semaine</td>
                   <td className="px-4 py-4 text-center text-muted-foreground">2 semaines</td>
-                  <td className="px-4 py-4 text-center text-muted-foreground">Illimité jusqu'à l'examen</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">À votre rythme</td>
                 </tr>
                 <tr className="border-b border-border">
                   <td className="px-4 py-4 font-semibold text-foreground">Horaires</td>
                   <td className="px-4 py-4 text-center text-muted-foreground">9h30 – 16h30</td>
                   <td className="px-4 py-4 text-center text-muted-foreground">18h – 21h30</td>
-                  <td className="px-4 py-4 text-center text-muted-foreground">24h/24, 7j/7</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Libres</td>
                 </tr>
                 <tr className="border-b border-border">
                   <td className="px-4 py-4 font-semibold text-foreground">Idéal pour</td>
                   <td className="px-4 py-4 text-center text-muted-foreground">En reconversion, disponible</td>
                   <td className="px-4 py-4 text-center text-muted-foreground">Salarié, temps partiel</td>
-                  <td className="px-4 py-4 text-center text-muted-foreground">Autonome, flexible</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Loin de Montrouge, emploi du temps chargé</td>
+                </tr>
+                <tr className="border-b border-border">
+                  <td className="px-4 py-4 font-semibold text-foreground">Véhicule d'examen</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Fourni</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">Fourni</td>
+                  <td className="px-4 py-4 text-center text-muted-foreground">À louer en plus</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-4 font-semibold text-foreground">Prix</td>
                   <td className="px-4 py-4 text-center font-bold text-accent">{soireeFormation?.price || price}€</td>
                   <td className="px-4 py-4 text-center font-bold text-accent">{soireeFormation?.price || price}€</td>
-                  <td className="px-4 py-4 text-center font-bold text-accent">{soireeFormation?.price || price}€</td>
+                  <td className="px-4 py-4 text-center">
+                    <span className="block font-bold text-accent">{t3pCampus.prixFormationEnLigne}€</span>
+                    <Link to="/preparation-examen-en-ligne" className="text-xs font-bold text-primary hover:text-accent transition-colors">
+                      Découvrir →
+                    </Link>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="mt-4 text-center text-muted-foreground text-sm">
-            Frais d'examen T3P ({tarifs.fraisExamenCMA}€) inclus dans tous les formats — Paiement en 4x sans frais avec Alma
+            Frais d'examen T3P ({tarifs.fraisExamenCMA}€) inclus dans les trois formules — Paiement en 4x sans frais avec Alma
           </p>
         </div>
       </section>

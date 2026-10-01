@@ -6,5 +6,7 @@
   "vmdtrValidite": "17/10/2028",
   "raisonSocialeDeclaree": "DROP ACADEMY",
   "sourceListes": "https://www.hauts-de-seine.gouv.fr/Demarches/Activites-reglementees-police-administrative-et-manifestations/Centres-de-formation-agrees-taxi-VTC-VMDTR",
-  "releveLe": "2026-09-18"
+  "releveLe": "2026-09-18",
+  "vmdtrCentresAgreesDepartement": 2,
+  "vmdtrListeMiseAJour": "15/04/2026"
 }
