@@ -70,7 +70,7 @@ export function buildRoutes() {
       routes.push({
         path: `/formations/${metier}/${d.code}`,
         title: `Formation ${mt} ${d.nom} (${d.code}) — Préfecture & Examen`,
-        description: `Formation ${mt} — ${d.nom} (${d.code}) : démarches préfecture, médecins agréés et examen T3P. Centre agréé à Montrouge, 94 % de réussite, dès 990 €.`,
+        description: `Formation ${mt} — ${d.nom} (${d.code}) : démarches préfecture, médecins agréés et examen T3P. 990 € en salle à Montrouge ou 596 € en ligne.`,
         h1: `Formation ${metiersH1[metier]} ${d.dans} (${d.code})`,
       });
     }

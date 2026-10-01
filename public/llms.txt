@@ -57,8 +57,8 @@ Oui — la **Passerelle T3P** permet d'obtenir une seconde carte professionnelle
 
 ## Formations proposées
 
-- [Formation Taxi initiale](/formations/taxi) — Carte pro Taxi, dès 990€, 94% de réussite
-- [Formation VTC initiale](/formations/vtc) — Carte pro VTC pour Uber/Bolt/Heetch, dès 990€
+- [Formation Taxi initiale](/formations/taxi) — Carte pro Taxi : 990€ en salle ou 596€ en ligne, 94% de réussite
+- [Formation VTC initiale](/formations/vtc) — Carte pro VTC pour Uber/Bolt/Heetch : 990€ en salle ou 596€ en ligne
 - [Formation VMDTR (taxi moto)](/formations/vmdtr) — Carte pro moto-taxi : 990€ en salle (moto d'examen fournie) ou 596€ en ligne. L'un des deux seuls centres agréés VMDTR des Hauts-de-Seine (agrément n° 23/006, liste officielle de la préfecture)
 - [Formation en ligne T3P Campus](https://ecolet3p.fr/preparation-examen-en-ligne) — Taxi, VTC ou VMDTR à votre rythme, partout en France : 596€ (ou 4 × 149€), frais d'examen compris, véhicule d'examen en location ; 1 154 questions corrigées, 89 fiches de cours, 4 examens blancs (passerelles aussi proposées en ligne)
 - [Passerelle Taxi ↔ VTC](/passerelle-vtc-taxi) — Seconde carte pro, 7 h vers VTC ou VMDTR, 14 h vers Taxi, 665 €

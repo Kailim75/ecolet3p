@@ -222,7 +222,7 @@ const AuditRentabilite = () => {
               Prêt à concrétiser ces revenus ?
             </h2>
             <p className="text-white/80 mb-4 max-w-2xl mx-auto">
-              Rejoignez les +2 000 chauffeurs formés par ECOLE T3P. Formation tout compris dès 990€.
+              Rejoignez les +2 000 chauffeurs formés par ECOLE T3P. Formation en salle à 990€ tout compris, ou en ligne dès 596€.
             </p>
             <p className="text-white font-semibold mb-8">
               94% de taux de réussite • Paiement en 4× sans frais

@@ -58,7 +58,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
   const metierTitre = { vtc: "VTC", taxi: "Taxi", vmdtr: "VMDTR" }[metier];
 
   const title = `Formation ${metierTitre} ${departement.nom} (${departement.code}) — Préfecture & Examen`;
-  const description = `Formation ${metierTitre} — ${departement.nom} (${departement.code}) : démarches préfecture, médecins agréés et examen T3P. Centre agréé à Montrouge, 94 % de réussite, dès 990 €.`;
+  const description = `Formation ${metierTitre} — ${departement.nom} (${departement.code}) : démarches préfecture, médecins agréés et examen T3P. 990 € en salle à Montrouge ou 596 € en ligne.`;
 
   // JSON-LD : Service + BreadcrumbList + LocalBusiness reference
   const jsonLd = {
@@ -157,7 +157,7 @@ const FormationDepartementPage = ({ metier }: Props) => {
           <div className="flex flex-col sm:flex-row gap-3">
             <Button asChild size="lg" className="bg-cta hover:bg-cta/90 text-cta-foreground">
               <Link to={`/formations/${metier}`}>
-                Voir la formation {labels.short} (dès 990€) <ArrowRight className="ml-2 w-4 h-4" />
+                Voir la formation {labels.short} (dès {t3pCampus.prixFormationEnLigne}€) <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">

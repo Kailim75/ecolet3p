@@ -20,7 +20,7 @@ const VmdtrSection = () => (
         <p className="text-white/85 text-base md:text-lg leading-relaxed mb-4">
           Selon la liste officielle de la préfecture mise à jour le {agrements.vmdtrListeMiseAJour}, seuls{" "}
           {agrements.vmdtrCentresAgreesDepartement} centres des Hauts-de-Seine sont agréés pour former les
-          conducteurs de moto-taxi. ECOLE T3P est l'un d'eux, sous le n° {agrements.vmdtr}, valable jusqu'au{" "}
+          conducteurs de moto-taxi. ECOLE T3P est l'un d'eux, sous le n°{"\u00a0"}{agrements.vmdtr}, valable jusqu'au{" "}
           {agrements.vmdtrValidite}.
         </p>
         <a
