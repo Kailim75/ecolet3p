@@ -42,6 +42,11 @@ export const useServiceWorker = () => {
 
     const registerSW = async () => {
       try {
+        // Désactivé : /sw.js est un kill-switch qui rechargeait la page à chaque ouverture.
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.unregister()));
+        return;
+        // eslint-disable-next-line no-unreachable
         const registration = await navigator.serviceWorker.register('/sw.js', {
           scope: '/',
         });
