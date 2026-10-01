@@ -60,7 +60,7 @@ const faqItems = [
   { q: "Comment estimer ma rentabilité en tant que chauffeur VTC ou Taxi ?", a: "Notre audit gratuit en ligne calcule votre chiffre d'affaires, déduit les charges (commission plateforme, charges sociales, charges fixes) et affiche votre net mensuel estimé selon votre statut juridique." },
   { q: "Quel statut juridique choisir : micro-entreprise, SASU ou EURL ?", a: "La micro-entreprise est idéale pour démarrer (charges sociales ~22% du CA après commission). La SASU convient aux revenus élevés (IS à 15%). L'EURL (TNS) offre une couverture sociale complète avec des cotisations de ~45%." },
   { q: "Combien gagne un chauffeur VTC en moyenne par mois ?", a: "Avec 22 jours travaillés, 8h/jour et un revenu horaire de 25€, le CA mensuel est d'environ 4 400€. Après déduction des charges (commission, cotisations, frais fixes), le net se situe entre 1 500€ et 2 800€ selon le statut juridique." },
-  { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: `La formation est à partir de 990€ (formule Essentiel) ou 1 190€ (formule Premium), frais d'examen CMA de ${tarifs.fraisExamenCMA}€ inclus. Paiement en 4× sans frais possible avec Alma.` },
+  { q: "Combien coûte la formation Taxi ou VTC à l'École T3P ?", a: `En salle à Montrouge, la formation coûte 990€ (formule Essentiel) ou 1 190€ (formule Premium), frais d'examen CMA de ${tarifs.fraisExamenCMA}€ et véhicule d'examen inclus. En ligne sur T3P Campus, elle coûte 596€, frais d'examen compris, véhicule d'examen en location. Paiement en 4× sans frais possible avec Alma.` },
   { q: "En combien de temps la formation est-elle rentabilisée ?", a: "Le délai d'amortissement dépend de votre rythme de travail, de vos charges et de votre statut juridique : utilisez le simulateur gratuit de cette page pour l'estimer à partir de vos propres paramètres." },
   { q: "Quels sont les formats de formation disponibles ?", a: `En salle, à Montrouge, au même tarif de ${tarifs.initiale}€ : Journée (1 semaine intensive) ou Soir (2 semaines en soirée), véhicule d'examen fourni. En ligne, sur T3P Campus : à votre rythme, ${t3pCampus.prixFormationEnLigne}€ frais d'examen compris, véhicule d'examen en location.` },
   { q: "Quel est le taux de réussite à l'examen ?", a: "Notre taux de réussite est de 94%. Plus de 2 000 chauffeurs ont été formés depuis 2014." },
@@ -432,7 +432,7 @@ export default function AuditRentabiliteChauffeur() {
               Envoyez votre audit de rentabilité sur WhatsApp et recevez un accompagnement personnalisé sous 24h.
             </p>
             <p className="text-white font-semibold mb-8">
-              Formation à partir de 990€ • 94% de réussite • Paiement en 4× sans frais
+              Formation dès 596€ en ligne, 990€ en salle • 94% de réussite • Paiement en 4× sans frais
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <WhatsAppCTA />

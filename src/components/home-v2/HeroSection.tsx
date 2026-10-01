@@ -122,7 +122,7 @@ const HeroSection = ({ h1Override }: { h1Override?: string }) => {
     if (shouldAnimate) markHeroPlayed();
   }, [shouldAnimate]);
 
-  const titleText = h1Override || "Devenez chauffeur professionnel à partir de 990€.";
+  const titleText = h1Override || "Devenez chauffeur professionnel, en salle ou en ligne dès 596€.";
 
 
   return (

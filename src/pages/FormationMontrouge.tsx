@@ -76,7 +76,7 @@ const advantages = [
   {
     icon: CreditCard,
     title: "Paiement en 4× sans frais",
-    text: "À partir de 990€ avec frais d'examen CMA inclus. Paiement facilité en 4× sans frais via Alma.",
+    text: "990€ tout compris en salle, frais d'examen CMA inclus, ou 596€ en ligne. Paiement facilité en 4× sans frais via Alma.",
   },
   {
     icon: Clock,
@@ -168,7 +168,7 @@ const FormationMontrouge = () => {
       <DynamicSEOHead
         pageUrl="/formations/montrouge"
         defaultTitle="Formation Taxi VTC Montrouge (92) | ECOLE T3P"
-        defaultDescription="Centre de formation Taxi VTC VMDTR à Montrouge (92120). Agrément Préfecture, 94% de réussite, à partir de 990€. Métro ligne 4."
+        defaultDescription="Centre de formation Taxi VTC VMDTR à Montrouge (92120). Agrément Préfecture, 94% de réussite, 990€ tout compris en salle. Métro ligne 4."
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >
         <meta name="geo.region" content="FR-92" />
@@ -214,7 +214,7 @@ const FormationMontrouge = () => {
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
               Depuis 2014, ECOLE T3P forme les futurs chauffeurs Taxi, VTC et VMDTR au cœur de Montrouge.
-              Agrément Préfecture n° 23/005 — <strong className="text-white">94% de réussite</strong> — à partir de 990€.
+              Agrément Préfecture n° 23/005 — <strong className="text-white">94% de réussite</strong> — 990€ tout compris en salle, ou 596€ en ligne.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild className="btn-cta-orange px-8 py-4 text-base font-bold">

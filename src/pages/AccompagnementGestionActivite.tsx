@@ -342,7 +342,7 @@ const AccompagnementGestionActivite = () => {
             {[
               { title: "Aide administrative", desc: "On s'occupe de la paperasse pour vous — dès 190€.", path: "/aide-administrative-creation-entreprise" },
               { title: "Formation PMR", desc: "Élargissez votre clientèle au transport PMR — 290€.", path: "/formation-accessibilite-pmr" },
-              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — dès 990€ tout compris.", path: "/formations" },
+              { title: "Formations initiales", desc: "VTC, Taxi ou VMDTR — 990€ tout compris en salle, 596€ en ligne.", path: "/formations" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>

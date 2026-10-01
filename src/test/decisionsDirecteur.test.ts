@@ -4,6 +4,7 @@ import { join, extname } from "node:path";
 import tarifs from "@/data/tarifs.json";
 import avisGoogle from "@/data/avisGoogle.json";
 import agrements from "@/data/agrements.json";
+import t3pCampus from "@/data/t3pCampus.json";
 
 /**
  * Garde-fous des décisions du directeur (18/09/2026).
@@ -114,6 +115,7 @@ describe("décisions du directeur — contenus", () => {
       // Au 01/10/2026, 5 préfectures d'Île-de-France ne publient aucune liste VMDTR.
       [/(seul|unique)s?\s+centres?\s+(agr[ée]{2}s?\s+)?(VMDTR\s+)?(d'|de\s+l'|en\s+)?(Île-de-France|France|IDF)/i, "rareté VMDTR invérifiable hors des Hauts-de-Seine"],
       [/très\s+peu\s+de\s+centres/i, "« très peu de centres » non mesuré"],
+      [/carte\s+pro[^.\n]{0,25}en\s+1\s+semaine/i, "carte pro promise « en 1 semaine » (délai préfecture non maîtrisé)"],
     ];
     const fautes: string[] = [];
     for (const { f, n, ligne } of lignes) {
@@ -154,6 +156,20 @@ describe("décisions du directeur — contenus", () => {
       .filter(({ num }) => !autorises.has(num))
       .map(({ f, n, num, ligne }) => `${f}:${n} — n° ${num} — ${ligne.trim().slice(0, 80)}`);
     expect(fautes).toEqual([]);
+  });
+
+  it("le prix d'entrée annoncé est le vrai minimum (décision du 01/10/2026)", () => {
+    // La formation en ligne (T3P Campus, 596 €) est moins chère que la salle (990 €) :
+    // « dès 990 € » / « à partir de 990 € » n'est permis que s'il est dit que c'est le prix en salle.
+    const fautes = lignes
+      .filter(({ ligne }) => /(dès|à partir de)\s?990/i.test(ligne) && !/salle/i.test(ligne))
+      .map(({ f, n, ligne }) => `${f}:${n} — ${ligne.trim().slice(0, 100)}`);
+    expect(fautes).toEqual([]);
+  });
+
+  it("les prix de la formation en ligne cités en clair correspondent à T3P Campus", () => {
+    if (lignes.some(({ ligne }) => /\b596\s?€/.test(ligne))) expect(t3pCampus.prixFormationEnLigne).toBe(596);
+    if (lignes.some(({ ligne }) => /\b396\s?€/.test(ligne))) expect(t3pCampus.prixPasserelleEnLigne).toBe(396);
   });
 
   it("les frais d'examen cités en clair correspondent au tarif officiel", () => {

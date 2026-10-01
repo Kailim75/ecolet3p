@@ -10,7 +10,7 @@ describe("HeroSection", () => {
   it("renders the default h1", () => {
     renderWithRouter(<HeroSection />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Devenez chauffeur professionnel à partir de 990€."
+      "Devenez chauffeur professionnel, en salle ou en ligne dès 596€."
     );
   });
 

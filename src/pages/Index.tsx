@@ -154,14 +154,14 @@ const coursesItemListSchema = {
 };
 
 const Index = () => {
-  const h1 = useDynamicH1("/", "Devenez chauffeur professionnel à partir de 990€.");
+  const h1 = useDynamicH1("/", "Devenez chauffeur professionnel, en salle ou en ligne dès 596€.");
 
   return (
     <Layout>
       <DynamicSEOHead
         pageUrl="/"
         defaultTitle="Formation Taxi VTC VMDTR Montrouge | 94% Réussite, 990€"
-        defaultDescription="Centre agréé Préfecture à Montrouge (92) — Carte Pro Taxi, VTC ou VMDTR en 1 semaine. 94% de réussite, +2000 chauffeurs formés, dès 990€ en 4x sans frais."
+        defaultDescription="Centre agréé Préfecture à Montrouge (92) — Formation Taxi, VTC ou VMDTR : 990€ en salle ou 596€ en ligne, en 4x sans frais. 94% de réussite, +2000 chauffeurs formés."
         canonicalUrl="https://ecolet3p.fr/"
         ogImage="https://ecolet3p.fr/og-image.jpg"
       >

@@ -16,7 +16,7 @@ export interface SEOPageInfo {
 const corePages: SEOPageInfo[] = [
   {
     url: "/",
-    title: "Formation Taxi VTC VMDTR Montrouge - 94% Réussite, dès 990€",
+    title: "Formation Taxi VTC VMDTR Montrouge - 94% Réussite, dès 596€",
     description: "Centre agréé Préfecture à Montrouge (92). Formation Taxi, VTC ou VMDTR en 35h. 94% de réussite, +2000 chauffeurs formés, paiement 4x sans frais.",
     h1: "Devenez chauffeur professionnel Taxi, VTC ou VMDTR",
     hasSchema: ["FAQPage", "LocalBusiness", "EducationalOrganization"],
@@ -24,7 +24,7 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/taxi",
-    title: "Formation Taxi Paris 92 - Carte pro Taxi | dès 990€",
+    title: "Formation Taxi Paris 92 - Carte pro Taxi | dès 596€",
     description: "Formation Taxi agréée Préfecture à Montrouge (92), accessible Paris sud, Hauts-de-Seine et Val-de-Marne. 94% de réussite, 35h de formation, 990€ en 4x sans frais.",
     h1: "Formation Taxi — Obtenez votre carte professionnelle",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
@@ -33,8 +33,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/vtc",
-    title: "Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x",
-    description: "Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro pour Uber, Bolt, Heetch. À partir de 990€ en 4x sans frais.",
+    title: "Formation VTC Paris 92 - Uber Bolt Heetch | dès 596€",
+    description: "Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro pour Uber, Bolt, Heetch. 990€ en salle ou 596€ en ligne, en 4x sans frais.",
     h1: "Formation VTC — Obtenez votre carte professionnelle",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vmdtr", "/passerelle-vtc-taxi", "/contact"],
@@ -42,8 +42,8 @@ const corePages: SEOPageInfo[] = [
   },
   {
     url: "/formations/vmdtr",
-    title: "Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 990€",
-    description: "Formation VMDTR (taxi moto) agréée Préfecture à Montrouge (92). 94% de réussite, carte pro moto-taxi. À partir de 990€, paiement 4x sans frais.",
+    title: "Formation Moto-Taxi VMDTR Paris 92 - Carte Pro | dès 596€",
+    description: "Formation VMDTR (taxi moto) agréée Préfecture à Montrouge (92). 94% de réussite, carte pro moto-taxi. 990€ en salle ou 596€ en ligne, paiement 4x sans frais.",
     h1: "Formation VMDTR — Devenez conducteur moto-taxi",
     hasSchema: ["FAQPage", "Course", "BreadcrumbList"],
     internalLinks: ["/formations/taxi", "/formations/vtc", "/contact"],

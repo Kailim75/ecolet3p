@@ -8,14 +8,14 @@ import { nbAvisGoogle } from "@/lib/avis";
 
 const FormationVTC = () => (
   <FormationPageTemplate
-    title="Formation VTC Paris 92 - Uber Bolt Heetch | dès 990€ en 4x"
-    description="Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro en 1 semaine pour Uber, Bolt, Heetch. À partir de 990€ en 4x sans frais."
+    title="Formation VTC Paris 92 - Uber Bolt Heetch | dès 596€"
+    description="Formation VTC agréée Préfecture à Montrouge (92). 94% de réussite, carte pro pour Uber, Bolt, Heetch. 990€ en salle ou 596€ en ligne, en 4x sans frais."
     canonical="https://ecolet3p.fr/formations/vtc"
     heroImage={heroImageVTC}
     heroImageWebp={heroImageVTCWebp}
     badge="Formation VTC"
     badgeIcon={Car}
-    heading="Formation VTC Initiale à Montrouge — à partir de 990€"
+    heading="Formation VTC Initiale à Montrouge — en salle ou en ligne"
     subheading="Devenez chauffeur VTC et travaillez avec Uber, Bolt, Heetch. Formation complète incluant gestion d'entreprise et relation client premium."
     duration="Journée ou soir, en salle"
     price={tarifs.initiale}
@@ -96,7 +96,7 @@ const FormationVTC = () => (
       { title: "Formation VTC accessible depuis Paris sud, le 92 et le 94", text: "Situé à Montrouge, au carrefour de Paris sud et des Hauts-de-Seine (92), notre centre de formation VTC est facilement accessible depuis le 92 (Bagneux, Malakoff, Châtillon, Vanves, Boulogne-Billancourt, Nanterre, Colombes) et le 94 (Créteil, Ivry-sur-Seine, Vitry-sur-Seine, Villejuif, Arcueil). Le métro ligne 4 (station Mairie de Montrouge) est à 8 minutes à pied. Que vous cherchiez une formation VTC dans le 92 ou une formation VTC dans le 94, ECOLE T3P accueille les candidats des deux départements." },
     ]}
     relatedLinks={[
-      { title: "Formation Taxi initiale à Montrouge", desc: "Obtenez votre carte professionnelle Taxi — à partir de 990€", path: "/formations/taxi" },
+      { title: "Formation Taxi initiale à Montrouge", desc: "Obtenez votre carte professionnelle Taxi — 990€ en salle, 596€ en ligne", path: "/formations/taxi" },
       { title: "Formation VMDTR moto-taxi", desc: "Devenez conducteur moto-taxi professionnel", path: "/formations/vmdtr" },
       { title: "Passerelle VTC ↔ Taxi", desc: "Double carte professionnelle en 14h — 665€", path: "/passerelle-vtc-taxi" },
       { title: "Renouvellement carte professionnelle VTC", desc: "Formation continue obligatoire tous les 5 ans", path: "/renouvellement-carte-professionnelle" },
