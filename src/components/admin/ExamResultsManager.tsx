@@ -143,7 +143,7 @@ const ExamResultsManager = () => {
         const single = await extractPdfPage(pdfBytes, page.pageIndex);
         const { error: uploadError } = await supabase.storage
           .from(BUCKET)
-          .upload(path, new Blob([single], { type: "application/pdf" }), { upsert: true, contentType: "application/pdf" });
+          .upload(path, new Blob([single as BlobPart], { type: "application/pdf" }), { upsert: true, contentType: "application/pdf" });
         if (uploadError) throw uploadError;
         const { error } = await supabase
           .from("exam_results")

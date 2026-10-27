@@ -27,16 +27,19 @@ create table public.exam_results (
 
 create index exam_results_lookup_idx on public.exam_results (dossier_number, birth_date);
 
+grant select, insert, update, delete on public.exam_results to authenticated;
+grant all on public.exam_results to service_role;
+
 alter table public.exam_results enable row level security;
 
 create policy "Admins can view exam results" on public.exam_results
-  for select to authenticated using (has_role(auth.uid(), 'admin'::app_role));
+  for select to authenticated using (private.has_role(auth.uid(), 'admin'::app_role));
 create policy "Admins can insert exam results" on public.exam_results
-  for insert to authenticated with check (has_role(auth.uid(), 'admin'::app_role));
+  for insert to authenticated with check (private.has_role(auth.uid(), 'admin'::app_role));
 create policy "Admins can update exam results" on public.exam_results
-  for update to authenticated using (has_role(auth.uid(), 'admin'::app_role));
+  for update to authenticated using (private.has_role(auth.uid(), 'admin'::app_role));
 create policy "Admins can delete exam results" on public.exam_results
-  for delete to authenticated using (has_role(auth.uid(), 'admin'::app_role));
+  for delete to authenticated using (private.has_role(auth.uid(), 'admin'::app_role));
 
 create trigger update_exam_results_updated_at
   before update on public.exam_results
@@ -53,23 +56,23 @@ create table public.exam_result_lookups (
 
 create index exam_result_lookups_ip_idx on public.exam_result_lookups (ip_hash, created_at);
 
+grant all on public.exam_result_lookups to service_role;
+
 alter table public.exam_result_lookups enable row level security;
 -- Aucune policy : inaccessible à anon/authenticated, service_role uniquement.
 
 -- Bucket privé des attestations (une par candidat)
-insert into storage.buckets (id, name, public)
-values ('exam-attestations', 'exam-attestations', false)
-on conflict (id) do nothing;
+-- (bucket créé via l'outil de stockage, pas en SQL)
 
 create policy "Admins can read exam attestations" on storage.objects
   for select to authenticated
-  using (bucket_id = 'exam-attestations' and has_role(auth.uid(), 'admin'::app_role));
+  using (bucket_id = 'exam-attestations' and private.has_role(auth.uid(), 'admin'::app_role));
 create policy "Admins can upload exam attestations" on storage.objects
   for insert to authenticated
-  with check (bucket_id = 'exam-attestations' and has_role(auth.uid(), 'admin'::app_role));
+  with check (bucket_id = 'exam-attestations' and private.has_role(auth.uid(), 'admin'::app_role));
 create policy "Admins can update exam attestations" on storage.objects
   for update to authenticated
-  using (bucket_id = 'exam-attestations' and has_role(auth.uid(), 'admin'::app_role));
+  using (bucket_id = 'exam-attestations' and private.has_role(auth.uid(), 'admin'::app_role));
 create policy "Admins can delete exam attestations" on storage.objects
   for delete to authenticated
-  using (bucket_id = 'exam-attestations' and has_role(auth.uid(), 'admin'::app_role));
+  using (bucket_id = 'exam-attestations' and private.has_role(auth.uid(), 'admin'::app_role));
