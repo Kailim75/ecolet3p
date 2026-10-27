@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { 
   Users, Mail, FileText, LogOut, Download, Trash2, 
   RefreshCw, Search, Filter, ChevronDown, Loader2,
-  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send, BarChart3, ArrowRightLeft, GraduationCap
+  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send, BarChart3, ArrowRightLeft, GraduationCap, Car
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -45,8 +45,9 @@ import AdminDashboard from "@/components/admin/AdminDashboard";
 import SEODashboard from "@/components/admin/SEODashboard";
 import RedirectsManager from "@/components/admin/RedirectsManager";
 import ExamResultsManager from "@/components/admin/ExamResultsManager";
+import DrivingSlotsManager from "@/components/admin/DrivingSlotsManager";
 
-type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails" | "redirects" | "results";
+type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails" | "redirects" | "results" | "driving";
 
 interface NewsletterSubscriber {
   id: string;
@@ -543,6 +544,17 @@ const Admin = () => {
                 <GraduationCap className="w-4 h-4 inline-block mr-2" />
                 Résultats
               </button>
+              <button
+                onClick={() => { setActiveTab("driving"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors whitespace-nowrap ${
+                  activeTab === "driving"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <Car className="w-4 h-4 inline-block mr-2" />
+                Conduite
+              </button>
             </div>
           </div>
 
@@ -568,6 +580,10 @@ const Admin = () => {
           ) : activeTab === "results" ? (
             <div className="p-6">
               <ExamResultsManager />
+            </div>
+          ) : activeTab === "driving" ? (
+            <div className="p-6">
+              <DrivingSlotsManager />
             </div>
           ) : (
             <>

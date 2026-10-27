@@ -95,6 +95,13 @@ Deno.serve(async (req) => {
       return reply({ status: "not_found" });
     }
 
+    const { data: documents } = await supabaseAdmin
+      .from("student_documents")
+      .select("title, description, file_path, audience, exam_categories")
+      .eq("is_published", true)
+      .order("sort_order")
+      .order("created_at");
+
     const results = await Promise.all(rows.map(async ({ attestation_path, ...row }) => {
       let attestationUrl: string | null = null;
       if (attestation_path) {
@@ -105,7 +112,22 @@ Deno.serve(async (req) => {
           });
         attestationUrl = signed?.signedUrl ?? null;
       }
-      return { ...row, attestationUrl };
+
+      // Documents pédagogiques ciblés : public (admis / non admis) et catégorie (TAXI, VTC, VMDTR)
+      const category = row.exam_type.trim().split(/\s+/)[0]?.toUpperCase() ?? "";
+      const matching = (documents ?? []).filter((d) =>
+        (d.audience === "all" || d.audience === row.result)
+        && (!d.exam_categories?.length || d.exam_categories.includes(category))
+      );
+      const docs = (await Promise.all(matching.map(async (d) => {
+        const fileName = d.file_path.split("/").pop() ?? "document.pdf";
+        const { data: signed } = await supabaseAdmin.storage
+          .from("exam-attestations")
+          .createSignedUrl(d.file_path, SIGNED_URL_SECONDS, { download: fileName });
+        return signed?.signedUrl ? { title: d.title, description: d.description, url: signed.signedUrl } : null;
+      }))).filter(Boolean);
+
+      return { ...row, attestationUrl, documents: docs };
     }));
 
     return reply({ status: "found", results });
