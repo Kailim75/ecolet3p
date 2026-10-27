@@ -72,7 +72,7 @@ const ExamResultsManager = () => {
   const [publishing, setPublishing] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  // Saisie manuelle (non-admis sans attestation)
+  // Saisie manuelle (candidat sans attestation)
   const [showManual, setShowManual] = useState(false);
   const [manual, setManual] = useState(emptyManual);
   const [manualSession, setManualSession] = useState("");
@@ -325,7 +325,7 @@ const ExamResultsManager = () => {
 
       {showManual && (
         <div className="bg-card rounded-xl border p-5 space-y-4">
-          <p className="font-semibold">Ajouter un résultat sans attestation (ex. non-admis)</p>
+          <p className="font-semibold">Ajouter un résultat sans attestation PDF</p>
           <div className="grid gap-3 md:grid-cols-4">
             <div className="space-y-1"><Label>Session</Label><Input placeholder="Septembre 2026" value={manualSession} onChange={(e) => setManualSession(e.target.value)} /></div>
             <div className="space-y-1"><Label>N° de dossier</Label><Input inputMode="numeric" value={manual.dossier} onChange={(e) => setManual({ ...manual, dossier: e.target.value })} /></div>

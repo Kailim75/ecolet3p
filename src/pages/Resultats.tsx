@@ -131,7 +131,7 @@ const ResultCard = ({ r }: { r: PublicExamResult }) => {
             </Button>
           </div>
         ) : (
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
             <Button asChild size="lg">
               <Link to="/calendrier-examens">
                 <CalendarDays className="w-4 h-4 mr-2" /> Voir la prochaine session
@@ -142,6 +142,13 @@ const ResultCard = ({ r }: { r: PublicExamResult }) => {
                 Être rappelé pour me réinscrire <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
+            {r.attestationUrl && (
+              <Button asChild size="lg" variant="ghost">
+                <a href={r.attestationUrl} download>
+                  <Download className="w-4 h-4 mr-2" /> Mon attestation (PDF)
+                </a>
+              </Button>
+            )}
           </div>
         )}
       </div>

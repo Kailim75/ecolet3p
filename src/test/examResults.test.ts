@@ -38,7 +38,35 @@ A - Réglementation du T3P 3 6/20 15/20
 B - Gestion 2 6/20 4/20
 Note globale à l’admissibilité du 29/09/2026 à CENTREX / EXATECH 12,24/20`;
 
+// Gabarit « ATTESTATION D'ÉCHEC » de la CMA, données fictives
+const ECHEC_CMA = `ATTESTATION D'ÉCHEC AUX ÉPREUVES
+D’ADMISSIBILITÉ
+de l’examen d’accès à la profession de conducteur de
+TAXI
+et considérant que la réussite aux épreuves d’admissibilité est subordonnée à l’obtention d’une note globale
+supérieure ou égale à 10/20, sans note éliminatoire,
+Monsieur Ali TEST,
+Né le 31/08/1979 à TUNIS (TUNISIE) demeurant : 1 AV EXEMPLE - 92220
+BAGNEUX
+Numéro de dossier : 00099998 - Département d'exercice : 75
+est considéré NON ADMISSIBLE au passage de l’épreuve pratique TAXI Complète
+FT - Connaissance du territoire 3 6/20 4/20
+GT - Réglementation nationale 3 6/20 13/20
+Note globale à l’admissibilité du 29/09/2026 à CENTREX / EXATECH 12,24/20`;
+
 describe("parseAttestationText", () => {
+  it("lit une attestation d'échec CMA (NON ADMISSIBLE)", () => {
+    const r = parseAttestationText(ECHEC_CMA)!;
+    expect(r).toMatchObject({
+      dossier_number: "00099998",
+      exam_type: "TAXI Complète",
+      exam_date: "2026-09-29",
+      global_score: 12.24,
+      result: "non_admis",
+      comment: "Note éliminatoire : Connaissance du territoire (4,00/20)",
+    });
+  });
+
   it("lit une attestation d'admissibilité complète", () => {
     const r = parseAttestationText(ADMIS)!;
     expect(r).toMatchObject({
