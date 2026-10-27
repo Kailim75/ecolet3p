@@ -24,6 +24,7 @@ export const PROTECTED_ROUTES = new Set([
   "/guide-formation/pdf",
   "/paiement",
   "/calendrier-examens",
+  "/resultats",
   "/services/location-vehicule-examen",
   "/passerelle-vtc-taxi",
   "/formation-accessibilite-pmr",

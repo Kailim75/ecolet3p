@@ -72,6 +72,7 @@ const FormationRenouvellement = lazy(() => import("./pages/FormationRenouvelleme
 const AuditRentabilite = lazy(() => import("./pages/SimulateurRevenus"));
 const AuditRentabiliteChauffeur = lazy(() => import("./pages/AuditRentabiliteChauffeur"));
 const FormationDepartement = lazy(() => import("./pages/FormationDepartement"));
+const Resultats = lazy(() => import("./pages/Resultats"));
 
 const queryClient = new QueryClient();
 
@@ -126,6 +127,7 @@ const App = () => {
                       <Route path="/guide-formation/pdf" element={<GuideFormationPDF />} />
                       <Route path="/paiement" element={<Paiement />} />
                       <Route path="/calendrier-examens" element={<CalendrierExamens />} />
+                      <Route path="/resultats" element={<Resultats />} />
                       <Route path="/services/location-vehicule-examen" element={<LocationVehiculeExamen />} />
                       <Route path="/passerelle-vtc-taxi" element={<PasserelleVtcTaxi />} />
                       <Route path="/formation-accessibilite-pmr" element={<FormationAccessibilitePMR />} />
