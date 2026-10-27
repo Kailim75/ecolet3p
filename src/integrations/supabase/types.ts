@@ -89,6 +89,90 @@ export type Database = {
         }
         Relationships: []
       }
+      driving_bookings: {
+        Row: {
+          cancelled_at: string | null
+          created_at: string
+          exam_result_id: string
+          id: string
+          phone: string
+          slot_id: string
+          status: string
+        }
+        Insert: {
+          cancelled_at?: string | null
+          created_at?: string
+          exam_result_id: string
+          id?: string
+          phone: string
+          slot_id: string
+          status?: string
+        }
+        Update: {
+          cancelled_at?: string | null
+          created_at?: string
+          exam_result_id?: string
+          id?: string
+          phone?: string
+          slot_id?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "driving_bookings_exam_result_id_fkey"
+            columns: ["exam_result_id"]
+            isOneToOne: false
+            referencedRelation: "exam_results"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "driving_bookings_slot_id_fkey"
+            columns: ["slot_id"]
+            isOneToOne: false
+            referencedRelation: "driving_slots"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      driving_slots: {
+        Row: {
+          capacity: number
+          created_at: string
+          duration_minutes: number
+          exam_categories: string[]
+          id: string
+          is_open: boolean
+          location: string
+          notes: string | null
+          starts_at: string
+          updated_at: string
+        }
+        Insert: {
+          capacity?: number
+          created_at?: string
+          duration_minutes?: number
+          exam_categories?: string[]
+          id?: string
+          is_open?: boolean
+          location?: string
+          notes?: string | null
+          starts_at: string
+          updated_at?: string
+        }
+        Update: {
+          capacity?: number
+          created_at?: string
+          duration_minutes?: number
+          exam_categories?: string[]
+          id?: string
+          is_open?: boolean
+          location?: string
+          notes?: string | null
+          starts_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       email_logs: {
         Row: {
           created_at: string
@@ -639,6 +723,42 @@ export type Database = {
           },
         ]
       }
+      student_documents: {
+        Row: {
+          audience: string
+          created_at: string
+          description: string | null
+          exam_categories: string[]
+          file_path: string
+          id: string
+          is_published: boolean
+          sort_order: number
+          title: string
+        }
+        Insert: {
+          audience?: string
+          created_at?: string
+          description?: string | null
+          exam_categories?: string[]
+          file_path: string
+          id?: string
+          is_published?: boolean
+          sort_order?: number
+          title: string
+        }
+        Update: {
+          audience?: string
+          created_at?: string
+          description?: string | null
+          exam_categories?: string[]
+          file_path?: string
+          id?: string
+          is_published?: boolean
+          sort_order?: number
+          title?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -665,6 +785,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      book_driving_slot: {
+        Args: {
+          p_exam_result_id: string
+          p_max_active?: number
+          p_min_notice?: string
+          p_phone: string
+          p_slot_id: string
+        }
+        Returns: string
+      }
       get_simulation_count: { Args: never; Returns: number }
     }
     Enums: {
