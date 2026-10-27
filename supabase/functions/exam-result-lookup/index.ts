@@ -23,6 +23,8 @@ const buildCorsHeaders = (origin: string | null) => {
 const MAX_FAILED_ATTEMPTS = 8;
 const WINDOW_MINUTES = 60;
 const SIGNED_URL_SECONDS = 600;
+// Renvoyée dans chaque réponse : permet de vérifier quelle version est déployée
+const FUNCTION_VERSION = "2026-10-27.2-documents";
 
 const sha256 = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -33,7 +35,7 @@ Deno.serve(async (req) => {
   const corsHeaders = buildCorsHeaders(req.headers.get("origin"));
   // Toujours 200 + champ status : supabase.functions.invoke masque le corps des réponses non-2xx
   const reply = (body: Record<string, unknown>) =>
-    new Response(JSON.stringify(body), {
+    new Response(JSON.stringify({ ...body, version: FUNCTION_VERSION }), {
       headers: { ...corsHeaders, "Content-Type": "application/json", "Cache-Control": "no-store" },
     });
 

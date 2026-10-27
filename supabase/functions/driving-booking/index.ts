@@ -27,6 +27,8 @@ const MAX_ACTIVE_BOOKINGS = 3;
 const MIN_NOTICE_HOURS = 12;
 const CANCEL_NOTICE_HOURS = 24;
 const HORIZON_DAYS = 60;
+// Renvoyée dans chaque réponse : permet de vérifier quelle version est déployée
+const FUNCTION_VERSION = "2026-10-27.1";
 
 const sha256 = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -39,7 +41,7 @@ Deno.serve(async (req) => {
   const corsHeaders = buildCorsHeaders(req.headers.get("origin"));
   // Toujours 200 + champ status : supabase.functions.invoke masque le corps des réponses non-2xx
   const reply = (body: Record<string, unknown>) =>
-    new Response(JSON.stringify(body), {
+    new Response(JSON.stringify({ ...body, version: FUNCTION_VERSION }), {
       headers: { ...corsHeaders, "Content-Type": "application/json", "Cache-Control": "no-store" },
     });
 
