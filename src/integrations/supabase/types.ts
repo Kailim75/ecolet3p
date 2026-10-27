@@ -117,7 +117,22 @@ export type Database = {
           slot_id?: string
           status?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "driving_bookings_exam_result_id_fkey"
+            columns: ["exam_result_id"]
+            isOneToOne: false
+            referencedRelation: "exam_results"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "driving_bookings_slot_id_fkey"
+            columns: ["slot_id"]
+            isOneToOne: false
+            referencedRelation: "driving_slots"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       driving_slots: {
         Row: {
@@ -770,6 +785,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      book_driving_slot: {
+        Args: {
+          p_exam_result_id: string
+          p_max_active?: number
+          p_min_notice?: string
+          p_phone: string
+          p_slot_id: string
+        }
+        Returns: string
+      }
       get_simulation_count: { Args: never; Returns: number }
     }
     Enums: {
