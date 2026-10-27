@@ -14,6 +14,7 @@ import {
 } from "@/lib/examResults";
 import { readAttestationPdf, extractPdfPage, type AttestationPage } from "@/lib/attestationPdf";
 import { SITE_URL } from "@/lib/siteConfig";
+import StudentDocumentsManager from "@/components/admin/StudentDocumentsManager";
 
 interface ExamResultRow {
   id: string;
@@ -322,6 +323,8 @@ const ExamResultsManager = () => {
           </div>
         )}
       </div>
+
+      <StudentDocumentsManager />
 
       {showManual && (
         <div className="bg-card rounded-xl border p-5 space-y-4">

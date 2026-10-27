@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
-  CheckCircle2, XCircle, Download, Loader2, Search, ShieldCheck, ArrowRight, Car, CalendarDays, Phone, AlertTriangle,
+  CheckCircle2, XCircle, Download, Loader2, Search, ShieldCheck, ArrowRight, CalendarDays, Phone, AlertTriangle, FileText,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
+import DrivingPlanner, { type LookupCredentials } from "@/components/resultats/DrivingPlanner";
 import {
   frDateToIso, isoDateToFr, formatScore, type ExamSubject, type ExamResultStatus,
 } from "@/lib/examResults";
@@ -26,11 +27,12 @@ interface PublicExamResult {
   comment: string | null;
   dossier_number: string;
   attestationUrl: string | null;
+  documents?: { title: string; description: string | null; url: string }[];
 }
 
 type LookupState =
   | { status: "idle" | "loading" }
-  | { status: "found"; results: PublicExamResult[] }
+  | { status: "found"; results: PublicExamResult[]; credentials: LookupCredentials }
   | { status: "not_found" | "rate_limited" | "error" | "invalid" };
 
 /** Saisie guidée JJ/MM/AAAA */
@@ -39,7 +41,7 @@ const formatBirthInput = (value: string) => {
   return [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4)].filter(Boolean).join("/");
 };
 
-const ResultCard = ({ r }: { r: PublicExamResult }) => {
+const ResultCard = ({ r, credentials, showPlanner }: { r: PublicExamResult; credentials: LookupCredentials; showPlanner: boolean }) => {
   const admis = r.result === "admis";
   return (
     <article className={`rounded-2xl border-2 bg-white shadow-sm overflow-hidden ${admis ? "border-green-500" : "border-red-300"}`}>
@@ -124,11 +126,6 @@ const ResultCard = ({ r }: { r: PublicExamResult }) => {
                 Votre attestation sera disponible prochainement sur cette page.
               </p>
             )}
-            <Button asChild size="lg" variant="outline">
-              <Link to="/services/location-vehicule-examen">
-                <Car className="w-4 h-4 mr-2" /> Préparer l'épreuve pratique
-              </Link>
-            </Button>
           </div>
         ) : (
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
@@ -151,6 +148,29 @@ const ResultCard = ({ r }: { r: PublicExamResult }) => {
             )}
           </div>
         )}
+
+        {r.documents && r.documents.length > 0 && (
+          <div className="space-y-2">
+            <p className="font-semibold text-sm">{admis ? "Pour préparer l'épreuve pratique" : "Pour retravailler avant la prochaine session"}</p>
+            {r.documents.map((d) => (
+              <a
+                key={d.title}
+                href={d.url}
+                download
+                className="flex items-start gap-3 rounded-lg border p-3 hover:border-primary hover:bg-muted/40 transition-colors"
+              >
+                <FileText className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
+                <span className="flex-1">
+                  <span className="block font-medium">{d.title}</span>
+                  {d.description && <span className="block text-sm text-muted-foreground">{d.description}</span>}
+                </span>
+                <Download className="w-4 h-4 text-muted-foreground shrink-0 mt-1" aria-hidden />
+              </a>
+            ))}
+          </div>
+        )}
+
+        {admis && showPlanner && <DrivingPlanner credentials={credentials} />}
       </div>
     </article>
   );
@@ -176,7 +196,9 @@ const Resultats = () => {
       setState({ status: "error" });
       return;
     }
-    setState(data.status === "found" ? { status: "found", results: data.results } : { status: data.status });
+    setState(data.status === "found"
+      ? { status: "found", results: data.results, credentials: { dossierNumber: dossier, birthDate } }
+      : { status: data.status });
   };
 
   const messages: Partial<Record<LookupState["status"], string>> = {
@@ -251,8 +273,14 @@ const Resultats = () => {
                 <p>{message}</p>
               </div>
             )}
-            {state.status === "found" && state.results.map((r) => (
-              <ResultCard key={`${r.session_label}-${r.exam_type}`} r={r} />
+            {state.status === "found" && state.results.map((r, i) => (
+              <ResultCard
+                key={`${r.session_label}-${r.exam_type}`}
+                r={r}
+                credentials={state.credentials}
+                // Une seule réservation par candidat : sur son résultat admis le plus récent
+                showPlanner={i === state.results.findIndex((x) => x.result === "admis")}
+              />
             ))}
           </div>
 
