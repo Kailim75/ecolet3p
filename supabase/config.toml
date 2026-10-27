@@ -29,3 +29,6 @@ verify_jwt = false
 
 [functions.notify-contact-request]
 verify_jwt = false
+
+[functions.exam-result-lookup]
+verify_jwt = false

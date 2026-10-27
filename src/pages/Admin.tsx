@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { 
   Users, Mail, FileText, LogOut, Download, Trash2, 
   RefreshCw, Search, Filter, ChevronDown, Loader2,
-  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send, BarChart3, ArrowRightLeft
+  CheckCircle, XCircle, Clock, BookOpen, Calendar, Send, BarChart3, ArrowRightLeft, GraduationCap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,8 +44,9 @@ import EmailLogsManager from "@/components/admin/EmailLogsManager";
 import AdminDashboard from "@/components/admin/AdminDashboard";
 import SEODashboard from "@/components/admin/SEODashboard";
 import RedirectsManager from "@/components/admin/RedirectsManager";
+import ExamResultsManager from "@/components/admin/ExamResultsManager";
 
-type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails" | "redirects";
+type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails" | "redirects" | "results";
 
 interface NewsletterSubscriber {
   id: string;
@@ -531,6 +532,17 @@ const Admin = () => {
                 <ArrowRightLeft className="w-4 h-4 inline-block mr-2" />
                 Redirections
               </button>
+              <button
+                onClick={() => { setActiveTab("results"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors whitespace-nowrap ${
+                  activeTab === "results"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <GraduationCap className="w-4 h-4 inline-block mr-2" />
+                Résultats
+              </button>
             </div>
           </div>
 
@@ -552,6 +564,10 @@ const Admin = () => {
           ) : activeTab === "redirects" ? (
             <div className="p-6">
               <RedirectsManager />
+            </div>
+          ) : activeTab === "results" ? (
+            <div className="p-6">
+              <ExamResultsManager />
             </div>
           ) : (
             <>

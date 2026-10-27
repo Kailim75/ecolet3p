@@ -125,6 +125,69 @@ export type Database = {
         }
         Relationships: []
       }
+      exam_results: {
+        Row: {
+          attestation_path: string | null
+          birth_date: string
+          civility: string | null
+          comment: string | null
+          created_at: string
+          department: string | null
+          dossier_number: string
+          exam_date: string | null
+          exam_type: string
+          expires_at: string
+          full_name: string
+          global_score: number | null
+          id: string
+          is_published: boolean
+          result: string
+          session_label: string
+          subjects: Json
+          updated_at: string
+        }
+        Insert: {
+          attestation_path?: string | null
+          birth_date: string
+          civility?: string | null
+          comment?: string | null
+          created_at?: string
+          department?: string | null
+          dossier_number: string
+          exam_date?: string | null
+          exam_type: string
+          expires_at?: string
+          full_name: string
+          global_score?: number | null
+          id?: string
+          is_published?: boolean
+          result: string
+          session_label: string
+          subjects?: Json
+          updated_at?: string
+        }
+        Update: {
+          attestation_path?: string | null
+          birth_date?: string
+          civility?: string | null
+          comment?: string | null
+          created_at?: string
+          department?: string | null
+          dossier_number?: string
+          exam_date?: string | null
+          exam_type?: string
+          expires_at?: string
+          full_name?: string
+          global_score?: number | null
+          id?: string
+          is_published?: boolean
+          result?: string
+          session_label?: string
+          subjects?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
       formation_sessions: {
         Row: {
           created_at: string
