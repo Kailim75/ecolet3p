@@ -89,75 +89,6 @@ export type Database = {
         }
         Relationships: []
       }
-      driving_bookings: {
-        Row: {
-          cancelled_at: string | null
-          created_at: string
-          exam_result_id: string
-          id: string
-          phone: string
-          slot_id: string
-          status: string
-        }
-        Insert: {
-          cancelled_at?: string | null
-          created_at?: string
-          exam_result_id: string
-          id?: string
-          phone: string
-          slot_id: string
-          status?: string
-        }
-        Update: {
-          cancelled_at?: string | null
-          created_at?: string
-          exam_result_id?: string
-          id?: string
-          phone?: string
-          slot_id?: string
-          status?: string
-        }
-        Relationships: []
-      }
-      driving_slots: {
-        Row: {
-          capacity: number
-          created_at: string
-          duration_minutes: number
-          exam_categories: string[]
-          id: string
-          is_open: boolean
-          location: string
-          notes: string | null
-          starts_at: string
-          updated_at: string
-        }
-        Insert: {
-          capacity?: number
-          created_at?: string
-          duration_minutes?: number
-          exam_categories?: string[]
-          id?: string
-          is_open?: boolean
-          location?: string
-          notes?: string | null
-          starts_at: string
-          updated_at?: string
-        }
-        Update: {
-          capacity?: number
-          created_at?: string
-          duration_minutes?: number
-          exam_categories?: string[]
-          id?: string
-          is_open?: boolean
-          location?: string
-          notes?: string | null
-          starts_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
       email_logs: {
         Row: {
           created_at: string
@@ -707,42 +638,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
-      }
-      student_documents: {
-        Row: {
-          audience: string
-          created_at: string
-          description: string | null
-          exam_categories: string[]
-          file_path: string
-          id: string
-          is_published: boolean
-          sort_order: number
-          title: string
-        }
-        Insert: {
-          audience?: string
-          created_at?: string
-          description?: string | null
-          exam_categories?: string[]
-          file_path: string
-          id?: string
-          is_published?: boolean
-          sort_order?: number
-          title: string
-        }
-        Update: {
-          audience?: string
-          created_at?: string
-          description?: string | null
-          exam_categories?: string[]
-          file_path?: string
-          id?: string
-          is_published?: boolean
-          sort_order?: number
-          title?: string
-        }
-        Relationships: []
       }
       user_roles: {
         Row: {
