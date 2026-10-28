@@ -189,9 +189,12 @@ const Resultats = () => {
       return;
     }
     setState({ status: "loading" });
-    const { data, error } = await supabase.functions.invoke("exam-result-lookup", {
-      body: { dossierNumber: dossier, birthDate },
-    });
+    const body = { dossierNumber: dossier, birthDate };
+    // exam-results-v2 renvoie aussi les documents ; repli sur l'ancienne fonction si elle n'est pas déployée
+    let { data, error } = await supabase.functions.invoke("exam-results-v2", { body });
+    if (error || !data?.status) {
+      ({ data, error } = await supabase.functions.invoke("exam-result-lookup", { body }));
+    }
     if (error || !data?.status) {
       setState({ status: "error" });
       return;
