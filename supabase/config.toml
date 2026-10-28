@@ -35,3 +35,6 @@ verify_jwt = false
 
 [functions.driving-booking]
 verify_jwt = false
+
+[functions.exam-results-v2]
+verify_jwt = false
