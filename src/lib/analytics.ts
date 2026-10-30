@@ -5,6 +5,11 @@ import { hasTrackingConsent, readCookieConsent, type CookiePreferences } from "@
 const GTM_ID = "GTM-KRJWD5VH";
 const GTM_SCRIPT_ID = "t3p-gtm-script";
 
+// Google Ads (AW-) base tag: remarketing + conversions. Installed as its own
+// gtag.js container, consent-gated exactly like GTM above.
+const GOOGLE_ADS_ID = "AW-18546542995";
+const GTAG_SCRIPT_ID = "t3p-gtag-script";
+
 const ensureDataLayer = (): void => {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
@@ -31,6 +36,34 @@ const loadGTM = (): void => {
   document.head.appendChild(script);
 };
 
+// Google Ads base tag. gtag.js reads commands from the same dataLayer queue as
+// GTM, so commands pushed before the script finishes loading are replayed in order.
+const isGtagLoaded = (): boolean => {
+  if (typeof window === "undefined") return false;
+  return Boolean(document.getElementById(GTAG_SCRIPT_ID));
+};
+
+const loadGtag = (): void => {
+  if (typeof window === "undefined" || isGtagLoaded()) return;
+
+  ensureDataLayer();
+  if (typeof window.gtag !== "function") {
+    window.gtag = function gtag(..._args: unknown[]) {
+      // eslint-disable-next-line prefer-rest-params -- gtag.js needs the Arguments object
+      window.dataLayer.push(arguments as unknown as Record<string, unknown>);
+    };
+  }
+
+  const script = document.createElement("script");
+  script.id = GTAG_SCRIPT_ID;
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`;
+  document.head.appendChild(script);
+
+  window.gtag("js", new Date());
+  window.gtag("config", GOOGLE_ADS_ID);
+};
+
 // Check if GTM dataLayer is available
 export const isGAEnabled = (): boolean => {
   return typeof window !== "undefined" && Array.isArray(window.dataLayer);
@@ -54,6 +87,7 @@ export const syncAnalyticsConsent = (prefs?: CookiePreferences | null): void => 
 
   if (hasTrackingConsent(consent)) {
     loadGTM();
+    loadGtag();
   }
 };
 
