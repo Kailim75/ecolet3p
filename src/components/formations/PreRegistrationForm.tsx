@@ -90,25 +90,28 @@ const PreRegistrationForm = ({
     setIsSubmitting(true);
 
     try {
-      // Insert into database
-      const { data: insertedData, error: dbError } = await supabase
+      // La table pre_registrations n'est pas lisible par les visiteurs (RLS : lecture réservée aux
+      // admins). Demander la ligne en retour (insert().select()) obligeait Postgres à la relire et
+      // faisait échouer l'enregistrement entier depuis le 18/01/2026 : on génère donc l'identifiant
+      // ici et on n'attend rien en retour.
+      const preRegistration = {
+        id: crypto.randomUUID(),
+        first_name: result.data.firstName,
+        last_name: result.data.lastName,
+        email: result.data.email,
+        phone: result.data.phone,
+        formation_title: formationTitle,
+        formation_duration: formationDuration,
+      };
+      const { error: dbError } = await supabase
         .from('pre_registrations')
-        .insert({
-          first_name: result.data.firstName,
-          last_name: result.data.lastName,
-          email: result.data.email,
-          phone: result.data.phone,
-          formation_title: formationTitle,
-          formation_duration: formationDuration,
-        })
-        .select()
-        .single();
+        .insert(preRegistration);
 
       if (dbError) {
         console.error('Database error:', dbError);
         toast({
           title: "Erreur",
-          description: "Une erreur est survenue. Veuillez réessayer.",
+          description: "L'envoi n'a pas abouti. Réessayez ou appelez-nous au 01 88 75 05 55.",
           variant: "destructive",
         });
         setIsSubmitting(false);
@@ -121,7 +124,7 @@ const PreRegistrationForm = ({
           body: {
             type: "INSERT",
             table: "pre_registrations",
-            record: insertedData
+            record: { ...preRegistration, created_at: new Date().toISOString() }
           }
         });
         console.log('Admin notification sent');
