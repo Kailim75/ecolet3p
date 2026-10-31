@@ -104,9 +104,9 @@ const FormationContinueVTC = () => (
       { question: "Quels documents apporter le jour de la formation ?", answer: "Vous devez présenter votre carte professionnelle VTC en cours de validité, une pièce d'identité (carte nationale d'identité ou passeport) et un justificatif de domicile de moins de 3 mois." },
     ]}
     blogLinks={[
-      { title: "Devenir chauffeur VTC en 2026", description: "Le guide complet pour obtenir votre carte professionnelle VTC.", path: "/blog/devenir-chauffeur-vtc-2026" },
-      { title: "Formation continue : ce qui change", description: "Les évolutions réglementaires 2026 pour les chauffeurs T3P.", path: "/blog/formation-continue-chauffeur-t3p" },
-      { title: "Financer sa formation de chauffeur", description: "Toutes les options de financement disponibles.", path: "/blog/financer-formation-chauffeur" },
+      { title: "Devenir chauffeur VTC en 2026", description: "Le guide complet pour obtenir votre carte professionnelle VTC.", path: "/blog/comment-devenir-chauffeur-vtc-2026" },
+      { title: "Renouvellement carte pro : formation continue obligatoire", description: "Ce que prévoit la formation continue pour renouveler votre carte.", path: "/blog/formation-continue-renouvellement-carte-professionnelle" },
+      { title: "Payer sa formation en 4× sans frais avec Alma", description: "Les facilités de paiement pour financer votre formation de chauffeur.", path: "/blog/facilites-paiement-formation-taxi-vtc" },
     ]}
     relatedLinks={[
       { title: "Formation VTC Initiale", desc: "Obtenez votre carte professionnelle VTC — 990€ en salle, 596€ en ligne", path: "/formations/vtc" },

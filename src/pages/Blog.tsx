@@ -82,7 +82,7 @@ const Blog = () => {
     "publisher": {
       "@type": "Organization",
       "name": "ECOLE T3P",
-      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg" }
+      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/images/ecole-t3p-logo-color.png" }
     },
     "blogPost": blogArticlesMeta.map(article => ({
       "@type": "BlogPosting",

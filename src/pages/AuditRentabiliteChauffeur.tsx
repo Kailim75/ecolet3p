@@ -40,7 +40,7 @@ const localBusinessSchema = {
   telephone: "+33188750555",
   email: "montrouge@ecolet3p.fr",
   image: "https://ecolet3p.fr/og-image.jpg",
-  logo: "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg",
+  logo: "https://ecolet3p.fr/images/ecole-t3p-logo-color.png",
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
@@ -391,7 +391,7 @@ export default function AuditRentabiliteChauffeur() {
             </div>
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-primary shrink-0" />
-              <a href="tel:0188750555" className="font-semibold text-foreground hover:text-primary transition-colors">01 88 75 05 55</a>
+              <a href="tel:+33188750555" className="font-semibold text-foreground hover:text-primary transition-colors">01 88 75 05 55</a>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-primary shrink-0" />
@@ -436,7 +436,7 @@ export default function AuditRentabiliteChauffeur() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <WhatsAppCTA />
-              <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
+              <a href="tel:+33188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
               </a>
             </div>

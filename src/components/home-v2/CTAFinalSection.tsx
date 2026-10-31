@@ -39,7 +39,7 @@ const CTAFinalSection = () => {
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </Link>
           <a
-            href="tel:0188750555"
+            href="tel:+33188750555"
             className="inline-flex items-center justify-center gap-2 text-white/75 hover:text-white text-[13px] md:text-base font-semibold transition-colors py-2.5 rounded-xl border border-white/15 sm:border-0 sm:py-2"
           >
             <Phone className="w-4 h-4 md:w-5 md:h-5" />

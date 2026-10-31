@@ -23,6 +23,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import tarifs from "@/data/tarifs.json";
 import { trackLeadConversion } from "@/lib/trackConversion";
+import { analytics } from "@/lib/analytics";
+import { EMAIL_REGEX, FRENCH_PHONE_REGEX } from "@/lib/formValidation";
 
 // Context is in QuoteModalContext.tsx — import useQuoteModal/QuoteModalProvider from there
 
@@ -39,9 +41,15 @@ const formations = [
 const contactSchema = z.object({
   firstName: z.string().trim().min(2, "Prénom requis (min 2 caractères)").max(50),
   lastName: z.string().trim().min(2, "Nom requis (min 2 caractères)").max(50),
-  email: z.string().trim().email("Email invalide").max(100),
-  phone: z.string().trim().min(10, "Numéro invalide (min 10 chiffres)").max(15),
+  email: z.string().trim().regex(EMAIL_REGEX, "Email invalide").max(100),
+  // Mêmes règles que le formulaire de contact (avant : 10 à 15 caractères quelconques).
+  phone: z.string().trim().refine((v) => FRENCH_PHONE_REGEX.test(v.replace(/\s/g, "")), "Numéro français invalide"),
 });
+
+// Une présélection inconnue (ex. « t3p ») ne coche rien mais laissait passer l'étape 1 et
+// partait telle quelle en base : on ne garde qu'une formation de la liste.
+const formationValide = (value?: string) =>
+  formations.some((f) => f.value === value) ? (value as string) : "";
 
 // ── Main modal ────────────────────────────────────────
 const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isOpen: boolean; onClose: () => void; preselectedFormation?: string }) => {
@@ -51,7 +59,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const [formation, setFormation] = useState(preselectedFormation);
+  const [formation, setFormation] = useState(formationValide(preselectedFormation));
   const [contact, setContact] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -59,7 +67,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
   const totalSteps = 3;
 
   useEffect(() => {
-    if (preselectedFormation) setFormation(preselectedFormation);
+    if (preselectedFormation) setFormation(formationValide(preselectedFormation));
   }, [preselectedFormation]);
 
   const goNext = () => { setDirection(1); setStep((s) => Math.min(s + 1, totalSteps)); };
@@ -103,20 +111,28 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
       if (dbError) throw dbError;
 
+      // notify-new-registration ignorait ce corps (« Ignored » : elle n'attend que
+      // { type: "INSERT", table: "pre_registrations", record }) et n'affiche aucun message.
+      // notify-contact-request est la seule notification existante qui transmet un message, et ses
+      // codes de formation (taxi, vtc, vmdtr, mobilite, continue, recup-points) sont ceux de cette liste.
+      // La table pre_registrations n'a pas de colonne message : le message n'existe que dans cet e-mail.
       try {
-        await supabase.functions.invoke("notify-new-registration", {
+        const precisions = message.trim();
+        await supabase.functions.invoke("notify-contact-request", {
           body: {
-            firstName: result.data.firstName,
-            lastName: result.data.lastName,
-            email: result.data.email,
-            phone: result.data.phone,
-            formationTitle: formationLabel,
-            message,
+            record: {
+              full_name: `${result.data.firstName} ${result.data.lastName}`,
+              email: result.data.email,
+              phone: result.data.phone,
+              formation: formation || null,
+              message: precisions ? `Demande de devis — ${precisions}` : "Demande de devis (sans message).",
+            },
           },
         });
       } catch { /* non-blocking */ }
 
       trackLeadConversion();
+      analytics.trackFormSubmission("devis");
       setIsSuccess(true);
       toast({ title: "Demande envoyée !", description: "Nous vous recontacterons sous 24h." });
       setTimeout(resetAndClose, 2500);
@@ -129,7 +145,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
   const resetAndClose = () => {
     setStep(1); setDirection(1);
-    setFormation(preselectedFormation || "");
+    setFormation(formationValide(preselectedFormation));
     setContact({ firstName: "", lastName: "", email: "", phone: "" });
     setMessage(""); setErrors({}); setIsSuccess(false);
     onClose();

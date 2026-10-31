@@ -35,19 +35,14 @@ const assets: LogoAsset[] = [
     format: "SVG",
     background: "dark",
   },
+  // Les fichiers « logo transparent » et « logo HD impression » n'existent pas dans public/
+  // (images cassées relevées par l'audit du 31/10/2026) : remplacés par le fichier HD existant.
   {
-    label: "Logo transparent (PNG)",
-    description: "Version transparente fond blanc pour impression",
-    path: "/images/ecole-t3p-logo-transparent.png",
+    label: "Logo fond vert HD (PNG)",
+    description: "Version haute résolution (1024 px) sur fond vert",
+    path: "/images/ecole-t3p-logo-white-bg.png",
     format: "PNG",
-    background: "transparent",
-  },
-  {
-    label: "Logo HD Impression (PNG)",
-    description: "Version haute résolution pour supports print",
-    path: "/images/ecole-t3p-logo-print-hd.png",
-    format: "PNG",
-    background: "light",
+    background: "dark",
   },
   {
     label: "Monogramme couleur (SVG)",
@@ -66,7 +61,7 @@ const assets: LogoAsset[] = [
   {
     label: "Favicon (SVG)",
     description: "Icône navigateur optimisée",
-    path: "/logo/ecole-t3p-favicon.svg",
+    path: "/favicon.svg",
     format: "SVG",
     background: "light",
   },

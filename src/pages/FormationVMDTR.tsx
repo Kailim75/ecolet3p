@@ -40,7 +40,7 @@ const FormationVMDTR = () => (
     ]}
     blogLinks={[
       { title: "Formation VMDTR 2026 : devenir conducteur moto-taxi", desc: "Guide complet du métier de moto-taxi en France", path: "/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi" },
-      { title: "Moto-taxi VMDTR : tout savoir sur le métier", desc: "Réglementation, équipements, revenus et perspectives", path: "/blog/moto-taxi-vmdtr" },
+      { title: "VMDTR : scooter ou moto pour le transport de passagers ?", desc: "Devenir conducteur de moto-taxi ou de scooter professionnel", path: "/blog/formation-vmdtr-moto-taxi-scooter" },
       { title: "VTC, Taxi ou VMDTR : quel métier choisir en 2026 ?", desc: "Comparaison complète des 3 professions T3P", path: "/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir" },
     ]}
     premiumPrice={1190}

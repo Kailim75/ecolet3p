@@ -1,5 +1,12 @@
 export const COOKIE_CONSENT_KEY = "t3p_cookie_consent";
 export const COOKIE_CONSENT_EVENT = "t3p-cookie-consent-changed";
+// Rouvre le bandeau (lien « Gérer les cookies » du pied de page).
+export const COOKIE_SETTINGS_OPEN_EVENT = "t3p-cookie-settings-open";
+
+export const openCookieSettings = (): void => {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(COOKIE_SETTINGS_OPEN_EVENT));
+};
 
 export interface CookiePreferences {
   essential: boolean;

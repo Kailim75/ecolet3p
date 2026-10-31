@@ -447,7 +447,7 @@ const FormationMontrouge = () => {
                 <Calendar className="w-5 h-5 mr-2" /> Prendre rendez-vous
               </Link>
             </Button>
-            <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2">
+            <a href="tel:+33188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2">
               <Phone className="w-5 h-5" /> 01 88 75 05 55
             </a>
           </div>

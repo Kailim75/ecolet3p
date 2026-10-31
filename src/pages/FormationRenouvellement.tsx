@@ -231,7 +231,7 @@ const FormationRenouvellement = () => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className="btn-cta-orange px-8 py-4 text-base font-bold rounded-lg inline-flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
@@ -522,7 +522,7 @@ const FormationRenouvellement = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="tel:0188750555"
+              href="tel:+33188750555"
               className="btn-cta-orange px-8 py-4 font-bold rounded-lg inline-flex items-center gap-2"
             >
               <Phone className="w-5 h-5" /> 01 88 75 05 55

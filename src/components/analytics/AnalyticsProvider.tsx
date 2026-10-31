@@ -14,7 +14,10 @@ export const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
   // Initialize GA on mount
   useEffect(() => {
     initGA();
-    const handleConsentChange = () => syncAnalyticsConsent();
+    // Retrait d'un accord : une balise déjà chargée ne se décharge pas, on recharge la page.
+    const handleConsentChange = () => {
+      if (syncAnalyticsConsent()) window.location.reload();
+    };
     window.addEventListener(COOKIE_CONSENT_EVENT, handleConsentChange);
 
     return () => {

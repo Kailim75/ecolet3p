@@ -137,9 +137,9 @@ const FormationContinueVMDTR = () => (
       { question: "Comment se déroule la formation VMDTR sur 2 jours ?", answer: "La formation se déroule sur 2 jours consécutifs dans notre centre de Montrouge. Les modules alternent théorie (réglementation, gestion) et ateliers pratiques (sécurité, relation client). L'attestation est remise en fin de deuxième journée." },
     ]}
     blogLinks={[
-      { title: "Moto-taxi VMDTR : le guide complet", description: "Tout savoir sur le métier de conducteur VMDTR.", path: "/blog/moto-taxi-vmdtr-guide-complet" },
-      { title: "Formation continue : ce qui change", description: "Les évolutions réglementaires 2026 pour les chauffeurs T3P.", path: "/blog/formation-continue-chauffeur-t3p" },
-      { title: "Financer sa formation de chauffeur", description: "Toutes les options de financement disponibles.", path: "/blog/financer-formation-chauffeur" },
+      { title: "Formation VMDTR 2026 : devenir conducteur moto-taxi", description: "Tout savoir sur le métier de conducteur VMDTR.", path: "/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi" },
+      { title: "Renouvellement carte pro : formation continue obligatoire", description: "Ce que prévoit la formation continue pour renouveler votre carte.", path: "/blog/formation-continue-renouvellement-carte-professionnelle" },
+      { title: "Payer sa formation en 4× sans frais avec Alma", description: "Les facilités de paiement pour financer votre formation de chauffeur.", path: "/blog/facilites-paiement-formation-taxi-vtc" },
     ]}
     relatedLinks={[
       { title: "Formation VMDTR Initiale", desc: "Obtenez votre carte professionnelle VMDTR — 990€ tout compris", path: "/formations/vmdtr" },

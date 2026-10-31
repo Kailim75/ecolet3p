@@ -23,6 +23,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { analytics } from "@/lib/analytics";
 import { trackLeadConversion } from "@/lib/trackConversion";
 import {
+  isValidEmail,
+  isValidFrenchPhone,
+  MESSAGE_EMAIL_INVALIDE,
+  MESSAGE_TELEPHONE_INVALIDE,
+} from "@/lib/formValidation";
+import {
   ArrowLeftRight,
   CalendarDays,
   Car,
@@ -44,7 +50,7 @@ import {
 
 const contactInfo = [
   { icon: MapPin, title: "Adresse", content: "3 rue Corneille, 92120 Montrouge" },
-  { icon: Phone, title: "Téléphone", content: "01 88 75 05 55", href: "tel:0188750555" },
+  { icon: Phone, title: "Téléphone", content: "01 88 75 05 55", href: "tel:+33188750555" },
   { icon: Mail, title: "Email", content: "montrouge@ecolet3p.fr", href: "mailto:montrouge@ecolet3p.fr" },
   { icon: Clock, title: "Horaires", content: "Lun-Ven : 9h30-12h30 / 13h30-18h00" },
   { icon: Train, title: "Accès", content: "Métro ligne 4 : Mairie de Montrouge" },
@@ -63,7 +69,7 @@ const actionCards = [
   {
     title: "Appeler maintenant",
     description: "Parler à un conseiller pendant les horaires d'ouverture.",
-    href: "tel:0188750555",
+    href: "tel:+33188750555",
     icon: Phone,
   },
   {
@@ -105,14 +111,14 @@ const Contact = () => {
 
     if (!formData.email.trim()) {
       newErrors.email = "L'email est requis";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "L'email n'est pas valide";
+    } else if (!isValidEmail(formData.email)) {
+      newErrors.email = MESSAGE_EMAIL_INVALIDE;
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Le téléphone est requis";
-    } else if (!/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/.test(formData.phone.replace(/\s/g, ""))) {
-      newErrors.phone = "Le numéro de téléphone n'est pas valide";
+    } else if (!isValidFrenchPhone(formData.phone)) {
+      newErrors.phone = MESSAGE_TELEPHONE_INVALIDE;
     }
 
     if (!formData.consent) {
@@ -351,7 +357,7 @@ const Contact = () => {
                 </p>
                 <div className="mt-4 space-y-4">
                   <a
-                    href="tel:0188750555"
+                    href="tel:+33188750555"
                     className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 transition hover:bg-white/15"
                     onClick={() => analytics.trackPhoneClick()}
                   >
@@ -459,14 +465,13 @@ const Contact = () => {
                     <div className="mx-auto mt-6 max-w-xl rounded-2xl bg-muted p-5 text-left">
                       <p className="font-semibold text-foreground">Prochaines étapes</p>
                       <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                        <li>1. Confirmation par email de la bonne réception de votre demande.</li>
-                        <li>2. Appel d'un conseiller pour répondre à vos questions.</li>
-                        <li>3. Proposition de la formation et de la session les plus adaptées.</li>
+                        <li>1. Appel d'un conseiller pour répondre à vos questions.</li>
+                        <li>2. Proposition de la formation et de la session les plus adaptées.</li>
                       </ul>
                     </div>
                     <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                       <a
-                        href="tel:0188750555"
+                        href="tel:+33188750555"
                         className="btn-primary min-w-[220px]"
                         onClick={() => analytics.trackPhoneClick()}
                       >

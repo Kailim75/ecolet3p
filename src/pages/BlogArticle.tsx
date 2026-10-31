@@ -22,6 +22,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
+import { isValidEmail } from "@/lib/formValidation";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const BlogArticle = () => {
@@ -80,7 +81,7 @@ const BlogArticle = () => {
       "@type": "Organization",
       "name": "ECOLE T3P",
       "url": "https://ecolet3p.fr",
-      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/logo/ecole-t3p-favicon.svg", "width": 512, "height": 512 }
+      "logo": { "@type": "ImageObject", "url": "https://ecolet3p.fr/images/ecole-t3p-logo-color.png", "width": 1024, "height": 1024 }
     },
     "datePublished": formatDateISO(article.publishDate),
     "dateModified": formatDateISO(article.publishDate),
@@ -288,26 +289,36 @@ const BlogArticle = () => {
                         const form = e.target as HTMLFormElement;
                         const email = (form.elements.namedItem("lead-email") as HTMLInputElement)?.value?.trim();
                         if (!email) return;
+                        if (!isValidEmail(email)) {
+                          toast.error("Adresse e-mail invalide.");
+                          return;
+                        }
+                        const source = `blog-lead-magnet-${article.slug}`;
                         try {
-                          const source = `blog-lead-magnet-${article.slug}`;
                           const { error } = await supabase
                             .from("newsletter_subscribers")
                             .insert({ email, source });
                           if (error) {
-                            if (error.code === "23505") {
-                              toast.success("Vous êtes déjà inscrit(e) ! Vérifiez votre boîte mail.");
-                            } else {
-                              throw error;
-                            }
-                          } else {
-                            supabase.functions.invoke("send-lead-magnet-guide", {
-                              body: { email, source },
-                            });
-                            toast.success("✅ Guide envoyé ! Vérifiez votre boîte mail.");
+                            if (error.code !== "23505") throw error;
+                            toast.success("Vous êtes déjà inscrit(e) ! Vérifiez votre boîte mail.");
+                            form.reset();
+                            return;
                           }
+                        } catch {
+                          toast.error("Une erreur est survenue. Réessayez ou appelez-nous au 01 88 75 05 55.");
+                          return;
+                        }
+                        // On attend la réponse de l'envoi avant d'annoncer « Guide envoyé »
+                        // (avant le 31/10/2026, le succès s'affichait même quand l'envoi échouait).
+                        try {
+                          const { data, error } = await supabase.functions.invoke("send-lead-magnet-guide", {
+                            body: { email, source },
+                          });
+                          if (error || data?.success === false) throw error ?? new Error("Envoi du guide refusé");
+                          toast.success("✅ Guide envoyé ! Vérifiez votre boîte mail.");
                           form.reset();
                         } catch {
-                          toast.error("Une erreur est survenue. Veuillez réessayer.");
+                          toast.error("Le guide n'a pas pu être envoyé. Appelez-nous au 01 88 75 05 55.");
                         }
                       }}
                       className="flex flex-col sm:flex-row gap-2"
@@ -329,6 +340,9 @@ const BlogArticle = () => {
                     </form>
                     <p className="mt-3 text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
                       ✓ Gratuit ✓ Sans engagement ✓ Envoi immédiat
+                    </p>
+                    <p className="mt-1 text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
+                      En demandant le guide, vous êtes inscrit(e) à notre newsletter. Désinscription possible à tout moment via le lien présent dans chaque e-mail.
                     </p>
                   </div>
                   <article

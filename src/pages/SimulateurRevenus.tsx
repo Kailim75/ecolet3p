@@ -231,7 +231,7 @@ const AuditRentabilite = () => {
               <Link to="/formations" className="btn-cta-orange px-10 py-4 text-lg font-bold rounded-lg inline-flex items-center gap-2">
                 Voir nos formations <ArrowRight className="w-5 h-5" />
               </Link>
-              <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
+              <a href="tel:+33188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
               </a>
             </div>

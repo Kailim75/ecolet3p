@@ -11,8 +11,10 @@ import AppointmentForm from "@/components/appointments/AppointmentForm";
 import BlogArticle from "@/pages/BlogArticle";
 
 const mocks = vi.hoisted(() => ({
-  track: vi.fn(), insert: vi.fn(), invoke: vi.fn(),
+  track: vi.fn(), insert: vi.fn(), invoke: vi.fn(), formSubmit: vi.fn(),
+  toastSuccess: vi.fn(), toastError: vi.fn(),
 }));
+vi.mock("sonner", () => ({ toast: { success: mocks.toastSuccess, error: mocks.toastError } }));
 vi.mock("@/lib/trackConversion", () => ({ trackLeadConversion: mocks.track }));
 vi.mock("@/integrations/supabase/client", () => ({
   supabase: {
@@ -39,7 +41,7 @@ vi.mock("@/data/blogArticles", () => ({
   }),
   getRelatedArticles: () => [],
 }));
-vi.mock("@/lib/analytics", () => ({ analytics: { trackFormSubmission: vi.fn(), trackPreRegistrationComplete: vi.fn() } }));
+vi.mock("@/lib/analytics", () => ({ analytics: { trackFormSubmission: mocks.formSubmit, trackPreRegistrationComplete: vi.fn() } }));
 vi.mock("@/hooks/use-toast", () => ({ useToast: () => ({ toast: vi.fn() }), toast: vi.fn() }));
 vi.mock("@/components/ui/calendar", () => ({
   Calendar: ({ onSelect }: { onSelect: (date: Date) => void }) =>
@@ -68,7 +70,8 @@ describe("successful saved requests only", () => {
     Element.prototype.hasPointerCapture = () => false;
     Element.prototype.setPointerCapture = vi.fn();
     Element.prototype.releasePointerCapture = vi.fn();
-    mocks.track.mockReset(); mocks.insert.mockReset(); mocks.invoke.mockReset();
+    mocks.track.mockReset(); mocks.insert.mockReset(); mocks.invoke.mockReset(); mocks.formSubmit.mockReset();
+    mocks.toastSuccess.mockReset(); mocks.toastError.mockReset();
     mocks.invoke.mockResolvedValue({ data: {}, error: null });
   });
   afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
@@ -87,6 +90,7 @@ describe("successful saved requests only", () => {
       await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
       if (!failed) await screen.findByText("Demande envoyée avec succès");
       expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+      expect(mocks.formSubmit).toHaveBeenCalledTimes(failed ? 0 : 1);
     });
     it(`quote request ${name}`, async () => {
       mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
@@ -101,6 +105,7 @@ describe("successful saved requests only", () => {
       await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
       if (!failed) await screen.findByText("Demande envoyée !");
       expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+      expect(mocks.formSubmit).toHaveBeenCalledTimes(failed ? 0 : 1);
     });
     it(`appointment request ${name}`, async () => {
       mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
@@ -129,6 +134,7 @@ describe("successful saved requests only", () => {
       await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(failed ? 0 : 1));
       expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+      expect(mocks.formSubmit).toHaveBeenCalledTimes(failed ? 0 : 1);
     });
     it(`step pre-registration ${name}`, async () => {
       mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
@@ -142,6 +148,7 @@ describe("successful saved requests only", () => {
       await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(failed ? 0 : 1));
       expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+      expect(mocks.formSubmit).toHaveBeenCalledTimes(failed ? 0 : 1);
     });
     it(`simulator lead ${name}`, async () => {
       mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
@@ -153,6 +160,7 @@ describe("successful saved requests only", () => {
       await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
       await waitFor(() => expect(onSuccess).toHaveBeenCalledTimes(failed ? 0 : 1));
       expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+      expect(mocks.formSubmit).toHaveBeenCalledTimes(failed ? 0 : 1);
     });
   }
   it("invalid pre-registration never inserts or counts", () => {
@@ -160,6 +168,55 @@ describe("successful saved requests only", () => {
     fireEvent.submit(document.querySelector("form") as HTMLFormElement);
     expect(mocks.insert).not.toHaveBeenCalled();
     expect(mocks.track).not.toHaveBeenCalled();
+  });
+  it("simulator lead refuses an email without extension or a 2-digit phone", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<LeadCaptureForm inputs={{} as never} results={{} as never} onSuccess={vi.fn()} />);
+    fill("Prénom *", "Test"); fill("Email *", "audit.test@example"); fill("Téléphone *", "12");
+    fireEvent.submit(document.querySelector("form") as HTMLFormElement);
+    expect(await screen.findByText("L'email n'est pas valide")).toBeInTheDocument();
+    expect(screen.getByText("Le numéro de téléphone n'est pas valide")).toBeInTheDocument();
+    expect(mocks.insert).not.toHaveBeenCalled();
+    expect(mocks.track).not.toHaveBeenCalled();
+    expect(mocks.formSubmit).not.toHaveBeenCalled();
+  });
+  it("quote request notifies the centre in the format the function expects, message included", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<QuoteRequestModal isOpen onClose={vi.fn()} preselectedFormation="vtc" />);
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    fireEvent.change(await screen.findByPlaceholderText(/Questions, disponibilités/), { target: { value: "Plutôt le soir" } });
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(1));
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ formation_title: "VTC", formation_duration: "Devis demandé" }));
+    expect(mocks.invoke).toHaveBeenCalledWith("notify-contact-request", {
+      body: {
+        record: {
+          full_name: "Test Conversion",
+          email: "test@example.com",
+          phone: "0612345678",
+          formation: "vtc",
+          message: "Demande de devis — Plutôt le soir",
+        },
+      },
+    });
+  });
+  it("quote request ignores an unknown preselected formation", () => {
+    render(<QuoteRequestModal isOpen onClose={vi.fn()} preselectedFormation="t3p" />);
+    expect(screen.getByRole("button", { name: /Suivant/ })).toBeDisabled();
+  });
+  it("quote request refuses a phone that is not a French number", async () => {
+    render(<QuoteRequestModal isOpen onClose={vi.fn()} preselectedFormation="taxi" />);
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fill("Jean", "Test"); fill("Dupont", "Conversion"); fill("jean@email.com", "test@example.com");
+    fill("06 12 34 56 78", "abcdefghij");
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    fireEvent.click(await screen.findByRole("button", { name: /^Envoyer$/ }));
+    expect(await screen.findByText("Numéro français invalide")).toBeInTheDocument();
+    expect(mocks.insert).not.toHaveBeenCalled();
   });
   it("notification failure does not lose a successfully saved lead", async () => {
     mocks.insert.mockReturnValue(insertResult(null));
@@ -200,5 +257,18 @@ describe("successful saved requests only", () => {
     }));
     expect(mocks.insert).toHaveBeenCalledTimes(1);
     expect(mocks.track).not.toHaveBeenCalled();
+    await waitFor(() => expect(mocks.toastSuccess).toHaveBeenCalledWith(expect.stringMatching(/Guide envoyé/)));
+  });
+  it("a failed guide sending shows an error with the phone number, never « Guide envoyé »", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    mocks.invoke.mockResolvedValue({ data: null, error: { message: "Edge function returned 500" } });
+    render(<MemoryRouter initialEntries={["/blog/test-guide"]}><Routes><Route path="/blog/:slug" element={<BlogArticle />} /></Routes></MemoryRouter>);
+    fill("Votre email", "guide-test@example.com");
+    const form = screen.getByPlaceholderText("Votre email").closest("form");
+    if (!form) throw new Error("Guide request form missing");
+    fireEvent.submit(form);
+    await waitFor(() => expect(mocks.toastError).toHaveBeenCalledWith(expect.stringMatching(/01 88 75 05 55/)));
+    expect(mocks.toastSuccess).not.toHaveBeenCalled();
+    expect(screen.getByText(/vous êtes inscrit\(e\) à notre newsletter/)).toBeInTheDocument();
   });
 });

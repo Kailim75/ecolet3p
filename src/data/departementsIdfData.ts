@@ -5,9 +5,10 @@
  * - Coordonnées des Préfectures : sites officiels de chaque préfecture
  * - Listes médecins agréés : publiées par chaque préfecture (PDF mis à jour
  *   périodiquement) — on pointe vers la page parente, plus stable que le PDF direct
- * - Démarches administratives : service-public.fr (fiches F2225 VTC / F22463 Taxi)
+ * - Démarches administratives : service-public.fr (fiches F31027 VTC / F21907 Taxi)
  *
- * Dernière vérification : juin 2026
+ * Dernière vérification : juin 2026 ; liens morts remplacés le 31/10/2026 (pages préfecture
+ * des médecins agréés 77, 78, 91, 93, 94, 95, « Etre VTC en Seine-et-Marne », fiche taxi F22463)
  * SSOT — toute modification doit être justifiée par une source .gouv.fr récente.
  */
 
@@ -88,13 +89,13 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
       codePostal: "77010",
       ville: "Melun Cedex",
       urlVtc:
-        "https://www.seine-et-marne.gouv.fr/Demarches/Toutes-les-demarches/Professionnels-de-l-automobile/Voitures-de-transport-avec-chauffeur-VTC/Etre-VTC-en-Seine-et-Marne",
+        "https://www.seine-et-marne.gouv.fr/Demarches/Toutes-les-demarches/Professionnels-de-l-automobile/Voitures-de-transport-avec-chauffeur-VTC-Vehicules-motorises-a-deux-ou-trois-roues-VMDTR/Etre-VTC-en-Seine-et-Marne",
       urlTaxi:
         "https://www.seine-et-marne.gouv.fr/Demarches/Toutes-les-demarches/Professionnels-de-l-automobile/Voitures-de-transport-avec-chauffeur-VTC-Vehicules-motorises-a-deux-ou-trois-roues-VMDTR/Etre-VMDTR-en-Seine-et-Marne",
       email: "pref-vtc@seine-et-marne.gouv.fr",
     },
     medecinsAgreesUrl:
-      "https://www.seine-et-marne.gouv.fr/Demarches/Toutes-les-demarches/Permis-de-conduire/Controle-medical-de-l-aptitude-a-la-conduite",
+      "https://www.seine-et-marne.gouv.fr/Demarches/Toutes-les-demarches/Permis-de-conduire-Particuliers-Permis-de-conduire-Professionnels/Permis-de-conduire-demarches-pour-les-particuliers/Controle-medical-de-l-aptitude-a-la-conduite/Trouver-un-medecin-agree-par-la-prefecture",
     accessibiliteDepuisMontrouge:
       "RER A jusqu'à Marne-la-Vallée ou Transilien P depuis Gare de l'Est (≈ 1h)",
     communesPrincipales: [
@@ -127,7 +128,7 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
         "Demandes à adresser exclusivement par courrier. Tout dossier incomplet est retourné.",
     },
     medecinsAgreesUrl:
-      "https://www.yvelines.gouv.fr/Demarches/Permis-de-conduire/Controle-medical-du-permis-de-conduire",
+      "https://www.yvelines.gouv.fr/Demarches/Carte-grise-Permis-de-conduire/Permis-de-conduire/Demarches-pour-les-usagers/Visite-medicale-suspension-et-annulation-du-permis-de-conduire",
     accessibiliteDepuisMontrouge:
       "RER C depuis Issy-les-Moulineaux jusqu'à Versailles Château (≈ 45 min)",
     communesPrincipales: [
@@ -160,7 +161,7 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
         "Tout dossier doit être déposé sur le site 'démarches-simplifiees.fr' (lien sur la page officielle).",
     },
     medecinsAgreesUrl:
-      "https://www.essonne.gouv.fr/Demarches/Permis-de-conduire/Controle-medical",
+      "https://www.essonne.gouv.fr/Demarches/Circulation-et-vehicules/Permis-de-conduire/Suspensions-Annulations/Suspensions-Annulations/Invalidation-annulation-suspension-administrative-ou-judiciaire-du-permis-de-conduire",
     accessibiliteDepuisMontrouge:
       "RER B depuis Cité Universitaire jusqu'à Évry-Courcouronnes (≈ 45 min)",
     communesPrincipales: [
@@ -225,7 +226,7 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
         "Délai moyen d'instruction des dossiers VTC et VMDTR : environ 4 mois. Inutile de déposer plusieurs dossiers. Cartes Taxi communales gérées par la sous-préfecture du Raincy.",
     },
     medecinsAgreesUrl:
-      "https://www.seine-saint-denis.gouv.fr/Demarches/Permis-de-conduire/Controle-medical-du-permis-de-conduire",
+      "https://www.seine-saint-denis.gouv.fr/Demarches/Professions-et-activites-reglementees/Medecins-et-psychologues-du-permis-de-conduire",
     accessibiliteDepuisMontrouge:
       "Métro ligne 4 jusqu'à Châtelet puis ligne 5 jusqu'à Bobigny-Préfecture (≈ 50 min)",
     communesPrincipales: [
@@ -256,7 +257,7 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
       telephone: "01 49 56 60 00",
     },
     medecinsAgreesUrl:
-      "https://www.val-de-marne.gouv.fr/Vos-demarches/Permis-de-conduire/Liste-des-medecins-agrees",
+      "https://www.val-de-marne.gouv.fr/Vos-demarches/Formulaires-en-ligne/Permis-de-conduire2",
     accessibiliteDepuisMontrouge:
       "Métro ligne 4 + ligne 8 jusqu'à Créteil-Préfecture (≈ 35 min). Département voisin direct de Montrouge.",
     communesPrincipales: [
@@ -288,7 +289,7 @@ export const DEPARTEMENTS_IDF: DepartementInfo[] = [
       notes: "Possibilité de transmettre les dossiers par courriel à la Préfecture.",
     },
     medecinsAgreesUrl:
-      "https://www.val-doise.gouv.fr/Demarches/Permis-de-conduire/Controle-medical",
+      "https://www.val-doise.gouv.fr/Demarches/Permis-de-conduire/Visite-medicale-Signalement-d-une-personne-inapte-a-la-conduite/Liste-des-medecins-de-ville-agrees-pour-les-permis-de-conduire/Listes-des-medecins-de-ville-agrees-pour-les-permis-de-conduire",
     accessibiliteDepuisMontrouge:
       "RER A jusqu'à Cergy-Préfecture depuis Châtelet (≈ 1h)",
     communesPrincipales: [
@@ -312,7 +313,7 @@ export const SERVICE_PUBLIC_LINKS = {
     titre: "Carte professionnelle de conducteur de VTC",
   },
   taxi: {
-    fiche: "https://www.service-public.fr/professionnels-entreprises/vosdroits/F22463",
+    fiche: "https://entreprendre.service-public.gouv.fr/vosdroits/F21907",
     titre: "Carte professionnelle de conducteur de taxi",
   },
   vmdtr: {

@@ -545,7 +545,7 @@ const About = () => {
               Réserver ma place <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:0188750555"
+              href="tel:+33188750555"
               className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-sm"
             >
               <Phone className="w-4 h-4" /> 01 88 75 05 55

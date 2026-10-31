@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Star, ChevronDown } from "lucide-react";
 import { noteGoogle, libelleAvisGoogle, urlAvisGoogle } from "@/lib/avis";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 
 // ── SILO 1 : Formations initiales ────────────────────────────────────────────
@@ -37,7 +38,7 @@ const siloBlog = [
   { name: "Devenir chauffeur Taxi 2026", path: "/blog/comment-devenir-chauffeur-taxi-2026" },
   { name: "VMDTR : guide du moto-taxi", path: "/blog/formation-vmdtr-2026-devenir-conducteur-moto-taxi" },
   { name: "VTC vs Taxi vs VMDTR 2026", path: "/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir" },
-  { name: "Financement formation T3P", path: "/blog/financement-formation-taxi-vtc" },
+  { name: "Financement formation T3P", path: "/blog/facilites-paiement-formation-taxi-vtc" },
   { name: "Tous les articles →", path: "/blog" },
 ];
 
@@ -88,7 +89,7 @@ const Footer = () => {
                 <span className="text-white/85 text-sm">3 rue Corneille,<br />92120 Montrouge</span>
               </li>
               <li>
-                <a href="tel:0188750555" className="flex items-center gap-3 text-white/85 hover:text-white transition-colors text-sm">
+                <a href="tel:+33188750555" className="flex items-center gap-3 text-white/85 hover:text-white transition-colors text-sm">
                   <Phone className="w-4 h-4 text-accent shrink-0" />
                   01 88 75 05 55
                 </a>
@@ -226,6 +227,10 @@ const Footer = () => {
               <Link to="/reglement-interieur" className="hover:text-white transition-colors">Règlement intérieur</Link>
               <Link to="/nos-chiffres" className="hover:text-white transition-colors">Nos chiffres</Link>
               <Link to="/politique-de-confidentialite" className="hover:text-white transition-colors">Confidentialité</Link>
+              {/* Revenir sur son choix de cookies à tout moment (annoncé par la politique de confidentialité) */}
+              <button type="button" onClick={openCookieSettings} className="hover:text-white transition-colors underline-offset-2 hover:underline">
+                Gérer les cookies
+              </button>
             </div>
           </div>
         </div>

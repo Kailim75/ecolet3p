@@ -178,7 +178,7 @@ const PasserelleVtcTaxi = () => {
                 <GraduationCap className="w-5 h-5" /> Réserver ma place
               </button>
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-white text-white font-bold hover:bg-white hover:text-primary transition-all"
               >
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
@@ -466,9 +466,9 @@ const PasserelleVtcTaxi = () => {
           <h2 className="section-title text-center mb-8">Articles utiles</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "VTC vs Taxi vs VMDTR en 2026", desc: "Comparatif complet des 3 professions T3P : revenus, conditions, avantages.", path: "/blog/vtc-taxi-vmdtr-comparatif-2026" },
-              { title: "Devenir chauffeur VTC en 2026", desc: "Le guide complet pour obtenir votre carte professionnelle VTC.", path: "/blog/devenir-chauffeur-vtc-2026" },
-              { title: "Statuts juridiques du chauffeur T3P", desc: "Micro-entreprise, SASU, EURL : quel statut choisir ?", path: "/blog/statuts-juridiques-chauffeur-t3p" },
+              { title: "VTC vs Taxi vs VMDTR en 2026", desc: "Comparatif complet des 3 professions T3P : revenus, conditions, avantages.", path: "/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir" },
+              { title: "Devenir chauffeur VTC en 2026", desc: "Le guide complet pour obtenir votre carte professionnelle VTC.", path: "/blog/comment-devenir-chauffeur-vtc-2026" },
+              { title: "Statuts juridiques du chauffeur T3P", desc: "Micro-entreprise, SASU, EURL : quel statut choisir ?", path: "/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
@@ -532,7 +532,7 @@ const PasserelleVtcTaxi = () => {
               >
                 Réserver ma place <ArrowRight className="w-5 h-5" />
               </button>
-              <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
+              <a href="tel:+33188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
               </a>
             </div>

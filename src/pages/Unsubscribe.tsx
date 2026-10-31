@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CheckCircle, XCircle, Loader2, Mail } from "lucide-react";
@@ -96,6 +97,7 @@ const Unsubscribe = () => {
 
   return (
     <Layout>
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <div className="min-h-[60vh] flex items-center justify-center py-20 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
