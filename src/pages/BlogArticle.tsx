@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import { trackLeadConversion } from "@/lib/trackConversion";
 
 const BlogArticle = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -303,6 +304,7 @@ const BlogArticle = () => {
                             supabase.functions.invoke("send-lead-magnet-guide", {
                               body: { email, source },
                             });
+                            trackLeadConversion();
                             toast.success("✅ Guide envoyé ! Vérifiez votre boîte mail.");
                           }
                           form.reset();
