@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Contact from "@/pages/Contact";
 import PreRegistrationForm from "@/components/formations/PreRegistrationForm";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
@@ -188,7 +188,7 @@ describe("successful saved requests only", () => {
   }
   it("a successfully saved blog guide request never counts a lead conversion", async () => {
     mocks.insert.mockReturnValue(insertResult(null));
-    render(<MemoryRouter><BlogArticle /></MemoryRouter>);
+    render(<MemoryRouter initialEntries={["/blog/test-guide"]}><Routes><Route path="/blog/:slug" element={<BlogArticle />} /></Routes></MemoryRouter>);
     expect(mocks.track).not.toHaveBeenCalled();
     fill("Votre email", "guide-test@example.com");
     const input = screen.getByPlaceholderText("Votre email");
