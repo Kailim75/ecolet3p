@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
-import { trackLeadConversion } from "@/lib/trackConversion";
 
 export interface LookupCredentials {
   dossierNumber: string;
@@ -111,7 +110,6 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
     setBusy(selected.id);
     const data = await call({ action: "book", slotId: selected.id, phone });
     apply(data);
-    if (data.status === "booked") trackLeadConversion();
     setMessage({ ok: data.status === "booked", text: MESSAGES[data.status] ?? MESSAGES.error });
     if (data.status === "booked" || data.status === "full" || data.status === "slot_closed") setSelected(null);
     setBusy(null);
