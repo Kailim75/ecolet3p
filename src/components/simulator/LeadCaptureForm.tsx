@@ -6,6 +6,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import type { SimulationInputs, SimulationResult } from "./SimulatorLevel1";
 import { trackLeadConversion } from "@/lib/trackConversion";
+import { analytics } from "@/lib/analytics";
+import {
+  isValidEmail,
+  isValidFrenchPhone,
+  MESSAGE_EMAIL_INVALIDE,
+  MESSAGE_TELEPHONE_INVALIDE,
+} from "@/lib/formValidation";
 
 interface LeadCaptureFormProps {
   inputs: SimulationInputs;
@@ -17,6 +24,7 @@ export default function LeadCaptureForm({ inputs, results, onSuccess }: LeadCapt
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +32,13 @@ export default function LeadCaptureForm({ inputs, results, onSuccess }: LeadCapt
       toast({ title: "Champs requis", description: "Veuillez remplir tous les champs obligatoires.", variant: "destructive" });
       return;
     }
+    // Mêmes règles que le formulaire de contact : pas de prospect inexploitable compté comme conversion.
+    const fieldErrors = {
+      email: isValidEmail(form.email) ? undefined : MESSAGE_EMAIL_INVALIDE,
+      phone: isValidFrenchPhone(form.phone) ? undefined : MESSAGE_TELEPHONE_INVALIDE,
+    };
+    setErrors(fieldErrors);
+    if (fieldErrors.email || fieldErrors.phone) return;
 
     setLoading(true);
     try {
@@ -63,6 +78,7 @@ export default function LeadCaptureForm({ inputs, results, onSuccess }: LeadCapt
       }
 
       trackLeadConversion();
+      analytics.trackFormSubmission("simulateur");
       setSubmitted(true);
       onSuccess();
       toast({ title: "✅ Simulation avancée débloquée !", description: "Vos résultats détaillés sont maintenant accessibles." });
@@ -123,29 +139,39 @@ export default function LeadCaptureForm({ inputs, results, onSuccess }: LeadCapt
       </div>
 
       <div className="relative">
-        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <Mail className="absolute left-3 top-5 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <Input
           type="email"
           placeholder="Email *"
           value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          onChange={(e) => {
+            setForm({ ...form, email: e.target.value });
+            if (errors.email) setErrors({ ...errors, email: undefined });
+          }}
           className="pl-10"
           required
           maxLength={100}
+          aria-invalid={Boolean(errors.email)}
         />
+        {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
       </div>
 
       <div className="relative">
-        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <Phone className="absolute left-3 top-5 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         <Input
           type="tel"
           placeholder="Téléphone *"
           value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          onChange={(e) => {
+            setForm({ ...form, phone: e.target.value });
+            if (errors.phone) setErrors({ ...errors, phone: undefined });
+          }}
           className="pl-10"
           required
           maxLength={20}
+          aria-invalid={Boolean(errors.phone)}
         />
+        {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
       </div>
 
       <button

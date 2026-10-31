@@ -135,6 +135,7 @@ const PreRegistrationForm = ({
 
       setIsSubmitting(false);
       trackLeadConversion();
+      analytics.trackFormSubmission("pre-inscription");
       setIsSuccess(true);
       analytics.trackPreRegistrationComplete(formationTitle);
 

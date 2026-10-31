@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { z } from "zod";
+import { isValidEmail, isValidFrenchPhone } from "@/lib/formValidation";
 
 // Recreate the validation schemas from the forms to test them in isolation
 const preRegistrationSchema = z.object({
@@ -84,5 +85,27 @@ describe("PreRegistration validation schema", () => {
   it("should reject phone starting with 00 (not French)", () => {
     // 0033 is valid French international prefix
     expect(preRegistrationSchema.safeParse({ ...validData, phone: "0033 6 12 34 56 78" }).success).toBe(true);
+  });
+});
+
+// Règles partagées (src/lib/formValidation.ts), celles du formulaire de contact, reprises par le
+// simulateur de revenus, la demande de devis et le guide du blog (audit du 31/10/2026).
+describe("règles communes des formulaires de prospects", () => {
+  it("refuse un email sans extension, accepte un email complet", () => {
+    expect(isValidEmail("audit.test@example")).toBe(false);
+    expect(isValidEmail("pas-un-email")).toBe(false);
+    expect(isValidEmail(" jean.dupont@email.com ")).toBe(true);
+  });
+
+  it("refuse un téléphone trop court ou non français", () => {
+    expect(isValidFrenchPhone("12")).toBe(false);
+    expect(isValidFrenchPhone("abcdefghij")).toBe(false);
+    expect(isValidFrenchPhone("+32 470 12 34 56")).toBe(false);
+  });
+
+  it("accepte les écritures françaises courantes", () => {
+    for (const numero of ["06 12 34 56 78", "0612345678", "+33 6 12 34 56 78", "0033612345678", "06.12.34.56.78"]) {
+      expect(isValidFrenchPhone(numero), numero).toBe(true);
+    }
   });
 });

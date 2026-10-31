@@ -130,7 +130,7 @@ const FormuleSoiree = () => {
                   Réserver ma place <ArrowRight className="w-5 h-5 ml-2" />
                 </PrefetchLink>
               </Button>
-              <Button variant="outline" size="lg" onClick={() => openQuoteModal("t3p")}
+              <Button variant="outline" size="lg" onClick={() => openQuoteModal()}
                 className="bg-transparent border-white/40 text-white hover:bg-white/10 text-base px-8">
                 Demander un devis
               </Button>
