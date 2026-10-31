@@ -49,10 +49,15 @@ function fillPerson() {
 
 describe("successful saved requests only", () => {
   beforeEach(() => {
+    vi.stubGlobal("ResizeObserver", class { observe() {} unobserve() {} disconnect() {} });
+    Element.prototype.scrollIntoView = vi.fn();
+    Element.prototype.hasPointerCapture = () => false;
+    Element.prototype.setPointerCapture = vi.fn();
+    Element.prototype.releasePointerCapture = vi.fn();
     mocks.track.mockReset(); mocks.insert.mockReset(); mocks.invoke.mockReset();
     mocks.invoke.mockResolvedValue({ data: {}, error: null });
   });
-  afterEach(() => cleanup());
+  afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 
   for (const failed of [false, true]) {
     const name = failed ? "does not count failed persistence" : "counts successful persistence once";
@@ -151,7 +156,7 @@ describe("successful saved requests only", () => {
     fill("Jean", "Test"); fill("Dupont", "Conversion");
     fill("jean.dupont@email.com", "test@example.com"); fill("06 12 34 56 78", "0612345678");
     fireEvent.submit(document.querySelector("form") as HTMLFormElement);
-    await screen.findByText("Pré-inscription envoyée !");
+    await screen.findByText("Demande envoyée !");
     expect(mocks.track).toHaveBeenCalledTimes(1);
   });
   for (const status of ["booked", "full", "already_booked", "error"]) {
