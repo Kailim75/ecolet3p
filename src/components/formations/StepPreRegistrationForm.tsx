@@ -21,6 +21,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { formatSessionPeriod } from "@/lib/formatSessionPeriod";
 import { getSessionFormat } from "@/lib/sessionFormat";
+import { trackLeadConversion } from "@/lib/trackConversion";
 
 const formationChoices = [
   { value: "taxi", label: "Taxi", icon: CarTaxiFront },
@@ -195,6 +196,7 @@ const StepPreRegistrationForm = ({
         // Non-blocking
       }
 
+      trackLeadConversion();
       setIsSuccess(true);
       toast({ title: "Inscription envoyée !", description: "Nous vous recontacterons sous 24h." });
 

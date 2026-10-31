@@ -21,6 +21,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { analytics } from "@/lib/analytics";
+import { trackLeadConversion } from "@/lib/trackConversion";
 import {
   ArrowLeftRight,
   CalendarDays,
@@ -180,6 +181,7 @@ const Contact = () => {
       }
 
       setIsSubmitting(false);
+      trackLeadConversion();
       setIsSubmitted(true);
       toast({
         title: "Demande envoyée !",

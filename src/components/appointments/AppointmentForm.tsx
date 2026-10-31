@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
+import { trackLeadConversion } from "@/lib/trackConversion";
 
 // Validation schema
 const appointmentSchema = z.object({
@@ -177,6 +178,7 @@ const AppointmentForm = () => {
       }
 
       setIsSubmitting(false);
+      trackLeadConversion();
       setIsSuccess(true);
 
       toast({
