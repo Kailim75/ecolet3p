@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import type { SimulationInputs, SimulationResult } from "./SimulatorLevel1";
+import { trackLeadConversion } from "@/lib/trackConversion";
 
 interface LeadCaptureFormProps {
   inputs: SimulationInputs;
@@ -61,6 +62,7 @@ export default function LeadCaptureForm({ inputs, results, onSuccess }: LeadCapt
         // Non-blocking
       }
 
+      trackLeadConversion();
       setSubmitted(true);
       onSuccess();
       toast({ title: "✅ Simulation avancée débloquée !", description: "Vos résultats détaillés sont maintenant accessibles." });

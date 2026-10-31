@@ -22,6 +22,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import tarifs from "@/data/tarifs.json";
+import { trackLeadConversion } from "@/lib/trackConversion";
 
 // Context is in QuoteModalContext.tsx — import useQuoteModal/QuoteModalProvider from there
 
@@ -115,6 +116,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
         });
       } catch { /* non-blocking */ }
 
+      trackLeadConversion();
       setIsSuccess(true);
       toast({ title: "Demande envoyée !", description: "Nous vous recontacterons sous 24h." });
       setTimeout(resetAndClose, 2500);

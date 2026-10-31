@@ -15,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, CheckCircle2, User, Mail, Phone, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { analytics } from "@/lib/analytics";
+import { trackLeadConversion } from "@/lib/trackConversion";
 
 // Validation schema
 const preRegistrationSchema = z.object({
@@ -130,6 +131,7 @@ const PreRegistrationForm = ({
       }
 
       setIsSubmitting(false);
+      trackLeadConversion();
       setIsSuccess(true);
       analytics.trackPreRegistrationComplete(formationTitle);
 
