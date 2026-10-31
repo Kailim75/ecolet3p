@@ -172,25 +172,31 @@ const StepPreRegistrationForm = ({
         ? formationLabel
         : `${formationLabel}${scheduleLabel ? ` (${scheduleLabel})` : ""}`;
 
-      const { data: insertedData, error: dbError } = await supabase
-        .from("pre_registrations")
-        .insert({
-          first_name: result.data.firstName,
-          last_name: result.data.lastName,
-          email: result.data.email,
-          phone: result.data.phone,
-          formation_title: formationTitle,
-          formation_duration: formationDuration,
-          session_id: chosenSession?.id ?? null,
-        })
-        .select()
-        .single();
+      // La table pre_registrations n'est pas lisible par les visiteurs (RLS : lecture réservée aux
+      // admins). Demander la ligne en retour (insert().select()) obligeait Postgres à la relire et
+      // faisait échouer l'enregistrement entier depuis le 18/01/2026 : on génère donc l'identifiant
+      // ici et on n'attend rien en retour.
+      const preRegistration = {
+        id: crypto.randomUUID(),
+        first_name: result.data.firstName,
+        last_name: result.data.lastName,
+        email: result.data.email,
+        phone: result.data.phone,
+        formation_title: formationTitle,
+        formation_duration: formationDuration,
+        session_id: chosenSession?.id ?? null,
+      };
+      const { error: dbError } = await supabase.from("pre_registrations").insert(preRegistration);
 
       if (dbError) throw dbError;
 
       try {
         await supabase.functions.invoke("notify-new-registration", {
-          body: { type: "INSERT", table: "pre_registrations", record: insertedData },
+          body: {
+            type: "INSERT",
+            table: "pre_registrations",
+            record: { ...preRegistration, created_at: new Date().toISOString() },
+          },
         });
       } catch {
         // Non-blocking
@@ -204,7 +210,11 @@ const StepPreRegistrationForm = ({
         resetAndClose();
       }, 2500);
     } catch {
-      toast({ title: "Erreur", description: "Veuillez réessayer.", variant: "destructive" });
+      toast({
+        title: "Erreur",
+        description: "L'envoi n'a pas abouti. Réessayez ou appelez-nous au 01 88 75 05 55.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
