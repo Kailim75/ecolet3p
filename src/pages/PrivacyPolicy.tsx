@@ -199,10 +199,10 @@ const PrivacyPolicy = () => {
                 <li><strong>Cookies essentiels :</strong> nécessaires au fonctionnement technique du site (navigation, sécurité)</li>
                 <li><strong>Cookies de préférences :</strong> mémorisation de vos choix (consentement cookies, langue)</li>
                 <li><strong>Cookies analytiques :</strong> mesure d'audience anonymisée du site (si vous les avez acceptés)</li>
-                <li><strong>Cookies marketing Google Ads :</strong> après votre acceptation, Google reçoit des données techniques de navigation et l'événement de demande enregistrée (pré-inscription, contact, devis ou rendez-vous), pour mesurer les conversions et optimiser les annonces. Le suivi de conversion ne transmet pas les noms, emails, téléphones ou messages saisis. La valeur conventionnelle de 1 EUR n'est pas un montant payé.</li>
+                <li><strong>Cookies marketing Google Ads :</strong> après votre acceptation, Google reçoit des données techniques de navigation et l'événement de demande enregistrée (pré-inscription, contact, devis ou simulation de revenus), pour mesurer les conversions et optimiser les annonces. Le suivi de conversion ne transmet pas les noms, emails, téléphones ou messages saisis. La valeur conventionnelle de 1 EUR n'est pas un montant payé.</li>
               </ul>
               <p className="text-muted-foreground mt-4">
-                Vous pouvez gérer vos préférences de cookies à tout moment via le bandeau de consentement accessible en bas de page. 
+                Vous pouvez gérer vos préférences de cookies à tout moment via le lien « Gérer les cookies », en bas de chaque page, qui rouvre le bandeau de consentement.
                 Vous pouvez également configurer votre navigateur pour refuser les cookies.
                 Votre choix et sa date sont enregistrés dans votre navigateur. Vous pouvez retirer votre acceptation des cookies marketing dans ces réglages ; les nouvelles conversions ne seront alors plus envoyées.
               </p>

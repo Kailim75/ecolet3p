@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Cookie, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
+  COOKIE_SETTINGS_OPEN_EVENT,
   defaultCookiePreferences,
   persistCookieConsent,
   readCookieConsent,
@@ -24,6 +25,17 @@ const CookieConsent = () => {
     }
   }, []);
 
+  // « Gérer les cookies » (pied de page) : rouvre le bandeau sur le choix en cours, détails affichés.
+  useEffect(() => {
+    const open = () => {
+      setPreferences(readCookieConsent() ?? defaultCookiePreferences);
+      setShowDetails(true);
+      setIsVisible(true);
+    };
+    window.addEventListener(COOKIE_SETTINGS_OPEN_EVENT, open);
+    return () => window.removeEventListener(COOKIE_SETTINGS_OPEN_EVENT, open);
+  }, []);
+
   const saveConsent = (prefs: CookiePreferences) => {
     persistCookieConsent(prefs);
     setIsVisible(false);
@@ -33,6 +45,15 @@ const CookieConsent = () => {
   const acceptAll = () => saveConsent({ essential: true, analytics: true, marketing: true });
   const acceptEssential = () => saveConsent({ essential: true, analytics: false, marketing: false });
   const saveCustom = () => saveConsent(preferences);
+  // Fermer sans choisir vaut refus ; rouvert depuis « Gérer les cookies », fermer garde le choix en cours.
+  const close = () => {
+    if (readCookieConsent()) {
+      setIsVisible(false);
+      setShowDetails(false);
+    } else {
+      acceptEssential();
+    }
+  };
 
   if (!isVisible) return null;
 
@@ -42,7 +63,7 @@ const CookieConsent = () => {
       style={{ animationDuration: "0.3s" }}
     >
       <div className="container-custom max-md:px-0 md:max-w-none md:px-0">
-        <div className="bg-card border border-border rounded-2xl shadow-2xl p-4 md:p-5 relative overflow-hidden">
+        <div className="bg-card border border-border rounded-2xl shadow-2xl p-4 md:p-5 relative overflow-x-hidden overflow-y-auto max-h-[calc(100dvh-1.5rem)]">
           <div className="relative z-10">
             <div className="flex items-start gap-3 mb-3">
               <div className="shrink-0 hidden md:flex w-10 h-10 rounded-xl bg-primary/8 items-center justify-center">
@@ -59,7 +80,7 @@ const CookieConsent = () => {
                   </Link>
                 </p>
               </div>
-              <button onClick={acceptEssential} className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Fermer">
+              <button onClick={close} className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Fermer">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -79,20 +100,20 @@ const CookieConsent = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-semibold text-primary text-sm">Cookies analytiques</p>
-                    <p className="text-xs text-muted-foreground">Nous aident à améliorer le site</p>
+                    <p className="text-xs text-muted-foreground">Mesure d'audience (Google Analytics)</p>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" checked={preferences.analytics} onChange={(e) => setPreferences(prev => ({ ...prev, analytics: e.target.checked }))} className="sr-only peer" />
+                    <input type="checkbox" aria-label="Cookies analytiques" checked={preferences.analytics} onChange={(e) => setPreferences(prev => ({ ...prev, analytics: e.target.checked }))} className="sr-only peer" />
                     <div className="w-11 h-6 bg-muted rounded-full peer peer-checked:bg-primary transition-colors after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5" />
                   </label>
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-semibold text-primary text-sm">Cookies marketing</p>
-                    <p className="text-xs text-muted-foreground">Personnalisation des contenus</p>
+                    <p className="text-xs text-muted-foreground">Google Ads : mesure des demandes et publicité</p>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" checked={preferences.marketing} onChange={(e) => setPreferences(prev => ({ ...prev, marketing: e.target.checked }))} className="sr-only peer" />
+                    <input type="checkbox" aria-label="Cookies marketing" checked={preferences.marketing} onChange={(e) => setPreferences(prev => ({ ...prev, marketing: e.target.checked }))} className="sr-only peer" />
                     <div className="w-11 h-6 bg-muted rounded-full peer peer-checked:bg-primary transition-colors after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5" />
                   </label>
                 </div>
