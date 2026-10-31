@@ -71,17 +71,17 @@ const LogoPreview = () => {
         {/* Simulation contexte */}
         <Section title="🖥️ Simulation en contexte">
           <div className="bg-card rounded-2xl p-4 shadow-lg">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <img src="/images/ecole-t3p-logo-color.svg" alt="ÉCOLE T3P" className="h-10 w-auto" />
-              <div className="flex gap-6 text-sm font-semibold text-muted-foreground">
+              <div className="flex flex-wrap gap-x-4 gap-y-1 sm:gap-x-6 text-sm font-semibold text-muted-foreground">
                 <span>Accueil</span><span>Formations</span><span>Contact</span>
               </div>
             </div>
           </div>
           <div className="bg-primary rounded-2xl p-4 shadow-lg mt-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <img src="/images/ecole-t3p-logo-white.svg" alt="ÉCOLE T3P" className="h-10 w-auto" />
-              <div className="flex gap-6 text-sm font-semibold text-white/60">
+              <div className="flex flex-wrap gap-x-4 gap-y-1 sm:gap-x-6 text-sm font-semibold text-white/60">
                 <span>Accueil</span><span>Formations</span><span>Contact</span>
               </div>
             </div>

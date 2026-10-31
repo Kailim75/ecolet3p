@@ -177,7 +177,7 @@ const FormationVille = () => {
                 <GraduationCap className="w-5 h-5" /> Je m'inscris
               </Link>
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-white text-white font-bold hover:bg-white hover:text-primary transition-all"
               >
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
@@ -457,7 +457,7 @@ const FormationVille = () => {
               Je m'inscris <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href="tel:0188750555"
+              href="tel:+33188750555"
               className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2"
             >
               <Phone className="w-5 h-5" /> 01 88 75 05 55

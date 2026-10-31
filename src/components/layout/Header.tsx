@@ -190,7 +190,7 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex flex-shrink-0 items-center gap-2">
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className={`flex items-center gap-1 text-xs font-semibold transition-colors whitespace-nowrap ${isTransparent ? "text-white/90 hover:text-white" : "text-primary hover:text-primary/80"}`}
               >
                 <PhoneIcon className="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ const Header = () => {
             {/* Mobile */}
             <div className="flex items-center gap-2 lg:hidden">
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className={`w-9 h-9 rounded-full flex items-center justify-center ${isTransparent ? "bg-white/20 text-white" : "bg-primary/10 text-primary"}`}
                 aria-label="Appeler"
               >
@@ -274,7 +274,7 @@ const Header = () => {
 
           <div className="mt-6 pt-6 border-t border-border space-y-3">
             <a
-              href="tel:0188750555"
+              href="tel:+33188750555"
               className="flex items-center gap-3 py-3 px-4 rounded-lg bg-secondary font-semibold text-primary text-sm"
             >
               <PhoneIcon className="w-5 h-5" />

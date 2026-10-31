@@ -305,7 +305,7 @@ const FormationsVilles = () => {
                 Nous contacter
               </Link>
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cream/10 border border-cream/30 text-cream hover:bg-cream/20 transition-colors font-semibold"
               >
                 01 88 75 05 55

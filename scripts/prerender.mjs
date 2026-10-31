@@ -107,7 +107,7 @@ function transformHtml(template, route, ogImageUrl) {
         <h1>${escapeHtml(route.h1)}</h1>
         <p>${description}</p>
       </header>
-      <p>ECOLE T3P — centre de formation Taxi, VTC et VMDTR agréé Préfecture (agréments n° ${agrements.taxiVtc} et ${agrements.vmdtr}), 3 rue Corneille, 92120 Montrouge. Téléphone : <a href="tel:0188750555">01 88 75 05 55</a>.</p>
+      <p>ECOLE T3P — centre de formation Taxi, VTC et VMDTR agréé Préfecture (agréments n° ${agrements.taxiVtc} et ${agrements.vmdtr}), 3 rue Corneille, 92120 Montrouge. Téléphone : <a href="tel:+33188750555">01 88 75 05 55</a>.</p>
       <nav aria-label="Formations principales">
         <ul>
           <li><a href="/formations/taxi">Formation Taxi</a></li>

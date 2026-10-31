@@ -39,7 +39,7 @@ const FormationVTC = () => (
     blogLinks={[
       { title: "Comment devenir chauffeur VTC en 2026 : le guide complet", desc: "Étapes, prérequis, financement et conseils pour réussir", path: "/blog/comment-devenir-chauffeur-vtc-2026" },
       { title: "Quel statut juridique choisir : micro-entreprise ou SASU ?", desc: "Comparaison fiscale et sociale pour les chauffeurs T3P", path: "/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026" },
-      { title: "Carte professionnelle VTC : obtention et renouvellement", desc: "Tout savoir sur la carte pro VTC et ses démarches", path: "/blog/carte-professionnelle-vtc" },
+      { title: "Les 5 étapes pour obtenir sa carte professionnelle VTC", desc: "De la formation à la création de votre entreprise, étape par étape", path: "/blog/etapes-obtenir-carte-professionnelle-vtc" },
     ]}
     premiumPrice={1190}
     premiumLabel="PREMIUM"

@@ -173,7 +173,7 @@ const RenouvellementCarteProfessionnelle = () => {
                 <RefreshCw className="w-5 h-5" /> Je renouvelle ma carte
               </button>
               <a
-                href="tel:0188750555"
+                href="tel:+33188750555"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 border-white text-white font-bold hover:bg-white hover:text-primary transition-all"
               >
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
@@ -454,9 +454,9 @@ const RenouvellementCarteProfessionnelle = () => {
           <h2 className="section-title text-center mb-8">Articles utiles</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
-              { title: "Formation continue VTC, Taxi, VMDTR", desc: "Tout savoir sur l'obligation de formation continue pour les chauffeurs T3P.", path: "/blog/formation-continue-vtc-taxi-vmdtr" },
-              { title: "Carte professionnelle VTC : le guide", desc: "Comment obtenir et renouveler votre carte professionnelle VTC.", path: "/blog/carte-professionnelle-vtc-guide-complet" },
-              { title: "Financer sa formation de chauffeur", desc: "Les solutions de financement pour votre formation T3P.", path: "/blog/financer-formation-chauffeur" },
+              { title: "Formation continue VTC, Taxi, VMDTR", desc: "Tout savoir sur l'obligation de formation continue pour les chauffeurs T3P.", path: "/blog/formation-continue-renouvellement-carte-professionnelle" },
+              { title: "Renouveler sa carte VTC, Taxi ou VMDTR en 2026", desc: "Démarches, délais et formation continue obligatoire.", path: "/blog/renouvellement-carte-professionnelle-vtc-taxi-2026" },
+              { title: "Payer sa formation en 4× sans frais avec Alma", desc: "Les facilités de paiement pour financer votre formation T3P.", path: "/blog/facilites-paiement-formation-taxi-vtc" },
             ].map((link, i) => (
               <Link key={i} to={link.path} className="card-t3p group">
                 <h3 className="text-sm font-semibold text-primary mb-1 group-hover:text-accent transition-colors">{link.title}</h3>
@@ -521,7 +521,7 @@ const RenouvellementCarteProfessionnelle = () => {
               >
                 Je renouvelle ma carte <ArrowRight className="w-5 h-5" />
               </button>
-              <a href="tel:0188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
+              <a href="tel:+33188750555" className="text-white/80 hover:text-white font-semibold inline-flex items-center gap-2 text-lg">
                 <Phone className="w-5 h-5" /> 01 88 75 05 55
               </a>
             </div>

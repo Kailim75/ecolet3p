@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -56,6 +57,7 @@ const LogoCard = ({ item }: { item: LogoItem }) => (
 const LogoShowcase = () => {
   return (
     <div className="min-h-screen bg-background p-8">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h1 className="text-3xl font-black text-foreground">Kit Logo — ÉCOLE T3P</h1>

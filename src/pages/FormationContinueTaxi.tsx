@@ -104,9 +104,9 @@ const FormationContinueTaxi = () => (
       { question: "Comment se déroule la formation sur 2 jours ?", answer: "La formation se déroule sur 2 jours consécutifs (7h par jour) dans notre centre de Montrouge (3 rue Corneille, 92120). Elle alterne cours théoriques interactifs et ateliers pratiques. L'attestation est remise en fin de deuxième journée." },
     ]}
     blogLinks={[
-      { title: "Devenir chauffeur Taxi en 2026", description: "Toutes les étapes pour lancer votre activité Taxi.", path: "/blog/devenir-chauffeur-taxi-2026" },
-      { title: "Formation continue : ce qui change", description: "Les évolutions réglementaires 2026 pour les chauffeurs T3P.", path: "/blog/formation-continue-chauffeur-t3p" },
-      { title: "Statuts juridiques du chauffeur T3P", description: "Micro-entreprise, SASU, EURL : quel statut choisir ?", path: "/blog/statuts-juridiques-chauffeur-t3p" },
+      { title: "Devenir chauffeur Taxi en 2026", description: "Toutes les étapes pour lancer votre activité Taxi.", path: "/blog/comment-devenir-chauffeur-taxi-2026" },
+      { title: "Renouvellement carte pro : formation continue obligatoire", description: "Ce que prévoit la formation continue pour renouveler votre carte.", path: "/blog/formation-continue-renouvellement-carte-professionnelle" },
+      { title: "Statuts juridiques du chauffeur T3P", description: "Micro-entreprise, SASU, EURL : quel statut choisir ?", path: "/blog/quel-statut-juridique-chauffeur-vtc-taxi-2026" },
     ]}
     relatedLinks={[
       { title: "Formation Taxi Initiale", desc: "Obtenez votre carte professionnelle Taxi — 990€ en salle, 596€ en ligne", path: "/formations/taxi" },

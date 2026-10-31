@@ -145,7 +145,7 @@ const Formations = () => {
                   <Link to="/contact">Demander un devis gratuit <ArrowRight className="w-4 h-4 ml-2" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-bold text-base bg-transparent border-white/30 text-white hover:bg-white/10">
-                  <a href="tel:0188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
+                  <a href="tel:+33188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
                 </Button>
               </motion.div>
             </div>
@@ -410,7 +410,7 @@ const Formations = () => {
                 <Link to="/contact">Demander un devis gratuit <ArrowRight className="w-4 h-4 ml-2" /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="font-bold bg-transparent border-white/30 text-white hover:bg-white/10">
-                <a href="tel:0188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
+                <a href="tel:+33188750555"><Phone className="w-4 h-4 mr-2" /> 01 88 75 05 55</a>
               </Button>
             </div>
           </motion.div>

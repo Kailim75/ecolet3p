@@ -38,7 +38,7 @@ const FormationTaxi = () => (
     blogLinks={[
       { title: "Comment devenir chauffeur de taxi en 2026 : guide complet", desc: "Prérequis, formation, examen et démarches administratives", path: "/blog/comment-devenir-chauffeur-taxi-2026" },
       { title: "VTC, Taxi ou VMDTR : quel métier choisir en 2026 ?", desc: "Comparaison complète des 3 professions T3P", path: "/blog/vtc-taxi-vmdtr-2026-quel-metier-choisir" },
-      { title: "Financement formation Taxi et VTC sans CPF", desc: "Solutions de paiement et aides disponibles", path: "/blog/financement-formation-taxi-vtc" },
+      { title: "Financement formation Taxi et VTC sans CPF", desc: "Solutions de paiement et aides disponibles", path: "/blog/facilites-paiement-formation-taxi-vtc" },
     ]}
     premiumPrice={1190}
     premiumLabel="PREMIUM"
