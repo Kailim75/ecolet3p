@@ -7,6 +7,7 @@ import StepPreRegistrationForm from "@/components/formations/StepPreRegistration
 import QuoteRequestModal from "@/components/quote/QuoteRequestModal";
 import LeadCaptureForm from "@/components/simulator/LeadCaptureForm";
 import DrivingPlanner from "@/components/resultats/DrivingPlanner";
+import AppointmentForm from "@/components/appointments/AppointmentForm";
 
 const mocks = vi.hoisted(() => ({
   track: vi.fn(), insert: vi.fn(), invoke: vi.fn(),
@@ -55,6 +56,51 @@ describe("successful saved requests only", () => {
 
   for (const failed of [false, true]) {
     const name = failed ? "does not count failed persistence" : "counts successful persistence once";
+    it(`contact request ${name}`, async () => {
+      mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
+      render(<MemoryRouter><Contact /></MemoryRouter>);
+      expect(mocks.track).not.toHaveBeenCalled();
+      fill("Jean Dupont", "Test Conversion");
+      fill("jean.dupont@exemple.fr", "test@example.com");
+      fill("06 12 34 56 78", "0612345678");
+      fireEvent.click(screen.getByRole("checkbox"));
+      fireEvent.submit(document.querySelector("form") as HTMLFormElement);
+      await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+      if (!failed) await screen.findByText("Demande envoyée avec succès");
+      expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+    });
+    it(`quote request ${name}`, async () => {
+      mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
+      render(<QuoteRequestModal isOpen onClose={vi.fn()} preselectedFormation="taxi" />);
+      expect(mocks.track).not.toHaveBeenCalled();
+      fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+      await screen.findByPlaceholderText("Jean");
+      fillPerson();
+      fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+      const send = await screen.findByRole("button", { name: /^Envoyer$/ });
+      fireEvent.click(send);
+      await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+      if (!failed) await screen.findByText("Demande envoyée !");
+      expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+    });
+    it(`appointment request ${name}`, async () => {
+      mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
+      render(<AppointmentForm />);
+      expect(mocks.track).not.toHaveBeenCalled();
+      fill("Jean", "Test"); fill("Dupont", "Conversion"); fill("jean.dupont@email.com", "test@example.com");
+      fireEvent.click(screen.getAllByRole("combobox")[0]);
+      fireEvent.click(await screen.findByRole("option", { name: "Formation VTC (35h)" }));
+      fireEvent.click(screen.getByRole("button", { name: /Choisir une date/ }));
+      const day = screen.getAllByRole("button").find(button => button.getAttribute("name") === "day" && !button.hasAttribute("disabled"));
+      if (!day) throw new Error("No selectable appointment day");
+      fireEvent.click(day);
+      fireEvent.click(screen.getAllByRole("combobox")[1]);
+      fireEvent.click(await screen.findByRole("option", { name: "09:00" }));
+      fireEvent.submit(document.querySelector("form") as HTMLFormElement);
+      await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+      if (!failed) await screen.findByText("Demande envoyée !");
+      expect(mocks.track).toHaveBeenCalledTimes(failed ? 0 : 1);
+    });
     it(`standard pre-registration ${name}`, async () => {
       mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
       render(<PreRegistrationForm isOpen onClose={vi.fn()} formationTitle="Taxi" formationDuration="Journée" />);
@@ -97,6 +143,16 @@ describe("successful saved requests only", () => {
     fireEvent.submit(document.querySelector("form") as HTMLFormElement);
     expect(mocks.insert).not.toHaveBeenCalled();
     expect(mocks.track).not.toHaveBeenCalled();
+  });
+  it("notification failure does not lose a successfully saved lead", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    mocks.invoke.mockRejectedValue(new Error("Email unavailable"));
+    render(<PreRegistrationForm isOpen onClose={vi.fn()} formationTitle="Taxi" formationDuration="Journée" />);
+    fill("Jean", "Test"); fill("Dupont", "Conversion");
+    fill("jean.dupont@email.com", "test@example.com"); fill("06 12 34 56 78", "0612345678");
+    fireEvent.submit(document.querySelector("form") as HTMLFormElement);
+    await screen.findByText("Pré-inscription envoyée !");
+    expect(mocks.track).toHaveBeenCalledTimes(1);
   });
   for (const status of ["booked", "full", "already_booked", "error"]) {
     it(`driving booking counts only a new booked result (${status})`, async () => {
