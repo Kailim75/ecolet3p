@@ -8,6 +8,7 @@ import QuoteRequestModal from "@/components/quote/QuoteRequestModal";
 import LeadCaptureForm from "@/components/simulator/LeadCaptureForm";
 import DrivingPlanner from "@/components/resultats/DrivingPlanner";
 import AppointmentForm from "@/components/appointments/AppointmentForm";
+import BlogArticle from "@/pages/BlogArticle";
 
 const mocks = vi.hoisted(() => ({
   track: vi.fn(), insert: vi.fn(), invoke: vi.fn(),
@@ -29,6 +30,15 @@ vi.mock("@/components/layout/Layout", () => ({ default: ({ children }: { childre
 vi.mock("@/components/seo/DynamicSEOHead", () => ({ default: () => null }));
 vi.mock("@/components/seo/SeoH1Text", () => ({ default: () => null }));
 vi.mock("@/components/home/TrustBar", () => ({ default: () => null }));
+vi.mock("@/components/newsletter/NewsletterForm", () => ({ default: () => null }));
+vi.mock("@/components/ui/OptimizedImage", () => ({ default: () => null }));
+vi.mock("@/data/blogArticles", () => ({
+  getArticleBySlug: () => ({
+    slug: "test-guide", title: "Test guide", content: "Premier paragraphe.\n\nDeuxième paragraphe.\n\nTroisième paragraphe.\n\nDernier paragraphe.",
+    publishDate: "2026-10-31", category: "Taxi", image: "/test.jpg", author: "ÉCOLE T3P", excerpt: "Test", metaDescription: "Test", readTime: "2 min",
+  }),
+  getRelatedArticles: () => [],
+}));
 vi.mock("@/lib/analytics", () => ({ analytics: { trackFormSubmission: vi.fn(), trackPreRegistrationComplete: vi.fn() } }));
 vi.mock("@/hooks/use-toast", () => ({ useToast: () => ({ toast: vi.fn() }), toast: vi.fn() }));
 vi.mock("@/components/ui/calendar", () => ({
@@ -162,7 +172,7 @@ describe("successful saved requests only", () => {
     expect(mocks.track).toHaveBeenCalledTimes(1);
   });
   for (const status of ["booked", "full", "already_booked", "error"]) {
-    it(`driving booking counts only a new booked result (${status})`, async () => {
+    it(`driving booking never counts a lead conversion (${status})`, async () => {
       const slot = { id: "slot", starts_at: "2027-01-11T10:00:00Z", duration_minutes: 60, location: "Montrouge", remaining: 1 };
       mocks.invoke.mockResolvedValueOnce({ data: { status: "ok", slots: [slot], bookings: [] } })
         .mockResolvedValueOnce({ data: { status } });
@@ -173,7 +183,22 @@ describe("successful saved requests only", () => {
       fireEvent.click(screen.getByRole("button", { name: /Réserver ce créneau/ }));
       await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(2));
       await waitFor(() => expect(screen.getByRole("status")).toBeInTheDocument());
-      expect(mocks.track).toHaveBeenCalledTimes(status === "booked" ? 1 : 0);
+      expect(mocks.track).not.toHaveBeenCalled();
     });
   }
+  it("a successfully saved blog guide request never counts a lead conversion", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<MemoryRouter><BlogArticle /></MemoryRouter>);
+    expect(mocks.track).not.toHaveBeenCalled();
+    fill("Votre email", "guide-test@example.com");
+    const input = screen.getByPlaceholderText("Votre email");
+    const form = input.closest("form");
+    if (!form) throw new Error("Guide request form missing");
+    fireEvent.submit(form);
+    await waitFor(() => expect(mocks.invoke).toHaveBeenCalledWith("send-lead-magnet-guide", {
+      body: { email: "guide-test@example.com", source: "blog-lead-magnet-test-guide" },
+    }));
+    expect(mocks.insert).toHaveBeenCalledTimes(1);
+    expect(mocks.track).not.toHaveBeenCalled();
+  });
 });
