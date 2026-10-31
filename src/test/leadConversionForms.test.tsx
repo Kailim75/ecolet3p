@@ -96,6 +96,7 @@ describe("successful saved requests only", () => {
       fireEvent.click(screen.getAllByRole("combobox")[0]);
       fireEvent.click(await screen.findByRole("option", { name: "Formation VTC (35h)" }));
       fireEvent.click(screen.getByRole("button", { name: /Choisir une date/ }));
+      fireEvent.click(screen.getByRole("button", { name: /next month/i }));
       const day = screen.getAllByRole("button").find(button => button.getAttribute("name") === "day" && !button.hasAttribute("disabled"));
       if (!day) throw new Error("No selectable appointment day");
       fireEvent.click(day);
