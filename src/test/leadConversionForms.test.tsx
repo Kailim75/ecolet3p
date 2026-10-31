@@ -31,6 +31,10 @@ vi.mock("@/components/seo/SeoH1Text", () => ({ default: () => null }));
 vi.mock("@/components/home/TrustBar", () => ({ default: () => null }));
 vi.mock("@/lib/analytics", () => ({ analytics: { trackFormSubmission: vi.fn(), trackPreRegistrationComplete: vi.fn() } }));
 vi.mock("@/hooks/use-toast", () => ({ useToast: () => ({ toast: vi.fn() }), toast: vi.fn() }));
+vi.mock("@/components/ui/calendar", () => ({
+  Calendar: ({ onSelect }: { onSelect: (date: Date) => void }) =>
+    <button type="button" onClick={() => onSelect(new Date("2027-01-11T12:00:00"))}>11 janvier 2027</button>,
+}));
 
 function insertResult(error: object | null) {
   const result = { data: { id: "test-lead" }, error };
@@ -96,10 +100,7 @@ describe("successful saved requests only", () => {
       fireEvent.click(screen.getAllByRole("combobox")[0]);
       fireEvent.click(await screen.findByRole("option", { name: "Formation VTC (35h)" }));
       fireEvent.click(screen.getByRole("button", { name: /Choisir une date/ }));
-      fireEvent.click(screen.getByRole("button", { name: /next month/i }));
-      const day = screen.getAllByRole("button").find(button => /^\d{1,2}$/.test(button.textContent ?? "") && !button.hasAttribute("disabled"));
-      if (!day) throw new Error("No selectable appointment day");
-      fireEvent.click(day);
+      fireEvent.click(screen.getByRole("button", { name: "11 janvier 2027" }));
       fireEvent.click(screen.getAllByRole("combobox")[1]);
       fireEvent.click(await screen.findByRole("option", { name: "09:00" }));
       fireEvent.submit(document.querySelector("form") as HTMLFormElement);
