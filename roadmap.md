@@ -1,4 +1,7 @@
 # Google Ads lead conversions
+- [x] Require a resolved, explicit FCO session choice; handle load failures and concurrent submissions without duplicate leads.
+- [x] Preserve the confirmed FCO dates, split hours, pause, price and notification; verify unconfirmed capacity is absent.
+- [x] Run isolated targeted tests and check the preview without submission or publication; report changed files.
 - [x] Exclude driving bookings and blog guide requests; retain the six lead forms and validate regression tests (25 passing tests).
 - [x] Connect successful public lead requests to the shared conversion helper.
 - [x] Keep existing cookie controls unchanged and suppress conversions without marketing acceptance.

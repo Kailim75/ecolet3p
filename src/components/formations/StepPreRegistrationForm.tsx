@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -36,6 +36,7 @@ const scheduleChoices = [
 ];
 
 const NONE_MATCHES = "__none__";
+const CALLBACK = "__callback__";
 
 const contactSchema = z.object({
   firstName: z.string().trim().min(2, "Prénom requis (min 2 caractères)"),
@@ -97,6 +98,7 @@ const StepPreRegistrationForm = ({
   const [step, setStep] = useState(formationKnown ? 2 : 1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const submissionLock = useRef(false);
 
   const [formation, setFormation] = useState(normalizeFormation(defaultFormation));
   // En mode FCO, le libellé persisté vient de la page (jamais réduit à "vtc"/initiale).
@@ -106,6 +108,9 @@ const StepPreRegistrationForm = ({
   const [schedule, setSchedule] = useState("");
   const [preferredDate, setPreferredDate] = useState("");
   const [sessions, setSessions] = useState<SessionRow[]>([]);
+  const [sessionStatus, setSessionStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [sessionResultKey, setSessionResultKey] = useState("");
+  const [sessionRetry, setSessionRetry] = useState(0);
   const [selectedSessionId, setSelectedSessionId] = useState<string>("");
   const [contact, setContact] = useState({ firstName: "", lastName: "", email: "", phone: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -115,50 +120,70 @@ const StepPreRegistrationForm = ({
   const visibleStep = formationKnown ? step - 1 : step;
   const progress = (visibleStep / visibleSteps) * 100;
   const minStep = formationKnown ? 2 : 1;
+  const sessionCategory = continueMode ? (category ?? "") : formation;
+  const sessionQueryKey = `${sessionCategory}:${sessionRetry}`;
+  const sessionsLoading = sessionStatus === "loading" || sessionResultKey !== sessionQueryKey;
+  const sessionsFailed = !sessionsLoading && sessionStatus === "error";
 
   // Charger les sessions de la formation sélectionnée.
   // En mode FCO, on filtre sur la catégorie exacte transmise par la page
   // (ex. "continue-vtc") : aucun repli vers une session initiale.
   useEffect(() => {
     if (!isOpen) return;
-    const cat = continueMode ? (category ?? "") : formation;
-    if (!cat || (!continueMode && cat !== "taxi" && cat !== "vtc" && cat !== "vmdtr")) {
-      setSessions([]);
-      setSelectedSessionId("");
-      return;
-    }
     let cancelled = false;
+    setSessionStatus("loading");
+    setSessions([]);
+    setSelectedSessionId("");
     (async () => {
-      const { data } = await supabase
+      try {
+      if (!sessionCategory) throw new Error("Missing formation category");
+      const { data, error } = await supabase
         .from("formation_sessions")
         .select("id, start_date, end_date, start_time, end_time, notes, formations!inner(title, category)")
         .eq("status", "upcoming")
         .gte("start_date", new Date().toISOString().slice(0, 10))
-        .eq("formations.category", cat)
+        .eq("formations.category", sessionCategory)
         .order("start_date", { ascending: true });
       if (cancelled) return;
+      if (error) throw error;
       setSessions((data as unknown as SessionRow[]) ?? []);
-      setSelectedSessionId("");
+      setSessionStatus("ready");
+      } catch {
+        if (cancelled) return;
+        setSessions([]);
+        setSessionStatus("error");
+      }
+      if (!cancelled) setSessionResultKey(sessionQueryKey);
     })();
     return () => { cancelled = true; };
-  }, [formation, isOpen, continueMode, category]);
+  }, [isOpen, sessionCategory, sessionQueryKey]);
 
-  const hasSessions = sessions.length > 0;
-  const showLegacyScheduleBlock = !hasSessions || selectedSessionId === NONE_MATCHES;
+  const hasSessions = !sessionsLoading && !sessionsFailed && sessions.length > 0;
+  const chosenSession = hasSessions ? sessions.find((s) => s.id === selectedSessionId) : undefined;
+  const showLegacyScheduleBlock = !sessionsLoading && (
+    sessionsFailed ? selectedSessionId === CALLBACK : !hasSessions || selectedSessionId === NONE_MATCHES
+  );
+  const hasValidSessionChoice = () => {
+    if (sessionsLoading) return false;
+    if (sessionsFailed) return selectedSessionId === CALLBACK && (continueMode || !!schedule);
+    if (hasSessions) return !!chosenSession || (selectedSessionId === NONE_MATCHES && (continueMode || !!schedule));
+    return continueMode || !!schedule;
+  };
 
   const canNext = () => {
     if (step === 1) return !!formation;
     if (step === 2) {
-      if (hasSessions && selectedSessionId && selectedSessionId !== NONE_MATCHES) return true;
-      // FCO : la date souhaitée est facultative, aucun horaire d'initiale imposé.
-      if (continueMode) return true;
-      return !!schedule;
+      return hasValidSessionChoice();
     }
     return true;
   };
 
   const handleSubmit = async () => {
-    if (isSubmitting) return; // garde anti double-clic
+    if (submissionLock.current || isSuccess) return;
+    if (!hasValidSessionChoice()) {
+      setStep(2);
+      return;
+    }
     const result = contactSchema.safeParse(contact);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -169,15 +194,12 @@ const StepPreRegistrationForm = ({
       return;
     }
     setErrors({});
+    submissionLock.current = true;
     setIsSubmitting(true);
+    let persisted = false;
 
     try {
       const formationLabel = displayLabel;
-      const chosenSession =
-        hasSessions && selectedSessionId && selectedSessionId !== NONE_MATCHES
-          ? sessions.find((s) => s.id === selectedSessionId) ?? null
-          : null;
-
       const scheduleLabel = scheduleChoices.find((s) => s.value === schedule)?.label || schedule;
 
       let formationDuration: string;
@@ -194,6 +216,9 @@ const StepPreRegistrationForm = ({
       // FCO : on conserve la durée de l'offre (ex. "14h · 2 jours") dans la durée persistée.
       if (continueMode && formationSummary) {
         formationDuration = `${formationSummary} — ${formationDuration}`;
+      }
+      if (!chosenSession && (continueMode || selectedSessionId === CALLBACK)) {
+        formationDuration = `Demande de rappel${selectedSessionId === NONE_MATCHES ? " — Aucune de ces dates ne me convient" : sessionsFailed ? " — Disponibilité des sessions non vérifiée" : ""} — ${formationDuration}`;
       }
 
       const persistedTitle = continueMode
@@ -219,6 +244,7 @@ const StepPreRegistrationForm = ({
       const { error: dbError } = await supabase.from("pre_registrations").insert(preRegistration);
 
       if (dbError) throw dbError;
+      persisted = true;
 
       try {
         await supabase.functions.invoke("notify-new-registration", {
@@ -232,8 +258,8 @@ const StepPreRegistrationForm = ({
         // Non-blocking
       }
 
-      trackLeadConversion();
-      analytics.trackFormSubmission("pre-inscription");
+      try { trackLeadConversion(); } catch { /* Optional reporting cannot undo persistence. */ }
+      try { analytics.trackFormSubmission("pre-inscription"); } catch { /* Non-blocking. */ }
       setIsSuccess(true);
       toast({ title: "Inscription envoyée !", description: "Nous vous recontacterons sous 24h." });
 
@@ -248,10 +274,12 @@ const StepPreRegistrationForm = ({
       });
     } finally {
       setIsSubmitting(false);
+      if (!persisted) submissionLock.current = false;
     }
   };
 
   const resetAndClose = () => {
+    submissionLock.current = false;
     setStep(formationKnown ? 2 : 1);
     setFormation(normalizeFormation(defaultFormation));
     setSchedule("");
@@ -361,7 +389,22 @@ const StepPreRegistrationForm = ({
 
               {step === 2 && (
                 <motion.div key="s2" variants={slideVariant} initial="enter" animate="center" exit="exit" transition={{ duration: 0.25 }}>
-                  {hasSessions ? (
+                  {sessionsLoading ? (
+                    <p role="status" className="flex items-center gap-2 mb-4 text-muted-foreground">
+                      <Loader2 className="h-4 w-4 animate-spin" /> Chargement des sessions…
+                    </p>
+                  ) : sessionsFailed ? (
+                    <div className="mb-4 space-y-3">
+                      <p role="alert" className="text-destructive">Impossible de charger les sessions. Leurs disponibilités n’ont pas pu être vérifiées.</p>
+                      <Button variant="outline" onClick={() => setSessionRetry((n) => n + 1)}>Réessayer</Button>
+                      <RadioGroup value={selectedSessionId} onValueChange={setSelectedSessionId}>
+                        <label className="flex items-center gap-3 p-3 border border-border rounded-lg cursor-pointer">
+                          <RadioGroupItem value={CALLBACK} />
+                          <span>Je souhaite être rappelé pour connaître les dates</span>
+                        </label>
+                      </RadioGroup>
+                    </div>
+                  ) : hasSessions ? (
                     <>
                       <p className="font-semibold mb-3">Choisissez votre session</p>
                       <RadioGroup value={selectedSessionId} onValueChange={setSelectedSessionId} className="space-y-3 mb-2">
