@@ -233,7 +233,7 @@ describe("successful saved requests only", () => {
     }];
     mocks.insert.mockReturnValue(insertResult(null));
     render(<StepPreRegistrationForm {...fcoProps} />);
-    fireEvent.click(await screen.findByRole("radio", { name: /9 mars/ }));
+    fireEvent.click(await screen.findByRole("radio", { name: /10 mars 2027/ }));
     fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
     await screen.findByPlaceholderText("Jean");
     fillPerson();
