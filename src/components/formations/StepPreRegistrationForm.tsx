@@ -86,9 +86,17 @@ const StepPreRegistrationForm = ({
   isOpen,
   onClose,
   defaultFormation,
+  continueMode = false,
+  category,
+  formationTitle,
+  formationSummary,
 }: StepPreRegistrationFormProps) => {
   const { toast } = useToast();
   const formationKnown = Boolean(defaultFormation);
+  // En mode FCO, le libellé persisté vient de la page (jamais réduit à "vtc"/initiale).
+  const displayLabel = continueMode
+    ? formationTitle ?? defaultFormation ?? "Formation continue"
+    : formationChoices.find((f) => f.value === formation)?.label || formation;
 
   const [step, setStep] = useState(formationKnown ? 2 : 1);
   const [isSubmitting, setIsSubmitting] = useState(false);
