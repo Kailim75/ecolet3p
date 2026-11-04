@@ -319,11 +319,18 @@ const StepPreRegistrationForm = ({
             {formationKnown && (
               <div className="flex items-center justify-between gap-3 mb-4 p-3 rounded-lg bg-primary/5 border border-primary/20">
                 <span className="text-sm">
-                  Formation : <strong>{formationChoices.find((f) => f.value === formation)?.label ?? formation}</strong>
+                  Formation : <strong>{displayLabel}</strong>
+                  {continueMode && formationSummary && (
+                    <span className="block text-xs text-muted-foreground mt-0.5">
+                      {formationSummary} — 3 rue Corneille, 92120 Montrouge
+                    </span>
+                  )}
                 </span>
-                <button type="button" onClick={() => setStep(1)} className="text-xs font-semibold text-accent hover:underline">
-                  Modifier
-                </button>
+                {!continueMode && (
+                  <button type="button" onClick={() => setStep(1)} className="text-xs font-semibold text-accent hover:underline">
+                    Modifier
+                  </button>
+                )}
               </div>
             )}
 
@@ -402,6 +409,15 @@ const StepPreRegistrationForm = ({
                         </label>
                       </RadioGroup>
                     </>
+                  ) : continueMode ? (
+                    <div className="mb-4 p-4 rounded-xl bg-muted border border-border">
+                      <p className="font-semibold mb-1">Aucune session programmée pour le moment</p>
+                      <p className="text-sm text-muted-foreground">
+                        Les sessions de formation continue sont ouvertes régulièrement à Montrouge.
+                        Laissez vos coordonnées : nous vous rappelons sous 24h pour vous proposer
+                        les prochaines dates.
+                      </p>
+                    </div>
                   ) : (
                     <p className="font-semibold mb-3">Préférence horaire</p>
                   )}
@@ -411,6 +427,7 @@ const StepPreRegistrationForm = ({
                       {hasSessions && (
                         <p className="text-sm font-semibold mb-3">Indiquez vos disponibilités</p>
                       )}
+                      {!continueMode && (
                       <RadioGroup value={schedule} onValueChange={setSchedule} className="space-y-3 mb-4">
                         {scheduleChoices.map((s) => (
                           <label
