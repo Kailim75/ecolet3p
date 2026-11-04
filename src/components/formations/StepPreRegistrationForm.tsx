@@ -48,6 +48,14 @@ interface StepPreRegistrationFormProps {
   isOpen: boolean;
   onClose: () => void;
   defaultFormation?: string;
+  /** Mode formation continue (FCO) : identité préservée, pas de repli vers l'initiale. */
+  continueMode?: boolean;
+  /** Catégorie exacte en base pour filtrer les sessions (ex. "continue-vtc"). */
+  category?: string;
+  /** Libellé affiché et persisté (ex. "Formation Continue VTC (FCO)"). */
+  formationTitle?: string;
+  /** Récapitulatif affiché dans le dialogue (ex. "14h · 2 jours · 170€ TTC"). */
+  formationSummary?: string;
 }
 
 type SessionRow = {
