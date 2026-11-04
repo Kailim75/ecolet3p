@@ -43,8 +43,9 @@ const FormationsSessionsSection = () => {
     const fetchSessions = async () => {
       const { data, error } = await supabase
         .from("formation_sessions")
-        .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, notes, formations(title, category)")
+        .select("id, start_date, end_date, start_time, end_time, max_participants, current_participants, status, notes, formations!inner(title, category)")
         .eq("status", "upcoming")
+        .in("formations.category", ["taxi", "vtc", "vmdtr"])
         .gte("start_date", new Date().toISOString().slice(0, 10))
         .order("start_date", { ascending: true })
         .order("start_time", { ascending: true });

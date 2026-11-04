@@ -183,7 +183,9 @@ const StepPreRegistrationForm = ({
       let formationDuration: string;
       if (chosenSession) {
         const fmt = getSessionFormat(chosenSession.start_time);
-        formationDuration = `Session : ${formatSessionPeriod(chosenSession.start_date, chosenSession.end_date)} (${fmt.label}, ${trimTime(chosenSession.start_time)}–${trimTime(chosenSession.end_time)})`;
+        formationDuration = continueMode && chosenSession.notes
+          ? `Session : ${formatSessionPeriod(chosenSession.start_date, chosenSession.end_date)} — ${chosenSession.notes} — 3 rue Corneille, 92120 Montrouge`
+          : `Session : ${formatSessionPeriod(chosenSession.start_date, chosenSession.end_date)} (${fmt.label}, ${trimTime(chosenSession.start_time)}–${trimTime(chosenSession.end_time)})`;
       } else if (preferredDate) {
         formationDuration = `Date souhaitée : ${preferredDate}`;
       } else {
@@ -384,10 +386,17 @@ const StepPreRegistrationForm = ({
                                     {formatSessionPeriod(s.start_date, s.end_date)}
                                   </span>
                                 </div>
-                                <div className="text-xs text-muted-foreground mt-1">
-                                  Horaires : {trimTime(s.start_time)}–{trimTime(s.end_time)}
-                                </div>
-                                {s.notes && (
+                                {!(continueMode && s.notes) && (
+                                  <div className="text-xs text-muted-foreground mt-1">
+                                    Horaires : {trimTime(s.start_time)}–{trimTime(s.end_time)}
+                                  </div>
+                                )}
+                                {continueMode && s.notes && (
+                                  <div className="text-xs text-foreground mt-1">
+                                    Horaires : {s.notes}
+                                  </div>
+                                )}
+                                {!continueMode && s.notes && (
                                   <div className="text-xs text-muted-foreground mt-1 italic">
                                     {s.notes}
                                   </div>
