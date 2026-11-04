@@ -165,6 +165,88 @@ describe("successful saved requests only", () => {
       expect(mocks.formSubmit).toHaveBeenCalledTimes(failed ? 0 : 1);
     });
   }
+  const fcoProps = {
+    isOpen: true,
+    onClose: vi.fn(),
+    defaultFormation: "Formation Continue VTC (FCO)",
+    continueMode: true,
+    category: "continue-vtc",
+    formationTitle: "Formation Continue VTC (FCO)",
+    formationSummary: "14h · 2 jours · 170€ TTC",
+  };
+
+  it("FCO without sessions keeps the FCO identity, offers a callback with optional date, never the initial schedule", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    expect(mocks.track).not.toHaveBeenCalled();
+    // No silent fallback to the initial exam path.
+    expect(screen.queryByRole("radio", { name: /Journée \(9h30/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole("radio", { name: /Soirée \(18h/ })).not.toBeInTheDocument();
+    expect(screen.getByText(/Aucune session programmée/)).toBeInTheDocument();
+    // "Modifier" must not convert an FCO into an initial formation.
+    expect(screen.queryByRole("button", { name: "Modifier" })).not.toBeInTheDocument();
+    expect(screen.getByText("Formation Continue VTC (FCO)")).toBeInTheDocument();
+    // Optional preferred date only; step 2 is passable without any choice.
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({
+      formation_title: "Formation Continue VTC (FCO)",
+      formation_duration: "14h · 2 jours · 170€ TTC — Date à définir",
+      session_id: null,
+    }));
+    await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(1));
+    expect(mocks.track).toHaveBeenCalledTimes(1);
+  });
+
+  it("FCO failure never counts a conversion", async () => {
+    mocks.insert.mockReturnValue(insertResult({ message: "failure" }));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+    expect(mocks.track).not.toHaveBeenCalled();
+  });
+
+  it("FCO double-click submits only once", async () => {
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fillPerson();
+    const send = screen.getByRole("button", { name: /^Envoyer$/ });
+    fireEvent.click(send);
+    fireEvent.click(send);
+    await waitFor(() => expect(mocks.track).toHaveBeenCalledTimes(1));
+    expect(mocks.insert).toHaveBeenCalledTimes(1);
+  });
+
+  it("FCO with a real session persists its session_id and dates", async () => {
+    mocks.sessionsData = [{
+      id: "fco-session-1", start_date: "2027-03-09", end_date: "2027-03-10",
+      start_time: "09:00", end_time: "17:00", notes: null,
+      formations: { title: "Formation Continue VTC", category: "continue-vtc" },
+    }];
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    fireEvent.click(await screen.findByRole("radio", { name: /9 mars/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({
+      formation_title: "Formation Continue VTC (FCO)",
+      session_id: "fco-session-1",
+    }));
+    expect(mocks.insert.mock.calls[0][0].formation_duration).toContain("14h · 2 jours · 170€ TTC");
+    expect(mocks.track).toHaveBeenCalledTimes(1);
+  });
+
   it("invalid pre-registration never inserts or counts", () => {
     render(<PreRegistrationForm isOpen onClose={vi.fn()} formationTitle="Taxi" formationDuration="Journée" />);
     fireEvent.submit(document.querySelector("form") as HTMLFormElement);
