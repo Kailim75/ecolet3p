@@ -247,6 +247,33 @@ describe("successful saved requests only", () => {
     expect(mocks.track).toHaveBeenCalledTimes(1);
   });
 
+  it("FCO VTC 30 nov–1 déc 2026 shows both time slots and the pause, persisted and notified", async () => {
+    const notes = "Chaque jour : 09:30–12:30 puis 13:30–17:30 (pause 12:30–13:30). 14 heures au total.";
+    mocks.sessionsData = [{
+      id: "fco-vtc-2026-11-30", start_date: "2026-11-30", end_date: "2026-12-01",
+      start_time: "09:30:00", end_time: "17:30:00", notes,
+      formations: { title: "Formation Continue VTC (FCO)", category: "continue-vtc" },
+    }];
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    const radio = await screen.findByRole("radio", { name: /décembre 2026/ });
+    expect(screen.getByText(`Horaires : ${notes}`)).toBeInTheDocument();
+    expect(screen.queryByText("Horaires : 09:30–17:30")).not.toBeInTheDocument();
+    fireEvent.click(radio);
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean");
+    fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
+    const row = mocks.insert.mock.calls[0][0];
+    expect(row.session_id).toBe("fco-vtc-2026-11-30");
+    expect(row.formation_duration).toContain("170€ TTC");
+    expect(row.formation_duration).toContain("09:30–12:30 puis 13:30–17:30 (pause 12:30–13:30)");
+    expect(row.formation_duration).toContain("3 rue Corneille, 92120 Montrouge");
+    await waitFor(() => expect(mocks.invoke).toHaveBeenCalled());
+    expect(mocks.invoke.mock.calls[0][1].body.record.formation_duration).toBe(row.formation_duration);
+  });
+
   it("invalid pre-registration never inserts or counts", () => {
     render(<PreRegistrationForm isOpen onClose={vi.fn()} formationTitle="Taxi" formationDuration="Journée" />);
     fireEvent.submit(document.querySelector("form") as HTMLFormElement);
