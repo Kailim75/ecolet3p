@@ -13,6 +13,7 @@ import BlogArticle from "@/pages/BlogArticle";
 const mocks = vi.hoisted(() => ({
   track: vi.fn(), insert: vi.fn(), invoke: vi.fn(), formSubmit: vi.fn(),
   toastSuccess: vi.fn(), toastError: vi.fn(),
+  sessionsData: [] as unknown[],
 }));
 vi.mock("sonner", () => ({ toast: { success: mocks.toastSuccess, error: mocks.toastError } }));
 vi.mock("@/lib/trackConversion", () => ({ trackLeadConversion: mocks.track }));
@@ -21,7 +22,7 @@ vi.mock("@/integrations/supabase/client", () => ({
     from: () => ({
       insert: mocks.insert,
       select: () => {
-        const query = { eq: () => query, gte: () => query, order: () => Promise.resolve({ data: [] }) };
+        const query = { eq: () => query, gte: () => query, order: () => Promise.resolve({ data: mocks.sessionsData }) };
         return query;
       },
     }),
