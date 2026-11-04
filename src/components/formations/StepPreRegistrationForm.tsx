@@ -444,11 +444,13 @@ const StepPreRegistrationForm = ({
                           </label>
                         ))}
                       </RadioGroup>
+                      )}
 
-                      <Label className="text-sm font-medium">Date souhaitée (optionnel)</Label>
+                      <Label htmlFor="preferred-date" className="text-sm font-medium">Date souhaitée (optionnel)</Label>
                       <div className="relative mt-1">
                         <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <Input
+                          id="preferred-date"
                           type="date"
                           value={preferredDate}
                           onChange={(e) => setPreferredDate(e.target.value)}
@@ -471,10 +473,11 @@ const StepPreRegistrationForm = ({
                       { key: "phone", label: "Téléphone", icon: Phone, placeholder: "06 12 34 56 78", type: "tel" },
                     ] as const).map((field) => (
                       <div key={field.key} className="space-y-1">
-                        <Label className="text-sm">{field.label} *</Label>
+                        <Label htmlFor={`contact-${field.key}`} className="text-sm">{field.label} *</Label>
                         <div className="relative">
                           <field.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                           <Input
+                            id={`contact-${field.key}`}
                             type={(field as any).type || "text"}
                             placeholder={field.placeholder}
                             value={contact[field.key]}
@@ -484,9 +487,13 @@ const StepPreRegistrationForm = ({
                             }}
                             className={`pl-10 ${errors[field.key] ? "border-destructive" : ""}`}
                             disabled={isSubmitting}
+                            aria-invalid={Boolean(errors[field.key])}
+                            aria-describedby={errors[field.key] ? `contact-${field.key}-error` : undefined}
                           />
                         </div>
-                        {errors[field.key] && <p className="text-xs text-destructive">{errors[field.key]}</p>}
+                        {errors[field.key] && (
+                          <p id={`contact-${field.key}-error`} role="alert" className="text-xs text-destructive">{errors[field.key]}</p>
+                        )}
                       </div>
                     ))}
                   </div>
