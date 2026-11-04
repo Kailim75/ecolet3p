@@ -189,10 +189,16 @@ const StepPreRegistrationForm = ({
       } else {
         formationDuration = "Date à définir";
       }
+      // FCO : on conserve la durée de l'offre (ex. "14h · 2 jours") dans la durée persistée.
+      if (continueMode && formationSummary) {
+        formationDuration = `${formationSummary} — ${formationDuration}`;
+      }
 
-      const formationTitle = chosenSession
+      const persistedTitle = continueMode
         ? formationLabel
-        : `${formationLabel}${scheduleLabel ? ` (${scheduleLabel})` : ""}`;
+        : chosenSession
+          ? formationLabel
+          : `${formationLabel}${scheduleLabel ? ` (${scheduleLabel})` : ""}`;
 
       // La table pre_registrations n'est pas lisible par les visiteurs (RLS : lecture réservée aux
       // admins). Demander la ligne en retour (insert().select()) obligeait Postgres à la relire et
@@ -204,7 +210,7 @@ const StepPreRegistrationForm = ({
         last_name: result.data.lastName,
         email: result.data.email,
         phone: result.data.phone,
-        formation_title: formationTitle,
+        formation_title: persistedTitle,
         formation_duration: formationDuration,
         session_id: chosenSession?.id ?? null,
       };
