@@ -48,6 +48,14 @@ interface StepPreRegistrationFormProps {
   isOpen: boolean;
   onClose: () => void;
   defaultFormation?: string;
+  /** Mode formation continue (FCO) : identité préservée, pas de repli vers l'initiale. */
+  continueMode?: boolean;
+  /** Catégorie exacte en base pour filtrer les sessions (ex. "continue-vtc"). */
+  category?: string;
+  /** Libellé affiché et persisté (ex. "Formation Continue VTC (FCO)"). */
+  formationTitle?: string;
+  /** Récapitulatif affiché dans le dialogue (ex. "14h · 2 jours · 170€ TTC"). */
+  formationSummary?: string;
 }
 
 type SessionRow = {
@@ -78,6 +86,10 @@ const StepPreRegistrationForm = ({
   isOpen,
   onClose,
   defaultFormation,
+  continueMode = false,
+  category,
+  formationTitle,
+  formationSummary,
 }: StepPreRegistrationFormProps) => {
   const { toast } = useToast();
   const formationKnown = Boolean(defaultFormation);
@@ -87,6 +99,10 @@ const StepPreRegistrationForm = ({
   const [isSuccess, setIsSuccess] = useState(false);
 
   const [formation, setFormation] = useState(normalizeFormation(defaultFormation));
+  // En mode FCO, le libellé persisté vient de la page (jamais réduit à "vtc"/initiale).
+  const displayLabel = continueMode
+    ? formationTitle ?? defaultFormation ?? "Formation continue"
+    : formationChoices.find((f) => f.value === formation)?.label || formation;
   const [schedule, setSchedule] = useState("");
   const [preferredDate, setPreferredDate] = useState("");
   const [sessions, setSessions] = useState<SessionRow[]>([]);
@@ -100,11 +116,13 @@ const StepPreRegistrationForm = ({
   const progress = (visibleStep / visibleSteps) * 100;
   const minStep = formationKnown ? 2 : 1;
 
-  // Charger les sessions de la formation sélectionnée
+  // Charger les sessions de la formation sélectionnée.
+  // En mode FCO, on filtre sur la catégorie exacte transmise par la page
+  // (ex. "continue-vtc") : aucun repli vers une session initiale.
   useEffect(() => {
     if (!isOpen) return;
-    const cat = formation;
-    if (cat !== "taxi" && cat !== "vtc" && cat !== "vmdtr") {
+    const cat = continueMode ? (category ?? "") : formation;
+    if (!cat || (!continueMode && cat !== "taxi" && cat !== "vtc" && cat !== "vmdtr")) {
       setSessions([]);
       setSelectedSessionId("");
       return;
@@ -123,7 +141,7 @@ const StepPreRegistrationForm = ({
       setSelectedSessionId("");
     })();
     return () => { cancelled = true; };
-  }, [formation, isOpen]);
+  }, [formation, isOpen, continueMode, category]);
 
   const hasSessions = sessions.length > 0;
   const showLegacyScheduleBlock = !hasSessions || selectedSessionId === NONE_MATCHES;
@@ -132,12 +150,15 @@ const StepPreRegistrationForm = ({
     if (step === 1) return !!formation;
     if (step === 2) {
       if (hasSessions && selectedSessionId && selectedSessionId !== NONE_MATCHES) return true;
+      // FCO : la date souhaitée est facultative, aucun horaire d'initiale imposé.
+      if (continueMode) return true;
       return !!schedule;
     }
     return true;
   };
 
   const handleSubmit = async () => {
+    if (isSubmitting) return; // garde anti double-clic
     const result = contactSchema.safeParse(contact);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -151,7 +172,7 @@ const StepPreRegistrationForm = ({
     setIsSubmitting(true);
 
     try {
-      const formationLabel = formationChoices.find((f) => f.value === formation)?.label || formation;
+      const formationLabel = displayLabel;
       const chosenSession =
         hasSessions && selectedSessionId && selectedSessionId !== NONE_MATCHES
           ? sessions.find((s) => s.id === selectedSessionId) ?? null
@@ -168,10 +189,16 @@ const StepPreRegistrationForm = ({
       } else {
         formationDuration = "Date à définir";
       }
+      // FCO : on conserve la durée de l'offre (ex. "14h · 2 jours") dans la durée persistée.
+      if (continueMode && formationSummary) {
+        formationDuration = `${formationSummary} — ${formationDuration}`;
+      }
 
-      const formationTitle = chosenSession
+      const persistedTitle = continueMode
         ? formationLabel
-        : `${formationLabel}${scheduleLabel ? ` (${scheduleLabel})` : ""}`;
+        : chosenSession
+          ? formationLabel
+          : `${formationLabel}${scheduleLabel ? ` (${scheduleLabel})` : ""}`;
 
       // La table pre_registrations n'est pas lisible par les visiteurs (RLS : lecture réservée aux
       // admins). Demander la ligne en retour (insert().select()) obligeait Postgres à la relire et
@@ -183,7 +210,7 @@ const StepPreRegistrationForm = ({
         last_name: result.data.lastName,
         email: result.data.email,
         phone: result.data.phone,
-        formation_title: formationTitle,
+        formation_title: persistedTitle,
         formation_duration: formationDuration,
         session_id: chosenSession?.id ?? null,
       };
@@ -292,11 +319,18 @@ const StepPreRegistrationForm = ({
             {formationKnown && (
               <div className="flex items-center justify-between gap-3 mb-4 p-3 rounded-lg bg-primary/5 border border-primary/20">
                 <span className="text-sm">
-                  Formation : <strong>{formationChoices.find((f) => f.value === formation)?.label ?? formation}</strong>
+                  Formation : <strong>{displayLabel}</strong>
+                  {continueMode && formationSummary && (
+                    <span className="block text-xs text-muted-foreground mt-0.5">
+                      {formationSummary} — 3 rue Corneille, 92120 Montrouge
+                    </span>
+                  )}
                 </span>
-                <button type="button" onClick={() => setStep(1)} className="text-xs font-semibold text-accent hover:underline">
-                  Modifier
-                </button>
+                {!continueMode && (
+                  <button type="button" onClick={() => setStep(1)} className="text-xs font-semibold text-accent hover:underline">
+                    Modifier
+                  </button>
+                )}
               </div>
             )}
 
@@ -375,6 +409,15 @@ const StepPreRegistrationForm = ({
                         </label>
                       </RadioGroup>
                     </>
+                  ) : continueMode ? (
+                    <div className="mb-4 p-4 rounded-xl bg-muted border border-border">
+                      <p className="font-semibold mb-1">Aucune session programmée pour le moment</p>
+                      <p className="text-sm text-muted-foreground">
+                        Les sessions de formation continue sont ouvertes régulièrement à Montrouge.
+                        Laissez vos coordonnées : nous vous rappelons sous 24h pour vous proposer
+                        les prochaines dates.
+                      </p>
+                    </div>
                   ) : (
                     <p className="font-semibold mb-3">Préférence horaire</p>
                   )}
@@ -384,6 +427,7 @@ const StepPreRegistrationForm = ({
                       {hasSessions && (
                         <p className="text-sm font-semibold mb-3">Indiquez vos disponibilités</p>
                       )}
+                      {!continueMode && (
                       <RadioGroup value={schedule} onValueChange={setSchedule} className="space-y-3 mb-4">
                         {scheduleChoices.map((s) => (
                           <label
@@ -400,11 +444,13 @@ const StepPreRegistrationForm = ({
                           </label>
                         ))}
                       </RadioGroup>
+                      )}
 
-                      <Label className="text-sm font-medium">Date souhaitée (optionnel)</Label>
+                      <Label htmlFor="preferred-date" className="text-sm font-medium">Date souhaitée (optionnel)</Label>
                       <div className="relative mt-1">
                         <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <Input
+                          id="preferred-date"
                           type="date"
                           value={preferredDate}
                           onChange={(e) => setPreferredDate(e.target.value)}
@@ -427,10 +473,11 @@ const StepPreRegistrationForm = ({
                       { key: "phone", label: "Téléphone", icon: Phone, placeholder: "06 12 34 56 78", type: "tel" },
                     ] as const).map((field) => (
                       <div key={field.key} className="space-y-1">
-                        <Label className="text-sm">{field.label} *</Label>
+                        <Label htmlFor={`contact-${field.key}`} className="text-sm">{field.label} *</Label>
                         <div className="relative">
                           <field.icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                           <Input
+                            id={`contact-${field.key}`}
                             type={(field as any).type || "text"}
                             placeholder={field.placeholder}
                             value={contact[field.key]}
@@ -440,9 +487,13 @@ const StepPreRegistrationForm = ({
                             }}
                             className={`pl-10 ${errors[field.key] ? "border-destructive" : ""}`}
                             disabled={isSubmitting}
+                            aria-invalid={Boolean(errors[field.key])}
+                            aria-describedby={errors[field.key] ? `contact-${field.key}-error` : undefined}
                           />
                         </div>
-                        {errors[field.key] && <p className="text-xs text-destructive">{errors[field.key]}</p>}
+                        {errors[field.key] && (
+                          <p id={`contact-${field.key}-error`} role="alert" className="text-xs text-destructive">{errors[field.key]}</p>
+                        )}
                       </div>
                     ))}
                   </div>
