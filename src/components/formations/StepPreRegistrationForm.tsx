@@ -141,7 +141,7 @@ const StepPreRegistrationForm = ({
       setSelectedSessionId("");
     })();
     return () => { cancelled = true; };
-  }, [formation, isOpen]);
+  }, [formation, isOpen, continueMode, category]);
 
   const hasSessions = sessions.length > 0;
   const showLegacyScheduleBlock = !hasSessions || selectedSessionId === NONE_MATCHES;
@@ -150,6 +150,8 @@ const StepPreRegistrationForm = ({
     if (step === 1) return !!formation;
     if (step === 2) {
       if (hasSessions && selectedSessionId && selectedSessionId !== NONE_MATCHES) return true;
+      // FCO : la date souhaitée est facultative, aucun horaire d'initiale imposé.
+      if (continueMode) return true;
       return !!schedule;
     }
     return true;
