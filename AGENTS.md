@@ -1,3 +1,4 @@
 # Architecture rules
 - Public lead forms call `trackLeadConversion` at the successful persistence boundary before confirmation; this centralizes Google Ads reporting and keeps errors and form openings out of conversions.
 - Conversion reporting checks the latest marketing preference without altering the cookie manager, because an existing tag function does not establish current advertising permission.
+- Session requests distinguish loading, failure and resolved availability, revalidate explicit choices at submission, and use a synchronous lock; optional reporting failures must not turn persisted leads into retryable failures.

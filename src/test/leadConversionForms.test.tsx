@@ -14,6 +14,7 @@ const mocks = vi.hoisted(() => ({
   track: vi.fn(), insert: vi.fn(), invoke: vi.fn(), formSubmit: vi.fn(),
   toastSuccess: vi.fn(), toastError: vi.fn(),
   sessionsData: [] as unknown[],
+  sessionsQuery: vi.fn(), toast: vi.fn(),
 }));
 vi.mock("sonner", () => ({ toast: { success: mocks.toastSuccess, error: mocks.toastError } }));
 vi.mock("@/lib/trackConversion", () => ({ trackLeadConversion: mocks.track }));
@@ -22,7 +23,7 @@ vi.mock("@/integrations/supabase/client", () => ({
     from: () => ({
       insert: mocks.insert,
       select: () => {
-        const query = { eq: () => query, gte: () => query, order: () => Promise.resolve({ data: mocks.sessionsData }) };
+        const query = { eq: () => query, gte: () => query, order: mocks.sessionsQuery };
         return query;
       },
     }),
@@ -43,7 +44,7 @@ vi.mock("@/data/blogArticles", () => ({
   getRelatedArticles: () => [],
 }));
 vi.mock("@/lib/analytics", () => ({ analytics: { trackFormSubmission: mocks.formSubmit, trackPreRegistrationComplete: vi.fn() } }));
-vi.mock("@/hooks/use-toast", () => ({ useToast: () => ({ toast: vi.fn() }), toast: vi.fn() }));
+vi.mock("@/hooks/use-toast", () => ({ useToast: () => ({ toast: mocks.toast }), toast: mocks.toast }));
 vi.mock("@/components/ui/calendar", () => ({
   Calendar: ({ onSelect }: { onSelect: (date: Date) => void }) =>
     <button type="button" onClick={() => onSelect(new Date("2027-01-11T12:00:00"))}>11 janvier 2027</button>,
@@ -74,6 +75,8 @@ describe("successful saved requests only", () => {
     mocks.track.mockReset(); mocks.insert.mockReset(); mocks.invoke.mockReset(); mocks.formSubmit.mockReset();
     mocks.toastSuccess.mockReset(); mocks.toastError.mockReset();
     mocks.sessionsData = [];
+    mocks.sessionsQuery.mockReset(); mocks.toast.mockReset();
+    mocks.sessionsQuery.mockImplementation(() => Promise.resolve({ data: mocks.sessionsData, error: null }));
     mocks.invoke.mockResolvedValue({ data: {}, error: null });
   });
   afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
@@ -142,7 +145,7 @@ describe("successful saved requests only", () => {
       mocks.insert.mockReturnValue(insertResult(failed ? { message: "failure" } : null));
       render(<StepPreRegistrationForm isOpen onClose={vi.fn()} defaultFormation="taxi" />);
       expect(mocks.track).not.toHaveBeenCalled();
-      fireEvent.click(screen.getByRole("radio", { name: /Journée/ }));
+      fireEvent.click(await screen.findByRole("radio", { name: /Journée/ }));
       fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
       await screen.findByPlaceholderText("Jean");
       fillPerson();
@@ -182,7 +185,7 @@ describe("successful saved requests only", () => {
     // No silent fallback to the initial exam path.
     expect(screen.queryByRole("radio", { name: /Journée \(9h30/ })).not.toBeInTheDocument();
     expect(screen.queryByRole("radio", { name: /Soirée \(18h/ })).not.toBeInTheDocument();
-    expect(screen.getByText(/Aucune session programmée/)).toBeInTheDocument();
+    expect(await screen.findByText(/Aucune session programmée/)).toBeInTheDocument();
     // "Modifier" must not convert an FCO into an initial formation.
     expect(screen.queryByRole("button", { name: "Modifier" })).not.toBeInTheDocument();
     expect(screen.getByText("Formation Continue VTC (FCO)")).toBeInTheDocument();
@@ -194,7 +197,7 @@ describe("successful saved requests only", () => {
     await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
     expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({
       formation_title: "Formation Continue VTC (FCO)",
-      formation_duration: "14h · 2 jours · 170€ TTC — Date à définir",
+      formation_duration: "Demande de rappel — 14h · 2 jours · 170€ TTC — Date à définir",
       session_id: null,
     }));
     await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(1));
@@ -204,6 +207,7 @@ describe("successful saved requests only", () => {
   it("FCO failure never counts a conversion", async () => {
     mocks.insert.mockReturnValue(insertResult({ message: "failure" }));
     render(<StepPreRegistrationForm {...fcoProps} />);
+    await screen.findByText(/Aucune session programmée/);
     fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
     await screen.findByPlaceholderText("Jean");
     fillPerson();
@@ -215,6 +219,7 @@ describe("successful saved requests only", () => {
   it("FCO double-click submits only once", async () => {
     mocks.insert.mockReturnValue(insertResult(null));
     render(<StepPreRegistrationForm {...fcoProps} />);
+    await screen.findByText(/Aucune session programmée/);
     fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
     await screen.findByPlaceholderText("Jean");
     fillPerson();
@@ -267,12 +272,119 @@ describe("successful saved requests only", () => {
     await waitFor(() => expect(mocks.insert).toHaveBeenCalledTimes(1));
     const row = mocks.insert.mock.calls[0][0];
     expect(row.session_id).toBe("fco-vtc-2026-11-30");
+    expect(row.formation_title).toBe("Formation Continue VTC (FCO)");
+    expect(row.formation_duration).toContain("30 novembre");
+    expect(row.formation_duration).toContain("1 décembre 2026");
     expect(row.formation_duration).toContain("170€ TTC");
     expect(row.formation_duration).toContain("09:30–12:30 puis 13:30–17:30 (pause 12:30–13:30)");
     expect(row.formation_duration).toContain("3 rue Corneille, 92120 Montrouge");
     await waitFor(() => expect(mocks.invoke).toHaveBeenCalled());
     expect(mocks.invoke.mock.calls[0][1].body.record.formation_duration).toBe(row.formation_duration);
   });
+
+  const fcoSession = {
+    id: "fco-vtc-2026-11-30", start_date: "2026-11-30", end_date: "2026-12-01",
+    start_time: "09:30:00", end_time: "17:30:00",
+    notes: "Chaque jour : 09:30–12:30 puis 13:30–17:30 (pause 12:30–13:30). 14 heures au total.",
+    formations: { title: "Formation Continue VTC (FCO)", category: "continue-vtc" },
+  };
+
+  it("blocks progress during initial loading and until an existing session is selected", async () => {
+    let resolveQuery: (result: unknown) => void = () => {};
+    mocks.sessionsQuery.mockReturnValue(new Promise((resolve) => { resolveQuery = resolve; }));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    expect(screen.getByRole("button", { name: /Suivant/ })).toBeDisabled();
+    expect(screen.queryByText(/Aucune session programmée/)).not.toBeInTheDocument();
+    resolveQuery({ data: [fcoSession], error: null });
+    const session = await screen.findByRole("radio", { name: /décembre 2026/ });
+    expect(session).not.toBeChecked();
+    expect(screen.getByRole("button", { name: /Suivant/ })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    expect(mocks.insert).not.toHaveBeenCalled();
+    fireEvent.click(session);
+    expect(screen.getByRole("button", { name: /Suivant/ })).toBeEnabled();
+    expect(mocks.track).not.toHaveBeenCalled();
+  });
+
+  it("allows an explicit none-of-these-dates FCO callback without a preferred date", async () => {
+    mocks.sessionsData = [fcoSession];
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    fireEvent.click(await screen.findByRole("radio", { name: /Aucune de ces dates/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean"); fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await screen.findByText("Demande envoyée !");
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({
+      session_id: null,
+      formation_duration: "Demande de rappel — Aucune de ces dates ne me convient — 14h · 2 jours · 170€ TTC — Date à définir",
+    }));
+    expect(mocks.track).toHaveBeenCalledTimes(1);
+  });
+
+  it("distinguishes a load failure from no sessions and retries without a silent callback", async () => {
+    mocks.sessionsQuery.mockResolvedValueOnce({ data: null, error: { message: "Unavailable" } })
+      .mockResolvedValueOnce({ data: [fcoSession], error: null });
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    await screen.findByRole("alert");
+    expect(screen.queryByText(/Aucune session programmée/)).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Suivant/ })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Réessayer" }));
+    await screen.findByRole("radio", { name: /décembre 2026/ });
+    expect(screen.getByRole("button", { name: /Suivant/ })).toBeDisabled();
+    expect(mocks.insert).not.toHaveBeenCalled();
+  });
+
+  it("offers an explicitly selected callback after a rejected session request", async () => {
+    mocks.sessionsQuery.mockRejectedValue(new Error("Offline"));
+    mocks.insert.mockReturnValue(insertResult(null));
+    render(<StepPreRegistrationForm {...fcoProps} />);
+    fireEvent.click(await screen.findByRole("radio", { name: /Je souhaite être rappelé/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean"); fillPerson();
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await screen.findByText("Demande envoyée !");
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({
+      session_id: null,
+      formation_duration: "Demande de rappel — Disponibilité des sessions non vérifiée — 14h · 2 jours · 170€ TTC — Date à définir",
+    }));
+  });
+
+  it("revalidates the session at submission when the formation changes", async () => {
+    mocks.sessionsData = [fcoSession];
+    const view = render(<StepPreRegistrationForm {...fcoProps} />);
+    fireEvent.click(await screen.findByRole("radio", { name: /décembre 2026/ }));
+    fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+    await screen.findByPlaceholderText("Jean"); fillPerson();
+    mocks.sessionsQuery.mockReturnValue(new Promise(() => {}));
+    view.rerender(<StepPreRegistrationForm {...fcoProps} category="continue-taxi" />);
+    fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
+    await screen.findByRole("button", { name: /Suivant/ });
+    expect(mocks.insert).not.toHaveBeenCalled();
+    expect(mocks.track).not.toHaveBeenCalled();
+  });
+
+  for (const failure of ["notification", "conversion", "analytics"]) {
+    it(`keeps a persisted FCO request successful after optional ${failure} failure and simultaneous clicks`, async () => {
+      let resolveInsert: (result: unknown) => void = () => {};
+      mocks.insert.mockReturnValue(new Promise((resolve) => { resolveInsert = resolve; }));
+      if (failure === "notification") mocks.invoke.mockRejectedValue(new Error("Email unavailable"));
+      if (failure === "conversion") mocks.track.mockImplementation(() => { throw new Error("Tracker unavailable"); });
+      if (failure === "analytics") mocks.formSubmit.mockImplementation(() => { throw new Error("Analytics unavailable"); });
+      render(<StepPreRegistrationForm {...fcoProps} />);
+      await screen.findByText(/Aucune session programmée/);
+      fireEvent.click(screen.getByRole("button", { name: /Suivant/ }));
+      await screen.findByPlaceholderText("Jean"); fillPerson();
+      const send = screen.getByRole("button", { name: /^Envoyer$/ });
+      fireEvent.click(send); fireEvent.click(send);
+      expect(mocks.insert).toHaveBeenCalledTimes(1);
+      resolveInsert({ error: null });
+      await screen.findByText("Demande envoyée !");
+      expect(mocks.insert).toHaveBeenCalledTimes(1);
+      expect(mocks.track).toHaveBeenCalledTimes(1);
+      expect(mocks.toast).not.toHaveBeenCalledWith(expect.objectContaining({ variant: "destructive" }));
+    });
+  }
 
   it("invalid pre-registration never inserts or counts", () => {
     render(<PreRegistrationForm isOpen onClose={vi.fn()} formationTitle="Taxi" formationDuration="Journée" />);
