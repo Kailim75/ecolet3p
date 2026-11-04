@@ -93,16 +93,16 @@ const StepPreRegistrationForm = ({
 }: StepPreRegistrationFormProps) => {
   const { toast } = useToast();
   const formationKnown = Boolean(defaultFormation);
-  // En mode FCO, le libellé persisté vient de la page (jamais réduit à "vtc"/initiale).
-  const displayLabel = continueMode
-    ? formationTitle ?? defaultFormation ?? "Formation continue"
-    : formationChoices.find((f) => f.value === formation)?.label || formation;
 
   const [step, setStep] = useState(formationKnown ? 2 : 1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const [formation, setFormation] = useState(normalizeFormation(defaultFormation));
+  // En mode FCO, le libellé persisté vient de la page (jamais réduit à "vtc"/initiale).
+  const displayLabel = continueMode
+    ? formationTitle ?? defaultFormation ?? "Formation continue"
+    : formationChoices.find((f) => f.value === formation)?.label || formation;
   const [schedule, setSchedule] = useState("");
   const [preferredDate, setPreferredDate] = useState("");
   const [sessions, setSessions] = useState<SessionRow[]>([]);
