@@ -73,6 +73,7 @@ describe("successful saved requests only", () => {
     Element.prototype.releasePointerCapture = vi.fn();
     mocks.track.mockReset(); mocks.insert.mockReset(); mocks.invoke.mockReset(); mocks.formSubmit.mockReset();
     mocks.toastSuccess.mockReset(); mocks.toastError.mockReset();
+    mocks.sessionsData = [];
     mocks.invoke.mockResolvedValue({ data: {}, error: null });
   });
   afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
