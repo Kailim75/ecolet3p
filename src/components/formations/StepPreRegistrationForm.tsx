@@ -116,11 +116,13 @@ const StepPreRegistrationForm = ({
   const progress = (visibleStep / visibleSteps) * 100;
   const minStep = formationKnown ? 2 : 1;
 
-  // Charger les sessions de la formation sélectionnée
+  // Charger les sessions de la formation sélectionnée.
+  // En mode FCO, on filtre sur la catégorie exacte transmise par la page
+  // (ex. "continue-vtc") : aucun repli vers une session initiale.
   useEffect(() => {
     if (!isOpen) return;
-    const cat = formation;
-    if (cat !== "taxi" && cat !== "vtc" && cat !== "vmdtr") {
+    const cat = continueMode ? (category ?? "") : formation;
+    if (!cat || (!continueMode && cat !== "taxi" && cat !== "vtc" && cat !== "vmdtr")) {
       setSessions([]);
       setSelectedSessionId("");
       return;
