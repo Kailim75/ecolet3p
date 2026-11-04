@@ -158,6 +158,7 @@ const StepPreRegistrationForm = ({
   };
 
   const handleSubmit = async () => {
+    if (isSubmitting) return; // garde anti double-clic
     const result = contactSchema.safeParse(contact);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -171,7 +172,7 @@ const StepPreRegistrationForm = ({
     setIsSubmitting(true);
 
     try {
-      const formationLabel = formationChoices.find((f) => f.value === formation)?.label || formation;
+      const formationLabel = displayLabel;
       const chosenSession =
         hasSessions && selectedSessionId && selectedSessionId !== NONE_MATCHES
           ? sessions.find((s) => s.id === selectedSessionId) ?? null
