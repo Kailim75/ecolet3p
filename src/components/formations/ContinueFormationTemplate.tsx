@@ -15,7 +15,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import StepPreRegistrationForm from "@/components/formations/StepPreRegistrationForm";
 
 interface ProgramModule {
@@ -394,19 +393,18 @@ const ContinueFormationTemplate = ({
         </div>
       </section>
 
-      {/* Pre-Registration Dialog */}
-      <Dialog open={showPreRegistration} onOpenChange={setShowPreRegistration}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Pré-inscription - {badge}</DialogTitle>
-          </DialogHeader>
-          <StepPreRegistrationForm
-            isOpen={showPreRegistration}
-            onClose={() => setShowPreRegistration(false)}
-            defaultFormation={badge}
-          />
-        </DialogContent>
-      </Dialog>
+      {/* Pre-Registration Dialog — StepPreRegistrationForm gère son propre Dialog.
+          L'identité FCO (badge, durée, prix, catégorie) est transmise telle quelle :
+          aucun repli vers le parcours d'examen initial. */}
+      <StepPreRegistrationForm
+        isOpen={showPreRegistration}
+        onClose={() => setShowPreRegistration(false)}
+        defaultFormation={badge}
+        continueMode
+        category={category}
+        formationTitle={badge}
+        formationSummary={`${duration} · ${format} · ${price}€ TTC`}
+      />
     </Layout>
   );
 };
