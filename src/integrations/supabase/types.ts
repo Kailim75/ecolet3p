@@ -89,6 +89,57 @@ export type Database = {
         }
         Relationships: []
       }
+      crm_lead_outbox: {
+        Row: {
+          attempts: number
+          created_at: string
+          crm_result: string | null
+          id: string
+          last_attempt_at: string | null
+          last_error: string | null
+          lock_token: string | null
+          locked_until: string | null
+          next_attempt_at: string
+          sent_at: string | null
+          source_id: string
+          source_table: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          attempts?: number
+          created_at?: string
+          crm_result?: string | null
+          id?: string
+          last_attempt_at?: string | null
+          last_error?: string | null
+          lock_token?: string | null
+          locked_until?: string | null
+          next_attempt_at?: string
+          sent_at?: string | null
+          source_id: string
+          source_table: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          attempts?: number
+          created_at?: string
+          crm_result?: string | null
+          id?: string
+          last_attempt_at?: string | null
+          last_error?: string | null
+          lock_token?: string | null
+          locked_until?: string | null
+          next_attempt_at?: string
+          sent_at?: string | null
+          source_id?: string
+          source_table?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       driving_bookings: {
         Row: {
           cancelled_at: string | null
@@ -433,6 +484,7 @@ export type Database = {
           formation_title: string
           id: string
           last_name: string
+          message: string | null
           phone: string
           session_id: string | null
           status: string
@@ -446,6 +498,7 @@ export type Database = {
           formation_title: string
           id?: string
           last_name: string
+          message?: string | null
           phone: string
           session_id?: string | null
           status?: string
@@ -459,6 +512,7 @@ export type Database = {
           formation_title?: string
           id?: string
           last_name?: string
+          message?: string | null
           phone?: string
           session_id?: string | null
           status?: string
@@ -792,6 +846,42 @@ export type Database = {
           p_min_notice?: string
           p_phone: string
           p_slot_id: string
+        }
+        Returns: string
+      }
+      crm_claim_leads: {
+        Args: { p_lease_seconds?: number; p_limit?: number }
+        Returns: {
+          attempts: number
+          created_at: string
+          crm_result: string | null
+          id: string
+          last_attempt_at: string | null
+          last_error: string | null
+          lock_token: string | null
+          locked_until: string | null
+          next_attempt_at: string
+          sent_at: string | null
+          source_id: string
+          source_table: string
+          status: string
+          updated_at: string
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "crm_lead_outbox"
+          isOneToOne: false
+          isSetofReturn: true
+        }
+      }
+      crm_complete_lead: {
+        Args: {
+          p_crm_result?: string
+          p_error?: string
+          p_id: string
+          p_lock_token: string
+          p_max_attempts?: number
+          p_outcome: string
         }
         Returns: string
       }

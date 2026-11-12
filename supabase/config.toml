@@ -38,3 +38,6 @@ verify_jwt = false
 
 [functions.exam-results-v2]
 verify_jwt = false
+
+[functions.push-crm-leads]
+verify_jwt = false

@@ -7,3 +7,7 @@
 - [x] Keep existing cookie controls unchanged and suppress conversions without marketing acceptance.
 - [x] Update advertising disclosure and verify success/error tracking with tests and browser checks (38 passing tests; fictitious Contact request persisted with HTTP 201, one conversion command, Google requests observed; provider attribution unverified).
 - [x] Report all modified files and forms.
+# CRM lead link (site side)
+- [x] Outbox table, insert triggers, lease/complete functions, admin-only access.
+- [x] push-crm-leads function (fail-closed, HTTPS allowlist, timeout, backoff, no PII logs), admin panel, quote message column.
+- [ ] Activation — blocked: CRM endpoint and shared token not provided yet (see docs/crm-liaison.md).

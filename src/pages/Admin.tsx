@@ -46,8 +46,9 @@ import SEODashboard from "@/components/admin/SEODashboard";
 import RedirectsManager from "@/components/admin/RedirectsManager";
 import ExamResultsManager from "@/components/admin/ExamResultsManager";
 import DrivingSlotsManager from "@/components/admin/DrivingSlotsManager";
+import CrmOutboxManager from "@/components/admin/CrmOutboxManager";
 
-type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails" | "redirects" | "results" | "driving";
+type Tab = "dashboard" | "seo" | "newsletter" | "preregistrations" | "formations" | "sessions" | "appointments" | "emails" | "redirects" | "results" | "driving" | "crm";
 
 interface NewsletterSubscriber {
   id: string;
@@ -555,6 +556,17 @@ const Admin = () => {
                 <Car className="w-4 h-4 inline-block mr-2" />
                 Conduite
               </button>
+              <button
+                onClick={() => { setActiveTab("crm"); setSearchTerm(""); setStatusFilter("all"); }}
+                className={`px-6 py-4 font-medium transition-colors whitespace-nowrap ${
+                  activeTab === "crm"
+                    ? "text-forest border-b-2 border-forest bg-forest/5"
+                    : "text-warm-gray-600 hover:text-forest"
+                }`}
+              >
+                <Send className="w-4 h-4 inline-block mr-2" />
+                CRM
+              </button>
             </div>
           </div>
 
@@ -584,6 +596,10 @@ const Admin = () => {
           ) : activeTab === "driving" ? (
             <div className="p-6">
               <DrivingSlotsManager />
+            </div>
+          ) : activeTab === "crm" ? (
+            <div className="p-6">
+              <CrmOutboxManager />
             </div>
           ) : (
             <>

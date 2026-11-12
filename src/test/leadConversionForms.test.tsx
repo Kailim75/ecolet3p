@@ -413,7 +413,7 @@ describe("successful saved requests only", () => {
     fireEvent.change(await screen.findByPlaceholderText(/Questions, disponibilités/), { target: { value: "Plutôt le soir" } });
     fireEvent.click(screen.getByRole("button", { name: /^Envoyer$/ }));
     await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(1));
-    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ formation_title: "VTC", formation_duration: "Devis demandé" }));
+    expect(mocks.insert).toHaveBeenCalledWith(expect.objectContaining({ formation_title: "VTC", formation_duration: "Devis demandé", message: "Plutôt le soir" }));
     expect(mocks.invoke).toHaveBeenCalledWith("notify-contact-request", {
       body: {
         record: {

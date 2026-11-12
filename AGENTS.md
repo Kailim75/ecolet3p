@@ -1,4 +1,4 @@
 # Architecture rules
 - Public lead forms call `trackLeadConversion` at the successful persistence boundary before confirmation; this centralizes Google Ads reporting and keeps errors and form openings out of conversions.
 - Conversion reporting checks the latest marketing preference without altering the cookie manager, because an existing tag function does not establish current advertising permission.
-- Session requests distinguish loading, failure and resolved availability, revalidate explicit choices at submission, and use a synchronous lock; optional reporting failures must not turn persisted leads into retryable failures.
+- Session requests distinguish loading, failure and resolved availability, revalidate explicit choices at submission, and use a synchronous lock; optional reporting failures must not turn persisted leads into retryable failures.- CRM lead sync goes only through `crm_lead_outbox` (insert triggers) and `push-crm-leads` with pure logic in `supabase/functions/_shared/crmLeads.ts`; forms never call the CRM, so CRM failures cannot affect form confirmations. Activation steps live in `docs/crm-liaison.md`.

@@ -98,16 +98,22 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
 
     try {
       const formationLabel = formations.find((f) => f.value === formation)?.label || formation;
-      const { error: dbError } = await supabase
+      const precisionsDb = message.trim() || null;
+      const baseRow = {
+        first_name: result.data.firstName,
+        last_name: result.data.lastName,
+        email: result.data.email,
+        phone: result.data.phone,
+        formation_title: formationLabel,
+        formation_duration: "Devis demandé",
+      };
+      let { error: dbError } = await supabase
         .from("pre_registrations")
-        .insert({
-          first_name: result.data.firstName,
-          last_name: result.data.lastName,
-          email: result.data.email,
-          phone: result.data.phone,
-          formation_title: formationLabel,
-          formation_duration: "Devis demandé",
-        });
+        .insert({ ...baseRow, message: precisionsDb });
+      // Column not yet present (schema cache / migration pending): keep the lead rather than fail.
+      if (dbError && (dbError as { code?: string }).code === "PGRST204") {
+        ({ error: dbError } = await supabase.from("pre_registrations").insert(baseRow));
+      }
 
       if (dbError) throw dbError;
 
@@ -115,7 +121,7 @@ const QuoteRequestModal = ({ isOpen, onClose, preselectedFormation = "" }: { isO
       // { type: "INSERT", table: "pre_registrations", record }) et n'affiche aucun message.
       // notify-contact-request est la seule notification existante qui transmet un message, et ses
       // codes de formation (taxi, vtc, vmdtr, mobilite, continue, recup-points) sont ceux de cette liste.
-      // La table pre_registrations n'a pas de colonne message : le message n'existe que dans cet e-mail.
+      // Le message est aussi enregistré dans pre_registrations.message (transmis au CRM).
       try {
         const precisions = message.trim();
         await supabase.functions.invoke("notify-contact-request", {

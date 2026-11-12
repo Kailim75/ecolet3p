@@ -15,6 +15,13 @@
       "when": 1793117428778,
       "tag": "0001_driving_slots_documents",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794484042422,
+      "tag": "0002_crm_lead_outbox",
+      "breakpoints": true
     }
   ]
 }
