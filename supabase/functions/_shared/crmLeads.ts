@@ -30,12 +30,15 @@ const join = (parts: Array<string | null>, sep = " — ") => {
   return kept.length ? kept.join(sep) : null;
 };
 
+/** Explicit technical-test markers only, checked on names/email (never free-text messages). Mirrors private.crm_is_test. */
 export function isTestLead(...values: unknown[]): boolean {
   return values.some((v) => {
     const s = str(v);
-    return !!s && (/(^|[^\p{L}])test([^\p{L}]|$)/iu.test(s) || /ne\s+pas\s+traiter/i.test(s));
+    return !!s && (/test\s+technique/i.test(s) || /ne\s+pas\s+traiter/i.test(s) || /testads12112026/i.test(s));
   });
 }
+
+export const CRM_LIMITS = { session_requested: 2000, message: 10000 } as const;
 
 export function isCancelled(status: unknown): boolean {
   const s = (str(status) ?? "").toLowerCase();
@@ -93,7 +96,7 @@ export function buildPayload(table: SourceTable, row: Row | null, session?: Row 
 
   if (table === "pre_registrations") {
     if (isCancelled(row.status)) return { skip: "cancelled" };
-    if (isTestLead(row.first_name, row.last_name, row.email, row.message)) return { skip: "test" };
+    if (isTestLead(row.first_name, row.last_name, row.email)) return { skip: "test" };
     const duration = str(row.formation_duration);
     return { payload: { ...base,
       first_name: str(row.first_name), last_name: str(row.last_name), email: str(row.email), phone: str(row.phone),
@@ -103,14 +106,14 @@ export function buildPayload(table: SourceTable, row: Row | null, session?: Row 
   }
   if (table === "contact_requests") {
     if (isCancelled(row.status)) return { skip: "cancelled" };
-    if (isTestLead(row.full_name, row.email, row.message)) return { skip: "test" };
+    if (isTestLead(row.full_name, row.email)) return { skip: "test" };
     const [first, last] = splitName(row.full_name);
     return { payload: { ...base, first_name: first, last_name: last, email: str(row.email), phone: str(row.phone),
       formation_title: formationLabel(row.formation), message: str(row.message), session_requested: null } };
   }
   if (table === "appointments") {
     if (isCancelled(row.status)) return { skip: "cancelled" };
-    if (isTestLead(row.first_name, row.last_name, row.email, row.notes)) return { skip: "test" };
+    if (isTestLead(row.first_name, row.last_name, row.email)) return { skip: "test" };
     const when = join([fmtDate(row.appointment_date), fmtTime(row.appointment_time)], " à ");
     return { payload: { ...base, first_name: str(row.first_name), last_name: str(row.last_name), email: str(row.email),
       phone: null, formation_title: formationLabel(row.formation_choice), message: str(row.notes),
@@ -125,15 +128,12 @@ export function buildPayload(table: SourceTable, row: Row | null, session?: Row 
     session_requested: null } };
 }
 
-// Endpoint must be HTTPS, on an allowed host, pointing at receive-website-lead.
+// Only the verified CRM receiver is accepted: exact URL, no query/fragment/port/credentials.
+export const CRM_ENDPOINT = "https://zhgbbujqapcigmduuqiy.supabase.co/functions/v1/receive-website-lead";
 export function validateEndpoint(raw: string | undefined | null): URL | null {
-  if (!raw) return null;
-  let url: URL;
-  try { url = new URL(raw); } catch { return null; }
-  if (url.protocol !== "https:" || url.username || url.password) return null;
-  const host = url.hostname.toLowerCase();
-  const allowed = host === "t3pcampus.net" || host.endsWith(".t3pcampus.net") || /^[a-z0-9]{20}\.supabase\.co$/.test(host);
-  if (!allowed || !url.pathname.replace(/\/+$/, "").endsWith("/receive-website-lead")) return null;
+  if (!raw || raw !== CRM_ENDPOINT) return null;
+  const url = new URL(raw);
+  if (url.protocol !== "https:" || url.username || url.password || url.port || url.search || url.hash) return null;
   return url;
 }
 
@@ -143,7 +143,7 @@ export type Outcome = { outcome: "sent" | "needs_review" | "ignored" | "retry"; 
 export function interpretResponse(status: number, body: unknown): Outcome {
   if (status < 200 || status >= 300) return { outcome: "retry", error: `http_${status}` };
   const b = (body ?? {}) as Record<string, unknown>;
-  const result = String(b.result ?? b.status ?? "").toLowerCase();
+  const result = typeof b.result === "string" ? b.result : "";
   if (result === "inserted" || result === "matched") return { outcome: "sent", crm_result: result };
   if (result === "needs_review") return { outcome: "needs_review", crm_result: result };
   if (result === "ignored") return { outcome: "ignored", crm_result: result };
@@ -176,8 +176,14 @@ export async function pushBatch(deps: PushDeps, cfg: PushConfig): Promise<PushSu
       const session = row.source_table === "pre_registrations" && source?.session_id
         ? await deps.loadSession(String(source.session_id)) : null;
       const built = buildPayload(row.source_table, source, session);
+      const tooLong = "payload" in built && (
+        (built.payload.message?.length ?? 0) > CRM_LIMITS.message ||
+        (built.payload.session_requested?.length ?? 0) > CRM_LIMITS.session_requested);
       if ("skip" in built) {
         o = { outcome: "ignored", crm_result: `local_${built.skip}` };
+      } else if (tooLong) {
+        // Never truncate silently: hold for manual review instead of claiming delivery.
+        o = { outcome: "needs_review", crm_result: "local_too_long", error: "field_too_long" };
       } else {
         const ctrl = new AbortController();
         const timer = setTimeout(() => ctrl.abort(), cfg.timeoutMs ?? 8000);

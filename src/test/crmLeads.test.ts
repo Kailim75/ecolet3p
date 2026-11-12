@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { buildPayload, pushBatch, validateEndpoint, interpretResponse, type PushDeps, type OutboxRow } from "../../supabase/functions/_shared/crmLeads";
 
-const ENDPOINT = "https://abcdefghijklmnopqrst.supabase.co/functions/v1/receive-website-lead";
+const ENDPOINT = "https://zhgbbujqapcigmduuqiy.supabase.co/functions/v1/receive-website-lead";
 const created = "2026-11-12T10:00:00.000Z";
 
 describe("mapping", () => {
@@ -29,8 +29,9 @@ describe("mapping", () => {
     expect(buildPayload("simulations", { id: "s2", created_at: created, profession: "vtc" })).toEqual({ skip: "no_contact" });
   });
   it("ignores tests and cancelled requests", () => {
-    expect(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Paul TEST", email: "p@x.fr", status: "new" })).toEqual({ skip: "test" });
-    expect(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Ana", message: "NE PAS TRAITER", status: "new" })).toEqual({ skip: "test" });
+    expect(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Paul TEST TECHNIQUE", email: "p@x.fr", status: "new" })).toEqual({ skip: "test" });
+    expect(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "NE PAS TRAITER", email: "a@x.fr", status: "new" })).toEqual({ skip: "test" });
+    expect(buildPayload("pre_registrations", { id: "p", created_at: created, first_name: "Kati", email: "testads12112026@gmail.com", status: "pending" })).toEqual({ skip: "test" });
     expect(buildPayload("pre_registrations", { id: "p", created_at: created, first_name: "Lea", status: "cancelled" })).toEqual({ skip: "cancelled" });
     expect(buildPayload("appointments", { id: "a", created_at: created, first_name: "Lea", status: "annulé" })).toEqual({ skip: "cancelled" });
     expect(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Céleste Contest", status: "new" })).not.toHaveProperty("skip");
@@ -38,9 +39,16 @@ describe("mapping", () => {
 });
 
 describe("endpoint and response rules", () => {
-  it("requires HTTPS on an allowed host and path", () => {
+  it("accepts only the exact verified CRM endpoint", () => {
     expect(validateEndpoint(ENDPOINT)).not.toBeNull();
-    expect(validateEndpoint("https://crm.t3pcampus.net/receive-website-lead")).not.toBeNull();
+    for (const bad of [
+      "https://crm.t3pcampus.net/receive-website-lead",
+      "https://abcdefghijklmnopqrst.supabase.co/functions/v1/receive-website-lead",
+      "https://x.zhgbbujqapcigmduuqiy.supabase.co/functions/v1/receive-website-lead",
+      ENDPOINT + "?a=1", ENDPOINT + "#f", ENDPOINT + "/",
+      ENDPOINT.replace(".co/", ".co:443/"), ENDPOINT.replace(".co/", ".co:8443/"),
+      ENDPOINT.replace("https://", "https://u:p@"), " " + ENDPOINT,
+    ]) expect(validateEndpoint(bad), bad).toBeNull();
     expect(validateEndpoint(ENDPOINT.replace("https", "http"))).toBeNull();
     expect(validateEndpoint("https://evil.example.com/receive-website-lead")).toBeNull();
     expect(validateEndpoint("https://t3pcampus.net/other")).toBeNull();
@@ -52,6 +60,26 @@ describe("endpoint and response rules", () => {
     expect(interpretResponse(200, { result: "matched" }).outcome).toBe("sent");
     expect(interpretResponse(200, { result: "needs_review" }).outcome).toBe("needs_review");
     expect(interpretResponse(200, { result: "ignored" }).outcome).toBe("ignored");
+    expect(interpretResponse(200, { status: "inserted" }).outcome).toBe("retry");
+  });
+  it("is compatible with the exact CRM answer {result, reference, rejeu}", () => {
+    expect(interpretResponse(200, { result: "inserted", reference: "L-1", rejeu: false })).toEqual({ outcome: "sent", crm_result: "inserted" });
+    expect(interpretResponse(200, { result: "matched", reference: "L-1", rejeu: true })).toEqual({ outcome: "sent", crm_result: "matched" });
+    expect(interpretResponse(201, { result: "needs_review", reference: "L-2", rejeu: false }).outcome).toBe("needs_review");
+    expect(interpretResponse(200, { result: "ignored", reference: null, rejeu: false }).outcome).toBe("ignored");
+  });
+});
+
+describe("test markers counter-examples (real leads are kept)", () => {
+  const keep = (r: unknown) => expect(r).not.toHaveProperty("skip");
+  it("never ignores the word test in a normal message or names containing these letters", () => {
+    keep(buildPayload("pre_registrations", { id: "p", created_at: created, first_name: "Lea", email: "l@m.fr", message: "Je veux préparer le test VTC", status: "pending" }));
+    keep(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Ana", email: "a@x.fr", message: "Test de positionnement ?", status: "new" }));
+    keep(buildPayload("appointments", { id: "a", created_at: created, first_name: "Ali", email: "a@x.fr", notes: "test", status: "pending" }));
+    keep(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Céleste Contest", email: "c@x.fr", status: "new" }));
+    keep(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Jean Testard", email: "testard@x.fr", status: "new" }));
+    keep(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Paul Test", email: "p@x.fr", status: "new" }));
+    keep(buildPayload("contact_requests", { id: "c", created_at: created, full_name: "Ana", email: "a@x.fr", message: "NE PAS TRAITER svp rappel", status: "new" }));
   });
 });
 
@@ -111,5 +139,24 @@ describe("pushBatch", () => {
     const { deps, claim } = makeDeps([], vi.fn() as never);
     await pushBatch(deps, { endpoint: ENDPOINT, token: "tok", batch: 500 });
     expect(claim).toHaveBeenCalledWith(25, 300);
+  });
+});
+
+describe("no silent truncation", () => {
+  it("keeps long messages intact and holds over-limit leads for review without calling the CRM", async () => {
+    const msg9999 = "a".repeat(9999);
+    const ok = buildPayload("contact_requests", { id: "c1", created_at: created, full_name: "Jean Real", email: "j@x.fr", message: msg9999, status: "new" });
+    expect("payload" in ok && ok.payload.message).toBe(msg9999);
+    const f = vi.fn();
+    const long = makeDeps([row], f as unknown as PushDeps["fetch"], { id: "c1", created_at: created, full_name: "Jean Real", email: "j@x.fr", message: "a".repeat(10001), status: "new" });
+    const s = await pushBatch(long.deps, { endpoint: ENDPOINT, token: "t" });
+    expect(f).not.toHaveBeenCalled();
+    expect(long.complete).toHaveBeenCalledWith("o1", "lt", expect.objectContaining({ outcome: "needs_review", crm_result: "local_too_long" }));
+    expect(s).toMatchObject({ sent: 0, review: 1 });
+    const f2 = vi.fn();
+    const sess = makeDeps([{ ...row, source_table: "pre_registrations", source_id: "p1" }], f2 as unknown as PushDeps["fetch"], { id: "p1", created_at: created, first_name: "Lea", email: "l@m.fr", formation_duration: "x".repeat(2001), status: "pending" });
+    await pushBatch(sess.deps, { endpoint: ENDPOINT, token: "t" });
+    expect(f2).not.toHaveBeenCalled();
+    expect(sess.complete).toHaveBeenCalledWith("o1", "lt", expect.objectContaining({ outcome: "needs_review" }));
   });
 });
