@@ -29,6 +29,13 @@
       "when": 1794484385238,
       "tag": "0003_crm_explicit_test_markers",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1794573706958,
+      "tag": "0004_simulations_insert_validation",
+      "breakpoints": true
     }
   ]
 }
