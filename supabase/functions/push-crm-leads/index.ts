@@ -1,4 +1,5 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { authenticateCronRequest } from "../_shared/cron-auth.ts";
 import { pushBatch, type Outcome, type SourceTable } from "../_shared/crmLeads.ts";
 
 const ALLOWED_ORIGINS = [
@@ -42,6 +43,9 @@ Deno.serve(async (req) => {
   const cronSecret = Deno.env.get("CRM_PUSH_CRON_TOKEN");
   const cronHeader = req.headers.get("x-cron-token");
   if (cronSecret && cronSecret.length >= 32 && cronHeader && timingSafeEqual(cronHeader, cronSecret)) {
+    authorized = true;
+  } else if (Deno.env.get("LOVABLE_CRON_SECRET") && authenticateCronRequest(req) === null) {
+    // Managed scheduler: Bearer must match the project-scoped LOVABLE_CRON_SECRET (sha256 + timing-safe).
     authorized = true;
   } else {
     const auth = req.headers.get("Authorization") ?? "";
