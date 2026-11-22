@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, Clock, Loader2, MapPin, Phone, X, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { CalendarCheck, Clock, Loader2, MapPin, Phone, Lock, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,14 +23,12 @@ interface Booking {
   starts_at: string;
   duration_minutes: number;
   location: string;
-  cancellable: boolean;
 }
 
 interface PlannerState {
   slots: Slot[];
   bookings: Booking[];
   maxBookings: number;
-  cancelNoticeHours: number;
 }
 
 const TZ = "Europe/Paris";
@@ -44,13 +42,13 @@ const endLabel = (iso: string, minutes: number) => timeLabel(new Date(new Date(i
 const dayKey = (iso: string) => new Date(iso).toLocaleDateString("fr-CA", { timeZone: TZ });
 
 const MESSAGES: Record<string, string> = {
-  booked: "Séance réservée. Nous vous attendons !",
-  cancelled: "Séance annulée.",
+  booked: "Séance réservée. Votre réservation est définitive : nous vous attendons !",
+  booked_email: "Séance réservée. Votre réservation est définitive ; un e-mail de confirmation vient de vous être envoyé.",
+  booking_final: "Votre réservation est définitive : le planning ne peut pas être modifié. En cas d'urgence, appelez-nous au 01 88 75 05 55.",
   full: "Ce créneau vient d'être pris. Choisissez-en un autre.",
   already_booked: "Vous avez déjà réservé ce créneau.",
-  max_bookings: "Vous avez atteint le nombre maximum de séances à venir. Annulez-en une ou attendez qu'elle soit passée.",
+  max_bookings: "Vous avez déjà réservé votre séance de conduite.",
   too_late: "Ce créneau est trop proche pour être réservé en ligne. Appelez-nous.",
-  too_late_to_cancel: "Annulation impossible en ligne à moins de 24 h. Appelez-nous au 01 88 75 05 55.",
   slot_closed: "Ce créneau n'est plus disponible.",
   slot_not_found: "Ce créneau n'est plus disponible.",
   wrong_category: "Ce créneau n'est pas prévu pour votre examen.",
@@ -67,6 +65,7 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
   const [busy, setBusy] = useState<string | null>(null);
   const [selected, setSelected] = useState<Slot | null>(null);
   const [phone, setPhone] = useState("");
+  const [acknowledged, setAcknowledged] = useState(false);
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
   const call = async (body: Record<string, unknown>) => {
@@ -82,8 +81,7 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
       setState({
         slots: data.slots,
         bookings: data.bookings,
-        maxBookings: data.maxBookings ?? 3,
-        cancelNoticeHours: data.cancelNoticeHours ?? 24,
+        maxBookings: data.maxBookings ?? 1,
       });
     }
   };
@@ -110,18 +108,11 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
   const book = async () => {
     if (!selected) return;
     setBusy(selected.id);
-    const data = await call({ action: "book", slotId: selected.id, phone });
+    const data = await call({ action: "book", slotId: selected.id, phone }) as { status: string; emailSent?: boolean } & Partial<PlannerState>;
     apply(data);
-    setMessage({ ok: data.status === "booked", text: MESSAGES[data.status] ?? MESSAGES.error });
+    const key = data.status === "booked" && data.emailSent ? "booked_email" : data.status;
+    setMessage({ ok: data.status === "booked", text: MESSAGES[key] ?? MESSAGES.error });
     if (data.status === "booked" || data.status === "full" || data.status === "slot_closed") setSelected(null);
-    setBusy(null);
-  };
-
-  const cancel = async (booking: Booking) => {
-    setBusy(booking.id);
-    const data = await call({ action: "cancel", bookingId: booking.id });
-    apply(data);
-    setMessage({ ok: data.status === "cancelled", text: MESSAGES[data.status] ?? MESSAGES.error });
     setBusy(null);
   };
 
@@ -167,26 +158,22 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
                       <MapPin className="w-3.5 h-3.5 inline mr-1 -mt-0.5" />{b.location}
                     </p>
                   </div>
-                  {b.cancellable ? (
-                    <Button variant="ghost" size="sm" onClick={() => cancel(b)} disabled={busy === b.id}>
-                      {busy === b.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <X className="w-4 h-4 mr-1" />} Annuler
-                    </Button>
-                  ) : (
-                    <span className="text-xs text-muted-foreground">Annulation : appelez-nous</span>
-                  )}
+                  <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">
+                    <Lock className="w-3 h-3" aria-hidden /> Réservation définitive
+                  </span>
                 </div>
               ))}
             </div>
           )}
 
-          {state && (byDay.length === 0 ? (
+          {state && (limitReached ? (
+            <p className="text-sm text-muted-foreground">
+              Votre séance est réservée. La réservation est définitive : le planning ne peut pas être modifié.
+            </p>
+          ) : byDay.length === 0 ? (
             <p className="text-sm text-muted-foreground">
               Aucun créneau disponible pour le moment. De nouvelles dates sont ajoutées régulièrement ; vous pouvez aussi nous appeler au{" "}
               <a href="tel:+33188750555" className="font-medium text-primary hover:underline">01 88 75 05 55</a>.
-            </p>
-          ) : limitReached ? (
-            <p className="text-sm text-muted-foreground">
-              Vous avez réservé le maximum de séances à venir. Vous pourrez en réserver d'autres après vos premières séances.
             </p>
           ) : (
             <div className="space-y-3">
@@ -216,8 +203,21 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
                     <span className="font-semibold">{dayLabel(selected.starts_at)}</span>, {timeLabel(selected.starts_at)} – {endLabel(selected.starts_at, selected.duration_minutes)}
                     <span className="block text-muted-foreground"><MapPin className="w-3.5 h-3.5 inline mr-1" />{selected.location}</span>
                   </p>
+                  <div className="flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+                    <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" aria-hidden />
+                    <p><strong>Réservation définitive.</strong> Une fois confirmée, votre séance ne peut plus être annulée ni déplacée : le planning ne peut pas être modifié. Vérifiez bien vos disponibilités.</p>
+                  </div>
+                  <label className="flex items-start gap-2 text-sm cursor-pointer">
+                    <input
+                      type="checkbox"
+                      className="mt-0.5"
+                      checked={acknowledged}
+                      onChange={(e) => setAcknowledged(e.target.checked)}
+                    />
+                    J'ai compris que ma réservation est définitive et que le planning ne peut pas être modifié.
+                  </label>
                   <div className="space-y-1.5">
-                    <Label htmlFor="planner-phone">Téléphone (pour vous joindre en cas de changement)</Label>
+                    <Label htmlFor="planner-phone">Téléphone (pour vous joindre si besoin)</Label>
                     <div className="flex flex-col sm:flex-row gap-2">
                       <Input
                         id="planner-phone"
@@ -228,9 +228,9 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                       />
-                      <Button onClick={book} disabled={busy === selected.id} className="bg-green-600 hover:bg-green-700 shrink-0">
+                      <Button onClick={book} disabled={busy === selected.id || !acknowledged} className="bg-green-600 hover:bg-green-700 shrink-0">
                         {busy === selected.id ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Phone className="w-4 h-4 mr-2" />}
-                        Réserver ce créneau
+                        Confirmer ma réservation
                       </Button>
                     </div>
                   </div>

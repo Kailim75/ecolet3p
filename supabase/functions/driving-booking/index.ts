@@ -25,12 +25,14 @@ const WINDOW_MINUTES = 60;
 // Règles de réservation
 const MAX_ACTIVE_BOOKINGS = 1;
 const MIN_NOTICE_HOURS = 12;
-const CANCEL_NOTICE_HOURS = 24;
 const HORIZON_DAYS = 60;
 // Séance de conduite : dans les N jours qui précèdent l'examen pratique, jamais le jour même ni après
 const BOOKING_WINDOW_DAYS = 15;
 // Renvoyée dans chaque réponse : permet de vérifier quelle version est déployée
-const FUNCTION_VERSION = "2026-11-22.1-examens-pratiques";
+const FUNCTION_VERSION = "2026-11-22.2-reservation-definitive";
+// E-mails de confirmation (même expéditeur que les autres e-mails du site)
+const EMAIL_FROM = "ECOLE T3P <montrouge@ecolet3p.fr>";
+const SCHOOL_EMAIL = "montrouge@ecolet3p.fr";
 
 const sha256 = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -38,6 +40,90 @@ const sha256 = async (value: string) => {
 };
 
 const categoryOf = (examType: string) => examType.trim().split(/\s+/)[0]?.toUpperCase() ?? "";
+
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
+
+const TZ = "Europe/Paris";
+const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
+const longDay = (iso: string) =>
+  capitalize(new Date(iso).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: TZ }))
+    .replace(/ 1 /, " 1er ");
+const hour = (iso: string) =>
+  new Date(iso).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: TZ }).replace(":", " h ");
+
+interface ConfirmationData {
+  fullName: string;
+  slotStart: string;
+  slotMinutes: number;
+  slotLocation: string;
+  examDate: string;
+  examTime: string | null;
+  examLocation: string | null;
+}
+
+const confirmationHtml = (d: ConfirmationData) => {
+  const slotEnd = new Date(new Date(d.slotStart).getTime() + d.slotMinutes * 60_000).toISOString();
+  const exam = `${longDay(`${d.examDate}T12:00:00Z`)}${d.examTime ? ` à ${d.examTime.slice(0, 5).replace(":", " h ")}` : ""}`;
+  return `<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f5f5f5;">
+  <div style="max-width:600px;margin:0 auto;background-color:#ffffff;">
+    <div style="background:linear-gradient(135deg,#1B4332 0%,#2D5A45 100%);padding:32px 30px;text-align:center;">
+      <h1 style="color:#ffffff;margin:0;font-size:26px;">ECOLE T3P</h1>
+      <p style="color:rgba(255,255,255,0.9);margin:8px 0 0;font-size:14px;">Formation Taxi, VTC &amp; VMDTR</p>
+    </div>
+    <div style="padding:32px 30px;">
+      <h2 style="color:#1B4332;margin:0 0 20px;font-size:22px;">Votre séance de conduite est confirmée</h2>
+      <p style="color:#333;font-size:16px;line-height:1.6;">Bonjour <strong>${escapeHtml(d.fullName)}</strong>,</p>
+      <p style="color:#555;font-size:15px;line-height:1.6;">Votre séance de conduite préparatoire à l'épreuve pratique est réservée :</p>
+      <div style="background-color:#f8f9fa;border-radius:12px;padding:20px 24px;margin:20px 0;border-left:4px solid #1B4332;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <tr><td style="padding:6px 0;color:#666;width:40%;">Séance de conduite</td><td style="padding:6px 0;color:#333;font-weight:600;">${longDay(d.slotStart)}, de ${hour(d.slotStart)} à ${hour(slotEnd)}</td></tr>
+          <tr><td style="padding:6px 0;color:#666;">Lieu de rendez-vous</td><td style="padding:6px 0;color:#333;font-weight:600;">${escapeHtml(d.slotLocation)}</td></tr>
+          <tr><td style="padding:6px 0;color:#666;">Votre examen pratique</td><td style="padding:6px 0;color:#333;font-weight:600;">${exam}${d.examLocation ? `<br>${escapeHtml(d.examLocation)}` : ""}</td></tr>
+        </table>
+      </div>
+      <div style="background-color:#FFF4E5;border:1px solid #F57C00;border-radius:12px;padding:16px 20px;margin-bottom:24px;">
+        <p style="color:#B45309;font-size:15px;font-weight:700;margin:0 0 6px;">Réservation définitive</p>
+        <p style="color:#555;font-size:14px;line-height:1.6;margin:0;">Cette confirmation est définitive : le planning ne peut pas être modifié. Merci de vous présenter à l'heure, muni de votre permis de conduire.</p>
+      </div>
+      <p style="color:#555;font-size:14px;line-height:1.6;">Une question ? Appelez-nous au <a href="tel:0188750555" style="color:#1B4332;font-weight:600;">01 88 75 05 55</a>.</p>
+    </div>
+    <div style="background-color:#f8f9fa;padding:24px;text-align:center;border-top:1px solid #eee;">
+      <p style="color:#1B4332;font-weight:bold;margin:0 0 4px;font-size:15px;">ECOLE T3P Montrouge</p>
+      <p style="color:#666;margin:0;font-size:13px;">3 rue Corneille, 92120 Montrouge</p>
+    </div>
+  </div>
+</body></html>`;
+};
+
+// deno-lint-ignore no-explicit-any
+const sendEmail = async (supabaseAdmin: any, emailType: string, to: string, subject: string, html: string, metadata: Record<string, unknown>) => {
+  const apiKey = Deno.env.get("RESEND_API_KEY");
+  if (!apiKey) return false;
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+      body: JSON.stringify({ from: EMAIL_FROM, to: [to], subject, html }),
+    });
+    const body = await res.json();
+    await supabaseAdmin.from("email_logs").insert({
+      email_type: emailType,
+      recipient_email: to,
+      subject,
+      status: body.id ? "sent" : "failed",
+      resend_id: body.id || null,
+      error_message: body.error?.message || body.message || null,
+      metadata,
+    });
+    return !!body.id;
+  } catch (error) {
+    console.error("driving-booking email error:", error);
+    return false;
+  }
+};
 
 /** Date du jour à Paris (AAAA-MM-JJ) d'un instant donné */
 const parisDay = (iso: string | number) =>
@@ -97,7 +183,7 @@ Deno.serve(async (req) => {
     const today = new Date().toISOString().slice(0, 10);
     const { data: result } = await supabaseAdmin
       .from("exam_results")
-      .select("id, exam_type")
+      .select("id, exam_type, full_name, email")
       .eq("dossier_number", dossier.padStart(8, "0"))
       .eq("birth_date", birthDate)
       .eq("result", "admis")
@@ -129,6 +215,7 @@ Deno.serve(async (req) => {
       return day >= windowStart && day < practical.exam_date;
     };
 
+    let emailSent = false;
     if (action === "book") {
       const cleanPhone = String(phone ?? "").replace(/[^\d+ ]/g, "").trim();
       if (!slotId || cleanPhone.replace(/\D/g, "").length < 9) {
@@ -136,7 +223,7 @@ Deno.serve(async (req) => {
       }
       const { data: slot } = await supabaseAdmin
         .from("driving_slots")
-        .select("starts_at")
+        .select("starts_at, duration_minutes, location")
         .eq("id", slotId)
         .maybeSingle();
       if (!slot) return reply({ status: "slot_not_found" });
@@ -150,26 +237,36 @@ Deno.serve(async (req) => {
       });
       if (error) throw error;
       if (code !== "ok") return reply({ status: code });
+
+      // Confirmation par e-mail à l'élève (si l'école a saisi son adresse) et copie à l'école.
+      // Un échec d'envoi n'annule pas la réservation.
+      const confirmation: ConfirmationData = {
+        fullName: result.full_name,
+        slotStart: slot.starts_at,
+        slotMinutes: slot.duration_minutes,
+        slotLocation: slot.location,
+        examDate: practical.exam_date,
+        examTime: practical.exam_time,
+        examLocation: practical.location,
+      };
+      const html = confirmationHtml(confirmation);
+      const metadata = { exam_result_id: result.id, slot_id: slotId, slot_start: slot.starts_at };
+      emailSent = result.email
+        ? await sendEmail(supabaseAdmin, "driving_booking_confirmation", result.email, "Votre séance de conduite est confirmée – ECOLE T3P", html, metadata)
+        : false;
+      await sendEmail(
+        supabaseAdmin,
+        "driving_booking_admin",
+        SCHOOL_EMAIL,
+        `Nouvelle réservation de conduite : ${result.full_name} (${longDay(slot.starts_at)}, ${hour(slot.starts_at)})`,
+        html.replace("<h2", `<p style="color:#555;font-size:14px;">Copie école · téléphone de l'élève : ${escapeHtml(cleanPhone)}</p><h2`),
+        metadata,
+      );
     }
 
+    // Réservation définitive : pas d'annulation en ligne (l'école peut annuler depuis l'admin)
     if (action === "cancel") {
-      const { data: booking } = await supabaseAdmin
-        .from("driving_bookings")
-        .select("id, driving_slots(starts_at)")
-        .eq("id", bookingId)
-        .eq("exam_result_id", result.id)
-        .eq("status", "booked")
-        .maybeSingle();
-      const startsAt = (booking?.driving_slots as { starts_at: string } | null)?.starts_at;
-      if (!booking || !startsAt) return reply({ status: "booking_not_found" });
-      if (new Date(startsAt).getTime() - Date.now() < CANCEL_NOTICE_HOURS * 3_600_000) {
-        return reply({ status: "too_late_to_cancel" });
-      }
-      const { error } = await supabaseAdmin
-        .from("driving_bookings")
-        .update({ status: "cancelled", cancelled_at: new Date().toISOString() })
-        .eq("id", booking.id);
-      if (error) throw error;
+      return reply({ status: "booking_final" });
     }
 
     // État à jour : créneaux ouverts de sa catégorie + ses réservations à venir
@@ -199,7 +296,7 @@ Deno.serve(async (req) => {
       .map((b) => ({
         id: b.id,
         ...b.slot,
-        cancellable: new Date(b.slot.starts_at).getTime() - now >= CANCEL_NOTICE_HOURS * 3_600_000,
+        final: true,
       }));
 
     const available = (slots ?? [])
@@ -219,12 +316,12 @@ Deno.serve(async (req) => {
       .map(({ booked_by_me: _mine, ...s }) => s);
 
     return reply({
-      status: action === "list" ? "ok" : action === "book" ? "booked" : "cancelled",
+      status: action === "list" ? "ok" : "booked",
       category,
       slots: available,
       bookings,
       maxBookings: MAX_ACTIVE_BOOKINGS,
-      cancelNoticeHours: CANCEL_NOTICE_HOURS,
+      emailSent,
       practicalExam: practical,
     });
   } catch (error) {
