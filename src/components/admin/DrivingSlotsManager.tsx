@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { Loader2, Plus, Trash2, Lock, Unlock, Phone, X, CalendarDays } from "lucide-react";
-import { parseTimes } from "@/lib/drivingSlots";
+import { parseTimes, presetTimesFor } from "@/lib/drivingSlots";
+import PracticalExamsManager from "@/components/admin/PracticalExamsManager";
 
 const CATEGORIES = ["TAXI", "VTC", "VMDTR"] as const;
 const DEFAULT_LOCATION = "ECOLE T3P, 3 rue Corneille, 92120 Montrouge";
@@ -45,11 +46,11 @@ const DrivingSlotsManager = () => {
   const [saving, setSaving] = useState(false);
 
   const [date, setDate] = useState("");
-  const [times, setTimes] = useState("09:00, 10:00, 11:00, 14:00, 15:00, 16:00");
-  const [duration, setDuration] = useState("60");
-  const [capacity, setCapacity] = useState("1");
+  const [times, setTimes] = useState("");
+  const [duration, setDuration] = useState("120");
+  const [capacity, setCapacity] = useState("2");
   const [location, setLocation] = useState(DEFAULT_LOCATION);
-  const [categories, setCategories] = useState<string[]>(["VTC", "TAXI"]);
+  const [categories, setCategories] = useState<string[]>(["VTC"]);
 
   useEffect(() => {
     fetchSlots();
@@ -70,6 +71,13 @@ const DrivingSlotsManager = () => {
   };
 
   const parsedTimes = parseTimes(times);
+
+  // Horaires d'ouverture de la conduite : samedi 15h-20h, dimanche 9h-18h (créneaux de 2 h)
+  const onDateChange = (value: string) => {
+    setDate(value);
+    const preset = presetTimesFor(value);
+    if (preset) setTimes(preset);
+  };
 
   const addSlots = async () => {
     const minutes = Number(duration);
@@ -133,10 +141,12 @@ const DrivingSlotsManager = () => {
 
   return (
     <div className="space-y-6">
+      <PracticalExamsManager />
+
       <div>
         <h2 className="text-xl font-bold text-foreground">Planning de conduite</h2>
         <p className="text-sm text-muted-foreground">
-          Publiez vos créneaux : les admissibles les réservent depuis leur page résultat (ecolet3p.fr/resultats), jusqu'à 3 séances à venir, au plus tard 12 h avant.
+          Publiez vos créneaux : chaque admissible dont l'examen pratique est saisi ci-dessous réserve une séance depuis sa page résultat (ecolet3p.fr/resultats), dans les 15 jours qui précèdent son examen et au plus tard 12 h avant.
         </p>
       </div>
 
@@ -145,7 +155,7 @@ const DrivingSlotsManager = () => {
         <div className="grid gap-3 md:grid-cols-4">
           <div className="space-y-1">
             <Label htmlFor="slot-date">Date</Label>
-            <Input id="slot-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            <Input id="slot-date" type="date" value={date} onChange={(e) => onDateChange(e.target.value)} />
           </div>
           <div className="space-y-1 md:col-span-2">
             <Label htmlFor="slot-times">Heures de début</Label>

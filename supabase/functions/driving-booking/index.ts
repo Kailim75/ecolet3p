@@ -23,12 +23,14 @@ const buildCorsHeaders = (origin: string | null) => {
 const MAX_FAILED_ATTEMPTS = 8;
 const WINDOW_MINUTES = 60;
 // Règles de réservation
-const MAX_ACTIVE_BOOKINGS = 3;
+const MAX_ACTIVE_BOOKINGS = 1;
 const MIN_NOTICE_HOURS = 12;
 const CANCEL_NOTICE_HOURS = 24;
 const HORIZON_DAYS = 60;
+// Séance de conduite : dans les N jours qui précèdent l'examen pratique, jamais le jour même ni après
+const BOOKING_WINDOW_DAYS = 15;
 // Renvoyée dans chaque réponse : permet de vérifier quelle version est déployée
-const FUNCTION_VERSION = "2026-10-27.1";
+const FUNCTION_VERSION = "2026-11-22.1-examens-pratiques";
 
 const sha256 = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -36,6 +38,17 @@ const sha256 = async (value: string) => {
 };
 
 const categoryOf = (examType: string) => examType.trim().split(/\s+/)[0]?.toUpperCase() ?? "";
+
+/** Date du jour à Paris (AAAA-MM-JJ) d'un instant donné */
+const parisDay = (iso: string | number) =>
+  new Date(iso).toLocaleDateString("fr-CA", { timeZone: "Europe/Paris" });
+
+/** AAAA-MM-JJ décalé de n jours */
+const shiftDay = (day: string, days: number) => {
+  const d = new Date(`${day}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+};
 
 Deno.serve(async (req) => {
   const corsHeaders = buildCorsHeaders(req.headers.get("origin"));
@@ -100,11 +113,33 @@ Deno.serve(async (req) => {
 
     const category = categoryOf(result.exam_type);
 
+    // Sans examen pratique enregistré (ou département traité à part), pas de réservation en ligne
+    const { data: practical } = await supabaseAdmin
+      .from("practical_exams")
+      .select("exam_date, exam_time, department, location, notes")
+      .eq("exam_result_id", result.id)
+      .maybeSingle();
+    if (!practical) {
+      return reply({ status: "no_exam" });
+    }
+    const windowStart = shiftDay(practical.exam_date, -BOOKING_WINDOW_DAYS);
+    const inWindow = (startsAt: string) => {
+      const day = parisDay(startsAt);
+      return day >= windowStart && day < practical.exam_date;
+    };
+
     if (action === "book") {
       const cleanPhone = String(phone ?? "").replace(/[^\d+ ]/g, "").trim();
       if (!slotId || cleanPhone.replace(/\D/g, "").length < 9) {
         return reply({ status: "invalid_phone" });
       }
+      const { data: slot } = await supabaseAdmin
+        .from("driving_slots")
+        .select("starts_at")
+        .eq("id", slotId)
+        .maybeSingle();
+      if (!slot) return reply({ status: "slot_not_found" });
+      if (!inWindow(slot.starts_at)) return reply({ status: "outside_window" });
       const { data: code, error } = await supabaseAdmin.rpc("book_driving_slot", {
         p_slot_id: slotId,
         p_exam_result_id: result.id,
@@ -179,7 +214,7 @@ Deno.serve(async (req) => {
           booked_by_me: active.some((b) => b.exam_result_id === result.id),
         };
       })
-      .filter((s) => s.remaining > 0 && !s.booked_by_me)
+      .filter((s) => s.remaining > 0 && !s.booked_by_me && inWindow(s.starts_at))
       .map(({ booked_by_me: _mine, ...s }) => s);
 
     return reply({
@@ -189,6 +224,7 @@ Deno.serve(async (req) => {
       bookings,
       maxBookings: MAX_ACTIVE_BOOKINGS,
       cancelNoticeHours: CANCEL_NOTICE_HOURS,
+      practicalExam: practical,
     });
   } catch (error) {
     console.error("driving-booking error:", error);
