@@ -43,6 +43,13 @@
       "when": 1795358415481,
       "tag": "0005_practical_exams",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1795360662138,
+      "tag": "0006_exam_results_email",
+      "breakpoints": true
     }
   ]
 }
