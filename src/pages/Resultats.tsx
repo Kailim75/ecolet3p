@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import DrivingPlanner, { type LookupCredentials } from "@/components/resultats/DrivingPlanner";
 import {
-  frDateToIso, isoDateToFr, formatScore, type ExamSubject, type ExamResultStatus,
+  frDateToIso, isoDateToFr, formatScore, normalizeDossier, type ExamSubject, type ExamResultStatus,
 } from "@/lib/examResults";
 
 interface PublicExamResult {
@@ -223,12 +223,13 @@ const Resultats = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const birthDate = frDateToIso(birth);
-    if (dossier.replace(/\D/g, "").length < 5 || !birthDate) {
+    const dossierNumber = normalizeDossier(dossier);
+    if (dossierNumber.length < 5 || !birthDate) {
       setState({ status: "invalid" });
       return;
     }
     setState({ status: "loading" });
-    const body = { dossierNumber: dossier, birthDate };
+    const body = { dossierNumber, birthDate };
     // exam-results-v2 renvoie aussi les documents ; repli sur l'ancienne fonction si elle n'est pas déployée
     let { data, error } = await supabase.functions.invoke("exam-results-v2", { body });
     if (error || !data?.status) {
@@ -239,7 +240,7 @@ const Resultats = () => {
       return;
     }
     setState(data.status === "found"
-      ? { status: "found", results: data.results, credentials: { dossierNumber: dossier, birthDate } }
+      ? { status: "found", results: data.results, credentials: { dossierNumber, birthDate } }
       : { status: data.status });
   };
 
@@ -277,9 +278,9 @@ const Resultats = () => {
                 inputMode="numeric"
                 autoComplete="off"
                 placeholder="00012345"
-                maxLength={10}
+                maxLength={14}
                 value={dossier}
-                onChange={(e) => setDossier(e.target.value.replace(/\D/g, ""))}
+                onChange={(e) => setDossier(e.target.value.toUpperCase().replace(/[^0-9A-Z]/g, ""))}
                 required
               />
             </div>

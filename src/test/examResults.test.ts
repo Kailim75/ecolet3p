@@ -3,6 +3,7 @@ import {
   parseAttestationText,
   frDateToIso,
   sessionLabelFromDates,
+  normalizeDossier,
 } from "@/lib/examResults";
 
 // Gabarit identique aux attestations CMA, données fictives
@@ -116,5 +117,14 @@ describe("helpers", () => {
 
   it("nomme la session d'après la première épreuve", () => {
     expect(sessionLabelFromDates(["2026-10-01", "2026-09-29", null])).toBe("Septembre 2026");
+  });
+});
+
+describe("normalizeDossier", () => {
+  it("garde les chiffres de tête, avec ou sans suffixe de convocation", () => {
+    expect(normalizeDossier("00062036PA1")).toBe("00062036");
+    expect(normalizeDossier(" 00078595 ")).toBe("00078595");
+    expect(normalizeDossier("62036")).toBe("62036");
+    expect(normalizeDossier("PA1")).toBe("");
   });
 });

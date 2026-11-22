@@ -35,6 +35,9 @@ export const frDateToIso = (value: string): string | null => {
   return !Number.isNaN(date.getTime()) && date.toISOString().startsWith(iso) ? iso : null;
 };
 
+/** N° de dossier CMA : chiffres de tête (« 00062036PA1 » → « 00062036 ») */
+export const normalizeDossier = (value: string) => value.trim().match(/^\d+/)?.[0] ?? "";
+
 /** AAAA-MM-JJ → JJ/MM/AAAA */
 export const isoDateToFr = (iso: string | null | undefined) =>
   iso ? iso.split("-").reverse().join("/") : "";
