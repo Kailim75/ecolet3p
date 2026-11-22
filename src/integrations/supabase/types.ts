@@ -475,6 +475,50 @@ export type Database = {
         }
         Relationships: []
       }
+      practical_exams: {
+        Row: {
+          created_at: string
+          department: string | null
+          exam_date: string
+          exam_result_id: string
+          exam_time: string | null
+          id: string
+          location: string | null
+          notes: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          department?: string | null
+          exam_date: string
+          exam_result_id: string
+          exam_time?: string | null
+          id?: string
+          location?: string | null
+          notes?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          department?: string | null
+          exam_date?: string
+          exam_result_id?: string
+          exam_time?: string | null
+          id?: string
+          location?: string | null
+          notes?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "practical_exams_exam_result_id_fkey"
+            columns: ["exam_result_id"]
+            isOneToOne: true
+            referencedRelation: "exam_results"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pre_registrations: {
         Row: {
           created_at: string
