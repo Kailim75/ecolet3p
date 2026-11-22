@@ -46,7 +46,8 @@ Deno.serve(async (req) => {
   try {
     const { dossierNumber, birthDate } = await req.json();
 
-    const dossier = String(dossierNumber ?? "").replace(/\D/g, "");
+    // N° de dossier : chiffres de tête seulement (les convocations d'admission ajoutent un suffixe, ex. 00062036PA1)
+    const dossier = String(dossierNumber ?? "").trim().match(/^\d+/)?.[0] ?? "";
     if (dossier.length < 5 || dossier.length > 10 || !/^\d{4}-\d{2}-\d{2}$/.test(String(birthDate ?? ""))) {
       return reply({ status: "invalid" });
     }

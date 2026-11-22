@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   CheckCircle2, XCircle, Download, Loader2, Search, ShieldCheck, ArrowRight, CalendarDays, Phone, AlertTriangle, FileText,
+  MapPin, Clock,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import DrivingPlanner, { type LookupCredentials } from "@/components/resultats/DrivingPlanner";
 import {
-  frDateToIso, isoDateToFr, formatScore, type ExamSubject, type ExamResultStatus,
+  frDateToIso, isoDateToFr, formatScore, normalizeDossier, type ExamSubject, type ExamResultStatus,
 } from "@/lib/examResults";
 
 interface PublicExamResult {
@@ -28,6 +29,13 @@ interface PublicExamResult {
   dossier_number: string;
   attestationUrl: string | null;
   documents?: { title: string; description: string | null; url: string }[];
+  practicalExam?: {
+    exam_date: string;
+    exam_time: string | null;
+    department: string | null;
+    location: string | null;
+    notes: string | null;
+  } | null;
 }
 
 type LookupState =
@@ -39,6 +47,12 @@ type LookupState =
 const formatBirthInput = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 8);
   return [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4)].filter(Boolean).join("/");
+};
+
+/** « mardi 1 décembre 2026 » → « Mardi 1 décembre 2026 » */
+const longDate = (iso: string) => {
+  const label = new Date(`${iso}T12:00:00`).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  return (label.charAt(0).toUpperCase() + label.slice(1)).replace(/ 1 /, " 1er ");
 };
 
 const ResultCard = ({ r, credentials, showPlanner }: { r: PublicExamResult; credentials: LookupCredentials; showPlanner: boolean }) => {
@@ -149,6 +163,31 @@ const ResultCard = ({ r, credentials, showPlanner }: { r: PublicExamResult; cred
           </div>
         )}
 
+        {admis && r.practicalExam && (
+          <div className="rounded-xl border-2 border-green-600 bg-white p-4">
+            <p className="text-sm font-semibold text-green-700 flex items-center gap-2">
+              <CalendarDays className="w-4 h-4" aria-hidden /> Votre examen pratique
+            </p>
+            <p className="text-xl font-bold text-foreground mt-1">
+              {longDate(r.practicalExam.exam_date)}
+              {r.practicalExam.exam_time && <> à {r.practicalExam.exam_time.slice(0, 5).replace(":", " h ")}</>}
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">
+              <MapPin className="w-3.5 h-3.5 inline mr-1 -mt-0.5" aria-hidden />
+              {r.practicalExam.location || "Lieu indiqué sur votre convocation CMA"}
+              {r.practicalExam.department && ` (${r.practicalExam.department})`}
+            </p>
+            {r.practicalExam.notes && (
+              <p className="text-sm text-muted-foreground mt-1">
+                <Clock className="w-3.5 h-3.5 inline mr-1 -mt-0.5" aria-hidden />{r.practicalExam.notes}
+              </p>
+            )}
+            <p className="text-xs text-muted-foreground mt-2">
+              Seule votre convocation CMA fait foi : vérifiez-la avant le jour de l'examen.
+            </p>
+          </div>
+        )}
+
         {r.documents && r.documents.length > 0 && (
           <div className="space-y-2">
             <p className="font-semibold text-sm">{admis ? "Pour préparer l'épreuve pratique" : "Pour retravailler avant la prochaine session"}</p>
@@ -184,12 +223,13 @@ const Resultats = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const birthDate = frDateToIso(birth);
-    if (dossier.replace(/\D/g, "").length < 5 || !birthDate) {
+    const dossierNumber = normalizeDossier(dossier);
+    if (dossierNumber.length < 5 || !birthDate) {
       setState({ status: "invalid" });
       return;
     }
     setState({ status: "loading" });
-    const body = { dossierNumber: dossier, birthDate };
+    const body = { dossierNumber, birthDate };
     // exam-results-v2 renvoie aussi les documents ; repli sur l'ancienne fonction si elle n'est pas déployée
     let { data, error } = await supabase.functions.invoke("exam-results-v2", { body });
     if (error || !data?.status) {
@@ -200,7 +240,7 @@ const Resultats = () => {
       return;
     }
     setState(data.status === "found"
-      ? { status: "found", results: data.results, credentials: { dossierNumber: dossier, birthDate } }
+      ? { status: "found", results: data.results, credentials: { dossierNumber, birthDate } }
       : { status: data.status });
   };
 
@@ -238,9 +278,9 @@ const Resultats = () => {
                 inputMode="numeric"
                 autoComplete="off"
                 placeholder="00012345"
-                maxLength={10}
+                maxLength={14}
                 value={dossier}
-                onChange={(e) => setDossier(e.target.value.replace(/\D/g, ""))}
+                onChange={(e) => setDossier(e.target.value.toUpperCase().replace(/[^0-9A-Z]/g, ""))}
                 required
               />
             </div>

@@ -57,6 +57,8 @@ const MESSAGES: Record<string, string> = {
   invalid_phone: "Indiquez un numéro de téléphone valide pour que nous puissions vous joindre.",
   rate_limited: "Trop de tentatives. Réessayez dans une heure ou appelez-nous.",
   error: "Le service est momentanément indisponible. Réessayez dans quelques minutes.",
+  no_exam: "Votre date d'examen pratique n'est pas encore enregistrée chez nous. Nous vous contacterons pour organiser votre séance de conduite.",
+  outside_window: "La séance de conduite se réserve dans les 15 jours qui précèdent votre examen pratique.",
 };
 
 const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => {
@@ -131,10 +133,13 @@ const DrivingPlanner = ({ credentials }: { credentials: LookupCredentials }) => 
         <h3 id="planner-title" className="text-lg font-bold text-foreground flex items-center gap-2">
           <CalendarCheck className="w-5 h-5 text-green-600" aria-hidden /> Organiser ma conduite
         </h3>
-        <p className="text-sm text-muted-foreground mt-1">
-          Réservez vos séances de conduite préparatoire à l'épreuve pratique
-          {state ? ` (jusqu'à ${state.maxBookings} séances à venir)` : ""}.
-        </p>
+        {state && (
+          <p className="text-sm text-muted-foreground mt-1">
+            {state.maxBookings === 1
+              ? "Réservez votre séance de conduite préparatoire avant votre épreuve pratique. Chaque créneau accueille deux élèves."
+              : `Réservez vos séances de conduite préparatoire à l'épreuve pratique (jusqu'à ${state.maxBookings} séances à venir).`}
+          </p>
+        )}
       </div>
 
       {loading ? (

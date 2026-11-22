@@ -27,7 +27,7 @@ const MAX_FAILED_ATTEMPTS = 8;
 const WINDOW_MINUTES = 60;
 const SIGNED_URL_SECONDS = 600;
 // Renvoyée dans chaque réponse : permet de vérifier quelle version est déployée
-const FUNCTION_VERSION = "v2-2026-10-28";
+const FUNCTION_VERSION = "v2-2026-11-22-examens-pratiques";
 
 const sha256 = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -49,7 +49,8 @@ Deno.serve(async (req) => {
   try {
     const { dossierNumber, birthDate } = await req.json();
 
-    const dossier = String(dossierNumber ?? "").replace(/\D/g, "");
+    // N° de dossier : chiffres de tête seulement (les convocations d'admission ajoutent un suffixe, ex. 00062036PA1)
+    const dossier = String(dossierNumber ?? "").trim().match(/^\d+/)?.[0] ?? "";
     if (dossier.length < 5 || dossier.length > 10 || !/^\d{4}-\d{2}-\d{2}$/.test(String(birthDate ?? ""))) {
       return reply({ status: "invalid" });
     }
@@ -80,7 +81,7 @@ Deno.serve(async (req) => {
     const today = new Date().toISOString().slice(0, 10);
     const { data: rows, error } = await supabaseAdmin
       .from("exam_results")
-      .select("session_label, civility, full_name, exam_type, department, exam_date, global_score, result, subjects, comment, attestation_path, dossier_number")
+      .select("id, session_label, civility, full_name, exam_type, department, exam_date, global_score, result, subjects, comment, attestation_path, dossier_number")
       .eq("dossier_number", normalizedDossier)
       .eq("birth_date", birthDate)
       .eq("is_published", true)
@@ -107,7 +108,13 @@ Deno.serve(async (req) => {
       .order("sort_order")
       .order("created_at");
 
-    const results = await Promise.all(rows.map(async ({ attestation_path, ...row }) => {
+    // Examen pratique (date, heure, lieu) des résultats admis
+    const { data: practicals } = await supabaseAdmin
+      .from("practical_exams")
+      .select("exam_result_id, exam_date, exam_time, department, location, notes")
+      .in("exam_result_id", rows.map((r) => r.id));
+
+    const results = await Promise.all(rows.map(async ({ id, attestation_path, ...row }) => {
       let attestationUrl: string | null = null;
       if (attestation_path) {
         const { data: signed } = await supabaseAdmin.storage
@@ -132,7 +139,12 @@ Deno.serve(async (req) => {
         return signed?.signedUrl ? { title: d.title, description: d.description, url: signed.signedUrl } : null;
       }))).filter(Boolean);
 
-      return { ...row, attestationUrl, documents: docs };
+      const practical = (practicals ?? []).find((p) => p.exam_result_id === id);
+      const practicalExam = practical
+        ? { exam_date: practical.exam_date, exam_time: practical.exam_time, department: practical.department, location: practical.location, notes: practical.notes }
+        : null;
+
+      return { ...row, attestationUrl, documents: docs, practicalExam };
     }));
 
     return reply({ status: "found", results });
