@@ -290,6 +290,7 @@ export type Database = {
           created_at: string
           department: string | null
           dossier_number: string
+          email: string | null
           exam_date: string | null
           exam_type: string
           expires_at: string
@@ -310,6 +311,7 @@ export type Database = {
           created_at?: string
           department?: string | null
           dossier_number: string
+          email?: string | null
           exam_date?: string | null
           exam_type: string
           expires_at?: string
@@ -330,6 +332,7 @@ export type Database = {
           created_at?: string
           department?: string | null
           dossier_number?: string
+          email?: string | null
           exam_date?: string | null
           exam_type?: string
           expires_at?: string

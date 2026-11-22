@@ -14,6 +14,7 @@ interface AdmisRow {
   exam_type: string;
   dossier_number: string;
   session_label: string;
+  email: string | null;
 }
 
 interface PracticalRow {
@@ -37,9 +38,10 @@ interface Draft {
   department: string;
   location: string;
   notes: string;
+  email: string;
 }
 
-const emptyDraft: Draft = { exam_date: "", exam_time: "", department: "75", location: "", notes: "" };
+const emptyDraft: Draft = { exam_date: "", exam_time: "", department: "75", location: "", notes: "", email: "" };
 
 const shortDate = (iso: string) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString("fr-FR", { weekday: "short", day: "2-digit", month: "2-digit", year: "numeric" });
@@ -63,7 +65,7 @@ const PracticalExamsManager = () => {
   const fetchAll = async () => {
     setLoading(true);
     const [resultsRes, practicalRes, bookingRes] = await Promise.all([
-      supabase.from("exam_results").select("id, full_name, exam_type, dossier_number, session_label").eq("result", "admis").order("full_name"),
+      supabase.from("exam_results").select("id, full_name, exam_type, dossier_number, session_label, email").eq("result", "admis").order("full_name"),
       supabase.from("practical_exams").select("id, exam_result_id, exam_date, exam_time, department, location, notes"),
       supabase.from("driving_bookings").select("exam_result_id, driving_slots(starts_at)").eq("status", "booked"),
     ]);
@@ -95,11 +97,11 @@ const PracticalExamsManager = () => {
   const scheduled = rows.filter((r) => r.practical).length;
   const withoutBooking = rows.filter((r) => r.practical && !r.booking && r.practical.exam_date >= new Date().toISOString().slice(0, 10)).length;
 
-  const startEdit = (id: string, p: PracticalRow | null) => {
-    setEditing(id);
+  const startEdit = (row: AdmisRow, p: PracticalRow | null) => {
+    setEditing(row.id);
     setDraft(p
-      ? { exam_date: p.exam_date, exam_time: p.exam_time?.slice(0, 5) ?? "", department: p.department ?? "", location: p.location ?? "", notes: p.notes ?? "" }
-      : emptyDraft);
+      ? { exam_date: p.exam_date, exam_time: p.exam_time?.slice(0, 5) ?? "", department: p.department ?? "", location: p.location ?? "", notes: p.notes ?? "", email: row.email ?? "" }
+      : { ...emptyDraft, email: row.email ?? "" });
   };
 
   const save = async (examResultId: string) => {
@@ -107,7 +109,18 @@ const PracticalExamsManager = () => {
       toast.error("La date d'examen est obligatoire");
       return;
     }
+    const email = draft.email.trim().toLowerCase();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Adresse e-mail invalide");
+      return;
+    }
     setSaving(true);
+    const { error: emailError } = await supabase.from("exam_results").update({ email: email || null }).eq("id", examResultId);
+    if (emailError) {
+      setSaving(false);
+      toast.error("Erreur d'enregistrement de l'e-mail");
+      return;
+    }
     const { error } = await supabase.from("practical_exams").upsert({
       exam_result_id: examResultId,
       exam_date: draft.exam_date,
@@ -139,7 +152,7 @@ const PracticalExamsManager = () => {
         <div>
           <p className="font-semibold">Examens pratiques</p>
           <p className="text-xs text-muted-foreground">
-            L'élève voit sa date sur /resultats et peut réserver une séance de conduite dans les 15 jours qui précèdent. Sans date, pas de réservation en ligne.
+            L'élève voit sa date sur /resultats et peut réserver une séance de conduite (définitive) dans les 15 jours qui précèdent ; il reçoit une confirmation à son e-mail. Sans date, pas de réservation en ligne.
           </p>
         </div>
         <div className="ml-auto flex items-center gap-3 text-sm">
@@ -183,6 +196,7 @@ const PracticalExamsManager = () => {
                       <Input value={draft.department} onChange={(e) => setDraft({ ...draft, department: e.target.value })} placeholder="Dépt" aria-label="Département" />
                       <Input value={draft.location} onChange={(e) => setDraft({ ...draft, location: e.target.value })} placeholder="Adresse du centre d'examen" aria-label="Lieu" />
                       <Input value={draft.notes} onChange={(e) => setDraft({ ...draft, notes: e.target.value })} placeholder="Consignes d'arrivée (facultatif)" aria-label="Consignes" className="sm:col-span-2" />
+                      <Input type="email" value={draft.email} onChange={(e) => setDraft({ ...draft, email: e.target.value })} placeholder="E-mail de l'élève (confirmation de réservation)" aria-label="E-mail" className="sm:col-span-2" />
                     </div>
                   </td>
                   <td className="p-3 align-top">
@@ -199,6 +213,7 @@ const PracticalExamsManager = () => {
                   <td className="p-3">
                     <span className="font-medium text-foreground">{r.full_name}</span>
                     <span className="block text-xs text-muted-foreground">{r.exam_type} · {r.dossier_number} · {r.session_label}</span>
+                    <span className="block text-xs text-muted-foreground">{r.email || "Pas d'e-mail : pas de confirmation envoyée"}</span>
                   </td>
                   <td className="p-3 whitespace-nowrap">
                     {r.practical
@@ -215,7 +230,7 @@ const PracticalExamsManager = () => {
                   </td>
                   <td className="p-3">
                     <div className="flex justify-end gap-1">
-                      <Button size="icon" variant="ghost" title={r.practical ? "Modifier" : "Ajouter la date d'examen"} onClick={() => startEdit(r.id, r.practical)}>
+                      <Button size="icon" variant="ghost" title={r.practical ? "Modifier" : "Ajouter la date d'examen"} onClick={() => startEdit(r, r.practical)}>
                         <Pencil className="w-4 h-4" />
                       </Button>
                       {r.practical && (

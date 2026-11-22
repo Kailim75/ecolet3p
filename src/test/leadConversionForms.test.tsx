@@ -460,7 +460,9 @@ describe("successful saved requests only", () => {
       fireEvent.click(await screen.findByRole("button", { name: /11:00/ }));
       expect(mocks.track).not.toHaveBeenCalled();
       fireEvent.change(screen.getByLabelText(/Téléphone/), { target: { value: "0612345678" } });
-      fireEvent.click(screen.getByRole("button", { name: /Réserver ce créneau/ }));
+      expect(screen.getByRole("button", { name: /Confirmer ma réservation/ })).toBeDisabled();
+      fireEvent.click(screen.getByRole("checkbox", { name: /réservation est définitive/ }));
+      fireEvent.click(screen.getByRole("button", { name: /Confirmer ma réservation/ }));
       await waitFor(() => expect(mocks.invoke).toHaveBeenCalledTimes(2));
       await waitFor(() => expect(screen.getByRole("status")).toBeInTheDocument());
       expect(mocks.track).not.toHaveBeenCalled();
