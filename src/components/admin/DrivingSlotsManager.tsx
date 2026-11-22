@@ -10,7 +10,7 @@ import { parseTimes, presetTimesFor } from "@/lib/drivingSlots";
 import PracticalExamsManager from "@/components/admin/PracticalExamsManager";
 
 const CATEGORIES = ["TAXI", "VTC", "VMDTR"] as const;
-const DEFAULT_LOCATION = "ECOLE T3P, 3 rue Corneille, 92120 Montrouge";
+const DEFAULT_LOCATION = "Place de Breteuil, 75007 Paris";
 const TZ = "Europe/Paris";
 
 interface SlotBooking {
@@ -137,6 +137,25 @@ const DrivingSlotsManager = () => {
     return [...groups.values()];
   }, [slots]);
 
+  // Lieu de rendez-vous de tous les créneaux à venir (sans toucher aux réservations)
+  const [bulkLocation, setBulkLocation] = useState(DEFAULT_LOCATION);
+  const [bulkSaving, setBulkSaving] = useState(false);
+  const applyLocationToUpcoming = async () => {
+    const value = bulkLocation.trim();
+    if (!value || !slots.length) return;
+    const booked = slots.reduce((n, s) => n + s.driving_bookings.filter((b) => b.status === "booked").length, 0);
+    if (!confirm(`Mettre « ${value} » comme lieu de rendez-vous des ${slots.length} créneaux à venir ?${booked ? ` ${booked} élève(s) ont déjà réservé : pensez à les prévenir.` : ""}`)) return;
+    setBulkSaving(true);
+    const { error } = await supabase.from("driving_slots").update({ location: value }).in("id", slots.map((s) => s.id));
+    setBulkSaving(false);
+    if (error) {
+      toast.error("Erreur de mise à jour du lieu");
+      return;
+    }
+    toast.success(`Lieu mis à jour sur ${slots.length} créneau(x)`);
+    fetchSlots();
+  };
+
   const totalBooked = slots.reduce((n, s) => n + s.driving_bookings.filter((b) => b.status === "booked").length, 0);
 
   return (
@@ -202,6 +221,20 @@ const DrivingSlotsManager = () => {
         <div className="flex flex-wrap items-center gap-3 p-4 border-b">
           <CalendarDays className="w-5 h-5 text-primary" />
           <p className="font-semibold">Créneaux à venir ({slots.length}) · {totalBooked} réservation(s)</p>
+          {slots.length > 0 && (
+            <div className="ml-auto flex flex-wrap items-center gap-2">
+              <Input
+                aria-label="Lieu de rendez-vous de tous les créneaux à venir"
+                value={bulkLocation}
+                onChange={(e) => setBulkLocation(e.target.value)}
+                className="w-64"
+              />
+              <Button size="sm" variant="outline" onClick={applyLocationToUpcoming} disabled={bulkSaving || !bulkLocation.trim()}>
+                {bulkSaving && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
+                Appliquer ce lieu à tous
+              </Button>
+            </div>
+          )}
         </div>
         {loading ? (
           <div className="flex justify-center p-8"><Loader2 className="w-6 h-6 animate-spin text-primary" /></div>
