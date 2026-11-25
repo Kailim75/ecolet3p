@@ -480,7 +480,6 @@ export type Database = {
       }
       practical_exams: {
         Row: {
-          convocation_path: string | null
           created_at: string
           department: string | null
           exam_date: string
@@ -492,7 +491,6 @@ export type Database = {
           updated_at: string
         }
         Insert: {
-          convocation_path?: string | null
           created_at?: string
           department?: string | null
           exam_date: string
@@ -504,7 +502,6 @@ export type Database = {
           updated_at?: string
         }
         Update: {
-          convocation_path?: string | null
           created_at?: string
           department?: string | null
           exam_date?: string
