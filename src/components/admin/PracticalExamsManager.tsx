@@ -25,6 +25,7 @@ interface PracticalRow {
   department: string | null;
   location: string | null;
   notes: string | null;
+  convocation_path: string | null;
 }
 
 interface BookingRow {
@@ -66,7 +67,7 @@ const PracticalExamsManager = () => {
     setLoading(true);
     const [resultsRes, practicalRes, bookingRes] = await Promise.all([
       supabase.from("exam_results").select("id, full_name, exam_type, dossier_number, session_label, email").eq("result", "admis").order("full_name"),
-      supabase.from("practical_exams").select("id, exam_result_id, exam_date, exam_time, department, location, notes"),
+      supabase.from("practical_exams").select("id, exam_result_id, exam_date, exam_time, department, location, notes, convocation_path"),
       supabase.from("driving_bookings").select("exam_result_id, driving_slots(starts_at)").eq("status", "booked"),
     ]);
     if (resultsRes.error || practicalRes.error || bookingRes.error) {
@@ -222,6 +223,7 @@ const PracticalExamsManager = () => {
                   </td>
                   <td className="p-3">
                     {r.practical ? <>{r.practical.location || "Selon convocation"}{r.practical.department && ` (${r.practical.department})`}</> : "—"}
+                    {r.practical?.convocation_path && <Badge variant="secondary" className="ml-1">Convocation</Badge>}
                   </td>
                   <td className="p-3 whitespace-nowrap">
                     {r.booking

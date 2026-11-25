@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { Loader2, Plus, Trash2, Lock, Unlock, Phone, X, CalendarDays } from "lucide-react";
 import { parseTimes, presetTimesFor } from "@/lib/drivingSlots";
 import PracticalExamsManager from "@/components/admin/PracticalExamsManager";
+import ConvocationsImporter from "@/components/admin/ConvocationsImporter";
 
 const CATEGORIES = ["TAXI", "VTC", "VMDTR"] as const;
 const DEFAULT_LOCATION = "Place de Breteuil, 75007 Paris";
@@ -44,6 +45,7 @@ const DrivingSlotsManager = () => {
   const [slots, setSlots] = useState<SlotRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [practicalKey, setPracticalKey] = useState(0);
 
   const [date, setDate] = useState("");
   const [times, setTimes] = useState("");
@@ -160,7 +162,8 @@ const DrivingSlotsManager = () => {
 
   return (
     <div className="space-y-6">
-      <PracticalExamsManager />
+      <ConvocationsImporter onImported={() => setPracticalKey((k) => k + 1)} />
+      <PracticalExamsManager key={practicalKey} />
 
       <div>
         <h2 className="text-xl font-bold text-foreground">Planning de conduite</h2>

@@ -35,6 +35,7 @@ interface PublicExamResult {
     department: string | null;
     location: string | null;
     notes: string | null;
+    convocationUrl?: string | null;
   } | null;
 }
 
@@ -181,6 +182,13 @@ const ResultCard = ({ r, credentials, showPlanner }: { r: PublicExamResult; cred
               <p className="text-sm text-muted-foreground mt-1">
                 <Clock className="w-3.5 h-3.5 inline mr-1 -mt-0.5" aria-hidden />{r.practicalExam.notes}
               </p>
+            )}
+            {r.practicalExam.convocationUrl && (
+              <Button asChild size="sm" className="mt-3 bg-green-600 hover:bg-green-700">
+                <a href={r.practicalExam.convocationUrl} download>
+                  <Download className="w-4 h-4 mr-2" /> Télécharger ma convocation (PDF)
+                </a>
+              </Button>
             )}
             <p className="text-xs text-muted-foreground mt-2">
               Seule votre convocation CMA fait foi : vérifiez-la avant le jour de l'examen.
