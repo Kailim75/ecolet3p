@@ -27,7 +27,7 @@ const MAX_FAILED_ATTEMPTS = 8;
 const WINDOW_MINUTES = 60;
 const SIGNED_URL_SECONDS = 600;
 // Renvoyée dans chaque réponse : permet de vérifier quelle version est déployée
-const FUNCTION_VERSION = "v2-2026-11-22-examens-pratiques";
+const FUNCTION_VERSION = "v2-2026-11-25-convocations";
 
 const sha256 = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -111,7 +111,7 @@ Deno.serve(async (req) => {
     // Examen pratique (date, heure, lieu) des résultats admis
     const { data: practicals } = await supabaseAdmin
       .from("practical_exams")
-      .select("exam_result_id, exam_date, exam_time, department, location, notes")
+      .select("exam_result_id, exam_date, exam_time, department, location, notes, convocation_path")
       .in("exam_result_id", rows.map((r) => r.id));
 
     const results = await Promise.all(rows.map(async ({ id, attestation_path, ...row }) => {
@@ -140,8 +140,17 @@ Deno.serve(async (req) => {
       }))).filter(Boolean);
 
       const practical = (practicals ?? []).find((p) => p.exam_result_id === id);
+      let convocationUrl: string | null = null;
+      if (practical?.convocation_path) {
+        const { data: signed } = await supabaseAdmin.storage
+          .from("exam-attestations")
+          .createSignedUrl(practical.convocation_path, SIGNED_URL_SECONDS, {
+            download: `Convocation_examen_pratique_${row.dossier_number}.pdf`,
+          });
+        convocationUrl = signed?.signedUrl ?? null;
+      }
       const practicalExam = practical
-        ? { exam_date: practical.exam_date, exam_time: practical.exam_time, department: practical.department, location: practical.location, notes: practical.notes }
+        ? { exam_date: practical.exam_date, exam_time: practical.exam_time, department: practical.department, location: practical.location, notes: practical.notes, convocationUrl }
         : null;
 
       return { ...row, attestationUrl, documents: docs, practicalExam };
